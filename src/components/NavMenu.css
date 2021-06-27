@@ -1,0 +1,49 @@
+.navMenu {
+    width: 100%;
+    /* max-width: 1600px; */
+    max-height: 300px;
+    margin-top: 10px;
+}
+.navMenu > .menu {
+    height: 300px;
+    box-sizing: border-box;
+    border: black solid 2px;
+    background-color: #c4c4c4;
+    border-radius: 10px;
+    display: inline-block;
+}
+.navMenu > .firstMenu {
+    width: 25%;
+    max-width: 400px;
+}
+.navMenu > .secondMenu {
+    width: 25%;
+    max-width: 400px;
+}
+.navMenu > .thirdMenu {
+    width: 50%;
+    max-width: 800px;
+}
+
+ .navMenu > .menu > p {
+    text-align: center;
+    font-size: 1em;
+    background-color: aqua;
+    border-radius: 10px;
+}
+.navMenu > .menu > button {
+    float: left;
+    margin: 5px;
+    min-width: 90px;
+    background: transparent;
+    color: rgb(48, 45, 221);
+    font-size: 15px;
+    line-height: 1em;
+    text-align: center;
+    box-sizing: border-box;
+    border: white dashed 1px;
+    border-radius: 10px;
+}
+.navMenu > .menu > button:hover {
+    background: lightgreen;
+}

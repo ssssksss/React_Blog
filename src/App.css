@@ -1,38 +1,27 @@
-.App {
-  text-align: center;
+*{
+    margin: 0px;
+    padding: 0px;
+}
+li {
+    list-style: none;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app {
+    /* 최대 넓이 1640이고 양옆에 border-box 패딩 20주고 반응형 웹 3단계로 제작 */
+    /* 남은 너비 1600 여기서 좌우 사이드 640쓰고 940남는다 좌우패딩 10주고 920 */
+    /* 백, 프, DB 지식 스킬  마진 10 3덩어리 나누고 남은게 900*/
+    /* 250 250 400 */
+
+    /* 상단 높이 300 */
+    /* 왼쪽 사이드 너비 320 마진 10*/
+    /* 우측 사이드 너비 320 마진 10*/
+    max-width: 1640px;
+    width: 100%;
+    margin: auto;
+    box-sizing: border-box;
+    padding: 0px 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.menu_container {
+    position: relative;
 }

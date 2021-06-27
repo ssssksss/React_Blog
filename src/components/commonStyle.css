@@ -1,0 +1,323 @@
+/* 1024px이상이 되어야 스타일이 작동 */
+@media screen and (min-width: 1024px)
+{
+    .lblocknav_container .col_r{
+        color: red;
+    }
+    .lblocknav_container .col_g{
+        color: green;
+    }
+    .lblocknav_container .col_p{
+        color: purple;
+    }
+    .lblocknav_container{
+        width: 25%;
+        background-color: white;
+        display: inline-block;
+        position: relative;
+        left: 0px;
+        top: 20px;
+        box-sizing: border-box;
+        padding-left: 10px;
+    }
+    .lblocknav_container > .lblocknav {
+        width: 100%;
+        min-height: 300px;
+        border-radius: 10px;
+        border: black solid 2px;
+        background-color: #c4c4c4;
+        box-sizing: border-box;
+    }
+    /* 왼쪽 사이드에 펼치는 메뉴 설정 */
+    .lblocknav_container details{
+        padding-left: 5px;
+        box-sizing: border-box;
+        cursor: pointer;
+        display: block;
+        border-left: black solid 1px;
+        
+    }
+    .lblocknav_container details[open] > summary {
+        opacity: 0.5;
+    }
+    .lblocknav_container summary {
+        color:blue;
+    }
+    
+    .lblocknav_container summary:hover {
+        background-color: chocolate;
+    }
+    .lblocknav_container > .lblocknav > .mtitle {
+        display: block;
+        width: 100%;
+        text-align: center;
+        font-size: 1em;
+        background-color: aqua;
+        border-radius: 10px 10px 0px 0px;
+    }
+    .lblocknav_container a {
+        display: inline-block;
+        text-decoration: none;
+        font-size: 1em;
+        padding-left: 5px;
+        box-sizing: border-box;
+        cursor: pointer;
+        display: block;
+        border-left: black solid 1px;
+    }
+    .lblocknav_container a::before {
+        content: "🦉";
+    }
+    .lblocknav_container a:hover {
+        background-color: chocolate;
+        border-radius: 5px;
+    }
+    .common_style{
+        width: 75%;
+        padding: 10px;
+        box-sizing: border-box;
+        margin-bottom: 200px;
+        border-radius: 20px;
+        display: inline-block;
+        position: absolute;
+        top: 0px;
+        background-color: white;
+    }
+    .common_style > .subject {
+        text-align: center;
+        background: #c4c4c4;
+        border-radius: 10px;
+    }
+    .common_style  .mtitle {
+        font-size: 25px;
+        color: blue;
+        background: white;
+        border-radius: 10px;
+        padding: 0px 5px;
+        box-sizing: border-box;
+        display: block;
+        text-align: center;
+    }
+    .common_style  .stitle {
+        margin: 5px 0px 5px;
+        font-size: 20px;
+        font-weight: 800;
+        color:violet;
+        background: #eeeeee;
+        border-radius: 2px;
+        padding: 5px 5px;
+        box-sizing: border-box;
+        display: block;
+        border-radius: 10px;
+    }
+    .common_style  .sstitle {
+        margin: 5px 0px 5px;
+        font-size: 20px;
+        font-weight: 800;
+        color:rgba(0, 38, 255, 0.8);
+        background: #cccccc;
+        border-radius: 2px;
+        padding: 5px 5px;
+        box-sizing: border-box;
+        display: block;
+        border-radius: 10px;
+    }
+    .common_style  .lblock {
+        border: black solid 3px;
+        background: rgba(0,255,0,0.3);
+        margin: 10px 0px 20px;
+        width: 100%;
+        min-height: 150px;
+        padding: 5px;
+        box-sizing: border-box;
+        display: inline-block;
+        border-radius: 10px;
+        font-size: 1em;
+    }
+    
+    .common_style  .mblock {
+        border: black solid 3px;
+        background: rgba(0,0,255,0.3);
+        margin: 10px 0px 10px;
+        width: 100%;
+        min-height: 80px;
+        padding: 5px;
+        box-sizing: border-box;
+        display: block;
+        border-radius: 10px;
+    }
+    .common_style  .sblock {
+        border: black solid 3px;
+        background: rgba(255,0,0,0.3);
+        margin: 10px 0px 10px;
+        width: 100%;
+        min-height: 80px;
+        padding: 5px;
+        box-sizing: border-box;
+        display: block;
+        border-radius: 10px;
+    }
+    /* 일반 글자 */
+    .common_style p {
+        background-color: rgba(230,230,230,0.1);
+        border-bottom: white dotted 1px;
+    }
+    /* 이미지위에 마우스 올라가면 화면 확대 */
+    .common_style img {
+        margin: auto;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+        max-width: 100%;
+    }
+    /* .common_style img:hover {
+        transform: scale(1.2);
+        transition: all 0.3s ease-in-out;
+    } */
+    
+    /* 단어 : 설명 을 구분하기 위해 단어에 색을 준 스타일 */
+    .common_style i {
+        color: red;
+        font-weight: 800;
+    }
+    /* 주석 용도로 사용 */
+    .common_style small {
+        color: green;
+        font-weight: 800;
+    }
+}
+@media screen and (max-width: 1024px)
+{
+    .lblocknav_container {
+        display: none;
+    }
+    .common_style {
+        padding: 10px;
+        box-sizing: border-box;
+        margin-bottom: 200px;
+    }
+    .common_style > .subject {
+        text-align: center;
+        margin: 10px 0px 10px;
+        background: #c4c4c4;
+        border-radius: 10px;
+    }
+    .common_style  .mtitle {
+        margin: 5px 0px 5px;
+        font-size: 25px;
+        color: blue;
+        background: white;
+        border-radius: 10px;
+        padding: 0px 5px;
+        box-sizing: border-box;
+        display: block;
+        text-align: center;
+    }
+    .common_style  .stitle {
+        margin: 5px 0px 5px;
+        font-size: 20px;
+        font-weight: 800;
+        color:violet;
+        background: #eeeeee;
+        border-radius: 2px;
+        padding: 5px 5px;
+        box-sizing: border-box;
+        display: block;
+        border-radius: 10px;
+    }
+    .common_style  .sstitle {
+        margin: 5px 0px 5px;
+        font-size: 20px;
+        font-weight: 800;
+        color:rgba(0, 38, 255, 0.8);
+        background: #cccccc;
+        border-radius: 2px;
+        padding: 5px 5px;
+        box-sizing: border-box;
+        display: block;
+        border-radius: 10px;
+    }
+    .common_style  .lblocknav {
+        border: black solid 3px;
+        background: rgba(0,255,0,0.3);
+        margin: 10px 0px 20px;
+        width: 100%;
+        min-height: 150px;
+        padding: 5px;
+        box-sizing: border-box;
+        display: inline-block;
+        border-radius: 10px;
+        font-size: 1em;
+    }
+    .common_style  .lblock {
+        border: black solid 3px;
+        background: rgba(0,255,0,0.3);
+        margin: 10px 0px 20px;
+        width: 100%;
+        min-height: 150px;
+        padding: 5px;
+        box-sizing: border-box;
+        display: inline-block;
+        border-radius: 10px;
+        font-size: 1em;
+    }
+    
+    .common_style  .mblock {
+        border: black solid 3px;
+        background: rgba(0,0,255,0.3);
+        margin: 10px 0px 10px;
+        width: 100%;
+        min-height: 80px;
+        padding: 5px;
+        box-sizing: border-box;
+        display: block;
+        border-radius: 10px;
+    }
+    .common_style  .sblock {
+        border: black solid 3px;
+        background: rgba(255,0,0,0.3);
+        margin: 10px 0px 10px;
+        width: 100%;
+        min-height: 80px;
+        padding: 5px;
+        box-sizing: border-box;
+        display: block;
+        border-radius: 10px;
+    }
+    /* 일반 글자 */
+    .common_style p {
+        background-color: rgba(230,230,230,0.1);
+        border-bottom: white dotted 1px;
+    }
+    .common_style .hyperlink>a {
+        margin-left: 10px;
+        text-decoration: none;
+        white-space: wrap;
+        
+    }
+    .common_style .hyperlink>a:hover {
+        background: rgba(0,255,0);
+        border-radius: 5px;
+    }
+    /* 이미지위에 마우스 올라가면 화면 확대 지금 정지*/
+    .common_style img {
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+        max-width: 100%;
+    }
+    /* .common_style img:hover {
+        transform: scale(1.2);
+        transition: all 0.3s ease-in-out;
+    } */
+    
+    /* 단어 : 설명 을 구분하기 위해 단어에 색을 준 스타일 */
+    .common_style i {
+        color: red;
+        font-weight: 800;
+    }
+    /* 주석 용도로 사용 */
+    .common_style small {
+        color: green;
+        font-weight: 800;
+    }
+}
+

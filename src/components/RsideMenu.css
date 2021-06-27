@@ -1,0 +1,12 @@
+.rsideMenu {
+    min-width: 20%;
+    max-width: 320px;
+    border: black solid 1px;
+    box-sizing: border-box;
+    padding: 0px 9px;
+    position: absolute;
+    left: 80%;
+    top: 310px;
+    min-height: 500px;
+    background-color: rgba(200,200,200,0.6);
+}

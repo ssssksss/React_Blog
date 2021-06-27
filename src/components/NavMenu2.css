@@ -1,0 +1,35 @@
+.navMenu2 {
+    width: 100%;
+    /* max-width: 1600px; */
+    max-height: 300px;
+    margin-top: 10px;
+}
+.navMenu2 > .menu {
+    width: 100%;
+    max-height: 300px;
+    box-sizing: border-box;
+    border: black solid 2px;
+    background-color: #c4c4c4;
+    border-radius: 10px;
+    display: inline-block;
+}
+.navMenu2 > .menu > p {
+    text-align: center;
+    font-size: 1em;
+    background-color: aqua;
+    border-radius: 10px;
+}
+
+.navMenu2 button {
+    float: left;
+    margin: 5px;
+    min-width: 90px;
+    background: transparent;
+    color: rgb(48, 45, 221);
+    font-size: 15px;
+    line-height: 1em;
+    text-align: center;
+    box-sizing: border-box;
+    border: white dashed 1px;
+    border-radius: 10px;
+}
