@@ -1,5 +1,6 @@
 import React from 'react';
 import HtmlBasic from './Main/HtmlContent/HtmlBasic';
+import HtmlDOM from './Main/HtmlContent/HtmlDOM';
 import CssBasic from './Main/CssContent/CssBasic';
 import JspServletInformation from './Main/JspServletContent/JspServletInformation';
 import JavaBasic from './Main/JavaContent/JavaBasic';
@@ -8,12 +9,13 @@ import JspServletBulletinBoard from './Main/JspServletContent/JspServletBulletin
 import JspServletJstl from './Main/JspServletContent/JspServletJstl';
 import JspServletEl from './Main/JspServletContent/JspServletEl';
 import ReactBasic from './Main/ReactContent/ReactBasic';
-import SpringInformation from './Main/SpringContent/SpringInformation';
-import SpringBasic from './Main/SpringContent/SpringBasic';
 import SpringLibrary from './Main/SpringContent/SpringLibrary';
 import SpringError from './Main/SpringContent/SpringError';
 import SpringCode from './Main/SpringContent/SpringCode';
 import SpringExCode1 from './Main/SpringContent/SpringExCode1';
+import SpringExCode2 from './Main/SpringContent/SpringExCode2';
+import SpringStudy from './Main/SpringContent/SpringStudy';
+import SpringInitSetting from './Main/SpringContent/SpringInitSetting';
 import WindowCommand from './Main/WindowContent/WindowCommand';
 import KeyMap from './Main/KeyMapContent/KeyMap';
 import Term from './Main/TermContent/Term';
@@ -29,6 +31,8 @@ const Main = (props) => {
                     <h2 className="subject"> HTML기본문법 </h2>
                     <HtmlBasic> </HtmlBasic>
                 </div>;
+            case 'htmldom':
+                return <HtmlDOM> </HtmlDOM>;
             case 'cssbasic':
                 return <div className="common_style">
                     <h2 className="subject"> Css기본문법 </h2>
@@ -68,17 +72,6 @@ const Main = (props) => {
             case 'jspservletel':
                 return <JspServletEl> </JspServletEl>;
             // 스프링 프레임워크
-            case 'springinformation':
-                return <div className="common_style">
-                    <h2 className="subject"> Spring 정보 </h2>
-                    <SpringInformation> </SpringInformation>
-                </div>;
-
-            case 'springbasic':
-                return <div className="common_style">
-                    <h2 className="subject"> Spring 기초 </h2>
-                    <SpringBasic> </SpringBasic>
-                </div>;
 
             case 'springlibrary':
                 return <div className="common_style">
@@ -87,18 +80,17 @@ const Main = (props) => {
                 </div>;
 
             case 'springerror':
-                return <div className="common_style">
-                    <h2 className="subject"> Spring 오류 </h2>
-                    <SpringError> </SpringError>
-                </div>;
-
+                return <SpringError> </SpringError>;
             case 'springcode':
-                return <div className="common_style">
-                    <h2 className="subject"> Spring 코드 </h2>
-                    <SpringCode> </SpringCode>
-                </div>;
+                return <SpringCode> </SpringCode>;
+            case 'springstudy':
+                return <SpringStudy> </SpringStudy>;
+            case 'springinitsetting':
+                return <SpringInitSetting> </SpringInitSetting>;
             case 'springexcode1':
                 return <SpringExCode1> </SpringExCode1>;
+            case 'springexcode2':
+                return <SpringExCode2> </SpringExCode2>;
 
             //윈도우
             case 'windowcommand':

@@ -36,7 +36,7 @@ const NavMenu = (props) => {
                 <button onClick={() => { send("network") }}> 네트워크</button>
                 <button onClick={() => { send("algorithm") }}> 알고리즘 </button>
                 <button onClick={() => { send("contructdata") }}> 자료구조 </button>
-                <button onClick={() => { send("was") }}> WAS </button>
+                <button onClick={() => { send("aws") }}> AWS </button>
                 <button onClick={() => { send("prettier") }}> prettier </button>
                 <button onClick={() => { send("window") }}> window</button>
                 <button onClick={() => { send("term") }}> 용어 </button>

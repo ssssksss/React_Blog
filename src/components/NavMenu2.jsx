@@ -22,16 +22,16 @@ const NavMenu2 = (props) => {
     function send(page2) {
         props.onChangePage(page2)
     }
-    function changeTitle(title) {
-        document.querySelector("title").innerHTML = title;
-    }
+    // function changeTitle(title) {
+    //     document.querySelector("title").innerHTML = title;
+    // }
 
 
     // NavMenu.jsx에서 선택한 목록을 보여주고 LsideMenu.jsx에서 클릭한 목록을 Main.jsx에 보여준다.
     const showpage = () => {
         // 프론트 엔드 메뉴
         if (props.page === 'html') {
-            { changeTitle('html') }
+            // { changeTitle('html') }
             return <HtmlList onChangePage={(page2) => { send(page2) }}> </HtmlList>;
         }
         else if (props.page === 'css') {

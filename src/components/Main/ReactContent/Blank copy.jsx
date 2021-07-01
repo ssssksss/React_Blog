@@ -6,7 +6,7 @@ const Blank = (props) => {
         <>
             <div className="lblocknav_container">
                 <div className="lblocknav">
-                    <span className="mtitle"> 0. JSP EL (하이퍼링크) </span>
+                    <span className="mtitle">  </span>
                     <span className="mblock">
                         <p className="hyperlink">
                             <details className="list_style">

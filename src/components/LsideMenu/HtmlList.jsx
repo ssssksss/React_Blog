@@ -9,6 +9,7 @@ const HtmlList = (props) => {
     return (
         <div className="htmllist">
             <button onClick={() => { send('htmlbasic'); }}> HTML 기본 문법 </button>
+            <button onClick={() => { send('htmldom'); }}> HTML DOM </button>
         </div>
     );
 }
