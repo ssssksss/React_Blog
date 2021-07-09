@@ -5,6 +5,7 @@ import LsideMenu from './components/LsideMenu';
 import RsideMenu from './components/RsideMenu';
 import NavMenu from './components/NavMenu';
 import NavMenu2 from './components/NavMenu2';
+import FootterMenu from './components/FootterMenu';
 
 const App = () => {
   const [whatPage,setWhatPage] = useState('main');
@@ -29,6 +30,7 @@ const App = () => {
           <Main page2={whatPage2}> </Main>
           {/* <RsideMenu> </RsideMenu> */}
         </div>
+        <FootterMenu> </FootterMenu>
       </div>
 
   );

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-const SpringError = (props) => {
+const SpringSecurityStudy = (props) => {
     const [scrollY, setScrollY] = useState(0);
     function logit() {
         setScrollY(window.pageYOffset);
@@ -66,7 +66,7 @@ const SpringError = (props) => {
             <div className="lblocknav_container" ref={(elem) => (blockRef.current[0] = elem)}>
                 <div className="lblocknav">
                     <span className="mtitle">
-                        <a href="#" className="col_b"> <b> 스프링 오류나 에러 </b> </a>
+                        <a href="#SpringSecurity " className="col_b"> <b> 파이썬 문법  </b> </a>
                         <button className="lblocknav_btn2" onClick={() => {
                             document.getElementsByClassName('lblocknav_btn')[0].style.display = 'block';
                             document.getElementsByClassName('lblocknav_container')[0].style.display = 'none';
@@ -75,8 +75,12 @@ const SpringError = (props) => {
                     </span>
                     <p className="hyperlink">
                         <details open>
-                            <summary> 에러 모음 </summary>
-                            <a href="#" className="col_p"> </a>
+                            <summary> 파이썬 문법  </summary>
+                            <a href="#" className="col_p">  </a>
+                            <a href="#" className="col_p">  </a>
+                            <a href="#" className="col_p">  </a>
+                            <a href="#" className="col_p">  </a>
+                            <a href="#" className="col_p">  </a>
                             {/* <a href="#" className="col_p"> </a> */}
                         </details>
                     </p>
@@ -84,38 +88,66 @@ const SpringError = (props) => {
             </div>
             <div className="common_style" ref={(elem) => (blockRef.current[1] = elem)} >
                 <span className="lblock">
-                    <span className="mtitle"> <a name=""> 스프링 오류나 에러 </a> </span>
+                    <span className="mtitle"> <a name="파이썬 문법"> 파이썬 문법  </a> </span>
+                    <span className="mblock">
+                        <span className="stitle"> <a name="">   </a> </span>
+                        <span className="sblock">
+                            <span className="sstitle"> </span>
+                        </span>
+                    </span>
+                    {/*  */}
+                    <span className="mblock">
+                        <span className="stitle"> <a name="">   </a> </span>
+                        <span className="sblock">
+                            <span className="sstitle"> </span>
+                        </span>
+                    </span>
+                    {/*  */}
+                    <span className="mblock">
+                        <span className="stitle"> <a name="">   </a> </span>
+                        <span className="sblock">
+                            <span className="sstitle"> </span>
+                        </span>
+                    </span>
+                    {/*  */}
+                    <span className="mblock">
+                        <span className="stitle"> <a name="">   </a> </span>
+                        <span className="sblock">
+                            <span className="sstitle"> </span>
+                        </span>
+                    </span>
+                    {/*  */}
+                    <span className="mblock">
+                        <span className="stitle"> <a name="">   </a> </span>
+                        <span className="sblock">
+                            <span className="sstitle"> </span>
+                        </span>
+                    </span>
+                    {/*  */}
+                    <span className="mblock">
+                        <span className="stitle"> <a name="">   </a> </span>
+                        <span className="sblock">
+                            <span className="sstitle"> </span>
+                        </span>
+                    </span>
 
-                    <span className="mblock">
-                        <span className="stitle"> <a name="">  </a> </span>
+                    {/* <span className="mblock">
+                        <span className="stitle"> <a name="">   </a> </span>
                         <span className="sblock">
-                            <span className="sstitle"> To display the conditions report re-run your application with 'debug' enabled </span>
-                            <p> 1. run &gt; edit configuration</p>
-                            <p> 2. enable debug output 체크해제 </p>
+                            <span className="sstitle">  </span>
                         </span>
-                    </span>
-                    <span className="mblock">
-                        <span className="stitle"> <a name="인텔리제이 한글 꺠짐"> 인텔리제이 한글 꺠짐  </a> </span>
-                        <span className="sblock">
-                            <span className="sstitle"> 파일 설정 encoding 바꾸기 </span>
-                            <p> ctrl+alt+s - settings - editor - file encodings </p>
-                            <p> Global Encoding , Project Encoding , Default encoding for properties files 3곳 UTF-8로 변경</p>
-                            <span className="sstitle"> 인텔리제이 VM Options 바꾸기 </span>
-                            <p> Help - Edit Custom VM Options </p>
-                            <p> 제일 아래에 -Dfile.encoding=UTF-8 코드 추가 </p>
-                            <span className="sstitle"> 톰캣 VM Options 바꾸기 </span>
-                        </span>
-                    </span>
+                    </span> */}
                     {/* <span className="mblock">
                         <span className="stitle"> <a name="">   </a> </span>
                         <span className="sblock">
                             <span className="sstitle"> </span>
                         </span>
                     </span> */}
+
                 </span>
             </div>
         </>
     );
 }
-export default SpringError;
+export default SpringSecurityStudy;
 

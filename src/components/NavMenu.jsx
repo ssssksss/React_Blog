@@ -14,12 +14,12 @@ const NavMenu = (props) => {
                 <button onClick={() => { send("java") }}> JAVA </button>
                 <button onClick={() => { send("php") }}> PHP </button>
                 <button onClick={() => { send("nodejs") }}> Node.js </button>
-                <button onClick={() => { send("spring") }}> Spring </button>
+                <button onClick={() => { send("spring") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/SpringBoot_icon.png'} /> Spring </button>
                 <button onClick={() => { send("jspservlet") }}> JSP&amp;servlet </button>
             </div>
             <div className="secondMenu menu">
                 <p> 프론트엔드 </p>
-                <button onClick={() => { send("html") }}> HTML </button>
+                <button onClick={() => { send("html") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Html_icon.png'} /> HTML </button>
                 <button onClick={() => { send("css") }}> CSS </button>
                 <button onClick={() => { send("javascript") }}> JavaScipt </button>
                 <button onClick={() => { send("typescript") }}> TypeScipt </button>

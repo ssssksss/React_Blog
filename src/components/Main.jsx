@@ -9,12 +9,17 @@ import JspServletBulletinBoard from './Main/JspServletContent/JspServletBulletin
 import JspServletJstl from './Main/JspServletContent/JspServletJstl';
 import JspServletEl from './Main/JspServletContent/JspServletEl';
 import ReactBasic from './Main/ReactContent/ReactBasic';
-import SpringLibrary from './Main/SpringContent/SpringLibrary';
 import SpringError from './Main/SpringContent/SpringError';
 import SpringCode from './Main/SpringContent/SpringCode';
 import SpringExCode1 from './Main/SpringContent/SpringExCode1';
 import SpringExCode2 from './Main/SpringContent/SpringExCode2';
 import SpringStudy from './Main/SpringContent/SpringStudy';
+import SpringSecurityExCode1 from './Main/SpringContent/SpringSecurityExCode1';
+import SpringSecurityExCode2 from './Main/SpringContent/SpringSecurityExCode2';
+import SpringSecurityExCode3 from './Main/SpringContent/SpringSecurityExCode3';
+import SpringSecurityExCode4 from './Main/SpringContent/SpringSecurityExCode4';
+import SpringSecurityExCode5 from './Main/SpringContent/SpringSecurityExCode5';
+import SpringSecurityExCode6 from './Main/SpringContent/SpringSecurityExCode6';
 import SpringInitSetting from './Main/SpringContent/SpringInitSetting';
 import WindowCommand from './Main/WindowContent/WindowCommand';
 import KeyMap from './Main/KeyMapContent/KeyMap';
@@ -72,13 +77,6 @@ const Main = (props) => {
             case 'jspservletel':
                 return <JspServletEl> </JspServletEl>;
             // 스프링 프레임워크
-
-            case 'springlibrary':
-                return <div className="common_style">
-                    <h2 className="subject"> Spring 라이브러리 </h2>
-                    <SpringLibrary> </SpringLibrary>
-                </div>;
-
             case 'springerror':
                 return <SpringError> </SpringError>;
             case 'springcode':
@@ -91,6 +89,18 @@ const Main = (props) => {
                 return <SpringExCode1> </SpringExCode1>;
             case 'springexcode2':
                 return <SpringExCode2> </SpringExCode2>;
+            case 'springsecurityexcode1':
+                return <SpringSecurityExCode1> </SpringSecurityExCode1>;
+            case 'springsecurityexcode2':
+                return <SpringSecurityExCode2> </SpringSecurityExCode2>;
+            case 'springsecurityexcode3':
+                return <SpringSecurityExCode3> </SpringSecurityExCode3>;
+            case 'springsecurityexcode4':
+                return <SpringSecurityExCode4> </SpringSecurityExCode4>;
+            case 'springsecurityexcode5':
+                return <SpringSecurityExCode5> </SpringSecurityExCode5>;
+            case 'springsecurityexcode6':
+                return <SpringSecurityExCode6> </SpringSecurityExCode6>;
 
             //윈도우
             case 'windowcommand':
