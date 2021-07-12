@@ -11,8 +11,6 @@ import JspServletEl from './Main/JspServletContent/JspServletEl';
 import ReactBasic from './Main/ReactContent/ReactBasic';
 import SpringError from './Main/SpringContent/SpringError';
 import SpringCode from './Main/SpringContent/SpringCode';
-import SpringExCode1 from './Main/SpringContent/SpringExCode1';
-import SpringExCode2 from './Main/SpringContent/SpringExCode2';
 import SpringStudy from './Main/SpringContent/SpringStudy';
 import SpringSecurityExCode1 from './Main/SpringContent/SpringSecurityExCode1';
 import SpringSecurityExCode2 from './Main/SpringContent/SpringSecurityExCode2';
@@ -85,10 +83,6 @@ const Main = (props) => {
                 return <SpringStudy> </SpringStudy>;
             case 'springinitsetting':
                 return <SpringInitSetting> </SpringInitSetting>;
-            case 'springexcode1':
-                return <SpringExCode1> </SpringExCode1>;
-            case 'springexcode2':
-                return <SpringExCode2> </SpringExCode2>;
             case 'springsecurityexcode1':
                 return <SpringSecurityExCode1> </SpringSecurityExCode1>;
             case 'springsecurityexcode2':

@@ -75,6 +75,7 @@ const HtmlDOM = (props) => {
                             <p> <i> screenX </i> </p>
                             <p> <i> offsetParent </i> </p>
                             <p> <i> window.innerWidth </i> 뷰포트 값 </p>
+                            <p> <i> window.outerHeight </i> 전체화면(툴바,스크롤 포함) </p>
                             <p> <i> screen.width</i> 사용자의 해상도 </p>
                             <p> <i> </i> </p>
                             <p> <i> </i> </p>

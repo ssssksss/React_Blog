@@ -8,28 +8,40 @@
     width: 100%;
     max-height: 300px;
     box-sizing: border-box;
-    border: black solid 2px;
-    background-color: #c4c4c4;
+    box-shadow: 2px 2px 2px 2px black;
+    background-color: #1976d2;
     border-radius: 10px;
+    color: white;
     display: inline-block;
 }
+
 .navMenu2 > .menu > p {
+    padding: 3px 0px;
     text-align: center;
     font-size: 1em;
-    background-color: aqua;
-    border-radius: 10px;
+    background-color: #004ba0;
+    border-radius: 10px 10px 0px 0px;
 }
 
 .navMenu2 button {
     float: left;
     margin: 5px;
-    min-width: 90px;
+    min-width: 120px;
     background: transparent;
-    color: rgb(48, 45, 221);
+    color: white;
+    font-weight: 700;
     font-size: 15px;
     line-height: 1em;
     text-align: center;
     box-sizing: border-box;
-    border: white dashed 1px;
-    border-radius: 10px;
+    padding: 5px 2px;
+    border-radius: 4px;
+    border: none;
+    box-shadow: 1px 1px 1px 1px gray;
+}
+
+.navMenu2 > .menu button:hover {
+    background: white;
+    color: #1976d2;
+
 }

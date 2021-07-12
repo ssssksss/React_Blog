@@ -36,9 +36,9 @@ const SpringSecurityExCode3 = (props) => {
         // 좌측 메뉴가 이동이 안되는 높이 일때 + 
         else if (document.documentElement.scrollTop < elementHeight && window.innerWidth > 1023) {
             blockRef.current[0].style.position = 'relative';
-            blockRef.current[0].style.left = '0px';
             blockRef.current[0].style.display = 'inline-block';
-            blockRef.current[1].style.left = null;
+            blockRef.current[0].style.left = '0px';
+            blockRef.current[1].style.left = '25%';
         }
 
     }
@@ -66,14 +66,14 @@ const SpringSecurityExCode3 = (props) => {
             <div className="lblocknav_container" ref={(elem) => (blockRef.current[0] = elem)}>
                 <div className="lblocknav">
                     <span className="mtitle">
-                        <a href="#" className="col_b"> <b> Intellij-Gradle-JPA-MySQL </b> </a>
+                        <a href="#" className="col_b"> <b> Spring Security ExCode3 </b> </a>
                         <button className="lblocknav_btn2" onClick={() => {
                             document.getElementsByClassName('lblocknav_btn')[0].style.display = 'block';
                             document.getElementsByClassName('lblocknav_container')[0].style.display = 'none';
 
                         }}> ❌ </button>
                     </span>
-                    <p className="hyperlink">
+                    <div className="hyperlink">
                         <details open>
                             <summary> demo </summary>
                             <details open>
@@ -127,12 +127,12 @@ const SpringSecurityExCode3 = (props) => {
                                 </details>
                             </details>
                         </details>
-                    </p>
+                    </div>
                 </div>
             </div>
             <div className="common_style" ref={(elem) => (blockRef.current[1] = elem)} >
                 <span className="lblock">
-                    <span className="mtitle"> <a name="">  Intellij-Gradle-JPA-MySQL </a> </span>
+                    <span className="mtitle"> <a name="">  Spring Security ExCode3  </a> </span>
                     <p> <small> 스프링 Gradel을 이용하여 MySQL에 넣어보는 예제 Postman을 사용하여 파라미터를 입력하여
                         MySQL에 저장하고 삭제하는 것 까지
                     </small> </p>

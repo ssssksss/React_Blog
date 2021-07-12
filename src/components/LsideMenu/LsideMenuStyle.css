@@ -1,0 +1,7 @@
+.menucontainer {
+    display: flex;
+}
+
+.menucontainer .menu {
+    width: 50%;
+}

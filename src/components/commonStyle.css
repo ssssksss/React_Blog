@@ -1,25 +1,26 @@
    /* 공통 */
-    .lblocknav_container .col_r{ color: red; }
-    .lblocknav_container .col_g{ color: green; }
-    .lblocknav_container .col_p{ color: purple;}
-    .lblocknav_container .col_w{ color: white; }
-    .lblocknav_container .col_b{ color: black; }
+    .col_r{ color: red; }
+    .col_g{ color: green; }
+    .col_p{ color: purple;}
+    .col_w{ color: white; }
+    .col_bk{ color: black; }
+    .col_be{ color: blue; }
     /* 왼쪽 사이드에 펼치는 메뉴 설정 */
-    .lblocknav_container details{
+    details{
         padding-left: 5px;
         box-sizing: border-box;
-        cursor: pointer;
         display: block;
         border-left: black solid 1px;
     }
-    .lblocknav_container details[open] > summary {
-        opacity: 0.5;
+    details[open] > summary {
+        background: #eeeeee;
     }
-    .lblocknav_container summary {
+    summary {
         color:blue;
+        cursor: pointer;
     }
     
-    .lblocknav_container summary:hover {
+    summary:hover {
         background-color: chocolate;
     }
     .lblocknav_container > .lblocknav > .mtitle {
@@ -144,16 +145,11 @@
         padding-left: 10px;
 
     }
-    .common_style .hyperlink>a {
-        margin-left: 10px;
-        text-decoration: none;
-        white-space: wrap;
-        
+    .hyperlink{
+        max-height: 600px;
+        overflow: scroll;
     }
-    .common_style .hyperlink>a:hover {
-        background: rgba(0,255,0);
-        border-radius: 5px;
-    }
+
     /* 이미지위에 마우스 올라가면 화면 확대 지금 정지*/
     .common_style img {
         transition: all 0.3s ease-in-out;
@@ -195,12 +191,11 @@
         top: 20px;
         box-sizing: border-box;
         z-index: 2;
-        max-height: 300px;
-        overflow: scroll;
+        max-height: 600px;
+        /* overflow: scroll; */
     }
     .lblocknav_container > .lblocknav {
         width: 100%;
-        min-height: 300px;
         border-radius: 10px;
         border: black solid 2px;
         background-color: #c4c4c4;
@@ -260,11 +255,10 @@
         top: 20px;
         box-sizing: border-box;
         max-height: 300px;
-        overflow: scroll;
+        /* overflow: scroll; */
         width: 360px;
     }
     .lblocknav_container > .lblocknav {
-        min-height: 300px;
         border-radius: 10px;
         border: black solid 2px;
         background-color: #c4c4c4;

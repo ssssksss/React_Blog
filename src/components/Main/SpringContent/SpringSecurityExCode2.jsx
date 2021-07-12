@@ -73,7 +73,7 @@ const SpringSecurityExCode2 = (props) => {
 
                         }}> ❌ </button>
                     </span>
-                    <p className="hyperlink">
+                    <div className="hyperlink">
                         <details open>
                             <summary> demo </summary>
                             <details open>
@@ -137,13 +137,13 @@ const SpringSecurityExCode2 = (props) => {
                             <a href="#view.login" className="col_p"> view.login </a>
                             <a href="#view.loginsuccess" className="col_p"> view.loginsuccess </a>
                         </details>
-                    </p>
+                    </div>
                 </div>
             </div>
             <div className="common_style" ref={(elem) => (blockRef.current[1] = elem)} >
                 <span className="lblock">
                     <span className="mtitle"> <a name="Spring Security ExCode1">  Spring Security ExCode2 </a> </span>
-                    <p> <small> 스프링 시큐리티 loginform 기능만 테스트하는 예제 </small> </p>
+                    <p> <small> 스프링 시큐리티 기능보다는 mysql에 데이터를 저장하고 로그인을 해보는 테스트 그리고 thymeleaf로 화면에 간단한 유저 정보 보여주기 </small> </p>
                     <span className="mblock">
                         <span className="stitle"> <a name="spring initializr"> spring initializr</a>  </span>
                         <p> <img src={process.env.PUBLIC_URL + '/img/SpringSecurityStudy/SpringSecurityExCode2/SpringSecurityStart.PNG'} alt='' /> </p>

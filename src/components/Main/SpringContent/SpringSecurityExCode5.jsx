@@ -73,7 +73,7 @@ const SpringSecurityExCode5 = (props) => {
 
                         }}> ❌ </button>
                     </span>
-                    <p className="hyperlink">
+                    <div className="hyperlink">
                         <details open>
                             <summary> demo </summary>
                             <details open>
@@ -127,7 +127,7 @@ const SpringSecurityExCode5 = (props) => {
                                 </details>
                             </details>
                         </details>
-                    </p>
+                    </div>
                 </div>
             </div>
             <div className="common_style" ref={(elem) => (blockRef.current[1] = elem)} >

@@ -74,7 +74,7 @@ const SpringCode = (props) => {
                             document.getElementsByClassName('lblocknav_container')[0].style.display = 'none';
                         }}> ❌ </button>
                     </span>
-                    <p className="hyperlink">
+                    <div className="hyperlink">
                         <details open>
                             <summary> 스프링 코드 정리 </summary>
                             <a href="#이클립스 applicationContext.xml"> 이클립스 applicationContext.xml </a>
@@ -85,7 +85,7 @@ const SpringCode = (props) => {
                             <a href="#Spring Security Filter xml 설정"> Spring Security Filter xml 설정 </a>
                             <a href="#Spring Security Gradle 설정"> Spring Security Gradle 설정 </a>
                         </details>
-                    </p>
+                    </div>
                 </div>
             </div>
             {/* <p> <img src={process.env.PUBLIC_URL + '/img/SpringExCode1/Directory_1.PNG'} alt='' /> </p> */}

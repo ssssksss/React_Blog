@@ -42,14 +42,6 @@ const Blank = (props) => {
             blockRef.current[0].style.display = 'inline-block';
             blockRef.current[1].style.left = null;
         }
-        // 좌측 메뉴가 이동이 안되는 높이 이고 화면이 작을 때
-        else if (document.documentElement.scrollTop < elementHeight && window.innerWidth < 1024) {
-            blockRef.current[0].style.display = 'none';
-            blockRef.current[0].style.position = 'relative';
-            blockRef.current[0].style.left = '0px';
-            blockRef.current[1].style.left = null;
-            document.getElementsByClassName('lblocknav_btn')[0].style.display = 'none';
-        }
     }
 
     const blockRef = useRef([]);

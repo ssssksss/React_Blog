@@ -21,8 +21,8 @@ const NavMenu = (props) => {
                 <p> 프론트엔드 </p>
                 <button onClick={() => { send("html") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Html_icon.png'} /> HTML </button>
                 <button onClick={() => { send("css") }}> CSS </button>
-                <button onClick={() => { send("javascript") }}> JavaScipt </button>
                 <button onClick={() => { send("typescript") }}> TypeScipt </button>
+                <button onClick={() => { send("javascript") }}> JavaScipt </button>
                 <button onClick={() => { send("react") }}> React </button>
             </div>
             <div className="thirdMenu menu">

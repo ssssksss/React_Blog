@@ -73,13 +73,13 @@ const SpringError = (props) => {
 
                         }}> ❌ </button>
                     </span>
-                    <div className="hyperlink">
+                    <p className="hyperlink">
                         <details open>
                             <summary> 에러 모음 </summary>
                             <a href="#" className="col_p"> </a>
                             {/* <a href="#" className="col_p"> </a> */}
                         </details>
-                    </div>
+                    </p>
                 </div>
             </div>
             <div className="common_style" ref={(elem) => (blockRef.current[1] = elem)} >
