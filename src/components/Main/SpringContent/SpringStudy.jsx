@@ -92,29 +92,19 @@ const SpringStudy = (props) => {
                                 <a href="#application.properties" className="col_p"> application.properties </a>
                                 <a href="#application.yml" className="col_p"> application.yml </a>
                                 <a href="#xml" className="col_p"> xml </a>
-                                <a href="#lombok" className="col_p"> lombok </a>
-                            </details>
-                        </details>
-                        <details open>
-                            <summary> SpringSecurity  </summary>
-                            <details>
-                                <summary className="col_g"> 스프링 시큐리티 </summary>
+                                <a href="#lombok 어노테이션" className="col_p"> lombok 어노테이션 </a>
                                 <a href="#스프링 시큐리티 정의" className="col_p"> 스프링 시큐리티 정의 </a>
                                 <a href="#Cors(Cross Origin Resource Sharing)" className="col_p"> Cors(Cross Origin Resource Sharing) </a>
+                                <a href="#스프링 프레임워크 관련 객체" className="col_p"> 스프링 프레임워크 관련 객체 </a>
                                 <a href="#스프링 시큐리티 관련 객체" className="col_p"> 스프링 시큐리티 관련 객체 </a>
                                 <a href="#커스텀 스프링 시큐리티 관련 객체" className="col_p"> 커스텀 스프링 시큐리티 관련 객체 </a>
                                 <a href="#스프링 시큐리티 처리 필터 순서" className="col_p"> 스프링 시큐리티 처리 필터 순서 </a>
-                                {/* <a href="" className="col_p">  </a> */}
-                                {/* <a href="" className="col_p">  </a> */}
-                                {/* <a href="" className="col_p">  </a> */}
-                                {/* <a href="" className="col_p">  </a> */}
                                 <a href="#스프링 시큐리티 config" className="col_p"> 스프링 시큐리티 config </a>
                                 <a href="#csrf()" className="col_p"> csrf() </a>
                                 <a href="#sessionManagement()" className="col_p"> sessionManagement() </a>
                                 <a href="#authorizeRequests()" className="col_p"> authorizeRequests() </a>
                                 <a href="#formLogin()" className="col_p"> formLogin() </a>
                                 <a href="#" className="col_p">  </a>
-                                {/* <a href="" className="col_p">  </a> */}
                                 {/* <a href="#" className="col_p"> </a> */}
                             </details>
                         </details>
@@ -142,9 +132,9 @@ const SpringStudy = (props) => {
                             <p> 컨테이너 : BeanFactory와 ApplicationContext 2개의 대표적인 컨테이너가 있다. 컨테이너는
                                 인스턴스의 주기와 추가적인 기능을 관리하는 역할을 한다. </p>
                         </span>
-
                     </span>
                     {/*  */}
+
                     <span className="mblock">
                         <span className="stitle"> <a name="의존성 주입(Dependency Injection)">  의존성 주입(Dependency Injection)</a> </span>
                         <p> <small> 객체를 직접 만들지 않고 주입받아 사용하는 방법 </small> </p>
@@ -206,6 +196,32 @@ const SpringStudy = (props) => {
                     <span className="mblock">
                         <span className="stitle">
                             <a name="AOP(Aspect Oriented Programming)">  AOP(Aspect Oriented Programming) </a>
+                        </span>
+                        <small> Aspect를 모아서 모듈화 하는 방법 , 각 클래스마다 비슷한 메소드 등을 따로 처리하는 방법 </small>
+                        <p> 자바에서는 다중상속이 불가능하여 공통기능을 부여하기에 한계가 있다. </p>
+                        <p> 로그처리, 보안처리, DB 트랜잭션 처리 등 , 코드의 중복을 줄이고 로직을 분리 할 수 있음 </p>
+                        <p> 관정을 횡단으로 보는 횡단 관심 사항, Cross Cutting Concern(부가적인로직) , Core Concern(비즈니스로직) </p>
+                        <p> proxy 방법을 이용한다. client - proxy(공통기능) - target(핵심기능) </p>
+                        <span className="sblock">
+                            <p className="sstitle"> 관련 용어 </p>
+                            <ul>
+                                <li> Aspect : Advice와 Pointcut로 이루어져 있다.  </li>
+                                <li> Advice : Aspect 해야할 일, 기능 </li>
+                                <li> Pointcut : 어디에 적용할 지 </li>
+                                <li> Target : Pointcut에서 적용이 되는 대상  </li>
+                                <li> Join point : Advice를 사용할 지점(메서드 실행, 필드에서 값을 가져갈 떄 등)  </li>
+                                <li> Weaving : Advice를 핵심기능에 적용하는 행위  </li>
+                            </ul>
+                        </span>
+                        <span className="sblock">
+                            <p className="sstitle"> 관련 태그? 메소드? </p>
+                            <ul>
+                                <li> aop:before : 메소드 실행전에 advice실행 </li>
+                                <li> aop:after-returning : 정상적으로 메소드 실행 후에 advice 실행  </li>
+                                <li> aop:after-throwing : 메소드 실행중 exception 발생시 advice 실행 </li>
+                                <li> aop:after : 메소드 실행중 exception이 발생해도 advice 실행 </li>
+                                <li> aop:around : 메소드 실행 전/후 및 exception 발생시 advice 실행 </li>
+                            </ul>
                         </span>
                         <span className="sblock">
                             <p className="sstitle" ><i>1.</i>  </p>
@@ -440,7 +456,7 @@ const SpringStudy = (props) => {
                     {/*  */}
                     <span className="mblock">
                         <span className="stitle">
-                            <a name="lombok"> lombok  </a>
+                            <a name="lombok 어노테이션"> lombok 어노테이션  </a>
                         </span>
                         <small>  어노테이션으로 코드를 자동으로 만들어주는 라이브러리 </small>
                         <p> 가독성, 유지보수, 자동생성으로 생산성 향상 </p>
@@ -449,7 +465,31 @@ const SpringStudy = (props) => {
                                 <summary className="sstitle" ><i> 어노테이션의 종류 </i> </summary>
                                 <ol>
                                     <li> @Value : 프로퍼티에서 정의한 값을 가져오는 방법 </li>
-                                    <li>  </li>
+                                    <li> @Controller : Model 객체를 이용하여 데이터를 담고 view를 찾아 이동하는 역할 </li>
+                                    <li> @PostMapping : Post방식으로 요청을 받을 때 맵핑을 처리함 </li>
+                                    <li> @GetMapping :  Get방식으로 요청을 받을 때 맵핑을 처리함 </li>
+                                    <li> @RequestBody : http요청 데이터를 담은 공간 </li>
+                                    <li> @ReponseBody : http응답 데이터를 담은 공간 </li>
+                                    <li> @RestController(@Controller + @ResponseBody) : 객체로 반환하고 JSON이나 XML형식으로 http에 담아서 응답  </li>
+                                    <li> @RequestMapping("") : 어떤 Controller에 어떤 메소드를 처리할지 맵핑하는 용도  </li>
+                                    <span className="mblock">
+                                        <ul>
+                                            <li> value(String) : URL값으로 맵핑 조건으로 사용 </li>
+                                            <li> method : HTTP Request 메소드값을 맵핑 조건으로 사용 </li>
+                                            <li> params : HTTP Request 파라미터(GET,POST 등)를 맵핑 조건으로 사용 </li>
+                                            <li> consumes : Content-Type request 헤더가 일치할 경우 URL이 호출됨 </li>
+                                            <li> produces : 설정과 Accept request 헤더가 일치할 경우에만 URL이 호출됨 </li>
+                                        </ul>
+                                    </span>
+                                    <li> @RequestParam : Controller메소드의 파라미터와 웹 요청 파라미터와 맵핑하는 용도 </li>
+                                    <li> @ModelAttribute : Controller 메소드의 파라미터나 리턴값을 Model 객체와 바인딩하기 위한 용도 </li>
+                                    <li> @SessionAttributes : Model 객체를 세션에 젖아하고 사용하기 위한 용도 </li>
+                                    <li> @RequestPart : Multipart 요청의 경우, 웹 요청 파라미터와 맵핑 용도 </li>
+                                    <li> @CommandMap : Controller메소드의 파라미터를 Map형태로 받을 떄 웹 요청 파라미터와 맵핑하기 위한 용도 </li>
+                                    <li> @ControllerAdvice : Controller에 쓰이는 공통기능을 모듈화하여 전역으로 쓰기 위한 용도 </li>
+                                    <li> @Transactional : </li>
+                                    <li> @NonNUll : null을 허용하지 않을 경우 </li>
+                                    <li> @Nullable : null을 허용할 경우 </li>
                                     <li>  </li>
                                 </ol>
                             </details>
@@ -500,45 +540,53 @@ const SpringStudy = (props) => {
                     </span>
 
                 </span>
-                {/* 스프링 시큐리티 */}
-                {/* 스프링 시큐리티 */}
-                {/* 스프링 시큐리티 */}
-                {/* 스프링 시큐리티 */}
-                {/* 스프링 시큐리티 */}
-                {/* 스프링 시큐리티 */}
-                {/* 스프링 시큐리티 */}
                 <span className="lblock">
                     <span className="mtitle"> <a name="SpringSecurity "> SpringSecurity  </a> </span>
                     <span className="mblock">
                         <span className="stitle">
-                            <a name="스프링 Security">  스프링 Security </a>
+                            <a name="스프링 프레임워크 관련 객체"> 스프링 프레임워크 관련 객체 </a>
                         </span>
                         <span className="sblock">
-                            <p className="sstitle" > <a name="스프링 시큐리티 정의"> 스프링 시큐리티 정의 </a>  </p>
-                            <p> 스프링 기반의 보안관련 프레임워크, 인증과 권한을 담당 </p>
-                            <p> API서버에 특정 토큰을 Request헤더에 담아 보내면 인증이 완료되고
-                                api 기능을 사용할 권한을 갖게 된다.  </p>
-                            <p> 필터 기반으로 동작</p>
-                            <p> 세션-쿠키 방식으로 인증, DB에 검증이 된 회원일 경우 JSESSIONID부여한 후
-                                다음 요청부터 JSESSIONID를 검증해서 유효하면 인증을 준다.
-                            </p>
-                            <p> 스프링 필터에는 엄청나게 많은 필터가 존재한다. </p>
+                            <p className="sstitle"> ResponseEntity  </p>
+                            <small> RestController에서 Object타입만을 반환하였지만
+                                ResponseEntity클래스는 Object타입 + (상태코드, 응답메시지 등)을 포함하여 반환이 가능하다는 장점이 있다. </small>
+                            <ul>
+                                <p> return new ResponseEntity(1번,2번 혹은 2번) </p>
+                                <li> 1. 단순한 메시지 리턴 </li>
+                                <li> 1. 객체를 응답 리턴 </li>
+                                <li> 1. header 리턴  </li>
+                                <li> 2. 상태코드를 리턴 (HttpStatus.OK .INTERNAL_SERVER_ERROR 등)  </li>
+                            </ul>
                         </span>
                         <span className="sblock">
-                            <p className="sstitle" > <a name="Cors(Cross Origin Resource Sharing)"> Cors(Cross Origin Resource Sharing) 교차 출처 자원 공유  </a>   </p>
-                            <p> API서버에 SPA프레임워크(react,vue 등)을 사용하게 되면 스프링과SPA프레임워크의
-                                포트가 다르거나 서버가 다르면 서로 자원을 공유할 수 없게 하는 보안 정책 </p>
-                            <p> 스프링 시큐리티에서 특정 도메인을 열거나 닫을 수 있음 </p>
-                            <p> 필터나 mvc설정 등으로 처리가능 </p>
-                            {/* <p>  </p> */}
+                            <p className="sstitle" > Mvc 관련  </p>
+                            <ul>
+                                <li> HandlerMapping : 클라이언트 요청(URL)을 어떤 Controller로 연결을 해줄지 결정  <br />
+                                    <small> 다수의 HandlerMapping이 가능하며 order프로퍼티로 순서를 정할 수 있다. </small>
+                                    <span className="mblock">
+                                        <ul>
+                                            <li> SimpleUrlHandlerMapping : URL-Controller 을 직접 맵핑 </li>
+                                            <li> BeanNameUrlHandlerMapping :  URL-Bean이름과 일치하는 것을 컨트롤러로 사용</li>
+                                            <li> ControllerClassNameHandlerMapping : URL-매칭되는클래스 이름을 갖는 빈을 컨트롤러로 사용 </li>
+                                            <li> DefaultAnnotationHandlerMapping : @RequestMapping어노테이션을 이용하여 컨트롤러와 맵핑한다. </li>
+                                        </ul>
+                                    </span>
+                                </li>
+                                <li>   </li>
+                                <li>   </li>
+                                <li>   </li>
+                            </ul>
                         </span>
+                        {/*  */}
                         <span className="sblock">
                             <p className="sstitle" > <a name="스프링 시큐리티 관련 객체"> 스프링 시큐리티 관련 객체 </a>  </p>
-                            <p> 접근주체(Principal) : 보호된 대상에 접근하는 대상 </p>
-                            <p> 비밀번호(Credential) : Resource에 접근하는 대상의 비밀번호 </p>
-                            <p> 인증(Authentication) : 현재 유저가 누구인지 확인, 작업을 수행할 수 있는지 여부를 판단 </p>
-                            <p> 인가(Authorize) : 현재 유저가 어떤 서비스,페이지에 접근할 수 있는 권한이 있는지 검사 </p>
-                            <p> 권한 : 인증된 사람이 작업을 수행하는 권한이 있는지 판단 (GUEST,USER,MEMBER,ADMIN) </p>
+                            <ul>
+                                <li> 접근주체(Principal) : 보호된 대상에 접근하는 대상 </li>
+                                <li> 비밀번호(Credential) : Resource에 접근하는 대상의 비밀번호 </li>
+                                <li> 인증(Authentication) : 현재 유저가 누구인지 확인, 작업을 수행할 수 있는지 여부를 판단 </li>
+                                <li> 인가(Authorize) : 현재 유저가 어떤 서비스,페이지에 접근할 수 있는 권한이 있는지 검사 </li>
+                                <li> 권한 : 인증된 사람이 작업을 수행하는 권한이 있는지 판단 (GUEST,USER,MEMBER,ADMIN) </li>
+                            </ul>
                             {/* <p>  </p> */}
                             <span className="mblock">
                                 <details>
@@ -546,7 +594,7 @@ const SpringStudy = (props) => {
                                     <p> <small>  </small> </p>
                                 </details>
                                 <details>
-                                    <summary className="col_g"> 접근경정관리자(Access Decision Manager) : </summary>
+                                    <summary className="col_g"> 접근결정관리자(Access Decision Manager) : </summary>
                                     <p> <small>  </small> </p>
                                 </details>
                                 <details>
@@ -590,6 +638,33 @@ const SpringStudy = (props) => {
                                         <p> boolean isAccountNonLocked(); </p>
                                         <p> boolean isCredentialsNonExpired(); </p>
                                         <p> boolean isEnabled(); </p>
+                                    </span>
+                                </details>
+                                <details>
+                                    <summary className="col_g"> AuthenticationManagerBuilder </summary>
+                                    <small>  (개인생각) 인증에 관련된 여러 멤버를 가지고 인증 작업을 처리 </small>
+                                    <span className="sblock">
+                                        <p className="sstitle"> 멤버변수 </p>
+                                        <ul>
+                                            <li> AuthenticationManager </li>
+                                            <li> List{'<AuthenticationProvider>'} </li>
+                                            <li> UserDetailService </li>
+                                            <li> AuthenticationEventPublisher </li>
+                                        </ul>
+                                        <p className="sstitle"> 메소드 </p>
+                                        <ul>
+                                            <li>  authenticationEventPublisher </li>
+                                            <li>  eraseCredentials </li>
+                                            <li>  inMemoryAuthentication </li>
+                                            <li>  jdbcAuthentication </li>
+                                            <li>  userDetailsService </li>
+                                            <li>  ldapAuthentication </li>
+                                            <li>  authenticationProvider </li>
+                                            <li>  performBuild </li>
+                                            <li>  isConfigured </li>
+                                            <li>  getDefaultUserDetailsService </li>
+                                        </ul>
+
                                     </span>
                                 </details>
                                 <details>
@@ -814,7 +889,7 @@ const SpringStudy = (props) => {
                             <span className="mblock">
                                 <details>
                                     <summary className="col_g"> SecurityContextPersistenceFilter </summary>
-                                    <p> <small> SecurityContextRepository에서 SecurityContext를 로드하고 저장하는 일을 담당함 </small> </p>
+                                    <p> <small> SecurityContextRepository에서 SecurityContext 객체의 생성,저장,조회를 담당 </small> </p>
                                 </details>
                                 <details>
                                     <summary className="col_g"> LogoutFilter </summary>

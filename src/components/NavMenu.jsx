@@ -27,10 +27,7 @@ const NavMenu = (props) => {
             </div>
             <div className="thirdMenu menu">
                 <p> 기타 </p>
-                <button onClick={() => { send("oracledb") }}> OracleDB </button>
-                <button onClick={() => { send("mysql") }}> MySQL </button>
-                <button onClick={() => { send("mariadb") }}> MariaDB </button>
-                <button onClick={() => { send("mongodb") }}> MongoDB </button>
+                <button onClick={() => { send("database") }}> DataBase </button>
                 <button onClick={() => { send("designpattern") }}> 디자인패턴 </button>
                 <button onClick={() => { send("security") }}> 보안</button>
                 <button onClick={() => { send("network") }}> 네트워크</button>
@@ -42,6 +39,7 @@ const NavMenu = (props) => {
                 <button onClick={() => { send("term") }}> 용어 </button>
                 <button onClick={() => { send("keymap") }}> 단축키 </button>
                 <button onClick={() => { send("github") }}> 깃허브 </button>
+                <button onClick={() => { send("refblog") }}> 참고 블로그 </button>
                 <button className="block">  효율적인 코드 작성 </button>
             </div>
         </div>

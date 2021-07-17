@@ -8,19 +8,21 @@ const SpringError = (props) => {
         //위치 계산
         let elementHeight = document.getElementsByClassName('navMenu')[0].scrollHeight +
             document.getElementsByClassName('navMenu2')[0].scrollHeight;
+        let testLeft = document.getElementsByClassName('navMenu2')[0].getBoundingClientRect().left;
         let testdis = document.getElementsByClassName('common_style')[0].getBoundingClientRect().left
             - document.getElementsByClassName('lblocknav_container')[0].getBoundingClientRect().left;
-        // console.log(window.innerWidth);
+        // console.log(window.outerHeight);
 
         // 좌측 메뉴 이동 + 작은 버튼
         if (document.documentElement.scrollTop > elementHeight && window.innerWidth < 1024) {
-            blockRef.current[0].style.display === 'inline-block' ?
-                document.getElementsByClassName('lblocknav_btn')[0].style.display = 'none' :
-                document.getElementsByClassName('lblocknav_btn')[0].style.display = 'inline-block';
             blockRef.current[0].style.position = 'fixed';
             blockRef.current[0].style.left = document.getElementsByClassName('navMenu2')[0].getBoundingClientRect().left + "px";
             blockRef.current[0].style.maxWidth = '420px';
             blockRef.current[1].style.left = '25%';
+            blockRef.current[0].style.height = window.outerHeight;
+            blockRef.current[0].style.display === 'inline-block' ?
+                document.getElementsByClassName('lblocknav_btn')[0].style.display = 'none' :
+                document.getElementsByClassName('lblocknav_btn')[0].style.display = 'inline-block';
         }
         // 좌측 메뉴 이동
         else if (document.documentElement.scrollTop > elementHeight && window.innerWidth > 1023) {
@@ -28,6 +30,7 @@ const SpringError = (props) => {
             blockRef.current[0].style.position = 'fixed';
             blockRef.current[0].style.display = 'inline-block';
             blockRef.current[0].style.maxWidth = testdis + "px";
+            blockRef.current[0].style.height = window.outerHeight;
             blockRef.current[0].style.left = document.getElementsByClassName('navMenu2')[0].getBoundingClientRect().left + "px";
             // 좌측에 메뉴가 생기므로 메인 메뉴를 왼쪽에서 이동시킴
             blockRef.current[1].style.left = '25%';
@@ -38,9 +41,9 @@ const SpringError = (props) => {
             blockRef.current[0].style.position = 'relative';
             blockRef.current[0].style.left = '0px';
             blockRef.current[0].style.display = 'inline-block';
+            blockRef.current[0].style.height = window.outerHeight;
             blockRef.current[1].style.left = null;
         }
-
     }
 
     const blockRef = useRef([]);
@@ -66,26 +69,26 @@ const SpringError = (props) => {
             <div className="lblocknav_container" ref={(elem) => (blockRef.current[0] = elem)}>
                 <div className="lblocknav">
                     <span className="mtitle">
-                        <a href="#" className="col_b"> <b> 자바 문법 </b> </a>
+                        <a href="#main" className="col_b"> <b> 스프링 공부 </b> </a>
                         <button className="lblocknav_btn2" onClick={() => {
                             document.getElementsByClassName('lblocknav_btn')[0].style.display = 'block';
                             document.getElementsByClassName('lblocknav_container')[0].style.display = 'none';
-
                         }}> ❌ </button>
                     </span>
-                    <p className="hyperlink">
+                    <div className="hyperlink">
                         <details open>
                             <summary> 자바 문법 </summary>
                             <a href="#Optional" className="col_p"> Optional </a>
                             <a href="#Stream" className="col_p">Stream </a>
-                            <a href="#함수의 종류" className="col_p"> 함수의 종류</a>
+                            <a href="#함수의 종류" className="col_p">함수의 종류</a>
                             <a href="#Assertion" className="col_p">Assertion </a>
                             <a href="#자료구조 map" className="col_p">자료구조 map </a>
                             <a href="#Enum" className="col_p">Enum </a>
+                            <a href="#Generic" className="col_p">Generic </a>
                             <a href="#" className="col_p"> </a>
                             {/* <a href="#" className="col_p"> </a> */}
                         </details>
-                    </p>
+                    </div>
                 </div>
             </div>
             <div className="common_style" ref={(elem) => (blockRef.current[1] = elem)} >
@@ -179,49 +182,113 @@ const SpringError = (props) => {
                     </span>
                     <span className="mblock">
                         <span className="sstitle"> <a name="함수의 종류"> 함수의 종류</a> </span>
-                        <p> <a href="https://moreget.github.io/dev-00000061-Java-Consumer_Supplier/" target="_blank"> 참고 사이트 </a> </p>
-                        <p> Consumer : 매개값은 있고 리턴값은 없음 </p>
+                        <span className="sblock">
 
-                        <p> Supplier : 매개값은 없고, 리턴값은 있음</p>
+                            <p> <a href="https://moreget.github.io/dev-00000061-Java-Consumer_Supplier/" target="_blank"> 참고 사이트 </a> </p>
+                            <p> Consumer : 매개값은 있고 리턴값은 없음 </p>
 
-                        <p> Function : 매개값을 (주로)리턴값으로 반환 </p>
+                            <p> Supplier : 매개값은 없고, 리턴값은 있음</p>
 
-                        <p> Operator : 매개값으로 연산하고 리턴 반환</p>
+                            <p> Function : 매개값을 (주로)리턴값으로 반환 </p>
 
-                        <p> Predicate : 매개값은 있고 리턴은 boolean반환 </p>
+                            <p> Operator : 매개값으로 연산하고 리턴 반환</p>
+
+                            <p> Predicate : 매개값은 있고 리턴은 boolean반환 </p>
+                        </span>
 
                     </span>
                     <span className="mblock">
                         <span className="sstitle"> <a name="Assertion"> Assertion </a> </span>
-                        <p> 코드가 잘 작성되었는지 확인하는데 돕는 기능이다. 예외 처리와 비슷하기는
-                            하지만 예외처리는 개발자가 생각하지 못한 에러에 대한 처리를 담당하는 것이다.
-                        </p>
-                        <p> Assertion은 개발자가 정한 조건을 만족시키면 코드가 실행되고 그 외에는 실행되지
-                            못하게 하는 차이가 있다.
-                        </p>
-                        <p> Assertion을 적당한 위치에 배치시켜 사용하면 좋은 동작을 수행할 수 있다. 반대로
-                            모든 상황에 적용시키면 좋지 않다.
-                        </p>
+                        <span className="sblock">
+                            <p> 코드가 잘 작성되었는지 확인하는데 돕는 기능이다. 예외 처리와 비슷하기는
+                                하지만 예외처리는 개발자가 생각하지 못한 에러에 대한 처리를 담당하는 것이다.
+                            </p>
+                            <p> Assertion은 개발자가 정한 조건을 만족시키면 코드가 실행되고 그 외에는 실행되지
+                                못하게 하는 차이가 있다.
+                            </p>
+                            <p> Assertion을 적당한 위치에 배치시켜 사용하면 좋은 동작을 수행할 수 있다. 반대로
+                                모든 상황에 적용시키면 좋지 않다.
+                            </p>
+                        </span>
                     </span>
                     <span className="mblock">
                         <span className="sstitle"> <a name="자료구조 map"> 자료구조 map </a> </span>
-                        <p> {"Map<자료형,자료형> Map객체명 = new HashMap<>(); "}</p>
-                        <p> 메서드 종류 </p>
-                        <p> <i> Map객체.put(키,값) </i> : 맵객체에 추가 </p>
-                        <p> <i> Map객체.keys() </i> : 객체의 키만 담은 배열 반환 </p>
-                        <p> <i> Map객체.values() </i> : 객체의 값만 담은 배열 반환 </p>
-                        <p> {"Collection<String> values = map.values();"}</p>
-                        <p> {"String[] arr = values.toArray(new String[0]);"}</p>
-                        <p> {"List<String> list = new ArrayList<>(values);"}</p>
-                        <p> {"Set<String> set = new HashSet<>(values);"}</p>
-                        <p> <i> Map객체.entries() </i> : 객체의 [키,값] 담은 배열 반환 </p>
+                        <span className="sblock">
+                            <p> {"Map<자료형,자료형> Map객체명 = new HashMap<>(); "}</p>
+                            <p> 메서드 종류 </p>
+                            <p> <i> Map객체.put(키,값) </i> : 맵객체에 추가 </p>
+                            <p> <i> Map객체.keys() </i> : 객체의 키만 담은 배열 반환 </p>
+                            <p> <i> Map객체.values() </i> : 객체의 값만 담은 배열 반환 </p>
+                            <p> {"Collection<String> values = map.values();"}</p>
+                            <p> {"String[] arr = values.toArray(new String[0]);"}</p>
+                            <p> {"List<String> list = new ArrayList<>(values);"}</p>
+                            <p> {"Set<String> set = new HashSet<>(values);"}</p>
+                            <p> <i> Map객체.entries() </i> : 객체의 [키,값] 담은 배열 반환 </p>
+                        </span>
                     </span>
                     <span className="mblock">
                         <span className="sstitle"> <a name="Enum"> Enum </a> </span>
-                        <small> 상수들로 만들어진 집합, 열거형 클래스</small>
-                        <p> enum 클래스를 만들고 사용할 때는 enum클래스.값 , enum클래스[인덱스] 처럼 사용</p>
-                        <p> <i>  </i>  </p>
+                        <span className="sblock">
+                            <small> 상수들로 만들어진 집합, 열거형 클래스</small>
+                            <p> enum 클래스를 만들고 사용할 때는 enum클래스.값 , enum클래스[인덱스] 처럼 사용</p>
+                        </span>
                     </span>
+                    <span className="mblock">
+                        <span className="sstitle"> <a name="Generic"> Generic </a> </span>
+                        <small> 자료형 타입을 정해서 사용하는 메소드 </small>
+                        <span className="sblock">
+                            <span className="sstitle"> Generic </span>
+                            <ul>
+                                <span className="sstitle"> Generic Class</span>
+                                <p> public class 클래스명{'<T>'}  </p>
+                                <p> 클래스명{'<T>'} 객체명 = new 클래스{'<>'}() </p>
+                                <span className="sstitle"> Generic Method </span>
+                                <p> public static {'<T>'} void 메소드명(T array)  </p>
+                                <span className="sstitle"> </span>
+                                <p>  </p>
+
+                            </ul>
+                        </span>
+                        <span className="sblock">
+                            <span className="sstitle"> 제너릭 타입 이름 정하기 </span>
+                            <ul>
+                                <li> E : 요소(Element, 자바 컬렉션)  </li>
+                                <li> K : 키  </li>
+                                <li> N : 숫자  </li>
+                                <li> T : 타입  </li>
+                                <li> V : 값  </li>
+                            </ul>
+                        </span>
+                        <span className="sblock">
+                            <span className="sstitle"> Generic WildCard </span>
+                            <p> {'<?>'} : 모든 타입의 인자를 받을 수 있음  </p>
+                            <p> {'<? extends 부모클래스>'} : 부모 클래스의 자식 클래스를 인자로 받음,
+                                하지만 부모클래스의 정의된 기능만 사용가능하다?  </p>
+                            <p> {'<? super 자식클래스>'} : 자식클래스의 부모클래스를 인자로 받음  </p>
+                        </span>
+                        <span className="sblock">
+                            <span className="sstitle"> Generic example </span>
+                            <p> ArrayList{'<T>'} array = new ArrayList{'<>'}(); </p>
+                            <p> 클래스{'<T extends 부모클래스>'} </p>
+                        </span>
+
+                    </span>
+                    {/*  */}
+                    <span className="mblock">
+                        <span className="sstitle"> <a name="">  </a> </span>
+                        <span className="sblock">
+                            <small>  </small>
+                            <p> </p>
+                        </span>
+                    </span>
+                    {/*  */}
+                    {/* <span className="mblock">
+                        <span className="sstitle"> <a name="">  </a> </span>
+                        <span className="sblock">
+                            <small>  </small>
+                            <p> </p>
+                        </span>
+                    </span> */}
                 </span>
             </div>
         </>

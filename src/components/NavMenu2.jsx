@@ -7,10 +7,13 @@ import PhpList from './LsideMenu/PhpList.jsx';
 import NodeJsList from './LsideMenu/NodeJsList.jsx';
 import JspServletList from './LsideMenu/JspServletList.jsx';
 import SpringList from './LsideMenu/SpringList.jsx';
+import DatabaseList from './LsideMenu/DatabaseList.jsx';
 import WindowList from './LsideMenu/WindowList.jsx';
 import TermList from './LsideMenu/TermList.jsx';
 import KeyMapList from './LsideMenu/KeyMapList.jsx';
 import GithubList from './LsideMenu/GithubList.jsx';
+import RefBlogList from './LsideMenu/RefBlogList.jsx';
+
 import './NavMenu2.css';
 
 
@@ -60,6 +63,9 @@ const NavMenu2 = (props) => {
             return <JspServletList onChangePage={(page2) => { send(page2) }}> </JspServletList>;
         }
         //기타 메뉴
+        else if (props.page === 'database') {
+            return <DatabaseList onChangePage={(page2) => { send(page2) }}> </DatabaseList>;
+        }
         else if (props.page === 'window') {
             return <WindowList onChangePage={(page2) => { send(page2) }}> </WindowList>;
         }
@@ -71,6 +77,9 @@ const NavMenu2 = (props) => {
         }
         else if (props.page === 'github') {
             return <GithubList onChangePage={(page2) => { send(page2) }}> </GithubList>;
+        }
+        else if (props.page === 'refblog') {
+            return <RefBlogList onChangePage={(page2) => { send(page2) }}> </RefBlogList>;
         }
         else {
             return <div> </div>;

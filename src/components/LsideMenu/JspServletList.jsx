@@ -13,6 +13,7 @@ const JspServletList = (props) => {
             <button onClick={() => { send('jspservletjstl') }}> JSP JSTL </button>
             <button onClick={() => { send('jspservletel') }}> JSP EL </button>
             <button onClick={() => { send('테스트') }}> 테스트 </button>
+            <button onClick={() => { send('jdbc') }}> JDBC </button>
         </div>
     );
 }

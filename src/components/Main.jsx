@@ -8,6 +8,7 @@ import JspServletBasic from './Main/JspServletContent/JspServletBasic';
 import JspServletBulletinBoard from './Main/JspServletContent/JspServletBulletinBoard';
 import JspServletJstl from './Main/JspServletContent/JspServletJstl';
 import JspServletEl from './Main/JspServletContent/JspServletEl';
+import Jdbc from './Main/JspServletContent/Jdbc';
 import ReactBasic from './Main/ReactContent/ReactBasic';
 import SpringError from './Main/SpringContent/SpringError';
 import SpringCode from './Main/SpringContent/SpringCode';
@@ -20,9 +21,13 @@ import SpringSecurityExCode5 from './Main/SpringContent/SpringSecurityExCode5';
 import SpringSecurityExCode6 from './Main/SpringContent/SpringSecurityExCode6';
 import SpringInitSetting from './Main/SpringContent/SpringInitSetting';
 import WindowCommand from './Main/WindowContent/WindowCommand';
+import OracleDBStudy from './Main/DatabaseContent/OracleDBStudy';
+import MySQLStudy from './Main/DatabaseContent/MySQLStudy';
+import DatabaseName from './Main/DatabaseContent/DatabaseName';
 import KeyMap from './Main/KeyMapContent/KeyMap';
 import Term from './Main/TermContent/Term';
 import Github from './Main/GithubContent/GithubBasic';
+import RefBlog from './Main/RefBlogContent/RefBlog';
 import './Main.css';
 import './commonStyle.css';
 
@@ -30,50 +35,32 @@ const Main = (props) => {
     const showpage = () => {
         switch (props.page2) {
             case 'htmlbasic':
-                return <div className="common_style">
-                    <h2 className="subject"> HTML기본문법 </h2>
-                    <HtmlBasic> </HtmlBasic>
-                </div>;
+                return <HtmlBasic> </HtmlBasic>;
             case 'htmldom':
                 return <HtmlDOM> </HtmlDOM>;
             case 'cssbasic':
-                return <div className="common_style">
-                    <h2 className="subject"> Css기본문법 </h2>
-                    <CssBasic> </CssBasic>
-                </div>;
+                return <CssBasic> </CssBasic>;
             // React
             case 'reactbasic':
-                return <div className="common_style">
-                    <h2 className="subject"> React 기초 </h2>
-                    <ReactBasic> </ReactBasic>
-                </div>;
+                return <ReactBasic> </ReactBasic>;
             //Java
             case 'javabasic':
-                return <div className="common_style">
-                    <h2 className="subject"> 자바 문법 </h2>
-                    <JavaBasic> </JavaBasic>
-                </div>;
+                return <JavaBasic> </JavaBasic>;
 
             // JSP & Servlet
             case 'jspservletinformation':
                 return <JspServletInformation> </JspServletInformation>;
             case 'jspservletbasic':
-                return <div className="common_style">
-                    <h2 className="subject"> JSP &amp; Servlet 문법 </h2>
-                    <JspServletBasic> </JspServletBasic>
-                </div>;
+                return <JspServletBasic> </JspServletBasic>;
             case 'jspservletbulletinboard':
-                return <div className="common_style">
-                    <h2 className="subject"> JSP &amp; Servlet 게시판 </h2>
-                    <JspServletBulletinBoard> </JspServletBulletinBoard>
-                </div>;
+                return <JspServletBulletinBoard> </JspServletBulletinBoard>;
             case 'jspservletjstl':
-                return <div className="common_style">
-                    <h2 className="subject"> JSP &amp; Servlet JSTL </h2>
-                    <JspServletJstl> </JspServletJstl>
-                </div>;
+                return <JspServletJstl> </JspServletJstl>;
             case 'jspservletel':
                 return <JspServletEl> </JspServletEl>;
+            case 'jdbc':
+                return <Jdbc> </Jdbc>;
+
             // 스프링 프레임워크
             case 'springerror':
                 return <SpringError> </SpringError>;
@@ -95,31 +82,28 @@ const Main = (props) => {
                 return <SpringSecurityExCode5> </SpringSecurityExCode5>;
             case 'springsecurityexcode6':
                 return <SpringSecurityExCode6> </SpringSecurityExCode6>;
-
+            // DATA BASE
+            case 'oracledbstudy':
+                return <OracleDBStudy> </OracleDBStudy>;
+            case 'mysqlstudy':
+                return <MySQLStudy> </MySQLStudy>;
+            case 'databasename':
+                return <DatabaseName> </DatabaseName>;
             //윈도우
             case 'windowcommand':
-                return <div className="common_style">
-                    <h2 className="subject"> 윈도우 명령어 </h2>
-                    <WindowCommand> </WindowCommand>
-                </div>;
+                return <WindowCommand> </WindowCommand>;
             //용어
             case 'term':
-                return <div className="common_style">
-                    <h2 className="subject"> 용어 </h2>
-                    <Term> </Term>
-                </div>;
+                return <Term> </Term>;
             //단축키
             case 'keymap':
-                return <div className="common_style">
-                    <h2 className="subject"> 단축키 </h2>
-                    <KeyMap> </KeyMap>
-                </div>;
+                return <KeyMap> </KeyMap>;
             //github
             case 'githubbasic':
-                return <div className="common_style">
-                    <h2 className="subject"> 깃허브 </h2>
-                    <Github> </Github>
-                </div>;
+                return <Github> </Github>;
+            //참고 블로그
+            case 'refblog':
+                return <RefBlog> </RefBlog>;
 
             default:
                 break;

@@ -140,9 +140,9 @@
     /* 일반 글자 */
     .common_style p {
         background-color: rgba(230,230,230,0.1);
-        border-bottom: white dotted 1px;
+        border-bottom: white dotted 2px;
         box-sizing: border-box;
-        padding-left: 10px;
+        padding: 3px 0px 3px 10px;
 
     }
     .hyperlink{
@@ -252,7 +252,7 @@
         position: fixed;
         display: none;
         left: 0px;
-        top: 20px;
+        top: 40px;
         box-sizing: border-box;
         max-height: 300px;
         /* overflow: scroll; */
@@ -262,6 +262,7 @@
         border-radius: 10px;
         border: black solid 2px;
         background-color: #c4c4c4;
+        opacity: 0.9;
         box-sizing: border-box;
     }
    
