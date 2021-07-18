@@ -28,6 +28,7 @@ import KeyMap from './Main/KeyMapContent/KeyMap';
 import Term from './Main/TermContent/Term';
 import Github from './Main/GithubContent/GithubBasic';
 import RefBlog from './Main/RefBlogContent/RefBlog';
+import PythonStudy from './Main/PythonContent/PythonStudy';
 import './Main.css';
 import './commonStyle.css';
 
@@ -104,6 +105,9 @@ const Main = (props) => {
             //참고 블로그
             case 'refblog':
                 return <RefBlog> </RefBlog>;
+            //파이썬
+            case 'pythonstudy':
+                return <PythonStudy> </PythonStudy>;
 
             default:
                 break;

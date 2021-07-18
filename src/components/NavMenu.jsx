@@ -40,7 +40,7 @@ const NavMenu = (props) => {
                 <button onClick={() => { send("keymap") }}> 단축키 </button>
                 <button onClick={() => { send("github") }}> 깃허브 </button>
                 <button onClick={() => { send("refblog") }}> 참고 블로그 </button>
-                <button className="block">  효율적인 코드 작성 </button>
+                <button onClick={() => { send("python") }}> Python </button>
             </div>
         </div>
     );

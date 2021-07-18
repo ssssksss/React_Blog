@@ -36,17 +36,18 @@
     border-radius: 6px 6px 0px 0px;
 }
 .navMenu > .menu > button {
-    /* float: left; */
-    margin: 5px;
-    min-width: 100px;
+    float:left;
     padding: 5px 2px;
+    min-width: 100px;
+    margin: 5px;
+    width: 100px;
+    box-sizing: border-box;
     background: transparent;
     color: white;
     font-weight: 700;
-    font-size: 15px;
+    font-size: 1em;
     line-height: 1em;
     text-align: center;
-    box-sizing: border-box;
     border-radius: 4px;
     border: none;
     box-shadow: 1px 1px 1px 1px gray;
@@ -55,3 +56,7 @@
     background: white;
     color: #7e57c2;
 }
+
+.navMenu > .menu img {
+    vertical-align: bottom;
+} 

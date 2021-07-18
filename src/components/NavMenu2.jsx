@@ -13,6 +13,7 @@ import TermList from './LsideMenu/TermList.jsx';
 import KeyMapList from './LsideMenu/KeyMapList.jsx';
 import GithubList from './LsideMenu/GithubList.jsx';
 import RefBlogList from './LsideMenu/RefBlogList.jsx';
+import PythonList from './LsideMenu/PythonList.jsx';
 
 import './NavMenu2.css';
 
@@ -80,6 +81,9 @@ const NavMenu2 = (props) => {
         }
         else if (props.page === 'refblog') {
             return <RefBlogList onChangePage={(page2) => { send(page2) }}> </RefBlogList>;
+        }
+        else if (props.page === 'python') {
+            return <PythonList onChangePage={(page2) => { send(page2) }}> </PythonList>;
         }
         else {
             return <div> </div>;
