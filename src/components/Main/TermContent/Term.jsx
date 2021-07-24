@@ -97,6 +97,11 @@ const Term = (props) => {
                             <a href="#OOP의 5가지 원칙(SOLID)"> OOP의 5가지 원칙(SOLID) </a>
                             <a href="#Spring Security"> Spring Security  </a>
                             <a href="#Cors(Cross Origin Resource Sharing)">  Cors(Cross Origin Resource Sharing) </a>
+                            <a href="#도메인"> 도메인  </a>
+                            <a href="#WWW(World Wide Web)"> WWW(World Wide Web)  </a>
+                            <a href="#서버"> 서버  </a>
+                            <a href="#Dto, Dao, Vo, Entity">  Dto, Dao, Vo, Entity </a>
+                            <a href="#">   </a>
                             <a href="#">   </a>
                             <a href="#">   </a>
                         </details>
@@ -457,14 +462,134 @@ const Term = (props) => {
                         <p> 스프링 시큐리티에서 특정 도메인을 열거나 닫을 수 있음 </p>
                         <p> 필터나 mvc설정 등으로 처리가능 </p>
                     </span>
+
+                    <span className="mblock">
+                        <span className="stitle"> <a name="도메인"> 도메인  </a> </span>
+                        <a href="https://krnic.or.kr/jsp/popup/agencyFeePop.jsp"> 도메인 비용 참고 </a>
+                        <ul>
+                            <li> IP(255.255.255.1)이 아닌 문자로 사용하는 방식 </li>
+                            <li> 서버의 확장 준비  </li>
+                            <li> 서버를 분리하여 서버 기능의 명확성 과 문제발생시 빠른 문제점을 파악  </li>
+                        </ul>
+                        <span className="sblock">
+                            <ul>
+                                <span className="sstitle"> 도메인이란? </span>
+                                <li> www.naver.com </li>
+                                <span className="sstitle"> 서브 도메인 </span>
+                                <li> m.naver.com </li>
+                                <li> cafe.naver.com </li>
+                            </ul>
+                        </span>
+                    </span>
+
+                    <span className="mblock">
+                        <span className="stitle"> <a name="인증서"> 인증서  </a> </span>
+                        <span className="sblock">
+                            <ul>
+                                <span className="sstitle"> SSL 인증서 </span>
+                                <small> 인증서 등급 : OV </small>
+                                <li> 도메인 * 서브도메인 갯수 만큼 받아야함 </li>
+                                <li> *.naver.com 와 같이 사용하면 도메인 갯수 만큼 받아야함 </li>
+                                <span className="sstitle"> SAN 인증서 </span>
+                                <small> 인증서 등급 : OV </small>
+                                <li> 대표 도메인을 하나 두고 250개 까지 붙여서 사용 가능 </li>
+                                <span className="sstitle"> </span>
+                                <li>  </li>
+                            </ul>
+                        </span>
+                    </span>
+
+                    <span className="mblock">
+                        <span className="stitle"> <a name="WWW(World Wide Web)">  WWW(World Wide Web) </a> </span>
+                        <ul>
+                            <li> 인터넷에 연결된 컴퓨터를 이용해 사람들과 정보를 공유하는 공간 </li>
+                            <li> HTTP프로토콜을 기반으로 HTML 작성된 하이퍼텍스트 페이지를 웹브라우저에서 읽을 수 있는곳 </li>
+                            <li>  </li>
+                        </ul>
+                        <span className="sblock">
+                            <ul>
+                                <span className="sstitle">  </span>
+                                <li>  </li>
+                                <span className="sstitle"> </span>
+                                <li>  </li>
+                                <span className="sstitle"> </span>
+                                <li>  </li>
+                            </ul>
+                        </span>
+                    </span>
+
+                    <span className="mblock">
+                        <span className="stitle"> <a name="서버"> 서버 </a> </span>
+                        <span className="sblock">
+                            <ul>
+                                <span className="sstitle"> 서버의 종류 </span>
+                                <li> Web, FTP(파일전송), DB, File(이미지,음악,동영상 등), WAS, Proxy , DNS(도메인-&gt;IP로 변경)
+                                    MTA(메일 서버), TELNET(원격제어)    </li>
+                                <span className="sstitle"> Web 서버 </span>
+                                <li> 정적 페이지 처리 </li>
+                                <li> Apache , Nginx(추천) , IIS(비추)  </li>
+                                <span className="sstitle"> AWS 서버 </span>
+                                <li> 동적 페이지 처리 </li>
+                                <span className="sstitle"> Proxy 서버 </span>
+                                <li> 요청된 내용들을 캐시로 저장 </li>
+                                <li> 원격서버에 접근해서 직접적으로 가져올 필요가 없음 , 시간 절약 </li>
+                                <span className="sstitle">  </span>
+                                <li>  </li>
+                                <span className="sstitle"> 서버 운영 방식 </span>
+                                <div> 웹 호스팅 , 호스팅(외부) 업체에서 1개의 서버의 일부분을 빌려 사용, 월 결제 </div>
+                                <li> 장점 : 비용부담적음 , 단점 : 서버 리모델링,제약조건 등에 불리 </li>
+                                <div> 서버 호스팅 , 호스팅(외부) 업체에서 1개의 서버를 임대나 구매하여 운영 </div>
+                                <li> 장점 : 리모델링, 높은 성능, , 단점 : 비용 증가 </li>
+                                <div> 클라우드 </div>
+                                <li> 서버 여러대를 호스팅으로 운영이 가능하다. </li>
+                                <li> 장점 : 사용자 폭증해도 대응 가능, 단점 : 비용이 사용하는 만큼 나감 </li>
+                                {/* <span className="sstitle">  </span>
+                                <li>  </li> */}
+                            </ul>
+                        </span>
+                    </span>
+
+                    <span className="mblock">
+                        <span className="stitle"> <a name="Dto, Dao, Vo, Entity"> Dto, Dao, Vo, Entity </a> </span>
+                        <span className="sblock">
+                            <ul>
+                                <span className="sstitle">  </span>
+                                <li>  </li>
+                                <span className="sstitle"> </span>
+                                <li>  </li>
+                                <span className="sstitle"> </span>
+                                <li>  </li>
+                            </ul>
+                        </span>
+                    </span>
+
                     <span className="mblock">
                         <span className="stitle"> <a name="">   </a> </span>
-                        <p>  </p>
+                        <span className="sblock">
+                            <ul>
+                                <span className="sstitle">  </span>
+                                <li>  </li>
+                                <span className="sstitle"> </span>
+                                <li>  </li>
+                                <span className="sstitle"> </span>
+                                <li>  </li>
+                            </ul>
+                        </span>
                     </span>
-                    <span className="mblock">
+
+                    {/* <span className="mblock">
                         <span className="stitle"> <a name="">   </a> </span>
-                        <p>  </p>
-                    </span>
+                        <span className="sblock">
+                            <ul>
+                            <span className="sstitle">  </span>
+                                <li>  </li>
+                                <span className="sstitle"> </span>
+                                <li>  </li>
+                                <span className="sstitle"> </span>
+                                <li>  </li>
+                            </ul>
+                        </span>
+                    </span> */}
 
                 </span>
             </div>

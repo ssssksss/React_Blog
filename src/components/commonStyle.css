@@ -107,7 +107,7 @@
         background: rgba(0,255,0,0.3);
         margin: 10px 0px 20px;
         width: 100%;
-        min-height: 150px;
+        /* min-height: 150px; */
         padding: 5px;
         box-sizing: border-box;
         display: inline-block;
@@ -120,7 +120,7 @@
         background: #81d4fa;
         margin: 10px 0px 10px;
         width: 100%;
-        min-height: 80px;
+        /* min-height: 80px; */
         padding: 5px;
         box-sizing: border-box;
         display: block;
@@ -131,7 +131,7 @@
         background: #D9B2FF;
         margin: 10px 0px 10px;
         width: 100%;
-        min-height: 80px;
+        /* min-height: 80px; */
         padding: 5px;
         box-sizing: border-box;
         display: block;
@@ -147,7 +147,7 @@
     }
     .hyperlink{
         max-height: 600px;
-        overflow: scroll;
+        overflow-y:  scroll;
     }
 
     /* 이미지위에 마우스 올라가면 화면 확대 지금 정지*/

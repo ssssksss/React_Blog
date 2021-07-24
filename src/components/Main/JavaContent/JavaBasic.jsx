@@ -250,13 +250,21 @@ const SpringError = (props) => {
                             </ul>
                         </span>
                         <span className="sblock">
-                            <span className="sstitle"> 제너릭 타입 이름 정하기 </span>
+                            <span className="sstitle"> 제너릭 타입 이름 종류 </span>
                             <ul>
                                 <li> E : 요소(Element, 자바 컬렉션)  </li>
                                 <li> K : 키  </li>
                                 <li> N : 숫자  </li>
                                 <li> T : 타입  </li>
                                 <li> V : 값  </li>
+                            </ul>
+                        </span>
+                        <span className="sblock">
+                            <span className="sstitle"> 시큐리티에서 사용하는 제너릭 타입 종류 </span>
+                            <ul>
+                                <li> O : 빌드 하려는 개체의 유형?  </li>
+                                <li> B : SecurityBuilder의 타입  </li>
+                                <li>  </li>
                             </ul>
                         </span>
                         <span className="sblock">

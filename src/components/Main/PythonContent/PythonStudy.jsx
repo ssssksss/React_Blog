@@ -94,7 +94,6 @@ const PtyhonStudy = (props) => {
                             <a href="#" >  </a>
                             <a href="#" >  </a>
                             <a href="#" >  </a>
-                            {/* <a href="#" className="col_p"> </a> */}
                         </details>
                     </p>
                 </div>
@@ -376,10 +375,8 @@ const PtyhonStudy = (props) => {
                                 <span className="sstitle"> 세트 (합집합-교집합) </span>
                                 <li> set1.symmetric_difference(set2) </li>
                                 <li> set1 ^ set2</li>
-                                <span className="sstitle">  </span>
-                                <li>  </li>
-                                <span className="sstitle">  </span>
-                                <li>  </li>
+                                {/* <span className="sstitle">  </span>
+                                <li>  </li> */}
                             </ul>
                         </span>
                     </span>
