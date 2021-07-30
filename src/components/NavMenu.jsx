@@ -21,8 +21,8 @@ const NavMenu = (props) => {
                 <p> 프론트엔드 </p>
                 <button onClick={() => { send("html") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Html_icon.png'} /> HTML </button>
                 <button onClick={() => { send("css") }}> CSS </button>
-                <button onClick={() => { send("typescript") }}> TypeScipt </button>
-                <button onClick={() => { send("javascript") }}> JavaScipt </button>
+                <button onClick={() => { send("typescript") }}> TypeScript </button>
+                <button onClick={() => { send("javascript") }}> JavaScript </button>
                 <button onClick={() => { send("react") }}> React </button>
             </div>
             <div className="thirdMenu menu">
@@ -34,10 +34,9 @@ const NavMenu = (props) => {
                 <button onClick={() => { send("algorithm") }}> 알고리즘 </button>
                 <button onClick={() => { send("contructdata") }}> 자료구조 </button>
                 <button onClick={() => { send("aws") }}> AWS </button>
-                <button onClick={() => { send("prettier") }}> prettier </button>
                 <button onClick={() => { send("window") }}> window</button>
                 <button onClick={() => { send("term") }}> 용어 </button>
-                <button onClick={() => { send("keymap") }}> 단축키 </button>
+                <button onClick={() => { send("keymap") }}> 단축키&amp;설정 </button>
                 <button onClick={() => { send("github") }}> 깃허브 </button>
                 <button onClick={() => { send("refblog") }}> 참고 블로그 </button>
                 <button onClick={() => { send("python") }}> Python </button>
