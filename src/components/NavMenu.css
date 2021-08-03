@@ -52,6 +52,14 @@
     border: none;
     box-shadow: 1px 1px 1px 1px gray;
 }
+.navMenu > .menu > button > img {
+    max-width: 14px;
+    max-height: 14px;
+    vertical-align: top;
+}
+.navMenu > .menu > button > span {
+    font-size: 0.8em;
+}
 .navMenu > .menu > button:hover {
     background: white;
     color: #7e57c2;

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 const SpringSecurityExCode3 = (props) => {
+
     const [scrollY, setScrollY] = useState(0);
     function logit() {
         setScrollY(window.pageYOffset);
@@ -8,19 +9,21 @@ const SpringSecurityExCode3 = (props) => {
         //위치 계산
         let elementHeight = document.getElementsByClassName('navMenu')[0].scrollHeight +
             document.getElementsByClassName('navMenu2')[0].scrollHeight;
+        let testLeft = document.getElementsByClassName('navMenu2')[0].getBoundingClientRect().left;
         let testdis = document.getElementsByClassName('common_style')[0].getBoundingClientRect().left
             - document.getElementsByClassName('lblocknav_container')[0].getBoundingClientRect().left;
-        // console.log(window.innerWidth);
+        // console.log(window.outerHeight);
 
         // 좌측 메뉴 이동 + 작은 버튼
         if (document.documentElement.scrollTop > elementHeight && window.innerWidth < 1024) {
-            blockRef.current[0].style.display === 'inline-block' ?
-                document.getElementsByClassName('lblocknav_btn')[0].style.display = 'none' :
-                document.getElementsByClassName('lblocknav_btn')[0].style.display = 'inline-block';
             blockRef.current[0].style.position = 'fixed';
             blockRef.current[0].style.left = document.getElementsByClassName('navMenu2')[0].getBoundingClientRect().left + "px";
             blockRef.current[0].style.maxWidth = '420px';
             blockRef.current[1].style.left = '25%';
+            blockRef.current[0].style.height = window.outerHeight;
+            blockRef.current[0].style.display === 'inline-block' ?
+                document.getElementsByClassName('lblocknav_btn')[0].style.display = 'none' :
+                document.getElementsByClassName('lblocknav_btn')[0].style.display = 'inline-block';
         }
         // 좌측 메뉴 이동
         else if (document.documentElement.scrollTop > elementHeight && window.innerWidth > 1023) {
@@ -28,6 +31,7 @@ const SpringSecurityExCode3 = (props) => {
             blockRef.current[0].style.position = 'fixed';
             blockRef.current[0].style.display = 'inline-block';
             blockRef.current[0].style.maxWidth = testdis + "px";
+            blockRef.current[0].style.height = window.outerHeight;
             blockRef.current[0].style.left = document.getElementsByClassName('navMenu2')[0].getBoundingClientRect().left + "px";
             // 좌측에 메뉴가 생기므로 메인 메뉴를 왼쪽에서 이동시킴
             blockRef.current[1].style.left = '25%';
@@ -36,11 +40,11 @@ const SpringSecurityExCode3 = (props) => {
         // 좌측 메뉴가 이동이 안되는 높이 일때 + 
         else if (document.documentElement.scrollTop < elementHeight && window.innerWidth > 1023) {
             blockRef.current[0].style.position = 'relative';
-            blockRef.current[0].style.display = 'inline-block';
             blockRef.current[0].style.left = '0px';
-            blockRef.current[1].style.left = '25%';
+            blockRef.current[0].style.display = 'inline-block';
+            blockRef.current[0].style.height = window.outerHeight;
+            blockRef.current[1].style.left = null;
         }
-
     }
 
     const blockRef = useRef([]);
@@ -66,11 +70,10 @@ const SpringSecurityExCode3 = (props) => {
             <div className="lblocknav_container" ref={(elem) => (blockRef.current[0] = elem)}>
                 <div className="lblocknav">
                     <span className="mtitle">
-                        <a href="#" className="col_b"> <b> Spring Security ExCode3 </b> </a>
+                        <a href="#main" className="col_b"> <b> 스프링 공부 </b> </a>
                         <button className="lblocknav_btn2" onClick={() => {
                             document.getElementsByClassName('lblocknav_btn')[0].style.display = 'block';
                             document.getElementsByClassName('lblocknav_container')[0].style.display = 'none';
-
                         }}> ❌ </button>
                     </span>
                     <div className="hyperlink">
@@ -80,109 +83,170 @@ const SpringSecurityExCode3 = (props) => {
                                 <summary> src</summary>
                                 <details open>
                                     <summary className="col_r"> main </summary>
-                                    <details>
+                                    <details open>
                                         <summary> java</summary>
-                                        <details>
+                                        <details open>
                                             <summary> 패키지명 </summary>
-                                            <details>
+                                            <details open>
+                                                <summary className="col_g"> auth </summary>
+                                                <a href="#CustomUserDetails" className="col_p"> CustomUserDetails </a>
+                                                <a href="#CustomUserDetailsService" className="col_p"> CustomUserDetailsService </a>
+                                            </details>
+                                            <details open>
+                                                <summary className="col_g"> config </summary>
+                                                <a href="#CustomWebMvcConfig" className="col_p"> CustomWebMvcConfig </a>
+                                                <a href="#CustomWebSecurityConfig " className="col_p"> CustomWebSecurityConfig  </a>
+                                            </details>
+                                            <details open>
                                                 <summary className="col_g"> controller </summary>
                                                 <a href="#UserController" className="col_p"> UserController </a>
                                             </details>
-                                            <details>
+                                            <details open>
                                                 <summary className="col_g"> entity </summary>
-                                                <a href="#Users" className="col_p"> User </a>
+                                                <a href="#User" className="col_p"> User </a>
                                             </details>
-                                            <details>
+                                            <details open>
                                                 <summary className="col_g"> repository </summary>
                                                 <a href="#UserRepository" className="col_p"> UserRepository </a>
                                             </details>
-                                            <details>
-                                                <summary className="col_g"> service </summary>
-                                                <details>
-                                                    <summary className="col_g"> serviceImpl </summary>
-                                                    <a href="#UserService" className="col_p"> UserService</a>
-                                                </details>
-                                                <a href="#UserRepository" className="col_p"> UserRepository </a>
-                                            </details>
-                                            <p> <a href="#DemoApplication" className="col_p"> DemoApplication </a> </p>
                                         </details>
                                     </details>
-                                    <details>
+                                    <details open>
                                         <summary> resources </summary>
                                         <details>
                                             <summary className="col_g"> static </summary>
                                         </details>
-                                        <details>
+                                        <details open>
                                             <summary className="col_g"> templates </summary>
+                                            <a href="#admin.html" className="col_p"> admin.html </a>
+                                            <a href="#index.html" className="col_p"> index.html </a>
+                                            <a href="#joinForm.html" className="col_p"> joinForm.html </a>
+                                            <a href="#loginForm.html" className="col_p"> loginForm.html </a>
+                                            <a href="#member.html" className="col_p"> member.html </a>
+                                            <a href="#user.html" className="col_p"> user.html </a>
                                         </details>
-                                        <p> <a className="col_p" href="#application.properties"> application.properties </a> </p>
+                                        <p> <a className="col_p" href="#application.yml"> application.yml </a> </p>
                                     </details>
-                                    <a href="#build.gradle" className="col_p"> build.gradle </a>
-                                </details>
-                                <details>
+                                    <details open>
+                                        <summary> 결과 </summary>
+                                        <a href="#result" className="col_p"> result </a>
+                                    </details>
+
+                                    {/* <details open>
                                     <summary className="col_r"> test </summary>
-                                    <details>
+                                    <details open>
                                         <summary> java </summary>
                                     </details>
+                                </details> */}
                                 </details>
                             </details>
                         </details>
                     </div>
                 </div>
             </div>
+            {/* <p> <img src={process.env.PUBLIC_URL + '/img/SpringExCode1/Directory_1.PNG'} alt='' /> </p> */}
             <div className="common_style" ref={(elem) => (blockRef.current[1] = elem)} >
-                <span className="lblock">
-                    <span className="mtitle"> <a name="">  Spring Security ExCode3  </a> </span>
-                    <p> <small> 스프링 Gradel을 이용하여 MySQL에 넣어보는 예제 Postman을 사용하여 파라미터를 입력하여
-                        MySQL에 저장하고 삭제하는 것 까지
-                    </small> </p>
-                    <span className="mblock">
-                        <span className="stitle"> 기초설정 </span>
-                        <p> File - Settings - Build,Execution,Deployment - Build Tools - Gradle - Build and run using,Run tests using
-                            칸에 Gradle을 Intellij IDEA로 변경 </p>
-                        <p> 만약에 디렉토리 폴더에 빨간줄이 뜨면 프로젝트폴더 우클릭 - git add 해주기 </p>
-                        <p> <img src={process.env.PUBLIC_URL + '/img/SpringExCode1/StartSpring_1.PNG'} alt='' /> </p>
-                    </span>
-                    <span className="mblock">
-                        <span className="stitle"> <a name="Directory">  Directory </a> </span>
-                        <p> <img src={process.env.PUBLIC_URL + '/img/SpringExCode1/Directory_1.PNG'} alt='' /> </p>
-                    </span>
-                    <span className="mblock">
-                        <span className="stitle"> <a name="UserController">  controller/UserController.java </a> </span>
-                        <p> <img src={process.env.PUBLIC_URL + '/img/SpringExCode1/UserController_1.PNG'} alt='' /> </p>
-                    </span>
-                    <span className="mblock">
-                        <span className="stitle"> <a name="Users">  entity/Users.java </a> </span>
-                        <p> <img src={process.env.PUBLIC_URL + '/img/SpringExCode1/Users_1.PNG'} alt='' /> </p>
-                    </span>
-                    <span className="mblock">
-                        <span className="stitle"> <a name="UserRepository">  repository/UserRepository.java </a> </span>
-                        <p> <img src={process.env.PUBLIC_URL + '/img/SpringExCode1/UserRepository_1.PNG'} alt='' /> </p>
-                    </span>
-                    <span className="mblock">
-                        <span className="stitle"> <a name="UserServiceImpl">  service/serviceImpl/UserServiceImpl.java </a> </span>
-                        <p> <img src={process.env.PUBLIC_URL + '/img/SpringExCode1/UserServiceImpl_1.PNG'} alt='' /> </p>
-                        <span className="sblock">
-                            <p> 1. UserRepository 인터페이스 빈 객체를 userRepository로 사용 </p>
-                            <p> 2. getAllUsers() 메소드에서 return 값으로 userRepository.findAll()을 반환하는데</p>
+
+                <ul>
+                    <span className="lblock">
+                        <span className="mtitle"> Spring Security Excode3 </span>
+                        <small> JPA를 이용한 회원가입 , DB의 정보를 가지고 로그인을 해보고 인증과 권한 유무에 따라 특정 URL에 접속이 가능한지 불가능한지 테스트 하는 예제</small>
+                        <span className="mblock">
+                            <span className="stitle"> <a name="spring initializr"> spring initializr </a> </span>
+                            <img src={process.env.PUBLIC_URL + '/img/SpringSecurityStudy/SpringSecurityExCode3/SpringSecurityStart.png'} alt='' />
                         </span>
+                        {/*  */}
+                        <span className="mblock">
+                            <span className="stitle"> <a name="directory"> directory </a> </span>
+                            <img src={process.env.PUBLIC_URL + '/img/SpringSecurityStudy/SpringSecurityExCode3/directory.png'} alt='' />
+                        </span>
+                        {/*  */}
+                        <span className="mblock">
+                            <span className="stitle"> <a name="application.yml"> application.yml </a> </span>
+                            <img src={process.env.PUBLIC_URL + '/img/SpringSecurityStudy/SpringSecurityExCode3/application.yml.png'} alt='' />
+                        </span>
+                        {/*  */}
+                        <span className="mblock">
+                            <span className="stitle"> <a name="CustomUserDetails"> CustomUserDetails </a> </span>
+                            <img src={process.env.PUBLIC_URL + '/img/SpringSecurityStudy/SpringSecurityExCode3/CustomUserDetails.png'} alt='' />
+                        </span>
+                        {/*  */}
+                        <span className="mblock">
+                            <span className="stitle"> <a name="CustomUserDetailsService"> CustomUserDetailsService </a> </span>
+                            <img src={process.env.PUBLIC_URL + '/img/SpringSecurityStudy/SpringSecurityExCode3/CustomUserDetailsService.png'} alt='' />
+                        </span>
+                        {/*  */}
+                        <span className="mblock">
+                            <span className="stitle"> <a name="CustomWebMvcConfig"> CustomWebMvcConfig </a> </span>
+                            <img src={process.env.PUBLIC_URL + '/img/SpringSecurityStudy/SpringSecurityExCode3/CustomWebMvcConfig.png'} alt='' />
+                        </span>
+                        {/*  */}
+                        <span className="mblock">
+                            <span className="stitle"> <a name="CustomWebSecurityConfig"> CustomWebSecurityConfig </a> </span>
+                            <img src={process.env.PUBLIC_URL + '/img/SpringSecurityStudy/SpringSecurityExCode3/CustomWebSecurityConfig.png'} alt='' />
+                        </span>
+                        {/*  */}
+                        <span className="mblock">
+                            <span className="stitle"> <a name="UserController"> UserController  </a> </span>
+                            <img src={process.env.PUBLIC_URL + '/img/SpringSecurityStudy/SpringSecurityExCode3/UserController.png'} alt='' />
+                        </span>
+                        {/*  */}
+                        <span className="mblock">
+                            <span className="stitle"> <a name="User"> User </a> </span>
+                            <img src={process.env.PUBLIC_URL + '/img/SpringSecurityStudy/SpringSecurityExCode3/User.png'} alt='' />
+                        </span>
+                        {/*  */}
+                        <span className="mblock">
+                            <span className="stitle"> <a name="UserRepository"> UserRepository </a> </span>
+                            <img src={process.env.PUBLIC_URL + '/img/SpringSecurityStudy/SpringSecurityExCode3/UserRepository.png'} alt='' />
+                        </span>
+                        {/*  */}
+                        <span className="mblock">
+                            <span className="stitle"> <a name="admin.html"> admin.html </a> </span>
+                            <img src={process.env.PUBLIC_URL + '/img/SpringSecurityStudy/SpringSecurityExCode3/admin.html.png'} alt='' />
+                        </span>
+                        {/*  */}
+                        <span className="mblock">
+                            <span className="stitle"> <a name="index.html"> index.html </a> </span>
+                            <img src={process.env.PUBLIC_URL + '/img/SpringSecurityStudy/SpringSecurityExCode3/index.html.png'} alt='' />
+                        </span>
+                        {/*  */}
+                        <span className="mblock">
+                            <span className="stitle"> <a name="joinForm.html"> joinForm.html </a> </span>
+                            <img src={process.env.PUBLIC_URL + '/img/SpringSecurityStudy/SpringSecurityExCode3/joinForm.html.png'} alt='' />
+                        </span>
+                        {/*  */}
+                        <span className="mblock">
+                            <span className="stitle"> <a name="loginForm.html"> loginForm.html </a> </span>
+                            <img src={process.env.PUBLIC_URL + '/img/SpringSecurityStudy/SpringSecurityExCode3/loginForm.html.png'} alt='' />
+                        </span>
+                        {/*  */}
+                        <span className="mblock">
+                            <span className="stitle"> <a name="member.html"> member.html </a> </span>
+                            <img src={process.env.PUBLIC_URL + '/img/SpringSecurityStudy/SpringSecurityExCode3/member.html.png'} alt='' />
+                        </span>
+                        {/*  */}
+                        <span className="mblock">
+                            <span className="stitle"> <a name="user.html"> user.html </a> </span>
+                            <img src={process.env.PUBLIC_URL + '/img/SpringSecurityStudy/SpringSecurityExCode3/user.html.png'} alt='' />
+                        </span>
+                        <span className="mblock">
+                            <span className="stitle"> <a name="result"> result </a> </span>
+                            <img src={process.env.PUBLIC_URL + '/img/SpringSecurityStudy/SpringSecurityExCode3/result1.png'} alt='' />
+                            <img src={process.env.PUBLIC_URL + '/img/SpringSecurityStudy/SpringSecurityExCode3/result2.png'} alt='' />
+                            <img src={process.env.PUBLIC_URL + '/img/SpringSecurityStudy/SpringSecurityExCode3/result3.png'} alt='' />
+                            <img src={process.env.PUBLIC_URL + '/img/SpringSecurityStudy/SpringSecurityExCode3/result4.png'} alt='' />
+                        </span>
+                        {/*  */}
+                        {/* <span className="mblock">
+                            <span className="stitle"> <a name="">  </a> </span>
+                            <img src={process.env.PUBLIC_URL + '/img/SpringSecurityStudy/SpringSecurityExCode3/.png'} alt='' />
+                        </span> */}
+                        {/*  */}
                     </span>
-                    <span className="mblock">
-                        <span className="stitle"> <a name="UserService">  service/UserService.java </a> </span>
-                        <p> <img src={process.env.PUBLIC_URL + '/img/SpringExCode1/UserService_1.PNG'} alt='' /> </p>
-                    </span>
-                    <span className="mblock">
-                        <span className="stitle"> <a name="application.properties"> resources/application.properties </a> </span>
-                        <p> <img src={process.env.PUBLIC_URL + '/img/SpringExCode1/application.properties_1.PNG'} alt='' /> </p>
-                    </span>
-                    <span className="mblock">
-                        <span className="stitle"> <a name="build.gradle">  build.gradle </a> </span>
-                        <p> <img src={process.env.PUBLIC_URL + '/img/SpringExCode1/build.gradle_1.PNG'} alt='' /> </p>
-                    </span>
-                </span>
+                </ul>
             </div>
         </>
     );
 }
 export default SpringSecurityExCode3;
-

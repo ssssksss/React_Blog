@@ -95,7 +95,7 @@ const SpringStudy = (props) => {
 								<a href="#lombok 어노테이션" className="col_p"> lombok 어노테이션 </a>
 								<a href="#Spring Security" className="col_p"> Spring Security </a>
 								<a href="#Spring Security Filter" className="col_p"> Spring Security Filter </a>
-								<a href="#" className="col_p">  </a>
+								<a href="#OAuth" className="col_p"> OAuth </a>
 								<a href="#" className="col_p">  </a>
 								{/* <a href="#" className="col_p"> </a> */}
 							</details>
@@ -600,10 +600,10 @@ const SpringStudy = (props) => {
 										<li> @Log4j2 : 로그를 사용 </li>
 										<li> @SequenceGenerator : 데이터베이스 시퀸스를 사용하는 방법(시퀸스에 대한 추가적으로 공부 필요)</li>
 										<li> @Order(숫자) : 순서가 낮을 수록 우선순위, 빈의 등록 순서를 결정  </li>
-										<li> </li>
-										<li> </li>
-										<li> </li>
-										<li> </li>
+										<li> @EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true) : @Secured활성화, @perAuthorize,@PostAuthorize 활성화 </li>
+										<li> @Secured("ROLE_ADMIN") : 특정 메소드 실행전 에 권한을 지정할 수 있다. </li>
+										<li> @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')") : 특정 메소드에 권한을 1개이상 지정 가능하다.  </li>
+										<li> @PostAuthorize : 메소드가 끝난 뒤에 ?? </li>
 										<li> </li>
 									</ul>
 								</details>
@@ -2058,14 +2058,18 @@ const SpringStudy = (props) => {
 									<details>
 										<summary> CustomWebSecurityConfig [Custom,C] </summary>
 										<span className="sblock">
-											<li> <small> @EnableWebSecurity </small> </li>
+											<li> <small> @EnableWebSecurity , @Configuration </small> </li>
 											<li> <small> extedns WebSecurityConfigureAdapter </small> </li>
 											<li> <small>  </small> </li>
+											<span className="sstitle"> @Bean public BCryptPasswordEncoder bCryptPasswordEncoder </span>
+											<span className="mblock">
+												<li>  return new BCryptPasswordEncoder(); </li>
+												<small> 비번 인코딩을 사용하기 위해 정의 </small>
+											</span>
 											<span className="sstitle"> @Overrride protected void configure(AuthenticationManagerBuilder auth) </span>
 											<small>  </small>
 											<span className="mblock">
-												<li> auth.userDetailsService(userService).
-													passwardEncoder(new BCryptPasswordEncoder()); </li>
+												<li> super.configure(auth); <small> 기본으로 제공되는 인증 처리방식 </small> </li>
 												<li>  </li>
 												<li>  </li>
 											</span>
@@ -2078,6 +2082,7 @@ const SpringStudy = (props) => {
 											</span>
 											<span className="sstitle"> @Override protected void configure(HttpSecurity http) </span>
 											<small> 시큐리티가 http로 처리할 csrf,인증,권한,경로 등등 설정 </small>
+											<small> super.configure(http); 를 사용하는 순간 시큐리티가 제공하는 로그인페이지가 사라짐 </small>
 											<span className="mblock">
 												<li>  </li>
 												<li> http </li>
@@ -2117,7 +2122,25 @@ const SpringStudy = (props) => {
 												<li> .addFilter(커스텀필터메소드) , 필터 구현체를 등록하여 필터 처리 </li>
 												<li>  </li>
 											</span>
-
+										</span>
+									</details>
+									{/*  */}
+									<details>
+										<summary>  CustomWebMvcConfig [Custom, C] </summary>
+										<small> 받아온 URL 경로를 Controller에 맞게 맵핑 해주는 역할 </small>
+										<span className="sblock">
+											<li> <small> implements WebMvcConfigurer </small> </li>
+											<span className="sstitle"> public void configureViewResolvers(ViewResolverRegistry registry) </span>
+											<span className="mblock">
+												<small> 아래 내용이 굳이 필요한지는 의문(없어도 잘됨) </small>
+												<li> ThymeleafViewResolver thymeleafViewResolver = new ThymeleafViewResolver(); </li>
+												<li> thymeleafViewResolver.setContentType("text/html; charset=UTF-8"); </li>
+												<li> thymeleafViewResolver.setCharacterEncoding("UTF-8"); </li>
+											</span>
+											{/* <span className="sstitle">  </span>
+											<span className="mblock">
+												<li>  </li>
+											</span> */}
 										</span>
 									</details>
 									{/*  */}
@@ -2134,49 +2157,54 @@ const SpringStudy = (props) => {
 											<span className="mblock">
 												<li> <small> @Id , 식별자 역할을 하는 컬럼명과 맵핑 </small> </li>
 												<li> <small> @GeneratedValue(strategy = GenerationType.IDENTITY)  </small> </li>
-												<li> private Long PK컬럼; </li>
+												<li> private Long혹은int id; </li>
 												<li> <small> @Column(length=20, nullable=false) </small> </li>
 												<li> private String username; </li>
 												<li> private String password;  </li>
 												<li> private String email; </li>
 												<li> private String role;  </li>
-												<li>  </li>
+												{/* <li>  </li> */}
 											</span>
 										</span>
 									</details>
 									{/*  */}
 									<details>
 										<summary> CustomUserDetails [Custom,C] </summary>
-										<li> <small>  </small> </li>
+										<small> 시큐리티 인증을 위한 유저의 권한,인증을 설정 </small>
 										<span className="sblock">
-											<li> <small> @RequiredArgsConstructor </small> </li>
-											<li> <small> @Getter </small> </li>
 											<li> <small> implements UserDetails  </small> </li>
 											{/* <li> <small>   </small> </li> */}
 											<span className="sstitle"> 멤버변수 </span>
-											<li> <small> @Delegate  </small> </li>
-											<li> private final Collection&lt;? extends GrantedAuthority&gt; authorities; </li>
-											<li> <small>  </small> </li>
+											<li> <small> private UserEntity userEntity; </small> </li>
+											{/*  */}
+											<span className="sstitle"> public CustomUserDetails(UserEntity userEntity) </span>
+											<span className="mblock">
+												<li> this.userEntity = userEntity; </li>
+											</span>
 											{/*  */}
 											<span className="sstitle"> @Override public Collection&lt;? extends GrantedAuthority&gt; getAuthorities() </span>
 											<li> <small> 사용자의 권한을 콜렉션 형태로 반환 </small> </li>
 											<span className="mblock">
-												<li> Set&lt;GrantedAuthority&gt; roles = new HashSet&lt;&gt;() </li>
-												<li> for (String role : auth.split(",")) {"["} </li>
-												<li> roles.add(new SimpleGrantedAuthority(role)); {"}"}  </li>
-												<li> return roles;  </li>
+												<li> {'Collection<GrantedAuthority> authorities = new ArrayList<>();'} </li>
+												<li> {'        authorities.add(new GrantedAuthority() {'} </li>
+												<li> {'            @Override'} </li>
+												<li> {'            public String getAuthority() {'} </li>
+												<li> {'                return user.getRole();'} </li>
+												<li> {'            }'} </li>
+												<li> {'        });'} </li>
+												<li> {'        return authorities;'} </li>
 											</span>
 											{/*  */}
 											<span className="sstitle"> @Override public String getUsername() </span>
 											<li> <small> 사용자의 id를 반환 </small> </li>
 											<span className="mblock">
-												<li> return 아이디; </li>
+												<li> return userEntity.getUsername(); </li>
 											</span>
 											{/*  */}
 											<span className="sstitle"> @Override public String getPassword() </span>
 											<li> <small> 사용자의 패스워드를 반환 </small> </li>
 											<span className="mblock">
-												<li> return 패스워드 </li>
+												<li> return userEntity.getPassword() </li>
 											</span>
 											{/*  */}
 											<span className="sstitle"> @Override public boolean isAccountNonExpired() </span>
@@ -2207,24 +2235,13 @@ const SpringStudy = (props) => {
 									</details>
 									{/*  */}
 									<details>
-										<summary>  CustomUserRepository [Custom,C] </summary>
-										<small>  DB와 Entity를 이어주는 인터페이스 , 인터페이스를 @Autowired 해서 사용 </small>
-										<span className="sblock">
-											<span className="sstitle"> </span>
-											<li> <small>  </small> </li>
-											<span className="mblock">
-												<li> public UserEntity findByUsername(String username) </li>
-												<li> <small> 쿼리 메소드 : SELECT * FROM user_entity where username = 1?;  </small> </li>
-											</span>
-										</span>
-									</details>
-									{/*  */}
-									<details>
 										<summary>  CustomUserDetailsService [Custom,C] </summary>
-										<small> implements UserDetailService </small> <br />
-										<small> UserDetails구현체 를리턴   </small> <br />
+										<small>  UserDetails구현체를 리턴 , 인증을 처리하기 위해 작성  </small> <br />
 										<span className="sblock">
-											<li> <small>  </small> </li>
+											<li> <small> @Service  </small> </li>
+											<li> <small> implements UserDetailService </small> </li>
+											<span className="sstitle"> 멤버 변수  </span>
+											<li> @Autowired private UserRepository userRepository </li>
 											<span className="sstitle"> public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException </span>
 											<span className="mblock">
 												<li> UserEntity userEntity = userRepository.findByUsername(username); </li>
@@ -2235,12 +2252,34 @@ const SpringStudy = (props) => {
 									</details>
 									{/*  */}
 									<details>
-										<summary>   </summary>
+										<summary>  CustomUserRepository [Custom,I] </summary>
+										<small>  DB와 Entity를 이어주는 인터페이스 , 인터페이스를 @Autowired 해서 사용 </small>
 										<span className="sblock">
-											<li> <small> </small> </li>
-											<span className="sstitle"> </span>
+											<li> <small> {' extends JpaRepository<User,Integer> '} </small> </li>
+											<span className="sstitle"> 멤버 변수 </span>
 											<span className="mblock">
-												<li>  </li>
+												<li> public UserEntity findByUsername(String username) </li>
+												<li> <small> 쿼리 메소드 : SELECT * FROM user_entity where username = 1?;  </small> </li>
+											</span>
+										</span>
+									</details>
+									{/*  */}
+									<details>
+										<summary>  UserController [Custom,C] </summary>
+										<span className="sblock">
+											<li> <small> @Controller </small> </li>
+											<span className="sstitle"> 멤버 변수 </span>
+											<span className="mblock">
+												<li> @Autowired BCryptPasswordEncoder bCryptPasswordEncoder; </li>
+												<li> @Autowired UserRepository userRepository; </li>
+											</span>
+											<span className="sstitle"> @GetMapping("/URL경로")</span>
+											<span className="mblock">
+												<li> public String 메소드명() {'{ return "html파일명"; }'} </li>
+											</span>
+											<span className="sstitle"> @PostMapping("/URL경로")</span>
+											<span className="mblock">
+												<li> public String 메소드명(UserEntity userEntity) {'{ 서비스로직 + return "html파일명"; }'} </li>
 											</span>
 										</span>
 									</details>
@@ -2461,6 +2500,52 @@ const SpringStudy = (props) => {
 								<li>  </li>
 							</span>
 						</span>
+						{/*  */}
+						<span className="mblock">
+							<span className="stitle"> <a name="OAuth"> OAuth </a> </span>
+							<span className="sblock">
+								<span className="sstitle"> Google </span>
+								<span className="mblock">
+									<li> 1.  <a href="https://console.cloud.google.com/"> google console api </a> </li>
+									<li> 2. 좌측 메뉴 API 및 서비스 클릭 </li>
+									<li> 3. 상단에 육각형 모양 3개를 클릭해서 새프로젝트 생성  </li>
+									<li> 4. 좌측 메뉴에 "OAuth 동의 화면" 클릭하고 User Type 체크하기  </li>
+									<li> 5. 그다음 화면에서 앱 이름만 적기(test-oauth)  </li>
+									<li> 6. 좌측 메뉴 "사용자 인증 정보" - "사용자 인증 정보 만들기" 클릭 - OAuth 클라이언트 ID 클릭
+										- 애플리케이션 유형에서 웹 어플리케이션 선택 - 이름* 바꾸기(test-oauth) -
+										승인된 리디렉션 URI 추가(http://localhost:8080/login/oauth2/code/google) </li>
+									<li> 7.  </li>
+									<li>  </li>
+								</span>
+								<span className="sstitle"> Naver </span>
+								<span className="mblock">
+									<li>  </li>
+								</span>
+								<span className="sstitle"> Kakao </span>
+								<span className="mblock">
+									<li>  </li>
+								</span>
+								<span className="sstitle"> Facebook </span>
+								<span className="mblock">
+									<li>  </li>
+								</span>
+								<span className="sstitle"> Github </span>
+								<span className="mblock">
+									<li>  </li>
+								</span>
+							</span>
+						</span>
+						{/*  */}
+						{/* <span className="mblock">
+							<span className="stitle"> <a name="">  </a> </span>
+							<span className="sblock">
+								<span className="sstitle">  </span>
+								<span className="mblock">
+									<li>  </li>
+								</span>
+							</span>
+						</span> */}
+						{/*  */}
 					</span>
 				</ul>
 			</div>

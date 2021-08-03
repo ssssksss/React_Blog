@@ -16,9 +16,7 @@ import SpringStudy from './Main/SpringContent/SpringStudy';
 import SpringSecurityExCode1 from './Main/SpringContent/SpringSecurityExCode1';
 import SpringSecurityExCode2 from './Main/SpringContent/SpringSecurityExCode2';
 import SpringSecurityExCode3 from './Main/SpringContent/SpringSecurityExCode3';
-import SpringSecurityExCode4 from './Main/SpringContent/SpringSecurityExCode4';
-import SpringSecurityExCode5 from './Main/SpringContent/SpringSecurityExCode5';
-import SpringSecurityExCode6 from './Main/SpringContent/SpringSecurityExCode6';
+// import SpringSecurityExCode4 from './Main/SpringContent/SpringSecurityExCode4';
 import SpringInitSetting from './Main/SpringContent/SpringInitSetting';
 import WindowCommand from './Main/WindowContent/WindowCommand';
 import OracleDBStudy from './Main/DatabaseContent/OracleDBStudy';
@@ -29,6 +27,8 @@ import Term from './Main/TermContent/Term';
 import Github from './Main/GithubContent/GithubBasic';
 import RefBlog from './Main/RefBlogContent/RefBlog';
 import PythonStudy from './Main/PythonContent/PythonStudy';
+import AIStudy from './Main/AIContent/AIStudy';
+import AlgorithmStudy from './Main/AlgorithmContent/AlgorithmStudy';
 import './Main.css';
 import './commonStyle.css';
 
@@ -77,12 +77,12 @@ const Main = (props) => {
                 return <SpringSecurityExCode2> </SpringSecurityExCode2>;
             case 'springsecurityexcode3':
                 return <SpringSecurityExCode3> </SpringSecurityExCode3>;
-            case 'springsecurityexcode4':
-                return <SpringSecurityExCode4> </SpringSecurityExCode4>;
-            case 'springsecurityexcode5':
-                return <SpringSecurityExCode5> </SpringSecurityExCode5>;
-            case 'springsecurityexcode6':
-                return <SpringSecurityExCode6> </SpringSecurityExCode6>;
+            // case 'springsecurityexcode4':
+            // return <SpringSecurityExCode4> </SpringSecurityExCode4>;
+            // case 'springsecurityexcode5':
+            // return <SpringSecurityExCode5> </SpringSecurityExCode5>;
+            // case 'springsecurityexcode6':
+            // return <SpringSecurityExCode6> </SpringSecurityExCode6>;
             // DATA BASE
             case 'oracledbstudy':
                 return <OracleDBStudy> </OracleDBStudy>;
@@ -90,6 +90,9 @@ const Main = (props) => {
                 return <MySQLStudy> </MySQLStudy>;
             case 'databasename':
                 return <DatabaseName> </DatabaseName>;
+            //알고리즘
+            case 'algorithmstudy':
+                return <AlgorithmStudy> </AlgorithmStudy>;
             //윈도우
             case 'windowcommand':
                 return <WindowCommand> </WindowCommand>;
@@ -108,6 +111,9 @@ const Main = (props) => {
             //파이썬
             case 'pythonstudy':
                 return <PythonStudy> </PythonStudy>;
+            //인공지능
+            case 'aistudy':
+                return <AIStudy> </AIStudy>;
 
             default:
                 break;

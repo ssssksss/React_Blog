@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-const Term2 = (props) => {
+const AIStudy = (props) => {
 
     const [scrollY, setScrollY] = useState(0);
     function logit() {
@@ -137,4 +137,4 @@ const Term2 = (props) => {
     );
 }
 
-export default Term2;
+export default AIStudy;

@@ -14,6 +14,8 @@ import KeyMapList from './LsideMenu/KeyMapList.jsx';
 import GithubList from './LsideMenu/GithubList.jsx';
 import RefBlogList from './LsideMenu/RefBlogList.jsx';
 import PythonList from './LsideMenu/PythonList.jsx';
+import AIList from './LsideMenu/AIList.jsx';
+import AlgorithmList from './LsideMenu/AlgorithmList.jsx';
 
 import './NavMenu2.css';
 
@@ -84,6 +86,12 @@ const NavMenu2 = (props) => {
         }
         else if (props.page === 'python') {
             return <PythonList onChangePage={(page2) => { send(page2) }}> </PythonList>;
+        }
+        else if (props.page === 'ai') {
+            return <AIList onChangePage={(page2) => { send(page2) }}> </AIList>;
+        }
+        else if (props.page === 'algorithm') {
+            return <AlgorithmList onChangePage={(page2) => { send(page2) }}> </AlgorithmList>;
         }
         else {
             return <div> </div>;
