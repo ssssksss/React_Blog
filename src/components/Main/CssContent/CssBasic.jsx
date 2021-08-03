@@ -100,7 +100,17 @@ const CssBasic = (props) => {
                                 <a href="#box-shadow(그림자) " className="col_p"> box-shadow(그림자)  </a>
                                 <a href="#flex" className="col_p"> flex </a>
                                 <a href="#aspect-ratio(화면 비율 조정)" className="col_p"> aspect-ratio(화면 비율 조정) </a>
+                                <a href="#line-height(텍스트행사이의거리)" className="col_p"> line-height(텍스트행사이의거리) </a>
+                                <a href="#list-style(목록태그설정)" className="col_p"> list-style(목록태그설정) </a>
+                                <a href="#text-align(가로정렬)" className="col_p"> text-align(가로정렬) </a>
+                                <a href="#letter-spacing(글자사이간격조정)" className="col_p"> letter-spacing(글자사이간격조정) </a>
+                                <a href="#white-space(공백문자처리)" className="col_p"> white-space(공백문자처리) </a>
+                                <a href="#word-break(단어분리처리여부)" className="col_p"> word-break(단어분리처리여부) </a>
+                                <a href="#word-wrap(요소크기를넘어선글자처리여부)" className="col_p"> word-wrap(요소크기를넘어선글자처리여부) </a>
+                                <a href="#display(요소디스플레이속성)" className="col_p"> display(요소디스플레이속성) </a>
                                 <a href="#" className="col_p">  </a>
+                                <a href="#" className="col_p">  </a>
+                                <a href="#기타" className="col_p"> 기타 </a>
                                 {/* <a href="#" className="col_p"> </a> */}
                             </details>
                         </details>
@@ -197,8 +207,14 @@ const CssBasic = (props) => {
                                 <li> padding: 5px 10px 5px;  </li>
                                 <li> padding-right: 10px;  </li>
                             </span>
-                            <span className="sstitle"> box-sizing </span>
+                        </span>
+                    </span>
+                    {/*  */}
+                    <span className="mblock">
+                        <span className="stitle"> <a name="box-sizing"> box-sizing </a> </span>
+                        <span className="sblock">
                             <small> 요소 박스의 크기를 지정할때의 크기를 각각 따로 구분을 할지 안할지의 차이</small>
+                            <span className="sstitle">  </span>
                             <span className="mblock">
                                 <li> box-sizing: border-box; #(요소+안쪽 여백+테두리) 크기, 일반적으로 많이 사용 </li>
                                 <li> box-sizing: content-box; #요소 크기 + 안쪽 여백 크기 + 테두리 크기  </li>
@@ -360,7 +376,10 @@ const CssBasic = (props) => {
                             <span className="sstitle">  </span>
                             <small> 요소를 유저의 스크롤을 따라오게 할수 있음 </small>
                             <span className="mblock">
-                                <li> 원하는 요소 {'postion:sticky;'} #그러면 부모의 요소의 끝까지 따라온다. </li>
+                                <li> position : static; #문서를 기준으로 배치? </li>
+                                <li> position : relative; #본인 요소를 기준으로 배치 </li>
+                                <li> position : absolute; #부모요소에 relative를 하고 사용하면 요소의 기준점에서 배치  </li>
+                                <li> position : sticky; #스크롤 할 때 부모 요소의 끝까지 따라 움직인다.. </li>
                                 <li>  </li>
                             </span>
                         </span>
@@ -504,10 +523,144 @@ const CssBasic = (props) => {
                     </span>
                     {/*  */}
                     <span className="mblock">
+                        <span className="stitle"> <a name="line-height(텍스트행사이의거리)"> line-height(텍스트행사이의거리) </a> </span>
+                        <span className="sblock">
+                            <span className="sstitle"> line-height 속성 </span>
+                            <span className="mblock">
+                                <small> 선 상자의 높이를 설정 </small>
+                                <li> line-height: normal , 3, 3em, 30%; </li>
+                            </span>
+                        </span>
+                    </span>
+                    {/*  */}
+                    <span className="mblock">
+                        <span className="stitle"> <a name="list-style(목록태그설정)"> list-style(목록태그설정) </a> </span>
+                        <span className="sblock">
+                            <span className="sstitle">  </span>
+                            <small> 목록 태그에 적용되는 속성 , li태그에서 앞에 있는 아이콘을 설정 </small>
+                            <span className="mblock">
+                                <li> list-style: ; #이렇게 사용 </li>
+                                <li> list-style-type: square; #사각형 </li>
+                                <li> list-style-type: circle; #원형 </li>
+                                <li> list-style-type: decimal; </li>
+                                <li> list-style-type: georgian; </li>
+                                <li> list-style-type: trad-chinese-informal; </li>
+                                <li> list-style-type: kannada; </li>
+                                <li> list-style-type: disc; </li>
+                                <li> list-style-type: '-'; </li>
+                                <li> list-style-type: "\1F44D"; #이모티콘 엄지척 </li>
+                                <li> list-style-type: none; #거의 없애는 것을 많이 사용 </li>
+                                <li> list-style-image: url('../img/.png'); </li>
+                                <li> list-style-position: inside; </li>
+                                <li> list-style-position: outside; #우측에 배치 되는데 어떻게 사용할지는... </li>
+                                <li>  </li>
+                                <li>  </li>
+                            </span>
+                        </span>
+                    </span>
+                    {/*  */}
+                    <span className="mblock">
+                        <span className="stitle"> <a name="text-align(가로정렬)"> text-align(가로정렬) </a> </span>
+                        <span className="sblock">
+                            <span className="sstitle">  </span>
+                            <span className="mblock">
+                                <small> block요소나 표에서 사용 </small>
+                                <li> text-align: left; </li>
+                                <li> text-align: right; </li>
+                                <li> text-align: center; </li>
+                                <li> text-align: justify; </li>
+                                <li> text-align: justify-all; </li>
+                                <li> text-align: start; </li>
+                                <li> text-align: end; </li>
+                                <li> text-align: match-parent; </li>
+                                <li> text-align: "."; </li>
+                                <li> text-align: "." center; </li>
+                            </span>
+                        </span>
+                    </span>
+                    {/*  */}
+                    <span className="mblock">
+                        <span className="stitle"> <a name="letter-spacing(글자사이간격조정)"> letter-spacing(글자사이간격조정) </a> </span>
+                        <span className="sblock">
+                            <span className="sstitle"> letter-spacing 속성 </span>
+                            <span className="mblock">
+                                <small> 글자 가로 사이 간격 </small>
+                                <li> letter-spacing: normal , 1em , 1px, .1px , -1px ; </li>
+                                <li>  </li>
+                                <li>  </li>
+                                <li>  </li>
+                                <li>  </li>
+                            </span>
+                        </span>
+                    </span>
+                    {/*  */}
+                    <span className="mblock">
+                        <span className="stitle"> <a name="white-space(공백문자처리)"> white-space(공백문자처리) </a> </span>
+                        <span className="sblock">
+                            <span className="sstitle">  </span>
+                            <span className="mblock">
+                                <small> 글자를 줄바꿈을 어떻게 할지 설정하는 속성 </small>
+                                <li> white-space: normal;  </li>
+                                <li> white-space: nowrap; #공백유지x , 줄바꿈은 br태그에서만 일어남 </li>
+                                <li> white-space: pre; #공백유지, 줄바꿈은 개행문자와 br태그에서만 일어남 </li>
+                                <li> white-space: pre-wrap; #공백유지, 줄바꿈은 개행문자와 br태그에서만 일어나지만 너무 길면 줄을 바꾸어줌 </li>
+                                <li> white-space: pre-line; #공백유지x, 줄바꿈은 개행문자와 br태그에서만 일어나지만 너무 길면 줄을 바꾸어줌</li>
+                                <li> white-space: break-spaces; #pre-wrap과 유사, 공백유지, 공백을유지하면서도 줄바꿈 </li>
+                            </span>
+                        </span>
+                    </span>
+                    {/*  */}
+                    <span className="mblock">
+                        <span className="stitle"> <a name="word-break(단어분리처리여부)"> word-break(단어분리처리여부) </a> </span>
+                        <span className="sblock">
+                            <span className="sstitle"> word-break 속성 </span>
+                            <span className="mblock">
+                                <small> CJK아시아권 글자에 허용 </small>
+                                <li> word-break: normal;  </li>
+                                <li> word-break: break-all; #강제로 줄바꿈 </li>
+                                <li> word-break: keep-all; #줄바꿀때 단어를 끊지 않음 </li>
+                            </span>
+                        </span>
+                    </span>
+                    {/*  */}
+                    <span className="mblock">
+                        <span className="stitle"> <a name="word-wrap(요소크기를넘어선글자처리여부)"> word-wrap(요소크기를넘어선글자처리여부) </a> </span>
+                        <span className="sblock">
+                            <span className="sstitle">  </span>
+                            <span className="mblock">
+                                <li> word-wrap: normal; </li>
+                                <li> word-wrap: brea-word; #넘어가면 줄바꿈 </li>
+                                <li> word-wrap: </li>
+                                <li> word-wrap: </li>
+                            </span>
+                        </span>
+                    </span>
+                    {/*  */}
+                    <span className="mblock">
+                        <span className="stitle"> <a name="display(요소디스플레이속성)"> display(요소디스플레이속성) </a> </span>
+                        <span className="sblock">
+                            <span className="sstitle"> display 속성 </span>
+                            <span className="mblock">
+                                <small> display속성에 따라 레이아웃(배치)를 하는 방법이 바뀜 </small>
+                                <li> display: inline; </li>
+                                <li> display: block; </li>
+                                <li> display: inline-block; </li>
+                                <li> display: none; </li>
+                                <li> display: visible; </li>
+                                <li> display: flex; </li>
+                                <li> display: hidden; </li>
+                                <li> display:  </li>
+                            </span>
+                        </span>
+                    </span>
+                    {/*  */}
+                    <span className="mblock">
                         <span className="stitle"> <a name="">  </a> </span>
                         <span className="sblock">
                             <span className="sstitle">  </span>
                             <span className="mblock">
+                                <li>  </li>
+                                <li>  </li>
                                 <li>  </li>
                             </span>
                         </span>
@@ -518,6 +671,25 @@ const CssBasic = (props) => {
                         <span className="sblock">
                             <span className="sstitle">  </span>
                             <span className="mblock">
+                                <li>  </li>
+                                <li>  </li>
+                                <li>  </li>
+                            </span>
+                        </span>
+                    </span>
+                    {/*  */}
+                    <span className="mblock">
+                        <span className="stitle"> <a name="기타"> 기타 </a> </span>
+                        <span className="sblock">
+                            <span className="sstitle">  </span>
+                            <span className="mblock">
+                                <li> opacity #명도 </li>
+                                <li> content #html 코드 추가 </li>
+                                <li> z-index #화면에 보일 때 우선순위 </li>
+                                <li> font-variant #폰트의 특성 부여(첨자 등) </li>
+                                <li> !important #우선순위 </li>
+                                <li> text-indent </li>
+                                <li> visibility </li>
                                 <li>  </li>
                             </span>
                         </span>

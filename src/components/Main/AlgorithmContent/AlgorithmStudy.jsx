@@ -129,7 +129,7 @@ const AlgorithmStudy = (props) => {
                             <details>
                                 <summary className="sstitle"> ▶ 선택 정렬(selection sort)  </summary>
                                 <span className="mblock">
-                                    <li> 방법:  </li>
+                                    <li> 방법: 자신보다 뒤에 요소를 탐색하고 자신보다 작으면 바꾸는 방법 </li>
                                     <li> 장점: 구현이 쉬움 </li>
                                     <li> 단점: 비효율적  </li>
                                     <li> 시간 복잡도: O(n<sup>2</sup>)</li>
@@ -144,7 +144,7 @@ const AlgorithmStudy = (props) => {
                             <details>
                                 <summary className="sstitle"> ▶ 삽입 정렬(insertion sort)  (상활에 따라 추천)</summary>
                                 <span className="mblock">
-                                    <li> 방법:  </li>
+                                    <li> 방법: 자신 이전의 모든요소를 탐색하고 비교하여 자신의 위치를 찾아 삽입하는 방법 </li>
                                     <li> 장점: 상황에 따라 O(N)의 속도를 가진다. </li>
                                     <li> 단점: 상황에 따라 O(N<sup>2</sup>)을 가지므로 일반적으로 사용되면 안된다. </li>
                                     <li> 시간 복잡도: O(n<sup></sup>) ~ O(n<sup>2</sup>)</li>
@@ -159,7 +159,7 @@ const AlgorithmStudy = (props) => {
                             <details>
                                 <summary className="sstitle"> ▶ 버블 정렬(bubble sort) </summary>
                                 <span className="mblock">
-                                    <li> 방법:  </li>
+                                    <li> 방법: 인접한 인덱스를 비교하면서 정렬하는 방법 </li>
                                     <li> 장점: 구현이 쉽다. </li>
                                     <li> 단점: 비효율적이다. </li>
                                     <li> 시간 복잡도: O(n<sup>2</sup>)</li>
@@ -191,7 +191,7 @@ const AlgorithmStudy = (props) => {
                             <details>
                                 <summary className="sstitle"> ▶ 힙 정렬(heap sort) (추천)</summary>
                                 <span className="mblock">
-                                    <li> 방법:  </li>
+                                    <li> 방법: 이진트리구조? </li>
                                     <li> 장점: 효율적인 편  </li>
                                     <li> 단점:  </li>
                                     <li> 시간 복잡도: O(NlogN)</li>
@@ -207,7 +207,7 @@ const AlgorithmStudy = (props) => {
                             <details>
                                 <summary className="sstitle"> ▶ 합병 정렬(merge sort) (추천)</summary>
                                 <span className="mblock">
-                                    <li> 방법:  </li>
+                                    <li> 방법: 리스트를 모두 분할한 후에 병합을 하는 방법 </li>
                                     <li> 장점: 효율적인 편 </li>
                                     <li> 단점: 추가적인 메모리 공간 필요 </li>
                                     <li> 시간 복잡도: O(NlogN)</li>
@@ -255,7 +255,7 @@ const AlgorithmStudy = (props) => {
                             <details>
                                 <summary className="sstitle"> ▶ 카운팅 정렬 </summary>
                                 <span className="mblock">
-                                    <li> 방법:  </li>
+                                    <li> 방법: 원소가 카운팅된 빈 배열을 만들고 그곳에 배열을 정렬하는 방법  </li>
                                     <li> 장점: 속도가 매우 빠름 </li>
                                     <li> 단점: 메모리 공간이 필요, 메모리 낭비가 심할 수도 있음 </li>
                                     <li> 시간 복잡도: O(n<sup></sup>)</li>

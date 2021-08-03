@@ -133,7 +133,7 @@ const PtyhonStudy = (props) => {
                             <span className="stitle"> <a name="출력메소드"> 출력메소드 </a> </span>
 
                             <span className="sblock">
-
+                                <small> 메소드 - 문자열 메소드 참고 </small>
                                 <span className="sstitle"> 문자열 형식 </span>
                                 <li> %d(정수), %o(8진수) , %x(16진수), %f(실수), %s(문자열) </li>
                                 <span className="sstitle"> 이스케이프 문자 </span>
@@ -149,7 +149,7 @@ const PtyhonStudy = (props) => {
                                 <li>  print('hello'+'world',flush=false) ,  </li>
                                 <li>  pirnt('''asd asd asd''') , 여러줄을 줄바꿈 하여서 출력하기 </li>
                                 <li>  print(변수) ,변수 출력 </li>
-                                <li>  f=opne('파일명.txt','w') , print('hello',file=f) , 텍스트 파일에 출력내용이 저장이 된다 </li>
+                                <li>  f=open('파일명.txt','w') , print('hello',file=f) , 텍스트 파일에 출력내용이 저장이 된다 </li>
                                 <li>  str1 = '%s는 %d원입니다' print(str1%(변수,변수))  </li>
                                 <li>  print('%d,%f,%s',(변수,변수,변수)) , 데이터 타입에 맞게 출력</li>
                                 <li>  print('%5d,%2.2f,%2s',(변수,변수,변수)) , 자릿수와 소수점을 고려한 출력방법 </li>
@@ -471,16 +471,44 @@ const PtyhonStudy = (props) => {
 
                                 <span className="sstitle"> 문자열 메소드 </span>
                                 <span className="mblock">
-                                    <li> .format() :  </li>
-                                    <li> .count() : 문자열의 갯수 </li>
-                                    <li> .find() : 특정문자열의 위치 찾기 ,없다면 -1 리턴 </li>
+                                    <li> .format() : 문자열 정렬,  </li>
+                                    <span classname="sblock">
+                                        <li> '1:{'{ }'}, 2:{'{ }'}'.format(x,y); #순서대로 넣기</li>
+                                        <li> '1:{'{0}'}, 2:{'{1}'}'.format(x,y); #순서 지정해서 넣기</li>
+                                        <li> '1:{'{0}'}, 2:{'{0}'}', 3:{'{1}'}'.format(x,y); #중복해서 넣기</li>
+                                        <li> '1:{'{1}'}, 2:{'{0}'}'.format(x,y); #순서 바꿔서 넣기</li>
+                                        <li> '1:{'{0}'}'.format('text'); #문자열로 넣기</li>
+                                        <li> '1:{'{x}'}'.format(x=123); #이름으로 넣기</li>
+                                        <li> '1:{'{0}'}', 중괄호출력:{'{{}}'} .format('test'); #중괄호 출력하기 </li>
+                                        <li> '중괄호출력:{'{{0}}'}'.format(1234); #중괄호 출력하기 </li>
+                                        <li> '좌측정렬 : {'{0:<10}'}'.format('left') </li>
+                                        <li> '우측정렬 : {'{0:>10}'}'.format('right') </li>
+                                        <li> '중간정렬 : {'{0:^10}'}'.format('center') </li>
+                                        <li> '여백정렬 : {'{0:@<10}'}'.format('center') #여백에 다른 문자(@대신 아무거나)를 채워서 정렬 </li>
+                                        <li> '정수표현 : {'{0:05d}'}'.format(123) #00123 정수의 자릿수가 부족하면 채워짐  </li>
+                                        <li> '소수표현 : {'{0:0.3f}'}'.format(1.123456) #1.123 소수점 표현, 소수점 자리가 남으면 0으로 표현 </li>
+                                    </span>
+                                    <li> 변수 = 문자열.count() : 문자열의 갯수 </li>
+                                    <li> 문자열.find("abc") : "abc" 문자를 문자열 앞에서 찾기 ,없다면 -1 리턴 </li>
+                                    <li> 문자열.rfind("abc") : "abc" 문자를 문자열 뒤에서 찾기 ,없다면 -1 리턴 </li>
+                                    <li> 문자열.index() : 특정문자열의 위치 찾기 ,없다면 에러 발생 </li>
+                                    <li> 문자열.upper() : 모두 대문자로 변환 </li>
+                                    <li> 문자열.lower() : 모두 소문자로 변환 </li>
+                                    <li> 문자열.capitalize() : 첫글자만 대문자로 변환 </li>
+                                    <li> 문자열 = "".join('123','456') 혹은 "".join('문자배열') : 여러문자열을 하나의 문자열로 합쳐서 반환  </li>
+                                    <li> 문자열 = "_(구분자)".join('123','456')  : 여러문자열을 "_"(구분자)로 구분하여 하나의 문자열로 합쳐서 반환  </li>
+                                    <li> 문자열.split(sep='구분자', maxsplit=분할횟수) #문자열을 구분자로 잘라서 리스트로 반환 </li>
+                                    <li> 문자열.replace(old,new,[count]) #변경하고 싶은 문자를 바꾸는 메소드 </li>
+                                    <li> 문자열.[rstrip('문자열') | lstript('문자열') | stript('문자열') ] #불필요한 공백, 문자열 제거 </li>
+                                    <li>  </li>
                                     <li>  </li>
                                 </span>
 
                                 <span className="sstitle"> 사용자 정의 메소드 </span>
                                 <span className="mblock">
-                                    <li> def 메소드(매개변수): </li>
-                                    <li> 코드작성(줄바꿈으로 구분을 함으로 잘 사용해야 한다.) </li>
+                                    <li> def 메소드명(매개변수): </li>
+                                    <li> &nbsp;코드작성 </li>
+                                    <li> &nbsp;return 반환값 <small> 리턴은 필수가 아님 </small> </li>
                                 </span>
 
                                 <span className="sstitle">  </span>
@@ -497,7 +525,9 @@ const PtyhonStudy = (props) => {
                                 <small> 패키지 : 특정 기능과 여러 모듈을 하나의 폴더에 보관 </small> <br />
                                 <small> 라이브러리 : 모듈과 패키지를 묶은 단위 </small> <br />
                                 <small> 모듈 : 함수,변수,클래스 등이 묶인 단위 </small> <br />
-                                <small> 선언 : import.패키지명.모듈명 , import 모듈명 , from 모듈명 import 함수명 , import 모듈명 as 별명 </small> <br />
+                                <small> 선언 : import.패키지명.모듈명 , import 모듈명 , from 모듈명 import 함수명1,함수명2,
+                                    from 모듈 import *, import 모듈명 as 별명 </small> <br />
+
                                 <details>
                                     <summary className="sstitle"> ▶ calculator (수학 함수) </summary>
                                     <span className="sstitle">  </span>
