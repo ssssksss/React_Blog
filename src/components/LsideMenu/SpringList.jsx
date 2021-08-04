@@ -12,7 +12,7 @@ const SpringList = (props) => {
                 <button onClick={() => { send('springerror') }}> Spring 오류 </button>
                 <button onClick={() => { send('springcode') }}> Spring 코드 정리 </button>
                 <button onClick={() => { send('springstudy') }}> Spring 공부 </button>
-                <button onClick={() => { send('springinitsetting') }}> Spring 초기 설정 </button>
+                <button onClick={() => { send('thymeleaf') }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Thymeleaf_icon.svg'} /> Thymeleaf </button>
             </div>
             <div className="menu menu2">
                 <button onClick={() => { send('springsecurityexcode1') }}> Spring Security ExCode1 </button>

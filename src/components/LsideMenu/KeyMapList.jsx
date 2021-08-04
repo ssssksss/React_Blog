@@ -6,8 +6,14 @@ const KeyMapList = (props) => {
     }
 
     return (
-        <div className="keymaplist">
-            <button onClick={() => { send('keymap') }}> 단축키 </button>
+        <div className="menucontainer">
+            <div className="menu menu1">
+                <button onClick={() => { send('intellijkeymap') }}> Intellj 단축키 및 설정 </button>
+                <button onClick={() => { send('eclipsekeymap') }}> Eclipse 단축키 및 설정 </button>
+            </div>
+            <div className="menu menu2">
+                <button onClick={() => { send('vscodekeymap') }}> Visual Studio Code 단축키 및 설정 </button>
+            </div>
         </div>
     );
 }

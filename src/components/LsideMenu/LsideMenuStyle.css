@@ -5,3 +5,12 @@
 .menucontainer .menu {
     width: 50%;
 }
+
+.menucontainer > .menu > button > img {
+    max-width: 14px;
+    max-height: 14px;
+    vertical-align: top;
+}
+.menucontainer > .menu > button > span {
+    font-size: 0.8em;
+}

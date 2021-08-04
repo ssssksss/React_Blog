@@ -16,6 +16,7 @@ const NavMenu = (props) => {
                 <button onClick={() => { send("nodejs") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Nodejs_icon.png'} /> Node.js </button>
                 <button onClick={() => { send("spring") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/SpringBoot_icon.png'} /> Spring </button>
                 <button onClick={() => { send("jspservlet") }}> JSP&amp;servlet </button>
+                <button onClick={() => { send("backenddvl") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Backenddvl_icon.svg'} /> <span> 백엔드 개발자 </span> </button>
             </div>
             <div className="secondMenu menu">
                 <p> 프론트엔드 </p>
@@ -24,6 +25,7 @@ const NavMenu = (props) => {
                 <button onClick={() => { send("typescript") }}> TypeScript </button>
                 <button onClick={() => { send("javascript") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Javascript_icon.svg'} /> <span> JavaScript</span> </button>
                 <button onClick={() => { send("react") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/React_icon.svg'} /> React </button>
+                <button onClick={() => { send("frontenddvl") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Frontenddvl_icon.svg'} /> <span> 프론트 개발자 </span> </button>
             </div>
             <div className="thirdMenu menu">
                 <p> 기타 </p>

@@ -13,16 +13,18 @@ import ReactBasic from './Main/ReactContent/ReactBasic';
 import SpringError from './Main/SpringContent/SpringError';
 import SpringCode from './Main/SpringContent/SpringCode';
 import SpringStudy from './Main/SpringContent/SpringStudy';
+import Thymeleaf from './Main/SpringContent/Thymeleaf';
 import SpringSecurityExCode1 from './Main/SpringContent/SpringSecurityExCode1';
 import SpringSecurityExCode2 from './Main/SpringContent/SpringSecurityExCode2';
 import SpringSecurityExCode3 from './Main/SpringContent/SpringSecurityExCode3';
 // import SpringSecurityExCode4 from './Main/SpringContent/SpringSecurityExCode4';
-import SpringInitSetting from './Main/SpringContent/SpringInitSetting';
 import WindowCommand from './Main/WindowContent/WindowCommand';
 import OracleDBStudy from './Main/DatabaseContent/OracleDBStudy';
 import MySQLStudy from './Main/DatabaseContent/MySQLStudy';
 import DatabaseName from './Main/DatabaseContent/DatabaseName';
-import KeyMap from './Main/KeyMapContent/KeyMap';
+import VscodeKeyMap from './Main/KeyMapContent/VscodeKeyMap';
+import IntellijKeyMap from './Main/KeyMapContent/IntellijKeyMap';
+import EclipseKeyMap from './Main/KeyMapContent/EclipseKeyMap';
 import Term from './Main/TermContent/Term';
 import Github from './Main/GithubContent/GithubBasic';
 import RefBlog from './Main/RefBlogContent/RefBlog';
@@ -69,8 +71,8 @@ const Main = (props) => {
                 return <SpringCode> </SpringCode>;
             case 'springstudy':
                 return <SpringStudy> </SpringStudy>;
-            case 'springinitsetting':
-                return <SpringInitSetting> </SpringInitSetting>;
+            case 'thymeleaf':
+                return <Thymeleaf> </Thymeleaf>;
             case 'springsecurityexcode1':
                 return <SpringSecurityExCode1> </SpringSecurityExCode1>;
             case 'springsecurityexcode2':
@@ -100,8 +102,14 @@ const Main = (props) => {
             case 'term':
                 return <Term> </Term>;
             //단축키
-            case 'keymap':
-                return <KeyMap> </KeyMap>;
+            case 'intellijkeymap':
+                return <IntellijKeyMap> </IntellijKeyMap>;
+            //단축키
+            case 'vscodekeymap':
+                return <VscodeKeyMap> </VscodeKeyMap>;
+            //단축키
+            case 'eclipsekeymap':
+                return <EclipseKeyMap> </EclipseKeyMap>;
             //github
             case 'githubbasic':
                 return <Github> </Github>;
