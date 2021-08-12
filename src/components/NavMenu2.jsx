@@ -9,6 +9,8 @@ import JspServletList from './LsideMenu/JspServletList.jsx';
 import SpringList from './LsideMenu/SpringList.jsx';
 import DatabaseList from './LsideMenu/DatabaseList.jsx';
 import WindowList from './LsideMenu/WindowList.jsx';
+import RinuxList from './LsideMenu/RinuxList.jsx';
+import NetworkList from './LsideMenu/NetworkList.jsx';
 import TermList from './LsideMenu/TermList.jsx';
 import KeyMapList from './LsideMenu/KeyMapList.jsx';
 import GithubList from './LsideMenu/GithubList.jsx';
@@ -16,6 +18,10 @@ import RefBlogList from './LsideMenu/RefBlogList.jsx';
 import PythonList from './LsideMenu/PythonList.jsx';
 import AIList from './LsideMenu/AIList.jsx';
 import AlgorithmList from './LsideMenu/AlgorithmList.jsx';
+import FrontendList from './LsideMenu/FrontendList.jsx';
+import BackendList from './LsideMenu/BackendList.jsx';
+import SecurityList from './LsideMenu/SecurityList.jsx';
+import BlockChainList from './LsideMenu/BlockChainList.jsx';
 
 import './NavMenu2.css';
 
@@ -49,6 +55,9 @@ const NavMenu2 = (props) => {
         else if (props.page === 'react') {
             return <ReactList onChangePage={(page2) => { send(page2) }}> </ReactList>;
         }
+        else if (props.page === 'frontend') {
+            return <FrontendList onChangePage={(page2) => { send(page2) }}> </FrontendList>;
+        }
         // 백엔드 메뉴
         else if (props.page === 'java') {
             return <JavaList onChangePage={(page2) => { send(page2) }}> </JavaList>;
@@ -65,12 +74,21 @@ const NavMenu2 = (props) => {
         else if (props.page === 'jspservlet') {
             return <JspServletList onChangePage={(page2) => { send(page2) }}> </JspServletList>;
         }
+        else if (props.page === 'backend') {
+            return <BackendList onChangePage={(page2) => { send(page2) }}> </BackendList>;
+        }
         //기타 메뉴
         else if (props.page === 'database') {
             return <DatabaseList onChangePage={(page2) => { send(page2) }}> </DatabaseList>;
         }
+        else if (props.page === 'network') {
+            return <NetworkList onChangePage={(page2) => { send(page2) }}> </NetworkList>;
+        }
         else if (props.page === 'window') {
             return <WindowList onChangePage={(page2) => { send(page2) }}> </WindowList>;
+        }
+        else if (props.page === 'rinux') {
+            return <RinuxList onChangePage={(page2) => { send(page2) }}> </RinuxList>;
         }
         else if (props.page === 'term') {
             return <TermList onChangePage={(page2) => { send(page2) }}> </TermList>;
@@ -92,6 +110,12 @@ const NavMenu2 = (props) => {
         }
         else if (props.page === 'algorithm') {
             return <AlgorithmList onChangePage={(page2) => { send(page2) }}> </AlgorithmList>;
+        }
+        else if (props.page === 'security') {
+            return <SecurityList onChangePage={(page2) => { send(page2) }}> </SecurityList>;
+        }
+        else if (props.page === 'blockchain') {
+            return <BlockChainList onChangePage={(page2) => { send(page2) }}> </BlockChainList>;
         }
         else {
             return <div> </div>;

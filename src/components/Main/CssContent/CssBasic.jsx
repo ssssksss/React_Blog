@@ -8,15 +8,17 @@ const CssBasic = (props) => {
 
         //위치 계산
         let elementHeight = document.getElementsByClassName('navMenu')[0].scrollHeight +
-            document.getElementsByClassName('navMenu2')[0].scrollHeight;
+            document.getElementsByClassName('navMenu2')[0].scrollHeight + 26;
         let testLeft = document.getElementsByClassName('navMenu2')[0].getBoundingClientRect().left;
         let testdis = document.getElementsByClassName('common_style')[0].getBoundingClientRect().left
             - document.getElementsByClassName('lblocknav_container')[0].getBoundingClientRect().left;
         // console.log(window.outerHeight);
 
+
         // 좌측 메뉴 이동 + 작은 버튼
         if (document.documentElement.scrollTop > elementHeight && window.innerWidth < 1024) {
             blockRef.current[0].style.position = 'fixed';
+            blockRef.current[0].style.top = (elementHeight + 30) + "px";
             blockRef.current[0].style.left = document.getElementsByClassName('navMenu2')[0].getBoundingClientRect().left + "px";
             blockRef.current[0].style.maxWidth = '420px';
             blockRef.current[1].style.left = '25%';
@@ -26,9 +28,10 @@ const CssBasic = (props) => {
                 document.getElementsByClassName('lblocknav_btn')[0].style.display = 'inline-block';
         }
         // 좌측 메뉴 이동
-        else if (document.documentElement.scrollTop > elementHeight && window.innerWidth > 1023) {
+        else if (document.documentElement.scrollTop < elementHeight && window.innerWidth > 1023) {
             // 좌측 메뉴 위치 고정, 보여주기 , 간격은 사이값
             blockRef.current[0].style.position = 'fixed';
+            blockRef.current[0].style.top = elementHeight + "px";
             blockRef.current[0].style.display = 'inline-block';
             blockRef.current[0].style.maxWidth = testdis + "px";
             blockRef.current[0].style.height = window.outerHeight;
@@ -37,13 +40,17 @@ const CssBasic = (props) => {
             blockRef.current[1].style.left = '25%';
             document.getElementsByClassName('lblocknav_btn')[0].style.display = 'none';
         }
-        // 좌측 메뉴가 이동이 안되는 높이 일때 + 
-        else if (document.documentElement.scrollTop < elementHeight && window.innerWidth > 1023) {
-            blockRef.current[0].style.position = 'relative';
-            blockRef.current[0].style.left = '0px';
+        else if (document.documentElement.scrollTop > elementHeight && window.innerWidth > 1023) {
+            // 좌측 메뉴 위치 고정, 보여주기 , 간격은 사이값
+            blockRef.current[0].style.position = 'fixed';
+            blockRef.current[0].style.top = "10px";
             blockRef.current[0].style.display = 'inline-block';
+            blockRef.current[0].style.maxWidth = testdis + "px";
             blockRef.current[0].style.height = window.outerHeight;
-            blockRef.current[1].style.left = null;
+            blockRef.current[0].style.left = document.getElementsByClassName('navMenu2')[0].getBoundingClientRect().left + "px";
+            // 좌측에 메뉴가 생기므로 메인 메뉴를 왼쪽에서 이동시킴
+            blockRef.current[1].style.left = '25%';
+            document.getElementsByClassName('lblocknav_btn')[0].style.display = 'none';
         }
     }
 
@@ -98,7 +105,6 @@ const CssBasic = (props) => {
                                 <a href="#text-align(글자위치조정)" className="col_p"> text-align(글자위치조정) </a>
                                 <a href="#font(폰트)" className="col_p"> font(폰트) </a>
                                 <a href="#box-shadow(그림자) " className="col_p"> box-shadow(그림자)  </a>
-                                <a href="#flex" className="col_p"> flex </a>
                                 <a href="#aspect-ratio(화면 비율 조정)" className="col_p"> aspect-ratio(화면 비율 조정) </a>
                                 <a href="#line-height(텍스트행사이의거리)" className="col_p"> line-height(텍스트행사이의거리) </a>
                                 <a href="#list-style(목록태그설정)" className="col_p"> list-style(목록태그설정) </a>
@@ -106,9 +112,16 @@ const CssBasic = (props) => {
                                 <a href="#letter-spacing(글자사이간격조정)" className="col_p"> letter-spacing(글자사이간격조정) </a>
                                 <a href="#white-space(공백문자처리)" className="col_p"> white-space(공백문자처리) </a>
                                 <a href="#word-break(단어분리처리여부)" className="col_p"> word-break(단어분리처리여부) </a>
-                                <a href="#word-wrap(요소크기를넘어선글자처리여부)" className="col_p"> word-wrap(요소크기를넘어선글자처리여부) </a>
+                                <a href="#word-wrap(요소를넘은글자처리여부)" className="col_p"> word-wrap(요소를넘은글자처리여부) </a>
                                 <a href="#display(요소디스플레이속성)" className="col_p"> display(요소디스플레이속성) </a>
-                                <a href="#" className="col_p">  </a>
+                                <a href="#transform(회전,크기,기울기,이동)" className="col_p"> transform(회전,크기,기울기,이동) </a>
+                                <a href="#flex(이어서?배치)" className="col_p"> flex(이어서?배치) </a>
+                                <a href="#flex-direction(플렉스요소배치))" className="col_p"> flex-direction(플렉스요소배치) </a>
+                                <a href="#align-content(F,G의 라인을 정렬)" className="col_p"> align-content(F,G의 라인을 정렬) </a>
+                                <a href="#justify-content(F,G 요소가로축배치)" className="col_p"> justify-content(F,G 요소가로축배치) </a>
+                                <a href="#align-items(F,G 라인을기준으로 아이템세로축정렬)" className="col_p"> align-items(line을기준으로 세로축정렬) </a>
+                                <a href="#filter(필터효과)" className="col_p"> filter(필터효과) </a>
+                                <a href="#variable(변수)" className="col_p"> variable(변수) </a>
                                 <a href="#" className="col_p">  </a>
                                 <a href="#기타" className="col_p"> 기타 </a>
                                 {/* <a href="#" className="col_p"> </a> */}
@@ -374,12 +387,15 @@ const CssBasic = (props) => {
                         <span className="stitle"> <a name="position(요소위치)"> position(요소위치) </a> </span>
                         <span className="sblock">
                             <span className="sstitle">  </span>
-                            <small> 요소를 유저의 스크롤을 따라오게 할수 있음 </small>
                             <span className="mblock">
                                 <li> position : static; #문서를 기준으로 배치? </li>
                                 <li> position : relative; #본인 요소를 기준으로 배치 </li>
                                 <li> position : absolute; #부모요소에 relative를 하고 사용하면 요소의 기준점에서 배치  </li>
                                 <li> position : sticky; #스크롤 할 때 부모 요소의 끝까지 따라 움직인다.. </li>
+                                <li> top: 10px; #요소를 上로 10px이동해서 배치</li>
+                                <li> bottom: 10px; #요소를 下로 10px이동해서 배치</li>
+                                <li> left: 10px; #요소를 左로 10px이동해서 배치</li>
+                                <li> right: 10px; #요소를 右로 10px이동해서 배치</li>
                                 <li>  </li>
                             </span>
                         </span>
@@ -499,18 +515,6 @@ const CssBasic = (props) => {
                     </span>
                     {/*  */}
                     <span className="mblock">
-                        <span className="stitle"> <a name="flex"> flex </a> </span>
-                        <span className="sblock">
-                            <span className="sstitle">  </span>
-                            <span className="mblock">
-                                <li> display: flex; </li>
-                                <li> gap: 10px 5px; #flex요소들 사이에 간격을 조정할 수 있음 margin사용을 하지 않아도 됨 </li>
-                                <li>  </li>
-                            </span>
-                        </span>
-                    </span>
-                    {/*  */}
-                    <span className="mblock">
                         <span className="stitle"> <a name="aspect-ratio(화면 비율 조정)"> aspect-ratio(화면 비율 조정) </a> </span>
                         <span className="sblock">
                             <span className="sstitle"> aspect-ratio </span>
@@ -624,7 +628,7 @@ const CssBasic = (props) => {
                     </span>
                     {/*  */}
                     <span className="mblock">
-                        <span className="stitle"> <a name="word-wrap(요소크기를넘어선글자처리여부)"> word-wrap(요소크기를넘어선글자처리여부) </a> </span>
+                        <span className="stitle"> <a name="word-wrap(요소를넘은글자처리여부)"> word-wrap(요소를넘은글자처리여부) </a> </span>
                         <span className="sblock">
                             <span className="sstitle">  </span>
                             <span className="mblock">
@@ -655,12 +659,155 @@ const CssBasic = (props) => {
                     </span>
                     {/*  */}
                     <span className="mblock">
-                        <span className="stitle"> <a name="">  </a> </span>
+                        <span className="stitle"> <a name="transform(회전,크기,기울기,이동)"> transform(회전,크기,기울기,이동) </a> </span>
+                        <span className="sblock">
+                            <span className="sstitle"> transform 속성 </span>
+                            <span className="mblock">
+                                <li> transform : rotate(0.5turn); #시계방향으로 회전</li>
+                                <li> transform : rotate(1, 2.0, 3.0, 10deg);  </li>
+                                <li> transform : rotateX(10deg); #x축으로 회전  </li>
+                                <li> transform : rotateY(10deg); #y축으로 회전  </li>
+                                <li> transform : rotateZ(10deg); #z축으로 회전  </li>
+                                <li> transform : translate(10px, 10px); #x축,y축이동 </li>
+                                <li> transform : translate3d(10px, 10px, 10px); #x축,y축,z축 이동  </li>
+                                <li> transform : translateX(10px) #x축 이동 </li>
+                                <li> transform : translateY(10px) #y축 이동 </li>
+                                <li> transform : translateZ(10px) #z축 이동 </li>
+                                <li> transform : scale(10, 0.1); #가로, 세로 확대 </li>
+                                <li> transform : scale3d(2, 2, 2); #너비,깊이,높이 확대  </li>
+                                <li> transform : scaleX(2); #너비 2배 확대  </li>
+                                <li> transform : scaleY(2); #깊이 2배 확대  </li>
+                                <li> transform : scaleZ(2); #높이 2배 확대  </li>
+                                <li> transform : skew(30deg, 30deg);   </li>
+                                <li> transform : skewX(30deg); #左上은 왼쪽으로, 右下을 오른쪽으로 기울어짐  </li>
+                                <li> transform : skewY(30deg); #左上은 위쪽으로, 右下은 아래쪽으로 기울어짐  </li>
+                                <li> transform :   </li>
+                            </span>
+                        </span>
+                    </span>
+                    {/*  */}
+                    <span className="mblock">
+                        <span className="stitle"> <a name="flex(이어서?배치)"> flex(이어서?배치) </a> </span>
                         <span className="sblock">
                             <span className="sstitle">  </span>
                             <span className="mblock">
+                                <li> display: flex; </li>
+                                <li> gap: 10px 5px; #flex요소들 사이에 간격을 조정할 수 있음 margin사용을 하지 않아도 됨 </li>
                                 <li>  </li>
                                 <li>  </li>
+                            </span>
+                        </span>
+                    </span>
+                    {/*  */}
+                    <span className="mblock">
+                        <span className="stitle"> <a name="flex-direction(플렉스요소배치)"> flex-direction(플렉스요소배치) </a> </span>
+                        <span className="sblock">
+                            <span className="sstitle"> flex-direction </span>
+                            <span className="mblock">
+                                <li> flex-direction: column; #플렉스요소들을 세로로 배치 </li>
+                                <li> flex-direction: column-reverse; #플렉스요소들을 세로로 역순으로 배치 </li>
+                                <li> flex-direction: row; #플렉스요소들을 가로로 배치 </li>
+                                <li> flex-direction: row-reverse; #플렉스요소들을 가로로 역순으로 배치 </li>
+                            </span>
+                        </span>
+                    </span>
+                    {/*  */}
+                    <span className="mblock">
+                        <span className="stitle"> <a name="align-content(F,G의 라인을 정렬)"> align-content(F,G의 라인을 정렬) </a> </span>
+                        <span className="sblock">
+                            <span className="sstitle"> align-content 속성 </span>
+                            <span className="mblock">
+                                <small> flex박스나 grid에서 사용하는 배치 방법 </small> <br />
+                                <small> flex-line을 정렬 </small>
+                                <li> align-content: center;     </li>
+                                <li> align-content: start;      </li>
+                                <li> align-content: end;        </li>
+                                <li> align-content: flex-start; </li>
+                                <li> align-content: flex-end;   </li>
+                                <li> align-content: normal;   </li>
+                                <li> align-content: baseline;   </li>
+                                <li> align-content: first baseline;   </li>
+                                <li> align-content: last baseline;   </li>
+                                <li> align-content: space-between;   </li>
+                                <li> align-content: space-around;   </li>
+                                <li> align-content: space-evenly;   </li>
+                                <li> align-content: stretch;   </li>
+                            </span>
+                        </span>
+                    </span>
+                    {/*  */}
+                    <span className="mblock">
+                        <span className="stitle"> <a name="justify-content(F,G 요소가로축배치)"> justify-content(F,G 요소가로축배치) </a> </span>
+                        <span className="sblock">
+                            <span className="sstitle">  </span>
+                            <span className="mblock">
+                                <li> justify-content: center;      </li>
+                                <li> justify-content: start;       </li>
+                                <li> justify-content: end;          </li>
+                                <li> justify-content: flex-start;   </li>
+                                <li> justify-content: flex-end;    </li>
+                                <li> justify-content: left;        </li>
+                                <li> justify-content: right;       </li>
+                                <li> justify-content: space-between; #요소들 사이에 동일한 간격</li>
+                                <li> justify-content: space-around; #요소 주위에 동일한 간격 </li>
+                                <li> justify-content: space-evenly; #전부 균등하게</li>
+                                <li> justify-content: stretch;       </li>
+                            </span>
+                        </span>
+                    </span>
+                    {/*  */}
+                    <span className="mblock">
+                        <span className="stitle"> <a name="align-items(F,G 라인을기준으로 아이템세로축정렬)"> align-items(F,G 라인을기준으로 아이템세로축정렬) </a> </span>
+                        <span className="sblock">
+                            <small> flex-line을 기준으로 아이템을 정렬 </small>
+                            <span className="sstitle">  </span>
+                            <span className="mblock">
+                                <li> align-items: center;      </li>
+                                <li> align-items: start;       </li>
+                                <li> align-items: end;          </li>
+                                <li> align-items: flex-start;   </li>
+                                <li> align-items: flex-end;    </li>
+                                <li> align-items: left;        </li>
+                                <li> align-items: right;       </li>
+                                <li> align-items: space-between; #요소들 사이에 동일한 간격</li>
+                                <li> align-items: space-around; #요소 주위에 동일한 간격 </li>
+                                <li> align-items: space-evenly; #전부 균등하게</li>
+                                <li> align-items: stretch;       </li>
+                            </span>
+                        </span>
+                    </span>
+                    {/*  */}
+                    <span className="mblock">
+                        <span className="stitle"> <a name="filter(필터효과)"> filter(필터효과) </a> </span>
+                        <span className="sblock">
+                            <span className="sstitle">  </span>
+                            <span className="mblock">
+                                <li> filter: url("filters.svg#filter-id"); </li>
+                                <li> filter: blur(10px); #픽셀로 흐리게 한다..</li>
+                                <li> filter: brightness(0.5); #밝기</li>
+                                <li> filter: contrast(100%); #대비</li>
+                                <li> filter: drop-shadow(10px 10px 10px blue); </li>
+                                <li> filter: grayscale(50%); #흑백</li>
+                                <li> filter: hue-rotate(90deg); </li>
+                                <li> filter: invert(10%); #반전</li>
+                                <li> filter: opacity(10%); </li>
+                                <li> filter: saturate(10%); </li>
+                                <li> filter: sepia(10%); </li>
+                            </span>
+                        </span>
+                    </span>
+                    {/*  */}
+                    <span className="mblock">
+                        <span className="stitle"> <a name="variable(변수)"> variable(변수) </a> </span>
+                        <span className="sblock">
+                            <span className="sstitle"> variable 속성 </span>
+                            <span className="mblock">
+                                <li> --변수명:  ; #최소한 공백이라도 들어가여 변수 선언 </li>
+                                <li> transform: rotate(--변수명,default값); #변수값 </li>
+                                <li> transform: rotate(--변수명); #변수명 만 선언하고 변수값 삽입 가능 </li>
+                                <small> {'style="--변수명:넣을값;'} #html에서 요소속성에 이렇게 정의하면 0이라는 값이 들어감 </small>
+                                <li> calc(90deg * var(--i))과 같이 calc를 사용하여 값을 css 속성값에 넣어야 제대로 작동 </li>
+                                <li> css변수에 값이 잘못들어갈경우 default 값이 들어간다. </li>
                                 <li>  </li>
                             </span>
                         </span>
@@ -671,8 +818,6 @@ const CssBasic = (props) => {
                         <span className="sblock">
                             <span className="sstitle">  </span>
                             <span className="mblock">
-                                <li>  </li>
-                                <li>  </li>
                                 <li>  </li>
                             </span>
                         </span>
@@ -683,13 +828,14 @@ const CssBasic = (props) => {
                         <span className="sblock">
                             <span className="sstitle">  </span>
                             <span className="mblock">
-                                <li> opacity #명도 </li>
+                                <li> opactiry : 0.5; #요소의 명암을 조절 </li>
                                 <li> content #html 코드 추가 </li>
                                 <li> z-index #화면에 보일 때 우선순위 </li>
                                 <li> font-variant #폰트의 특성 부여(첨자 등) </li>
                                 <li> !important #우선순위 </li>
-                                <li> text-indent </li>
-                                <li> visibility </li>
+                                <li> text-indent:10px; #들여쓰기 </li>
+                                <li> visibility: [visible, hidden, collapse] #레이아웃을 변경하지 않고 요소를 보이거나 숨김 </li>
+                                <li> pointer-events: [none, auto, inherit] #이벤트 요소를 제어 </li>
                                 <li>  </li>
                             </span>
                         </span>

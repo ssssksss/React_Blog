@@ -7,15 +7,19 @@ const HtmlBasic = (props) => {
 
         //위치 계산
         let elementHeight = document.getElementsByClassName('navMenu')[0].scrollHeight +
-            document.getElementsByClassName('navMenu2')[0].scrollHeight;
+            document.getElementsByClassName('navMenu2')[0].scrollHeight + 26;
         let testLeft = document.getElementsByClassName('navMenu2')[0].getBoundingClientRect().left;
         let testdis = document.getElementsByClassName('common_style')[0].getBoundingClientRect().left
             - document.getElementsByClassName('lblocknav_container')[0].getBoundingClientRect().left;
         // console.log(window.outerHeight);
 
+
         // 좌측 메뉴 이동 + 작은 버튼
-        if (document.documentElement.scrollTop > elementHeight && window.innerWidth < 1024) {
+        if (window.innerWidth < 1024) {
             blockRef.current[0].style.position = 'fixed';
+            document.documentElement.scrollTop < elementHeight ?
+                blockRef.current[0].style.top = (elementHeight + 30) + "px" :
+                blockRef.current[0].style.top = "10px";
             blockRef.current[0].style.left = document.getElementsByClassName('navMenu2')[0].getBoundingClientRect().left + "px";
             blockRef.current[0].style.maxWidth = '420px';
             blockRef.current[1].style.left = '25%';
@@ -25,9 +29,10 @@ const HtmlBasic = (props) => {
                 document.getElementsByClassName('lblocknav_btn')[0].style.display = 'inline-block';
         }
         // 좌측 메뉴 이동
-        else if (document.documentElement.scrollTop > elementHeight && window.innerWidth > 1023) {
+        else if (document.documentElement.scrollTop < elementHeight && window.innerWidth > 1023) {
             // 좌측 메뉴 위치 고정, 보여주기 , 간격은 사이값
             blockRef.current[0].style.position = 'fixed';
+            blockRef.current[0].style.top = elementHeight + "px";
             blockRef.current[0].style.display = 'inline-block';
             blockRef.current[0].style.maxWidth = testdis + "px";
             blockRef.current[0].style.height = window.outerHeight;
@@ -36,13 +41,17 @@ const HtmlBasic = (props) => {
             blockRef.current[1].style.left = '25%';
             document.getElementsByClassName('lblocknav_btn')[0].style.display = 'none';
         }
-        // 좌측 메뉴가 이동이 안되는 높이 일때 + 
-        else if (document.documentElement.scrollTop < elementHeight && window.innerWidth > 1023) {
-            blockRef.current[0].style.position = 'relative';
-            blockRef.current[0].style.left = '0px';
+        else if (document.documentElement.scrollTop > elementHeight && window.innerWidth > 1023) {
+            // 좌측 메뉴 위치 고정, 보여주기 , 간격은 사이값
+            blockRef.current[0].style.position = 'fixed';
+            blockRef.current[0].style.top = "10px";
             blockRef.current[0].style.display = 'inline-block';
+            blockRef.current[0].style.maxWidth = testdis + "px";
             blockRef.current[0].style.height = window.outerHeight;
-            blockRef.current[1].style.left = null;
+            blockRef.current[0].style.left = document.getElementsByClassName('navMenu2')[0].getBoundingClientRect().left + "px";
+            // 좌측에 메뉴가 생기므로 메인 메뉴를 왼쪽에서 이동시킴
+            blockRef.current[1].style.left = '25%';
+            document.getElementsByClassName('lblocknav_btn')[0].style.display = 'none';
         }
     }
 
@@ -84,7 +93,7 @@ const HtmlBasic = (props) => {
                             <a href="#span태그">span태그</a>
                             <a href="#h태그">h태그</a>
                             <a href="#p태그">p태그</a>
-                            <a href="#스타일 관련 태그">스타일 관련 태그</a>
+                            <a href="#글자 스타일 관련 태그">글자 스타일 관련 태그</a>
                             <a href="#시멘틱 태그">시멘틱 태그</a>
                             <a href="#a태그">a태그</a>
                             <a href="#link태그">link태그</a>
@@ -95,7 +104,7 @@ const HtmlBasic = (props) => {
                             <a href="#select태그">select태그</a>
                             <a href="#list태그">list태그</a>
                             <a href="#table태그">table태그</a>
-                            <a href="#detail태그">detail태그</a>
+                            <a href="#details태그">details태그</a>
                             <a href="#뷰포트(Viewport)"> 뷰포트(Viewport)  </a>
                             <a href="#">   </a>
                             <a href="#">   </a>
@@ -207,15 +216,17 @@ const HtmlBasic = (props) => {
                             </span>
                         </span>
                         <span className="mblock">
-                            <span className="stitle"> <a name="스타일 관련 태그"> 스타일 관련 태그 </a></span>
+                            <span className="stitle"> <a name="글자 스타일 관련 태그"> 글자 스타일 관련 태그 </a></span>
                             <li> 특징 : </li>
                             <li> 1. 인라인 속성 </li>
                             <li> 2. css스타일을 사용하지 않고도 사용됨 </li>
                             <li> 3. 솔직히 b, br태그 외에는 다른것은 가끔 사용하는것 같다</li>
                             <li> 4. css에서만 스타일을 적용해야 된다는 논쟁이 있는것으로 알고 있어서 저는 css에서만 스타일을 적용합니다</li>
                             <span className="sblock">
-                                <b> b태그 : 굵은 글씨 </b> <br />
-                                <i> i태그 : 이탤릭체 </i> <br />
+                                <b> b태그 : 굵은 글씨 </b> #시각적으로만 사용<br />
+                                <strong> strong태그 : 굵은 글씨 </strong> #스크린 리더로 읽게 되면 강조<br />
+                                <i> i태그 : 이탤릭체 #시각적으로만 사용 </i> <br />
+                                <em> em태그 : 이탤릭체 글씨</em> #스크린 리더로 읽게 되면 강조 <br />
                                 <ins> ins태그 : 글씨아래 밑줄 </ins> <br />
                                 <del> del태그 : 중간에 줄</del> <br />
                                 <mark style={{ backgroundColor: 'skyblue' }}> mark태그 : 형광펜 </mark> <br />
@@ -242,10 +253,11 @@ const HtmlBasic = (props) => {
 
                             <span className="sblock">
                                 <header className="sstitle"> header태그의 예시 </header>
-                                <nav className="sstitle"> nav태그의 예시 </nav>
-                                <aside className="sstitle"> aside태그의 예시 </aside>
-                                <section className="sstitle"> section태그의 예시 </section>
-                                <article className="sstitle"> article태그의 예시 </article>
+                                <nav className="sstitle tab_4"> nav태그의 예시 </nav>
+                                <main className="sstitle"> main태그의 예시 </main>
+                                <aside className="sstitle tab_4"> aside태그의 예시 </aside>
+                                <article className="sstitle tab_4"> article태그의 예시 , 독립적 </article>
+                                <section className="sstitle tab_4"> section태그의 예시 , 연관된 내용을 묶음 </section>
                                 <footer className="sstitle"> footer태그의 예시 </footer>
                                 <div> 시멘틱 태그는 div태그이지만 이름만 다른 태그인 것을 알 수 있다. </div>
                             </span>
@@ -480,6 +492,16 @@ const HtmlBasic = (props) => {
                                     </ol>
                                 </li>
                             </span>
+                            <span className="sblock">
+                                <li> &lt; dl &gt; </li>
+                                <li className="tab_4"> &lt; dt &gt; 단어제목 &lt; /dt &gt; </li>
+                                <li className="tab_4"> &lt; dd &gt; 단어설명 &lt; /dd &gt; </li>
+                                <li> &lt; /dl &gt; </li>
+                                <dl>
+                                    <dt> 단어 </dt>
+                                    <dd style={{ marginLeft: "20px" }}> 설명 </dd>
+                                </dl>
+                            </span>
                         </span>
                         <span className="mblock">
                             <span className="stitle"> <a name="table태그"> table태그 </a></span>
@@ -558,7 +580,7 @@ const HtmlBasic = (props) => {
                             </span>
                         </span>
                         <span className="mblock">
-                            <span className="stitle"> <a name="detail태그"> detail태그 </a></span>
+                            <span className="stitle"> <a name="details태그"> details태그 </a></span>
                             <li> 특징 : </li>
                             <li> 1. block속성 </li>
                             <li> 2. 메뉴를 펼치고 접는 것을 하는 태그 </li>

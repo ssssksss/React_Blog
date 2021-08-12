@@ -6,8 +6,13 @@ const WindowList = (props) => {
     }
 
     return (
-        <div className="windowlist">
-            <button onClick={() => { send('windowcommand') }}> 윈도우 명령어 </button>
+        <div className="menucontainer">
+            <div className="menu menu1">
+                <button onClick={() => { send('windowcommand') }}> 윈도우 명령어 </button>
+            </div>
+            <div className="menu menu2">
+                <button onClick={() => { send('windowsystem') }}> 윈도우 시스템 </button>
+            </div>
         </div>
     );
 }

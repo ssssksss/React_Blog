@@ -1,25 +1,3 @@
-import React from 'react';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 const JspServletJstl = (props) => {
 
     return (
