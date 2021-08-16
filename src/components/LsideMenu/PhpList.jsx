@@ -1,4 +1,5 @@
 import React from 'react';
+import './LsideMenuStyle.css';
 
 const PhpList = (props) => {
     function send(page2) {

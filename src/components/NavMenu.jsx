@@ -37,7 +37,7 @@ const NavMenu = (props) => {
                 <button onClick={() => { send("contructdata") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/DataStructure_icon.svg'} /> 자료구조 </button>
                 <button onClick={() => { send("cloud") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Cloud_icon.svg'} /> 클라우드 </button>
                 <button onClick={() => { send("window") }}>  <img src={process.env.PUBLIC_URL + '/img/NavMenu/Window_icon.svg'} /> window</button>
-                <button onClick={() => { send("rinux") }}>   rinux </button>
+                <button onClick={() => { send("linux") }}>   <img src={process.env.PUBLIC_URL + '/img/NavMenu/Linux_icon.svg'} /> Linux </button>
                 <button onClick={() => { send("term") }}> 용어 </button>
                 <button onClick={() => { send("keymap") }}> 단축키&amp;설정 </button>
                 <button onClick={() => { send("github") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Github_icon.svg'} /> 깃허브 </button>

@@ -1,4 +1,5 @@
 import React from 'react';
+import './LsideMenuStyle.css';
 
 const BlankList = (props) => {
     function send(page2) {

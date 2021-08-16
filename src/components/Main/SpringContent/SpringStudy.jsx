@@ -96,7 +96,6 @@ const SpringStudy = (props) => {
 								<a href="#AOP(Aspect Oriented Programming)" className="col_p"> AOP(Aspect Oriented Programming) </a>
 								<a href="#컨테이너" className="col_p"> 컨테이너 </a>
 								<a href="#MVC" className="col_p"> MVC </a>
-								<a href="#JPA(Java Persistence API)" className="col_p"> JPA(Java Persistence API) </a>
 								<a href="#lombok 어노테이션" className="col_p"> lombok 어노테이션 </a>
 								<a href="#" className="col_p">  </a>
 								{/* <a href="#" className="col_p"> </a> */}
@@ -359,39 +358,6 @@ const SpringStudy = (props) => {
 								<li> 6. ViewResolver를 통해 View와 연결되어 화면으로 출력 </li>
 							</span>
 						</span>
-						{/*  */}
-						<span className="mblock">
-							<span className="stitle"> <a name="JPA(Java Persistence API)"> JPA(Java Persistence API) </a> </span>
-
-							<li> <small> 자바의 영속성 관리와 ORM을 위한 표준 기술  </small> </li>
-							<li> <small> DBMS가 바뀌어도 타입 등을 변경할 필요가 없다는 장점이 있지만 쿼리문에 대한
-								사용법을 자세히 알지 못하면 사용하기 어렵다. </small> </li>
-							<li> <small> JPA의 구현체 Hibernate,EclipseLink,DataNucleus  </small> </li>
-							{/* <li> <small>   </small> </li> */}
-
-							<span className="sblock">
-								<span className="stitle"> 쿼리 메소드 </span>
-
-								<li> <small> 컬럼은 대문자로 시작 </small> </li>
-								<span className="sstitle"> 레포지토리.findByAll() </span>
-								<li> select * from 테이블 </li>
-								<span className="sstitle">  findBy컬럼1(String 컬럼) </span>
-								<li> select *  from 테이블 where 컬럼1 = 'userid' </li>
-								<span className="sstitle">  findBy컬럼1And컬럼2(String 컬럼,String 컬럼) </span>
-								<li> select * from 테이블 where 컬럼1='userid' and 컬럼2='userpwd';   </li>
-								<span className="sstitle">  findBy컬럼1Or컬럼2 </span>
-								<li> select * from 테이블 where 컬럼1='userid' or 컬럼2='userpwd';  </li>
-								<span className="sstitle">   </span>
-								<li>  </li>
-								<span className="sstitle">   </span>
-								<li>  </li>
-								<span className="sstitle">   </span>
-								<li>  </li>
-
-							</span>
-
-						</span>
-
 						{/*  */}
 						<span className="mblock">
 							<span className="stitle">

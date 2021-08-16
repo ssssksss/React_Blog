@@ -6,8 +6,10 @@ const HackingAttack = (props) => {
     function logit() {
         setScrollY(window.pageYOffset);
 
+
         //위치 계산
-        let elementHeight = document.getElementsByClassName('navMenu')[0].scrollHeight +
+        let elementHeight1 = document.getElementsByClassName('navMenu')[0].scrollHeight;
+        let elementHeight2 = document.getElementsByClassName('navMenu')[0].scrollHeight +
             document.getElementsByClassName('navMenu2')[0].scrollHeight + 26;
         let testLeft = document.getElementsByClassName('navMenu2')[0].getBoundingClientRect().left;
         let testdis = document.getElementsByClassName('common_style')[0].getBoundingClientRect().left
@@ -18,8 +20,8 @@ const HackingAttack = (props) => {
         // 좌측 메뉴 이동 + 작은 버튼
         if (window.innerWidth < 1024) {
             blockRef.current[0].style.position = 'fixed';
-            document.documentElement.scrollTop < elementHeight ?
-                blockRef.current[0].style.top = (elementHeight + 30) + "px" :
+            document.documentElement.scrollTop < elementHeight1 ?
+                blockRef.current[0].style.top = elementHeight1 + "px" :
                 blockRef.current[0].style.top = "10px";
             blockRef.current[0].style.left = document.getElementsByClassName('navMenu2')[0].getBoundingClientRect().left + "px";
             blockRef.current[0].style.maxWidth = '420px';
@@ -30,10 +32,10 @@ const HackingAttack = (props) => {
                 document.getElementsByClassName('lblocknav_btn')[0].style.display = 'inline-block';
         }
         // 좌측 메뉴 이동
-        else if (document.documentElement.scrollTop < elementHeight && window.innerWidth > 1023) {
+        else if (document.documentElement.scrollTop < elementHeight2 && window.innerWidth > 1023) {
             // 좌측 메뉴 위치 고정, 보여주기 , 간격은 사이값
             blockRef.current[0].style.position = 'fixed';
-            blockRef.current[0].style.top = elementHeight + "px";
+            blockRef.current[0].style.top = elementHeight2 + "px";
             blockRef.current[0].style.display = 'inline-block';
             blockRef.current[0].style.maxWidth = testdis + "px";
             blockRef.current[0].style.height = window.outerHeight;
@@ -42,7 +44,7 @@ const HackingAttack = (props) => {
             blockRef.current[1].style.left = '25%';
             document.getElementsByClassName('lblocknav_btn')[0].style.display = 'none';
         }
-        else if (document.documentElement.scrollTop > elementHeight && window.innerWidth > 1023) {
+        else if (document.documentElement.scrollTop > elementHeight2 && window.innerWidth > 1023) {
             // 좌측 메뉴 위치 고정, 보여주기 , 간격은 사이값
             blockRef.current[0].style.position = 'fixed';
             blockRef.current[0].style.top = "10px";
@@ -203,6 +205,38 @@ const HackingAttack = (props) => {
                             <span className="sblock">
                                 <span className="sstitle"> 많은 장치들이 여러곳에서 한 리소스를 타깃으로 잡고 공격을 하는 방법 </span>
                                 <span className="mblock">
+                                    <li>  </li>
+                                </span>
+                            </span>
+                        </details>
+                    </span>
+                    {/*  */}
+                    <span className="mblock">
+                        <details>
+                            <summary className="stitle"> ▶ 무작위 스캔 공격 <a name="무작위 스캔 공격" style={{ visibility: "hidden" }}> 무작위 스캔 공격 </a> </summary>
+                            <span className="sblock">
+                                <span className="sstitle"> 여러 컴퓨터를 탐색하여 열려있는 포트, 서비스, OS버전 등 취약한 정보를 가져온다. </span>
+                                <span className="mblock">
+                                    <li> 해킹 공격을 하기전에 사전 답사를 하는 행동 </li>
+                                </span>
+                                <span className="sstitle"> ARP Scan </span>
+                                <span className="mblock">
+                                    <li> ARP 프로토콜을 이용한 탐샌 방법 ,  </li>
+                                    <li>  </li>
+                                </span>
+                                <span className="sstitle"> ICMP Scan </span>
+                                <span className="mblock">
+                                    <li>  </li>
+                                    <li>  </li>
+                                </span>
+                                <span className="sstitle"> TCP/UDP Scan </span>
+                                <span className="mblock">
+                                    <li>  </li>
+                                    <li>  </li>
+                                </span>
+                                <span className="sstitle"> Stealth Scan </span>
+                                <span className="mblock">
+                                    <li>  </li>
                                     <li>  </li>
                                 </span>
                             </span>

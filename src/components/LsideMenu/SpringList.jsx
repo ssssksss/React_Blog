@@ -16,6 +16,7 @@ const SpringList = (props) => {
                 <button onClick={() => { send('lombok') }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Lombok_icon.svg'} /> Lombok </button>
                 <button onClick={() => { send('annotation') }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Annotation_icon.svg'} /> Annotation </button>
                 <button onClick={() => { send('springsetting') }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Settings_icon.svg'} />  <span> 외부 설정 파일 </span> </button>
+                <button onClick={() => { send('springjpa') }}>  Spring JPA </button>
                 <button onClick={() => { send('springapi') }}>  Spring 관련 API </button>
                 <button onClick={() => { send('springoauth2') }}>  Spring OAuth2 </button>
                 <button onClick={() => { send('springsecurity') }}>  Spring Security </button>

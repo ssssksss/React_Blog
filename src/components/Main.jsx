@@ -2,7 +2,11 @@ import React from 'react';
 import HtmlBasic from './Main/HtmlContent/HtmlBasic';
 import HtmlDOM from './Main/HtmlContent/HtmlDOM';
 import JspServletInformation from './Main/JspServletContent/JspServletInformation';
+//자바
 import JavaBasic from './Main/JavaContent/JavaBasic';
+import Serializable from './Main/JavaContent/Serializable';
+import Modifier from './Main/JavaContent/Modifier';
+//JSP
 import JspServletBasic from './Main/JspServletContent/JspServletBasic';
 import JspServletBulletinBoard from './Main/JspServletContent/JspServletBulletinBoard';
 import JspServletJstl from './Main/JspServletContent/JspServletJstl';
@@ -15,6 +19,7 @@ import SpringStudy from './Main/SpringContent/SpringStudy';
 import Thymeleaf from './Main/SpringContent/Thymeleaf';
 import Lombok from './Main/SpringContent/Lombok';
 import Annotation from './Main/SpringContent/Annotation';
+import SpringJpa from './Main/SpringContent/SpringJpa';
 import SpringSetting from './Main/SpringContent/SpringSetting';
 import SpringAPI from './Main/SpringContent/SpringAPI';
 import SpringOAuth2 from './Main/SpringContent/SpringOAuth2';
@@ -22,15 +27,26 @@ import SpringSecurity from './Main/SpringContent/SpringSecurity';
 import SpringSecurityExCode1 from './Main/SpringContent/SpringSecurityExCode1';
 import SpringSecurityExCode2 from './Main/SpringContent/SpringSecurityExCode2';
 import SpringSecurityExCode3 from './Main/SpringContent/SpringSecurityExCode3';
-// import SpringSecurityExCode4 from './Main/SpringContent/SpringSecurityExCode4';
+import SpringSecurityExCode4 from './Main/SpringContent/SpringSecurityExCode4';
+// import SpringSecurityExCode5 from './Main/SpringContent/SpringSecurityExCode5';
 // window
 import WindowCommand from './Main/WindowContent/WindowCommand';
 import WindowSystem from './Main/WindowContent/WindowSystem';
-// rinux
-import RinuxStudy from './Main/RinuxContent/RinuxStudy';
+// 리눅스
+import LinuxStudy from './Main/LinuxContent/LinuxStudy';
+import LinuxCommand from './Main/LinuxContent/LinuxCommand';
+import MobaXterm from './Main/LinuxContent/MobaXterm';
+import VimEditor from './Main/LinuxContent/VimEditor';
+import LinuxDirectory from './Main/LinuxContent/LinuxDirectory';
+// DB
 import OracleDBStudy from './Main/DatabaseContent/OracleDBStudy';
 import MySQLStudy from './Main/DatabaseContent/MySQLStudy';
 import DatabaseName from './Main/DatabaseContent/DatabaseName';
+// 디자인 패턴
+import MVC2 from './Main/DesignPatternContent/MVC2';
+import MVP from './Main/DesignPatternContent/MVP';
+import MVVM from './Main/DesignPatternContent/MVVM';
+// 단축키 및 설정
 import VscodeKeyMap from './Main/KeyMapContent/VscodeKeyMap';
 import IntellijKeyMap from './Main/KeyMapContent/IntellijKeyMap';
 import EclipseKeyMap from './Main/KeyMapContent/EclipseKeyMap';
@@ -55,14 +71,22 @@ import Hash from './Main/SecurityContent/Hash';
 import EncodingDecoding from './Main/SecurityContent/EncodingDecoding';
 import HackingAttack from './Main/SecurityContent/HackingAttack';
 import IpSpoofing from './Main/SecurityContent/IpSpoofing';
+// 자바스크립트
+import JavaScriptStudy from './Main/JavaScriptContent/JavaScriptStudy';
 // CSS
 import CssBasic from './Main/CssContent/CssBasic';
 import ExBlurBusinessCard from './Main/CssContent/ExBlurBusinessCard';
 //  네트워크
 import NetworkStudy from './Main/NetworkContent/NetworkStudy';
-import NetworkWireshark from './Main/NetworkContent/NetworkWireshark';
 import NetworkCommand from './Main/NetworkContent/NetworkCommand';
 import SCTCache from './Main/BackendContent/SCTCache';
+import ArpProtocol from './Main/NetworkContent/ArpProtocol';
+import OSI7Layer from './Main/NetworkContent/OSI7Layer';
+import ThreeWayHandshake from './Main/NetworkContent/ThreeWayHandshake';
+import NetworkDevice from './Main/NetworkContent/NetworkDevice';
+import Network3 from './Main/NetworkContent/Network3';
+import Network4 from './Main/NetworkContent/Network4';
+import Wireshark from './Main/NetworkContent/Wireshark';
 //블록체인
 import Pow from './Main/BlockChainContent/Pow';
 // 
@@ -84,9 +108,16 @@ const Main = (props) => {
             // React
             case 'reactbasic':
                 return <ReactBasic> </ReactBasic>;
+            // JavaScript
+            case 'javascriptstudy':
+                return <JavaScriptStudy> </JavaScriptStudy>;
             //Java
             case 'javabasic':
                 return <JavaBasic> </JavaBasic>;
+            case 'serializable':
+                return <Serializable> </Serializable>;
+            case 'modifier':
+                return <Modifier> </Modifier>;
 
             // JSP & Servlet
             case 'jspservletinformation':
@@ -111,6 +142,8 @@ const Main = (props) => {
                 return <SpringStudy> </SpringStudy>;
             case 'thymeleaf':
                 return <Thymeleaf> </Thymeleaf>;
+            case 'springjpa':
+                return <SpringJpa> </SpringJpa>;
             case 'lombok':
                 return <Lombok> </Lombok>;
             case 'annotation':
@@ -129,8 +162,8 @@ const Main = (props) => {
                 return <SpringSecurityExCode2> </SpringSecurityExCode2>;
             case 'springsecurityexcode3':
                 return <SpringSecurityExCode3> </SpringSecurityExCode3>;
-            // case 'springsecurityexcode4':
-            // return <SpringSecurityExCode4> </SpringSecurityExCode4>;
+            case 'springsecurityexcode4':
+                return <SpringSecurityExCode4> </SpringSecurityExCode4>;
             // case 'springsecurityexcode5':
             // return <SpringSecurityExCode5> </SpringSecurityExCode5>;
             // case 'springsecurityexcode6':
@@ -148,12 +181,20 @@ const Main = (props) => {
             // 프론트 엔드 개발
             case 'frontend':
                 return <Frontend> </Frontend>;
+            // DB
             case 'oracledbstudy':
                 return <OracleDBStudy> </OracleDBStudy>;
             case 'mysqlstudy':
                 return <MySQLStudy> </MySQLStudy>;
             case 'databasename':
                 return <DatabaseName> </DatabaseName>;
+            // 디자인 패턴
+            case 'mvc2':
+                return <MVC2> </MVC2>;
+            case 'mvp':
+                return <MVP> </MVP>;
+            case 'mvvm':
+                return <MVVM> </MVVM>;
             //보안
             case 'jwt':
                 return <Jwt> </Jwt>;
@@ -173,18 +214,38 @@ const Main = (props) => {
             //네트워크
             case 'networkstudy':
                 return <NetworkStudy> </NetworkStudy>;
-            case 'networkwireshark':
-                return <NetworkWireshark> </NetworkWireshark>;
             case 'networkcommand':
                 return <NetworkCommand> </NetworkCommand>;
+            case 'arpprotocol':
+                return <ArpProtocol> </ArpProtocol>;
+            case 'osi7layer':
+                return <OSI7Layer> </OSI7Layer>;
+            case 'threewayhandshake':
+                return <ThreeWayHandshake> </ThreeWayHandshake>;
+            case 'networkdevice':
+                return <NetworkDevice> </NetworkDevice>;
+            case 'network3':
+                return <Network3> </Network3>;
+            case 'network4':
+                return <Network4> </Network4>;
+            case 'wireshark':
+                return <Wireshark> </Wireshark>;
             //윈도우
             case 'windowcommand':
                 return <WindowCommand> </WindowCommand>;
             case 'windowsystem':
                 return <WindowSystem> </WindowSystem>;
             //리눅스
-            case 'rinuxstudy':
-                return <RinuxStudy> </RinuxStudy>;
+            case 'linuxstudy':
+                return <LinuxStudy> </LinuxStudy>;
+            case 'linuxcommand':
+                return <LinuxCommand> </LinuxCommand>;
+            case 'mobaxterm':
+                return <MobaXterm> </MobaXterm>;
+            case 'vimeditor':
+                return <VimEditor> </VimEditor>;
+            case 'linuxdirectory':
+                return <LinuxDirectory> </LinuxDirectory>;
             //용어
             case 'term':
                 return <Term> </Term>;

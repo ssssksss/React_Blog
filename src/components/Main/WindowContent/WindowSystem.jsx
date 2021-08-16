@@ -143,6 +143,45 @@ const WindowSystem = (props) => {
                     {/*  */}
                     <span className="mblock">
                         <details>
+                            <summary className="stitle"> ▶ 윈도우 10 관리자 권한 실행창 없애는 방법 <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+                            <span className="sblock">
+                                <span className="sstitle"> 관리자 권한을 사용하는 이유 </span>
+                                <span className="mblock">
+                                    <li> 사용자 컴퓨터 레지스트리에 접근이 필요한 경우 , 레지스트리는 윈도우 시스템의 모든 설정 데이터를 모아두는 중앙 저장소 </li>
+                                </span>
+                                {/*  */}
+                                <span className="sstitle"> 윈도우 10 관리자 권한 실행창 없애는 방법  </span>
+                                <span className="mblock">
+                                    <li> 돋보기 검색 "사용자 계정 컨트롤 설정 변경" - </li>
+                                </span>
+                                {/*  */}
+                                <span className="sstitle"> 관리자 권한으로 실행하기 1 </span>
+                                <span className="mblock">
+                                    <li> 실행 프로그램 우측클릭해서 관리자 권한으로 실행하기 </li>
+                                </span>
+                                {/*  */}
+                                <span className="sstitle"> 관리자 권한으로 실행하기 2 </span>
+                                <span className="mblock">
+                                    <li> 실행 프로그램 우측클릭해서 속성 - 고급 - 관리자 권한으로 실행 체크 </li>
+                                </span>
+                                <span className="sstitle"> 관리자 권한으로 실행하기 3 (권장x) </span>
+                                <span className="mblock">
+                                    <li> 실행(Win+R) - regedit - EnableLUA 항목 찾아서 0으로 만들면 되는데 그냥 모르느게 편함  </li>
+                                    <small>  경로 : 컴퓨터 - 키로컬머신 - 소프트웨어  - 마이크로소프트 - 윈도우즈 - 현재버전 - 정책들 - 시스템 </small>
+                                    <li>  </li>
+                                </span>
+                                {/*  */}
+                                <span className="sstitle">  </span>
+                                <span className="mblock">
+                                    <li>  </li>
+                                </span>
+                                {/*  */}
+                            </span>
+                        </details>
+                    </span>
+                    {/*  */}
+                    <span className="mblock">
+                        <details>
                             <summary className="stitle"> ▶ <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                             <span className="sblock">
                                 <span className="sstitle">  </span>

@@ -6,8 +6,10 @@ const NetworkStudy = (props) => {
     function logit() {
         setScrollY(window.pageYOffset);
 
+
         //위치 계산
-        let elementHeight = document.getElementsByClassName('navMenu')[0].scrollHeight +
+        let elementHeight1 = document.getElementsByClassName('navMenu')[0].scrollHeight;
+        let elementHeight2 = document.getElementsByClassName('navMenu')[0].scrollHeight +
             document.getElementsByClassName('navMenu2')[0].scrollHeight + 26;
         let testLeft = document.getElementsByClassName('navMenu2')[0].getBoundingClientRect().left;
         let testdis = document.getElementsByClassName('common_style')[0].getBoundingClientRect().left
@@ -16,9 +18,11 @@ const NetworkStudy = (props) => {
 
 
         // 좌측 메뉴 이동 + 작은 버튼
-        if (document.documentElement.scrollTop > elementHeight && window.innerWidth < 1024) {
+        if (window.innerWidth < 1024) {
             blockRef.current[0].style.position = 'fixed';
-            blockRef.current[0].style.top = (elementHeight + 30) + "px";
+            document.documentElement.scrollTop < elementHeight1 ?
+                blockRef.current[0].style.top = elementHeight1 + "px" :
+                blockRef.current[0].style.top = "10px";
             blockRef.current[0].style.left = document.getElementsByClassName('navMenu2')[0].getBoundingClientRect().left + "px";
             blockRef.current[0].style.maxWidth = '420px';
             blockRef.current[1].style.left = '25%';
@@ -28,10 +32,10 @@ const NetworkStudy = (props) => {
                 document.getElementsByClassName('lblocknav_btn')[0].style.display = 'inline-block';
         }
         // 좌측 메뉴 이동
-        else if (document.documentElement.scrollTop < elementHeight && window.innerWidth > 1023) {
+        else if (document.documentElement.scrollTop < elementHeight2 && window.innerWidth > 1023) {
             // 좌측 메뉴 위치 고정, 보여주기 , 간격은 사이값
             blockRef.current[0].style.position = 'fixed';
-            blockRef.current[0].style.top = elementHeight + "px";
+            blockRef.current[0].style.top = elementHeight2 + "px";
             blockRef.current[0].style.display = 'inline-block';
             blockRef.current[0].style.maxWidth = testdis + "px";
             blockRef.current[0].style.height = window.outerHeight;
@@ -40,7 +44,7 @@ const NetworkStudy = (props) => {
             blockRef.current[1].style.left = '25%';
             document.getElementsByClassName('lblocknav_btn')[0].style.display = 'none';
         }
-        else if (document.documentElement.scrollTop > elementHeight && window.innerWidth > 1023) {
+        else if (document.documentElement.scrollTop > elementHeight2 && window.innerWidth > 1023) {
             // 좌측 메뉴 위치 고정, 보여주기 , 간격은 사이값
             blockRef.current[0].style.position = 'fixed';
             blockRef.current[0].style.top = "10px";
@@ -93,10 +97,8 @@ const NetworkStudy = (props) => {
                                 <a href="#서버의 종류" className="col_p"> 서버의 종류 </a>
                                 <a href="#인터넷이란?" className="col_p"> 인터넷이란? </a>
                                 <a href="#WWW란?" className="col_p"> WWW란? </a>
-                                <a href="#OSI 7 Layer" className="col_p"> OSI 7 Layer </a>
                                 <a href="#프로토콜(protocol)이란?" className="col_p"> 프로토콜(protocol)이란? </a>
                                 <a href="#TCP/IP 프로토콜" className="col_p"> TCP/IP 프로토콜 </a>
-                                <a href="#3Way Handshake" className="col_p"> 3Way Handshake </a>
                                 <a href="#4Way Handshake" className="col_p"> 4Way Handshake </a>
                                 <a href="#UDP/IP 프로토콜" className="col_p"> UDP/IP 프로토콜 </a>
                                 <a href="#RIP 프로토콜" className="col_p"> RIP 프로토콜 </a>
@@ -247,70 +249,7 @@ const NetworkStudy = (props) => {
                         </details>
                     </span>
                     {/*  */}
-                    <span className="mblock">
-                        <details>
-                            <summary className="stitle"> ▶ OSI 7 Layer <a name="OSI 7 Layer" style={{ visibility: "hidden" }}> OSI 7 Layer  </a> </summary>
-                            <small> Open Systems Interconnection Reference Model , 프로토콜 디자인과 통신을 계층별로 나누어 설명하는 것 </small>
-                            <span className="sblock">
-                                <span className="sstitle"> 7 계층 , Application 응용 계층 </span>
-                                <small> 편지지 위에다가 글을 작성 </small>
-                                <span className="mblock">
-                                    <li> 인터페이스와 네트워크 서비스를 제공 #브라우저  </li>
-                                    <li> 사용자가 데이터를 생성하는 계층 </li>
-                                </span>
-                                {/*  */}
-                                <span className="sstitle"> 6 계층 , Presentation 표현 계층 </span>
-                                <small> 작성한 편지지를 편지봉투에 넣음  </small>
-                                <span className="mblock">
-                                    <li> 사용자가 입력한 데이터를 컴퓨터가 알 수 있게 해주는 확장자나 (html,css등)표현 방식을 알려주는 계층 </li>
-                                    <li> 암호화와 압축화를 지원하는 계층 </li>
-                                    <li>  </li>
-                                </span>
-                                {/*  */}
-                                <span className="sstitle"> 5 계층 Session , 세션 계층 </span>
-                                <span> 우체국이 하는지 안하는지 판단 </span>
-                                <span className="mblock">
-                                    <li> 네트워크 간에 연결을 하거나 끊거나, 유지 , 상태를 담당 </li>
-                                </span>
-                                {/*  */}
-                                <span className="sstitle"> 4 계층 Transport , 전송 계층 </span>
-                                <small> 빠른편지인지 일반편지인지 설정, 어느 나라로 보낼것인지 설정(이해하는 언어가 다름)  </small>
-                                <span className="mblock">
-                                    <li> 데이터의 전송방식을 설정(TCP, UDP)  </li>
-                                    <li> 서비스의 포트번호를 구별 : HTTP(80) , Telnet(23) , FTP(20,21)  </li>
-                                    <li> 장비 : L4 스위치 </li>
-                                    <li>  </li>
-                                </span>
-                                {/*  */}
-                                <span className="sstitle"> 3 계층 Network , 네트워크 계층 </span>
-                                <small> 편지가 도착할 목적지를 적음 </small>
-                                <span className="mblock">
-                                    <li> 논리적인 주소를 기반으로 출발지에서 목적지까지 경로를 설정하는 계층, 대표적으로 IP주소 </li>
-                                    <li> 장비 : 라우터, L3 스위치 </li>
-                                    <li>  </li>
-                                </span>
-                                {/*  */}
-                                <span className="sstitle"> 2 계층 DataLink , 데이터 링크 계층 </span>
-                                <small> 편지가 이동되는 운송수단 </small>
-                                <span className="mblock">
-                                    <li> MAC주소를 이용, 즉 노드와 노드의 전송 형태(기기마다 고유한 주소가 존재) </li>
-                                    <li> 1계층에서 보내는 방식에 따라서 달라짐 </li>
-                                    <li>  </li>
-                                    <li>  </li>
-                                </span>
-                                {/*  */}
-                                <span className="sstitle"> 1 계층 Physical , 물리 계층</span>
-                                <small> 편지가 실제 이동 되는 구간 </small>
-                                <span className="mblock">
-                                    <li> 2계층까지 만들어진 데이터를 이진수로 변환하여 실질적으로 이동되는 계층 </li>
-                                    <li> 장비 : 케이블, 커넥터, 리피터 </li>
-                                    <li>  </li>
-                                </span>
-                                {/*  */}
-                            </span>
-                        </details>
-                    </span>
-                    {/*  */}
+
                     <span className="mblock">
                         <details>
                             <summary className="stitle"> ▶ 프로토콜(protocol)이란? <a name="프로토콜(protocol)이란?" style={{ visibility: "hidden" }}> 프로토콜(protocol)이란? </a> </summary>
@@ -348,23 +287,7 @@ const NetworkStudy = (props) => {
                     </span>
                     {/*  */}
                     <span className="mblock">
-                        <details>
-                            <summary className="stitle"> ▶ 3Way Handshake <a name="3Way Handshake" style={{ visibility: "hidden" }}> 3Way Handshake </a> </summary>
-                            <span className="sblock">
-                                <span className="sstitle"> TCP 통신을 할 때 프로세스와 프로세스를 연결하기 위해 수행하는 과정, TCP연결 초기화 </span>
-                                <small> 서버와 클라이언트가 서로 데이터를 전송할 수 있는 준비환경이 되었다는 것을 확인 </small>
-                                <span className="mblock">
-                                    <li> 1. 클라이언트 → 서버 <br /> 클라이언트는 SYN 패킷 발송하고 SYN/ACK를 기다리는 SYN_SENT 상태로 변경 </li>
-                                    <li> 1-1.  → 서버 <br /> 서버는 초기에 LISTEN 상태, 클라이언트에게 SYN 요청을 받음 , SYN flag 설정을 바꿈  </li>
-                                    <li> 2. 서버 → 클라이언트 <br /> ACK와 SYN 발송, 서버는 SYN_RECEIVED 상태 </li>
-                                    <li> 3. 클라이언트 → 서버 <br /> 클라이언트 ACK 발송 , 클라이언트 ESTABLISHED 상태 </li> <br />
-                                    <li> 3-1. → 서버 <br /> 서버는 ESTABLISHE 상태 </li> <br />
-                                    <li> TCP :  </li>
-                                    <li> SYN(Synchronize Sequence Numbers) : 접속 요청 패킷 </li>
-                                    <li> ACK(Acknowledgment) : </li>
-                                </span>
-                            </span>
-                        </details>
+
                     </span>
                     {/*  */}
                     <span className="mblock">
