@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/React_Blog/static/css/main.970afff5.chunk.css",
-    "main.js": "/React_Blog/static/js/main.3b072b4c.chunk.js",
-    "main.js.map": "/React_Blog/static/js/main.3b072b4c.chunk.js.map",
+    "main.css": "/React_Blog/static/css/main.115a0f25.chunk.css",
+    "main.js": "/React_Blog/static/js/main.ffc3b898.chunk.js",
+    "main.js.map": "/React_Blog/static/js/main.ffc3b898.chunk.js.map",
     "runtime-main.js": "/React_Blog/static/js/runtime-main.3978e9fe.js",
     "runtime-main.js.map": "/React_Blog/static/js/runtime-main.3978e9fe.js.map",
     "static/js/2.a1467d6b.chunk.js": "/React_Blog/static/js/2.a1467d6b.chunk.js",
@@ -10,14 +10,14 @@
     "static/js/3.66ca1520.chunk.js": "/React_Blog/static/js/3.66ca1520.chunk.js",
     "static/js/3.66ca1520.chunk.js.map": "/React_Blog/static/js/3.66ca1520.chunk.js.map",
     "index.html": "/React_Blog/index.html",
-    "static/css/main.970afff5.chunk.css.map": "/React_Blog/static/css/main.970afff5.chunk.css.map",
+    "static/css/main.115a0f25.chunk.css.map": "/React_Blog/static/css/main.115a0f25.chunk.css.map",
     "static/js/2.a1467d6b.chunk.js.LICENSE.txt": "/React_Blog/static/js/2.a1467d6b.chunk.js.LICENSE.txt",
     "static/media/index.css": "/React_Blog/static/media/mountain_and_sea.8a14d879.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.3978e9fe.js",
     "static/js/2.a1467d6b.chunk.js",
-    "static/css/main.970afff5.chunk.css",
-    "static/js/main.3b072b4c.chunk.js"
+    "static/css/main.115a0f25.chunk.css",
+    "static/js/main.ffc3b898.chunk.js"
   ]
 }
