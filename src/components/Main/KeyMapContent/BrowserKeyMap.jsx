@@ -1,16 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 
-const Term2 = (props) => {
+const BrowserKeyMap = (props) => {
 
-    const [scrollY, setScrollY] = useState(0);
     function logit() {
-        setScrollY(window.pageYOffset);
 
         //위치 계산
         let elementHeight1 = document.getElementsByClassName('navMenu')[0].scrollHeight;
         let elementHeight2 = document.getElementsByClassName('navMenu')[0].scrollHeight +
             document.getElementsByClassName('navMenu2')[0].scrollHeight + 26;
-        let testLeft = document.getElementsByClassName('navMenu2')[0].getBoundingClientRect().left;
         let testdis = document.getElementsByClassName('common_style')[0].getBoundingClientRect().left
             - document.getElementsByClassName('lblocknav_container')[0].getBoundingClientRect().left;
         // console.log(window.outerHeight);
@@ -119,4 +116,4 @@ const Term2 = (props) => {
     );
 }
 
-export default Term2;
+export default BrowserKeyMap;

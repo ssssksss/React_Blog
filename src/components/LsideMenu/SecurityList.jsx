@@ -9,6 +9,7 @@ const BlankList = (props) => {
     return (
         <div className="menucontainer">
             <div className="menu menu1">
+                <button onClick={() => { send('securitystudy') }}> 보안 공부 </button>
                 <button onClick={() => { send('jwt') }}> JWT 토큰 </button>
                 <button onClick={() => { send('hmac') }}> HMAC 알고리즘 </button>
                 <button onClick={() => { send('hash') }}> HASH </button>

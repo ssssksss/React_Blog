@@ -131,6 +131,9 @@ const JavaScriptStudy = (props) => {
                                     <li> 논리연산자 : and({'&&'}) or({'||'}) not(!)  </li>
                                     <li> 비트연산자 : {' & | ^ << >> '}  </li>
                                     <li> 삼항연산자 : 변수 = 조건식 ? 참일때 리턴값 : 거짓일때 리턴값  </li>
+                                    <li> null병합연산자 : const 변수1 = 변수2 ?? 값(변수2의 값이 null,undefined일경우) </li>
+                                    <li> null병합연산자 : 변수나메소드 ?? 변수2 ?? 변수3 ?? "비어있음"  </li>
+                                    <small> null,undefined일 경우 ?? 사용 , 매개변수로 받는 default연산자는 null에서는 null값을 출력하는 차이가 있음 </small>
                                     <li> 문자열과 문자열을 더하게 되면 하나의 문자열로 만들어진다. </li>
                                     <li> ${'{변수명}'} #이와 같이 사용을 해서 변수를 출력하게 만듬 </li>
                                     <li> 조건문 : if() , else if() , else </li>
@@ -159,7 +162,11 @@ const JavaScriptStudy = (props) => {
                                     <li> 함수명(); #함수 사용 </li>
                                     <li> 프로토타입(클래스라고 생각) : 만들어지면 Object 타입도 같이 상속을 받음 </li>
                                     <li> function 프로토타입(멤버변수, 멤버변수, 멤버변수) {'{ this.변수 = 변수 ... }'} #프로토타입을 정의? </li>
+                                    <li> const 객체1 = Object.assign(객체2,객체3); , #객체2,3의 필드를 객체1에 넣어서 하나로 만듬 </li>
+                                    <li> const 객체1 = (...객체2,...객체3); , #객체2,3의 필드를 객체1에 넣어서 하나로 만듬(Spread Syntax) </li>
                                     <li> const 프로토타입객체 = new 클래스?(1,2,3); </li>
+                                    <li> const 값 = 객체.필드?.(필드의필드); (Optional Chanining) </li>
+                                    <li> const {'{멤버변수1,멤버변수2} = 매개변수(객체) '} , #객체에 있는 멤버변수의 이름에 맞춰 멤버변수에 값이 들어간다. </li>
                                     <li> 프로토타입객체.필드명 = 값; #자동으로 프로토타입객체에 필드와 값이 추가가 된다. </li>
                                     <li> 프로토타입.prototype.필드명 = 값 #프로토타입에 필드를 추가하는 방법 </li>
                                     <li> 프로토타입.prototype.메소드명 = function() {'{ 메소드내용 } '} #프로토 타입에 메소드 추가 생성 </li>

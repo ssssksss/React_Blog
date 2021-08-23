@@ -18,6 +18,7 @@ const NetworkList = (props) => {
             <div className="menu menu2">
                 <button onClick={() => { send('threewayhandshake') }}> 3WayHandshake </button>
                 <button onClick={() => { send('networkdevice') }}> 네트워크 관련 기기 </button>
+                <button onClick={() => { send('networkprotocol') }}> 네트워크 프로토콜 </button>
                 <button onClick={() => { send('network3') }}> network3 </button>
                 <button onClick={() => { send('network4') }}> network4 </button>
             </div>

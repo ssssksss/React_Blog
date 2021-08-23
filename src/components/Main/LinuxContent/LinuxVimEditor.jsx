@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
-const VimEditor = (props) => {
+const LinuxVimEditor = (props) => {
 
     function logit() {
 
@@ -104,10 +104,10 @@ const VimEditor = (props) => {
                             <span className="sblock">
                                 {/*  */}
                                 <details>
-
-                                    <summary className="sstitle"> ▶ vim 실행방법 </summary>
+                                    <summary className="sstitle"> ▶ 기타 </summary>
                                     <span className="mblock">
-                                        <li> vi text.txt </li>
+                                        <li> vi 파일명 # vi 편집기로 파일 실행</li>
+                                        <li> # : vi 편집기에서 주석 </li>
                                     </span>
                                 </details>
                                 {/*  */}
@@ -127,7 +127,6 @@ const VimEditor = (props) => {
                                         <li> G : 가장 마지막 줄로 이동 </li>
                                         <li> gg : 가장 첫번째 줄로 이동 </li>
                                         <li> ngg : n번째에 해당하는 줄로 이동 </li>
-                                        <li> esc : 명령모드로 돌아가기 </li>
                                     </span>
                                 </details>
                                 {/*  */}
@@ -140,6 +139,7 @@ const VimEditor = (props) => {
                                         <li> a : 현재커서가 위치한 다음 부터 입력가능 </li>
                                         <li> A : 현재커서가 위치한 가장 끝문장부터 입력가능 </li>
                                         <li> o : 다음줄 부터 문자를 입력가능 </li>
+                                        <li> esc : 명령모드로 돌아가기 </li>
                                     </span>
                                 </details>
                                 {/*  */}
@@ -156,7 +156,13 @@ const VimEditor = (props) => {
                                         <li> %s/[변경하려는단어]/[변경할단어]/g : 모든 문장의 단어 바꾸기 </li>
                                         <li> ns/[변경하려는단어]/[변경할단어]/g : n번째 문장의 단어 바꾸기 </li>
                                         <li> n,ms/[변경하려는단어]/[변경할단어]/g : n~m번째 문장의 단어 바꾸기 </li>
-                                        <li>  </li>
+                                        <li className="sblock"> <span className="sstitle"> Ubuntu </span>
+                                            <li> set number : 줄번호를 표시해주는 명령어 </li>
+                                            <li> set nocp : 오리지널 vi의 기능을 없앰 </li>
+                                            <li> set bs=2 : 삽입모드에서 백스페이스를 사용하게함 </li>
+                                            <li> vi /root/.exrc #vi에 적용 </li>
+                                            <li> source /root/.exrc #껏다가 킨것처럼 적용 </li>
+                                        </li>
                                     </span>
                                 </details>
                                 {/*  */}
@@ -211,4 +217,4 @@ const VimEditor = (props) => {
     );
 }
 
-export default VimEditor;
+export default LinuxVimEditor;

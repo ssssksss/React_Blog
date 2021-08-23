@@ -110,21 +110,6 @@ const LinuxStudy = (props) => {
                   <li> 실행해서 설치하기 </li>
                 </span>
                 {/*  */}
-                <span className="sstitle"> MobaXterm 다운로드 </span>
-                <span className="mblock">
-                  <li> <a href="https://mobaxterm.mobatek.net/download.html" target="_blank" rel="noreferrer"> 다운로드 페이지 </a> </li>
-                  <li> Home Edition - Portable edition 다운로드 </li>
-                  <li> 알집파일 우측클릭 - 7-zip - ""에 풀고 폴더명을 MobaXterm으로 바꾸기   </li>
-                  <li> C드라이브 - app - 새폴더로 Run과 Terminal 이라고 만들기   </li>
-                  <li> Terminal 폴더안에 MobaXterm폴더를 이동시키기  </li>
-                  <li> MobaXterm폴더에 들어가서 MobaXterm_Personal.exe파일 바로가기 생성하기  </li>
-                  <li> 바로가기 생성한 파일을 Ctrl+X를 이용해서 잘라내기 그리고 잘라낸 파일 Ctrl+C로 복사  </li>
-                  <li> 복사한 파일을 아까 만들었던 상위폴더 Run에 Ctrl+V   </li>
-                  <li> 시스템 환경 변수 편집 - 고급 - 환경 변수 - 사용자 변수 Path 더블클릭   </li>
-                  <li> 새로만들기 - C:\app\Run 넣어주기  </li>
-                  <li> 그리고 Win + R 누르고 mob입력했을 때 실행되면 성공   </li>
-                </span>
-                {/*  */}
                 <span className="sstitle"> VMware Workstation Pro 다운로드 </span>
                 <span className="mblock">
                   <li> <a href="https://www.vmware.com/kr/products/workstation-pro/workstation-pro-evaluation.html" target="_blank" rel="noreferrer"> 다운로드 페이지 </a> </li>
@@ -136,48 +121,6 @@ const LinuxStudy = (props) => {
                   <li>  </li>
                 </span>
                 {/*  */}
-              </span>
-            </details>
-          </span>
-          {/*  */}
-          <span className="mblock">
-            <details>
-              <summary className="stitle"> ▶ VMware에 CentOS 설치하는 방법 <a name="" style={{ visibility: "hidden" }}> </a> </summary>
-              <span className="sblock">
-                <span className="sstitle">  </span>
-                <span className="mblock">
-                  <li> <a href="https://www.centos.org/download/" target="_blank" rel="noreferrer"> 다운로드 페이지 </a> </li>
-                  <li> CentOS Linux 7 ISO x86_64 클릭 </li>
-                  <li> <a href="http://ftp.kaist.ac.kr/CentOS/7.9.2009/isos/x86_64/" target="_blank" rel="noreferrer"> http://ftp.kaist.ac.kr/CentOS/7.9.2009/isos/x86_64/ 파일 다운로드 </a>  </li>
-                  <li> CentOS-7-x86_64-DVD-2009.iso 다운로드 </li>
-                  <li> VMware Workstation 실행 </li>
-                  <li> Create a New Virtual Machine </li>
-                  <li> Typical 클릭 </li>
-                  <li> I will install the operation system later 클릭 </li>
-                  <li> Linux , CentOS 7 64-bit 클릭 </li>
-                  <li> Virtual machine name: CentOS7_Server 이름으로 바꾸기 (안바꾸어도 상관은 없음) </li>
-                  <li> 20GB , Split virtual disk into multiple files 클릭 </li>
-                  <li> Customize Hardware... 클릭 </li>
-                  <li> Memory : 가상 램은 2GB(2048MB)로 변경 </li>
-                  <li> New CD/DVD (IDE) : Use ISO image file:에 아까받은 CentOS7 넣기 </li>
-                  <li> Network Adapter : Custom 부분에 VMnet8(NAT)로 선택 </li>
-                  <li> Sound Card, Printer는 remove (아래쪽에 버튼이 있음) </li>
-                  <li> close하고 finish </li>
-                  <li> Test this media &amp; install CentOS 7 클릭  </li>
-                  <li> 스크롤로 내려서 한국어 누르고 계속 진행 </li>
-                  <li> 키보드 - '+'키 클릭 -  english검색하고 영어(미국) 추가</li>
-                  <li> 소프트웨어 설치 - 개발 및 창조를 위한 워크스테이션 - 완료  </li>
-                  <small> GUI 등을 추가하기 위해서 선택 </small>
-                  <li> 설치대상 - 상단에 VMware 아이콘 체크박스를 클릭하고 다시한번더 클릭해서 인식되게 만듬 </li>
-                  <li> KDUMP 활성화는 비활성화 #메모리를 좀더 절약하기 위해서 </li>
-                  <li> 네트워크 및 호스트명 끔 → 켬  - 완료 </li>
-                  <li> 설치 시작 </li>
-                  <li> root 암호 : P@ssw0rd! </li>
-                  <li> 사용자 생성 : 영어로된아이디나이름 </li>
-                  <li> 라이센스 동의 - 완료     </li>
-                  <li> 한국 - 한국어(Hangul) - 다음  - 위치정보 끔 - 다음 - 건너뛰기 - 시작 </li>
-                  <li> 라이센스 동의 해주기 </li>
-                </span>
               </span>
             </details>
           </span>
@@ -197,45 +140,6 @@ const LinuxStudy = (props) => {
                 <span className="sstitle">  </span>
                 <span className="mblock">
                   <li>  </li>
-                </span>
-              </span>
-            </details>
-          </span>
-          {/*  */}
-          <span className="mblock">
-            <details>
-              <summary className="stitle"> ▶ VMware에 Ubuntu 설치하는 방법 <a name="" style={{ visibility: "hidden" }}> </a> </summary>
-              <span className="sblock">
-                <span className="sstitle">  </span>
-                <span className="mblock">
-                  <li> <a href="https://ubuntu.com/download/desktop/thank-you?version=20.04.2.0&amp;architecture=amd64" target="_blank" rel="noreferrer"> 다운로드 페이지 </a> </li>
-                  <li> CentOS-7-x86_64-DVD-2009.iso 다운로드 </li>
-                  <li> VMware Workstation 실행 </li>
-                  <li> Create a New Virtual Machine </li>
-                  <li> Typical 클릭 </li>
-                  <li> I will install the operation system later 클릭 </li>
-                  <li> Linux , CentOS 7 64-bit 클릭 </li>
-                  <li> Virtual machine name: CentOS7_Server 이름으로 바꾸기 (안바꾸어도 상관은 없음) </li>
-                  <li> 20GB , Split virtual disk into multiple files 클릭 </li>
-                  <li> Customize Hardware... 클릭 </li>
-                  <li> Memory : 가상 램은 2GB(2048MB)로 변경 </li>
-                  <li> New CD/DVD (IDE) : Use ISO image file:에 아까받은 CentOS7 넣기 </li>
-                  <li> Network Adapter : Custom 부분에 VMnet8(NAT)로 선택 </li>
-                  <li> Sound Card, Printer는 remove (아래쪽에 버튼이 있음) </li>
-                  <li> close하고 finish </li>
-                  <li> 한국어 선택하고 Ubuntu 설치  </li>
-                  <li> 키보드 레이아웃 선택: Korean 하고 101/104 선택하고 계속하기 </li>
-                  <li> 건드리지 않고 계속하기 클릭 </li>
-                  <li> 디스크를 지우고 Ubuntu설치 클릭 - 지금 설치 - 계속하기 </li>
-                  <li> 거주지역 Seoul </li>
-                  <li> 이름 : 이름 </li>
-                  <li> 컴퓨터 이름 : 이름.com </li>
-                  <li> 사용자 이름 선택 : </li>
-                  <li> 암호 선택 : P@ssw0rd! </li>
-                  <li>  </li>
-                  <li> 프로그램 - 시스템 도구 - 설정 - 개인 정보 - 화면잠금 - 끔 </li>
-                  <li> 프로그램 - 시스템 도구 - 설정 - 전원 - 빈화면 - 안함 </li>
-                  <li> 프로그램 - 시스템 도구 - 설정 - 터미널   </li>
                 </span>
               </span>
             </details>
@@ -332,6 +236,17 @@ const LinuxStudy = (props) => {
                 <small> sh : 최초의 쉘 , bash : 현재 리눅스에서 표준으로 채택된 쉘 , csh : C언어 기반으로 만들어진 쉘 </small>
                 <span className="mblock">
                   <li> 사용자가 컴퓨터에게 명령하는 것을 해석하는 곳 , 명령어 해석기, 명령어와 커널의 대화 통로 </li>
+                  <li> bash 셀의 특징
+                    <span className="sblock">
+                      <li> Alias기능(명령어 단축 기능) </li>
+                      <li> History 기능(위/아래 화살표 키) </li>
+                      <li> 연산 기능 </li>
+                      <li> Job Control 기능 </li>
+                      <li> 자동 이름 완성 기능(탭키) </li>
+                      <li> 프롬프트 제어 기능 </li>
+                      <li> 명령 편집 기능 </li>
+                    </span>
+                  </li>
                   <li>  </li>
                 </span>
                 {/*  */}

@@ -12,7 +12,10 @@ import JspServletBulletinBoard from './Main/JspServletContent/JspServletBulletin
 import JspServletJstl from './Main/JspServletContent/JspServletJstl';
 import JspServletEl from './Main/JspServletContent/JspServletEl';
 import Jdbc from './Main/JspServletContent/Jdbc';
+// 리액트
 import ReactBasic from './Main/ReactContent/ReactBasic';
+import ReactJavaScript from './Main/ReactContent/ReactJavaScript';
+// 스프링
 import SpringError from './Main/SpringContent/SpringError';
 import SpringCode from './Main/SpringContent/SpringCode';
 import SpringStudy from './Main/SpringContent/SpringStudy';
@@ -36,8 +39,12 @@ import WindowSystem from './Main/WindowContent/WindowSystem';
 import LinuxStudy from './Main/LinuxContent/LinuxStudy';
 import LinuxCommand from './Main/LinuxContent/LinuxCommand';
 import MobaXterm from './Main/LinuxContent/MobaXterm';
-import VimEditor from './Main/LinuxContent/VimEditor';
+import LinuxVimEditor from './Main/LinuxContent/LinuxVimEditor';
 import LinuxDirectory from './Main/LinuxContent/LinuxDirectory';
+import LinuxUbuntu from './Main/LinuxContent/LinuxUbuntu';
+import LinuxCentOS7 from './Main/LinuxContent/LinuxCentOS7';
+import LinuxShell from './Main/LinuxContent/LinuxShell';
+import LinuxShellScript from './Main/LinuxContent/LinuxShellScript';
 // DB
 import OracleDBStudy from './Main/DatabaseContent/OracleDBStudy';
 import MySQLStudy from './Main/DatabaseContent/MySQLStudy';
@@ -51,8 +58,12 @@ import VscodeKeyMap from './Main/KeyMapContent/VscodeKeyMap';
 import IntellijKeyMap from './Main/KeyMapContent/IntellijKeyMap';
 import EclipseKeyMap from './Main/KeyMapContent/EclipseKeyMap';
 import WindowKeyMap from './Main/KeyMapContent/WindowKeyMap';
+import BrowserKeyMap from './Main/KeyMapContent/BrowserKeyMap';
+// 용어
 import Term from './Main/TermContent/Term';
+// 깃허브
 import Github from './Main/GithubContent/GithubBasic';
+// 참고 블로그 및 사이트
 import RefBlog from './Main/RefBlogContent/RefBlog';
 import PythonStudy from './Main/PythonContent/PythonStudy';
 import AIStudy from './Main/AIContent/AIStudy';
@@ -87,6 +98,7 @@ import NetworkDevice from './Main/NetworkContent/NetworkDevice';
 import Network3 from './Main/NetworkContent/Network3';
 import Network4 from './Main/NetworkContent/Network4';
 import Wireshark from './Main/NetworkContent/Wireshark';
+import NetworkProtocol from './Main/NetworkContent/NetworkProtocol';
 //블록체인
 import Pow from './Main/BlockChainContent/Pow';
 // 
@@ -96,21 +108,28 @@ import './commonStyle.css';
 const Main = (props) => {
     const showpage = () => {
         switch (props.page2) {
+            // HTML
             case 'htmlbasic':
                 return <HtmlBasic> </HtmlBasic>;
             case 'htmldom':
                 return <HtmlDOM> </HtmlDOM>;
-            // Css 
+
+            // CSS 
             case 'cssbasic':
                 return <CssBasic> </CssBasic>;
             case 'ex blur business card':
                 return <ExBlurBusinessCard> </ExBlurBusinessCard>;
+
             // React
             case 'reactbasic':
                 return <ReactBasic> </ReactBasic>;
+            case 'reactjavascript':
+                return <ReactJavaScript> </ReactJavaScript>;
+
             // JavaScript
             case 'javascriptstudy':
                 return <JavaScriptStudy> </JavaScriptStudy>;
+
             //Java
             case 'javabasic':
                 return <JavaBasic> </JavaBasic>;
@@ -169,6 +188,7 @@ const Main = (props) => {
             // case 'springsecurityexcode6':
             // return <SpringSecurityExCode6> </SpringSecurityExCode6>;
             // DATA BASE
+
             // 백엔드 개발
             case 'backend':
                 return <Backend> </Backend>;
@@ -178,9 +198,11 @@ const Main = (props) => {
                 return <SCTCache> </SCTCache>;
             case 'backendbrowserdevtool':
                 return <BackendBrowserDevTool> </BackendBrowserDevTool>;
+
             // 프론트 엔드 개발
             case 'frontend':
                 return <Frontend> </Frontend>;
+
             // DB
             case 'oracledbstudy':
                 return <OracleDBStudy> </OracleDBStudy>;
@@ -188,6 +210,7 @@ const Main = (props) => {
                 return <MySQLStudy> </MySQLStudy>;
             case 'databasename':
                 return <DatabaseName> </DatabaseName>;
+
             // 디자인 패턴
             case 'mvc2':
                 return <MVC2> </MVC2>;
@@ -195,6 +218,7 @@ const Main = (props) => {
                 return <MVP> </MVP>;
             case 'mvvm':
                 return <MVVM> </MVVM>;
+
             //보안
             case 'jwt':
                 return <Jwt> </Jwt>;
@@ -208,9 +232,11 @@ const Main = (props) => {
                 return <HackingAttack> </HackingAttack>;
             case 'ipspoofing':
                 return <IpSpoofing> </IpSpoofing>;
+
             //알고리즘
             case 'algorithmstudy':
                 return <AlgorithmStudy> </AlgorithmStudy>;
+
             //네트워크
             case 'networkstudy':
                 return <NetworkStudy> </NetworkStudy>;
@@ -230,11 +256,15 @@ const Main = (props) => {
                 return <Network4> </Network4>;
             case 'wireshark':
                 return <Wireshark> </Wireshark>;
+            case 'networkprotocol':
+                return <NetworkProtocol> </NetworkProtocol>;
+
             //윈도우
             case 'windowcommand':
                 return <WindowCommand> </WindowCommand>;
             case 'windowsystem':
                 return <WindowSystem> </WindowSystem>;
+
             //리눅스
             case 'linuxstudy':
                 return <LinuxStudy> </LinuxStudy>;
@@ -242,13 +272,23 @@ const Main = (props) => {
                 return <LinuxCommand> </LinuxCommand>;
             case 'mobaxterm':
                 return <MobaXterm> </MobaXterm>;
-            case 'vimeditor':
-                return <VimEditor> </VimEditor>;
+            case 'linuxvimeditor':
+                return <LinuxVimEditor> </LinuxVimEditor>;
             case 'linuxdirectory':
                 return <LinuxDirectory> </LinuxDirectory>;
+            case 'linuxubuntu':
+                return <LinuxUbuntu> </LinuxUbuntu>;
+            case 'linuxcentos7':
+                return <LinuxCentOS7> </LinuxCentOS7>;
+            case 'linuxshell':
+                return <LinuxShell> </LinuxShell>;
+            case 'linuxshellscript':
+                return <LinuxShellScript> </LinuxShellScript>;
+
             //용어
             case 'term':
                 return <Term> </Term>;
+
             //단축키
             case 'intellijkeymap':
                 return <IntellijKeyMap> </IntellijKeyMap>;
@@ -258,18 +298,25 @@ const Main = (props) => {
                 return <EclipseKeyMap> </EclipseKeyMap>;
             case 'windowkeymap':
                 return <WindowKeyMap> </WindowKeyMap>;
+            case 'browserkeymap':
+                return <BrowserKeyMap> </BrowserKeyMap>;
+
             //github
             case 'githubbasic':
                 return <Github> </Github>;
+
             //참고 블로그
             case 'refblog':
                 return <RefBlog> </RefBlog>;
+
             //파이썬
             case 'pythonstudy':
                 return <PythonStudy> </PythonStudy>;
+
             //인공지능
             case 'aistudy':
                 return <AIStudy> </AIStudy>;
+
             //블록체인
             case 'pow':
                 return <Pow> </Pow>;

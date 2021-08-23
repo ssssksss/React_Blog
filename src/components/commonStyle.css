@@ -26,9 +26,11 @@
         color:blue;
         cursor: pointer;
     }
-    
     summary:hover {
         background-color: chocolate;
+    }
+    summary small {
+        font-size: 0.6em;
     }
     .lblocknav_container > .lblocknav > .mtitle {
         display: block;
@@ -76,7 +78,7 @@
     }
     .common_style  .stitle {
         margin: 2px 0px 2px;
-        font-size: 20px;
+        font-size: 16px;
         font-weight: 800;
         color:violet;
         background: #eaeaea;
@@ -88,11 +90,11 @@
     }
     .common_style  .sstitle {
         margin: 1px 0px 1px;
-        font-size: 16px;
+        font-size: 12px;
         font-weight: 800;
         color:rgba(0, 38, 255, 0.8);
         background: #ffeaa7;
-        padding: 2px 2px;
+        padding: 1px 1px;
         box-sizing: border-box;
         display: block;
         border-radius: 6px 6px 0px 0px;
@@ -145,7 +147,7 @@
         border-radius: 10px;
     }
     .hyperlink{
-        max-height: 600px;
+        max-height: 300px;
         overflow-y:  scroll;
     }
 
@@ -190,7 +192,7 @@
         top: 20px;
         box-sizing: border-box;
         z-index: 2;
-        max-height: 1000px;
+        max-height: 200px;
         /* overflow: scroll; */
     }
     .lblocknav_container > .lblocknav {
@@ -253,7 +255,7 @@
         left: 0px;
         top: 40px;
         box-sizing: border-box;
-        max-height: 1000px;
+        max-height: 200px;
         overflow: scroll;
         width: 360px;
     }
