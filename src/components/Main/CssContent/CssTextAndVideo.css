@@ -1,0 +1,29 @@
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.MainContainer {
+  /* position: absolute; */
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background: #ff0; */
+}
+
+.MainContainer .dot
+{
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  /* background: #fff; */
+  background: red;
+  border-radius: 50%;
+  transform: translate(-50%,-50%);
+  cursor: default;
+}

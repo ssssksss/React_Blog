@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
-import './ExBlurBusinessCard.css';
+import './CssBlurBusinessCard.css';
 
-const ExBlurBusinessCard = (props) => {
+const CssBlurBusinessCard = (props) => {
 
     const [scrollY, setScrollY] = useState(0);
     function logit() {
@@ -115,4 +115,4 @@ const ExBlurBusinessCard = (props) => {
     );
 }
 
-export default ExBlurBusinessCard;
+export default CssBlurBusinessCard;

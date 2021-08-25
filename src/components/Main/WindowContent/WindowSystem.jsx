@@ -182,6 +182,26 @@ const WindowSystem = (props) => {
                     {/*  */}
                     <span className="mblock">
                         <details>
+                            <summary className="stitle"> ▶ 컴퓨터에 문제가 생겼을 때 <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+                            <span className="sblock">
+                                <span className="sstitle">  </span>
+                                <span className="mblock">
+                                    <li> chkdsk /f </li>
+                                    <li> sfc /scannow  </li>
+                                    <li> DISM.exe/Online/Cleanup-image/Restorehealth </li>
+                                </span>
+                                {/*  */}
+                                <span className="sstitle">  </span>
+                                <span className="mblock">
+                                    <li>  </li>
+                                </span>
+                                {/*  */}
+                            </span>
+                        </details>
+                    </span>
+                    {/*  */}
+                    <span className="mblock">
+                        <details>
                             <summary className="stitle"> ▶ <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                             <span className="sblock">
                                 <span className="sstitle">  </span>

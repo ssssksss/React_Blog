@@ -181,6 +181,11 @@ const LinuxShellScript = (props) => {
                   <li> ./@.sh , # 다른 쉘 스크립트 </li>
                 </span>
                 {/*  */}
+                <span className="sstitle"> 내부에서 정의한 변수를 매개변수(파라미터)처럼 사용하는 방법  </span>
+                <span className="mblock">
+                  <li> set $(변수)  </li>
+                </span>
+                {/*  */}
               </span>
             </details>
           </span>
@@ -221,6 +226,11 @@ const LinuxShellScript = (props) => {
                 <span className="sstitle"> 매개변수 인자 전달하는 방법 </span>
                 <span className="mblock">
                   <li> ./@.sh 매개변수1 매개변수2 매개변수3 </li>
+                </span>
+                {/*  */}
+                <span className="sstitle"> 매개변수를 한칸씩 밀어내는 방법 </span>
+                <span className="mblock">
+                  <li> shift , #반복문에서 이용을 하면 S1이 사라지는 것을 볼 수 있을 것이다.  </li>
                 </span>
                 {/*  */}
               </span>
@@ -406,11 +416,36 @@ const LinuxShellScript = (props) => {
           {/*  */}
           <span className="mblock">
             <details>
+              <summary className="stitle"> ▶ printf <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+              <span className="sblock">
+                <span className="sstitle">  </span>
+                <span className="mblock">
+                  <li> printf "%5.2f" \n\n \t %s \n" $var1 "$var2" </li>
+                  <li>  </li>
+                </span>
+                {/*  */}
+                <span className="sstitle">  </span>
+                <span className="mblock">
+                  <li>  </li>
+                </span>
+                {/*  */}
+              </span>
+            </details>
+          </span>
+          {/*  */}
+          {/*  */}
+          <span className="mblock">
+            <details>
               <summary className="stitle"> ▶ 기타  <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
               <span className="sblock">
                 <span className="sstitle">  </span>
                 <span className="mblock">
                   <li> sleep 초(시간) </li>
+                </span>
+                {/*  */}
+                <span className="sstitle">  </span>
+                <span className="mblock">
+                  <li>  </li>
                 </span>
                 {/*  */}
                 <span className="sstitle">  </span>

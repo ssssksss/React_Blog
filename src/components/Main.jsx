@@ -86,7 +86,8 @@ import IpSpoofing from './Main/SecurityContent/IpSpoofing';
 import JavaScriptStudy from './Main/JavaScriptContent/JavaScriptStudy';
 // CSS
 import CssBasic from './Main/CssContent/CssBasic';
-import ExBlurBusinessCard from './Main/CssContent/ExBlurBusinessCard';
+import CssBlurBusinessCard from './Main/CssContent/CssBlurBusinessCard';
+import CssTextAndVideo from './Main/CssContent/CssTextAndVideo';
 //  네트워크
 import NetworkStudy from './Main/NetworkContent/NetworkStudy';
 import NetworkCommand from './Main/NetworkContent/NetworkCommand';
@@ -117,8 +118,10 @@ const Main = (props) => {
             // CSS 
             case 'cssbasic':
                 return <CssBasic> </CssBasic>;
-            case 'ex blur business card':
-                return <ExBlurBusinessCard> </ExBlurBusinessCard>;
+            case 'css blur business card':
+                return <CssBlurBusinessCard> </CssBlurBusinessCard>;
+            case 'css text and video':
+                return <CssTextAndVideo> </CssTextAndVideo>;
 
             // React
             case 'reactbasic':

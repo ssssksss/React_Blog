@@ -2,9 +2,10 @@
     margin: 0px;
     padding: 0px;
 }
-li{
+li,ol{
     margin-left: 25px;
 }
+
 
 .app {
     /* 최대 넓이 1640이고 양옆에 border-box 패딩 20주고 반응형 웹 3단계로 제작 */

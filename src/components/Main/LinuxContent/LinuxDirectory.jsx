@@ -258,7 +258,7 @@ const LinuxDirectory = (props) => {
                       </span>
                     </li>
                     {/*  */}
-                    <li> /etc/default/useradd
+                    <li> /default/useradd
                       <span className="sblock">
                         <details>
                           <summary className="sstitle"> ▶ 사용자 생성 설정  </summary>
@@ -272,7 +272,7 @@ const LinuxDirectory = (props) => {
                       </span>
                     </li>
                     {/*  */}
-                    <li> /etc/login.defs
+                    <li> /login.defs
                       <span className="sblock">
                         <details>
                           <summary className="sstitle"> ▶ 사용자 계정 설정과 관련된 기본 값을 정의한 파일 </summary>
@@ -289,6 +289,24 @@ const LinuxDirectory = (props) => {
                           <li> UMASK : umask 값 설정(권한설정) , # 077 , 허가권=777-unmask값 </li>
                           <li> USERGROUPS_ENAB : 사용자 계정 삭제시 그룹 삭제 여부 , # yes  </li>
                           <li> ENCRYPT_METHOD : 암호화 기법 , # SHA512  </li>
+                        </details>
+                      </span>
+                    </li>
+                    {/*  */}
+                    <li> etc/dhcp/dhcpd.conf
+                      <span className="sblock">
+                        <details>
+                          <summary className="sstitle"> ▶ dhcp 설정 파일 </summary>
+                        </details>
+                      </span>
+                    </li>
+                    {/*  */}
+                    <li> /resolv.conf
+                      <span className="sblock">
+                        <details>
+                          <summary className="sstitle"> ▶   </summary>
+                          <li>   </li>
+                          <li>   </li>
                         </details>
                       </span>
                     </li>
@@ -358,6 +376,27 @@ const LinuxDirectory = (props) => {
                   <summary className="sstitle"> ▶ var </summary>
                   <span className="mblock">
                     <li> 시스템 운영 중에 발생하는 데이터나 로그 등이 저장되는 디렉토리 </li>
+                    {/*  */}
+                    <li> /lib/dhcpd/dhcpd.leases
+                      <span className="sblock">
+                        <details>
+                          <summary className="sstitle"> ▶   </summary>
+                          <li>   </li>
+                          <li>   </li>
+                        </details>
+                      </span>
+                    </li>
+                    {/*  */}
+                    <li> /
+                      <span className="sblock">
+                        <details>
+                          <summary className="sstitle"> ▶   </summary>
+                          <li>   </li>
+                          <li>   </li>
+                        </details>
+                      </span>
+                    </li>
+                    {/*  */}
                   </span>
                 </details>
                 {/*  */}

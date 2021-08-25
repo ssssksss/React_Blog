@@ -1,0 +1,8 @@
+  document.addEventListener("mousermove" , function(e) {
+    const dot = document.querySelector('.dot');
+    dot.style.left = e.pageX + 'px';
+    dot.style.top = e.pageX + 'px';
+  })
+
+
+

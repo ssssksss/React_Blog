@@ -111,6 +111,9 @@ const LinuxCommand = (props) => {
               <a href="#echo 명령어" className="col_p"> echo 명령어 </a>
               <a href="#chmod 명령어" className="col_p"> chmod 명령어 #파일 사용권한 변경 </a>
               <a href="#chown 명령어" className="col_p"> chown 명령어 #파일,디렉토리의 소유자 변경 </a>
+              <a href="#rpm 명령어" className="col_p"> rpm 명령어 </a>
+              <a href="#yum 명령어" className="col_p"> yum 명령어 </a>
+              <a href="#lsof 명령어" className="col_p"> lsof 명령어 </a>
               <a href="#" className="col_p">  </a>
               {/*  */}
             </details>
@@ -277,6 +280,7 @@ const LinuxCommand = (props) => {
                   <span className="sstitle"> 사용 예시 </span>
                   <span className="sblock">
                     <li> ls -al 파일명,디렉토리 </li>
+                    <li> ls -l --time-style="+%Y%m%d" | awk '{'{print $6" "$7}'}' , 파일,디렉토리 생성일을 년월일로 보여준다. </li>
                   </span>
                 </span>
               </span>
@@ -513,6 +517,7 @@ const LinuxCommand = (props) => {
                     <li> 문장~~~ | grep -E "abc$" , # "abc"로 끝나는 문장을 찾음 </li>
                     <li> 문장~~~ | grep -E "[12]" , # 1이나 2가 들어간 문장을 찾음 </li>
                     <li> 문장~~~ | grep -E "{'a{2,3}'}" , # a가 2나3회 입력이 된 문장을 찾음 </li>
+                    <li> ifconfig | grep -A 2 ens | grep "inet " | awk ' {'{ printf $2 }'} , #본인의 IP주소만을 가져옴 </li>
                     <li>  </li>
                   </span>
                 </span>
@@ -929,12 +934,177 @@ const LinuxCommand = (props) => {
           {/*  */}
           <span className="mblock">
             <details>
+              <summary className="stitle"> ▶ rpm 명령어 <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+              <span className="sblock">
+                <span className="sstitle">  </span>
+                <span className="mblock">
+                  <li> rpm -qa : 시스템에 설치된 모든 패키지명 </li>
+                  <li> rpm -qi 패키지명 : 시스템에 설치된 모든 패키지명 </li>
+                  <li> rpm -ql 패키지명 : 패키지의 파일 리스트 </li>
+                  <li> rpm -qf 파일명 : 지정한 파일이 포함된 패키지  </li>
+                  <li> rpm -ivh rpm파일경로 : 직접 rpm파일을 직접 설치하지만 문제가 많아 권장하지 않음 </li>
+                  <li>  </li>
+                </span>
+                {/*  */}
+                <span className="sstitle">  </span>
+                <span className="mblock">
+                  <li>  </li>
+                </span>
+                {/*  */}
+              </span>
+            </details>
+          </span>
+          {/*  */}
+          <span className="mblock">
+            <details>
+              <summary className="stitle"> ▶ yum 명령어 <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+              <span className="sblock">
+                <span className="sstitle"> yum -y install 파일명 </span>
+                <span className="mblock">
+                  <li> yum -y install wireshark wireshark-gnome , #wireshark , wiresharkgui 설치 </li>
+                  <li>  </li>
+                </span>
+                {/*  */}
+                <span className="sstitle">  </span>
+                <span className="mblock">
+                  <li>  </li>
+                </span>
+                {/*  */}
+              </span>
+            </details>
+          </span>
+          {/*  */}
+          <span className="mblock">
+            <details>
+              <summary className="stitle"> ▶ lsof 명령어 <small> 열려있는 파일 정보 </small>
+                <a name="lsof 명령어" style={{ visibility: "hidden" }}> lsof 명령어 </a> </summary>
+              <span className="sblock">
+                <span className="sstitle">  </span>
+                <span className="mblock">
+                  <li> lsof -i udp:67 , # ip기반의 67번 포트에 접속을 확인  </li>
+                  <li>  </li>
+                </span>
+                {/*  */}
+                <span className="sstitle">  </span>
+                <span className="mblock">
+                  <li>  </li>
+                </span>
+                {/*  */}
+              </span>
+            </details>
+          </span>
+          {/*  */}
+          <span className="mblock">
+            <details>
+              <summary className="stitle"> ▶ ps 명령어 <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+              <span className="sblock">
+                <span className="sstitle">  </span>
+                <span className="mblock">
+                  <li> ps -ef | grep dnsmasq , # dnsmasq dns서버 프로세스를 확인 </li>
+                  <li>  </li>
+                </span>
+                {/*  */}
+                <span className="sstitle">  </span>
+                <span className="mblock">
+                  <li>  </li>
+                </span>
+                {/*  */}
+              </span>
+            </details>
+          </span>
+          {/*  */}
+          <span className="mblock">
+            <details>
+              <summary className="stitle"> ▶ xargs 명령어 <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+              <span className="sblock">
+                <span className="sstitle"> | 파이프 명령어 앞에 서 받은 파라미터를 하나씩 넘겨주는 </span>
+                <span className="mblock">
+                  <li>  </li>
+                  <li>  </li>
+                </span>
+                {/*  */}
+                <span className="sstitle">  </span>
+                <span className="mblock">
+                  <li>  </li>
+                </span>
+                {/*  */}
+              </span>
+            </details>
+          </span>
+          {/*  */}
+          <span className="mblock">
+            <details>
+              <summary className="stitle"> ▶ firewall 명령어 <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+              <span className="sblock">
+                <span className="sstitle">  </span>
+                <span className="mblock">
+                  <li> firewall-cmd --list-services , # 방화벽을 허용한 리스트 </li>
+                  <li> firewall-cmd --info-service=요소 , # 방화벽을 허용한 리스트중에 알고싶은 요소의 정보 </li>
+                  <li>  </li>
+                  <li>  </li>
+                </span>
+                {/*  */}
+                <span className="sstitle">  </span>
+                <span className="mblock">
+                  <li>  </li>
+                </span>
+                {/*  */}
+              </span>
+            </details>
+          </span>
+          {/*  */}
+          <span className="mblock">
+            <details>
+              <summary className="stitle"> ▶ dirname,basename 명령어 <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+              <span className="sblock">
+                <span className="sstitle"> dirname 명령어 </span>
+                <span className="mblock">
+                  <li> dirname /경로1/경로2 , #최상위 경로인 /경로1 출력  </li>
+                </span>
+                {/*  */}
+                <span className="sstitle"> basename 명령어 </span>
+                <span className="mblock">
+                  <li> basename /경로1/경로2/ , #하위경로의 상위 경로인 경로2 출력 </li>
+                </span>
+                {/*  */}
+              </span>
+            </details>
+          </span>
+          {/*  */}
+          <span className="mblock">
+            <details>
               <summary className="stitle"> ▶ <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
               <span className="sblock">
                 <span className="sstitle">  </span>
                 <span className="mblock">
                   <li>  </li>
+                  <li>  </li>
                 </span>
+                {/*  */}
+                <span className="sstitle">  </span>
+                <span className="mblock">
+                  <li>  </li>
+                </span>
+                {/*  */}
+              </span>
+            </details>
+          </span>
+          {/*  */}
+          <span className="mblock">
+            <details>
+              <summary className="stitle"> ▶ <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+              <span className="sblock">
+                <span className="sstitle">  </span>
+                <span className="mblock">
+                  <li>  </li>
+                  <li>  </li>
+                </span>
+                {/*  */}
+                <span className="sstitle">  </span>
+                <span className="mblock">
+                  <li>  </li>
+                </span>
+                {/*  */}
               </span>
             </details>
           </span>

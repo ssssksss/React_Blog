@@ -235,6 +235,79 @@ const LinuxCentOS7 = (props) => {
           {/*  */}
           <span className="mblock">
             <details>
+              <summary className="stitle"> ▶ dhcp 서버 설치하는 방법 <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+              <span className="sblock">
+                <span className="sstitle"> dhcp 서버란? </span>
+                <span className="mblock">
+                  <li> Dynamic Host Configuration Protocol </li>
+                  <li> 자신의 네트워크 안에 클라이언트 컴퓨터가 부팅될 떄 자동으로 IP주소, 서브넷마스크, 게이트웨이 주소, DNS 서버 주소를
+                    할당해주는 것 </li>
+                  <li> 일반 사용자는 IP에 관련된 어려운 정보를 알지 못해도 사용을 하는데 문제가 없음 </li>
+                  <li> dhcp 서버는 관리가 편하고 이용자도 편함 </li>
+                  <li> 한정된 IP주소를 가지고 더많은 IP주소가 있는 것처럼 사용하여 여러명의 사용자가 사용할 수 있게 함 </li>
+                  <li>  </li>
+                </span>
+                {/*  */}
+                <span className="sstitle"> dhcp 서버 작동원리 </span>
+                <span className="mblock">
+                  <li> 1. dhcp클라이언트 컴퓨터 부팅 </li>
+                  <li> 2. 자동으로 IP 주소를 dhcp서버로 요청 </li>
+                  <li> 3. dhcp서버에 있는 할당 되지 않은 IP를 선택하고 할당됨으로 변경 </li>
+                  <li> 4. IP주소를 dhcp클라이언트에게 할당 </li>
+                  <li> 5. dhcp클라이언트는 dhcp서버에게 받은 IP로 인터넷을 이용  </li>
+                  <li> 6. dhcp클라이언트가 접속을 종료하게 되면 dhcp서버에 IP주소를 반납 </li>
+                  <li> 7. dhcp서버에 있는 IP주소 목록에서 반납된 IP주소를 다시 할당해제를 시켜준다. </li>
+                </span>
+                {/*  */}
+                <span className="sstitle"> dhcp 서버 설치 </span>
+                <span className="mblock">
+                  <li> yum install dhcp  </li>
+                  <li> r pm -qa | grep dhcp , # dhcp서버 설치되었는지 확인  </li>
+                  <li> systemctl restart dhcpd </li>
+                  <li> lsof -i updL67 </li>
+                  <li> dnsmasq라는 간소화된 dhcp/dns서버가 설치 되어있다. 그러므로 제거가 필요 </li>
+                  <li> ps -ef | grep dnsmasq | grep -v grep | xargs kill -9 </li>
+                  <li> systemctl disable libvirtd </li>
+                </span>
+                {/*  */}
+                <span className="sstitle"> dhcp 서버 설정 </span>
+                <span className="mblock">
+                  <li> subnet 192.168.10.0 netmask 255.255.255.0 , # netmask는 앞에 9자리가 네트워크 대역이라는 것을 알려줌 </li>
+                  <li> {'{'}  </li>
+                  <li> host client1  </li>
+                  <li> {'{'}  </li>
+                  <li> option host-name "client1";  </li>
+                  <li> hardware ethernet 하드웨어주소; , # ifconfig에서 ether 주소를 참조 </li>
+                  <li> fixed-address 102.168.10.251;  </li>
+                  <li> {'}'}  </li>
+                  <li> option routers 192.168.10.2; , #dhcp서버가 보는 나의 게이트웨이 주소  </li>
+                  <li> option subnet-mask 255.255.255.0;  , # 네트워크 대역을 255로 알려줘  </li>
+                  <li> range dynamic-bootp 192.168.10.30 192.168.10.50; , #30~50번 IP를 나누어 준다.   </li>
+                  <li> option domain-name-servers 8.8.8.8;  , # 도메인 주소를 설정 </li>
+                  <li> default-lease-time 86400; , # 클라이언트에게 준 IP의 시간을 초단위로 설정  </li>
+                  <li> max-lease-time 172800; , # 클라이언트에게 준 동일한 IP의 최대 시간을 초단위로 설정, 오랜기간 사용하면 악용의 소지떄문에 제한  </li>
+                  <li> {'}'}  </li>
+                  <li>  </li>
+                  <li>  </li>
+                </span>
+                {/*  */}
+                <span className="sstitle"> dhcp 클라이언트 설정 </span>
+                <span className="mblock">
+                  <li>  </li>
+                  <li>  </li>
+                </span>
+                {/*  */}
+                <span className="sstitle">  </span>
+                <span className="mblock">
+                  <li>  </li>
+                </span>
+                {/*  */}
+              </span>
+            </details>
+          </span>
+          {/*  */}
+          <span className="mblock">
+            <details>
               <summary className="stitle"> ▶ <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
               <span className="sblock">
                 <span className="sstitle">  </span>

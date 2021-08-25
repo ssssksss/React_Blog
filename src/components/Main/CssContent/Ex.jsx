@@ -5,7 +5,8 @@ const Ex = (props) => {
     function logit() {
 
         //위치 계산
-        let elementHeight = document.getElementsByClassName('navMenu')[0].scrollHeight +
+        let elementHeight1 = document.getElementsByClassName('navMenu')[0].scrollHeight;
+        let elementHeight2 = document.getElementsByClassName('navMenu')[0].scrollHeight +
             document.getElementsByClassName('navMenu2')[0].scrollHeight + 26;
         let testdis = document.getElementsByClassName('common_style')[0].getBoundingClientRect().left
             - document.getElementsByClassName('lblocknav_container')[0].getBoundingClientRect().left;
@@ -13,9 +14,11 @@ const Ex = (props) => {
 
 
         // 좌측 메뉴 이동 + 작은 버튼
-        if (document.documentElement.scrollTop > elementHeight && window.innerWidth < 1024) {
+        if (window.innerWidth < 1024) {
             blockRef.current[0].style.position = 'fixed';
-            blockRef.current[0].style.top = (elementHeight + 30) + "px";
+            document.documentElement.scrollTop < elementHeight1 ?
+                blockRef.current[0].style.top = elementHeight1 + "px" :
+                blockRef.current[0].style.top = "10px";
             blockRef.current[0].style.left = document.getElementsByClassName('navMenu2')[0].getBoundingClientRect().left + "px";
             blockRef.current[0].style.maxWidth = '420px';
             blockRef.current[1].style.left = '25%';
@@ -25,10 +28,10 @@ const Ex = (props) => {
                 document.getElementsByClassName('lblocknav_btn')[0].style.display = 'inline-block';
         }
         // 좌측 메뉴 이동
-        else if (document.documentElement.scrollTop < elementHeight && window.innerWidth > 1023) {
+        else if (document.documentElement.scrollTop < elementHeight2 && window.innerWidth > 1023) {
             // 좌측 메뉴 위치 고정, 보여주기 , 간격은 사이값
             blockRef.current[0].style.position = 'fixed';
-            blockRef.current[0].style.top = elementHeight + "px";
+            blockRef.current[0].style.top = elementHeight2 + "px";
             blockRef.current[0].style.display = 'inline-block';
             blockRef.current[0].style.maxWidth = testdis + "px";
             blockRef.current[0].style.height = window.outerHeight;
@@ -37,7 +40,7 @@ const Ex = (props) => {
             blockRef.current[1].style.left = '25%';
             document.getElementsByClassName('lblocknav_btn')[0].style.display = 'none';
         }
-        else if (document.documentElement.scrollTop > elementHeight && window.innerWidth > 1023) {
+        else if (document.documentElement.scrollTop > elementHeight2 && window.innerWidth > 1023) {
             // 좌측 메뉴 위치 고정, 보여주기 , 간격은 사이값
             blockRef.current[0].style.position = 'fixed';
             blockRef.current[0].style.top = "10px";
@@ -93,7 +96,21 @@ const Ex = (props) => {
                 </div>
             </div>
             <div className="common_style" ref={(elem) => (blockRef.current[1] = elem)} >
-
+                <span className="lblock">
+                    {/*  */}
+                    <span className="mblock">
+                        <details>
+                            <summary className="stitle"> ▶ <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+                            <span className="sblock">
+                                <span className="sstitle">  </span>
+                                <span className="mblock">
+                                    <li>  </li>
+                                </span>
+                            </span>
+                        </details>
+                    </span>
+                    {/*  */}
+                </span>
             </div>
         </>
     );

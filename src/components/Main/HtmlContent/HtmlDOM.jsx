@@ -1,10 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 
 const HtmlDOM = (props) => {
-    const [scrollY, setScrollY] = useState(0);
     function logit() {
-        setScrollY(window.pageYOffset);
-
 
         //위치 계산
         let elementHeight1 = document.getElementsByClassName('navMenu')[0].scrollHeight;
@@ -55,7 +52,6 @@ const HtmlDOM = (props) => {
             blockRef.current[1].style.left = '25%';
             document.getElementsByClassName('lblocknav_btn')[0].style.display = 'none';
         }
-
     }
 
     const blockRef = useRef([]);
@@ -72,19 +68,30 @@ const HtmlDOM = (props) => {
 
     return (
         <>
+            <button className="lblocknav_btn" onClick={() => {
+                blockRef.current[0].style.display === 'inline-block' ?
+                    blockRef.current[0].style.display = 'none' :
+                    blockRef.current[0].style.display = 'inline-block';
+                document.getElementsByClassName('lblocknav_btn')[0].style.display = 'none';
+            }}> 🦉 </button>
             <div className="lblocknav_container" ref={(elem) => (blockRef.current[0] = elem)}>
                 <div className="lblocknav">
                     <span className="mtitle">
-                        <p> HTML DOM </p>
+                        <a href="#main" className="col_b"> <b>  </b> </a>
+                        <button className="lblocknav_btn2" onClick={() => {
+                            document.getElementsByClassName('lblocknav_btn')[0].style.display = 'block';
+                            document.getElementsByClassName('lblocknav_container')[0].style.display = 'none';
+                        }}> ❌ </button>
                     </span>
-                    <p className="hyperlink">
+                    <div className="hyperlink">
                         <details open>
                             <summary className="col_g"> test </summary>
                             <a href="#" className="col_p"> test </a>
                         </details>
-                    </p>
+                    </div>
                 </div>
             </div>
+
             <div className="common_style" ref={(elem) => (blockRef.current[1] = elem)} >
                 <span className="lblock">
                     <span className="mtitle"> <a name=""> HTML DOM  </a> </span>
