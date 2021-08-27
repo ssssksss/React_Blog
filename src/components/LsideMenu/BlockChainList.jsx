@@ -1,5 +1,6 @@
 import React from 'react';
 import './LsideMenuStyle.css';
+import { Link } from 'react-router-dom';
 
 const BlockChain = (props) => {
     function send(page2) {
@@ -9,10 +10,9 @@ const BlockChain = (props) => {
     return (
         <div className="menucontainer">
             <div className="menu menu1">
-                <button onClick={() => { send('pow') }}> POW </button>
+                <Link to="/blockchain_pow"> BlockChainPow  </Link>
             </div>
             <div className="menu menu2">
-                <button onClick={() => { send('') }}>  </button>
             </div>
         </div>
     );

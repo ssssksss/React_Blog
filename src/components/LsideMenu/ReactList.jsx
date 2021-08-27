@@ -1,5 +1,6 @@
 import React from 'react';
 import './LsideMenuStyle.css';
+import { Link } from 'react-router-dom';
 
 const ReactList = (props) => {
     function send(page2) {
@@ -9,10 +10,11 @@ const ReactList = (props) => {
     return (
         <div className="menucontainer">
             <div className="menu menu1">
-                <button onClick={() => { send('reactbasic') }}> react 기초 </button>
-                <button onClick={() => { send('reactjavascript') }}> 자바스크립트 사용방법 </button>
+                <Link to="/react_basic"> 리액트 기초 </Link>
+                <Link to="/react_javascript"> 리액트 자바스크립트 </Link>
             </div>
             <div className="menu menu2">
+                <Link to="/react_vscode"> 리액트 Vscode 익스텐션 </Link>
             </div>
         </div>
     );

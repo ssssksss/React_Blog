@@ -1,5 +1,6 @@
 import React from 'react';
 import './LsideMenuStyle.css';
+import { Link } from 'react-router-dom';
 
 const SpringList = (props) => {
     function send(page2) {
@@ -9,25 +10,24 @@ const SpringList = (props) => {
     return (
         <div className="menucontainer">
             <div className="menu menu1">
-                <button onClick={() => { send('springerror') }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Error_icon.svg'} /> Spring 오류 </button>
-                <button onClick={() => { send('springcode') }}> Spring 코드 정리 </button>
-                <button onClick={() => { send('springstudy') }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Study_icon.svg'} /> Spring 공부 </button>
-                <button onClick={() => { send('thymeleaf') }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Thymeleaf_icon.svg'} /> Thymeleaf </button>
-                <button onClick={() => { send('lombok') }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Lombok_icon.svg'} /> Lombok </button>
-                <button onClick={() => { send('annotation') }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Annotation_icon.svg'} /> Annotation </button>
-                <button onClick={() => { send('springsetting') }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Settings_icon.svg'} />  <span> 외부 설정 파일 </span> </button>
-                <button onClick={() => { send('springjpa') }}>  Spring JPA </button>
-                <button onClick={() => { send('springapi') }}>  Spring 관련 API </button>
-                <button onClick={() => { send('springoauth2') }}>  Spring OAuth2 </button>
-                <button onClick={() => { send('springsecurity') }}>  Spring Security </button>
+                <Link to="/spring_error"> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Error_icon.svg'} /> 스프링 오류 </Link>
+                <Link to="/spring_code"> 스프링 코드 정리 </Link>
+                <Link to="/spring_basic"> 스프링 기초 </Link>
+                <Link to="/spring_thymeleaf"> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Thymeleaf_icon.svg'} /> Thymeleaf </Link>
+                <Link to="/spring_jpa"> 스프링 JPA </Link>
+                <Link to="/spring_lombok"> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Lombok_icon.svg'} /> Lombok </Link>
+                <Link to="/spring_annotation"> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Annotation_icon.svg'} /> Annotation </Link>
+                <Link to="/spring_setting"> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Settings_icon.svg'} /> 외부 설정 파일 </Link>
+                <Link to="/spring_api"> 스프링 관련 API </Link>
+                <Link to="/spring_oauth2">  스프링 OAuth2  </Link>
+                <Link to="/spring_security"> 스프링 Security </Link>
+
             </div>
             <div className="menu menu2">
-                <button onClick={() => { send('springsecurityexcode1') }}> 스프링 로그인폼 테스트 </button>
-                <button onClick={() => { send('springsecurityexcode2') }}> MySQL - Login </button>
-                <button onClick={() => { send('springsecurityexcode3') }}> MySQL - Login - Security </button>
-                <button onClick={() => { send('springsecurityexcode4') }}> Spring Security ExCode4 </button>
-                <button onClick={() => { send('springsecurityexcode5') }}> Spring Security ExCode5 </button>
-                <button onClick={() => { send('springsecurityexcode6') }}> Spring Security ExCode6 </button>
+                <Link to="/spring_securityexcode1"> 스프링 로그인폼 테스트 </Link>
+                <Link to="/spring_securityexcode2"> MySQL - Login </Link>
+                <Link to="/spring_securityexcode3"> MySQL - Login - Security </Link>
+                <Link to="/spring_securityexcode4"> 스프링 Security ExCode4 </Link>
             </div>
         </div>
     );

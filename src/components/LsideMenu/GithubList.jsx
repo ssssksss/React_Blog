@@ -1,5 +1,6 @@
 import React from 'react';
 import './LsideMenuStyle.css';
+import { Link } from 'react-router-dom';
 
 const GithubList = (props) => {
     function send(page2) {
@@ -7,8 +8,12 @@ const GithubList = (props) => {
     }
 
     return (
-        <div className="githubList">
-            <button onClick={() => { send('githubbasic') }}> 깃허브 </button>
+        <div className="menucontainer">
+            <div className="menu menu1">
+                <Link to="/github_basic"> 깃허브 공부 </Link>
+            </div>
+            <div className="menu menu2">
+            </div>
         </div>
     );
 }

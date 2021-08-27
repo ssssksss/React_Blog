@@ -1,5 +1,6 @@
 import React from 'react';
 import './LsideMenuStyle.css';
+import { Link } from 'react-router-dom';
 
 const LinuxList = (props) => {
     function send(page2) {
@@ -9,17 +10,17 @@ const LinuxList = (props) => {
     return (
         <div className="menucontainer">
             <div className="menu menu1">
-                <button onClick={() => { send('linuxstudy') }}> 리눅스 공부 </button>
-                <button onClick={() => { send('linuxcommand') }}> 리눅스 명령어 </button>
-                <button onClick={() => { send('linuxdirectory') }}> 리눅스 디렉토리 구조 </button>
-                <button onClick={() => { send('linuxshellscript') }}> 쉘 스크립트 </button>
+                <Link to="/keymap_basic"> 리눅스 공부 </Link>
+                <Link to="/keymap_command"> 리눅스 명령어 </Link>
+                <Link to="/keymap_directory"> 리눅스 디렉토리 구조 </Link>
+                <Link to="/keymap_shellscript"> 리눅스 쉘 스크립트 </Link>
             </div>
             <div className="menu menu2">
-                <button onClick={() => { send('linuxubuntu') }}> 리눅스 우분투 </button>
-                <button onClick={() => { send('linuxcentos7') }}> 리눅스 CentOS7 </button>
-                <button onClick={() => { send('mobaxterm') }}> MobaXterm </button>
-                <button onClick={() => { send('linuxvimeditor') }}> VimEditor </button>
-                <button onClick={() => { send('linuxshell') }}> 리눅스 셸 </button>
+                <Link to="/keymap_ubuntu"> 리눅스 우분투 </Link>
+                <Link to="/keymap_centos7"> 리눅스 CentOS7 </Link>
+                <Link to="/keymap_mobaxterm"> 리눅스 MobaXterm </Link>
+                <Link to="/keymap_vimeditor"> 리눅스 VimEditor </Link>
+                <Link to="/keymap_shell"> 리눅스 쉘 </Link>
             </div>
         </div>
     );

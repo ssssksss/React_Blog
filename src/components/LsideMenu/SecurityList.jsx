@@ -1,5 +1,6 @@
 import React from 'react';
 import './LsideMenuStyle.css';
+import { Link } from 'react-router-dom';
 
 const BlankList = (props) => {
     function send(page2) {
@@ -9,16 +10,15 @@ const BlankList = (props) => {
     return (
         <div className="menucontainer">
             <div className="menu menu1">
-                <button onClick={() => { send('securitystudy') }}> 보안 공부 </button>
-                <button onClick={() => { send('jwt') }}> JWT 토큰 </button>
-                <button onClick={() => { send('hmac') }}> HMAC 알고리즘 </button>
-                <button onClick={() => { send('hash') }}> HASH </button>
-                <button onClick={() => { send('encodingdecoding') }}> 암호화 복호화 </button>
-                <button onClick={() => { send('hackingattack') }}> 해킹 공격 </button>
-                <button onClick={() => { send('ipspoofing') }}> IP Spoofing </button>
+                <Link to="/security_basic"> 보안 공부 </Link>
+                <Link to="/security_jwt"> JWT 토큰 </Link>
+                <Link to="/security_hmac"> HMAC 알고리즘 </Link>
+                <Link to="/security_hash"> HASH </Link>
+                <Link to="/security_encryption"> 암호화</Link>
+                <Link to="/security_hackingattack"> 해킹 공격 </Link>
+                <Link to="/security_ipspoofing"> IP Spoofing </Link>
             </div>
             <div className="menu menu2">
-                <button onClick={() => { send('') }}>  </button>
             </div>
         </div>
     );

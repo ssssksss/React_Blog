@@ -1,5 +1,6 @@
 import React from 'react';
 import './LsideMenuStyle.css';
+import { Link } from 'react-router-dom';
 
 const JspServletList = (props) => {
     function send(page2) {
@@ -7,14 +8,17 @@ const JspServletList = (props) => {
     }
 
     return (
-        <div className="jspservletlist">
-            <button onClick={() => { send('jspservletinformation') }}> JSP&amp;Servlet 정보 </button>
-            <button onClick={() => { send('jspservletbasic') }}> JSP&amp;Servlet 코드 </button>
-            <button onClick={() => { send('jspservletbulletinboard') }}> JSP&amp;Servlet 게시판만들기 </button>
-            <button onClick={() => { send('jspservletjstl') }}> JSP JSTL </button>
-            <button onClick={() => { send('jspservletel') }}> JSP EL </button>
-            <button onClick={() => { send('테스트') }}> 테스트 </button>
-            <button onClick={() => { send('jdbc') }}> JDBC </button>
+        <div className="menucontainer">
+            <div className="menu menu1">
+                <Link to="/jspservlet_information"> JSP,Servlet 정보 </Link>
+                <Link to="/jspservlet_basic"> JSP,Servlet 공부 </Link>
+                <Link to="/jspservlet_bulletinboard"> JSP,Servlet 게시판만들기 </Link>
+            </div>
+            <div className="menu menu2">
+                <Link to="/jspservlet_jstl"> JSP JSTL </Link>
+                <Link to="/jspservlet_el"> JSP EL </Link>
+                <Link to="/jspservlet_jdbc"> JDBC </Link>
+            </div>
         </div>
     );
 }

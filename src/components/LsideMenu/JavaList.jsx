@@ -1,5 +1,6 @@
 import React from 'react';
 import './LsideMenuStyle.css';
+import { Link } from 'react-router-dom';
 
 const JavaList = (props) => {
     function send(page2) {
@@ -9,12 +10,11 @@ const JavaList = (props) => {
     return (
         <div className="menucontainer">
             <div className="menu menu1">
-                <button onClick={() => { send('javabasic') }}> JAVA 문법 </button>
+                <Link to="/java_basic"> JAVA 공부 </Link>
+                <Link to="/java_serializable"> 직렬화 </Link>
             </div>
             <div className="menu menu2">
-                <button onClick={() => { send('serializable') }}> serializable </button>
-                <button onClick={() => { send('modifier') }}> modifier </button>
-                <button onClick={() => { send('') }}>  </button>
+                <Link to="/java_modifier"> 한정자 </Link>
             </div>
         </div>
     );

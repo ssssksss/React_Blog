@@ -1,5 +1,6 @@
 import React from 'react';
 import './LsideMenuStyle.css';
+import { Link } from 'react-router-dom';
 
 const TermList = (props) => {
     function send(page2) {
@@ -7,8 +8,14 @@ const TermList = (props) => {
     }
 
     return (
-        <div className="csslist">
-            <button onClick={() => { send('term') }}> 용어 </button>
+
+        <div className="menucontainer">
+            <div className="menu menu1">
+                <Link to="/term"> 용어 </Link>
+            </div>
+            <div className="menu menu2">
+
+            </div>
         </div>
     );
 }

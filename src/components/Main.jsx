@@ -1,27 +1,25 @@
 import React from 'react';
-import HtmlBasic from './Main/HtmlContent/HtmlBasic';
-import HtmlDOM from './Main/HtmlContent/HtmlDOM';
-import JspServletInformation from './Main/JspServletContent/JspServletInformation';
-//자바
+import './Main.css';
+import './commonStyle.css';
+import { Route, Switch } from 'react-router-dom';
+// ========== 백엔드 ==========
+// 자바
 import JavaBasic from './Main/JavaContent/JavaBasic';
-import Serializable from './Main/JavaContent/Serializable';
-import Modifier from './Main/JavaContent/Modifier';
-//JSP
-import JspServletBasic from './Main/JspServletContent/JspServletBasic';
-import JspServletBulletinBoard from './Main/JspServletContent/JspServletBulletinBoard';
-import JspServletJstl from './Main/JspServletContent/JspServletJstl';
-import JspServletEl from './Main/JspServletContent/JspServletEl';
-import Jdbc from './Main/JspServletContent/Jdbc';
-// 리액트
-import ReactBasic from './Main/ReactContent/ReactBasic';
-import ReactJavaScript from './Main/ReactContent/ReactJavaScript';
+import JavaSerializable from './Main/JavaContent/JavaSerializable';
+import JavaModifier from './Main/JavaContent/JavaModifier';
+// PHP
+import PhpBasic from './Main/PhpContent/PhpBasic';
+
+// 노드JS
+import NodejsBasic from './Main/NodejsContent/NodejsBasic';
+
 // 스프링
 import SpringError from './Main/SpringContent/SpringError';
 import SpringCode from './Main/SpringContent/SpringCode';
-import SpringStudy from './Main/SpringContent/SpringStudy';
-import Thymeleaf from './Main/SpringContent/Thymeleaf';
-import Lombok from './Main/SpringContent/Lombok';
-import Annotation from './Main/SpringContent/Annotation';
+import SpringBasic from './Main/SpringContent/SpringBasic';
+import SpringThymeleaf from './Main/SpringContent/SpringThymeleaf';
+import SpringLombok from './Main/SpringContent/SpringLombok';
+import SpringAnnotation from './Main/SpringContent/SpringAnnotation';
 import SpringJpa from './Main/SpringContent/SpringJpa';
 import SpringSetting from './Main/SpringContent/SpringSetting';
 import SpringAPI from './Main/SpringContent/SpringAPI';
@@ -31,307 +29,276 @@ import SpringSecurityExCode1 from './Main/SpringContent/SpringSecurityExCode1';
 import SpringSecurityExCode2 from './Main/SpringContent/SpringSecurityExCode2';
 import SpringSecurityExCode3 from './Main/SpringContent/SpringSecurityExCode3';
 import SpringSecurityExCode4 from './Main/SpringContent/SpringSecurityExCode4';
-// import SpringSecurityExCode5 from './Main/SpringContent/SpringSecurityExCode5';
-// window
+
+// JSP, Servlet
+import JspServletBasic from './Main/JspServletContent/JspServletBasic';
+import JspServletBulletinBoard from './Main/JspServletContent/JspServletBulletinBoard';
+import JspServletJstl from './Main/JspServletContent/JspServletJstl';
+import JspServletEl from './Main/JspServletContent/JspServletEl';
+import JspServletJdbc from './Main/JspServletContent/JspServletJdbc';
+import JspServletInformation from './Main/JspServletContent/JspServletInformation';
+
+// 백엔드 개발자
+import BackendBasic from './Main/BackendContent/BackendBasic';
+import BackendSolid from './Main/BackendContent/BackendSolid';
+import BackendBrowserDevTool from './Main/BackendContent/BackendBrowserDevTool';
+import BackendSCTCache from './Main/BackendContent/BackendSCTCache';
+
+// ========== 프론트엔드 ==========
+// HTML
+import HtmlBasic from './Main/HtmlContent/HtmlBasic';
+import HtmlDOM from './Main/HtmlContent/HtmlDOM';
+import HtmlError from './Main/HtmlContent/HtmlError';
+
+// CSS
+import CssBasic from './Main/CssContent/CssBasic';
+import CssBlurBusinessCard from './Main/CssContent/CssBlurBusinessCard';
+import CssTextAndVideo from './Main/CssContent/CssTextAndVideo';
+
+// 타입스크립트
+
+// 자바스크립트
+import JavaScriptBasic from './Main/JavaScriptContent/JavaScriptBasic';
+
+// 리액트
+import ReactBasic from './Main/ReactContent/ReactBasic';
+import ReactJavaScript from './Main/ReactContent/ReactJavaScript';
+import ReactVscode from './Main/ReactContent/ReactVscode';
+
+// 프론트 개발자
+import FrontendBasic from './Main/FrontendContent/FrontendBasic';
+import FrontendBrowserDevTool from './Main/FrontendContent/FrontendBrowserDevTool';
+
+// ========== 기타 ==========
+// 데이터 베이스
+import DBOracleBasic from './Main/DatabaseContent/DBOracleBasic';
+import DBMySQLBasic from './Main/DatabaseContent/DBMySQLBasic';
+import DBVariableName from './Main/DatabaseContent/DBVariableName';
+
+// 디자인 패턴
+import DPMvc2 from './Main/DesignPatternContent/DPMvc2';
+import DPMvp from './Main/DesignPatternContent/DPMvp';
+import DPMvvm from './Main/DesignPatternContent/DPMvvm';
+
+// 보안
+import SecurityBasic from './Main/SecurityContent/SecurityBasic';
+import SecurityJwt from './Main/SecurityContent/SecurityJwt';
+import SecurityHmac from './Main/SecurityContent/SecurityHmac';
+import SecurityHash from './Main/SecurityContent/SecurityHash';
+import SecurityEncryption from './Main/SecurityContent/SecurityEncryption';
+import SecurityHackingAttack from './Main/SecurityContent/SecurityHackingAttack';
+import SecurityIpSpoofing from './Main/SecurityContent/SecurityIpSpoofing';
+
+// 네트워크
+import NetworkBasic from './Main/NetworkContent/NetworkBasic';
+import NetworkCommand from './Main/NetworkContent/NetworkCommand';
+import NetworkArpprotocol from './Main/NetworkContent/NetworkArpprotocol';
+import NetworkOSI7Layer from './Main/NetworkContent/NetworkOSI7Layer';
+import NetworkThreeWayHandshake from './Main/NetworkContent/NetworkThreeWayHandshake';
+import NetworkDevice from './Main/NetworkContent/NetworkDevice';
+import NetworkWireshark from './Main/NetworkContent/NetworkWireshark';
+import NetworkProtocol from './Main/NetworkContent/NetworkProtocol';
+
+// 알고리즘
+import AlgorithmBasic from './Main/AlgorithmContent/AlgorithmBasic';
+
+// 자료구조
+
+// 클라우드
+
+// 윈도우
 import WindowCommand from './Main/WindowContent/WindowCommand';
 import WindowSystem from './Main/WindowContent/WindowSystem';
+
 // 리눅스
-import LinuxStudy from './Main/LinuxContent/LinuxStudy';
+import LinuxBasic from './Main/LinuxContent/LinuxBasic';
 import LinuxCommand from './Main/LinuxContent/LinuxCommand';
-import MobaXterm from './Main/LinuxContent/MobaXterm';
+import LinuxMobaXterm from './Main/LinuxContent/LinuxMobaXterm';
 import LinuxVimEditor from './Main/LinuxContent/LinuxVimEditor';
 import LinuxDirectory from './Main/LinuxContent/LinuxDirectory';
 import LinuxUbuntu from './Main/LinuxContent/LinuxUbuntu';
 import LinuxCentOS7 from './Main/LinuxContent/LinuxCentOS7';
 import LinuxShell from './Main/LinuxContent/LinuxShell';
 import LinuxShellScript from './Main/LinuxContent/LinuxShellScript';
-// DB
-import OracleDBStudy from './Main/DatabaseContent/OracleDBStudy';
-import MySQLStudy from './Main/DatabaseContent/MySQLStudy';
-import DatabaseName from './Main/DatabaseContent/DatabaseName';
-// 디자인 패턴
-import MVC2 from './Main/DesignPatternContent/MVC2';
-import MVP from './Main/DesignPatternContent/MVP';
-import MVVM from './Main/DesignPatternContent/MVVM';
-// 단축키 및 설정
-import VscodeKeyMap from './Main/KeyMapContent/VscodeKeyMap';
-import IntellijKeyMap from './Main/KeyMapContent/IntellijKeyMap';
-import EclipseKeyMap from './Main/KeyMapContent/EclipseKeyMap';
-import WindowKeyMap from './Main/KeyMapContent/WindowKeyMap';
-import BrowserKeyMap from './Main/KeyMapContent/BrowserKeyMap';
+
 // 용어
 import Term from './Main/TermContent/Term';
+
+// 단축키, 설정
+import KeyMapVscode from './Main/KeyMapContent/KeyMapVscode';
+import KeyMapIntellij from './Main/KeyMapContent/KeyMapIntellij';
+import KeyMapEclipse from './Main/KeyMapContent/KeyMapEclipse';
+import KeyMapWindow from './Main/KeyMapContent/KeyMapWindow';
+import KeyMapBrowser from './Main/KeyMapContent/KeyMapBrowser';
+
 // 깃허브
-import Github from './Main/GithubContent/GithubBasic';
-// 참고 블로그 및 사이트
+import GithubBasic from './Main/GithubContent/GithubBasic';
+
+//  참고사이트
 import RefBlog from './Main/RefBlogContent/RefBlog';
-import PythonStudy from './Main/PythonContent/PythonStudy';
-import AIStudy from './Main/AIContent/AIStudy';
-import AlgorithmStudy from './Main/AlgorithmContent/AlgorithmStudy';
-// 백엔드
-import Backend from './Main/BackendContent/Backend';
-import Solid from './Main/BackendContent/Solid';
-import BackendBrowserDevTool from './Main/BackendContent/BackendBrowserDevTool';
-// 프론트엔드
-import Frontend from './Main/FrontendContent/Frontend';
-import FrontendBrowserDevTool from './Main/FrontendContent/FrontendBrowserDevTool';
-// 보안
-import Jwt from './Main/SecurityContent/Jwt';
-import Hmac from './Main/SecurityContent/Hmac';
-import Hash from './Main/SecurityContent/Hash';
-import EncodingDecoding from './Main/SecurityContent/EncodingDecoding';
-import HackingAttack from './Main/SecurityContent/HackingAttack';
-import IpSpoofing from './Main/SecurityContent/IpSpoofing';
-// 자바스크립트
-import JavaScriptStudy from './Main/JavaScriptContent/JavaScriptStudy';
-// CSS
-import CssBasic from './Main/CssContent/CssBasic';
-import CssBlurBusinessCard from './Main/CssContent/CssBlurBusinessCard';
-import CssTextAndVideo from './Main/CssContent/CssTextAndVideo';
-//  네트워크
-import NetworkStudy from './Main/NetworkContent/NetworkStudy';
-import NetworkCommand from './Main/NetworkContent/NetworkCommand';
-import SCTCache from './Main/BackendContent/SCTCache';
-import ArpProtocol from './Main/NetworkContent/ArpProtocol';
-import OSI7Layer from './Main/NetworkContent/OSI7Layer';
-import ThreeWayHandshake from './Main/NetworkContent/ThreeWayHandshake';
-import NetworkDevice from './Main/NetworkContent/NetworkDevice';
-import Network3 from './Main/NetworkContent/Network3';
-import Network4 from './Main/NetworkContent/Network4';
-import Wireshark from './Main/NetworkContent/Wireshark';
-import NetworkProtocol from './Main/NetworkContent/NetworkProtocol';
-//블록체인
-import Pow from './Main/BlockChainContent/Pow';
-// 
-import './Main.css';
-import './commonStyle.css';
+
+// 파이썬
+import PythonBasic from './Main/PythonContent/PythonBasic';
+
+// 인공지능
+import AiBasic from './Main/AIContent/AiBasic';
+
+// 블록체인
+import BlockChainPow from './Main/BlockChainContent/BlockChainPow';
 
 const Main = (props) => {
-    const showpage = () => {
-        switch (props.page2) {
-            // HTML
-            case 'htmlbasic':
-                return <HtmlBasic> </HtmlBasic>;
-            case 'htmldom':
-                return <HtmlDOM> </HtmlDOM>;
-
-            // CSS 
-            case 'cssbasic':
-                return <CssBasic> </CssBasic>;
-            case 'css blur business card':
-                return <CssBlurBusinessCard> </CssBlurBusinessCard>;
-            case 'css text and video':
-                return <CssTextAndVideo> </CssTextAndVideo>;
-
-            // React
-            case 'reactbasic':
-                return <ReactBasic> </ReactBasic>;
-            case 'reactjavascript':
-                return <ReactJavaScript> </ReactJavaScript>;
-
-            // JavaScript
-            case 'javascriptstudy':
-                return <JavaScriptStudy> </JavaScriptStudy>;
-
-            //Java
-            case 'javabasic':
-                return <JavaBasic> </JavaBasic>;
-            case 'serializable':
-                return <Serializable> </Serializable>;
-            case 'modifier':
-                return <Modifier> </Modifier>;
-
-            // JSP & Servlet
-            case 'jspservletinformation':
-                return <JspServletInformation> </JspServletInformation>;
-            case 'jspservletbasic':
-                return <JspServletBasic> </JspServletBasic>;
-            case 'jspservletbulletinboard':
-                return <JspServletBulletinBoard> </JspServletBulletinBoard>;
-            case 'jspservletjstl':
-                return <JspServletJstl> </JspServletJstl>;
-            case 'jspservletel':
-                return <JspServletEl> </JspServletEl>;
-            case 'jdbc':
-                return <Jdbc> </Jdbc>;
-
-            // 스프링 프레임워크
-            case 'springerror':
-                return <SpringError> </SpringError>;
-            case 'springcode':
-                return <SpringCode> </SpringCode>;
-            case 'springstudy':
-                return <SpringStudy> </SpringStudy>;
-            case 'thymeleaf':
-                return <Thymeleaf> </Thymeleaf>;
-            case 'springjpa':
-                return <SpringJpa> </SpringJpa>;
-            case 'lombok':
-                return <Lombok> </Lombok>;
-            case 'annotation':
-                return <Annotation> </Annotation>;
-            case 'springsetting':
-                return <SpringSetting> </SpringSetting>;
-            case 'springapi':
-                return <SpringAPI> </SpringAPI>;
-            case 'springoauth2':
-                return <SpringOAuth2> </SpringOAuth2>;
-            case 'springsecurity':
-                return <SpringSecurity> </SpringSecurity>;
-            case 'springsecurityexcode1':
-                return <SpringSecurityExCode1> </SpringSecurityExCode1>;
-            case 'springsecurityexcode2':
-                return <SpringSecurityExCode2> </SpringSecurityExCode2>;
-            case 'springsecurityexcode3':
-                return <SpringSecurityExCode3> </SpringSecurityExCode3>;
-            case 'springsecurityexcode4':
-                return <SpringSecurityExCode4> </SpringSecurityExCode4>;
-            // case 'springsecurityexcode5':
-            // return <SpringSecurityExCode5> </SpringSecurityExCode5>;
-            // case 'springsecurityexcode6':
-            // return <SpringSecurityExCode6> </SpringSecurityExCode6>;
-            // DATA BASE
-
-            // 백엔드 개발
-            case 'backend':
-                return <Backend> </Backend>;
-            case 'solid':
-                return <Solid> </Solid>;
-            case 'sctcache':
-                return <SCTCache> </SCTCache>;
-            case 'backendbrowserdevtool':
-                return <BackendBrowserDevTool> </BackendBrowserDevTool>;
-
-            // 프론트 엔드 개발
-            case 'frontend':
-                return <Frontend> </Frontend>;
-
-            // DB
-            case 'oracledbstudy':
-                return <OracleDBStudy> </OracleDBStudy>;
-            case 'mysqlstudy':
-                return <MySQLStudy> </MySQLStudy>;
-            case 'databasename':
-                return <DatabaseName> </DatabaseName>;
-
-            // 디자인 패턴
-            case 'mvc2':
-                return <MVC2> </MVC2>;
-            case 'mvp':
-                return <MVP> </MVP>;
-            case 'mvvm':
-                return <MVVM> </MVVM>;
-
-            //보안
-            case 'jwt':
-                return <Jwt> </Jwt>;
-            case 'hmac':
-                return <Hmac> </Hmac>;
-            case 'hash':
-                return <Hash> </Hash>;
-            case 'encodingdecoding':
-                return <EncodingDecoding> </EncodingDecoding>;
-            case 'hackingattack':
-                return <HackingAttack> </HackingAttack>;
-            case 'ipspoofing':
-                return <IpSpoofing> </IpSpoofing>;
-
-            //알고리즘
-            case 'algorithmstudy':
-                return <AlgorithmStudy> </AlgorithmStudy>;
-
-            //네트워크
-            case 'networkstudy':
-                return <NetworkStudy> </NetworkStudy>;
-            case 'networkcommand':
-                return <NetworkCommand> </NetworkCommand>;
-            case 'arpprotocol':
-                return <ArpProtocol> </ArpProtocol>;
-            case 'osi7layer':
-                return <OSI7Layer> </OSI7Layer>;
-            case 'threewayhandshake':
-                return <ThreeWayHandshake> </ThreeWayHandshake>;
-            case 'networkdevice':
-                return <NetworkDevice> </NetworkDevice>;
-            case 'network3':
-                return <Network3> </Network3>;
-            case 'network4':
-                return <Network4> </Network4>;
-            case 'wireshark':
-                return <Wireshark> </Wireshark>;
-            case 'networkprotocol':
-                return <NetworkProtocol> </NetworkProtocol>;
-
-            //윈도우
-            case 'windowcommand':
-                return <WindowCommand> </WindowCommand>;
-            case 'windowsystem':
-                return <WindowSystem> </WindowSystem>;
-
-            //리눅스
-            case 'linuxstudy':
-                return <LinuxStudy> </LinuxStudy>;
-            case 'linuxcommand':
-                return <LinuxCommand> </LinuxCommand>;
-            case 'mobaxterm':
-                return <MobaXterm> </MobaXterm>;
-            case 'linuxvimeditor':
-                return <LinuxVimEditor> </LinuxVimEditor>;
-            case 'linuxdirectory':
-                return <LinuxDirectory> </LinuxDirectory>;
-            case 'linuxubuntu':
-                return <LinuxUbuntu> </LinuxUbuntu>;
-            case 'linuxcentos7':
-                return <LinuxCentOS7> </LinuxCentOS7>;
-            case 'linuxshell':
-                return <LinuxShell> </LinuxShell>;
-            case 'linuxshellscript':
-                return <LinuxShellScript> </LinuxShellScript>;
-
-            //용어
-            case 'term':
-                return <Term> </Term>;
-
-            //단축키
-            case 'intellijkeymap':
-                return <IntellijKeyMap> </IntellijKeyMap>;
-            case 'vscodekeymap':
-                return <VscodeKeyMap> </VscodeKeyMap>;
-            case 'eclipsekeymap':
-                return <EclipseKeyMap> </EclipseKeyMap>;
-            case 'windowkeymap':
-                return <WindowKeyMap> </WindowKeyMap>;
-            case 'browserkeymap':
-                return <BrowserKeyMap> </BrowserKeyMap>;
-
-            //github
-            case 'githubbasic':
-                return <Github> </Github>;
-
-            //참고 블로그
-            case 'refblog':
-                return <RefBlog> </RefBlog>;
-
-            //파이썬
-            case 'pythonstudy':
-                return <PythonStudy> </PythonStudy>;
-
-            //인공지능
-            case 'aistudy':
-                return <AIStudy> </AIStudy>;
-
-            //블록체인
-            case 'pow':
-                return <Pow> </Pow>;
-
-            default:
-                break;
-        }
-    }
     return (
         <div className="main">
-            {showpage()}
-        </div>);
+            <Switch>
+                {/*========== 백엔드 ========== */}
+                {/* 자바 */}
+                <Route path="/java_basic" component={JavaBasic}></Route>
+                <Route path="/java_serializable" component={JavaSerializable}></Route>
+                <Route path="/java_modifier" component={JavaModifier}></Route>
+                {/* PHP */}
+                <Route path="/php_basic" component={PhpBasic}></Route>
+
+                {/* 노드JS */}
+                <Route path="/nodejs_basic" component={NodejsBasic}></Route>
+
+                {/* 스프링 */}
+                <Route path="/spring_error" component={SpringError}></Route>
+                <Route path="/spring_code" component={SpringCode}></Route>
+                <Route path="/spring_basic" component={SpringBasic}></Route>
+                <Route path="/spring_thymeleaf" component={SpringThymeleaf}></Route>
+                <Route path="/spring_jpa" component={SpringJpa}></Route>
+                <Route path="/spring_lombok" component={SpringLombok}></Route>
+                <Route path="/spring_annotation" component={SpringAnnotation}></Route>
+                <Route path="/spring_setting" component={SpringSetting}></Route>
+                <Route path="/spring_api" component={SpringAPI}></Route>
+                <Route path="/spring_oauth2" component={SpringOAuth2}></Route>
+                <Route path="/spring_security" component={SpringSecurity}></Route>
+                <Route path="/spring_securityexcode1" component={SpringSecurityExCode1}></Route>
+                <Route path="/spring_securityexcode2" component={SpringSecurityExCode2}></Route>
+                <Route path="/spring_securityexcode3" component={SpringSecurityExCode3}></Route>
+                <Route path="/spring_securityexcode4" component={SpringSecurityExCode4}></Route>
+
+                {/* JSP , Servlet */}
+                <Route path="/jspservlet_information" component={JspServletInformation}></Route>
+                <Route path="/jspservlet_basic" component={JspServletBasic}></Route>
+                <Route path="/jspservlet_bulletinboard" component={JspServletBulletinBoard}></Route>
+                <Route path="/jspservlet_jstl" component={JspServletJstl}></Route>
+                <Route path="/jspservlet_el" component={JspServletEl}></Route>
+                <Route path="/jspservlet_jdbc" component={JspServletJdbc}></Route>
+
+                {/* 백엔드 개발자 */}
+                <Route path="/backend_basic" component={BackendBasic}></Route>
+                <Route path="/backend_solid" component={BackendSolid}></Route>
+                <Route path="/backend_sctcache" component={BackendSCTCache}></Route>
+                <Route path="/backend_browserdevtool" component={BackendBrowserDevTool}></Route>
+
+                {/*========== 프론트엔드 ==========*/}
+
+                {/* HTML */}
+                <Route path="/html_basic" component={HtmlBasic}></Route>
+                <Route path="/html_dom" component={HtmlDOM}></Route>
+                <Route path="/html_error" component={HtmlError}></Route>
+
+                {/* CSS */}
+                <Route path="/css_basic" component={CssBasic}></Route>
+                <Route path="/css_blur business card" component={CssBlurBusinessCard}></Route>
+                <Route path="/css_text and video" component={CssTextAndVideo}></Route>
+
+                {/* 타입스크립트 */}
+
+                {/* 자바스크립트  */}
+                <Route path="/javascript_basic" component={JavaScriptBasic}></Route>
+
+                {/* 리액트 */}
+                <Route path="/react_basic" component={ReactBasic}></Route>
+                <Route path="/react_javascript" component={ReactJavaScript}></Route>
+                <Route path="/react_vscode" component={ReactVscode}></Route>
+
+                {/* 프론트 개발자 */}
+                <Route path="/frontend_basic" component={FrontendBasic}></Route>
+                <Route path="/frontend_browserdevtool" component={FrontendBrowserDevTool}></Route>
+
+                {/*========== 기타 ==========*/}
+
+                {/* 데이터 베이스 */}
+                <Route path="/db_oraclebasic" component={DBOracleBasic}></Route>
+                <Route path="/db_mysqlbasic" component={DBMySQLBasic}></Route>
+                <Route path="/db_variablename" component={DBVariableName}></Route>
+
+                {/* 디자인 패턴 */}
+                <Route path="/dp_mvc2" component={DPMvc2}></Route>
+                <Route path="/dp_mvp" component={DPMvp}></Route>
+                <Route path="/dp_mvvm" component={DPMvvm}></Route>
+
+                {/* 보안 */}
+                <Route path="/security_basic" component={SecurityBasic}></Route>
+                <Route path="/security_jwt" component={SecurityJwt}></Route>
+                <Route path="/security_hmac" component={SecurityHmac}></Route>
+                <Route path="/security_hash" component={SecurityHash}></Route>
+                <Route path="/security_encryption" component={SecurityEncryption}></Route>
+                <Route path="/security_hackingattack" component={SecurityHackingAttack}></Route>
+                <Route path="/security_ipspoofing" component={SecurityIpSpoofing}></Route>
+
+                {/* 네트워크 */}
+                <Route path="/network_basic" component={NetworkBasic}></Route>
+                <Route path="/network_command" component={NetworkCommand}></Route>
+                <Route path="/network_arpprotocol" component={NetworkArpprotocol}></Route>
+                <Route path="/network_osi7layer" component={NetworkOSI7Layer}></Route>
+                <Route path="/network_threewayhandshake" component={NetworkThreeWayHandshake}></Route>
+                <Route path="/network_device" component={NetworkDevice}></Route>
+                <Route path="/network_wireshark" component={NetworkWireshark}></Route>
+                <Route path="/network_protocol" component={NetworkProtocol}></Route>
+
+                {/* 알고리즘 */}
+                <Route path="/algorithm_basic" component={AlgorithmBasic}></Route>
+
+                {/* 자료구조 */}
+
+                {/* 클라우드 */}
+
+                {/* 윈도우 */}
+                <Route path="/window_command" component={WindowCommand}></Route>
+                <Route path="/window_system" component={WindowSystem}></Route>
+
+                {/* 리눅스 */}
+                <Route path="/linux_basic" component={LinuxBasic}></Route>
+                <Route path="/linux_command" component={LinuxCommand}></Route>
+                <Route path="/linux_mobaxterm" component={LinuxMobaXterm}></Route>
+                <Route path="/linux_vimeditor" component={LinuxVimEditor}></Route>
+                <Route path="/linux_directory" component={LinuxDirectory}></Route>
+                <Route path="/linux_ubuntu" component={LinuxUbuntu}></Route>
+                <Route path="/linux_centos7" component={LinuxCentOS7}></Route>
+                <Route path="/linux_shell" component={LinuxShell}></Route>
+                <Route path="/linux_shellscript" component={LinuxShellScript}></Route>
+
+                {/* 용어 */}
+                <Route path="/term" component={Term}></Route>
+
+                {/* 단축키,설정 */}
+                <Route path="/keymap_intellij" component={KeyMapIntellij}></Route>
+                <Route path="/keymap_vscode" component={KeyMapVscode}></Route>
+                <Route path="/keymap_eclipse" component={KeyMapEclipse}></Route>
+                <Route path="/keymap_window" component={KeyMapWindow}></Route>
+                <Route path="/keymap_browser" component={KeyMapBrowser}></Route>
+
+                {/* 깃허브 */}
+                <Route path="/github_basic" component={GithubBasic}></Route>
+
+                {/* 참고 사이트 */}
+                <Route path="/ref_blog" component={RefBlog}></Route>
+
+                {/* 파이썬 */}
+                <Route path="/python_basic" component={PythonBasic}></Route>
+
+                {/* 인공지능 */}
+                <Route path="/ai_basic" component={AiBasic}></Route>
+
+                {/* 블록체인 */}
+                <Route path="/blockchain_pow" component={BlockChainPow}></Route>
+
+            </Switch>
+        </div>
+    );
 }
 
 export default Main;

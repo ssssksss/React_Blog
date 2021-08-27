@@ -25,7 +25,7 @@ import BlockChainList from './LsideMenu/BlockChainList.jsx';
 import DesignPatternList from './LsideMenu/DesignPatternList.jsx';
 
 import './NavMenu2.css';
-
+import { Link } from 'react-router-dom';
 
 const NavMenu2 = (props) => {
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 
-const SpringError = (props) => {
+const JavaBasic = (props) => {
     const [scrollY, setScrollY] = useState(0);
     function logit() {
         setScrollY(window.pageYOffset);
@@ -454,5 +454,5 @@ const SpringError = (props) => {
         </>
     );
 }
-export default SpringError;
+export default JavaBasic;
 

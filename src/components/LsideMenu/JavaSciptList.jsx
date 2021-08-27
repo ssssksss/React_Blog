@@ -1,5 +1,6 @@
 import React from 'react';
 import './LsideMenuStyle.css';
+import { Link } from 'react-router-dom';
 
 const JavaSciptList = (props) => {
     function send(page2) {
@@ -9,7 +10,7 @@ const JavaSciptList = (props) => {
     return (
         <div className="menucontainer">
             <div className="menu menu1">
-                <button onClick={() => { send('javascriptstudy') }}> JavaScript 공부 </button>
+                <Link to="/javascript_basic"> JavaScript 공부 </Link>
             </div>
             <div className="menu menu2">
             </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import './LsideMenuStyle.css';
+import { Link } from 'react-router-dom';
 
 const NetworkList = (props) => {
     function send(page2) {
@@ -9,18 +10,16 @@ const NetworkList = (props) => {
     return (
         <div className="menucontainer">
             <div className="menu menu1">
-                <button onClick={() => { send('networkstudy') }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Study_icon.svg'} /> 네트워크 공부 </button>
-                <button onClick={() => { send('networkcommand') }}> 네트워크 관련 명령어 </button>
-                <button onClick={() => { send('wireshark') }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Wireshark_icon.svg'} />  Wireshark </button>
-                <button onClick={() => { send('arpprotocol') }}>  ArpProtocol </button>
-                <button onClick={() => { send('osi7layer') }}>  OSI7Layer </button>
+                <Link to="/network_basic"> 네트워크 기초 </Link>
+                <Link to="/network_command"> 네트워크 명령어 </Link>
+                <Link to="/network_arpprotocol"> 네트워크 ARP 프로토콜 </Link>
+                <Link to="/network_osi7layer"> 네트워크 OSI 7 계층 </Link>
+                <Link to="/network_threewayhandshake"> 네트워크 3WayHandshake </Link>
             </div>
             <div className="menu menu2">
-                <button onClick={() => { send('threewayhandshake') }}> 3WayHandshake </button>
-                <button onClick={() => { send('networkdevice') }}> 네트워크 관련 기기 </button>
-                <button onClick={() => { send('networkprotocol') }}> 네트워크 프로토콜 </button>
-                <button onClick={() => { send('network3') }}> network3 </button>
-                <button onClick={() => { send('network4') }}> network4 </button>
+                <Link to="/network_device"> 네트워크 관련 장치 </Link>
+                <Link to="/network_wireshark"> 네트워크 와이어샤크 </Link>
+                <Link to="/network_protocol"> 네트워크 프로토콜 </Link>
             </div>
         </div>
     );

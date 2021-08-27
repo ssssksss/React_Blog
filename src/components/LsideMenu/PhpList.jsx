@@ -1,5 +1,6 @@
 import React from 'react';
 import './LsideMenuStyle.css';
+import { Link } from 'react-router-dom';
 
 const PhpList = (props) => {
     function send(page2) {
@@ -7,8 +8,15 @@ const PhpList = (props) => {
     }
 
     return (
-        <div className="phplist">
-            <button onClick={() => { send('php') }}> PHP 기본 문법 </button>
+
+
+        <div className="menucontainer">
+            <div className="menu menu1">
+                <Link to="/php_basic"> PHP 기본 문법 </Link>
+            </div>
+            <div className="menu menu2">
+
+            </div>
         </div>
     );
 }

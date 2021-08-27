@@ -1,5 +1,6 @@
 import React from 'react';
 import './LsideMenuStyle.css';
+import { Link } from 'react-router-dom';
 
 const CssList = (props) => {
     function send(page2) {
@@ -9,11 +10,11 @@ const CssList = (props) => {
     return (
         <div className="menucontainer">
             <div className="menu menu1">
-                <button onClick={() => { send('cssbasic') }}> CSS 기본 문법 </button>
+                <Link to="/css_basic"> CSS 기본 문법 </Link>
             </div>
             <div className="menu menu2">
-                <button onClick={() => { send('css blur business card') }}> 명함 불러 만들기 </button>
-                <button onClick={() => { send('css text and video') }}> 글씨 뒤로 비디오 효과주기 </button>
+                <Link to="/css_blur business card"> 명함 불러 만들기</Link>
+                <Link to="/css_text and video"> 글씨 뒤로 비디오 효과주기 </Link>
             </div>
         </div>
     );

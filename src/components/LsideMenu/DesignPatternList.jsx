@@ -1,5 +1,6 @@
 import React from 'react';
 import './LsideMenuStyle.css';
+import { Link } from 'react-router-dom';
 
 const DesignPatternList = (props) => {
     function send(page2) {
@@ -9,12 +10,11 @@ const DesignPatternList = (props) => {
     return (
         <div className="menucontainer">
             <div className="menu menu1">
-                <button onClick={() => { send('mvc2') }}> MVC2 </button>
-                <button onClick={() => { send('mvp') }}> MVP </button>
-                <button onClick={() => { send('mvvm') }}> MVVM </button>
+                <Link to="/dp_mvc2"> MVC2 </Link>
+                <Link to="/dp_mvp">  MVP  </Link>
             </div>
             <div className="menu menu2">
-                <button onClick={() => { send('') }}>  </button>
+                <Link to="/dp_mvvm"> MVVM </Link>
             </div>
         </div>
     );

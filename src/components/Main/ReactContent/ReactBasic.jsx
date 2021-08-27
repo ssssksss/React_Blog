@@ -252,25 +252,6 @@ const ReactBasic = (props) => {
      {/*  */}
      <span className="mblock">
       <details>
-       <summary className="stitle"> ▶ React Css <a name="React Css" style={{ visibility: "hidden" }}>  React Css </a> </summary>
-       <span className="sblock">
-        <span className="sstitle">  </span>
-        <span className="mblock">
-         <li>  </li>
-         <li>  </li>
-        </span>
-        {/*  */}
-        <span className="sstitle">  </span>
-        <span className="mblock">
-         <li>  </li>
-        </span>
-        {/*  */}
-       </span>
-      </details>
-     </span>
-     {/*  */}
-     <span className="mblock">
-      <details>
        <summary className="stitle"> ▶ React 함수 <a name="React 함수" style={{ visibility: "hidden" }}> React 함수 </a> </summary>
        <span className="sblock">
         <span className="sstitle">  </span>
@@ -328,26 +309,7 @@ const ReactBasic = (props) => {
      {/*  */}
      <span className="mblock">
       <details>
-       <summary className="stitle"> ▶ React Component <a name="React Component" style={{ visibility: "hidden" }}> React Component </a> </summary>
-       <span className="sblock">
-        <span className="sstitle">  </span>
-        <span className="mblock">
-         <li>  </li>
-         <li>  </li>
-        </span>
-        {/*  */}
-        <span className="sstitle">  </span>
-        <span className="mblock">
-         <li>  </li>
-        </span>
-        {/*  */}
-       </span>
-      </details>
-     </span>
-     {/*  */}
-     <span className="mblock">
-      <details>
-       <summary className="stitle"> ▶ React Props
+       <summary className="stitle"> ▶ React Props <small> 컴포넌트간에 state값이나 변수를 주고 받는 방법 </small>
         <a name="React Props" style={{ visibility: "hidden" }}> React Props </a> </summary>
        <span className="sblock">
         <span className="sstitle">  </span>
@@ -367,13 +329,34 @@ const ReactBasic = (props) => {
      {/*  */}
      <span className="mblock">
       <details>
-       <summary className="stitle"> ▶ React useState
-        <a name="React useState" style={{ visibility: "hidden" }}> React useState </a> </summary>
+       <summary className="stitle"> ▶ React Class Component
+        <a name="React Component" style={{ visibility: "hidden" }}> React Component </a> </summary>
        <span className="sblock">
-        <span className="sstitle">  </span>
+        <span className="sstitle"> 클래스 컴포넌트의 장단점 </span>
         <span className="mblock">
-         <li>  </li>
-         <li>  </li>
+         <li className="col_be"> state관리와 라이프 사이클의 사용때문에 기존에 사용 </li>
+         <li className="col_be">  </li>
+         <li className="col_r"> 코드가 길고 복잡  </li>
+         <li className="col_r"> 부분적인 재사용이 어려움  </li>
+         <li className="col_r">   </li>
+        </span>
+        {/*  */}
+        <span className="sstitle"> 클래스 컴포넌트 예시 </span>
+        <span className="mblock">
+         <ul style={{ listStyle: "none" }}>
+          <li> {' import React, {Component} from "react"; '} </li> <br />
+          <li> class App extends React,Component {'{'}
+           <li> render() {'{'}
+            <li> return(
+             <li> {' <div> </div>'} </li>
+            </li>
+            <li> ); </li>
+           </li>
+           <li> {'}'} </li>
+          </li>
+          <li> {'}'} </li>
+          <li> export default App; </li>
+         </ul>
         </span>
         {/*  */}
         <span className="sstitle">  </span>
@@ -387,8 +370,8 @@ const ReactBasic = (props) => {
      {/*  */}
      <span className="mblock">
       <details>
-       <summary className="stitle"> ▶ React useRef
-        <a name="React useRef" style={{ visibility: "hidden" }}> React useRef </a> </summary>
+       <summary className="stitle"> ▶ React Hooks - functional Component
+        <a name="React Hooks" style={{ visibility: "hidden" }}> React Hooks </a> </summary>
        <span className="sblock">
         <span className="sstitle">  </span>
         <span className="mblock">
@@ -396,9 +379,158 @@ const ReactBasic = (props) => {
          <li>  </li>
         </span>
         {/*  */}
+        <span className="sstitle"> 함수형 컴포넌트 예시 </span>
+        <span className="mblock">
+         <ul style={{ listStyle: "none" }}>
+          <li> {' import React from "react"; '} </li> <br />
+          <li> const App = () {'=> {'}
+           <li> return(
+            <li> {' <div> </div>'} </li>
+           </li>
+           <li> ); </li>
+          </li>
+          <li> {'}'} </li>
+          <li> export default App; </li>
+         </ul>
+        </span>
+        {/*  */}
         <span className="sstitle">  </span>
         <span className="mblock">
          <li>  </li>
+        </span>
+        {/*  */}
+       </span>
+      </details>
+     </span>
+     {/*  */}
+     <span className="mblock">
+      <details>
+       <summary className="stitle"> ▶ React Hooks - useState
+        <a name="React useState" style={{ visibility: "hidden" }}> React useState </a> </summary>
+       <span className="sblock">
+        <span className="sstitle"> 설명 </span>
+        <span className="mblock">
+         <li> 컴포넌트에서 동적인 상태값을 이용할 때 사용  </li>
+         <li> const [state값,setState값] = useState(0); <small> 첫번쨰 값은 저장 변수, 두번쨰 값은 갱신함수 </small>  </li>
+         <li> set상태값 이 변하게 되면 하위 컴포넌트까지 re-rendering이 된다.  </li>
+         <li> set상태 함수는 비동기로 동작 , 아래와 같은경우 1번만 증가
+          <li>  set상태값(상태값+1) </li>
+          <li>  set상태값(상태값+1) </li>
+          <li>  아래와 같이 사용하면 문제 해결 </li>
+          <li>  set상태값({'prev상태값 => prev상태값 + 1'}) </li>
+          <li>  set상태값({'prev상태값 => prev상태값 + 1'}) </li>
+         </li>
+         <li>   </li>
+        </span>
+        {/*  */}
+        <span className="sstitle"> 예시 - 버튼을 클릭하면 1씩 증가 </span>
+        <span className="mblock">
+         <ul style={{ listStyle: "none" }}>
+          <li> {' import React from "react"; '} </li> <br />
+          <li> const App = () {'=> {'}
+           <li> const [count,setCount] = useState(0); </li>
+           <li> return(
+            <li> {'<> '}
+             <li> {'<button onClick={()=>setCount(count+1)}> +1증가 버튼 </button>'} </li>
+             <li> {'카운트 : {count}'} </li>
+            </li>
+            <li> {'</> '} </li>
+           </li>
+           <li> ); </li>
+          </li>
+          <li> {'}'} </li>
+          <li> export default App; </li>
+         </ul>
+        </span>
+        {/*  */}
+        <span className="sstitle"> 예시2 - 2개의 입력값을 받았을 떄 변경 </span>
+        <span className="mblock">
+         <ul style={{ listStyle: "none" }}>
+          <li> {' import React from "react"; '} </li> <br />
+          <li> const App = () {'=> {'}
+           <li> {' const [inputs,setInputs] = useState({ '}
+            <li> input1: '', </li>
+            <li> input2: ''  </li>
+           </li>
+           <li> {' }); '} </li> <br />
+           <li> {' const {input1, input2} = inputs; '} <small> inputs 상태값을 변수로 만듬 </small> </li> <br />
+           <li> {' const onChange = (e) => { '}
+            <li> {' const { name , value } = e.target; '}
+            </li>
+            <li> {'setInputs({ '}
+             <li> ...inputs, </li>
+             <li> [name]: value </li>
+            </li>
+            <li> {''} </li>
+            <li> {'});'} </li>
+           </li>
+           <li> {' }; '} </li> <br />
+           <li> {' const onReset = () => { '}
+            <li> {'setInputs({ '}
+             <li> input1: '', </li>
+             <li> input2: '', </li>
+            </li>
+            <li> {'})'} </li>
+           </li>
+           <li> {' }; '} </li> <br />
+           <li> return(
+            <li> {'<> '}
+             <li> {' <input name="input1" onChange={onChange} value={input1} />  '} </li>
+             <li> {' <input name="input2" onChange={onChange} value={input2} />  '} </li>
+             <li> {' <button onClick={onReset} > 초기화 </button> '} </li>
+             <li> {' <div>  {input1} : {input2} </div> '} </li>
+            </li>
+            <li> {'</> '} </li>
+           </li>
+           <li> ); </li>
+          </li>
+          <li> {'}'} </li>
+          <li> export default App; </li>
+         </ul>
+        </span>
+        {/*  */}
+        <span className="sstitle">  </span>
+        <span className="mblock">
+         <li>  </li>
+        </span>
+        {/*  */}
+       </span>
+      </details>
+     </span>
+     {/*  */}
+     <span className="mblock">
+      <details>
+       <summary className="stitle"> ▶ React Hooks -  useRef
+        <a name="React useRef" style={{ visibility: "hidden" }}> React useRef </a> </summary>
+       <span className="sblock">
+        <span className="sstitle"> React useRef 설명 </span>
+        <span className="mblock">
+         <li> 특정 DOM을 선택할 떄 사용 </li>
+         <li> input이나 textarea 등에 focus() 를 할 떄 사용 </li>
+         <li> 득정 DOM의 스크롤 위치를 가져올 때 </li>
+         <li> 외부 라이브러리를 사용할 때   </li>
+         <li> Ref의 사용은 최대한 안하는 것이 좋다. </li>
+        </span>
+        {/*  */}
+        <span className="sstitle"> 예시 </span>
+        <span className="mblock">
+         <ul style={{ listStyle: "none" }}>
+          <li> {' import React, {useRef } from "react"; '} </li> <br />
+          <li> const App = () {'=> {'}
+           <li> const inputRef = useRef(); </li>
+           <li> return(
+            <li> {'<> '}
+             <li> {' <input ref={inputRef} /> '} </li>
+             <li> {' <button onClick={()=> {inputRef.current.focus() }}> 버튼1 </button> '} </li>
+             <li> {' <button onClick={()=> {inputRef.current.value="123"; }}> 버튼2 </button> '} </li>
+            </li>
+            <li> {'</> '} </li>
+           </li>
+           <li> ); </li>
+          </li>
+          <li> {'}'} </li>
+          <li> export default App; </li>
+         </ul>
         </span>
         {/*  */}
        </span>
@@ -427,27 +559,7 @@ const ReactBasic = (props) => {
      {/*  */}
      <span className="mblock">
       <details>
-       <summary className="stitle"> ▶ React Hook
-        <a name="React Hook" style={{ visibility: "hidden" }}> React Hook </a> </summary>
-       <span className="sblock">
-        <span className="sstitle">  </span>
-        <span className="mblock">
-         <li>  </li>
-         <li>  </li>
-        </span>
-        {/*  */}
-        <span className="sstitle">  </span>
-        <span className="mblock">
-         <li>  </li>
-        </span>
-        {/*  */}
-       </span>
-      </details>
-     </span>
-     {/*  */}
-     <span className="mblock">
-      <details>
-       <summary className="stitle"> ▶ React Router
+       <summary className="stitle"> ▶ React Router - React library
         <a name="React Router" style={{ visibility: "hidden" }}> React Router </a> </summary>
        <span className="sblock">
         <span className="sstitle"> React Router 설치 </span>
@@ -456,27 +568,34 @@ const ReactBasic = (props) => {
          <li> yarn add react-router-dom </li>
         </span>
         {/*  */}
-        <span className="sstitle"> App.js에 선언 </span>
+        <span className="sstitle"> React Router 예시 </span>
         <span className="mblock">
-         <li> import React, {'{ Component }'} from 'react'; </li>
-         <li> import {'{ BrowserRouter, Route, Switch, Link }'} from 'react-router-dom;' </li>
-         <li> import Home from './inc/home.js' </li>
-         <li> import Home1 from './inc/Home1.js' </li>
-         <li> {'function App() {'} </li>
-         <li> &nbsp;{'  return ('} </li>
-         <li> &nbsp;&nbsp;{'    <div className="App">'} </li>
-         <li> &nbsp;&nbsp;&nbsp;{' <BrowserRouter> '} </li>
-         <li> &nbsp;&nbsp;&nbsp;&nbsp;{'<p> <Link to="/">Home</Link> </p>'} </li>
-         <li> &nbsp;&nbsp;&nbsp;&nbsp;{'<p> <Link to="/home1">Home1</Link> </p>'} </li>
-         <li> &nbsp;&nbsp;&nbsp;&nbsp;{' <Switch> '} </li>
-         <li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{' <Route path="/" exact component={Home}></Route> '} </li>
-         <li> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{' <Route path="/home1" component={Home1}></Route> '} </li>
-         <li> &nbsp;&nbsp;&nbsp;&nbsp;{' </Switch> '} </li>
-         <li> &nbsp;&nbsp;&nbsp;{' </BrowserRouter> '} </li>
-         <li> &nbsp;&nbsp;{'     </div> '} </li>
-         <li> &nbsp;{'   ); '} </li>
-         <li> {' } '} </li>
-         <li> {' export default App;'} </li>
+         <ul style={{ listStyle: "none" }}>
+          <li> import React, {'{ Component }'} from 'react'; </li>
+          <li> import {'{ BrowserRouter, Route, Switch, Link }'} from 'react-router-dom'; </li>
+          <li> import Home from './inc/home.js' </li>
+          <li> import Home1 from './inc/Home1.js' </li> <br />
+          <li> const App = () {'=> {'}
+           <li> return(
+            <li> {' <div className="App">'}
+             <li> {' <BrowserRouter> '}
+              <li> {'<p> <Link to="/">Home</Link> </p>'} </li>
+              <li> {'<p> <Link to="/home1">Home1</Link> </p>'} </li>
+              <li> {' <Switch> '}
+               <li> {' <Route path="/" exact component={Home}></Route> '} </li>
+               <li> {' <Route path="/home1" component={Home1}></Route> '} </li>
+              </li>
+              <li> {' </Switch> '} </li>
+             </li>
+             <li> {' </BrowserRouter> '} </li>
+            </li>
+            <li> {'     </div> '} </li>
+           </li>
+           <li> ); </li>
+          </li>
+          <li> {'}'} </li>
+          <li> export default App; </li>
+         </ul>
         </span>
         {/*  */}
        </span>
@@ -505,13 +624,54 @@ const ReactBasic = (props) => {
      {/*  */}
      <span className="mblock">
       <details>
-       <summary className="stitle"> ▶ React Redux
+       <summary className="stitle"> ▶ React Redux - library
         <a name="React Redux" style={{ visibility: "hidden" }}> React Redux </a> </summary>
        <span className="sblock">
-        <span className="sstitle">  </span>
+        <span className="sstitle"> 설치 </span>
         <span className="mblock">
+         <li> npm i react-redux redux </li>
+         <li> yarn add redux react-redux redux-devtools-extension redux-logger </li>
+        </span>
+        {/*  */}
+        <span className="sstitle"> 설명 </span>
+        <span className="mblock">
+         <li> 상위 디렉토리에서 1단계 하위디렉토리가 아닌 몇 단계 디렉토리에 state값을 줄 수 있음 </li>
+         <li> 바뀌는 값들을 버전을 관리하는 것처럼 볼 수 있음 </li>
+         <li> action, component, reducer, store 폴더로 구성
+          <li> action : store에 직접 접근 , 컴포넌트에서 바로 store로 접근 불가능
+           <li>           </li>
+          </li>
+          <li> store : state를 모아놓은 공간</li>
+          <li> reducer : 문지기 역할
+           <li> old state + action = new state를 하는 과정 </li>
+           <li> {' const [<상태 객체>, <dispatch 함수>] = useReducer(<reducer 함수>, <초기 상태>, <초기 함수>) '} </li>
+           <li> state와 action객체를 인자로 받아서 new state 객체를 반환하는 함수 </li>
+           <li> reducer함수는 old state와 action객체를 인자로 받아서 new state를 반환하는 함수 </li>
+           <li> dispatch 함수는 컴포넌트에서 action객체를 받아 reducer함수에 넘김 </li>
+           <li> action객체는 type(어떤 행동인지) + data(행동과 관련되 데이터) </li>
+           <li> {' component(old state) -> action -> dispatch -> reducer -> component(new state) '} </li>
+          </li>
+          <li> component :  </li>
+         </li>
          <li>  </li>
-         <li>  </li>
+        </span>
+        {/*  */}
+        <span className="sstitle"> 예시 </span>
+        <span className="mblock">
+         <ul style={{ listStyle: "none" }}>
+          <li> {' import React from "react"; '} </li> <br />
+          <li> const App = () {'=> {'}
+           <li> return(
+            <li> {'<> '}
+             <li> </li>
+            </li>
+            <li> {'</> '} </li>
+           </li>
+           <li> ); </li>
+          </li>
+          <li> {'}'} </li>
+          <li> export default App; </li>
+         </ul>
         </span>
         {/*  */}
         <span className="sstitle">  </span>
@@ -567,13 +727,98 @@ const ReactBasic = (props) => {
      {/*  */}
      <span className="mblock">
       <details>
-       <summary className="stitle"> ▶
-        <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+       <summary className="stitle"> ▶ React Css <a name="React Css" style={{ visibility: "hidden" }}>  React Css </a> </summary>
        <span className="sblock">
-        <span className="sstitle">  </span>
+        <span className="sstitle"> 설명 </span>
         <span className="mblock">
          <li>  </li>
          <li>  </li>
+        </span>
+        {/*  */}
+        <span className="sstitle"> 예시 </span>
+        <span className="mblock">
+         <ul style={{ listStyle: "none" }}>
+          <li> {' import React from "react"; '} </li> <br />
+          <li> const App = () {'=> {'}
+           <li> return(
+            <li> {'<> '}
+             <li> </li>
+            </li>
+            <li> {'</> '} </li>
+           </li>
+           <li> ); </li>
+          </li>
+          <li> {'}'} </li>
+          <li> export default App; </li>
+         </ul>
+        </span>
+        {/*  */}
+        <span className="sstitle">  </span>
+        <span className="mblock">
+         <li>  </li>
+        </span>
+        {/*  */}
+       </span>
+      </details>
+     </span>
+     {/*  */}
+     <span className="mblock">
+      <details>
+       <summary className="stitle"> ▶ styled-components - React library
+        <a name="styled-components" style={{ visibility: "hidden" }}> styled-components </a> </summary>
+       <span className="sblock">
+        <span className="sstitle"> styled-components 설치 </span>
+        <span className="mblock">
+         <li> npm i styled-components </li>
+        </span>
+        {/*  */}
+        <span className="sstitle"> styled-components 설명 </span>
+        <span className="mblock">
+         <li> css 파일을 이용하지 않고 jsx파일에서 태그나 컴포넌트에 스타일을 주는 방법 </li>
+         <li> Css in Js </li>
+         <li> ` (Back quoto) 기호 사용 </li>
+        </span>
+        {/*  */}
+        <span className="sstitle"> styled-components 예시 </span>
+        <span className="mblock">
+         <ul style={{ listStyle: "none" }}>
+          <li> {' import React from "react"; '} </li>
+          <li> {' import styled from "styled-components"; '} </li>
+          <li> {' import 컴포넌트 from "./경로"; '} </li> <br />
+          <li> const App = (props) {'=> {'}
+           <li> return(
+            <li> {'<> '}
+             <li>  {' <컴포넌트> </컴포넌트> '} </li>
+            </li>
+            <li> {'</> '} </li>
+           </li>
+           <li> ); </li>
+          </li>
+          <li> {'}'} </li> <br />
+          <li> const 컴포넌트 = styled.태그`
+           <li> width: 100%; </li>
+           <li> height: 100%; </li>
+           <li> color: {'${(props) => props.color || "red" }; '} </li>
+           <small> props로 color값을 받아오면 받아온 색을 아니면 정해놓은 색을 사용 </small> <br />
+           <li> {' ${(props) => props.color && css` '}
+            <li> color: white; </li>
+            <li> background: white; </li>
+           </li>
+           <li> {' `}`; '} </li>
+          </li>
+          <li> `; </li>
+          <li> const 컴포넌트 = styled(컴포넌트)`
+           <li> width: 100%; </li>
+           <li> height: 100%; </li>
+          </li>
+          <li> `; </li>
+          <li> styled.태그명`
+           <li> width: 100%; </li>
+           <li> height: 100%; </li>
+          </li>
+          <li> `; </li>
+          <li> export default App; </li>
+         </ul>
         </span>
         {/*  */}
         <span className="sstitle">  </span>
@@ -590,10 +835,122 @@ const ReactBasic = (props) => {
        <summary className="stitle"> ▶
         <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
        <span className="sblock">
-        <span className="sstitle">  </span>
+        <span className="sstitle"> 설치 </span>
         <span className="mblock">
          <li>  </li>
          <li>  </li>
+        </span>
+        {/*  */}
+        <span className="sstitle"> 설명 </span>
+        <span className="mblock">
+         <li>  </li>
+         <li>  </li>
+        </span>
+        {/*  */}
+        <span className="sstitle"> 예시 </span>
+        <span className="mblock">
+         <ul style={{ listStyle: "none" }}>
+          <li> {' import React from "react"; '} </li> <br />
+          <li> const App = () {'=> {'}
+           <li> return(
+            <li> {'<> '}
+             <li> </li>
+            </li>
+            <li> {'</> '} </li>
+           </li>
+           <li> ); </li>
+          </li>
+          <li> {'}'} </li>
+          <li> export default App; </li>
+         </ul>
+        </span>
+        {/*  */}
+        <span className="sstitle">  </span>
+        <span className="mblock">
+         <li>  </li>
+        </span>
+        {/*  */}
+       </span>
+      </details>
+     </span>
+     {/*  */}
+     <span className="mblock">
+      <details>
+       <summary className="stitle"> ▶
+        <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+       <span className="sblock">
+        <span className="sstitle"> 설치 </span>
+        <span className="mblock">
+         <li>  </li>
+         <li>  </li>
+        </span>
+        {/*  */}
+        <span className="sstitle"> 설명 </span>
+        <span className="mblock">
+         <li>  </li>
+         <li>  </li>
+        </span>
+        {/*  */}
+        <span className="sstitle"> 예시 </span>
+        <span className="mblock">
+         <ul style={{ listStyle: "none" }}>
+          <li> {' import React from "react"; '} </li> <br />
+          <li> const App = () {'=> {'}
+           <li> return(
+            <li> {'<> '}
+             <li> </li>
+            </li>
+            <li> {'</> '} </li>
+           </li>
+           <li> ); </li>
+          </li>
+          <li> {'}'} </li>
+          <li> export default App; </li>
+         </ul>
+        </span>
+        {/*  */}
+        <span className="sstitle">  </span>
+        <span className="mblock">
+         <li>  </li>
+        </span>
+        {/*  */}
+       </span>
+      </details>
+     </span>
+     {/*  */}
+     <span className="mblock">
+      <details>
+       <summary className="stitle"> ▶
+        <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+       <span className="sblock">
+        <span className="sstitle"> 설치 </span>
+        <span className="mblock">
+         <li>  </li>
+         <li>  </li>
+        </span>
+        {/*  */}
+        <span className="sstitle"> 설명 </span>
+        <span className="mblock">
+         <li>  </li>
+         <li>  </li>
+        </span>
+        {/*  */}
+        <span className="sstitle"> 예시 </span>
+        <span className="mblock">
+         <ul style={{ listStyle: "none" }}>
+          <li> {' import React from "react"; '} </li> <br />
+          <li> const App = () {'=> {'}
+           <li> return(
+            <li> {'<> '}
+             <li> </li>
+            </li>
+            <li> {'</> '} </li>
+           </li>
+           <li> ); </li>
+          </li>
+          <li> {'}'} </li>
+          <li> export default App; </li>
+         </ul>
         </span>
         {/*  */}
         <span className="sstitle">  </span>

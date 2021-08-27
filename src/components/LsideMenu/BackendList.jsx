@@ -1,5 +1,6 @@
 import React from 'react';
 import './LsideMenuStyle.css';
+import { Link } from 'react-router-dom';
 
 const BackendList = (props) => {
     function send(page2) {
@@ -9,12 +10,12 @@ const BackendList = (props) => {
     return (
         <div className="menucontainer">
             <div className="menu menu1">
-                <button onClick={() => { send('backend') }}> 백엔드 개발 </button>
-                <button onClick={() => { send('solid') }}> Solid 5대 원칙 </button>
+                <Link to="/BackendBasic"> 백엔드 개발 </Link>
+                <Link to="/BackendSolid"> Solid 5대 원칙 </Link>
+                <Link to="/BackendSCTCache"> 세션 쿠키 토큰 캐시 </Link>
+                <Link to="/BackendBrowserDevTool"> 브라우저 개발자 도구 </Link>
             </div>
             <div className="menu menu2">
-                <button onClick={() => { send('sctcache') }}> 세션 쿠키 토큰 캐시 </button>
-                <button onClick={() => { send('backendbrowserdevtool') }}> 브라우저 개발자 도구 </button>
             </div>
         </div>
     );
