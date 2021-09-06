@@ -127,26 +127,6 @@ const LinuxBasic = (props) => {
           {/*  */}
           <span className="mblock">
             <details>
-              <summary className="stitle"> ▶ CentOS 설정 <a name="" style={{ visibility: "hidden" }}> </a> </summary>
-              <span className="sblock">
-                <span className="sstitle"> 네트워크가 연결이 잘 안되는것 같을 때 </span>
-                <span className="mblock">
-                  <li> 좌측 라이브러리에서 CentOS 우측클릭 - Settings - Network Adapter - Custom설정을 VMnet8(NAT)로 변경 </li>
-                  <li> Edit - Virtual Network Editor - 기존의 VMnet8 제거 - Add Network로 VMnet8 추가  </li>
-                  <li> 이어서 VMnet8 클릭 - VMnet Information에서 NAT로 변경 그리고 Use local DHCP service to distrubute IP address to VMs 체크박스 체크 </li>
-                  <small> 체크하는 이유는 DHCP서버를 이용하겠다라는 의미 </small>
-                  <li>  </li>
-                </span>
-                <span className="sstitle">  </span>
-                <span className="mblock">
-                  <li>  </li>
-                </span>
-              </span>
-            </details>
-          </span>
-          {/*  */}
-          <span className="mblock">
-            <details>
               <summary className="stitle"> ▶ 리눅스의 탄생과 역사 <a name="" style={{ visibility: "hidden" }}> </a> </summary>
               <span className="sblock">
                 {/*  */}

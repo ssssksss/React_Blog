@@ -110,22 +110,31 @@ const SpringJpa = (props) => {
                                 <li> <small> JPA의 구현체 Hibernate,EclipseLink,DataNucleus  </small> </li>
                                 {/* <li> <small>   </small> </li> */}
                                 <span className="mblock">
-                                    <span className="stitle"> 쿼리 메소드 </span>
-                                    <li> <small> 컬럼은 대문자로 시작 </small> </li>
-                                    <span className="sstitle"> 레포지토리.findByAll() </span>
-                                    <li> select * from 테이블 </li>
-                                    <span className="sstitle">  findBy컬럼1(String 컬럼) </span>
-                                    <li> select *  from 테이블 where 컬럼1 = 'userid' </li>
-                                    <span className="sstitle">  findBy컬럼1And컬럼2(String 컬럼,String 컬럼) </span>
-                                    <li> select * from 테이블 where 컬럼1='userid' and 컬럼2='userpwd';   </li>
-                                    <span className="sstitle">  findBy컬럼1Or컬럼2 </span>
-                                    <li> select * from 테이블 where 컬럼1='userid' or 컬럼2='userpwd';  </li>
-                                    <span className="sstitle">   </span>
-                                    <li>  </li>
-                                    <span className="sstitle">   </span>
-                                    <li>  </li>
-                                    <span className="sstitle">   </span>
-                                    <li>  </li>
+                                    <span className="sstitle"> 쿼리 메소드 </span> <small> 컬럼은 대문자로 시작 </small>
+                                    <li> <h4>  레포지토리.findByAll() </h4>
+                                        <li> select * from 테이블 </li>
+                                    </li>
+                                    <li> <h4>  findBy컬럼1(String 컬럼) </h4>
+                                        <li> select *  from 테이블 where 컬럼1 = 'userid' </li>
+                                    </li>
+                                    <li> <h4>  findBy컬럼1And컬럼2(String 컬럼,String 컬럼) </h4>
+                                        <li> select * from 테이블 where 컬럼1='userid' and 컬럼2='userpwd';  </li>
+                                    </li>
+                                    <li> <h4>  findBy컬럼1Or컬럼2 </h4>
+                                        <li> select * from 테이블 where 컬럼1='userid' or 컬럼2='userpwd'; </li>
+                                    </li>
+                                    <li> <h4>     </h4>
+                                        <li>  </li>
+                                    </li>
+                                    <li> <h4>     </h4>
+                                        <li>  </li>
+                                    </li>
+                                    <li> <h4>     </h4>
+                                        <li>  </li>
+                                    </li>
+                                    <li> <h4>     </h4>
+                                        <li>  </li>
+                                    </li>
                                 </span>
                             </span>
                         </details>

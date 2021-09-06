@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter}  from 'react-router-dom';
 import './App.css';
 import Main from './components/Main.jsx';
 import NavMenu from './components/NavMenu';
@@ -29,6 +29,9 @@ const App = () => {
         </div>
         <FootterMenu> </FootterMenu>
         </BrowserRouter>
+        <button className="btn_top"> <a href="#">
+           <img src={process.env.PUBLIC_URL + '/img/NavMenu/UpArrow_icon.svg'} />  </a> 
+         </button>
       </div>
 
   );

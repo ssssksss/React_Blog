@@ -7,6 +7,9 @@ import { Route, Switch } from 'react-router-dom';
 import JavaBasic from './Main/JavaContent/JavaBasic';
 import JavaSerializable from './Main/JavaContent/JavaSerializable';
 import JavaModifier from './Main/JavaContent/JavaModifier';
+import JavaAnnotation from './Main/JavaContent/JavaAnnotation';
+
+
 // PHP
 import PhpBasic from './Main/PhpContent/PhpBasic';
 
@@ -68,12 +71,14 @@ import ReactVscode from './Main/ReactContent/ReactVscode';
 // 프론트 개발자
 import FrontendBasic from './Main/FrontendContent/FrontendBasic';
 import FrontendBrowserDevTool from './Main/FrontendContent/FrontendBrowserDevTool';
+import FrontendRegex from './Main/FrontendContent/FrontendRegex';
 
 // ========== 기타 ==========
 // 데이터 베이스
 import DBOracleBasic from './Main/DatabaseContent/DBOracleBasic';
 import DBMySQLBasic from './Main/DatabaseContent/DBMySQLBasic';
 import DBVariableName from './Main/DatabaseContent/DBVariableName';
+import DBMariaBasic from './Main/DatabaseContent/DBMariaBasic';
 
 // 디자인 패턴
 import DPMvc2 from './Main/DesignPatternContent/DPMvc2';
@@ -100,7 +105,16 @@ import NetworkWireshark from './Main/NetworkContent/NetworkWireshark';
 import NetworkProtocol from './Main/NetworkContent/NetworkProtocol';
 
 // 알고리즘
-import AlgorithmBasic from './Main/AlgorithmContent/AlgorithmBasic';
+import Algorithm_Backtracking from './Main/AlgorithmContent/Algorithm_Backtracking';
+import Algorithm_Divide_Conquer from './Main/AlgorithmContent/Algorithm_Divide_Conquer';
+import Algorithm_Dynamic from './Main/AlgorithmContent/Algorithm_Dynamic';
+import Algorithm_Graph from './Main/AlgorithmContent/Algorithm_Graph';
+import Algorithm_Greedy from './Main/AlgorithmContent/Algorithm_Greedy';
+import Algorithm_Hash from './Main/AlgorithmContent/Algorithm_Hash';
+import Algorithm_Recursive from './Main/AlgorithmContent/Algorithm_Recursive';
+import Algorithm_Search from './Main/AlgorithmContent/Algorithm_Search';
+import Algorithm_Sort from './Main/AlgorithmContent/Algorithm_Sort';
+
 
 // 자료구조
 
@@ -120,6 +134,8 @@ import LinuxUbuntu from './Main/LinuxContent/LinuxUbuntu';
 import LinuxCentOS7 from './Main/LinuxContent/LinuxCentOS7';
 import LinuxShell from './Main/LinuxContent/LinuxShell';
 import LinuxShellScript from './Main/LinuxContent/LinuxShellScript';
+import LinuxServer from './Main/LinuxContent/LinuxServer';
+import LinuxProgramInstall from './Main/LinuxContent/LinuxProgramInstall';
 
 // 용어
 import Term from './Main/TermContent/Term';
@@ -139,12 +155,19 @@ import RefBlog from './Main/RefBlogContent/RefBlog';
 
 // 파이썬
 import PythonBasic from './Main/PythonContent/PythonBasic';
+import PythonRegex from './Main/PythonContent/PythonRegex';
 
 // 인공지능
 import AiBasic from './Main/AIContent/AiBasic';
 
 // 블록체인
 import BlockChainPow from './Main/BlockChainContent/BlockChainPow';
+
+// 코딩테스트
+import CTBaekJoon from './Main/CodingTestContent/CTBaekJoon';
+
+// 추천 프로그램
+import ProgramRecDev from './Main/ProgramContent/ProgramRecDev';
 
 const Main = (props) => {
     return (
@@ -155,6 +178,8 @@ const Main = (props) => {
                 <Route path="/java_basic" component={JavaBasic}></Route>
                 <Route path="/java_serializable" component={JavaSerializable}></Route>
                 <Route path="/java_modifier" component={JavaModifier}></Route>
+                <Route path="/java_annotation" component={JavaAnnotation}></Route>
+
                 {/* PHP */}
                 <Route path="/php_basic" component={PhpBasic}></Route>
 
@@ -217,6 +242,7 @@ const Main = (props) => {
                 {/* 프론트 개발자 */}
                 <Route path="/frontend_basic" component={FrontendBasic}></Route>
                 <Route path="/frontend_browserdevtool" component={FrontendBrowserDevTool}></Route>
+                <Route path="/frontend_regex" component={FrontendRegex}></Route>
 
                 {/*========== 기타 ==========*/}
 
@@ -224,6 +250,7 @@ const Main = (props) => {
                 <Route path="/db_oraclebasic" component={DBOracleBasic}></Route>
                 <Route path="/db_mysqlbasic" component={DBMySQLBasic}></Route>
                 <Route path="/db_variablename" component={DBVariableName}></Route>
+                <Route path="/db_mariabasic" component={DBMariaBasic}></Route>
 
                 {/* 디자인 패턴 */}
                 <Route path="/dp_mvc2" component={DPMvc2}></Route>
@@ -250,7 +277,15 @@ const Main = (props) => {
                 <Route path="/network_protocol" component={NetworkProtocol}></Route>
 
                 {/* 알고리즘 */}
-                <Route path="/algorithm_basic" component={AlgorithmBasic}></Route>
+                <Route path="/algorithm_backtracking" component={Algorithm_Backtracking}></Route>
+                <Route path="/algorithm_divide_conquer" component={Algorithm_Divide_Conquer}></Route>
+                <Route path="/algorithm_dynamic" component={Algorithm_Dynamic}></Route>
+                <Route path="/algorithm_graph" component={Algorithm_Graph}></Route>
+                <Route path="/algorithm_greedy" component={Algorithm_Greedy}></Route>
+                <Route path="/algorithm_hash" component={Algorithm_Hash}></Route>
+                <Route path="/algorithm_recursive" component={Algorithm_Recursive}></Route>
+                <Route path="/algorithm_search" component={Algorithm_Search}></Route>
+                <Route path="/algorithm_sort" component={Algorithm_Sort}></Route>
 
                 {/* 자료구조 */}
 
@@ -270,6 +305,8 @@ const Main = (props) => {
                 <Route path="/linux_centos7" component={LinuxCentOS7}></Route>
                 <Route path="/linux_shell" component={LinuxShell}></Route>
                 <Route path="/linux_shellscript" component={LinuxShellScript}></Route>
+                <Route path="/linux_server" component={LinuxServer}></Route>
+                <Route path="/linux_programinstall" component={LinuxProgramInstall}></Route>
 
                 {/* 용어 */}
                 <Route path="/term" component={Term}></Route>
@@ -289,12 +326,19 @@ const Main = (props) => {
 
                 {/* 파이썬 */}
                 <Route path="/python_basic" component={PythonBasic}></Route>
+                <Route path="/python_regex" component={PythonRegex}></Route>
 
                 {/* 인공지능 */}
                 <Route path="/ai_basic" component={AiBasic}></Route>
 
                 {/* 블록체인 */}
                 <Route path="/blockchain_pow" component={BlockChainPow}></Route>
+
+                {/* 코딩테스트 */}
+                <Route path="/codingtest_baekjoon" component={CTBaekJoon}></Route>
+
+                {/* 추천 프로그램 */}
+                <Route path="/program_recdev" component={ProgramRecDev}></Route>
 
             </Switch>
         </div>

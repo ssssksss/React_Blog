@@ -104,8 +104,28 @@ const WindowSystem = (props) => {
                         <details>
                             <summary className="stitle"> ▶ Wifi <a name="Wifi" style={{ visibility: "hidden" }}> Wifi </a> </summary>
                             <span className="sblock">
-                                <span className="sstitle"> 노트북 와이파이 연결에 문제가 있을 때 </span>
+                                <span className="sstitle"> 인터넷 속도 측정 사이트 </span>
                                 <span className="mblock">
+                                    <li> <a href="https://www.speedtest.net/" target="_blank"> Speedtest.net </a> </li>
+                                    <li> 100정도가 안나오면 문제가 있을 수도 있음 </li>
+                                </span>
+                                {/*  */}
+                                <span className="sstitle"> 인터넷 속도 증가 하는 방법 </span>
+                                <span className="mblock">
+                                    <li> 실행창 - gpedit.msc - 컴퓨터 구성 - 관리 템플릿 - 네트워크 - qos 패킷 스케줄러
+                                        - 예약대역폭제한 - 사용 - 100% </li>
+                                    <small> 기본이 80%이지만 개인 사용자는 상관 없음 ( 20%는 서비스 등으로 사용되는것 같음 ) </small>
+                                    <li> 와이파이 아이콘 우측클릭 - 네트워크 및 인터넷 설정 열기 - 어댑터 옵션 변경 -
+                                        사용하는 네트워크 우측클릭 속성 - 인터넷 프로토콜 버전 4 속성 - 다음 DNS 서버 주소 사용
+                                        - 기본 설정 DNS 서버 8.8.8.8 , 보조 DNS 서버 8.8.8.4 (Google)혹은
+                                        1.1.1.1, 1.0.0.1 (Cloudflare)사용 </li>
+                                    <li> cmd - ipconfig/displaydns - ipconfig/flushdns </li>
+                                    <li> 브라우저 옵션 초기화(캐시나 쿠키)등등 지워주기  </li>
+                                    <li> 고클린 설치 - 인터넷이 느려질때 </li>
+                                    <li> 실행창 - regedit - 컴퓨터\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile
+                                        - NetworkThrottlingIndex - 10진수, 70으로 변경 </li>
+                                    <li> cmd - netsh interface tcp set global autotuninglevel=highlyrestricted </li>
+                                    <small> 더 안좋아지면 원상태로 복구 netsh interface tcp set global autotuninglevel=normal </small>
                                     <li>  </li>
                                 </span>
                                 {/*  */}
@@ -120,6 +140,10 @@ const WindowSystem = (props) => {
                                 <span className="sstitle">  </span>
                                 <span className="mblock">
                                     <li>  </li>
+                                </span>
+                                {/*  */}
+                                <span className="sstitle">  </span>
+                                <span className="mblock">
                                     <li>  </li>
                                 </span>
                                 {/*  */}

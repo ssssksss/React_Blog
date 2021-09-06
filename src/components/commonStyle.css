@@ -11,16 +11,12 @@
     }
     /* 왼쪽 사이드에 펼치는 메뉴 설정 */
     details{
-        padding-left: 5px;
         box-sizing: border-box;
         display: block;
         border-left: black solid 1px;
     }
-    details[open] > summary {
-        background: #eeeeee;
-    }
     details[open] > summary[class="stitle"] {
-        background: black;
+        background: #f2bb7b;
     }
     summary {
         color:blue;
@@ -61,94 +57,83 @@
     /* ///////////////////////////////////////////////////////////////// */
     .common_style > .subject {
         text-align: center;
-        margin: 10px 0px 10px;
         background: #c4c4c4;
         border-radius: 10px;
     }
     .common_style  .mtitle {
-        margin: 2px 0px 2px;
         font-size: 25px;
-        color: blue;
         background: white;
         border-radius: 10px;
-        padding: 0px 5px;
         box-sizing: border-box;
         display: block;
         text-align: center;
+        margin: 0px 0px 10px 0px;
     }
     .common_style  .stitle {
-        margin: 2px 0px 2px;
+        color: black;
         font-size: 16px;
         font-weight: 800;
-        color:violet;
-        background: #eaeaea;
         border-radius: 2px;
-        padding: 5px 5px;
         box-sizing: border-box;
         display: block;
         border-radius: 10px;
+        padding: 5px 0px 5px 0px;
     }
     .common_style  .sstitle {
-        margin: 1px 5px 1px;
         font-size: 14px;
         font-weight: 800;
-        color:rgba(0, 38, 255, 0.8);
-        background: #ffeaa7;
-        padding: 1px 8px;
         box-sizing: border-box;
         display: inline-block;
-        border-radius: 6px;
-    }
-    .common_style  .lblocknav {
-        border: black solid 3px;
-        background: rgba(0,255,0,0.3);
-        margin: 10px 0px 20px;
-        width: 100%;
-        min-height: 150px;
+        border-radius: 2px;
         padding: 5px;
-        box-sizing: border-box;
-        display: inline-block;
-        border-radius: 10px;
-        font-size: 1em;
+        background-color: #95dac1;
     }
     .common_style  .lblock {
         border: black solid 3px;
-        background: rgba(0,255,0,0.3);
-        margin: 10px 0px 20px;
+        background-color: #a5dee5;
         width: 100%;
-        /* min-height: 150px; */
-        padding: 5px;
         box-sizing: border-box;
         display: inline-block;
-        border-radius: 10px;
+        border-radius: 15px;
         font-size: 1em;
     }
-    
-    .common_style  .mblock {
-        border: black solid 2px;
-        background: #81d4fa;
-        margin: 10px 0px 10px;
-        width: 100%;
-        /* min-height: 80px; */
-        padding: 5px;
-        box-sizing: border-box;
-        display: block;
-        border-radius: 10px;
+
+    .common_style .lblock > .mblock {
+        background-color: #e0f9b5;
+        /*border-radius: 0px 15px 15px 0px;*/
+        margin: 8px 0px 8px 0px;
+        padding: 5px 5px 5px 5px;
     }
-    .common_style  .sblock {
-        border: black solid 2px;
-        background: #D9B2FF;
-        margin: 10px 0px 10px;
+
+    .common_style  .mblock {
+        background: #ffcfdf;
         width: 100%;
-        /* min-height: 80px; */
-        padding: 5px;
+        box-sizing: border-box;
+        display: block;
+        margin: 2px 0px;
+        border-radius: 10px;
+        min-height: 20px;
+    }
+
+
+    .common_style  .sblock {
+        border: #ff7676 dotted 1px;
+        background: #fefdca;
+        width: 100%;
         box-sizing: border-box;
         display: block;
         border-radius: 10px;
+        padding: 10px 0px 10px 5px;
+        margin: 5px 0px 5px 0px;
+        min-height: 20px;
     }
     .hyperlink{
         max-height: 300px;
         overflow-y:  scroll;
+    }
+
+    li {
+        list-style: none;
     }
 
     /* 이미지위에 마우스 올라가면 화면 확대 지금 정지*/
@@ -206,9 +191,7 @@
     /* ///////////////////////////////////////////////////////////////// */
     .common_style{
         width: 75%;
-        padding: 10px;
         box-sizing: border-box;
-        margin-bottom: 500px;
         border-radius: 20px;
         display: inline-block;
         position: absolute;
@@ -272,11 +255,8 @@
 
     /* ///////////////////////////////////////////////////////////////// */
 
-
     .common_style {
-        padding: 10px;
         box-sizing: border-box;
-        /* margin-bottom: 500px; */
         background-color: white;
     }
 

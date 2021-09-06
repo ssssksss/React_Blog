@@ -100,21 +100,23 @@ const Term2 = (props) => {
                 </div>
             </div>
             <div className="common_style" ref={(elem) => (blockRef.current[1] = elem)} >
-                <span className="lblock">
-                    {/*  */}
-                    <span className="mblock">
-                        <details>
-                            <summary className="stitle"> ▶ <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
-                            <span className="sblock">
-                                <span className="sstitle">  </span>
-                                <span className="mblock">
-                                    <li>  </li>
+                <ul>
+                    <span className="lblock">
+                        {/*  */}
+                        <span className="mblock">
+                            <details>
+                                <summary className="stitle"> ▶ <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+                                <span className="sblock">
+                                    <span className="sstitle">  </span>
+                                    <span className="mblock">
+                                        <li>  </li>
+                                    </span>
                                 </span>
-                            </span>
-                        </details>
+                            </details>
+                        </span>
+                        {/*  */}
                     </span>
-                    {/*  */}
-                </span>
+                </ul>
             </div>
         </>
     );

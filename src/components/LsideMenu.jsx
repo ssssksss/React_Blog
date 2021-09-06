@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import './LsideMenu.css';
-import HtmlList from './LsideMenu/HtmlList.jsx';
-import CssList from './LsideMenu/CssList.jsx';
-import JavaSciptList from './LsideMenu/JavaSciptList.jsx';
-import ReactList from './LsideMenu/ReactList.jsx';
-import JavaList from './LsideMenu/JavaList.jsx';
-import PhpList from './LsideMenu/PhpList.jsx';
-import NodeJsList from './LsideMenu/NodeJsList.jsx';
-import JspServletList from './LsideMenu/JspServletList.jsx';
-import SpringList from './LsideMenu/SpringList.jsx';
-import WindowList from './LsideMenu/WindowList.jsx';
-import TermList from './LsideMenu/TermList.jsx';
-import KeyMapList from './LsideMenu/KeyMapList.jsx';
-import GithubList from './LsideMenu/GithubList.jsx';
+import './NavMenuList.css';
+import HtmlList from './NavMenuList/HtmlList.jsx';
+import CssList from './NavMenuList/CssList.jsx';
+import JavaSciptList from './NavMenuList/JavaSciptList.jsx';
+import ReactList from './NavMenuList/ReactList.jsx';
+import JavaList from './NavMenuList/JavaList.jsx';
+import PhpList from './NavMenuList/PhpList.jsx';
+import NodeJsList from './NavMenuList/NodeJsList.jsx';
+import JspServletList from './NavMenuList/JspServletList.jsx';
+import SpringList from './NavMenuList/SpringList.jsx';
+import WindowList from './NavMenuList/WindowList.jsx';
+import TermList from './NavMenuList/TermList.jsx';
+import KeyMapList from './NavMenuList/KeyMapList.jsx';
+import GithubList from './NavMenuList/GithubList.jsx';
 
-const LsideMenu = (props) => {
+const NavMenuList = (props) => {
     function send(page2) {
         props.onChangePage(page2)
     }
@@ -22,11 +22,10 @@ const LsideMenu = (props) => {
         document.querySelector("title").innerHTML = title;
     }
 
-    // NavMenu.jsx에서 선택한 목록을 보여주고 LsideMenu.jsx에서 클릭한 목록을 Main.jsx에 보여준다.
+    // NavMenu.jsx에서 선택한 목록을 보여주고 NavMenuList.jsx에서 클릭한 목록을 Main.jsx에 보여준다.
     const showpage = () => {
         // 프론트 엔드 메뉴
         if (props.page === 'html') {
-            { changeTitle('html') }
             return <HtmlList onChangePage={(page2) => { send(page2) }}> </HtmlList>;
         }
         else if (props.page === 'css') {
@@ -78,4 +77,4 @@ const LsideMenu = (props) => {
     );
 }
 
-export default LsideMenu;
+export default NavMenuList;

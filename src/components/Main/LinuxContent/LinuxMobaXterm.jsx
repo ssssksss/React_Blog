@@ -123,7 +123,8 @@ const LinuxMobaXterm = (props) => {
                     {/*  */}
                     <span className="mblock">
                         <details>
-                            <summary className="stitle"> ▶ <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+                            <summary className="stitle"> ▶ MobaXterm 사용
+                                <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                             <span className="sblock">
                                 {/*  */}
                                 <span className="sstitle">  </span>

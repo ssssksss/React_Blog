@@ -112,7 +112,8 @@ const LinuxCentOS7 = (props) => {
                   <li> <a href="http://ftp.kaist.ac.kr/CentOS/7.9.2009/isos/x86_64/" target="_blank" rel="noreferrer"> http://ftp.kaist.ac.kr/CentOS/7.9.2009/isos/x86_64/ 파일 다운로드 </a>  </li>
                   <li> CentOS-7-x86_64-DVD-2009.iso 다운로드 </li>
                   <li> VMware Workstation 실행 </li>
-                  <li> Create a New Virtual Machine </li>
+                  <li> Create a New Virtual Machine </li> <br />
+                  {/*  */}
                   <li> Typical 클릭 </li>
                   <li> I will install the operation system later 클릭 </li>
                   <li> Linux , CentOS 7 64-bit 클릭 </li>
@@ -123,12 +124,12 @@ const LinuxCentOS7 = (props) => {
                   <li> New CD/DVD (IDE) : Use ISO image file:에 아까받은 CentOS7 넣기 </li>
                   <li> Network Adapter : Custom 부분에 VMnet8(NAT)로 선택 </li>
                   <li> Sound Card, Printer는 remove (아래쪽에 버튼이 있음) </li>
-                  <li> close하고 finish </li>
+                  <li> close하고 finish </li> <br />
+                  {/*  */}
                   <li> Test this media &amp; install CentOS 7 클릭  </li>
                   <li> 스크롤로 내려서 한국어 누르고 계속 진행 </li>
                   <li> 키보드 - '+'키 클릭 -  english검색하고 영어(미국) 추가</li>
-                  <li> 소프트웨어 설치 - 개발 및 창조를 위한 워크스테이션 - 완료  </li>
-                  <small> GUI 등을 추가하기 위해서 선택 </small>
+                  <li> 소프트웨어 설치 - 개발 및 창조를 위한 워크스테이션 - 완료 <small> GUI 등을 추가하기 위해서 선택 </small> </li>
                   <li> 설치대상 - 상단에 VMware 아이콘 체크박스를 클릭하고 다시한번더 클릭해서 인식되게 만듬 </li>
                   <li> KDUMP 활성화는 비활성화 #메모리를 좀더 절약하기 위해서 </li>
                   <li> 네트워크 및 호스트명 끔 → 켬  - 완료 </li>
@@ -137,7 +138,11 @@ const LinuxCentOS7 = (props) => {
                   <li> 사용자 생성 : 영어로된아이디나이름 </li>
                   <li> 라이센스 동의 - 완료     </li>
                   <li> 한국 - 한국어(Hangul) - 다음  - 위치정보 끔 - 다음 - 건너뛰기 - 시작 </li>
-                  <li> 라이센스 동의 해주기 </li>
+                  <li> 라이센스 동의 해주기 </li> <br />
+                  {/*  */}
+                  <li> 프로그램 - 시스템 도구 - 설정 - 알림 - 알림팝업,잠근화면알림 끄기 </li>
+                  <li> 프로그램 - 시스템 도구 - 개인 정보 - 화면 잠금 끄기 </li>
+                  <li>  </li>
                 </span>
               </span>
             </details>
@@ -148,23 +153,22 @@ const LinuxCentOS7 = (props) => {
               <summary className="stitle"> ▶ CentOS7 관련 명령어 <a name="CentOS7 관련 명령어" style={{ visibility: "hidden" }}> CentOS7 관련 명령어 </a> </summary>
               <span className="sblock">
                 <span className="sstitle">  </span>
-                <span className="mblock">
+                <span className="mblock" style={{ listStyle: "none" }} >
                   <li>  </li>
                   <li> su - : 루트 계정으로 접속하는 방법 </li>
                   <li> su 계정명 : 원하는 계정으로 접속하는 방법 </li>
                   <li> netstat -tnlp , 텔넷은 23번포트트 사용한다. </li>
-                  <li> cd /etc/xinetd.d/ 그리고 vi telnet
-                    <li> {'service telnet '} </li>
-                    <li> {'{ '} </li>
-                    <li> {'        disable = no '} #서비스를 사용하지 않을것인지 no면 사용한다는 의미</li>
-                    <li> {'        flags = REUSE '} #재사용한다는 의미</li>
-                    <li> {'        socket_type = stream '} #소켓형태 스트림</li>
-                    <li> {'        wait = no '} #바로 서버를 사용?</li>
-                    <li> {'        user = root '} #접속할수 있는 유저</li>
-                    <li> {'        server = /usr/sbin/in.telnetd '} #텔넷서버에 대한 명령어 </li>
-                    <li> {'        log_on_failure += USERID '} #접속실패했을떄 유저의 아이디를 로그로 남겨라</li>
-                    <li> {'} '} </li>
+                  <li> cd /etc/xinetd.d/ 그리고 vi telnet </li> <br />
+                  <li> {'service telnet {'}
+                    <li> {' disable = no '} <small> #서비스를 사용하지 않을것인지 no면 사용한다는 의미 </small> </li>
+                    <li> {' flags = REUSE '}   <small> #재사용한다는 의미 </small></li>
+                    <li> {' socket_type = stream '}   <small> #소켓형태 스트림 </small></li>
+                    <li> {' wait = no '}   <small> #바로 서버를 사용? </small></li>
+                    <li> {' user = root '}   <small> #접속할수 있는 유저 </small></li>
+                    <li> {' server = /usr/sbin/in.telnetd '}   <small> #텔넷서버에 대한 명령어 </small> </li>
+                    <li> {' log_on_failure += USERID '}   <small> #접속실패했을떄 유저의 아이디를 로그로 남겨라 </small></li>
                   </li>
+                  <li> {'} '} </li> <br />
                   <li> systemctl restart xinetd </li>
                   <li> centos7 client에서 centos7 server로 접속하기
                     <li> ping 168.126.63.1 </li>
@@ -192,8 +196,8 @@ const LinuxCentOS7 = (props) => {
             <details>
               <summary className="stitle"> ▶ telnet 서버 설치하는 방법 <a name="telnet 서버 설치하는 방법" style={{ visibility: "hidden" }}> telnet 서버 설치하는 방법 </a> </summary>
               <span className="sblock">
+                <span className="sstitle"> 설치 방법 </span> <br />
                 <small> 텔넷서버: 원격 접속을 지원하는 프로그램, 보안에 취약해서 대분분 SSH를 사용 </small>
-                <span className="sstitle"> 설치 방법 </span>
                 <span className="mblock">
                   <li> 0. su - # 루트 계정으로 접속하는 방법 </li>
                   <li> 1. yum -y install telnet-server # telnet서버 설치 1번방법 </li>
@@ -212,21 +216,6 @@ const LinuxCentOS7 = (props) => {
                   <li> 1. yum -y install telnet </li>
                   <li> 2. 제어판 - Window 기능 켜기/끄기 - 텔넷 클라이언트 체크박스 체크 </li>
                   <li> 3. ping telnet서버IP주소  </li>
-                  <li>  </li>
-                </span>
-              </span>
-            </details>
-          </span>
-          {/*  */}
-          <span className="mblock">
-            <details>
-              <summary className="stitle"> ▶ ssh 서버 설치하는 방법 <a name="ssh 서버 설치하는 방법" style={{ visibility: "hidden" }}> ssh 서버 설치하는 방법 </a> </summary>
-              <span className="sblock">
-                <span className="sstitle"> 설치 방법 </span>
-                <span className="mblock">
-                  <li> yum -y install openssh-server #버전을 일치하기 위해서 다시 설치 </li>
-                  <li> firewall-cmd --list-services #방화벽 허용 리스트</li>
-                  <li>  </li>
                   <li>  </li>
                 </span>
               </span>
@@ -271,21 +260,23 @@ const LinuxCentOS7 = (props) => {
                 </span>
                 {/*  */}
                 <span className="sstitle"> dhcp 서버 설정 </span>
-                <span className="mblock">
-                  <li> subnet 192.168.10.0 netmask 255.255.255.0 , # netmask는 앞에 9자리가 네트워크 대역이라는 것을 알려줌 </li>
-                  <li> {'{'}  </li>
-                  <li> host client1  </li>
-                  <li> {'{'}  </li>
-                  <li> option host-name "client1";  </li>
-                  <li> hardware ethernet 하드웨어주소; , # ifconfig에서 ether 주소를 참조 </li>
-                  <li> fixed-address 102.168.10.251;  </li>
-                  <li> {'}'}  </li>
-                  <li> option routers 192.168.10.2; , #dhcp서버가 보는 나의 게이트웨이 주소  </li>
-                  <li> option subnet-mask 255.255.255.0;  , # 네트워크 대역을 255로 알려줘  </li>
-                  <li> range dynamic-bootp 192.168.10.30 192.168.10.50; , #30~50번 IP를 나누어 준다.   </li>
-                  <li> option domain-name-servers 8.8.8.8;  , # 도메인 주소를 설정 </li>
-                  <li> default-lease-time 86400; , # 클라이언트에게 준 IP의 시간을 초단위로 설정  </li>
-                  <li> max-lease-time 172800; , # 클라이언트에게 준 동일한 IP의 최대 시간을 초단위로 설정, 오랜기간 사용하면 악용의 소지떄문에 제한  </li>
+                <span style={{ listStyle: "none" }} className="mblock">
+                  <li> subnet 192.168.10.0 netmask 255.255.255.0 <small> netmask는 앞에 9자리가 네트워크 대역이라는 것을 알려줌 </small> </li>
+                  <li> {'{'}
+                    <li> host client1  </li>
+                    <li> {'{'}
+                      <li> option host-name "client1";  </li>
+                      <li> hardware ethernet 하드웨어주소; , # ifconfig에서 ether 주소를 참조 </li>
+                      <li> fixed-address 102.168.10.251;  </li>
+                    </li>
+                    <li> {'}'}  </li>
+                    <li> option routers 192.168.10.2; <small> # dhcp서버가 보는 나의 게이트웨이 주소 </small> </li>
+                    <li> option subnet-mask 255.255.255.0; <small> # 네트워크 대역을 255로 알려줘 </small> </li>
+                    <li> range dynamic-bootp 192.168.10.30 192.168.10.50;  <small> #30~50번 IP를 나누어 준다. </small>  </li>
+                    <li> option domain-name-servers 8.8.8.8;  <small> # 도메인 주소를 설정 </small> </li>
+                    <li> default-lease-time 86400; <small> # 클라이언트에게 준 IP의 시간을 초단위로 설정 </small>  </li>
+                    <li> max-lease-time 172800; <small> # 클라이언트에게 준 동일한 IP의 최대 시간을 초단위로 설정, 오랜기간 사용하면 악용의 소지떄문에 제한 </small>  </li>
+                  </li>
                   <li> {'}'}  </li>
                   <li>  </li>
                   <li>  </li>
@@ -302,6 +293,18 @@ const LinuxCentOS7 = (props) => {
                   <li>  </li>
                 </span>
                 {/*  */}
+              </span>
+            </details>
+          </span>
+          {/*  */}
+          <span className="mblock">
+            <details>
+              <summary className="stitle"> ▶ <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+              <span className="sblock">
+                <span className="sstitle">  </span>
+                <span className="mblock">
+                  <li>  </li>
+                </span>
               </span>
             </details>
           </span>

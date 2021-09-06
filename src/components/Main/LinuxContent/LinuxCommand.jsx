@@ -462,7 +462,7 @@ const LinuxCommand = (props) => {
                   <li> w 명령어
                     <span className="sblock">
                       <details>
-                        <summary className="stitle"> ▶ USER | TTY | FROM | LOGIN@ | IDLE | JCPU | PCPU | WHAT  </summary>
+                        <summary className="sstitle"> ▶ USER | TTY | FROM | LOGIN@ | IDLE | JCPU | PCPU | WHAT  </summary>
                         <small> 현재시간 현재 접속한 사용자, 시스템 실행 시간 , 1,5,15분 동안 시스템 로드 평균시간 </small>
                         <li> USER : 서버 접속 계정 </li>
                         <li> TTY : 접속 TTY 명 </li>
@@ -679,19 +679,20 @@ const LinuxCommand = (props) => {
                   <li> IP주소로 ping을 보내서 인터넷이 연결이 되었는지 확인하는 방법 , 168.126.63.1(KT) </li>
                 </span>
                 {/*  */}
-                <span className="sstitle"> vi /etc/sysconfig/network-scripts/ifcfg-ens33  </span>
+                <span className="sstitle"> 고정 IP 만드는 방법  </span>
                 <span className="mblock">
-                  <li> 고정IP만들기  </li>
+                  <li> vi /etc/sysconfig/network-scripts/ifcfg-ens33   </li>
                   <li> BOOTPROTO="static" 으로 변경  </li>
-                  <li> IPADDR=고정IP주소  </li>
+                  <li> IPADDR=고정IP주소 (ex 192.168.10.20)  </li>
                   <li> PREFIX=24 #24까지가 네트워크 대역이다라고 알려주는것 </li>
-                  <li> GATEWAY=게이트웨이주소  </li>
-                  <li> DNS1=구글에서 통신사 DNS 서버 치고 통신사에 맞는 주소 넣기ㅔ  </li>
+                  <li> GATEWAY=게이트웨이주소 (ex 192.168.10.2) </li>
+                  <li> DNS1=구글에서 통신사 DNS 서버 치고 통신사에 맞는 주소 넣기 (ex 168.126.63.1)  </li>
                 </span>
                 {/*  */}
-                <span className="sstitle">  </span>
+                <span className="sstitle"> 방화벽 설정 </span>
                 <span className="mblock">
-                  <li>  </li>
+                  <li> firewall-cmd --permanent --add-port=포트번호/tcp </li>
+                  <li> firewall-cmd --reload </li>
                 </span>
                 {/*  */}
                 <span className="sstitle">  </span>
@@ -828,42 +829,46 @@ const LinuxCommand = (props) => {
                   <li> echo -n 내용 : 후행 줄 바꿈을 생략하는데 사용  </li>
                   <li>  <span className="sstitle">  echo -e 내용 : 정규표현식을 사용할 수 있는 옵션 </span>
                     <span className="sblock">
-                      <li> \b : 공백을 지움 </li>
-                      <li> \c : 줄 바꿈을 억제 </li>
-                      <li> \n : 줄 바꿈  </li>
-                      <li> \t : 수평 탭 공간을 만듬  </li>
-                      <li> \r : 이후에 출력할 위치를 지정  </li>
-                      <li> \v : 수직 탭 공간을 만듬  </li>
-                      <li> \a : 경고음이 울림  </li>
-                      <li> \\ : 역슬래시  </li>
+                      <ul style={{ listStyle: "none" }}>
+                        <li> \b : 공백을 지움 </li>
+                        <li> \c : 줄 바꿈을 억제 </li>
+                        <li> \n : 줄 바꿈  </li>
+                        <li> \t : 수평 탭 공간을 만듬  </li>
+                        <li> \r : 이후에 출력할 위치를 지정  </li>
+                        <li> \v : 수직 탭 공간을 만듬  </li>
+                        <li> \a : 경고음이 울림  </li>
+                        <li> \\ : 역슬래시  </li>
+                      </ul>
                     </span>
                   </li>
                   <li> <span className="sstitle">  echo 이미지정된변수 </span>
                     <span className="sblock">
-                      <li> $USER, $USERNAME : 현재 사용자 이름 </li>
-                      <li> $PWD :  현재 디렉토리 </li>
-                      <li> $OSTYPE : 현재 운영체제를 알려줌 </li>
-                      <li> $PATH : 실행 파일을 찾는 디렉토리 경로</li>
-                      <li> $SHELL : 로그인해서 사용하는 셸 </li>
-                      <li> $HOME : 현재 사용자의 홈 디렉토리 </li>
-                      <li> $HOSTNAME : 호스트 이름 </li>
-                      <li> $LANG : 사용가능한 언어 </li>
-                      <li> $LOGNAME : 로그인 이름 </li>
-                      <li> $TERM : 로그인 터미널 타입 </li>
-                      <li> $COLUMNS : 현재 터미널 컬럼수  </li>
-                      <li> $BASH : bash 셸의 경로 </li>
-                      <li> $PS1 : 1차 명령 프롬프트 변수 </li>
-                      <li> $HISTFILE : 히스토리 파일의 경로 </li>
-                      <li> $MAIL : 메일을 보관하는 경로 </li>
-                      <li> $DISPLAY : X 디스플레이 이름 </li>
-                      <li> $LINES : 현재 터미널 라인수  </li>
-                      <li> $PS2 : 2차 명령 프롬프트 </li>
-                      <li> $BASH_VERSION : bash 버전 </li>
-                      <li> $HISTSIZE : 히스토리 파일에 저장되는 개수 </li>
-                      <li> $LS_COLORS : 'ls' 명령어의 확장자 색상 옵션 </li>
-                      <li> $$ : 사용되는 PID 출력 </li>
-                      <li> export PATH=$PATH:/경로/ : PATH경로에 추가하는 방법(재부팅시 초기화) </li>
-                      <li>  </li>
+                      <ul style={{ listStyle: "none" }}>
+                        <li> $USER, $USERNAME : <small> 현재 사용자 이름 </small> </li>
+                        <li> $PWD : <small>  현재 디렉토리 </small> </li>
+                        <li> $OSTYPE : <small> 현재 운영체제를 알려줌 </small> </li>
+                        <li> $PATH : <small> 실행 파일을 찾는 디렉토리 경로</small> </li>
+                        <li> $SHELL : <small> 로그인해서 사용하는 셸 </small> </li>
+                        <li> $HOME : <small> 현재 사용자의 홈 디렉토리 </small> </li>
+                        <li> $HOSTNAME : <small> 호스트 이름 </small> </li>
+                        <li> $LANG : <small> 사용가능한 언어 </small> </li>
+                        <li> $LOGNAME : <small> 로그인 이름 </small> </li>
+                        <li> $TERM : <small> 로그인 터미널 타입 </small> </li>
+                        <li> $COLUMNS : <small> 현재 터미널 컬럼수  </small> </li>
+                        <li> $BASH : <small> bash 셸의 경로 </small> </li>
+                        <li> $PS1 : <small> 1차 명령 프롬프트 변수 </small> </li>
+                        <li> $HISTFILE : <small> 히스토리 파일의 경로 </small> </li>
+                        <li> $MAIL : <small> 메일을 보관하는 경로 </small> </li>
+                        <li> $DISPLAY : <small> X 디스플레이 이름 </small> </li>
+                        <li> $LINES : <small> 현재 터미널 라인수  </small> </li>
+                        <li> $PS2 : <small> 2차 명령 프롬프트 </small> </li>
+                        <li> $BASH_VERSION : <small> bash 버전 </small> </li>
+                        <li> $HISTSIZE : <small> 히스토리 파일에 저장되는 개수 </small> </li>
+                        <li> $LS_COLORS : <small> 'ls' 명령어의 확장자 색상 옵션 </small> </li>
+                        <li> $$ : <small> 사용되는 PID 출력 </small> </li>
+                        <li> export PATH=$PATH: /경로/ : <small> PATH경로에 추가하는 방법(재부팅시 초기화) </small> </li>
+                        <li>  </li>
+                      </ul>
                     </span>
                   </li>
                   <li>  </li>
@@ -996,11 +1001,51 @@ const LinuxCommand = (props) => {
           {/*  */}
           <span className="mblock">
             <details>
-              <summary className="stitle"> ▶ ps 명령어 <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+              <summary className="stitle"> ▶ ps 명령어 <small> 현재 돌아가는 프로세스를 확인 </small>
+                <a name="ps 명령어" style={{ visibility: "hidden" }}> ps 명령어 </a> </summary>
               <span className="sblock">
                 <span className="sstitle">  </span>
                 <span className="mblock">
                   <li> ps -ef | grep dnsmasq , # dnsmasq dns서버 프로세스를 확인 </li>
+                  <li> ps -l -ef # 진행중인 긴 메뉴 프로세스
+                    <span className="sblock">
+                      <details>
+                        <summary className="sstitle"> ▶ F | S | UID | PID | PPID | C | PRI | NI | ADDR | SZ | WCHAN | STIME | TTY | TIME | CMD </summary>
+                        <li> F : 프로세스 플래그 </li>
+                        <li> S : 현재 프로세스의 상태 코드 ( S:Sys V, STAT:BSD ) </li>
+                        <li> UID : 실행 유저 </li>
+                        <li> PID : 프로세스 ID </li>
+                        <li> PPID : 부모 프로세스 ID </li>
+                        <li> C : CPU 사용량 </li>
+                        <li> PRI : 실행 우선순위 </li>
+                        <li> NI : nice 우선순위 번호 </li>
+                        <li> ADDR :  </li>
+                        <li> SZ : 가상 메모리 사용량? </li>
+                        <li> WCHAN :  </li>
+                        <li> STIME : Start Time </li>
+                        <li> TTY : tty1(콘솔) , pts/1(원격) </li>
+                        <li> TIME : 구동시간 </li>
+                        <li> CMD : 실행 명령어 </li>
+                      </details>
+                    </span>
+                  </li>
+                  {/*  */}
+                  <li> ps -f -ef # 진행중인 완전한 메뉴 프로세스
+                    <span className="sblock">
+                      <details>
+                        <summary className="sstitle"> ▶ UID | PID | PPID | C | STIME | TTY | TIME | CMD  </summary>
+                        <li> UID : 실행 유저 </li>
+                        <li> PID : 프로세스 ID </li>
+                        <li> PPID : 부모 프로세스 ID </li>
+                        <li> C : CPU 사용량 </li>
+                        <li> STIME : Start Time </li>
+                        <li> TTY : tty1(콘솔) , pts/1(원격) </li>
+                        <li> TIME : 구동시간 </li>
+                        <li> CMD : 실행 명령어 </li>
+                      </details>
+                    </span>
+                  </li>
+                  {/*  */}
                   <li>  </li>
                 </span>
                 {/*  */}
@@ -1060,6 +1105,7 @@ const LinuxCommand = (props) => {
                 <span className="sstitle"> dirname 명령어 </span>
                 <span className="mblock">
                   <li> dirname /경로1/경로2 , #최상위 경로인 /경로1 출력  </li>
+                  <li> dirname /경로1 , #최상위 경로인 / 출력  </li>
                 </span>
                 {/*  */}
                 <span className="sstitle"> basename 명령어 </span>
@@ -1073,12 +1119,19 @@ const LinuxCommand = (props) => {
           {/*  */}
           <span className="mblock">
             <details>
-              <summary className="stitle"> ▶ <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+              <summary className="stitle"> ▶ export 명령어 <small> 쉘 변수를 환경변수로 저장 </small>
+                <a name="export 명령어" style={{ visibility: "hidden" }}> export 명령어 </a> </summary>
               <span className="sblock">
-                <span className="sstitle">  </span>
+                <span className="sstitle"> 명령어 사용 </span>
                 <span className="mblock">
+                  <li> export 값 <small> 재접속 하면 사라짐 , 쉘스크립트 내부에서 사용 </small> </li>
                   <li>  </li>
-                  <li>  </li>
+                </span>
+                {/*  */}
+                <span className="sstitle"> 변수를 영구적으로 환경변수로 사용하는 방법 </span>
+                <span className="mblock">
+                  <li> vi ~/.bashrc에 들어감 </li>
+                  <li> export 변수명=변수값 </li>
                 </span>
                 {/*  */}
                 <span className="sstitle">  </span>
@@ -1092,7 +1145,212 @@ const LinuxCommand = (props) => {
           {/*  */}
           <span className="mblock">
             <details>
-              <summary className="stitle"> ▶ <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+              <summary className="stitle"> ▶ at 명령어 <small> 지정된 시간에 1회 자동으로 작업 실행, 간단한 예약 작업 </small>
+                <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+              <span className="sblock">
+                <span className="sstitle"> at 설치 </span>
+                <span className="mblock">
+                  <li> yum install at </li>
+                </span>
+                {/*  */}
+                <span className="sstitle"> CentOS7 at 사용 </span>
+                <span className="mblock">
+                  <li> systemctl stop ntpd , 혹시나 영향을 줄까봐 </li>
+                  <li> systemctl stop chronyd , 혹시나 영향을 줄까봐 </li>
+                  <li> systemctl start atd </li>
+                  <li> systemctl enable atd </li>
+                </span>
+                {/*  */}
+                <span className="sstitle"> at [option] "시간" </span>
+                <span className="mblock">
+                  <ul style={{ listStyle: "none" }}>
+                    <li> -f 파일명 : 스크립트 파일 등을 실행
+                      <li>  <small> at HHMM DDMMYYYY -f test.sh </small> </li>
+                    </li>
+                    <li> -m : 완료되면 사용자에게 메일을 보냄
+                      <li> <small> at -m HHMM DDMMYYYY </small> </li>
+                    </li>
+                    <li> -M : 메일 보내지 않기
+                      <li> <small>  </small> </li>
+                    </li>
+                    <li> -t : YYYYMMDDHHMM로 시간 지정
+                      <li> <small> at -t YYYYMMDDHHMM  </small> </li>
+                    </li>
+                    <li> -l : 예약된 작업 목록을 보여줌(atq 명령어와 같음)
+                      <li> <small> at -l </small> </li>
+                    </li>
+                    <li> -r 번호 : 예약된 작업 삭제(unix)
+                      <li> <small>  </small> </li>
+                    </li>
+                    <li> -d 작업번호 : 예약된 작업 삭제(linux)
+                      <li> <small> -d 1 </small> </li>
+                    </li>
+                    <li> -q : queue 이름을 지정
+                      <li> <small>  </small> </li>
+                    </li>
+                    <li> -V : 버전 확인
+                      <li> <small>  </small> </li>
+                    </li>
+                    <li> -v : 작업 시간 상세보기
+                      <li> <small> at -v HHMM DDMMYYYY </small> </li>
+                    </li>
+                    <li> -c : 예약 작업 상세보기
+                      <li> <small> at -v HHMM DDMMYYYY </small> </li>
+                    </li>
+                    <li> -b : 시스템에 부하를 주지 않게 실행
+                      <li> <small> at -b HHMM DDMMYYYY </small> </li>
+                    </li>
+                    <li> atq : 예약된 작업 목록을 보여줌
+                      <li> <small>  </small> </li>
+                    </li>
+                    <li> atrm : 예약된 작업 목록을 삭제
+                      <li> <small>  </small> </li>
+                    </li>
+                    <li> batch : 시스템 부하가 일정 이하일 때 명령을 실행
+                      <li> <small>  </small> </li>
+                    </li>
+                    <li> cron : 정기적으로 예약된 작업을 수행
+                      <li> <small>  </small> </li>
+                    </li>
+                  </ul>
+                </span>
+                {/*  */}
+                <span className="sstitle">  </span>
+                <span className="mblock">
+                  <li>  </li>
+                </span>
+                {/*  */}
+              </span>
+            </details>
+          </span>
+          {/*  */}
+          <span className="mblock">
+            <details>
+              <summary className="stitle"> ▶ crontab 명령어 <small> 예약 작업 자동 실행 명령어 </small>
+                <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+              <span className="sblock">
+                <span className="sstitle"> crontab 설치 </span>
+                <span className="mblock">
+                  <li>  CentOS
+                    <li> sudo yum update -y </li>
+                    <li> sudo yum install -y cronie </li>
+                    <li> sudo systemctl start crond </li>
+                    <li> sudo systemctl enable crond , 활성화 </li>
+                  </li>
+                  <li>  Ubuntu
+                    <li> sudo apt update -y  </li>
+                    <li> sudo apt install -y cron  </li>
+                    <li> sudo service cron start  </li>
+                    <li> sudo systemctl enable cron.service  </li>
+                  </li>
+                </span>
+                {/*  */}
+                <span className="sstitle"> cron 설정 파일 위치 </span>
+                <span className="mblock">
+                  <li> /var/spool/cron/ID : BSD 계열 </li>
+                  <li> /var/spool/cron/crontabs/ID : 솔라리스 계열 </li>
+                  <li> /etc/cron.d :  </li>
+                  <li> /etc/crontab : 크론 데몬 파일 </li>
+                  <li> /etc/rc.d/init.d/crond : 데몬 실행 스크립트(service) </li>
+                  <li> /usr/lib/systemd/system/crond.service : 데몬 실행 스크립트(systemctl) </li>
+                  <li> /usr/sbin/anacron : 서버가 일정 시간 중지 되었을 때 작업이 실행되는 것을 보장하기 위해 사용되는 도구 </li>
+                  <li> ls -la /etc | grep cron : cron은 일,시,월,주 등 디렉토리 파일이 있고 그안에 실행할 파일들을 넣어놓고 작동 </li>
+                  <li> /var/log/cron : 크론 실행내용 로그 </li>
+                  <li> /etc/cron.allow , etc/cron.deny : 크론을 허용,비허용 등을 설정하는 파일 </li>
+                  <li>  </li>
+                </span>
+                {/*  */}
+                <span className="sstitle"> crontab [option] 파일명 </span>
+                <span className="mblock">
+                  <ul style={{ listStyle: "none" }}>
+                    <li> crontab -l : crontab 조회
+                      <li> <small>  </small> </li>
+                    </li>
+                    <li> crontab -e : crontab 작성 및 수정
+                      <li> <small>  </small> </li>
+                    </li>
+                    <li> crontab -r : crontab 삭제
+                      <li> <small>  </small> </li>
+                    </li>
+                    <li> crontab -u : 루트가 특정 사용자의 crontab파일을 다룰 때 사용
+                      <li> <small> crontab -u 사용자명 -e </small> </li>
+                    </li>
+                    <li>  </li>
+                  </ul>
+                </span>
+                {/*  */}
+                <span className="sstitle"> crontab 파일 작성 </span>
+                <span className="mblock">
+                  <li> [ minute hour day month week user command ] </li>
+                  <li> minute(분) : 0~59 </li>
+                  <li> hour(시) : 0~23 </li>
+                  <li> day(일) : 1~31 </li>
+                  <li> month(월) : 1~12 </li>
+                  <li> week(주) : 0~7(0과7은 일요일) </li>
+                  <li> user : 사용자이름 </li>
+                  <li> command : 실행할 명령어 </li>
+                  <li> 정규표현식 문자 : *(모든날짜) (10일)-(20일) (요일1),(요일2),(요일3) (날짜)/(값) (주기를 나타냄) </li>
+                </span>
+                {/*  */}
+                <span className="sstitle"> crontab 파일 예시  </span>
+                <span className="mblock">
+                  <li> 0 12 * * * 명령어 <small> 12시에 명령어 실행 </small> </li>
+                  <li> 0 0,12 * * * 명령어 <small> 0,12시에 명령어 실행 </small> </li>
+                  <li> 0 /2 * * * 명령어 <small> 12시간마다 명령어 실행 </small> </li>
+                  <li> 0 12-18 * * * 명령어 <small> 12-18 시간마다 명령어 실행 </small> </li>
+                  <li> 0 18 * * fri 명령어 <small> 18시 금요일마다 명령어 실행 </small> </li>
+                </span>
+                {/*  */}
+                <span className="sstitle">  </span>
+                <span className="mblock">
+                  <li>  </li>
+                </span>
+                {/*  */}
+              </span>
+            </details>
+          </span>
+          {/*  */}
+          <span className="mblock">
+            <details>
+              <summary className="stitle"> ▶ wget 명령어 <small> 웹에서 다운로드 하기 위한 명령어 </small>
+                <a name="wget 명령어" style={{ visibility: "hidden" }}> wget 명령어 </a> </summary>
+              <span className="sblock">
+                <span className="sstitle"> wget 설치 </span>
+                <span className="mblock">
+                  <li> wget : wget가 설치되어 있으면 missing URL 이라고 출력된다. </li>
+                  <li> CentOS
+                    <li> sudo yum install wget </li>
+                  </li>
+                  <li> Ubuntu, Debian
+                    <li> sudo apt install wget </li>
+                  </li>
+                  <li>  </li>
+                </span>
+                {/*  */}
+                <span className="sstitle"> wget [options] [url]  사용 </span>
+                <span className="mblock">
+                  <li> wget -q [url] : 다운로드 진행률 표시를 끔 </li>
+                  <li> wget -O 저장할파일이름.확장자 [url]  </li>
+                  <li> wget -P 경로 [url] : 특정 위치에 파일을 다운로드 </li>
+                  <li> wget -c [url] : 파일을 이어서 다운로드, 이어서 다운로드 지원을 하지 않으면 기존 파일 덮어쓰기 </li>
+                  <li> wget -b [url] : 백그라운드에서 다운로드 </li>
+                  <li> wget -i [다운로드할 url이 담겨있는 파일] :  </li>
+                  <li> wget --ftp-user=FTP유저명 --ftp-password=FTP패스워드 [url] :  </li>
+                </span>
+                {/*  */}
+                <span className="sstitle">  </span>
+                <span className="mblock">
+                  <li>  </li>
+                </span>
+                {/*  */}
+              </span>
+            </details>
+          </span>
+          {/*  */}
+          <span className="mblock">
+            <details>
+              <summary className="stitle"> ▶ <small>  </small>
+                <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
               <span className="sblock">
                 <span className="sstitle">  </span>
                 <span className="mblock">

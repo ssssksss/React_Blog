@@ -59,17 +59,27 @@
     border: none;
     box-shadow: 1px 1px 1px 1px gray;
 }
-.menucontainer > .menu > button > img {
-    max-width: 14px;
-    max-height: 14px;
-    vertical-align: top;
-}
-.menucontainer > .menu > button > span {
-    font-size: 0.8em;
-}
-
 .navMenu2 > .menu button:hover {
     background: white;
     color: #1976d2;
 
+}
+
+.menucontainer {
+    display: flex;
+}
+
+.menucontainer .menu {
+    width: 50%;
+}
+.menucontainer > .menu > a  {
+    text-decoration: none;
+}
+.menucontainer > .menu > a > img {
+    max-width: 14px;
+    max-height: 14px;
+    vertical-align: top;
+}
+.menucontainer > .menu > a > span {
+    font-size: 0.8em;
 }

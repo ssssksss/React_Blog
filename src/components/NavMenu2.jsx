@@ -1,30 +1,33 @@
-import HtmlList from './LsideMenu/HtmlList.jsx';
-import CssList from './LsideMenu/CssList.jsx';
-import JavaSciptList from './LsideMenu/JavaSciptList.jsx';
-import ReactList from './LsideMenu/ReactList.jsx';
-import JavaList from './LsideMenu/JavaList.jsx';
-import PhpList from './LsideMenu/PhpList.jsx';
-import NodeJsList from './LsideMenu/NodeJsList.jsx';
-import JspServletList from './LsideMenu/JspServletList.jsx';
-import SpringList from './LsideMenu/SpringList.jsx';
-import DatabaseList from './LsideMenu/DatabaseList.jsx';
-import WindowList from './LsideMenu/WindowList.jsx';
-import LinuxList from './LsideMenu/LinuxList.jsx';
-import NetworkList from './LsideMenu/NetworkList.jsx';
-import TermList from './LsideMenu/TermList.jsx';
-import KeyMapList from './LsideMenu/KeyMapList.jsx';
-import GithubList from './LsideMenu/GithubList.jsx';
-import RefBlogList from './LsideMenu/RefBlogList.jsx';
-import PythonList from './LsideMenu/PythonList.jsx';
-import AIList from './LsideMenu/AIList.jsx';
-import AlgorithmList from './LsideMenu/AlgorithmList.jsx';
-import FrontendList from './LsideMenu/FrontendList.jsx';
-import BackendList from './LsideMenu/BackendList.jsx';
-import SecurityList from './LsideMenu/SecurityList.jsx';
-import BlockChainList from './LsideMenu/BlockChainList.jsx';
-import DesignPatternList from './LsideMenu/DesignPatternList.jsx';
+import HtmlList from './NavMenuList/HtmlList.jsx';
+import CssList from './NavMenuList/CssList.jsx';
+import JavaSciptList from './NavMenuList/JavaSciptList.jsx';
+import ReactList from './NavMenuList/ReactList.jsx';
+import JavaList from './NavMenuList/JavaList.jsx';
+import PhpList from './NavMenuList/PhpList.jsx';
+import NodeJsList from './NavMenuList/NodeJsList.jsx';
+import JspServletList from './NavMenuList/JspServletList.jsx';
+import SpringList from './NavMenuList/SpringList.jsx';
+import DatabaseList from './NavMenuList/DatabaseList.jsx';
+import WindowList from './NavMenuList/WindowList.jsx';
+import LinuxList from './NavMenuList/LinuxList.jsx';
+import NetworkList from './NavMenuList/NetworkList.jsx';
+import TermList from './NavMenuList/TermList.jsx';
+import KeyMapList from './NavMenuList/KeyMapList.jsx';
+import GithubList from './NavMenuList/GithubList.jsx';
+import RefBlogList from './NavMenuList/RefBlogList.jsx';
+import PythonList from './NavMenuList/PythonList.jsx';
+import AIList from './NavMenuList/AIList.jsx';
+import AlgorithmList from './NavMenuList/AlgorithmList.jsx';
+import FrontendList from './NavMenuList/FrontendList.jsx';
+import BackendList from './NavMenuList/BackendList.jsx';
+import SecurityList from './NavMenuList/SecurityList.jsx';
+import BlockChainList from './NavMenuList/BlockChainList.jsx';
+import DesignPatternList from './NavMenuList/DesignPatternList.jsx';
+import CodingTestList from './NavMenuList/CodingTestList.jsx';
+import ProgramList from './NavMenuList/ProgramList.jsx';
 
 import './NavMenu2.css';
+import './NavMenuListStyle.css';
 import { Link } from 'react-router-dom';
 
 const NavMenu2 = (props) => {
@@ -40,7 +43,7 @@ const NavMenu2 = (props) => {
     // }
 
 
-    // NavMenu.jsx에서 선택한 목록을 보여주고 LsideMenu.jsx에서 클릭한 목록을 Main.jsx에 보여준다.
+    // NavMenu.jsx에서 선택한 목록을 보여주고 NavMenuList.jsx에서 클릭한 목록을 Main.jsx에 보여준다.
     const showpage = () => {
         // 프론트 엔드 메뉴
         if (props.page === 'html') {
@@ -120,6 +123,12 @@ const NavMenu2 = (props) => {
         }
         else if (props.page === 'designpattern') {
             return <DesignPatternList onChangePage={(page2) => { send(page2) }}> </DesignPatternList>;
+        }
+        else if (props.page === 'codingtest') {
+            return <CodingTestList onChangePage={(page2) => { send(page2) }}> </CodingTestList>;
+        }
+        else if (props.page === 'program') {
+            return <ProgramList onChangePage={(page2) => { send(page2) }}> </ProgramList>;
         }
         else {
             return <div> </div>;
