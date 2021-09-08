@@ -20,15 +20,26 @@ const App = () => {
 
 
   return (
+
       <div className="app">
+        
         <BrowserRouter>
-        <NavMenu onChangePage={(page)=>{{changePage(page)}}}> </NavMenu>
-        <NavMenu2 page={whatPage} onChangePage={(page2)=>{{changePage2(page2)}}}> </NavMenu2>
-        <div className="menu_container"> 
-          <Main page2={whatPage2}> </Main>
-        </div>
-        <FootterMenu> </FootterMenu>
+
+          <div className="menu1_container"> 
+            <NavMenu onChangePage={(page)=>{{changePage(page)}}}> </NavMenu>
+            <NavMenu2 page={whatPage} onChangePage={(page2)=>{{changePage2(page2)}}}> </NavMenu2>
+          </div>
+
+          <div className="menu2_container"> 
+            <Main page2={whatPage2}> </Main>
+          </div>
+
+          <div className="menu3_container"> 
+            <FootterMenu FootterMenu> </FootterMenu>
+          </div>
+
         </BrowserRouter>
+
         <button className="btn_top"> <a href="#">
            <img src={process.env.PUBLIC_URL + '/img/NavMenu/UpArrow_icon.svg'} />  </a> 
          </button>

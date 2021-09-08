@@ -3,22 +3,7 @@ import React from 'react';
 const JspServletBasic = (props) => {
 
     return (
-        <div>
-            <span className="lblock">
-                <span className="mtitle"> 0. 서블릿과 JSP(하이퍼링크) </span>
-                <span className="mblock">
-                    <p className="hyperlink">
-                        <a href="#HttpServlet 클래스">1. HttpServlet 클래스 </a>
-                        <a href="#HttpServletRequest 클래스">2. HttpServletRequest 클래스 </a>
-                        <a href="#HttpServletResponse 클래스">3.HttpServletResponse 클래스 </a>
-                        <a href="#HttpSession 클래스">4.HttpSession 클래스 </a>
-                        <a href="#JSP 커스텀태그">JSP 커스텀태그 tag방식 </a>
-                        <a href="#JSP커스텀태그2 tld방식">JSP커스텀태그2 tld방식</a>
-                        <a href="#JSP커스텀태그3">JSP커스텀태그3</a>
-                        <a href="#JSTL">JSTL </a>
-                    </p>
-                </span>
-            </span>
+        <>
             <span className="lblock">
                 <span className="mtitle"> <a name="JSP커스텀태그"> JSP 커스텀태그 </a> </span>
                 <a href="https://gangzzang.tistory.com/entry/JSP-%EC%BB%A4%EC%8A%A4%ED%85%80-%ED%83%9C%EA%B7%B8Custom-Tag" target="_blank"> 참고사이트</a>
@@ -74,7 +59,7 @@ const JspServletBasic = (props) => {
                     <p> 추가 사용방법은 나중에 인터넷 참고 </p>
                 </span>
             </span>
-        </div>
+        </>
     );
 }
 

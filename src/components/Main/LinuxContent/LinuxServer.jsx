@@ -1,101 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 
 const LinuxServer = (props) => {
-
-  function logit() {
-
-    //위치 계산
-    let elementHeight1 = document.getElementsByClassName('navMenu')[0].scrollHeight;
-    let elementHeight2 = document.getElementsByClassName('navMenu')[0].scrollHeight +
-      document.getElementsByClassName('navMenu2')[0].scrollHeight + 26;
-    let testdis = document.getElementsByClassName('common_style')[0].getBoundingClientRect().left
-      - document.getElementsByClassName('lblocknav_container')[0].getBoundingClientRect().left;
-    // console.log(window.outerHeight);
-
-
-    // 좌측 메뉴 이동 + 작은 버튼
-    if (window.innerWidth < 1024) {
-      blockRef.current[0].style.position = 'fixed';
-      document.documentElement.scrollTop < elementHeight1 ?
-        blockRef.current[0].style.top = elementHeight1 + "px" :
-        blockRef.current[0].style.top = "10px";
-      blockRef.current[0].style.left = document.getElementsByClassName('navMenu2')[0].getBoundingClientRect().left + "px";
-      blockRef.current[0].style.maxWidth = '420px';
-      blockRef.current[1].style.left = '25%';
-      blockRef.current[0].style.height = window.outerHeight;
-      blockRef.current[0].style.display === 'inline-block' ?
-        document.getElementsByClassName('lblocknav_btn')[0].style.display = 'none' :
-        document.getElementsByClassName('lblocknav_btn')[0].style.display = 'inline-block';
-    }
-    // 좌측 메뉴 이동
-    else if (document.documentElement.scrollTop < elementHeight2 && window.innerWidth > 1023) {
-      // 좌측 메뉴 위치 고정, 보여주기 , 간격은 사이값
-      blockRef.current[0].style.position = 'fixed';
-      blockRef.current[0].style.top = elementHeight2 + "px";
-      blockRef.current[0].style.display = 'inline-block';
-      blockRef.current[0].style.maxWidth = testdis + "px";
-      blockRef.current[0].style.height = window.outerHeight;
-      blockRef.current[0].style.left = document.getElementsByClassName('navMenu2')[0].getBoundingClientRect().left + "px";
-      // 좌측에 메뉴가 생기므로 메인 메뉴를 왼쪽에서 이동시킴
-      blockRef.current[1].style.left = '25%';
-      document.getElementsByClassName('lblocknav_btn')[0].style.display = 'none';
-    }
-    else if (document.documentElement.scrollTop > elementHeight2 && window.innerWidth > 1023) {
-      // 좌측 메뉴 위치 고정, 보여주기 , 간격은 사이값
-      blockRef.current[0].style.position = 'fixed';
-      blockRef.current[0].style.top = "10px";
-      blockRef.current[0].style.display = 'inline-block';
-      blockRef.current[0].style.maxWidth = testdis + "px";
-      blockRef.current[0].style.height = window.outerHeight;
-      blockRef.current[0].style.left = document.getElementsByClassName('navMenu2')[0].getBoundingClientRect().left + "px";
-      // 좌측에 메뉴가 생기므로 메인 메뉴를 왼쪽에서 이동시킴
-      blockRef.current[1].style.left = '25%';
-      document.getElementsByClassName('lblocknav_btn')[0].style.display = 'none';
-    }
-  }
-
-  const blockRef = useRef([]);
-
-  useEffect(() => {
-    function watchScroll() {
-      window.addEventListener("scroll", logit);
-    }
-    watchScroll();
-    return () => {
-      window.removeEventListener("scroll", logit);
-    };
-  });
-
   return (
     <>
-      <button className="lblocknav_btn" onClick={() => {
-        blockRef.current[0].style.display === 'inline-block' ?
-          blockRef.current[0].style.display = 'none' :
-          blockRef.current[0].style.display = 'inline-block';
-        document.getElementsByClassName('lblocknav_btn')[0].style.display = 'none';
-      }}> 🦉 </button>
-      <div className="lblocknav_container" ref={(elem) => (blockRef.current[0] = elem)}>
-        <div className="lblocknav">
-          <span className="mtitle">
-            <a href="#main" className="col_b"> <b> 사이드 메뉴 설명 </b> </a>
-            <button className="lblocknav_btn2" onClick={() => {
-              document.getElementsByClassName('lblocknav_btn')[0].style.display = 'block';
-              document.getElementsByClassName('lblocknav_container')[0].style.display = 'none';
-            }}> ❌ </button>
-          </span>
-          <div className="hyperlink">
-            <details open>
-              <summary> 목록 </summary>
-              <details open>
-                <summary className="col_g"> 세부 목록 </summary>
-                <a href="#" className="col_p">  </a>
-                {/* <a href="#" className="col_p"> </a> */}
-              </details>
-            </details>
-          </div>
-        </div>
-      </div>
-      <div className="common_style" ref={(elem) => (blockRef.current[1] = elem)} >
+      <div className="common_style">
         <ul>
           <span className="lblock">
             {/*  */}
@@ -741,42 +649,98 @@ const LinuxServer = (props) => {
                   <span className="sstitle"> 메일 서버 설치 </span>
                   <span className="mblock">
                     <li> <h4> CentOS - Server (DNS서버 설정 필요) </h4>
-                      <li> cd /var/named </li>
-                      <li> DNS 서버 설정에서 vi test.zone
-                        <li> $TTL 3H  </li>
-                        <li> 공백 @ SOA @ root. (20201111 1D 1H 1W 1H)  </li>
-                        <li> 공백 IN NS @  </li>
-                        <li> 공백 IN A 192.168.10.80  </li>
-                        <li> 공백 IN MX 10 (탭여백) mail.test.com.  </li>
-                        <li> mail IN A 192.168.10.80 </li>
-                      </li>
-                      <li> named-checkzone test.com test.zone </li>
-                      <li> cp test.zone linux.zone </li>
-                      <li> vi linux.zone
-                        <li> $TTL 3H  </li>
-                        <li> 공백 @ SOA @ root. (20201111 1D 1H 1W 1H)  </li>
-                        <li> 공백 IN NS @  </li>
-                        <li> 공백 IN A 192.168.10.80  </li>
-                        <li> 공백 IN MX 10 (탭여백) mail.linux.com.  </li>
-                        <li> mail IN A 192.168.10.111 # 클라이언트의 IP 주소를 적어야 함</li>
-                      </li> <br />
-                      <li> <h4> 메일 서버 설치 </h4> </li>
                       <span className="sblock">
+                        <li> cd /var/named </li>
+                        <li> DNS 서버 설정에서 vi test.zone
+                          <li> $TTL 3H  </li>
+                          <li> 공백 @ SOA @ root. (20201111 1D 1H 1W 1H)  </li>
+                          <li> 공백 IN NS @  </li>
+                          <li> 공백 IN A 192.168.10.80  </li>
+                          <li> 공백 IN MX 10 (탭여백) mail.test.com.  </li>
+                          <li> mail IN A 192.168.10.80 </li>
+                        </li>
+                        <li> named-checkzone test.com test.zone </li>
+                        <li> cp test.zone linux.zone </li>
+                        <li> vi linux.zone
+                          <li> $TTL 3H  </li>
+                          <li> 공백 @ SOA @ root. (20201111 1D 1H 1W 1H)  </li>
+                          <li> 공백 IN NS @  </li>
+                          <li> 공백 IN A 192.168.10.80  </li>
+                          <li> 공백 IN MX 10 (탭여백) mail.linux.com.  </li>
+                          <li> mail IN A 192.168.10.111 # 클라이언트의 IP 주소를 적어야 함</li>
+                        </li> <br />
+                        <li> <h4> 메일 서버 설치 </h4> </li>
+                        <span className="mblock">
+                          <li> yum -y install sendmail sendmail-cf dovecot </li> <br />
+                          <li> vi /etc/mail/sendmail.cf
+                            <li> Cwtest.com # 85번 째 줄 변경 </li>
+                            <li> O DaemonPortOptions=Port=smtp, Name=MTA # 264번째 addr 지워주기  </li>
+                          </li> <br />
+                          <li> systemctl restart sendmail </li> <br />
+                          <li> vi /etc/mail/access #접근 권한 설정
+                            <li> ssssksss.com                            RELAY </li>
+                            <li> linux.com                               RELAY </li>
+                            <li> 192.168.10                             RELAY </li>
+                          </li> <br />
+                          <li> {' makemap hash /etc/mail/access < /etc/mail/access'} # DB로 만들어서 사용해야함 </li>
+                          <li> ls -la /etc/mail </li>
+                          <li> cat /etc/mail/access.db # 새로 생성이 됨 </li>
+                          <li> strings /etc/mail/access.db # DB파일로 생성이 된것을 볼 수 있음</li> <br />
+                          <li> vi /etc/dovecot/conf.d/10-ssl.conf # 송수신하는 설정파일
+                            <li> ssl = required를 ssl = yes 로 변경 # 8번째 줄</li>
+                          </li> <br />
+                          <li> vi /etc/dovecot/conf.d/10-mail.conf
+                            <li> mail_location = mbox:~/mail:INBOX=/var/mail/%u # 25줄 주석해제, 메일이 저장되는 위치 </li>
+                            <li> mail_access_groups = mail # 121번째 줄 주석해제 및 수정 </li>
+                            <li> lock_method = fcntl # 166번째 줄 주석해제 </li>
+                          </li> <br />
+                          <li> vi /etc/dovecot/conf.d/10-auth.conf
+                            <li> disable_plaintext_auth = no # 평문으로 보내지 못하게 하는 설정 , SSH설정이 복잡해서 일단 넘어감 </li>
+                          </li> <br />
+                          <li> vi /etc/hostname
+                            <li> localhost.localdomain 삭제하고 mail.test.com 추가 </li>
+                          </li> <br />
+                          <li> vi /etc/mail/local-host-names
+                            <li> 주석내용 삭제하고 mail.test.com 추가 </li>
+                          </li> <br />
+                          <li> vi /etc/sysconfig/network
+                            <li> HOSTNAME=mail.test.com </li>
+                          </li> <br />
+                          <li> vi /etc/sysconfig/network-scripts/ifcfg-ens33  # 네트워크 설정 파일
+                            <li> DNS1=192.168.10.80 # 본인의 IP주소로 변경 </li>
+                          </li> <br />
+                          <li> useradd service </li>
+                          <li> echo -e "1234\n1234" | passwd service </li>
+                          <li> systemctl restart named </li>
+                          <li> systemctl restart sendmail </li>
+                          <li> systemctl restart dovecot </li>
+                          <li> systemctl enable named </li>
+                          <li> systemctl enable sendmail </li>
+                          <li> systemctl enable dovecot </li>
+                          <li> systemctl disable firewalld # 포트를 개방할 것이 너무 많아서 그냥 중단 </li>
+                          <li> setenforce 0  # se리눅스 끄기</li>
+                          <li> systemctl restart network </li>
+                          <li> cat /etc/resolv.conf # 본인의 네임서버  확인 </li>
+                          <li> 끝 , 이제 클라이언트 설정 </li> <br />
+                        </span>
+                      </span>
+                    </li>
+                    <li> <h4> CentOS - Client  </h4>
+                      <span className="sblock">
+                        <li> <h4> 메일 서버 설치 </h4> </li>
+                        <li> yum -y install thunderbird </li>
                         <li> yum -y install sendmail sendmail-cf dovecot </li> <br />
                         <li> vi /etc/mail/sendmail.cf
-                          <li> Cwtest.com # 85번 째 줄 변경 </li>
-                          <li> O DaemonPortOptions=Port=smtp, Name=MTA # 264번째 addr 지워주기  </li>
+                          <li> Cwlinux.com # 85번 째 줄 변경 </li>
+                          <li> O DaemonPortOptions=Port=smtp, Name=MTA # 264번째 addr 지워주기 </li>
                         </li> <br />
-                        <li> systemctl restart sendmail </li> <br />
-                        <li> vi /etc/mail/access #접근 권한 설정
-                          <li> ssssksss.com                            RELAY </li>
-                          <li> linux.com                               RELAY </li>
-                          <li> 192.168.10                             RELAY </li>
+                        <li> vi /etc/mail/access
+                          <li> test.com RELAY </li>
+                          <li> linux.com RELAY </li>
+                          <li> 192.168.10 RELAY </li>
                         </li> <br />
-                        <li> {' makemap hash /etc/mail/access < /etc/mail/access'} # DB로 만들어서 사용해야함 </li>
-                        <li> ls -la /etc/mail </li>
-                        <li> cat /etc/mail/access.db # 새로 생성이 됨 </li>
-                        <li> strings /etc/mail/access.db # DB파일로 생성이 된것을 볼 수 있음</li> <br />
+                        <li> {' makemap hash /etc/mail/access < /etc/mail/access '} </li>
+                        <li> strings /etc/mail/access.db </li>
                         <li> vi /etc/dovecot/conf.d/10-ssl.conf # 송수신하는 설정파일
                           <li> ssl = required를 ssl = yes 로 변경 # 8번째 줄</li>
                         </li> <br />
@@ -786,89 +750,102 @@ const LinuxServer = (props) => {
                           <li> lock_method = fcntl # 166번째 줄 주석해제 </li>
                         </li> <br />
                         <li> vi /etc/dovecot/conf.d/10-auth.conf
-                          <li> disable_plaintext_auth = no # 평문으로 보내지 못하게 하는 설정 , SSH설정이 복잡해서 일단 넘어감 </li>
+                          <li> disable_plaintext_auth = no # 10번째 줄 평문으로 보내지 못하게 하는 설정 , SSH설정이 복잡해서 일단 넘어감 </li>
                         </li> <br />
                         <li> vi /etc/hostname
-                          <li> localhost.localdomain 삭제하고 mail.test.com 추가 </li>
+                          <li> localhost.localdomain 삭제하고 mail.linux.com 추가 </li>
                         </li> <br />
                         <li> vi /etc/mail/local-host-names
-                          <li> 주석내용 삭제하고 mail.test.com 추가 </li>
+                          <li> 주석내용 삭제하고 mail.linux.com 추가 </li>
                         </li> <br />
                         <li> vi /etc/sysconfig/network
-                          <li> HOSTNAME=mail.test.com </li>
+                          <li> HOSTNAME=mail.linux.com </li>
                         </li> <br />
                         <li> vi /etc/sysconfig/network-scripts/ifcfg-ens33  # 네트워크 설정 파일
-                          <li> DNS1=192.168.10.80 # 본인의 IP주소로 변경 </li>
+                          <li> DNS1=192.168.10.80 # 본인이 만든 DNS서버의 IP주소로 변경 </li>
                         </li> <br />
-                        <li> useradd service </li>
-                        <li> echo -e "1234\n1234" | passwd service </li>
-                        <li> systemctl restart named </li>
+                        <li> useradd admin </li>
+                        <li> echo -e "1234\n1234" | passwd admin </li>
                         <li> systemctl restart sendmail </li>
                         <li> systemctl restart dovecot </li>
-                        <li> systemctl enable named </li>
                         <li> systemctl enable sendmail </li>
                         <li> systemctl enable dovecot </li>
-                        <li> systemctl disable firewalld # 포트를 개방할 것이 너무 많아서 그냥 중단 </li>
+                        <li> systemctl disable firewalld  </li>
+                        <li> systemctl stop firewalld # 포트를 개방할 것이 너무 많아서 그냥 중단 </li>
                         <li> setenforce 0  # se리눅스 끄기</li>
                         <li> systemctl restart network </li>
-                        <li> cat /etc/resolv.conf # 본인의 네임서버  확인 </li>
-                        <li> 끝 , 이제 클라이언트 설정 </li> <br />
+                        <li> cat /etc/resolv.conf # 본인의 네임서버 주소 확인 </li>
+                        <li> 끝 </li> <br />
+                        <li> thunderbird &amp; # 시간이 조금 걸림 </li>
+                        <li> server에 service라는 계정으로 접속
+                          <span className="mblock">
+                            <li> 이름 : service </li>
+                            <li> 메일주소 : service@test.com </li>
+                            <li> 비밀번호 : 1234 </li>
+                            <li> 수동으로 구성 클릭 </li>
+                          </span>
+                          <span className="mblock">
+                            <li> 프로토콜 : POP3 </li>
+                            <li> 서버 : mail.test.com , mail.test.com </li>
+                            <li> 포트 : 110 , 25 </li>
+                            <li> SSL : 암호화 안함 , 암호화 안함 </li>
+                            <li> 인증 방법 : 평문 비밀번호 , 인증 없음 </li>
+                            <li> 아이디 : service </li> <br />
+                            <li> 접속이 되지 않는 다면 nslookup mail.ssssksss.com 해보기
+                              <li> 서버의 방화벽 제거 , 서버로 이동 , systemctl stop firewalld </li>
+                              <li> 유저가 추가되있지 않아서 해결이 안되어 있을 수도 있음 </li>
+                            </li>
+                          </span>
+                        </li>
+                        <li> 좌측에 이메일 계정 우측클릭 설정 - 좌측 하단에 계정작업 - 메일 계정 추가
+                          <span className="mblock">
+                            <li> 이름 : admin </li>
+                            <li> 메일주소 : admin@linux.com </li>
+                            <li> 비밀번호 : 1234 </li>
+                            <li> 수동으로 구성 클릭 </li>
+                          </span>
+                          <span className="mblock">
+                            <li> 프로토콜 : POP3 </li>
+                            <li> 서버 : mail.linux.com , mail.linux.com </li>
+                            <li> 포트 : 110 , 25 </li>
+                            <li> SSL : 암호화 안함 , 암호화 안함 </li>
+                            <li> 인증 방법 : 평문 비밀번호 , 인증 없음 </li>
+                            <li> 아이디 : admin </li> <br />
+                            <li> 접속이 되지 않는 다면 nslookup mail.linux.com 해보기
+                              <li> 클라이언트의 방화벽 제거 , systemctl stop firewalld </li>
+                              <li> 유저가 추가되있지 않아서 해결이 안되어 있을 수도 있음 </li>
+                            </li>
+                          </span>
+                        </li>
+                        <li> 좌측에 계정이 2개 있는 것을 볼 수 있음 </li>
+                        <li> 좌측에 계정이 2개 있는 것을 볼 수 있음 , 보내기를 테스트 해보고 안된다면 서버 재시작 </li>
+                        <li> 양쪽 서버에 setenforce 0  </li>
+                        <li>  </li>
                       </span>
-                    </li>
-                    <li> <h4> CentOS - Client  </h4>
-                      <li> <h4> 메일 서버 설치 </h4> </li>
-                      <li> yum -y install sendmail sendmail-cf dovecot </li> <br />
-                      <li> vi /etc/mail/sendmail.cf
-                        <li> Cwlinux.com # 85번 째 줄 변경 </li>
-                        <li> O DaemonPortOptions=Port=smtp, Name=MTA # 264번째 addr 지워주기 </li>
-                      </li> <br />
-                      <li> vi /etc/mail/access
-                        <li> test.com RELAY </li>
-                        <li> linux.com RELAY </li>
-                        <li> 192.168.10 RELAY </li>
-                      </li> <br />
-                      <li> {' makemap hash /etc/mail/access < /etc/mail/access '} </li>
-                      <li> strings /etc/mail/access.db </li>
-                      <li> vi /etc/dovecot/conf.d/10-ssl.conf # 송수신하는 설정파일
-                        <li> ssl = required를 ssl = yes 로 변경 # 8번째 줄</li>
-                      </li> <br />
-                      <li> vi /etc/dovecot/conf.d/10-mail.conf
-                        <li> mail_location = mbox:~/mail:INBOX=/var/mail/%u # 25줄 주석해제, 메일이 저장되는 위치 </li>
-                        <li> mail_access_groups = mail # 121번째 줄 주석해제 및 수정 </li>
-                        <li> lock_method = fcntl # 166번째 줄 주석해제 </li>
-                      </li> <br />
-                      <li> vi /etc/dovecot/conf.d/10-auth.conf
-                        <li> disable_plaintext_auth = no # 10번째 줄 평문으로 보내지 못하게 하는 설정 , SSH설정이 복잡해서 일단 넘어감 </li>
-                      </li> <br />
-                      <li> vi /etc/hostname
-                        <li> localhost.localdomain 삭제하고 mail.linux.com 추가 </li>
-                      </li> <br />
-                      <li> vi /etc/mail/local-host-names
-                        <li> 주석내용 삭제하고 mail.linux.com 추가 </li>
-                      </li> <br />
-                      <li> vi /etc/sysconfig/network
-                        <li> HOSTNAME=mail.linux.com </li>
-                      </li> <br />
-                      <li> vi /etc/sysconfig/network-scripts/ifcfg-ens33  # 네트워크 설정 파일
-                        <li> DNS1=192.168.10.80 # 본인이 만든 DNS서버의 IP주소로 변경 </li>
-                      </li> <br />
-                      <li> useradd admin </li>
-                      <li> echo -e "1234\n1234" | passwd admin </li>
-                      <li> systemctl restart sendmail </li>
-                      <li> systemctl restart dovecot </li>
-                      <li> systemctl enable sendmail </li>
-                      <li> systemctl enable dovecot </li>
-                      <li> systemctl disable firewalld  </li>
-                      <li> systemctl stop firewalld # 포트를 개방할 것이 너무 많아서 그냥 중단 </li>
-                      <li> setenforce 0  # se리눅스 끄기</li>
-                      <li> systemctl restart network </li>
-                      <li> cat /etc/resolv.conf # 본인의 네임서버 주소 확인 </li>
-                      <li> 끝 , 이제 클라이언트 설정 </li> <br />
                     </li>
                     <li>  </li>
                   </span>
                   {/*  */}
                   <span className="sstitle"> 메일 서버 디렉토리 </span>
+                  <span className="mblock">
+                    <li>  </li>
+                  </span>
+                  {/*  */}
+                  <span className="sstitle">  </span>
+                  <span className="mblock">
+                    <li>  </li>
+                  </span>
+                  {/*  */}
+                </span>
+              </details>
+            </span>
+            {/*  */}
+            <span className="mblock">
+              <details>
+                <summary className="stitle"> ▶ <small> </small>
+                  <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+                <span className="sblock">
+                  <span className="sstitle">  </span>
                   <span className="mblock">
                     <li>  </li>
                   </span>

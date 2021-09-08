@@ -4,21 +4,6 @@ const JspServletInformation = (props) => {
 
     return (
         <>
-            <div className="lblocknav_container">
-                <span className="lblocknav">
-                    <span className="mtitle"> 0. 서블릿과 JSP(하이퍼링크) </span>
-                    <span className="mblock">
-                        <p className="hyperlink">
-                            <a href="#Servlet이란">1. Servlet이란</a>
-                            <a href="#Servlet Lifecycle">2. Servlet Lifecycle</a>
-                            <a href="#Servlet 장점">3. Servlet 장점</a>
-                            <a href="#JSP란">4. JSP란</a>
-                            <a href="#JSP변환과정">5. JSP변환과정</a>
-                            <a href="#서블릿컨테이너의역할">6. 서블릿컨테이너의역할</a>
-                        </p>
-                    </span>
-                </span>
-            </div>
             <div className="common_style">
                 <span className="lblock">
                     <span className="mtitle"> <a name="Servlet이란"> 1. Servlet이란</a> </span>

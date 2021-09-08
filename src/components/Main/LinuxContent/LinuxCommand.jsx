@@ -1,126 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 
 const LinuxCommand = (props) => {
-
-  function logit() {
-
-    //위치 계산
-    let elementHeight1 = document.getElementsByClassName('navMenu')[0].scrollHeight;
-    let elementHeight2 = document.getElementsByClassName('navMenu')[0].scrollHeight +
-      document.getElementsByClassName('navMenu2')[0].scrollHeight + 26;
-    let testLeft = document.getElementsByClassName('navMenu2')[0].getBoundingClientRect().left;
-    let testdis = document.getElementsByClassName('common_style')[0].getBoundingClientRect().left
-      - document.getElementsByClassName('lblocknav_container')[0].getBoundingClientRect().left;
-    // console.log(window.outerHeight);
-
-
-    // 좌측 메뉴 이동 + 작은 버튼
-    if (window.innerWidth < 1024) {
-      blockRef.current[0].style.position = 'fixed';
-      document.documentElement.scrollTop < elementHeight1 ?
-        blockRef.current[0].style.top = elementHeight1 + "px" :
-        blockRef.current[0].style.top = "10px";
-      blockRef.current[0].style.left = document.getElementsByClassName('navMenu2')[0].getBoundingClientRect().left + "px";
-      blockRef.current[0].style.maxWidth = '420px';
-      blockRef.current[1].style.left = '25%';
-      blockRef.current[0].style.height = window.outerHeight;
-      blockRef.current[0].style.display === 'inline-block' ?
-        document.getElementsByClassName('lblocknav_btn')[0].style.display = 'none' :
-        document.getElementsByClassName('lblocknav_btn')[0].style.display = 'inline-block';
-    }
-    // 좌측 메뉴 이동
-    else if (document.documentElement.scrollTop < elementHeight2 && window.innerWidth > 1023) {
-      // 좌측 메뉴 위치 고정, 보여주기 , 간격은 사이값
-      blockRef.current[0].style.position = 'fixed';
-      blockRef.current[0].style.top = elementHeight2 + "px";
-      blockRef.current[0].style.display = 'inline-block';
-      blockRef.current[0].style.maxWidth = testdis + "px";
-      blockRef.current[0].style.height = window.outerHeight;
-      blockRef.current[0].style.left = document.getElementsByClassName('navMenu2')[0].getBoundingClientRect().left + "px";
-      // 좌측에 메뉴가 생기므로 메인 메뉴를 왼쪽에서 이동시킴
-      blockRef.current[1].style.left = '25%';
-      document.getElementsByClassName('lblocknav_btn')[0].style.display = 'none';
-    }
-    else if (document.documentElement.scrollTop > elementHeight2 && window.innerWidth > 1023) {
-      // 좌측 메뉴 위치 고정, 보여주기 , 간격은 사이값
-      blockRef.current[0].style.position = 'fixed';
-      blockRef.current[0].style.top = "10px";
-      blockRef.current[0].style.display = 'inline-block';
-      blockRef.current[0].style.maxWidth = testdis + "px";
-      blockRef.current[0].style.height = window.outerHeight;
-      blockRef.current[0].style.left = document.getElementsByClassName('navMenu2')[0].getBoundingClientRect().left + "px";
-      // 좌측에 메뉴가 생기므로 메인 메뉴를 왼쪽에서 이동시킴
-      blockRef.current[1].style.left = '25%';
-      document.getElementsByClassName('lblocknav_btn')[0].style.display = 'none';
-    }
-  }
-
-  const blockRef = useRef([]);
-
-  useEffect(() => {
-    function watchScroll() {
-      window.addEventListener("scroll", logit);
-    }
-    watchScroll();
-    return () => {
-      window.removeEventListener("scroll", logit);
-    };
-  });
-
   return (
     <>
-      <button className="lblocknav_btn" onClick={() => {
-        blockRef.current[0].style.display === 'inline-block' ?
-          blockRef.current[0].style.display = 'none' :
-          blockRef.current[0].style.display = 'inline-block';
-        document.getElementsByClassName('lblocknav_btn')[0].style.display = 'none';
-      }}> 🦉 </button>
-      <div className="lblocknav_container" ref={(elem) => (blockRef.current[0] = elem)}>
-        <div className="lblocknav">
-          <span className="mtitle">
-            <a href="#main" className="col_b"> <b> 리눅스 명령어 </b> </a>
-            <button className="lblocknav_btn2" onClick={() => {
-              document.getElementsByClassName('lblocknav_btn')[0].style.display = 'block';
-              document.getElementsByClassName('lblocknav_container')[0].style.display = 'none';
-            }}> ❌ </button>
-          </span>
-          <div className="hyperlink">
-            <details open>
-              <summary> 목록 </summary>
-              {/*  */}
-              <summary className="col_g"> cd,ls,mkdir,cp,mv,rm,pwd,halt,shutdown </summary>
-              <a href="#기타 명령어" className="col_p"> 기타 명령어 </a>
-              <a href="#cd 명령어" className="col_p"> cd 명령어 #디렉토리 위치로 이동 </a>
-              <a href="#ls 명령어" className="col_p"> ls 명령어 #디렉토리,파일 정보출력 </a>
-              <a href="#mkdir 명령어" className="col_p"> mkdir 명령어 #디렉토리 생성  </a>
-              <a href="#cp 명령어" className="col_p"> cp 명령어 #파일이나 디렉토리 복사 </a>
-              <a href="#mv 명령어" className="col_p">  mv 명령어 #(파일,디렉토리) 이동,이름변경 </a>
-              <a href="#rm 명령어" className="col_p"> rm 명령어 #파일이나 디렉토리를 삭제 </a>
-              <a href="#pwd 명령어 " className="col_p"> pwd 명령어 #현재 위치 절대경로 출력 </a>
-              <a href="#halt 명령어" className="col_p"> halt 명령어 #리눅스 시스템 종료 </a>
-              <a href="#shutdown 명령어" className="col_p"> shutdown 명령어 #리눅스 시스템 종료 </a>
-              <a href="#w 명령어" className="col_p"> w 명령어 # 서버에 접속한 사용자 접속,작업 정보 </a>
-              <a href="#grep 명령어" className="col_p"> grep 명령어 #파일들에서 하나이상의 내용을 검색  </a>
-              <a href="#find 명령어" className="col_p"> find 명령어 #파일,디렉토리를 검색 </a>
-              <a href="#group 명령어" className="col_p"> group 명령어 </a>
-              <a href="#user 명령어" className="col_p"> user 명령어 </a>
-              <a href="#AWK 명령어" className="col_p"> AWK 명령어 </a>
-              <a href="#sed 명령어" className="col_p"> sed 명령어 </a>
-              <a href="#lasttr 명령어" className="col_p"> lasttr 명령어 </a>
-              <a href="#chattr 명령어" className="col_p"> chattr 명령어 </a>
-              <a href="#echo 명령어" className="col_p"> echo 명령어 </a>
-              <a href="#chmod 명령어" className="col_p"> chmod 명령어 #파일 사용권한 변경 </a>
-              <a href="#chown 명령어" className="col_p"> chown 명령어 #파일,디렉토리의 소유자 변경 </a>
-              <a href="#rpm 명령어" className="col_p"> rpm 명령어 </a>
-              <a href="#yum 명령어" className="col_p"> yum 명령어 </a>
-              <a href="#lsof 명령어" className="col_p"> lsof 명령어 </a>
-              <a href="#" className="col_p">  </a>
-              {/*  */}
-            </details>
-          </div>
-        </div>
-      </div>
-      <div className="common_style" ref={(elem) => (blockRef.current[1] = elem)} >
+      <div className="common_style">
         <span className="lblock">
           {/*  */}
           <span className="mblock">
@@ -964,10 +847,27 @@ const LinuxCommand = (props) => {
             <details>
               <summary className="stitle"> ▶ yum 명령어 <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
               <span className="sblock">
-                <span className="sstitle"> yum -y install 파일명 </span>
+                <span className="sstitle">  </span>
                 <span className="mblock">
-                  <li> yum -y install wireshark wireshark-gnome , #wireshark , wiresharkgui 설치 </li>
-                  <li>  </li>
+                  <li> yum check-update # 현재 설치된 프로그램 중 업데이트 된것을 확인 </li>
+                  <li> yum clean all # 캐시 삭제</li>
+                  <li> yum deplist # yum 패키지에 대한 의존성 테스트 </li>
+                  <li> yum downgrade 패키지 # yum을 통한 패키지 다운그레이드 </li>
+                  <li> yum erase 패키지 # yum을 이용해서 시스템에서 삭제 </li>
+                  <li> yum groupinfo 그룹 # 그룹 패키지 정보 조회</li>
+                  <li> yum groupinstall 그룹 # 그룹패키지 설치 </li>
+                  <li> yum grouplist 그룹 # 그룹 리스트에 관한 정보 확인</li>
+                  <li> yum groupremove 그룹 #그룹 리스트 삭제 </li>
+                  <li> yum help # yum 도움말 </li>
+                  <li> yum info 그룹 또는 패키지 # 패키지 또는 그룹의 패키지를 상세 확인 </li>
+                  <li> yum install 패키지 # 패키지 설치 </li>
+                  <li> yum list # 서버에 있는 그룹 및 패키지 리스트 </li>
+                  <li> yum localinstall 패키지 # 로컬에 설치를 실시 </li>
+                  <li> yum makecache # 캐쉬를 올림 </li>
+                  <li> yum provides 파일패스명 # 파일이 제공하는 패키지 정보 조회 </li>
+                  <li> yum reinstall 패키지 # 패키지 재설치 </li>
+                  <li> yum update 패키지 # 패키지 업데이트 </li>
+                  <li> yum upgrade 패키지 # 패키지 업그레이드 </li>
                 </span>
                 {/*  */}
                 <span className="sstitle">  </span>
@@ -1349,6 +1249,28 @@ const LinuxCommand = (props) => {
           {/*  */}
           <span className="mblock">
             <details>
+              <summary className="stitle"> ▶ 파일 압축 명령어 <small> 파일을 압축 </small>
+                <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+              <span className="sblock">
+                <span className="sstitle">  </span>
+                <span className="mblock">
+                  <li> tar -cvf 파일명.tar . # 현재 폴더를 압축 </li>
+                  <li> tar -xvf 압축파일명.tar # 압축을 해제 </li>
+                  <li> bzip2 -k 폴더명 # -k는 원본파일을 유지하면서 압축 </li>
+                  <li> bzip2 -d 압축파일명.bz2 # 원본파일 제거하면서 압축해제 </li>
+                  <li> gzip -k 파일명 # 압축 </li>
+                  <li> gzip -d 압축파일명.gz # 압축해제 </li>
+                  <li> 팁 : tar 압축으로 하나의 파일로 만들고 그다음 gz로 압축하면 좋음 </li>
+                  <li> tar cvfz 파일명.tar.gz . # 현재폴더를 tar.gz 압축방법으로 해줌  </li>
+                  <li>  </li>
+                  <li>  </li>
+                </span>
+              </span>
+            </details>
+          </span>
+          {/*  */}
+          <span className="mblock">
+            <details>
               <summary className="stitle"> ▶ <small>  </small>
                 <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
               <span className="sblock">
@@ -1357,12 +1279,20 @@ const LinuxCommand = (props) => {
                   <li>  </li>
                   <li>  </li>
                 </span>
-                {/*  */}
+              </span>
+            </details>
+          </span>
+          {/*  */}
+          <span className="mblock">
+            <details>
+              <summary className="stitle"> ▶ <small>  </small>
+                <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+              <span className="sblock">
                 <span className="sstitle">  </span>
                 <span className="mblock">
                   <li>  </li>
+                  <li>  </li>
                 </span>
-                {/*  */}
               </span>
             </details>
           </span>

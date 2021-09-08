@@ -1,6 +1,6 @@
 .main {
-    max-width: 940px;
     box-sizing: border-box;
     margin-top: 10px;
     border-radius: 20px;
+    display: flex;
 }

@@ -1,12 +1,9 @@
 .navMenu {
     width: 100%;
-    /* max-width: 1600px; */
-    /* max-height: 300px; */
     margin-top: 10px;
     display: flex;
 }
 .navMenu > .menu {
-    /* height: 300px; */
     box-sizing: border-box;
     background-color: #b085f5;
     border-radius: 10px;

@@ -1,101 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 
 const LinuxProgramInstall = (props) => {
 
-  function logit() {
-
-    //위치 계산
-    let elementHeight1 = document.getElementsByClassName('navMenu')[0].scrollHeight;
-    let elementHeight2 = document.getElementsByClassName('navMenu')[0].scrollHeight +
-      document.getElementsByClassName('navMenu2')[0].scrollHeight + 26;
-    let testdis = document.getElementsByClassName('common_style')[0].getBoundingClientRect().left
-      - document.getElementsByClassName('lblocknav_container')[0].getBoundingClientRect().left;
-    // console.log(window.outerHeight);
-
-
-    // 좌측 메뉴 이동 + 작은 버튼
-    if (window.innerWidth < 1024) {
-      blockRef.current[0].style.position = 'fixed';
-      document.documentElement.scrollTop < elementHeight1 ?
-        blockRef.current[0].style.top = elementHeight1 + "px" :
-        blockRef.current[0].style.top = "10px";
-      blockRef.current[0].style.left = document.getElementsByClassName('navMenu2')[0].getBoundingClientRect().left + "px";
-      blockRef.current[0].style.maxWidth = '420px';
-      blockRef.current[1].style.left = '25%';
-      blockRef.current[0].style.height = window.outerHeight;
-      blockRef.current[0].style.display === 'inline-block' ?
-        document.getElementsByClassName('lblocknav_btn')[0].style.display = 'none' :
-        document.getElementsByClassName('lblocknav_btn')[0].style.display = 'inline-block';
-    }
-    // 좌측 메뉴 이동
-    else if (document.documentElement.scrollTop < elementHeight2 && window.innerWidth > 1023) {
-      // 좌측 메뉴 위치 고정, 보여주기 , 간격은 사이값
-      blockRef.current[0].style.position = 'fixed';
-      blockRef.current[0].style.top = elementHeight2 + "px";
-      blockRef.current[0].style.display = 'inline-block';
-      blockRef.current[0].style.maxWidth = testdis + "px";
-      blockRef.current[0].style.height = window.outerHeight;
-      blockRef.current[0].style.left = document.getElementsByClassName('navMenu2')[0].getBoundingClientRect().left + "px";
-      // 좌측에 메뉴가 생기므로 메인 메뉴를 왼쪽에서 이동시킴
-      blockRef.current[1].style.left = '25%';
-      document.getElementsByClassName('lblocknav_btn')[0].style.display = 'none';
-    }
-    else if (document.documentElement.scrollTop > elementHeight2 && window.innerWidth > 1023) {
-      // 좌측 메뉴 위치 고정, 보여주기 , 간격은 사이값
-      blockRef.current[0].style.position = 'fixed';
-      blockRef.current[0].style.top = "10px";
-      blockRef.current[0].style.display = 'inline-block';
-      blockRef.current[0].style.maxWidth = testdis + "px";
-      blockRef.current[0].style.height = window.outerHeight;
-      blockRef.current[0].style.left = document.getElementsByClassName('navMenu2')[0].getBoundingClientRect().left + "px";
-      // 좌측에 메뉴가 생기므로 메인 메뉴를 왼쪽에서 이동시킴
-      blockRef.current[1].style.left = '25%';
-      document.getElementsByClassName('lblocknav_btn')[0].style.display = 'none';
-    }
-  }
-
-  const blockRef = useRef([]);
-
-  useEffect(() => {
-    function watchScroll() {
-      window.addEventListener("scroll", logit);
-    }
-    watchScroll();
-    return () => {
-      window.removeEventListener("scroll", logit);
-    };
-  });
-
   return (
     <>
-      <button className="lblocknav_btn" onClick={() => {
-        blockRef.current[0].style.display === 'inline-block' ?
-          blockRef.current[0].style.display = 'none' :
-          blockRef.current[0].style.display = 'inline-block';
-        document.getElementsByClassName('lblocknav_btn')[0].style.display = 'none';
-      }}> 🦉 </button>
-      <div className="lblocknav_container" ref={(elem) => (blockRef.current[0] = elem)}>
-        <div className="lblocknav">
-          <span className="mtitle">
-            <a href="#main" className="col_b"> <b> 사이드 메뉴 설명 </b> </a>
-            <button className="lblocknav_btn2" onClick={() => {
-              document.getElementsByClassName('lblocknav_btn')[0].style.display = 'block';
-              document.getElementsByClassName('lblocknav_container')[0].style.display = 'none';
-            }}> ❌ </button>
-          </span>
-          <div className="hyperlink">
-            <details open>
-              <summary> 목록 </summary>
-              <details open>
-                <summary className="col_g"> 세부 목록 </summary>
-                <a href="#" className="col_p">  </a>
-                {/* <a href="#" className="col_p"> </a> */}
-              </details>
-            </details>
-          </div>
-        </div>
-      </div>
-      <div className="common_style" ref={(elem) => (blockRef.current[1] = elem)} >
+      <div className="common_style">
         <ul>
           <span className="lblock">
             {/*  */}
@@ -227,6 +136,110 @@ const LinuxProgramInstall = (props) => {
                         이나레이아웃으로 설정하고 저장 한후에 다시 xe로 접속하면 완료 </li>
                     </li>
                     <li>  </li>
+                    <li>  </li>
+                  </span>
+                  {/*  */}
+                  <span className="sstitle">  </span>
+                  <span className="mblock">
+                    <li>  </li>
+                  </span>
+                  {/*  */}
+                </span>
+              </details>
+            </span>
+            {/*  */}
+            <span className="mblock">
+              <details>
+                <summary className="stitle"> ▶ C언어 설치 <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+                <span className="sblock">
+                  <span className="sstitle"> 설치 </span>
+                  <span className="mblock">
+                    <li> yum install gcc glibc glibc-common gd gd-devel -y </li>
+                    <li>  </li>
+                  </span>
+                  {/*  */}
+                  <span className="sstitle">  </span>
+                  <span className="mblock">
+                    <li>  </li>
+                  </span>
+                  {/*  */}
+                </span>
+              </details>
+            </span>
+            {/*  */}
+            <span className="mblock">
+              <details>
+                <summary className="stitle"> ▶ 파이썬 설치
+                  <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+                <span className="sblock">
+                  <span className="sstitle">  </span>
+                  <span className="mblock">
+                    <li> <a href="https://www.python.org/downloads/source/" target="_blank" rel="noopener noreferrer">
+                      https://www.python.org/downloads/source/ </a> </li>
+                    <li> https://www.python.org/ftp/python/3.9.6/Python-3.9.6.tgz # 3.9.6 버전 Gzipped 우측클릭 링크복사 </li>
+                    <li> mkdir -p /app/temp </li>
+                    <li> cd /app/temp </li>
+                    <li> wget https://www.python.org/ftp/python/3.9.6/Python-3.9.6.tgz </li>
+                    <li> ls -la # 파일 확인  </li>
+                    <li> tar xvfz ./Python-3.9.6.tgz </li>
+                    <li> 설치를 진행하기 위해서는 C언어, make가 설치되어 있어야 한다..
+                      <li> yum install gcc glibc glibc-common gd gd-devel -y </li>
+                      <li> yum -y install make </li>
+                    </li>
+                    <li> mkdir -p /app/dkit/python/3.9.6 </li>
+                    <li> ./configure --prefix=/app/dkit/python/3.9.6 # 의존성 파일이 있는지 검사 </li>
+                    <li> ls -la ./Makefile </li>
+                    <li> make # 의존성 파일을 가지고 빌드 파일로 만들어 주는 역할 </li>
+                    <li> make install # 빌드 파일을 가지고 실제 설치를 해주는 역할 </li>
+                    <li> ls -la /app/dkit/python/3.9.6/bin/ </li>
+                    <li> cd /app/dkit/python/3.9.6/bin </li>
+                    <li> cd / </li>
+                    <li> python --version # 설치한 버전이 다르다는 것을 볼 수 있음(기본적으로 설치된 버전) </li>
+                    <li> ls -ld /usr/bin/python
+                      <li> 권한을 보면 제일 앞에 l(심볼릭 링크,바로가기)로 되어있는것을 볼 수 있다. </li>
+                    </li>
+                    <li> cd /app/dkit/python/3.9.6/bin </li>
+                    <li> ./python3 --version </li>
+                    <li> cd /app/dkit/python </li>
+                    <li> ln -Tfs /app/dkit/python/3.9.6/bin/python3 /usr/bin/python3 #전역변수에 바로가기 생성 </li>
+                    <li> ln -Tfs /usr/bin/python3 /usr/bin/python </li>
+                    <li> python # 파이썬 실행 , exit()를 입력해서 나올 수 있음 </li>
+                    <li> yum -y install vsftpd (ftp서버를 설치하려 하지만 에러 발생) </li>
+                    <li> vi /usr/bin/yum # 배쉬가 python으로 변경이 된것을 볼 수 있음 </li>
+                    <li> 파이썬 2는 지원하나 파이썬 3에서는 yum을 지원하지 않음 </li>
+                    <li> 파이썬 버전을 바꾸어주는 쉘 스크립트 만들기
+                      <li> mkdir -p /app/script </li>
+                      <li> cd /app/script </li>
+                      <li> <span className="sstitle"> vi chvpython.sh </span>
+                        <span className="sblock">
+                          <li> #!/bin/bash </li>
+                          <li> if [ -n "$1" ]  #공백인지 검사 </li>
+                          <li> then
+                            <li> PYTHON_VERSION=$1 </li>
+                          </li>
+                          <li> else
+                            <li> echo "Input Change Python Version(2 or 3) :" </li>
+                            <li> read PYTHON_VERSION </li>
+                          </li>
+                          <li> fi </li> <br />
+                          <li> {'if [ "${PYTHON_VERSION}" == "2" ]'} </li>
+                          <li> then
+                            <li> ln -Tfs /usr/bin/python2 /usr/bin/python </li>
+                          </li>
+                          <li> {'elif [ "${PYTHON_VERSION}" == "3" ]'} </li>
+                          <li> then
+                            <li> ln -Tfs /usr/bin/python3 /usr/bin/python </li>
+                          </li>
+                          <li> else
+                            <li> echo "Input Vaild Python Version(2 or 3)" </li>
+                          </li>
+                          <li> fi </li> <br />
+                          <li> python --version </li>
+                        </span>
+                      </li>
+                    </li>
+                    <li> chmod 755 chvpython.sh </li>
+                    <li> ./chvpython  </li>
                     <li>  </li>
                   </span>
                   {/*  */}

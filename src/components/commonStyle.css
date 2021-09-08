@@ -10,6 +10,9 @@
         list-style-type: circle;
     }
     /* 왼쪽 사이드에 펼치는 메뉴 설정 */
+    .main {
+        position: relative;
+    }
     details{
         box-sizing: border-box;
         display: block;
@@ -28,33 +31,7 @@
     summary small {
         font-size: 0.6em;
     }
-    .lblocknav_container > .lblocknav > .mtitle {
-        display: block;
-        width: 100%;
-        text-align: center;
-        font-size: 1em;
-        background-color: aqua;
-        border-radius: 10px 10px 0px 0px;
-    }
-    .lblocknav_container a {
-        display: inline-block;
-        text-decoration: none;
-        font-size: 1em;
-        padding-left: 5px;
-        box-sizing: border-box;
-        cursor: pointer;
-        display: block;
-        border-left: black solid 1px;
-    }
-    .lblocknav_container a::before {
-        content: "🦉";
-    }
-    .lblocknav_container a:hover {
-        background-color: chocolate;
-        border-radius: 5px;
-    }
     
-    /* ///////////////////////////////////////////////////////////////// */
     .common_style > .subject {
         text-align: center;
         background: #c4c4c4;
@@ -87,6 +64,7 @@
         border-radius: 2px;
         padding: 5px;
         background-color: #95dac1;
+        margin: 10px 0px;
     }
     .common_style  .lblock {
         border: black solid 3px;
@@ -113,8 +91,8 @@
         margin: 2px 0px;
         border-radius: 10px;
         min-height: 20px;
+        padding: 10px;
     }
-
 
     .common_style  .sblock {
         border: #ff7676 dotted 1px;
@@ -123,13 +101,9 @@
         box-sizing: border-box;
         display: block;
         border-radius: 10px;
-        padding: 10px 0px 10px 5px;
+        padding: 10px;
         margin: 5px 0px 5px 0px;
         min-height: 20px;
-    }
-    .hyperlink{
-        max-height: 300px;
-        overflow-y:  scroll;
     }
 
     li {
@@ -162,102 +136,19 @@
 /* 1024px이상이 되어야 스타일이 작동 */
 @media screen and (min-width: 1024px)
 {
-    /* ///////////////////////////////////////////////////////////////// */
-    .lblocknav_btn {
-        display: none;
-    }
-    .lblocknav_btn2 {
-        display: none;
-    }
-    .lblocknav_container{
-        width: 25%;
+    .common_style {
         display: inline-block;
-        position: relative;
-        left: 0px;
-        top: 20px;
-        box-sizing: border-box;
-        z-index: 2;
-        max-height: 200px;
-        /* overflow: scroll; */
-    }
-    .lblocknav_container > .lblocknav {
         width: 100%;
-        border-radius: 10px;
-        border: black solid 2px;
-        background-color: #c4c4c4;
-        box-sizing: border-box;
-    }
-
-    /* ///////////////////////////////////////////////////////////////// */
-    .common_style{
-        width: 75%;
-        box-sizing: border-box;
-        border-radius: 20px;
-        display: inline-block;
-        position: absolute;
-        top: 0px;
-        background-color: white;
     }
 }
 
 /* 1024px 이내일 경우 발생 */
 @media screen and (max-width: 1024px)
 {
-    .lblocknav_btn2 {
-        display: block;
-        position: absolute;
-        right: 0px;
-        z-index: 20;
-        top: 2px;
-        right: 8px;
-        height: 21px;
-        width: 21px;
-        outline: none;
-        border-radius: 0px 10px 0px 0px;
-        border: aqua solid 1px;
-        box-sizing: border-box;
-        cursor: pointer;
-        background-color: aqua;
-    }
-    .lblocknav_btn2:hover {
-        background-color: rgb(169, 159, 159);
-    }
-    .lblocknav_btn {
-        position: fixed;
-        width: 40px;
-        height: 40px;
-        background-color: green;
-        top: 120px;
-        z-index: 10;
-        border-radius: 20px;
-        opacity: 0.6;
-    }
-    .lblocknav_container{
-        position: fixed;
-        display: none;
-        left: 0px;
-        top: 40px;
-        box-sizing: border-box;
-        max-height: 200px;
-        overflow: scroll;
-        width: 360px;
-    }
-    .lblocknav_container > .lblocknav {
-        border-radius: 10px;
-        border: black solid 2px;
-        background-color: #c4c4c4;
-        opacity: 0.9;
-        box-sizing: border-box;
-    }
    
-
-
-
-    /* ///////////////////////////////////////////////////////////////// */
-
     .common_style {
-        box-sizing: border-box;
-        background-color: white;
+        display: inline-block;
+        width: 100%;
     }
 
 }

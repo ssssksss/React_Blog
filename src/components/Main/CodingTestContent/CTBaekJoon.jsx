@@ -1,101 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 
 const CTBaekJoon = (props) => {
 
-  function logit() {
-
-    //위치 계산
-    let elementHeight1 = document.getElementsByClassName('navMenu')[0].scrollHeight;
-    let elementHeight2 = document.getElementsByClassName('navMenu')[0].scrollHeight +
-      document.getElementsByClassName('navMenu2')[0].scrollHeight + 26;
-    let testdis = document.getElementsByClassName('common_style')[0].getBoundingClientRect().left
-      - document.getElementsByClassName('lblocknav_container')[0].getBoundingClientRect().left;
-    // console.log(window.outerHeight);
-
-
-    // 좌측 메뉴 이동 + 작은 버튼
-    if (window.innerWidth < 1024) {
-      blockRef.current[0].style.position = 'fixed';
-      document.documentElement.scrollTop < elementHeight1 ?
-        blockRef.current[0].style.top = elementHeight1 + "px" :
-        blockRef.current[0].style.top = "10px";
-      blockRef.current[0].style.left = document.getElementsByClassName('navMenu2')[0].getBoundingClientRect().left + "px";
-      blockRef.current[0].style.maxWidth = '420px';
-      blockRef.current[1].style.left = '25%';
-      blockRef.current[0].style.height = window.outerHeight;
-      blockRef.current[0].style.display === 'inline-block' ?
-        document.getElementsByClassName('lblocknav_btn')[0].style.display = 'none' :
-        document.getElementsByClassName('lblocknav_btn')[0].style.display = 'inline-block';
-    }
-    // 좌측 메뉴 이동
-    else if (document.documentElement.scrollTop < elementHeight2 && window.innerWidth > 1023) {
-      // 좌측 메뉴 위치 고정, 보여주기 , 간격은 사이값
-      blockRef.current[0].style.position = 'fixed';
-      blockRef.current[0].style.top = elementHeight2 + "px";
-      blockRef.current[0].style.display = 'inline-block';
-      blockRef.current[0].style.maxWidth = testdis + "px";
-      blockRef.current[0].style.height = window.outerHeight;
-      blockRef.current[0].style.left = document.getElementsByClassName('navMenu2')[0].getBoundingClientRect().left + "px";
-      // 좌측에 메뉴가 생기므로 메인 메뉴를 왼쪽에서 이동시킴
-      blockRef.current[1].style.left = '25%';
-      document.getElementsByClassName('lblocknav_btn')[0].style.display = 'none';
-    }
-    else if (document.documentElement.scrollTop > elementHeight2 && window.innerWidth > 1023) {
-      // 좌측 메뉴 위치 고정, 보여주기 , 간격은 사이값
-      blockRef.current[0].style.position = 'fixed';
-      blockRef.current[0].style.top = "10px";
-      blockRef.current[0].style.display = 'inline-block';
-      blockRef.current[0].style.maxWidth = testdis + "px";
-      blockRef.current[0].style.height = window.outerHeight;
-      blockRef.current[0].style.left = document.getElementsByClassName('navMenu2')[0].getBoundingClientRect().left + "px";
-      // 좌측에 메뉴가 생기므로 메인 메뉴를 왼쪽에서 이동시킴
-      blockRef.current[1].style.left = '25%';
-      document.getElementsByClassName('lblocknav_btn')[0].style.display = 'none';
-    }
-  }
-
-  const blockRef = useRef([]);
-
-  useEffect(() => {
-    function watchScroll() {
-      window.addEventListener("scroll", logit);
-    }
-    watchScroll();
-    return () => {
-      window.removeEventListener("scroll", logit);
-    };
-  });
-
   return (
     <>
-      <button className="lblocknav_btn" onClick={() => {
-        blockRef.current[0].style.display === 'inline-block' ?
-          blockRef.current[0].style.display = 'none' :
-          blockRef.current[0].style.display = 'inline-block';
-        document.getElementsByClassName('lblocknav_btn')[0].style.display = 'none';
-      }}> 🦉 </button>
-      <div className="lblocknav_container" ref={(elem) => (blockRef.current[0] = elem)}>
-        <div className="lblocknav">
-          <span className="mtitle">
-            <a href="#main" className="col_b"> <b> 사이드 메뉴 설명 </b> </a>
-            <button className="lblocknav_btn2" onClick={() => {
-              document.getElementsByClassName('lblocknav_btn')[0].style.display = 'block';
-              document.getElementsByClassName('lblocknav_container')[0].style.display = 'none';
-            }}> ❌ </button>
-          </span>
-          <div className="hyperlink">
-            <details open>
-              <summary> 목록 </summary>
-              <details open>
-                <summary className="col_g"> 세부 목록 </summary>
-                <a href="#" className="col_p">  </a>
-                {/* <a href="#" className="col_p"> </a> */}
-              </details>
-            </details>
-          </div>
-        </div>
-      </div>
-      <div className="common_style" ref={(elem) => (blockRef.current[1] = elem)} >
+      <div className="common_style">
         <ul>
           <span className="lblock">
             <span className="mtitle"> 백준 문제 </span>
@@ -312,17 +221,32 @@ const CTBaekJoon = (props) => {
                 <details>
                   <summary className="sstitle"> ▶ 12002 번 - Field Reduction (Silver) </summary>
                   <span className="sblock">
-                    <li> <h3> 문제 </h3>
+                    <li> <h3> 문제 (번역) </h3>
+                      <li> 농장에 소가 N마리 ({'5<=N<=50000'})는 2차원적인 영역에 있다. </li>
+                      <li> 농부는 소들을 x,y축 평행한 울타리로 막기를 원하고,  </li>
+                      <li> 가능한 작게 모든 소를 포함시키기를 원한다. ( 경계의 소들도 가능하다.) </li>
+                      <li> 그래서 최대 3마리의 소를 팔려고 한다.  </li>
+                      <li> 소는 점으로 생각하고 , 울타리는 수평이고 수직인 직선으로 구성되어 있다.  </li>
                       <li>  </li>
                     </li>
                     <li> <h3> 입력(문제 조건) </h3>
-                      <li>  </li>
+                      <li> 1번째 줄에는 N(소의 숫자)을 입력한다, </li>
+                      <li> 그 다음줄에는 구체적인 소의 위치(x,y)를 입력한다. </li>
+                      <li> 소의 위치는 1~40000까지 된다. </li>
                     </li>
                     <li> <h3> 출력 </h3>
+                      <li> 최소 면적을 출력하시오 </li>
                       <li>  </li>
                     </li>
                     <li> <h3> 풀이 방법 - 생각 </h3>
-                      <li>   </li>
+                      <li> 소를 최대 3마리를 팔수 있다는 생각을 해야한다.  </li>
+                      <li> 소의 위치는 양의 정수  </li>
+                      <li> 1. 모든 수의 중점을 찾아서 멀리떨어진 수를 제거하자니 중점 계산하고
+                        5만번의 좌표 거리 계산이 필요한데 이것도 맞을까????  </li>
+                      <li> 2. 경우의 수를 해보기? , 만약에 N=50000이면 너무 많아서 이거는 아닐듯 싶다 </li>
+                      <li> 3. 상하좌우 끝에서부터 3개의 좌표중에 제거해야되는 점이 존재한다. </li>
+                      <li> 3-1. <sub> 12 </sub> C <sub> 3 </sub> 이므로 </li>
+                      <li>  </li>
                     </li>
                     <li> <h3> 정답 코드 </h3>
                       <details>

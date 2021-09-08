@@ -1,124 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 
 const HtmlBasic = (props) => {
-    const [scrollY, setScrollY] = useState(0);
-    function logit() {
-        setScrollY(window.pageYOffset);
-
-
-        //위치 계산
-        let elementHeight1 = document.getElementsByClassName('navMenu')[0].scrollHeight;
-        let elementHeight2 = document.getElementsByClassName('navMenu')[0].scrollHeight +
-            document.getElementsByClassName('navMenu2')[0].scrollHeight + 26;
-        let testLeft = document.getElementsByClassName('navMenu2')[0].getBoundingClientRect().left;
-        let testdis = document.getElementsByClassName('common_style')[0].getBoundingClientRect().left
-            - document.getElementsByClassName('lblocknav_container')[0].getBoundingClientRect().left;
-        // console.log(window.outerHeight);
-
-
-        // 좌측 메뉴 이동 + 작은 버튼
-        if (window.innerWidth < 1024) {
-            blockRef.current[0].style.position = 'fixed';
-            document.documentElement.scrollTop < elementHeight1 ?
-                blockRef.current[0].style.top = elementHeight1 + "px" :
-                blockRef.current[0].style.top = "10px";
-            blockRef.current[0].style.left = document.getElementsByClassName('navMenu2')[0].getBoundingClientRect().left + "px";
-            blockRef.current[0].style.maxWidth = '420px';
-            blockRef.current[1].style.left = '25%';
-            blockRef.current[0].style.height = window.outerHeight;
-            blockRef.current[0].style.display === 'inline-block' ?
-                document.getElementsByClassName('lblocknav_btn')[0].style.display = 'none' :
-                document.getElementsByClassName('lblocknav_btn')[0].style.display = 'inline-block';
-        }
-        // 좌측 메뉴 이동
-        else if (document.documentElement.scrollTop < elementHeight2 && window.innerWidth > 1023) {
-            // 좌측 메뉴 위치 고정, 보여주기 , 간격은 사이값
-            blockRef.current[0].style.position = 'fixed';
-            blockRef.current[0].style.top = elementHeight2 + "px";
-            blockRef.current[0].style.display = 'inline-block';
-            blockRef.current[0].style.maxWidth = testdis + "px";
-            blockRef.current[0].style.height = window.outerHeight;
-            blockRef.current[0].style.left = document.getElementsByClassName('navMenu2')[0].getBoundingClientRect().left + "px";
-            // 좌측에 메뉴가 생기므로 메인 메뉴를 왼쪽에서 이동시킴
-            blockRef.current[1].style.left = '25%';
-            document.getElementsByClassName('lblocknav_btn')[0].style.display = 'none';
-        }
-        else if (document.documentElement.scrollTop > elementHeight2 && window.innerWidth > 1023) {
-            // 좌측 메뉴 위치 고정, 보여주기 , 간격은 사이값
-            blockRef.current[0].style.position = 'fixed';
-            blockRef.current[0].style.top = "10px";
-            blockRef.current[0].style.display = 'inline-block';
-            blockRef.current[0].style.maxWidth = testdis + "px";
-            blockRef.current[0].style.height = window.outerHeight;
-            blockRef.current[0].style.left = document.getElementsByClassName('navMenu2')[0].getBoundingClientRect().left + "px";
-            // 좌측에 메뉴가 생기므로 메인 메뉴를 왼쪽에서 이동시킴
-            blockRef.current[1].style.left = '25%';
-            document.getElementsByClassName('lblocknav_btn')[0].style.display = 'none';
-        }
-    }
-
-    const blockRef = useRef([]);
-
-    useEffect(() => {
-        function watchScroll() {
-            window.addEventListener("scroll", logit);
-        }
-        watchScroll();
-        return () => {
-            window.removeEventListener("scroll", logit);
-        };
-    });
 
     return (
         <>
-            <button className="lblocknav_btn" onClick={() => {
-                blockRef.current[0].style.display === 'inline-block' ?
-                    blockRef.current[0].style.display = 'none' :
-                    blockRef.current[0].style.display = 'inline-block';
-                document.getElementsByClassName('lblocknav_btn')[0].style.display = 'none';
-            }}> 🦉 </button>
-            <div className="lblocknav_container" ref={(elem) => (blockRef.current[0] = elem)}>
-                <div className="lblocknav">
-                    <span className="mtitle">
-                        <a href="#main" className="col_b"> <b>  </b> </a>
-                        <button className="lblocknav_btn2" onClick={() => {
-                            document.getElementsByClassName('lblocknav_btn')[0].style.display = 'block';
-                            document.getElementsByClassName('lblocknav_container')[0].style.display = 'none';
-                        }}> ❌ </button>
-                    </span>
-                    <div className="hyperlink">
-                        <details open>
-                            <summary>  </summary>
-                            <a href="#주석">주석</a>
-                            <a href="#특수문자">특수문자</a>
-                            <a href="#div태그">div태그</a>
-                            <a href="#span태그">span태그</a>
-                            <a href="#h태그">h태그</a>
-                            <a href="#p태그">p태그</a>
-                            <a href="#글자 스타일 관련 태그">글자 스타일 관련 태그</a>
-                            <a href="#시멘틱 태그">시멘틱 태그</a>
-                            <a href="#a태그">a태그</a>
-                            <a href="#link태그">link태그</a>
-                            <a href="#img태그">img태그</a>
-                            <a href="#input태그">input태그</a>
-                            <a href="#form태그">form태그</a>
-                            <a href="#label태그">label태그</a>
-                            <a href="#select태그">select태그</a>
-                            <a href="#list태그">list태그</a>
-                            <a href="#table태그">table태그</a>
-                            <a href="#details태그">details태그</a>
-                            <a href="#뷰포트(Viewport)"> 뷰포트(Viewport)  </a>
-                            <a href="#">   </a>
-                            <a href="#">   </a>
-                        </details>
-                    </div>
-                </div>
-            </div>
-            <div className="common_style" ref={(elem) => (blockRef.current[1] = elem)} >
-                <span className="lblock">
-                    <ul>
+            <div className="common_style">
+                <ul>
+                    <span className="lblock">
                         <span className="mtitle"> <a name="">  Html Study  </a> </span>
-
                         <span className="mblock">
                             <details>
                                 <summary className="stitle"> ▶ HTML 기본구조
@@ -788,7 +677,6 @@ const HtmlBasic = (props) => {
                         </span>
                         {/*  */}
 
-
                         <span className="mblock">
                             <details>
                                 <summary className="stitle"> ▶
@@ -803,14 +691,9 @@ const HtmlBasic = (props) => {
                             </details>
                         </span>
                         {/*  */}
-
-                    </ul>
-                </span>
+                    </span>
+                </ul>
             </div>
-
-
-
-
         </>
     );
 }

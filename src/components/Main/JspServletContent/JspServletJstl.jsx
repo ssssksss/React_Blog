@@ -1,20 +1,7 @@
 const JspServletJstl = (props) => {
 
     return (
-        <div>
-            <span className="lblock">
-                <span className="mtitle"> 0. JSTL (하이퍼링크) </span>
-                <span className="mblock">
-                    <p className="hyperlink">
-                        <a href="#JSTL core tag"> 1. JSTL core tag </a>
-                        <a href="#JSTL function tag"> 2. JSTL function tag </a>
-                        <a href="#JSTL formatting tag"> 3. JSTL formatting tag </a>
-                        <a href="#JSTL XML tag"> 4. JSTL XML tag </a>
-                        <a href="#JSTL SQL tag"> 5. JSTL SQL tag </a>
-                        {/* <a href="#"> </a> */}
-                    </p>
-                </span>
-            </span>
+        <>
             {/* <a href="https://gangzzang.tistory.com/entry/JSP-%EC%BB%A4%EC%8A%A4%ED%85%80-%ED%83%9C%EA%B7%B8Custom-Tag" target="_blank"> 참고사이트</a> */}
             <span className="lblock">
                 <p> <a href="https://velog.io/@ye050425/JSP-JSTL-%EC%A0%95%EB%A6%AC" target="_blank">참고사이트</a> </p>
@@ -129,14 +116,7 @@ const JspServletJstl = (props) => {
                     </span>
                 </span>
             </span>
-            {/* <span className="lblock">
-                <span className="mtitle"> <a name="">  </a> </span>
-                <span className="mblock">
-                    <span className="sblock">
-                    </span>
-                </span>
-            </span> */}
-        </div>
+        </>
     );
 }
 

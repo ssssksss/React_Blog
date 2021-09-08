@@ -1,137 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 
 const CssBasic = (props) => {
 
-    const [scrollY, setScrollY] = useState(0);
-    function logit() {
-        setScrollY(window.pageYOffset);
-
-        //위치 계산
-        let elementHeight = document.getElementsByClassName('navMenu')[0].scrollHeight +
-            document.getElementsByClassName('navMenu2')[0].scrollHeight + 26;
-        let testLeft = document.getElementsByClassName('navMenu2')[0].getBoundingClientRect().left;
-        let testdis = document.getElementsByClassName('common_style')[0].getBoundingClientRect().left
-            - document.getElementsByClassName('lblocknav_container')[0].getBoundingClientRect().left;
-        // console.log(window.outerHeight);
-
-
-        // 좌측 메뉴 이동 + 작은 버튼
-        if (document.documentElement.scrollTop > elementHeight && window.innerWidth < 1024) {
-            blockRef.current[0].style.position = 'fixed';
-            blockRef.current[0].style.top = (elementHeight + 30) + "px";
-            blockRef.current[0].style.left = document.getElementsByClassName('navMenu2')[0].getBoundingClientRect().left + "px";
-            blockRef.current[0].style.maxWidth = '420px';
-            blockRef.current[1].style.left = '25%';
-            blockRef.current[0].style.height = window.outerHeight;
-            blockRef.current[0].style.display === 'inline-block' ?
-                document.getElementsByClassName('lblocknav_btn')[0].style.display = 'none' :
-                document.getElementsByClassName('lblocknav_btn')[0].style.display = 'inline-block';
-        }
-        // 좌측 메뉴 이동
-        else if (document.documentElement.scrollTop < elementHeight && window.innerWidth > 1023) {
-            // 좌측 메뉴 위치 고정, 보여주기 , 간격은 사이값
-            blockRef.current[0].style.position = 'fixed';
-            blockRef.current[0].style.top = elementHeight + "px";
-            blockRef.current[0].style.display = 'inline-block';
-            blockRef.current[0].style.maxWidth = testdis + "px";
-            blockRef.current[0].style.height = window.outerHeight;
-            blockRef.current[0].style.left = document.getElementsByClassName('navMenu2')[0].getBoundingClientRect().left + "px";
-            // 좌측에 메뉴가 생기므로 메인 메뉴를 왼쪽에서 이동시킴
-            blockRef.current[1].style.left = '25%';
-            document.getElementsByClassName('lblocknav_btn')[0].style.display = 'none';
-        }
-        else if (document.documentElement.scrollTop > elementHeight && window.innerWidth > 1023) {
-            // 좌측 메뉴 위치 고정, 보여주기 , 간격은 사이값
-            blockRef.current[0].style.position = 'fixed';
-            blockRef.current[0].style.top = "10px";
-            blockRef.current[0].style.display = 'inline-block';
-            blockRef.current[0].style.maxWidth = testdis + "px";
-            blockRef.current[0].style.height = window.outerHeight;
-            blockRef.current[0].style.left = document.getElementsByClassName('navMenu2')[0].getBoundingClientRect().left + "px";
-            // 좌측에 메뉴가 생기므로 메인 메뉴를 왼쪽에서 이동시킴
-            blockRef.current[1].style.left = '25%';
-            document.getElementsByClassName('lblocknav_btn')[0].style.display = 'none';
-        }
-    }
-
-    const blockRef = useRef([]);
-
-    useEffect(() => {
-        function watchScroll() {
-            window.addEventListener("scroll", logit);
-        }
-        watchScroll();
-        return () => {
-            window.removeEventListener("scroll", logit);
-        };
-    });
-
     return (
         <>
-            <button className="lblocknav_btn" onClick={() => {
-                blockRef.current[0].style.display === 'inline-block' ?
-                    blockRef.current[0].style.display = 'none' :
-                    blockRef.current[0].style.display = 'inline-block';
-                document.getElementsByClassName('lblocknav_btn')[0].style.display = 'none';
-            }}> 🦉 </button>
-            <div className="lblocknav_container" ref={(elem) => (blockRef.current[0] = elem)}>
-                <div className="lblocknav">
-                    <span className="mtitle">
-                        <a href="#main" className="col_b"> <b> 사이드 메뉴 설명 </b> </a>
-                        <button className="lblocknav_btn2" onClick={() => {
-                            document.getElementsByClassName('lblocknav_btn')[0].style.display = 'block';
-                            document.getElementsByClassName('lblocknav_container')[0].style.display = 'none';
-                        }}> ❌ </button>
-                    </span>
-                    <div className="hyperlink">
-                        <details open>
-                            <summary> 목록 </summary>
-                            <details open>
-                                <summary className="col_g"> 세부 목록 </summary>
-                                <a href="#width(너비)" className="col_p"> width(너비) </a>
-                                <a href="#height(높이)" className="col_p"> height(높이) </a>
-                                <a href="#border(테두리라인)" className="col_p"> border(테두리라인) </a>
-                                <a href="#margin(외부 간격)" className="col_p"> margin(외부 간격) </a>
-                                <a href="#padding(내부 간격)" className="col_p"> padding(내부 간격) </a>
-                                <a href="#box-sizing(요소 크기 범위)" className="col_p"> box-sizing(요소 크기 범위) </a>
-                                <a href="#overflow(흘러내림)" className="col_p"> overflow(흘러내림) </a>
-                                <a href="#background(배경)" className="col_p"> background(배경) </a>
-                                <a href="#선택자" className="col_p"> 선택자 </a>
-                                <a href="#vertical-align(수직정렬) " className="col_p"> vertical-align(수직정렬)  </a>
-                                <a href="#float(띄워서배치)" className="col_p"> float(띄워서배치) </a>
-                                <a href="#position(요소위치)" className="col_p"> position(요소위치) </a>
-                                <a href="#media-queries(미디어 쿼리)" className="col_p"> media-queries(미디어 쿼리) </a>
-                                <a href="#폰트 추가하는 방법" className="col_p"> 폰트 추가하는 방법 </a>
-                                <a href="#text-decoration(텍스트장식)" className="col_p"> text-decoration(텍스트장식) </a>
-                                <a href="#text-align(글자위치조정)" className="col_p"> text-align(글자위치조정) </a>
-                                <a href="#font(폰트)" className="col_p"> font(폰트) </a>
-                                <a href="#box-shadow(그림자) " className="col_p"> box-shadow(그림자)  </a>
-                                <a href="#aspect-ratio(화면 비율 조정)" className="col_p"> aspect-ratio(화면 비율 조정) </a>
-                                <a href="#line-height(텍스트행사이의거리)" className="col_p"> line-height(텍스트행사이의거리) </a>
-                                <a href="#list-style(목록태그설정)" className="col_p"> list-style(목록태그설정) </a>
-                                <a href="#text-align(가로정렬)" className="col_p"> text-align(가로정렬) </a>
-                                <a href="#letter-spacing(글자사이간격조정)" className="col_p"> letter-spacing(글자사이간격조정) </a>
-                                <a href="#white-space(공백문자처리)" className="col_p"> white-space(공백문자처리) </a>
-                                <a href="#word-break(단어분리처리여부)" className="col_p"> word-break(단어분리처리여부) </a>
-                                <a href="#word-wrap(요소를넘은글자처리여부)" className="col_p"> word-wrap(요소를넘은글자처리여부) </a>
-                                <a href="#display(요소디스플레이속성)" className="col_p"> display(요소디스플레이속성) </a>
-                                <a href="#transform(회전,크기,기울기,이동)" className="col_p"> transform(회전,크기,기울기,이동) </a>
-                                <a href="#flex(이어서?배치)" className="col_p"> flex(이어서?배치) </a>
-                                <a href="#flex-direction(플렉스요소배치))" className="col_p"> flex-direction(플렉스요소배치) </a>
-                                <a href="#align-content(F,G의 라인을 정렬)" className="col_p"> align-content(F,G의 라인을 정렬) </a>
-                                <a href="#justify-content(F,G 요소가로축배치)" className="col_p"> justify-content(F,G 요소가로축배치) </a>
-                                <a href="#align-items(F,G 라인을기준으로 아이템세로축정렬)" className="col_p"> align-items(line을기준으로 세로축정렬) </a>
-                                <a href="#filter(필터효과)" className="col_p"> filter(필터효과) </a>
-                                <a href="#variable(변수)" className="col_p"> variable(변수) </a>
-                                <a href="#" className="col_p">  </a>
-                                <a href="#기타" className="col_p"> 기타 </a>
-                                {/* <a href="#" className="col_p"> </a> */}
-                            </details>
-                        </details>
-                    </div>
-                </div>
-            </div>
-            <div className="common_style" ref={(elem) => (blockRef.current[1] = elem)} >
+
+            <div className="common_style" >
                 <ul>
                     <span className="lblock">
                         {/*  */}
@@ -914,8 +788,7 @@ const CssBasic = (props) => {
                                 <span className="sblock">
                                     <span className="sstitle"> align-content 속성 </span>
                                     <span className="mblock">
-                                        <small> flex박스나 grid에서 사용하는 배치 방법 </small> <br />
-                                        <small> flex-line을 정렬 </small>
+                                        <li> flex박스나 grid에서 사용하는 배치 방법 , flex-line을 정렬 , 부모 요소에서 사용  </li>
                                         <li> align-content: center;     </li>
                                         <li> align-content: start;      </li>
                                         <li> align-content: end;        </li>
