@@ -18,11 +18,275 @@ const CTBaekJoon = (props) => {
               <details>
                 <summary className="stitle"> ▶ 1001 - 2000 </summary>
               </details>
+              {/*  */}
+              <details>
+                <summary className="sstitle"> ▶ 1339 번 - 단어 수학  </summary>
+                <span className="sblock">
+                  <li> <h3> 문제 </h3>
+                    <li> 수학문제는 N개의 단어로 이루어짐 </li>
+                    <li> 단어는 알파벳 대문자로만 이루어져 있다. </li>
+                    <li> 각 알파벳 대문자를 0~9까지의 숫자 중 하나로 바꾸어서 N개의 수를 합치는 문제 </li>
+                    <li> 같은 알파벳은 같은 숫자로 바뀌며, 다른 알파벳과 같은 숫자가 되어서는 안된다. </li>
+                    <li> N개의 단어를 합해서 최댓값을 구하는 프로그램 </li>
+                  </li>
+                  <li> <h3> 입력(문제 조건) </h3>
+                    <li> 첫째 줄에는 N을 입력한다. {' 1 <= N <= 10 '}  </li>
+                    <li> 2번째 줄부터는 단어가 한줄에 1개씩 주어진다. </li>
+                    <li> 모든 단어에 포함되어 있는 알파벳은 최대 10개 </li>
+                    <li> 단어의 최대 길이는 8 </li>
+                  </li>
+                  <li> <h3> 출력 </h3>
+                    <li> 1번째 줄에 단어 합의 최댓값을 출력하라 </li>
+                  </li>
+                  <li> <h3> 풀이 방법 - 생각 </h3>
+                    <li> 알파벳의 최대 갯수는 10개 , 일단 값에대한 매칭이 필요하다. </li>
+                    <li> 최댓갑이 발생하려면 숫자가 큰 수의 제일 앞에 숫자가 9이어야 한다.  </li>
+                    <li> 문제가 경우의 수가 크게 많지가 않아 그냥 브루트포스로 풀면 될것 같다.  </li>
+                    <li> 브루트 포스가 아닌 간단한 해쉬테이블을 만들어서 풀어보려고 한다. </li>
+                    <li> 1. 모든 단어에서 여러 종류의 문자를 배열로 만든다.  </li>
+                    <li> 2. 8번쨰 자리수의 점수는 천만점, 1번째    </li>
+                    <li>   </li>
+                  </li>
+                  <li> <h3> 정답 코드 </h3>
+                    <details>
+                      <summary className="sstitle"> ▶ Python </summary>
+                      <span className="mblock">
+                        <li>  </li>
+                        <li>  </li>
+                      </span>
+                    </details>
+                    <details>
+                      <summary className="sstitle"> ▶ C </summary>
+                      <span className="mblock">
+                        <li>  </li>
+                        <li>  </li>
+                      </span>
+                    </details>
+                    <details>
+                      <summary className="sstitle"> ▶ C++ </summary>
+                      <span className="mblock">
+                        <li>  </li>
+                        <li>  </li>
+                      </span>
+                    </details>
+                  </li>
+                </span>
+              </details>
+              {/*  */}
+              <details>
+                <summary className="sstitle"> ▶  번 -  </summary>
+                <span className="sblock">
+                  <li> <h3> 문제 </h3>
+                    <li>  </li>
+                  </li>
+                  <li> <h3> 입력(문제 조건) </h3>
+                    <li>  </li>
+                  </li>
+                  <li> <h3> 출력 </h3>
+                    <li>  </li>
+                  </li>
+                  <li> <h3> 풀이 방법 - 생각 </h3>
+                    <li>   </li>
+                  </li>
+                  <li> <h3> 정답 코드 </h3>
+                    <details>
+                      <summary className="sstitle"> ▶ Python </summary>
+                      <span className="mblock">
+                        <li>  </li>
+                        <li>  </li>
+                      </span>
+                    </details>
+                    <details>
+                      <summary className="sstitle"> ▶ C </summary>
+                      <span className="mblock">
+                        <li>  </li>
+                        <li>  </li>
+                      </span>
+                    </details>
+                    <details>
+                      <summary className="sstitle"> ▶ C++ </summary>
+                      <span className="mblock">
+                        <li>  </li>
+                        <li>  </li>
+                      </span>
+                    </details>
+                  </li>
+                </span>
+              </details>
+              {/*  */}
+              <details>
+                <summary className="sstitle"> ▶  번 -  </summary>
+                <span className="sblock">
+                  <li> <h3> 문제 </h3>
+                    <li>  </li>
+                  </li>
+                  <li> <h3> 입력(문제 조건) </h3>
+                    <li>  </li>
+                  </li>
+                  <li> <h3> 출력 </h3>
+                    <li>  </li>
+                  </li>
+                  <li> <h3> 풀이 방법 - 생각 </h3>
+                    <li>   </li>
+                  </li>
+                  <li> <h3> 정답 코드 </h3>
+                    <details>
+                      <summary className="sstitle"> ▶ Python </summary>
+                      <span className="mblock">
+                        <li>  </li>
+                        <li>  </li>
+                      </span>
+                    </details>
+                    <details>
+                      <summary className="sstitle"> ▶ C </summary>
+                      <span className="mblock">
+                        <li>  </li>
+                        <li>  </li>
+                      </span>
+                    </details>
+                    <details>
+                      <summary className="sstitle"> ▶ C++ </summary>
+                      <span className="mblock">
+                        <li>  </li>
+                        <li>  </li>
+                      </span>
+                    </details>
+                  </li>
+                </span>
+              </details>
+              {/* 1000번대 끝 */}
             </span>
             {/*  */}
             <span className="mblock">
               <details>
                 <summary className="stitle"> ▶ 2001 - 3000 </summary>
+                {/* 2000번대 */}
+                <details>
+                  <summary className="sstitle"> ▶ 2529 번 - 부등호 </summary>
+                  <span className="sblock">
+                    <li> <h3> 문제 </h3>
+                      <li> 부등호 기호 {'< , >'} k개가 나열된 순서열 A가 있다. </li>
+                      <li> 부등호 사이에 숫자를 넣어서 순서열을 만족시키는 수를 찾고자한다. </li>
+                      <li> 들어갈수 있는 숫자는 0~9이고 각 1개씩 밖에 존재하지 않는다. </li>
+                      <li> 조건을 만족할 때 부등호를 없애고 이어 붙인 숫자를 찾는다. </li>
+                      <li> 조건을 만족하는 수는 1개가 아니라 여러개일 수 있다. </li>
+                      <li> 이때 최솟값과 최댓값을 찾으려 한다. </li>
+                    </li>
+                    <li> <h3> 입력(문제 조건) </h3>
+                      <li> 첫줄에 부등호의 갯수 k ({'2 ≤ k ≤ 9'}) </li>
+                      <li> 2번째 줄에 부등호를 공백으로 두면서 입력 </li>
+                    </li>
+                    <li> <h3> 출력 </h3>
+                      <li> 1번째 줄에는 만족하는 최소 정수 </li>
+                      <li> 2번째 줄에는 만족하는 최소 정수 </li>
+                      <li> 0으로 시작하는 정수여도 0 표기 , 문자열로 출력 </li>
+                    </li>
+                    <li> <h3> 풀이 방법 - 생각 </h3>
+                      <li> 브루트포스로 풀면 최대 10!의 숫자가 들어가고 조건이 일치하는지도 확인을 해야한다.(아닐듯 싶다) </li>
+                      <li> 부등호의 갯수를 왼쪽,오른쪽을 먼저 구분해서 문제를 풀어보려 했는데 이게 아니다..  </li>
+                      <li> 결론은 DFS 방식 + 백트래킹 </li>
+                    </li>
+                    <li> <h3> 정답 코드 </h3>
+                      <details>
+                        <summary className="sstitle"> ▶ Python </summary>
+                        <span className="mblock">
+                          <li>  import sys </li>
+                          <li>  k = int(sys.stdin.readline().rstrip()) </li>
+                          <li>  bracket = sys.stdin.readline().rstrip().split() </li>
+                          <li>  num_visit = ["false" for i in range(10)] </li>
+                          <li>  num_list = [] </li> <br />
+                          <li> def dfs(front_num, count_num, str_num):
+                            <li> if count_num == k:
+                              <li> num_list.append([str_num]) </li>
+                            </li>
+                            <li> else:
+                              <li> for j in range(10):
+                                <li> if num_visit[j] == "false":
+                                  <li> if bracket[count_num] == "{'<'}":
+                                    <li> if front_num {'>'} j:
+                                      <li> continue  </li>
+                                    </li>
+                                  </li>
+                                  <li> elif bracket[count_num] == "{'>'}":
+                                    <li> if front_num {'<'} j:
+                                      <li> continue </li>
+                                    </li>
+                                  </li>
+                                  <li> num_visit[j] = "true" </li>
+                                  <li> dfs(j, count_num+1, str_num+str(j)) </li>
+                                  <li> num_visit[j] = "false" </li>
+                                </li>
+                              </li>
+                            </li>
+                          </li> <br />
+                          <li> for i in range(10):
+                            <li> num_visit[i] = "true" </li>
+                            <li> dfs(i, 0, str(i)) </li>
+                            <li> num_visit[i] = "false" </li>
+                          </li> <br />
+                          <li> print(" ".join(num_list[-1])) </li>
+                          <li> print(" ".join(num_list[0])) </li>
+                        </span>
+                      </details>
+                      <details>
+                        <summary className="sstitle"> ▶ C </summary>
+                        <span className="mblock">
+                          <li>  </li>
+                          <li>  </li>
+                        </span>
+                      </details>
+                      <details>
+                        <summary className="sstitle"> ▶ C++ </summary>
+                        <span className="mblock">
+                          <li>  </li>
+                          <li>  </li>
+                        </span>
+                      </details>
+                    </li>
+                  </span>
+                </details>
+                {/*  */}
+                <details>
+                  <summary className="sstitle"> ▶  번 -  </summary>
+                  <span className="sblock">
+                    <li> <h3> 문제 </h3>
+                      <li>  </li>
+                    </li>
+                    <li> <h3> 입력(문제 조건) </h3>
+                      <li>  </li>
+                    </li>
+                    <li> <h3> 출력 </h3>
+                      <li>  </li>
+                    </li>
+                    <li> <h3> 풀이 방법 - 생각 </h3>
+                      <li>   </li>
+                    </li>
+                    <li> <h3> 정답 코드 </h3>
+                      <details>
+                        <summary className="sstitle"> ▶ Python </summary>
+                        <span className="mblock">
+                          <li>  </li>
+                          <li>  </li>
+                        </span>
+                      </details>
+                      <details>
+                        <summary className="sstitle"> ▶ C </summary>
+                        <span className="mblock">
+                          <li>  </li>
+                          <li>  </li>
+                        </span>
+                      </details>
+                      <details>
+                        <summary className="sstitle"> ▶ C++ </summary>
+                        <span className="mblock">
+                          <li>  </li>
+                          <li>  </li>
+                        </span>
+                      </details>
+                    </li>
+                  </span>
+                </details>
+                {/* 2000번대 끝 */}
               </details>
             </span>
             {/*  */}
@@ -225,9 +489,9 @@ const CTBaekJoon = (props) => {
                       <li> 농장에 소가 N마리 ({'5<=N<=50000'})는 2차원적인 영역에 있다. </li>
                       <li> 농부는 소들을 x,y축 평행한 울타리로 막기를 원하고,  </li>
                       <li> 가능한 작게 모든 소를 포함시키기를 원한다. ( 경계의 소들도 가능하다.) </li>
-                      <li> 그래서 최대 3마리의 소를 팔려고 한다.  </li>
+                      <li> 그래서 최대 3마리의 소를 팔 수 있다.  </li>
                       <li> 소는 점으로 생각하고 , 울타리는 수평이고 수직인 직선으로 구성되어 있다.  </li>
-                      <li>  </li>
+                      <li> 즉 좌표명면 1사분면에 점을 찍고 점을 수직으로 이은 사각형의 면적이 제일 작은것을 구하라 </li>
                     </li>
                     <li> <h3> 입력(문제 조건) </h3>
                       <li> 1번째 줄에는 N(소의 숫자)을 입력한다, </li>
@@ -244,7 +508,7 @@ const CTBaekJoon = (props) => {
                       <li> 1. 모든 수의 중점을 찾아서 멀리떨어진 수를 제거하자니 중점 계산하고
                         5만번의 좌표 거리 계산이 필요한데 이것도 맞을까????  </li>
                       <li> 2. 경우의 수를 해보기? , 만약에 N=50000이면 너무 많아서 이거는 아닐듯 싶다 </li>
-                      <li> 3. 상하좌우 끝에서부터 3개의 좌표중에 제거해야되는 점이 존재한다. </li>
+                      <li> 3. 상하좌우 끝에서부터 각 3개의 좌표중에 제거해야되는 점이 존재한다. </li>
                       <li> 3-1. <sub> 12 </sub> C <sub> 3 </sub> 이므로 </li>
                       <li>  </li>
                     </li>

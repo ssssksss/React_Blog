@@ -115,7 +115,7 @@ const PythonBasic = (props) => {
                         <span className="mblock">
                             <details>
                                 <summary className="stitle"> ▷ 자료형과 변수
-                                    <a name="자료형과 변수">  자료형과 변수 </a> </summary>
+                                    <a name="자료형과 변수" style={{ visibility: "hidden" }}>  자료형과 변수 </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle"> 변수 </span>
                                     <li> 파이썬의 변수는 자료형을 따로 지정하지 않아도 변수의 값에 따라서 알아서 지정을 해준다.
@@ -198,7 +198,7 @@ const PythonBasic = (props) => {
                         <span className="mblock">
                             <details>
                                 <summary className="stitle"> ▷ 입력메소드
-                                    <a name="입력 메소드">  입력메소드 </a> </summary>
+                                    <a name="입력 메소드" style={{ visibility: "hidden" }}>  입력메소드 </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle"> input() </span>
                                     <li> 2.x 버전에서 입력값을 받아 판단하고 그에 맞게 자료형으로 초기화 </li>
@@ -230,63 +230,93 @@ const PythonBasic = (props) => {
                             <details>
                                 <summary className="stitle"> ▷ 리스트(list)
                                     <a name="리스트(list)" style={{ visibility: "hidden" }}> 리스트(list)  </a> </summary>
-                                <small> 타입이 다르더라도 하나의 리스트에 저장 가능 </small>
                                 <span className="sblock">
-                                    <span className="sstitle"> 리스트 덧셈, 곱셈 </span>
-                                    <li> list1+list2(리스트 합치기) , [1,2,3]*3  </li>
-                                    <span className="sstitle"> 2차원 배열 만들기 </span>
-                                    <li>  list = [[0]*10 for i in range(10)] </li>
-                                    <span className="sstitle"> 일반적인 리스트 형태 </span>
-                                    <li> list1 = [값,값,값]  </li>
-                                    <span className="sstitle"> 인자 수정 및 추가 </span>
-                                    <li> list1[인덱스] = 값 , list1[-인덱스] = 값  </li>
-                                    <span className="sstitle"> 인자 마지막에 추가 </span>
-                                    <li> list1.append(값)  </li>
-                                    <li> list1.update([값, {'{값1,값2,값3}'} ])  </li>
-                                    <span className="sstitle"> 인자 원하는 위치에 추가  </span>
-                                    <li> list1.insert(인덱스,값) </li>
-                                    <span className="sstitle"> 리스트에 다른 리스트 추가  </span>
-                                    <li> list1.extend(list2) </li>
+                                    <span className="sstitle"> 리스트 설명 </span>
+                                    <span className="mblock">
+                                        <li> 타입이 다르더라도 하나의 리스트에 저장 가능  </li>
+                                        <li> {'{}'}기호를 이용하여 사용  </li>
+                                    </span>
+                                    <span className="sstitle"> 리스트와 문자열 </span>
+                                    <span className="mblock">
+                                        <li> 객체 = "".join(리스트) <small> # 리스트를 문자열로 반환 </small>  </li>
+                                        <li> 객체 = "특수문자,문자".join(리스트) <small> # 리스트를 문자를 구분자로 사용하여 반환 </small>  </li>
+                                    </span>
+                                    <span className="sstitle"> 리스트 기타 </span>
+                                    <span className="mblock">
+                                        <li> len(리스트) <small> 리스트 길이 보기 </small> </li>
+                                        <li> 리스트.count(요소) <small> 리스트의 요소의 갯수를 반환  </small> </li>
+                                        <li> 리스트[인덱스1],리스트[인덱스2] = 리스트[인덱스2],리스트[인덱스1] <small> 리스트 SWAP </small> </li>
+                                        <li> 요소 in 리스트 <small> 리스트에 요소가 있는지 확인 , boolean 값으로 반환 </small> </li>
+                                    </span>
+                                    <span className="sstitle"> 리스트 위치 , 인덱싱,  </span>
+                                    <span className="mblock">
+                                        <li> 리스트.index(요소) <small> 리스트에서 맞는 요소 값의 위치 반환, 요소가 없으면 ValueError  </small> </li>
+                                        <li> 리스트[인덱스]  <small> # 리스트 인덱싱(음수값도 지원) </small> </li>
+                                        <li> 리스트[:인덱스] , 리스트[인덱스:] , 리스트[인덱스:인덱스] <small> 리스트 슬라이싱 </small> </li>
+                                    </span>
+                                    <span className="sstitle"> 리스트 추가, 생성, 수정 </span>
+                                    <span className="mblock">
+                                        <li> 리스트1 = 리스트2 + 리스트3 <small> # +연산을 이용하여 리스트 합치기 </small> </li>
+                                        <li> 리스트1 = 리스트2 * 5 <small> # *연산을 이용하여 리스트 여러개 추가하기 </small> </li>
+                                        <li> 리스트[인덱스] = 값 , 리스트[-인덱스] = 값 <small> # 리스트 값 수정하기 </small> </li>
+                                        <li> 리스트.append(요소) <small> # 리스트 뒤에 요소(값,리스트) 추가 </small> </li>
+                                        <li> 리스트.update([리스트],값) <small> # 리스트 뒤에 여러 요소 추가 </small> </li>
+                                        <li> 리스트.insert(a,b) <small> 리스트의 a번째에 b값을 넣는다, 남은 요소들 인덱스는 뒤로 밀린다.
+                                            만약에 넣은 요소위치 앞쪽이 비어있으면 비어있는 공간을 제외하고 리스트의 제일 뒤에 추가한다. </small> </li>
+                                        <li> 리스트.extend(리스트) <small> 기존 리스트에 리스트를 더해서 확장 </small> </li>
+                                    </span>
+                                    <span className="sstitle"> 리스트 1차원 배열 만들기 </span>
+                                    <span className="mblock">
+                                        <li> 배열 = [0]*10 <small> # 1차원 배열 만들기 </small> </li>
+                                        <li> 배열 = [[0] for i in range(10)] <small> # 연산을 이용하여 리스트 여러개 추가하기 </small> </li>
+                                        <li> 배열 = [[0] for i in range(10) if 조건 ] <small> # 조건에 맞는 배열 생성 </small> </li>
+                                        <li> 배열 = [값1,값2,값3] <small> 1차원 배열 만들기 </small> </li>
+                                        <li> 배열 = [값1,값2,값3] <small>  </small> </li>
+                                    </span>
+                                    <span className="sstitle"> 리스트 2차원 배열 만들기 </span>
+                                    <span className="mblock">
+                                        <li> 배열 = [[값1,값2,값3],[값1,값2,값3]] <small> 2차원 배열 만들기 </small> </li>
+                                        <li className="col_r"> list = [0 * col] * row <small> 잘못된 2차원 배열 만들기 </small> </li>
+                                        <li> list = [[0 for col in range(10) ] for row in range(10)] <small> 2차원 배열 만들기 </small> </li>
+                                        <li> list = [[0 * col ] for row in range(10)] <small> 2차원 배열 만들기 </small> </li>
+                                        <li>  <small>  </small> </li>
+                                    </span>
+                                    <span className="sstitle"> 리스트 순서 </span>
+                                    <span className="mblock">
+                                        <li> 리스트.sort() <small> 리스트 정렬하기 , 반환값은 None , 원본이 바뀜 </small> </li>
+                                        <li> 리스트.sort(reverse=True) <small> 리스트 역정렬하기 , 반환값은 None , 원본이 바뀜 </small> </li>
+                                        <li> 리스트.reverse() <small> 리스트 순서 바꾸기 , 반환값은 None , 원본이 바뀜 </small> </li>
+                                        <li> 리스트2 = sorted(리스트1) <small> 리스트를 정렬해서 반환, 깊은복사처럼 정렬됨 </small> </li>
+                                    </span>
+                                    <span className="sstitle"> 리스트 삭제 </span>
+                                    <span className="mblock">
+                                        <li> del 리스트[인덱스] <small> 리스트 요소 삭제하기 </small> </li>
+                                        <li> del 리스트[인덱스:] <small> 리스트 요소 슬라이싱 이용하여 삭제하기 </small> </li>
+                                        <li> 리스트.remove(요소) <small> 리스트 제일 앞에 보이는 요소를 제거한다. </small> </li>
+                                        <li> 리스트.pop() <small> 리스트 마지막 요소를 반환하고 삭제 </small> </li>
+                                        <li> 리스트.pop(인덱스) <small> 리스트 인덱스 요소를 반환하고 삭제  </small> </li>
+                                        <li> 리스트.clear() <small> 리스트 초기화, 빈 배열존재 </small> </li>
+                                    </span>
                                     <span className="sstitle"> 리스트 복사 </span>
-                                    <li> list1.copy()  </li>
-                                    <li> list2 = list1  </li> {/* 깊은 복사인지 얕은 복사인지 확인 필요 */}
-                                    <span className="sstitle"> 인자 삭제 </span>
-                                    <li> list1.pop(인덱스(default:마지막)) </li>
-                                    <span className="sstitle"> 리스트 삭제 및 인자 삭제 </span>
-                                    <li> del(list1) , del(list1[인덱스]) </li>
-                                    <span className="sstitle"> 값으로 인자 삭제 </span>
-                                    <li> list1.remove(값) , 인자(값)이 동일하면 먼저 있는 인자 삭제 </li>
-                                    <span className="sstitle"> 값과 같은 값을 가진 인자의 갯수 카운팅 </span>
-                                    <li> list1.count(값) </li>
-                                    <span className="sstitle"> 리스트의 값이 중복되지 않게 반환(확인 필요) </span>
-                                    <li> list2 = set(list1) </li>
-                                    <span className="sstitle"> 2개의 리스트에서 중복 요소 구하기 </span>
-                                    <li> result = set(list1).intersection(list2) </li>
-                                    <span className="sstitle"> 리스트 초기화 </span>
-                                    <li> list1.clear() </li>
-                                    <span className="sstitle"> 리스트 길이 </span>
-                                    <li> len(list1) </li>
-                                    <span className="sstitle"> 리스트 Swap </span>
-                                    <li> list[1],list[2] = list[2],list[1] </li>
-                                    <span className="sstitle"> 리스트 인덱스에 위치한 값 </span>
-                                    <li> list1.index(인덱스) </li>
+                                    <span className="mblock">
+                                        <li> 리스트1 = 리스트2.copy() <small> 리스트 깊은복사 </small> </li>
+                                        <li> 리스트1 = 리스트2 <small> 리스트 얕은복사 </small> </li>
+                                    </span>
                                     <span className="sstitle"> 리스트 형변환 </span>
-                                    <li> list1 = list(튜플,세트 등) </li>
-                                    <span className="sstitle"> 리스트에 값이 존재하는지 확인(return boolean) </span>
-                                    <li> 값 in list1 </li>
-                                    <span className="sstitle"> 리스트 슬라이싱 </span>
-                                    <li> list1[인덱스시작,인덱스끝] , list1[인덱스시작:] , list1[:인덱스끝] </li>
-                                    <span className="sstitle"> 반복문 값을 리스트 형태로 넣어줌 </span>
-                                    <li> list1 = [i for i in range(10)] </li>
-                                    <span className="sstitle"> 조건에 맞는 반복문 값을 리스트 형태로 넣어줌 </span>
-                                    <li> list1 = [i for i in range(10) if i % 3 == 0] </li>
-                                    <span className="sstitle"> 리스트 정렬(오름차순, 내림차순) </span>
-                                    <li> list1.sort() , list1.sort(reverse=True) , list2 = sorted(list1) </li>
-                                    <span className="sstitle"> 리스트를 역순으로 변경 </span>
-                                    <li> list1.reverse() </li>
-                                    {/* <span className="sstitle">  </span>
-                                <li>  </li> */}
-
+                                    <span className="mblock">
+                                        <li> list1 = list(튜플) <small> 튜플을 리스트로 변환 </small> </li>
+                                        <li> list1 = list(세트) <small> 세트를 리스트로 변환 </small> </li>
+                                    </span>
+                                    <span className="sstitle"> 리스트 중복 요소 </span>
+                                    <span className="mblock">
+                                        <li> 리스트2 = list(set(리스트)) <small> 리스트의 중복요소를 제거하고 리스트로 반환 </small> </li>
+                                        <li> 리스트1 = list(set(리스트2).intersection(리스트3)) <small> 리스트2와 리스트3의 중복요소 반환 </small> </li>
+                                        <li>  <small>  </small> </li>
+                                    </span>
+                                    <span className="sstitle">  </span>
+                                    <span className="mblock">
+                                        <li>  <small>  </small> </li>
+                                    </span>
                                 </span>
                             </details>
                         </span>
@@ -297,7 +327,20 @@ const PythonBasic = (props) => {
                                     <a name="튜플(tuple)" style={{ visibility: "hidden" }}> 튜플(tuple) </a> </summary>
                                 <small> 저장된 값을 수정,삭제 할 수 없는 리스트 </small>
                                 <span className="sblock">
-
+                                    <span className="sstitle"> 튜플 설명 </span>
+                                    <span className="mblock">
+                                        <li> {'()'}기호를 이용하여 사용 <small>  </small> </li>
+                                        <li> 중복된 값을 허용하지 않음 <small>  </small> </li>
+                                    </span>
+                                    <span className="sstitle"> 튜플 인덱싱 </span>
+                                    <span className="mblock">
+                                        <li>  <small>  </small> </li>
+                                        <li>  <small>  </small> </li>
+                                    </span>
+                                    <span className="sstitle">  </span>
+                                    <span className="mblock">
+                                        <li>  <small>  </small> </li>
+                                    </span>
                                     <span className="sstitle"> 튜플의 일반적인 형태 </span>
                                     <li> tuple1 = (값,값,값) </li>
                                     <span className="sstitle"> 튜플 생성 </span>
@@ -305,9 +348,9 @@ const PythonBasic = (props) => {
                                     <li> tuple1 = tuple() </li>
                                     <li> tuple1 = (값,) , (값)으로 하면 일반적인 값만 들어가서 튜플의 형태가 되지 않는다. </li>
                                     <span className="sstitle"> 튜플 인덱싱 </span>
-                                    <li> tuple1[인덱스] </li>
+                                    <li> 튜플[인덱스] </li>
                                     <span className="sstitle"> 튜플 슬라이싱 </span>
-                                    <li> tuple1[인덱스시작,인덱스끝] </li>
+                                    <li> 튜플[인덱스:인덱스] </li>
                                     <span className="sstitle"> 튜플 길이 </span>
                                     <li> len(tuple1) </li>
                                     <span className="sstitle"> 튜플 덧셈 곱셈 </span>
@@ -444,7 +487,7 @@ const PythonBasic = (props) => {
                         <span className="mblock">
                             <details>
                                 <summary className="stitle"> ▷ 메소드
-                                    <a name="메소드">  메소드 </a> </summary>
+                                    <a name="메소드" style={{ visibility: "hidden" }}>  메소드 </a> </summary>
                                 <span className="sblock">
 
                                     <span className="sstitle"> 문자열 메소드 </span>
