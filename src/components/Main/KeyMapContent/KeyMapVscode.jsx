@@ -230,7 +230,24 @@ const KeyMapVscode = (props) => {
 									<span className="sstitle"> 설정 </span>
 									<span className="mblock">
 										<li> File - Preferences - User Snippets </li>
-										<li> 맞는 언어 선택 </li>
+										<li> New Global Snippets File </li>
+										<li> 아래와 같이 스니펫 정의하기 </li>
+										<div className="sblock">
+											<li> {'{'}
+												<li>	"스니펫이름": {'{'} </li>
+												<li> "scope:" "사용언어", </li>
+												<li> "prefix": "스니펫약어, 코드에서 쓰는 약어" </li>
+												<li>
+													<li> "body": [ </li>
+													<li> "내용1", </li>
+													<li> "내용2", </li>
+												</li>
+												<li> ], </li>
+												<li> "description": "스니펫설명" </li>
+												<li> {'}'} </li>
+											</li>
+											<li> {'}'} </li>
+										</div>
 										<li> https://code.visualstudio.com/docs/editor/userdefinedsnippets 참고 </li>
 										<li> 이미 extension으로 스니펫이 있으니 기존에 있는 것을 사용하는 것을 추천 </li>
 									</span>

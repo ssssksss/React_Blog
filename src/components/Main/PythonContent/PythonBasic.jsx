@@ -426,11 +426,19 @@ const PythonBasic = (props) => {
                                     <li> del dict1[키] </li>
                                     <span className="sstitle"> 딕셔너리 초기화 </span>
                                     <li> dict1.clear() </li>
+                                    <span className="sstitle"> 딕셔너리 키 가져오기 </span>
+                                    <span className="sblock">
+                                        <li> max(딕셔너리,key=딕셔너리.get) #딕셔너리 값중에 최댓값을 가진 키를 반환 </li>
+                                        <li> min(딕셔너리,key=딕셔너리.get) #딕셔너리 값중에 최솟값을 가진 키를 반환 </li>
+                                        <li>  </li>
+                                        <li>  </li>
+                                    </span>
+                                    <li> dict1.get(키) </li>
                                     <span className="sstitle"> 딕셔너리 값 가져오기 </span>
                                     <li> dict1.get(키) </li>
                                     <span className="sstitle"> 리스트나 튜플로 딕셔너리 만들기  </span>
-                                    <li> dict1.fromkeys(리스트 혹은 튜플) , 키만 갖는 리스트로 만들어짐 </li>
-                                    <li> dict1.fromkeys(리스트 혹은 튜플, 값) </li>
+                                    <li> dict객체 = dict.fromkeys(리스트 혹은 튜플) , 키만 갖는 리스트로 만들어짐 </li>
+                                    <li> dict객체 = dict.fromkeys(리스트 혹은 튜플, 값) </li>
                                     <span className="sstitle"> 딕셔너리 키 목록 가져오기 </span>
                                     <li> dict1.keys() </li>
                                     <li> for 값 in dict1.keys(): 딕셔너리의 키가 일치하면 반복문 실행 </li>

@@ -17,146 +17,175 @@ const CTBaekJoon = (props) => {
             <span className="mblock">
               <details>
                 <summary className="stitle"> ▶ 1001 - 2000 </summary>
+                <details>
+                  <summary className="sstitle"> ▶ 1339 번 - 단어 수학  </summary>
+                  <span className="sblock">
+                    <li> <h3> 문제 </h3>
+                      <li> 수학문제는 N개의 단어로 이루어짐 </li>
+                      <li> 단어는 알파벳 대문자로만 이루어져 있다. </li>
+                      <li> 각 알파벳 대문자를 0~9까지의 숫자 중 하나로 바꾸어서 N개의 수를 합치는 문제 </li>
+                      <li> 같은 알파벳은 같은 숫자로 바뀌며, 다른 알파벳과 같은 숫자가 되어서는 안된다. </li>
+                      <li> N개의 단어를 합해서 최댓값을 구하는 프로그램 </li>
+                    </li>
+                    <li> <h3> 입력(문제 조건) </h3>
+                      <li> 첫째 줄에는 N을 입력한다. {' 1 <= N <= 10 '}  </li>
+                      <li> 2번째 줄부터는 단어가 한줄에 1개씩 주어진다. </li>
+                      <li> 모든 단어에 포함되어 있는 알파벳은 최대 10개 </li>
+                      <li> 단어의 최대 길이는 8 </li>
+                    </li>
+                    <li> <h3> 출력 </h3>
+                      <li> 1번째 줄에 단어 합의 최댓값을 출력하라 </li>
+                    </li>
+                    <li> <h3> 풀이 방법 - 생각 </h3>
+                      <li> 알파벳의 최대 갯수는 10개 , 일단 값에대한 매칭이 필요하다. </li>
+                      <li> 최댓갑이 발생하려면 숫자가 큰 수의 제일 앞에 숫자가 9이어야 한다.  </li>
+                      <li> 문제가 경우의 수가 크게 많지가 않아 그냥 브루트포스로 풀면 될것 같다.  </li>
+                      <li> 브루트 포스가 아닌 간단한 해쉬테이블을 만들어서 풀어보려고 한다. </li>
+                    </li>
+                    <li> <h3> 정답 코드 </h3>
+                      <details>
+                        <summary className="sstitle"> ▶ Python </summary>
+                        <span className="mblock">
+                          <li> import sys </li>
+                          <li> N = int(sys.stdin.readline()) </li>
+                          <li> word_list = []  # 입력받은 단어들을 보관하는 리스트 </li>
+                          <li> word_alphabet = []  # 단어들의 모든 알파벳을 저장하는 리스트 </li>
+                          <li> alphabet_kind = { }  # 단어들의 알파벳에서 중복을 제거하고 저장하는 리스트 </li>
+                          <li> alphabet_hashtable = { }  # 중복되지 않은 단어들의 값이 빈 해쉬테이블 생성, 추후에 값을 넣음 </li>
+                          <li> num_list = []  # 처음에 문자열로 입력한 단어를 숫자 바꿔놓은 리스트 </li>
+                          <li> num = 9  # 해쉬테이블에 제일 큰값인 9부터 넣기 위해서 선언 </li> <br />
+                          <li> for i in range(N):
+                            <li> word_list.append(sys.stdin.readline().rstrip())  </li>
+                            <li> for j in word_list[i]:
+                              <li> word_alphabet.append(j) </li>
+                            </li>
+                          </li> <br />
+                          <li> alphabet_kind = dict.fromkeys(list(set(word_alphabet)), 0) </li>
+                          <li> alphabet_hashtable = dict.fromkeys(list(set(word_alphabet)), 0) </li> <br />
+                          <li> for i in range(N): </li>
+                          <li> num_position = len(word_list[i])
+                            <li>  for j in word_list[i]: </li>
+                            <li> rank = 10**(num_position-1) </li>
+                            <li> alphabet_kind[j] += rank  </li>
+                            <li> num_position = num_position - 1 </li>
+                          </li>
+                          <li> for i in alphabet_kind:
+                            <li> alphabet_hashtable[max(alphabet_kind, key=alphabet_kind.get)] = num </li>
+                            <li> alphabet_kind[max(alphabet_kind, key=alphabet_kind.get)] = 0 </li>
+                            <li> num -= 1 </li>
+                          </li>
+                          <li> for word in word_list:
+                            <li> temp = "" </li>
+                            <li> for alpha in word:
+                              <li> </li>
+                            </li>
+                            <li> </li>
+                          </li>
+                        </span>
+                      </details>
+                      <details>
+                        <summary className="sstitle"> ▶ C </summary>
+                        <span className="mblock">
+                          <li>  </li>
+                          <li>  </li>
+                        </span>
+                      </details>
+                      <details>
+                        <summary className="sstitle"> ▶ C++ </summary>
+                        <span className="mblock">
+                          <li>  </li>
+                          <li>  </li>
+                        </span>
+                      </details>
+                    </li>
+                  </span>
+                </details>
+                {/* 1399번 끝 */}
+                <details>
+                  <summary className="sstitle"> ▶  번 -  </summary>
+                  <span className="sblock">
+                    <li> <h3> 문제 </h3>
+                      <li>  </li>
+                    </li>
+                    <li> <h3> 입력(문제 조건) </h3>
+                      <li>  </li>
+                    </li>
+                    <li> <h3> 출력 </h3>
+                      <li>  </li>
+                    </li>
+                    <li> <h3> 풀이 방법 - 생각 </h3>
+                      <li>   </li>
+                    </li>
+                    <li> <h3> 정답 코드 </h3>
+                      <details>
+                        <summary className="sstitle"> ▶ Python </summary>
+                        <span className="mblock">
+                          <li>  </li>
+                          <li>  </li>
+                        </span>
+                      </details>
+                      <details>
+                        <summary className="sstitle"> ▶ C </summary>
+                        <span className="mblock">
+                          <li>  </li>
+                          <li>  </li>
+                        </span>
+                      </details>
+                      <details>
+                        <summary className="sstitle"> ▶ C++ </summary>
+                        <span className="mblock">
+                          <li>  </li>
+                          <li>  </li>
+                        </span>
+                      </details>
+                    </li>
+                  </span>
+                </details>
+                {/* 번 끝 */}
+                <details>
+                  <summary className="sstitle"> ▶  번 -  </summary>
+                  <span className="sblock">
+                    <li> <h3> 문제 </h3>
+                      <li>  </li>
+                    </li>
+                    <li> <h3> 입력(문제 조건) </h3>
+                      <li>  </li>
+                    </li>
+                    <li> <h3> 출력 </h3>
+                      <li>  </li>
+                    </li>
+                    <li> <h3> 풀이 방법 - 생각 </h3>
+                      <li>   </li>
+                    </li>
+                    <li> <h3> 정답 코드 </h3>
+                      <details>
+                        <summary className="sstitle"> ▶ Python </summary>
+                        <span className="mblock">
+                          <li>  </li>
+                          <li>  </li>
+                        </span>
+                      </details>
+                      <details>
+                        <summary className="sstitle"> ▶ C </summary>
+                        <span className="mblock">
+                          <li>  </li>
+                          <li>  </li>
+                        </span>
+                      </details>
+                      <details>
+                        <summary className="sstitle"> ▶ C++ </summary>
+                        <span className="mblock">
+                          <li>  </li>
+                          <li>  </li>
+                        </span>
+                      </details>
+                    </li>
+                  </span>
+                </details>
+                {/* 번 끝 */}
               </details>
-              {/*  */}
-              <details>
-                <summary className="sstitle"> ▶ 1339 번 - 단어 수학  </summary>
-                <span className="sblock">
-                  <li> <h3> 문제 </h3>
-                    <li> 수학문제는 N개의 단어로 이루어짐 </li>
-                    <li> 단어는 알파벳 대문자로만 이루어져 있다. </li>
-                    <li> 각 알파벳 대문자를 0~9까지의 숫자 중 하나로 바꾸어서 N개의 수를 합치는 문제 </li>
-                    <li> 같은 알파벳은 같은 숫자로 바뀌며, 다른 알파벳과 같은 숫자가 되어서는 안된다. </li>
-                    <li> N개의 단어를 합해서 최댓값을 구하는 프로그램 </li>
-                  </li>
-                  <li> <h3> 입력(문제 조건) </h3>
-                    <li> 첫째 줄에는 N을 입력한다. {' 1 <= N <= 10 '}  </li>
-                    <li> 2번째 줄부터는 단어가 한줄에 1개씩 주어진다. </li>
-                    <li> 모든 단어에 포함되어 있는 알파벳은 최대 10개 </li>
-                    <li> 단어의 최대 길이는 8 </li>
-                  </li>
-                  <li> <h3> 출력 </h3>
-                    <li> 1번째 줄에 단어 합의 최댓값을 출력하라 </li>
-                  </li>
-                  <li> <h3> 풀이 방법 - 생각 </h3>
-                    <li> 알파벳의 최대 갯수는 10개 , 일단 값에대한 매칭이 필요하다. </li>
-                    <li> 최댓갑이 발생하려면 숫자가 큰 수의 제일 앞에 숫자가 9이어야 한다.  </li>
-                    <li> 문제가 경우의 수가 크게 많지가 않아 그냥 브루트포스로 풀면 될것 같다.  </li>
-                    <li> 브루트 포스가 아닌 간단한 해쉬테이블을 만들어서 풀어보려고 한다. </li>
-                    <li> 1. 모든 단어에서 여러 종류의 문자를 배열로 만든다.  </li>
-                    <li> 2. 8번쨰 자리수의 점수는 천만점, 1번째    </li>
-                    <li>   </li>
-                  </li>
-                  <li> <h3> 정답 코드 </h3>
-                    <details>
-                      <summary className="sstitle"> ▶ Python </summary>
-                      <span className="mblock">
-                        <li>  </li>
-                        <li>  </li>
-                      </span>
-                    </details>
-                    <details>
-                      <summary className="sstitle"> ▶ C </summary>
-                      <span className="mblock">
-                        <li>  </li>
-                        <li>  </li>
-                      </span>
-                    </details>
-                    <details>
-                      <summary className="sstitle"> ▶ C++ </summary>
-                      <span className="mblock">
-                        <li>  </li>
-                        <li>  </li>
-                      </span>
-                    </details>
-                  </li>
-                </span>
-              </details>
-              {/*  */}
-              <details>
-                <summary className="sstitle"> ▶  번 -  </summary>
-                <span className="sblock">
-                  <li> <h3> 문제 </h3>
-                    <li>  </li>
-                  </li>
-                  <li> <h3> 입력(문제 조건) </h3>
-                    <li>  </li>
-                  </li>
-                  <li> <h3> 출력 </h3>
-                    <li>  </li>
-                  </li>
-                  <li> <h3> 풀이 방법 - 생각 </h3>
-                    <li>   </li>
-                  </li>
-                  <li> <h3> 정답 코드 </h3>
-                    <details>
-                      <summary className="sstitle"> ▶ Python </summary>
-                      <span className="mblock">
-                        <li>  </li>
-                        <li>  </li>
-                      </span>
-                    </details>
-                    <details>
-                      <summary className="sstitle"> ▶ C </summary>
-                      <span className="mblock">
-                        <li>  </li>
-                        <li>  </li>
-                      </span>
-                    </details>
-                    <details>
-                      <summary className="sstitle"> ▶ C++ </summary>
-                      <span className="mblock">
-                        <li>  </li>
-                        <li>  </li>
-                      </span>
-                    </details>
-                  </li>
-                </span>
-              </details>
-              {/*  */}
-              <details>
-                <summary className="sstitle"> ▶  번 -  </summary>
-                <span className="sblock">
-                  <li> <h3> 문제 </h3>
-                    <li>  </li>
-                  </li>
-                  <li> <h3> 입력(문제 조건) </h3>
-                    <li>  </li>
-                  </li>
-                  <li> <h3> 출력 </h3>
-                    <li>  </li>
-                  </li>
-                  <li> <h3> 풀이 방법 - 생각 </h3>
-                    <li>   </li>
-                  </li>
-                  <li> <h3> 정답 코드 </h3>
-                    <details>
-                      <summary className="sstitle"> ▶ Python </summary>
-                      <span className="mblock">
-                        <li>  </li>
-                        <li>  </li>
-                      </span>
-                    </details>
-                    <details>
-                      <summary className="sstitle"> ▶ C </summary>
-                      <span className="mblock">
-                        <li>  </li>
-                        <li>  </li>
-                      </span>
-                    </details>
-                    <details>
-                      <summary className="sstitle"> ▶ C++ </summary>
-                      <span className="mblock">
-                        <li>  </li>
-                        <li>  </li>
-                      </span>
-                    </details>
-                  </li>
-                </span>
-              </details>
-              {/* 1000번대 끝 */}
             </span>
-            {/*  */}
+            {/* 1000번대 끝 */}
             <span className="mblock">
               <details>
                 <summary className="stitle"> ▶ 2001 - 3000 </summary>
@@ -685,6 +714,141 @@ const CTBaekJoon = (props) => {
             <span className="mblock">
               <details>
                 <summary className="stitle"> ▶ 14001 - 15000  </summary>
+                <details>
+                  <summary className="sstitle"> ▶ 14888 번 - 연산자 끼워넣기 </summary>
+                  <span className="sblock">
+                    <li> <h3> 문제 </h3>
+                      <li> N개의 수로 이루어진 수열이 있다. </li>
+                      <li> 수와 수 사이에 연산자를 끼어넣을 수 있다. </li>
+                      <li> 연산자는 + , - , / , * 이 있다. </li>
+                      <li> 식의 계산은 연산자의 우선순위를 무시하고 순서대로 계산한다. </li>
+                      <li> 나눗셈은 몫만 챙기고 나머지는 버린다. </li>
+                      <li> 음수를 나누면 양수로 바꾼후 몫을 가지고 음수로 바꾼다. </li>
+                      <li> 식의 결과가 최대인 것과 최소인 값을 구하라 </li>
+                      <li>  </li>
+                    </li>
+                    <li> <h3> 입력(문제 조건) </h3>
+                      <li> 1번째 줄에 N {' 2 <= N <= 11'}의 갯수가 주어진다. </li>
+                      <li> 2번째 줄에 공백을 구분으로 수열의 수를 입력한다. </li>
+                      <li> 3번쨰 줄에 공백을 구분으로 +,-,*,/ 의 개수가 주어진다. </li>
+                    </li>
+                    <li> <h3> 출력 </h3>
+                      <li> 1번째 줄에는 최댓값 출력 </li>
+                      <li> 2번째 줄에는 최솟값 출력 </li>
+                      <li> 계산이 되는 중에 값들은 -10억 ~ 10억 사이의 값만 갖는다. </li>
+                    </li>
+                    <li> <h3> 풀이 방법 - 생각 </h3>
+                      <li> 1. 연산자를 넣을 때 중복되는 연산자는 제외한다. </li>
+                      <li> 2. 연산자의 우선순위가 없다는 것은 이웃한 수끼리 묶어서 계산해야한다. </li>
+                      <li> 3. 연산자가 음수일 경우에 대해서 판단을 해야한다.
+                        <li> 파이썬에서는 양수를 음수로 나누어도 결과값이 나온다... C는 안그랬던거 같은데 ㅠㅠ </li>
+                      </li>
+                    </li>
+                    <li> <h3> 정답 코드 </h3>
+                      <details>
+                        <summary className="sstitle"> ▶ Python </summary>
+                        <span className="mblock">
+                          <li> import sys </li>
+                          <li> N = int(sys.stdin.readline().rstrip()) </li>
+                          <li> A_list = list(map(int, sys.stdin.readline().rstrip().split())) </li>
+                          <li> operator_list = list(map(int, sys.stdin.readline().rstrip().split())) </li>
+                          <li> sum_list = [] </li> <br />
+                          <li> def dfs(A_value, count): <br />
+                            <li> if count == N-1:
+                              <li> sum_list.append(A_value) </li> <br />
+                            </li>
+                            <li> for i in range(4):
+                              <li> if operator_list[i] {'>'} 0:
+                                <li> if i == 0:
+                                  <li> temp = A_value + A_list[count+1] </li>
+                                </li>
+                                <li> if i == 1:
+                                  <li> temp = A_value - A_list[count+1] </li>
+                                </li>
+                                <li> if i == 2:
+                                  <li> temp = A_value * A_list[count+1] </li>
+                                </li>
+                                <li> if i == 3:
+                                  <li> if A_value {'<'} 0 and A_list[count+1] {'<'} 0:
+                                    <li> temp = int((A_value * -1) / (A_list[count+1] * -1)) </li>
+                                  </li>
+                                  <li> elif A_value {'<'} 0 or A_list[count+1] {'<'} 0:
+                                    <li> temp = int((abs(A_value) / abs(A_list[count+1])) * -1) </li>
+                                  </li>
+                                  <li> else:
+                                    <li> temp = int(A_value / A_list[count+1]) </li>
+                                  </li>
+                                </li>
+                                <li> operator_list[i] -= 1 </li>
+                                <li> dfs(temp, count+1) </li>
+                                <li> operator_list[i] += 1 </li>
+                              </li>
+                            </li>
+                          </li> <br />
+                          <li> dfs(A_list[0], 0) </li>
+                          <li> print(max(sum_list)) </li>
+                          <li> print(min(sum_list)) </li>
+                        </span>
+                      </details>
+                      <details>
+                        <summary className="sstitle"> ▶ C </summary>
+                        <span className="mblock">
+                          <li>  </li>
+                          <li>  </li>
+                        </span>
+                      </details>
+                      <details>
+                        <summary className="sstitle"> ▶ C++ </summary>
+                        <span className="mblock">
+                          <li>  </li>
+                          <li>  </li>
+                        </span>
+                      </details>
+                    </li>
+                  </span>
+                </details>
+                {/* 번 끝 */}
+                <details>
+                  <summary className="sstitle"> ▶  번 -  </summary>
+                  <span className="sblock">
+                    <li> <h3> 문제 </h3>
+                      <li>  </li>
+                    </li>
+                    <li> <h3> 입력(문제 조건) </h3>
+                      <li>  </li>
+                    </li>
+                    <li> <h3> 출력 </h3>
+                      <li>  </li>
+                    </li>
+                    <li> <h3> 풀이 방법 - 생각 </h3>
+                      <li>   </li>
+                    </li>
+                    <li> <h3> 정답 코드 </h3>
+                      <details>
+                        <summary className="sstitle"> ▶ Python </summary>
+                        <span className="mblock">
+                          <li>  </li>
+                          <li>  </li>
+                        </span>
+                      </details>
+                      <details>
+                        <summary className="sstitle"> ▶ C </summary>
+                        <span className="mblock">
+                          <li>  </li>
+                          <li>  </li>
+                        </span>
+                      </details>
+                      <details>
+                        <summary className="sstitle"> ▶ C++ </summary>
+                        <span className="mblock">
+                          <li>  </li>
+                          <li>  </li>
+                        </span>
+                      </details>
+                    </li>
+                  </span>
+                </details>
+                {/* 번 끝 */}
               </details>
             </span>
             {/*  */}

@@ -9,14 +9,99 @@ const PythonRegex = (props) => {
                     {/*  */}
                     <span className="mblock">
                         <details>
-                            <summary className="stitle"> ▶ 정규 표현식 문법
-                                <a name="정규 표현식 문법" style={{ visibility: "hidden" }}> 정규 표현식 문법 </a> </summary>
+                            <summary className="stitle"> ▶ 설명
+                                <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                             <span className="sblock">
+                                <span className="sstitle">  </span>
                                 <span className="mblock">
-                                    <span className="sstitle"> import re </span>
-                                    <li> re.match('패턴','문자열') #문자열에서 패턴을 처음부터 일치해야 match객체 반환 </li>
-                                    <li> re.search('패턴','문자열') #문자열에서 패턴이 일치하면 match객체 반환  </li>
-                                    <li> re.findall('패턴','문자열') #문자열에서 패턴이 일치하면 리스트로 반환(겹치는값은x) </li>
+                                    <li> import re # 라이브러리를 사용  </li>
+                                    <li>  </li>
+                                    <li>  </li>
+                                </span>
+                            </span>
+                        </details>
+                    </span>
+                    {/*  */}
+                    <span className="mblock">
+                        <details>
+                            <summary className="stitle"> ▶ 정규 표현식 문법
+                                <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+                            <span className="sblock">
+                                <span className="sstitle">  </span>
+                                <span className="mblock">
+                                    <li> 문자열 = r"모든문자" # 문자,특수문자 등등을 문자열로 출력 </li>
+                                    <li> 패턴{'{1,3}'} # 패턴을 1~3번 반복 </li>
+                                    <li> [abc] # a 혹은 b 혹은 c </li>
+                                    <li> [a|b|c] # a 혹은 b 혹은 c </li>
+                                    <li> [aA] # a 혹은 A  </li>
+                                    <li> [a-z] # a~z 까지의 범위 </li>
+                                    <li> [^a-z] # a~z가 아닌 문자 </li>
+                                    <li> [0-9] # 0~9 까지의 숫자 </li>
+                                    <li> [^0-9] # 0~9 까지의 숫자를 제외한 문자 </li>
+                                    <li> [a-zA-Z0-9] # 모든 문자와 숫자 </li>
+                                    <li> [가-힣] # 모든 한글 </li>
+                                    <li> a...z # a~z 까지의 문자 </li>
+                                    <li> ^[패턴] # 패턴이 제일 앞에 있는지 물어봄 </li>
+                                    <li> 패턴+ : 1번이상의패턴 </li>
+                                    <li> 패턴* : 0번 이상의 패턴
+                                        <li> [0-9]* # 0~9로 이루어진 문자열 </li>
+                                    </li>
+                                    <li> 패턴? : 0~1번의 패턴 </li>
+                                    <li> 패턴. : 어떠한 문자 패턴도 가능 </li>
+                                    <li> \문자$ # 마지막에 문자의 위치를 찾는다고 하는데 (미확인) </li>
+                                    <li> 문자$ # 문자열의 마지막의 문자가 맞는지
+                                        <li> [a-zA-Z0-9]+.@ # 문자열의 끝이 @으로 끝나는지 확인  </li>
+                                    </li>
+                                    <li> \d : 0-9와 동일 </li>
+                                    <li> \D : [^0-9] 와동일 </li>
+                                    <li> \s : 공백문자(띄어쓰기,탭 등) </li>
+                                    <li> \S : 공백이아닌문자 </li>
+                                    <li> \w : [0-9a-zA-Z]와 동일 </li>
+                                    <li> \W : [^0-9a-zA-Z]와 동일 </li>
+                                    <li> 옵션 : re.IGNORECASE # 대소문자를 무시 </li>
+                                </span>
+                            </span>
+                        </details>
+                    </span>
+                    {/*  */}
+                    <span className="mblock">
+                        <details>
+                            <summary className="stitle"> ▶ re 문법
+                                <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+                            <span className="sblock">
+                                <span className="sstitle"> re.match('패턴','문자열') </span>
+                                <span className="mblock">
+                                    <li> 문자열의 시작부분에서부터 패턴이 일치하는지 검색 </li>
+                                    <li> 처음부터 일치하지 않으면 None  </li>
+                                    <li> re.match('패턴','문자열') </li>
+                                    <span className='title4'> 예시 </span>
+                                    <span className='sblock'>
+                                        <li> re.match('aaa','aaab') (o) </li>
+                                        <li> re.match('baaa','aaab') (x) </li>
+                                    </span>
+                                </span>
+                                <span className="sstitle"> re.search('패턴','문자열') </span>
+                                <span className="mblock">
+                                    <li> 문자열에서 패턴이 매칭되는 곳이 있는지 확인 </li>
+                                    <span className="title4"> 예시 </span>
+                                    <span className="sblock">
+                                        <li> re.search('aaa','aaab') (o) </li>
+                                        <li> re.search('baaa','aaab') (o) </li>
+                                    </span>
+                                </span>
+                                <span className="sstitle"> re.findall('패턴','문자열') </span>
+                                <span className="mblock">
+                                    <li> 정규식과 일치하는 모든 문자열을 리스트로 반환 </li>
+                                    <li> 만약에 정규식이 일치하는 부분이 겹치다면 중복을 허용하지 않음 </li>
+                                    <li>  </li>
+                                </span>
+                                <span className="sstitle"> re.finditer('패턴','문자열') </span>
+                                <span className="mblock">
+                                    <li> 정규식과 일치하는 모든 문자열을 iterator로 반환 </li>
+                                    <li> 만약에 정규식이 일치하는 부분이 겹치다면 중복을 허용하지 않음 </li>
+                                </span>
+                                <span className="sstitle"> match 객체 사용방법 </span>
+                                <span className="mblock">
                                     <li> re.finditer('패턴','문자열') #문자열에서 패턴이 일치하면 iterator로 반환(겹치는값은x)  </li>
                                     <li> re.fullmatch('패턴','문자열') #시작부터 끝까지 모두 일치하면 match객체 반환 </li>
                                     <li> re.split('패턴','문자열',split횟수) </li>
@@ -37,77 +122,32 @@ const PythonRegex = (props) => {
                                     </li>
                                     <li>  </li>
                                 </span>
-                                {/*  */}
-                                <span className="sstitle"> 정규표현식 </span>
-                                <span className="mblock">
-                                    <li> <h4> r : 문자열 그대로 출력 </h4>
-                                        <li> str = r"123\n"  </li>
-                                    </li>
-                                    <li> <h4> 패턴{'{숫자}'} : 패턴을 숫자만큼 반복 </h4>
-                                        <li> a{'{1,3}'} # a가 1~3번 반복  </li>
-                                        <li>   </li>
-                                    </li>
-                                    <li> <h4> [abc] : 각각의 문자("a" "b" "c")를 뜻함 </h4>
-                                        <li>  </li>
-                                    </li>
-                                    <li> <h4> [a-z] [A-Z] [0-9] : 문자 범위를 뜻함 </h4>
-                                        <li> a...f # a~f까지의 문자매칭 </li>
-                                        <li> [a-zA-Z0-9] : 모든 문자와 숫자 </li>
-                                        <li>  </li>
-                                    </li>
-                                    <li> <h4> ^[] : 범위에 포함되는 문자들을 제외한 나머지 </h4>
-                                        <li> </li>
-                                    </li>
-                                    <li> <h4> . : 모든문자(한개)를 의미 (\n은제외) </h4>
-                                        <li> </li>
-                                    </li>
-                                    <li> <h4> 패턴+ : 1번이상의패턴 </h4>
-                                        <li> </li>
-                                    </li>
-                                    <li> <h4> 패턴* : 0번 이상의 패턴</h4>
-                                        <li> </li>
-                                    </li>
-                                    <li> <h4> 패턴? : 0~1번의 패턴 </h4>
-                                        <li> </li>
-                                    </li>
-                                    <li> <h4> \d : 0-9와 동일 </h4>
-                                        <li> </li>
-                                    </li>
-                                    <li> <h4> \D : [^0-9] 와동일 </h4>
-                                        <li> </li>
-                                    </li>
-                                    <li> <h4> \s : 공백문자(띄어쓰기,탭 등) </h4>
-                                        <li> </li>
-                                    </li>
-                                    <li> <h4> \S : 공백이아닌문자 </h4>
-                                        <li> </li>
-                                    </li>
-                                    <li> <h4> \w : [0-9a-zA-Z]와 동일 </h4>
-                                        <li> </li>
-                                    </li>
-                                    <li> <h4> \W : [^0-9a-zA-Z]와 동일 </h4>
-                                        <li> </li>
-                                    </li>
-                                    <li> <h4>  </h4>
-                                        <li> </li>
-                                    </li>
-                                    <li> <h4> 옵션 : re.IGNORECASE  # 대소문자를 무시 </h4>
-                                        <li> re.IGNORECASE  # 대소문자를 무시 </li>
-                                        <li>  </li>
-                                        <li>  </li>
-                                    </li>
-                                    <li> <h4>  </h4>
-                                        <li> </li>
-                                    </li>
-                                </span>
-                                {/*  */}
                             </span>
                         </details>
                     </span>
                     {/*  */}
                     <span className="mblock">
                         <details>
-                            <summary className="stitle"> ▶ <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+                            <summary className="stitle"> ▶ 사용 예시
+                                <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+                            <span className="sblock">
+                                <span className="sstitle"> 컴파일 사용해서 반복적으로 적용 </span>
+                                <span className="mblock">
+                                    <li>  </li>
+                                    <li>  </li>
+                                </span>
+                                <span className="sstitle">  </span>
+                                <span className="mblock">
+                                    <li>  </li>
+                                </span>
+                            </span>
+                        </details>
+                    </span>
+                    {/*  */}
+                    <span className="mblock">
+                        <details>
+                            <summary className="stitle"> ▶
+                                <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                             <span className="sblock">
                                 <span className="sstitle">  </span>
                                 <span className="mblock">

@@ -7,6 +7,7 @@ const AlgorithmList = () => {
     return (
         <div className="menucontainer">
             <div className="menu menu1">
+                <Link to="/algorithm_basic"> 알고리즘 기초 </Link>
                 <Link to="/algorithm_backtracking"> 백트래킹 </Link>
                 <Link to="/algorithm_divide_conquer"> 분할 알고리즘 </Link>
                 <Link to="/algorithm_dynamic"> 동적 계획법 </Link>

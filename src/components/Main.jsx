@@ -114,6 +114,7 @@ import Algorithm_Hash from './Main/AlgorithmContent/Algorithm_Hash';
 import Algorithm_Recursive from './Main/AlgorithmContent/Algorithm_Recursive';
 import Algorithm_Search from './Main/AlgorithmContent/Algorithm_Search';
 import Algorithm_Sort from './Main/AlgorithmContent/Algorithm_Sort';
+import Algorithm_Basic from './Main/AlgorithmContent/Algorithm_Basic';
 
 
 // 자료구조
@@ -286,6 +287,7 @@ const Main = (props) => {
                 <Route path="/algorithm_recursive" component={Algorithm_Recursive}></Route>
                 <Route path="/algorithm_search" component={Algorithm_Search}></Route>
                 <Route path="/algorithm_sort" component={Algorithm_Sort}></Route>
+                <Route path="/algorithm_basic" component={Algorithm_Basic}></Route>
 
                 {/* 자료구조 */}
 
