@@ -1177,8 +1177,115 @@ const LinuxServer = (props) => {
                   <span className="mblock">
                     <li> ps -ef | grep yum | grep -v grep | awk '{'{print $2}'}' | xargs kill -9 2{'>'}/dev/null  </li>
                     <li> yum -y install syslinux tftp-server vsftpd dhcp xinetd  </li>
-                    <li> vi /etc/dhcp/dhcpd.conf </li>
-                    <li>   </li>
+                    {/* 여기까지 진행 */}
+                    <li> vi /etc/dhcp/dhcpd.conf
+                      <li> subnet 192.168.10.0 netmask 255.255.255.0 {'{'}
+                        <li> option routers 192.168.10.2;  </li>
+                        <li> option subnet-mask 255.255.255.0;  </li>
+                        <li> range dynamic-bootp 192.168.10.30 192.168.10.50;  </li>
+                        <li> option domain-name-servers 8.8.8.8;  </li>
+                        <li> allow booting;  </li>
+                        <li> allow bootp;  </li>
+                        <li> next-server 192.168.10.80;  </li>
+                        <li> filename "pxelinux.0";  </li>
+                      </li>
+                      <li> {'}'}  </li>
+                    </li>
+                    <li> systemctl restart dhcpd </li>
+                    <li> vim /etc/xinetd.d/tftp
+                      <li> disable = yes 를 disable = no로 변경 </li>
+                    </li>
+                    <li> df # 현재 마운트 목록을 보여줌  </li>
+                    <li> USB 등이 꽂혀있는 공간을 삭제하고 다시 만들기 </li>
+                    <li> umount /dev/cdrom # 연결 usb가 꽂혀 있는 공간을 비움 </li>
+                    <li> mkdir /mnt/cdrom </li>
+                    <li> mount /dev/cdrom /mnt/cdrom # /dev/cdrom 에 있는 것을 /mnt/cdrom 마운트 한다.
+                      <li> mount: no medium found on /dev/sr0 이렇게 나온다면 꽂혀있는 CD가 없다는 이야기</li>
+                      <li> 좌측에 실행중인 CentOS 우측클릭 - Settings - CD/DVD - Connected 체크 </li>
+                    </li>
+                    <li> df </li>
+                    <li> umount /dev/cdrom  </li>
+                    <li> mount /dev/cdrom /mnt/cdrom  </li>
+                    <li> ls -la /mnt/cdrom </li>
+                    <li> cp -r /mnt/cdrom/* /var/ftp/pub # 시간 오래걸림 </li>
+                    <li> ls -la /var/ftp/pub </li>
+                    <li> umount /dev/cdrom </li>
+                    <li> chmod 777 /var/ftp/pub </li>
+                    <li> ls -la /var/lib/tftpboot </li>
+                    <li> cp /var/ftp/pub/images/pxeboot/vmlinuz /var/lib/tftpboot/ </li>
+                    <li> cp /var/ftp/pub/images/pxeboot/initrd.img /var/lib/tftpboot/ </li>
+                    <li> cp /usr/share/syslinux/pxelinux.0 /var/lib/tftpboot/ </li>
+                    <li> mkdir /var/lib/tftpboot/pxelinux.cfg </li>
+                    <li> cd /var/lib/tftpboot/pxelinux.cfg/ </li>
+                    <li> vim default
+                      <span className='sblock'>
+                        <li> DEFAULT CentOS7_Auto_Install # pxe서버에서 기본적으로 설치할 파일</li>
+                        <li> LABEL CentOS7_Auto_Install # 설치할 파일에 대한 내용
+                          <li> kernel vmlinuz </li>
+                          <li> APPEND initrd=initrd.img repo=ftp://192.168.10.80/pub </li>
+                        </li>
+                      </span>
+                    </li>
+                    <li> ps -ef | grep dnsmasq # 기본적으로 설치하지 않아도 실행되는 dhcp서버 </li>
+                    <li> kill -9 1955 # 사람마다 다름 </li>
+                    <li> systemctl restart dhcpd  </li>
+                    <li> systemctl restart vsftpd </li>
+                    <li> systemctl restart xinetd </li>
+                    <li> systemctl enable dhcpd   </li>
+                    <li> systemctl enable vsftpd  </li>
+                    <li> systemctl enable xinetd  </li>
+                    <li> systemctl stop firewalld  </li>
+                    <li> systemctl disable firewalld  </li>
+                    <li> setenforce 0 </li>
+                    <li> Virtual Network Editor에서 Use local DHCP service to distribute IP address to VMs 체크해제
+                      # 사용하고 있는 dhcp 끄기 </li>
+                    <li> 새롭게 PXE_Client CentOS를 생성 , 단 CD ROOM은 넣지 않고 설치하면 설치가 가능 </li>
+                    <li> 이제 언어 등 설정까지 다 해주는 킥스타트  </li>
+                    <li> yum -y install system-config-kickstart system-config-keyborard </li>
+                    <li> sustem-config-kickstart
+                      <span className='sblock'>
+                        <li> 기본설정 - 언어 - 한국어 </li>
+                        <li> 기본설정 - 시간대 - Asia/Seoul </li>
+                        <li> 기본설정 - 암호 - P@ssw0rd! </li>
+                        <li> 기본설정 - 고급설정 - "설치후 시스템 재부팅" 체크 </li>
+                        <li> 설치 방법 - FTP - FTP 서버 192.168.10.80 </li>
+                        <li> 설치 방법 - FTP - FTP 디렉토리 : pub </li>
+                        <li> 부트로더 옵션 - 설치유형 - 새로운 부트로더 설치 </li>
+                        <li> 파티션 정보 - 마스터 부트 레코드 - 마스터 부트 레코드 내용 삭제 , 디스크레이블 - 디스크레이블 초기화 </li>
+                        <li> 파티션 정보 - 디스크레이블 - 디스크레이블 초기화 </li>
+                        <li> 파티션 정보 - 레이아웃 추가 - 파일시스템 유형 swap , 크기옵션 수정된용량 2048  </li>
+                        <li> 파티션 정보 - 레이아웃 추가 - 마운트할 지점 / , 크기옵션 사용안된 디스크 공간 모두 채움  </li>
+                        <li> 좌측 상단 - 파일 - 저장 - 파일시스템 - var - ftp - centos.ks 라는 파일로 저장 </li>
+                        <li> 좌측 상단 - 파일 - 끝내기 </li>
+                        <li> cd /var/ftp </li>
+                        <li> ls -la . </li>
+                        <li> vi centos.ks
+                          <span className='sblock'>
+                            <li> 제일 아래에 아래내용 추가 </li>
+                            <li> %packages </li>
+                            <li> @base </li>
+                            <li> @core </li>
+                            <li> @directory-client </li>
+                            <li> @fonts </li>
+                            <li> @gnome-desktop </li>
+                            <li> @input-methods </li>
+                            <li> @internet-browser </li>
+                            <li> @java-platform </li>
+                            <li> @multimedia </li>
+                            <li> @network-file-system-client </li>
+                            <li> @x11 </li>
+                            <li> %end </li>
+                          </span>
+                        </li>
+                        <li> vim /var/lib/tftpboot/pxelinux.cfg/default
+                          <li> pub 뒤쪽에 ks=ftp://192.168.10.80/centos.ks 추가 </li>
+                        </li>
+                        <li> systemctl restart dhcpd  </li>
+                        <li> systemctl restart vsftpd </li>
+                        <li> systemctl restart xinetd </li>
+                      </span>
+                    </li>
+                    <li>  </li>
                   </span>
                   <span className="sstitle">  </span>
                   <span className="mblock">

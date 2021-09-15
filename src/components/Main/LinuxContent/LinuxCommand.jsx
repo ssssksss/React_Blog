@@ -1271,12 +1271,12 @@ const LinuxCommand = (props) => {
           {/*  */}
           <span className="mblock">
             <details>
-              <summary className="stitle"> ▶ <small>  </small>
+              <summary className="stitle"> ▶ openssl 명령어 <small> 해쉬값 관련 명령어 </small>
                 <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
               <span className="sblock">
                 <span className="sstitle">  </span>
                 <span className="mblock">
-                  <li>  </li>
+                  <li> openssl passwd -1 -salt 솔트값 비번 </li>
                   <li>  </li>
                 </span>
               </span>
