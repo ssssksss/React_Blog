@@ -252,13 +252,93 @@ const LinuxBasic = (props) => {
                     <li> Subkey-Length: 2048 </li>
                     <li> Name-Real: ssssksss </li>
                     <li> Expire-Date: 0 </li>
-                    <li> Passphrase: P@ssw0rd! </li>
+                    <li> Passphrase: P@ssw0rd! # 서명에 사용할 비번 </li>
                     <li> %commit </li>
                     <li> %echo done </li>
                   </li>
                   <li> gpg2 --batch --no-tty --gen-key keymemo </li>
-                  <li> gpg --fingerprint #지금까지 서명한 것을 보여줌 </li>
+                  <li> gpg --fingerprint #지금까지 서명한 것을 보여줌(비밀키) </li>
+                  <li> gpg --list-secret-keys #지금까지 서명한 것을 보여줌(공개키) </li>
+                  <li> GPG_KEY=0856D448 # pub 2048R/이곳에위치한번호 </li>
+                  <li> gpg -a --yes -o /root/RPM-GPG-KEY --export 0856D448 #gpg에 저장된 공개키를 추출 </li>
+                  <li> ls -la /root/RPM-GPG-KEY # 추출된 공개키를 확인 </li>
+                  <li> echo '%_gpg_name 0856D448' {'>'} /root/.rpmmacros  </li>
+                  <li> cd /app/script </li>
+                  <li> mkdir hello-1.0.0  </li>
+                  <li> cd /hello-1.0.0 </li>
+                  <li> vi hello
+                    <span className='sblock'>
+                      <li> #!/bin/bash </li>
+                      <li> echo hello </li>
+                    </span>
+                  </li>
+                  <li> tar czvf hello-1.0.0.tar.gz hello-1.0.0/ </li>
+                  <li> vi hello.spec
+                    <span className='sblock'>
+                      <li> Name:		hello </li>
+                      <li> Version:	1.0.0 </li>
+                      <li> Release:	1%{'{'}?dist{'}'} </li>
+                      <li> Summary:	A hello package </li>
+                      <li> Group:		Testing </li>
+                      <li> License:	GPL </li>
+                      <li> URL:		http://www.test.com/testing </li>
+                      <li> Source0:	hello-1.0.0.tar.gz </li>
+                      <li> {' BuildRoot:	%{mktemp -ud %{_tmppath}/hello-1.0.0-%{release}-XXXXXX} '} # 압축을 해제하면 잠시
+                        압축푸는 임시 파일 공간 </li>
+                      <li> BuildRequires: /bin/rm, /bin/mkdir, /bin/cp # 의존성 파일 </li>
+                      <li> Requires: /bin/bash </li>
+                      <li> %description </li>
+                      <li>  A hello Package </li>
+                      <li> %prep </li>
+                      <li> %setup -q </li>
+                      <li> %build </li>
+                      <li> %install </li>
+                      <li> rm -rf $RPM_BUILD_ROOT </li>
+                      <li> mkdir -p $RPM_BUILD_ROOT/usr/local/bin </li>
+                      <li> cp hello $RPM_BUILD_ROOT/usr/local/bin </li>
+                      <li> %clean </li>
+                      <li> rm -rf $RPM_BUILD_ROOT </li>
+                      <li> %files </li>
+                      <li> %defattr(-,root,root,-) </li>
+                      <li> %attr(0755,root,root)/usr/local/bin/hello </li>
+                      <li> %changelog </li>
+                      <li> {'* Sat May 11 2021 test <test@test.com) - 1.0.0 '}  # 잘은 모르겠지만 월단위를 작성할 때 풀네임을
+                        사용하는 건 아닌것 같다.(날짜에러발생 ㅠㅠ )</li>
+                      <li> - Initial RPM </li>
+                    </span>
+                  </li>
+                  <li> rpmbuild -ba /app/script/hello.spec # 그런 파일이나 디렉토리~~~ 없습니다 출력
+                    <li> 만약에 rpmbuild 명령어가 없다고 나오면 yum install rpm-build 로 설치 </li>
+                  </li>
+                  <li> cp /app/script/hello.spec /root/rpmbuild/SPECS/ </li>
+                  <li> cp /app/script/hello-1.0.0.tar.gz /root/rpmbuild/SOURCES/ </li>
+                  <li> rpmbuild -ba /app/script/hello.spec </li>
+                  <li> ls -la /root/rpmbuild/RPMS/x86_64 </li>
+                  <li> rpm -ivh /root/rpmbuild/RPMS/x86_64/hello-1.0.0-1.el7.x86_64.rpm # 프로그램 설치 </li>
+                  <li> ls -la /usr/local/bin/hello # 설치된 위치 </li>
+                  <li>  서명을 rpm 파일에 넣는 작업
+                    <span className='sblock'>
+                      <li> ls -la /root/rpmbuild/RPMS/x86_64 </li>
+                      <li> rpmsign --addsign /root/rpmbuild/RPMS/x86_64/hello-1.0.0-1.el7.x86_64.rpm </li>
+                      <li>  </li>
+                      <li>  </li>
+                    </span>
+                  </li>
                   <li>  </li>
+                  <li>  </li>
+                </span>
+              </span>
+            </details>
+          </span>
+          {/*  */}
+          <span className="mblock">
+            <details>
+              <summary className="stitle"> ▶ 관련 사이트
+                <a name="" style={{ visibility: "hidden" }}> </a> </summary>
+              <span className="sblock">
+                <span className="sstitle">  </span>
+                <span className="mblock">
+                  <li> pkgs.org # 패키지들의 모임 </li>
                   <li>  </li>
                 </span>
               </span>

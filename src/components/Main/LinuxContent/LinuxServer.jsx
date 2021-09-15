@@ -91,6 +91,18 @@ const LinuxServer = (props) => {
                     <li>  </li>
                   </span>
                   {/*  */}
+                  <span className="sstitle"> httpd 서버 로그 </span>
+                  <span className="mblock">
+                    <li> cat /var/log/httpd/error_log
+                      <span className='sblock'>
+                        <li> <span className='sstitle'> client denied by server configuration </span> </li>
+                        <li> 폴더 경로가 잘 잡혔는지 확인 </li>
+                        <li>  </li>
+                      </span>
+                    </li>
+                    <li>  </li>
+                  </span>
+                  {/*  */}
                   <span className="sstitle">  </span>
                   <span className="mblock">
                     <li>  </li>
@@ -842,11 +854,122 @@ const LinuxServer = (props) => {
             {/*  */}
             <span className="mblock">
               <details>
-                <summary className="stitle"> ▶ <small> </small>
+                <summary className="stitle"> ▶ 레포지토리 서버(미완성) <small> </small>
                   <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                 <span className="sblock">
                   <span className="sstitle">  </span>
                   <span className="mblock">
+                    <li> yum -y install createrepo # 저장소 생성을 위한 패키지 </li>
+                    <li> yum -y install httpd # 웹서버를 이용해서 rpm파일을 배포하기위해 httpd서버 설치 </li>
+                    <li> mkdir -p /app/repo  </li>
+                    <li> createrepo /app/repo # rpm파일을 yum을 통해 배포할수 있는 공간으로 지정 </li>
+                    <li> ls -la  /app/repo/repodata # 의존성에 대한 다양한 정보가 보관된다고 이해 </li>
+                    <li> vi /etc/httpd/conf/httpd.conf
+                      <div className="sblock">
+                        <li> 제일 마지막 줄에 추가 </li>
+                        <li> <a href="https://httpd.apache.org/docs/2.4/en/mod/core.html#directory"
+                          target="_blank" rel="noopener noreferrer"> Directory 아파치 문서 참조 </a> </li> <br />
+                        <li> Alias /repo "/app/repo" # 도메인/repo 으로이동하면 /app/repo로 이동하라는 의미  </li>
+                        <li> {' <Directory "/app/repo"> '}
+                          <li> {' 	Options FollowSymLinks '} </li>
+                          <li> {' 	DirectoryIndex index.html index.jsp *.jsp '} </li>
+                          <li> {' 	Order allow,deny '} # 모두 접근 허용 </li>
+                          <li> {' 	Allow from all '} # 모두 접근 허용 </li>
+                          <li> {' 	Require all granted '} # 모두 접근 가능하게 하겠다. </li>
+                        </li>
+                        <li> {' </Directory> '} </li>
+                      </div>
+                    </li>
+                    <li> systemctl stop firewalld </li>
+                    <li> systemctl start httpd </li>
+                    <li> cd /app/repo </li>
+                    <li> yum install --downloadonly --downloaddir=/app/repo vsftpd # 다운만받고 설치까지는 하지 않음 </li>
+                    <li> yum install --downloadonly --downloaddir=/app/repo net-snmp # 다운만받고 설치까지는 하지 않음 </li>
+                    {/*<li> cp /root/rpmbuild/RPMS/x86_64/hello-1.0.0-1.el7.x86_64.rpm /app/repo #개인적으로 만든 rpm파일 </li>*/}
+                    <li> setenforce 0 # se리눅스 끄기 </li>
+                    <li> ls -la </li>
+                    <li> 인터넷에서 URL에 localhost/repo/파일명.rpm # 인터넷창 아래쪽에 다운이 되면 성공
+                      <div className="sblock">
+                        <li> You don't have permission to access ~~~ 에러 발생</li>
+                        <li> 1. 아파치가 접근 할 수 있는 권한 문제 , 경로에 읽기 권한이 있는지 한번 확인 </li>
+                        <li> 2. 만약에 되지 않는 다면 vi /etc/httpd/conf/httpd.conf
+                          <li> 104번 째 줄 </li>
+                          <li> #Require all denied # 주석처리해주고 </li>
+                          <li> Require all granted # 내용을 추가해준다. </li>
+                        </li>
+                      </div>
+                    </li>
+                    <li> createrepo --update /app/repo # rpm파일들이 있다고 repodata에 알려주어야 한다. </li>
+                    <li> yum clean all </li>
+                    <li> ls -la /etc/yum.repos.d/ # yum install 사이트들의 목록을 가지고 있는 공간 </li>
+                    <li> cat CentOS-Base.repd # 그중에 하나 열어보면 다운로드 받는 경로들의 위치가 있다는 것을 보여준다. </li>
+                    {/* 여기까지 진행함 1:57:00 강의 참고 */}
+                    <li> mkdir /etc/yum.repos.d/backup  </li>
+                    <li> mv /etc/yum.repos.d/*.repo /etc/yum.repos.d/backup/ #기존에 있던 yum 다운 지원을 하는 repo파일을 다른곳으로 옮김 </li>
+                    <li> yum -y install vsftpd # 에러가 발생함 이유는 다운받는 repo 경로가 하나도 없음 </li>
+                    <li> vi repo-server.repo  # repo 서버를 만듬
+                      <div className="sblock">
+                        <li> [repo-server] </li>
+                        <li> name=Repository Server </li>
+                        <li> {' baseurl=file:///app/repo '} </li>
+                        <li> enabled=1 </li>
+                        <li> gpgcheck=0 </li>
+                      </div>
+                    </li>
+                    <li> yum clean all </li>
+                    <li> yum install net-snmp # 기존에 사용하던 yum파일들이 모여있는 경로는 없지만
+                      아까 /app/repo 파일에 다운을 받아놓았기 때문에 설치가 가능   </li> <br />
+                    <li> 클라이언트 CentOS 열기 - 레포지토리서버에서 받아오기 테스트
+                      <li> cd /etc/yum.repos.d/ </li>
+                      <li> mkdir /etc/yum.repos.d/backup </li>
+                      <li> mv /etc/yum.repos.d/*.repo /etc/yum.repos.d/backup </li>
+                      <li> vi repo-server.repo
+                        <span className='sblock'>
+                          <li> [repo-server] </li>
+                          <li> name=Repository Server </li>
+                          <li> {' baseurl=file://192.168.10.80/repo '} </li>
+                          <li> enabled=1 </li>
+                          <li> gpgcheck=1 </li>
+                        </span>
+                      </li>
+                      <li> yum clean all </li>
+                      <li> 만약 yum lock이 있다면 , 반복 시도
+                        <span className='sblock'>
+                          <li> ps -ef | grep yum  </li>
+                          <li> kill -9 PID번호 </li>
+                          <li> yum clean all </li>
+                        </span>
+                      </li>
+                      <li> cat /root/RPM-GPG-KEY 의 내용을 모두 복사 </li>
+                      <li> vi /tmp/key 에 복사한 내용을 넣어주기 </li>
+                      <li> yum install net-snmp # 설치할 필요는 없음 , 되는지만 확인 안되면
+                        <li> vi repo-server.repo 에 가서 gpgcheck=0으로 변경 </li>
+                      </li>
+                      <li> rpm --import /tmp/key # 공개키를 임포트를 함 </li>
+                      <li>  </li>
+                      <li>  </li>
+                    </li>
+                    <li> <div className="sstitle"> 의존성을 고려한 파일 만들고 배포하기 </div> </li>
+                    <li> yum deplist net-snmp | grep "dependency:" # net-snmp 파일에 필요한 의존성파일들을 볼 수 있는 방법 </li>
+                    <li> cd /app/script </li>
+                    <li> vi lyum.sh
+                      <div className="sblock">
+                        <li> #!/bin/bash </li>
+                        <li> yum install --downloadonly --downloaddir=/app/repo $1 #매개변수를 전달하여 의존성 파일 다운 </li>
+                        <li> yum reinstall --downloadonly --downloaddir=/app/repo $1 #이미 파일이 깔려있어도 다운받게 한다 </li>
+                        <li> yum deplist $1 | grep "dependency:" | awk '{'{print $2}'}' | awk -F "(" '{'{print $1}'}' | xargs
+                          yum install --downloadonly --downloaddir=/app/repo  </li>
+                        <li> yum deplist $1 | grep "dependency:" | awk '{'{print $2}'}' | awk -F "(" '{'{print $1}'}' | xargs
+                          yum reinstall --downloadonly --downloaddir=/app/repo  </li>
+                        <li> createrepo --update /app/repo # repodata라는 db파일에 어떠한 rpm파일들이 있는지 알수 있는 공간인데
+                          이 공간에 업데이트
+                        </li>
+                        <li> yum clean all </li>
+
+                      </div>
+                    </li>
+                    <li> chmod 755 lyum/sh </li>
+                    <li> /app/script/lyum.sh net-snmp </li>
                     <li>  </li>
                   </span>
                   {/*  */}
@@ -861,6 +984,212 @@ const LinuxServer = (props) => {
             {/*  */}
             <span className="mblock">
               <details>
+                <summary className="stitle"> ▶ 톰캣 서버 <small> </small>
+                  <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+                <span className="sblock">
+                  <span className="sstitle"> 설명 </span>
+                  <span className="mblock">
+                    <li> 아파치는 웹서버 </li>
+                    <li> 톰캣(아파치톰캣)은 아파치 재단 하위에 있는 웹서버+어플리케이션서버 </li>
+                    <li>  </li>
+                  </span>
+                  <span className="sstitle"> 설치 </span>
+                  <span className="mblock">
+                    <li> <a href="https://tomcat.apache.org/download-80.cgi"
+                      target="_blank" rel="noopener noreferrer"> 아파치 톰캣 다운 주소 </a> </li>
+                    <li> Core tar.gz 파일의 링크 주소를 복사  </li>
+                    <li> mkdir -p /app/install </li>
+                    <li> cd /app/install </li>
+                    <li> mkdir -p /app/server/tomcat </li>
+                    <li> wget https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.70/bin/apache-tomcat-8.5.70.tar.gz -O /app/install/tomcat8.5.tar.gz </li>
+                    <li> tar xvfz /app/install/tomcat8.5.tar.gz -C /app/server/tomcat --strip-components=1
+                      # --strip-components=1 상위 n번쨰 이후 폴더부터 압축해제  </li>
+                    <li> cd /app/server/tomcat/bin  </li>
+                    <li> vim startup.bat </li>
+                    <li> ./startup.sh </li>
+                    <li> systemctl stop firewalld </li>
+                    <li> setenforce=0 </li>
+                    <li> java -version </li>
+                    <li> which java </li>
+                    <li> 구글에 "자바 오라클 아카이브" 검색 </li>
+                    <li> 자바 다운로드 주소
+                      <li> <a href="https://www.oracle.com/kr/java/technologies/javase/javase8-archive-downloads.html"
+                        target="_blank" rel="noopener noreferrer"> 자바 다운로드 주소 </a> </li>
+                    </li>
+                    <li> mkdir -p /app/install/dkit/jdk </li>
+                    <li> cd /app/install/dkit/jdk </li>
+                    <li> 리눅스 x64버전 다운로드(로그인 필요)  </li>
+                    <li> 리눅스 내부 브라우저에서 직접 다운 받아서 /app/install/dkit/jdk/ 에 다운파일(jdk-8u202-linux-x64.tar.gz) 설치해주기
+                      <li> 하다가 하는 방법을 몰라서 mobaxterm을 이용해서 넣어주었다. </li>
+                    </li>
+                    <li> 이거는 별개인데 md5sum 파일명 # 해쉬값이 나오는데 동일하면 같은 파일 </li>
+                    <li> mkdir -p /app/dkit/jdk/1.8.0 </li>
+                    {/*<li> cd /app/install/dkit/jdk </li>*/}
+                    <li> tar xvfz /app/install/dkit/jdk/jdk-8u202-linux-x64.tar.gz -C /app/dkit/jdk/1.8.0 --strip-components=1 </li>
+                    <li> java -version </li>
+                    <li> cd /app/dkit/jdk </li>
+                    <li> ln -Tfs /app/dkit/jdk/1.8.0 /app/dkit/jdk/release </li>
+                    <li> ls -la /usr/bin/java </li>
+                    <li> ln -Tfs /app/dkit/jdk/release/bin/java /usr/bin/java </li> <br />
+                    <li> cd /etc/systemd/system </li>
+                    <li> ll /usr/lib/systemd/system | grep firewalld #서비스 목록 , 방화벽 서비스 </li>
+                    <li> vi /usr/lib/systemd/system/firewalld.service # 안을 보면 실행을 어떻게 하는지 볼수있음 </li>
+                    <li> cd /etc/systemd/system </li>
+                    <li> vi tomcat.service
+                      <span className='sblock'>
+                        <li> [Unit] </li>
+                        <li> Description=Apache Tomcat Web Application Container </li>
+                        <li> After=syslog.target network.target </li>
+                        <li> [Service] </li>
+                        <li> Type=forking </li>
+                        <li> Enviroment=JAVA_HOME=/app/dkit/jdk/release </li>
+                        <li> Enviroment=CATALINA_PID=/app/server/tomcat/temp/tomcat.pid </li>
+                        <li> Enviroment=CATALINA_HOME=/app/server/tomcat </li>
+                        <li> Enviroment=CATALINA_BASE=/app/server/tomcat </li>
+                        <li> Enviroment='CATALINA_OPTS=Xms512M -Xmx1024M -server -XX:+UseParallelGC' </li>
+                        <li> Enviroment='JAVA_OPTS=-Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom' </li>
+                        <li> ExecStart=/app/server/tomcat/bin/startup.sh </li>
+                        <li> ExecStop=/bin/kill -15 $MAINPID </li>
+                        <li> User=root </li>
+                        <li> Group=root </li>
+                        <li> [Install] </li>
+                        <li> WantedBy=multi-user.target </li>
+                      </span>
+                    </li>
+                    <li> systemctl restart tomcat </li>
+                    <li> netstat -tnlp # 8080포트를 보면 자바를 볼 수 있다. </li>
+                    <li> cd /app/server/tomcat/conf </li>
+                    <li> vi tomcat-users.xml
+                      <span className='sblock'>
+                        <li> {' <role rolename="admin-gui"/> '} </li>
+                        <li> {' <role rolename="manager-gui"/> '} </li>
+                        <li> {' <role rolename="manager-script"/> '} </li>
+                        <li> {' <role rolename="manager-status"/> '} </li>
+                        <li> {' <role rolename="manager-jmx"/> '} </li>
+                        <li> {'<user username="tomcat" password="tomcat" roles="adming-gui,manager-gui,manager-script,manager-status,manager-jmx"/> '}
+                          # 다른 사용자가 접근 가능하게 , 56번쨰 줄에 추가 </li>
+                      </span>
+                    </li>
+                    <li> vi /app/server/tomcat/conf/Catalina/localhost/manager.xml
+                      <span className='sblock'>
+                        <li> {' <Context privileged="true" antiResourceLocking="false" docBase="${catalina.home}/webapps/manager"> '} </li>
+                        <li> {' <Valve className="org.apache.catalina.valves.RemoteAddrValve" allow="^.*$" /> '} </li>
+                        <li> {' </Context> '} </li>
+                      </span>
+                    </li>
+                    <li> systemctl restart tomcat </li>
+                    <li> 브라우저에 192.168.10.80:8080 에서 manager app을 클릭 #에러 발생 </li>
+                    <li> yum -y install httpd </li>
+                    <li> systemctl restart httpd </li>
+                    <li> yum -y install gcc gcc-c++ httpd-devel libtool make # 아파치 확장 파일 httpd-devel </li>
+                    <li> 구글에서 톰캣에 들어가 톰캣 커넥터 파일 리눅스.tar.gz 링크복사
+                      <li> <a href="http://tomcat.apache.org/download-connectors.cgi" target="_blank"
+                        rel="noopener noreferrer"> 아파치 커넥터 사이트 </a> </li>
+                      <li> <a href="https://dlcdn.apache.org/tomcat/tomcat-connectors/jk/tomcat-connectors-1.2.48-src.tar.gz"
+                        target="_blank" rel="noopener noreferrer"> 아파치 커넥터 JK 1.2.48 </a> </li>
+                    </li>
+                    <li> mkdir -p /app/temp/mod_jk </li>
+                    <li> wget https://dlcdn.apache.org/tomcat/tomcat-connectors/jk/tomcat-connectors-1.2.48-src.tar.gz -O /app/install/tomcat-connectors-1.2.48-src.tar.gz </li>
+                    <li> tar xvfz /app/install/tomcat-connectors-1.2.48-src.tar.gz -C /app/temp/mod_jk/
+                      --strip-components=1 </li>
+                    <li> cd /app/temp/mod_jk/native </li>
+                    <li> ./configure --with-apxs=/usr/bin/apxs #configure는 설치파일 </li>
+                    <li> make </li>
+                    <li> make install </li>
+                    <li> chcon -u system_u -r object_r -t httpd_modules_t /etc/httpd/modules/mod_jk.so # se리눅스에서 권한을 주는 방법
+                      몰라도 된다.. </li>
+                    <li> cd /etc/httpd/conf </li>
+                    <li> mkdir /etc/httpd/conf/extra </li>
+                    <li> touch /etc/httpd/conf/extra/httpd-ssl.conf </li>
+                    <li> cat httpd.conf | grep conf </li>
+                    <li> vi /etc/httpd/conf/workers.properties
+                      <span className='sblock'>
+                        <li> worker.list=worker1 #아파치와-톰캣이 여러개 일 수 있으므로 이름지정 </li>
+                        <li> worker.worker1.port=8009 #아파치-톰캣 포트 연동 </li>
+                        <li> worker.worker1.host=localhost #아파치 서버의 위치  </li>
+                        <li> worker.worker1.type=ajp13 #아파치-톰캣 프로토콜? 연동 </li>
+                        <li> worker.worker1.lbfactor=1 #  </li>
+                      </span>
+                    </li>
+                    <li> vi /etc/httpd/conf/uriworkermap.properties
+                      <span className='sblock'>
+                        <li> /*=worker1 #서브 디렉토리를 모두 worker1이라는 곳에서 참조해라 </li>
+                      </span>
+                    </li>
+                    <li> vi /etc/httpd/conf/httpd.conf
+                      <span className='sblock'>
+                        <li> "/var/www/html"을 "/app/server/tomcat/webapps" 이걸로 변경 #119번쨰줄 </li>
+                      </span>
+                    </li>
+                    <li> ls -la /app/server/tomcat/webapps #(루트경로처럼 사용) </li>
+                    <li> 따라 하지 않아도됨 , sed -i "s/^\s*#.//g" /etc/httpd/conf/httpd.conf # 파일안에 주석을 모두 제거 </li>
+                    <li> 따라 하지 않아도됨 , sed -i "/^$/d" /etc/httpd/conf/httpd.conf # 파일안에 공백제거  </li>
+                    <li> vim /etc/httpd/conf/httpd.conf
+                      <span className='sblock'>
+                        <li> {' <Directory /> '} 이부분의 denied 를 granted로 변경 </li>
+                        <li> {' <Directory /var/www> <Directory /var/html> '} 이 두부분은 필요가 없음 </li>
+                        <li> LoadModule jk_module modules/mod_jk.so #가장 아래쪽에 추가 </li>
+                        <li> {'<IfModule jk_module>'}
+                          <li> JkWorkersFile conf/workers.properties </li>
+                          <li> JkLogFile logs/mod_jk.log </li>
+                          <li> JkLogLevel info </li>
+                          <li> JkLogStampFormat "[%y %m %d %H:%M:%S]" </li>
+                          <li> JkShmFile logs/mod_jk.shm </li>
+                          <li> JkMountFile conf/uriworkermap.properties </li>
+                          <li> JkUnMount /mail/* worker1 </li>
+                          <li> JkUnMount /*.php worker1 </li>
+                        </li>
+                        <li> {'<IfModule>'} </li>
+                      </span>
+                    </li>
+                    <li> systemctl restart httpd  </li>
+                    <li> vi /app/server/tomcat/conf/server.xml
+                      <li> 117번 AJP부분을 보면 주석 처리가 되어있음 </li>
+                      <li> 위아래에 주석을 해제  </li>
+                      <li> address="::1" 을 "0.0.0.0" 으로 수정 </li>
+                      <li> secretRequired="false" # 추가 </li>
+                    </li>
+                    <li> systemctl restart tomcat  </li>
+                    <li> netstat -tnlp에서 8009번포트가 열렸는지 확인 </li>
+                    <li>   </li>
+                    <li>   </li>
+                  </span>
+                  <span className="sstitle">  </span>
+                  <span className="mblock">
+                    <li>  </li>
+                  </span>
+                </span>
+              </details>
+            </span>
+            {/*  */}
+            <span className="mblock">
+              <details>
+                <summary className="stitle"> ▶ PXE 서버 <small> </small>
+                  <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+                <span className="sblock">
+                  <span className="sstitle"> 설명 </span>
+                  <span className="mblock">
+                    <li> 여러대의 컴퓨터의 프로그램을 동시에 설치하는 방법 </li>
+                    <li> DHCP, TFTP , syslinux 부팅파일, FTP나 웹서버  </li>
+                    <li>  </li>
+                  </span>
+                  <span className="sstitle"> 설치 </span>
+                  <span className="mblock">
+                    <li> ps -ef | grep yum | grep -v grep | awk '{'{print $2}'}' | xargs kill -9 2{'>'}/dev/null  </li>
+                    <li> yum -y install syslinux tftp-server vsftpd dhcp xinetd  </li>
+                    <li> vi /etc/dhcp/dhcpd.conf </li>
+                    <li>   </li>
+                  </span>
+                  <span className="sstitle">  </span>
+                  <span className="mblock">
+                    <li>  </li>
+                  </span>
+                </span>
+              </details>
+            </span>
+            {/*  */}
+            <span className="mblock">
+              <details>
                 <summary className="stitle"> ▶ <small> </small>
                   <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                 <span className="sblock">
@@ -868,12 +1197,10 @@ const LinuxServer = (props) => {
                   <span className="mblock">
                     <li>  </li>
                   </span>
-                  {/*  */}
                   <span className="sstitle">  </span>
                   <span className="mblock">
                     <li>  </li>
                   </span>
-                  {/*  */}
                 </span>
               </details>
             </span>

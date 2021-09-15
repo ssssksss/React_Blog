@@ -15,11 +15,33 @@ const LinuxProgramInstall = (props) => {
                 <span className="sblock">
                   <span className="sstitle"> 설치 </span>
                   <span className="mblock">
-                    <li> CentOS 설치
-                      <li> yum -y --skip-broken install php-* </li>
+                    <li> yum install gcc glibc glibc-common gd gd-devel -y
+                      <li> ps -ef | grep yum | grep -v grep | awk '{'{print $2}'}' | xargs kill -9 2{'>'}/dev/null </li>
                     </li>
-                    <li>  <small> </small>  </li>
-                    <li>  <small> </small>  </li>
+                    <li>  yum -y install libxml2-devel </li>
+                    <li>  yum -y install sqlite-devel </li>
+                    <li>  yum -y install make </li>
+                    <li>  mkdir -p /app/install </li>
+                    <li>  wget https://www.php.net/distributions/php-8.0.10.tar.gz -O /app/install/php-8.0.10.tar.gz
+                      <li>  <a href="https://www.php.net/downloads.php" target="_blank" rel="noopener noreferrer"></a> php설치 주소 </li>
+                    </li>
+                    <li> mkdir -p /app/temp/php/8.0.10  </li>
+                    <li> tar xvfz /app/install/php-8.0.10.tar.gz -C /app/temp/php/8.0.10 --strip-components=1  </li>
+                    <li> cd /app/temp/php/8.0.10  </li>
+                    <li> ./configure --prefix=/app/dkit/php/8.0.10  </li>
+                    <li> make {'&&'} make install  # 매우 오래 걸림 </li>
+                    <li> ls -la /app/dkit/php/8.0.10/  </li>
+                    <li> /app/dkit/php/8.0.10/bin/php -version  </li>
+                    <li> 환경변수 등록하기  </li>
+                    <li> cd /app/dkit/php/  </li>
+                    <li> ln -Tfs /app/dkit/php/8.0.10 /app/dkit/php/release  </li>
+                    <li> rm -rf /app/temp/php/8.0.10  </li>
+                    <li> ls -la /usr/bin #윈도우의 환경변수같음  </li>
+                    <li> ln -Tfs /app/dkit/php/release/bin/php /usr/bin/php  </li>
+                    <li> php -version  </li>
+                    <li> ls -la /usr/bin/php  </li>
+                    <li>   </li>
+                    <li>   </li>
                   </span>
                   {/*  */}
                   <span className="sstitle">  </span>
@@ -38,16 +60,59 @@ const LinuxProgramInstall = (props) => {
                 <span className="sblock">
                   <span className="sstitle"> 워드프레스 설치 </span>
                   <span className="mblock">
-                    <li> CentOS 설치
-                      <li> <a href="https://ko.wordpress.org/download/" target="_blank">
-                        https://ko.wordpress.org/download/ </a> 로 가서 워프레스 5.@ 다운로드 우측클릭 - 링크주소복사 </li>
-                      <small> https://ko.wordpress.org/latest-ko_KR.zip </small>
-                      <li> cd /var/www/html  </li>
-                      <li> wget 링크주소URL -O wordpress.zip </li>
-                      <li> unzip wordpress.zip </li>
-                      <li> chmod 707 wordpress </li>
+                    <li> pkgs.org 에 가보면 php 5.4나 7까지만 지원 </li>
+                    <li> yum -y install epel-release # yum에 올라온 공식적인 패키지가 아닌 unofficial에서
+                      third party에 대한 repo서버의 정보가 필요한데 대표적인 사람들의 정보가 존재? </li>
+                    <li> yum -y install httpd mariadb mariadb-server </li>
+                    <li> yum -y install http://rpms.remirepo.net/enterprise/remi-release-7.rpm #remi 파일에 대해 설치 필요
+                      <li> 안된다면 아래와 같이 입력 </li>
+                      <li> yum -y install https://rpms.remirepo.net/enterprise/remi-release-7.rpm </li>
+                      <li> 안된다면 아래와 같이 한번 받고나서 다시 위에 명령어 입력 </li>
+                      <li> rpm -Uvh install http://rpms.remirepo.net/enterprise/remi-release-7.rpm </li>
                     </li>
-                    <li>  </li>
+                    <li> yum -y install php80-php php80-php-mysql </li>
+                    <li> systemctl restart mariadb </li>
+                    <li> mysql -e "CREATE DATABASE wordpress;" # 데이터베이스 생성 </li>
+                    <li> mysql -e "GRANT ALL PRIVILEGES ON wordpress.* TO test@localhost IDENTIFIED BY 'P@ssw0rd"'!'"';" </li>
+                    <li> mysql -e "FLUSH PRIVILEGES;" </li>
+                    <li> mysql -e "SELECT User,Host FROM mysql.user;"
+                      <li> 아래는 할 필요 없음 실수로 비번을 잘못입력하고 워드프레스에 비번 잘못 입력해서 사용 </li>
+                      <li> mysql -e "SELECT User,Password From mysql.user;" # 테이블의 유저,유저비번 조회 </li>
+                      <li> mysql -e "UPDATE mysql.user Set Password=Password('P@ssw0rd"'!'"') WHERE User='test';" #유저 비번 바꾸기</li>
+                      <li> mysql -e "SHOW DATABASES;" </li>
+                      <li> mysql -e "DROP DATABASE wordpress;" </li>
+                      <li>  </li>
+                    </li>
+                    <li> vi /etc/httpd/conf/httpd.conf
+                      <span className='sblock'>
+                        <li> 164번째 줄 index.html 뒤에 index.php 추가 </li>
+                        <li> 가장 아래에 추가 </li>
+                        <li> AddType application/x-httpd-php .php .html .htm .inc </li>
+                        <li> AddType application/x-httpd-php-source .phps </li>
+                      </span>
+                    </li>
+                    <li> systemctl restart httpd </li>
+                    <li> mkdir -p /app/install </li>
+                    <li> <a href="https://ko.wordpress.org/download/" target="_blank" rel="noopener noreferrer"></a> 워드프레스 홈페이지 </li>
+                    <li> wget https://ko.wordpress.org/latest-ko_KR.tar.gz -O /app/install/wordpress.tar.gz </li>
+                    <li> mkdir -p /var/www/html/wordpress </li>
+                    <li> tar xvfz /app/install/wordpress.tar.gz -C /var/www/html/wordpress --strip-components=1 </li>
+                    <li> cd /var/www/html/wordpress/ </li>
+                    <li> cd wp-content </li>
+                    <li> mkdir uploads # 워드프레스 메뉴얼에 적혀져 있음 </li>
+                    <li> cp /var/www/html/wordpress/wp-config-sample.php /var/www/html/wordpress/wp-config.php </li>
+                    <li> vi /var/www/html/wordpress/wp-config.php
+                      <span className='sblock'>
+                        <li> 'database_name_here' 에 'wordpress' 입력 #데이터베이스 입력 </li>
+                        <li> 'username_here' 에 'test' 입력 # DB 사용자 입력 </li>
+                        <li> 'password_here' 에 'P@ssw0rd!' 입력 # DB 사용자 비번 입력 </li>
+                      </span>
+                    </li>
+                    <li> systemctl restart httpd </li>
+                    <li> setenforce 0 </li>
+                    <li> systemctl stop firewalld </li>
+                    <li> 브라우저에 192.168.10.80/wordpress 입력해서 나와야 함 </li>
+                    <li> 그리고 정보를 입력(비밀번호 바꿀것)  </li>
                     <li>  </li>
                   </span>
                   {/*  */}
@@ -90,8 +155,8 @@ const LinuxProgramInstall = (props) => {
                       <li> mysql <small> mariadb 실행 </small> </li>
                       <li> GRANT ALL PRIVILEGES ON xeDB.* TO xeUser@localhost IDENTIFIED BY '1234'; </li>
                       <li> exit </li>
-                      <li> </li>
-                      <li> </li>
+                      <li>  </li>
+                      <li>  </li>
                     </li>
                     <li>  </li>
                   </span>
