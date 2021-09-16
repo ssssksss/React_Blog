@@ -679,6 +679,44 @@ const HtmlBasic = (props) => {
 
                         <span className="mblock">
                             <details>
+                                <summary className="stitle"> ▶ 파일 다운로드, 업로드
+                                    <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+                                <span className="sblock">
+                                    <span className="sstitle">  </span>
+                                    <span className="mblock">
+                                        <li> 파일 다운로드 경로에 공백은 제거됨 </li>
+                                        <li> accept 속성 : 허용하는 파일 유형을 나타내는 지정자
+                                            <li> accept=".img , .doc , .jpg , .pdf , image/* , audio/* , video/*" </li>
+                                        </li>
+                                        <li> mutiple 옵션속성 : 복수의 파일을 선택가능하게 함
+                                            <li> {' <input type="file" id="file" name="file" accept="image/*" multiple> </input> '} </li>
+                                        </li>
+                                        <li>  </li>
+                                    </span>
+                                    {/*  */}
+                                    <span className="sstitle"> 파일 다운로드 </span>
+                                    <span className="mblock">
+                                        <li> {' <a href="파일 경로" download="파일명.확장자"> 파일 다운로드 </a> '} </li>
+                                        <li> {' <a href={process.env.PUBLIC_URL + "파일경로"} download="파일명.확장자"> 파일 다운로드 </a> '} </li>
+                                    </span>
+                                    {/*  */}
+                                    <span className="sstitle"> 파일 업로드 </span>
+                                    <span className="mblock">
+                                        <li> {' <label for="forname">  </label> '} </li>
+                                        <li> {' <form> '}
+                                            <li> {' <input type="file" name="filename" id="forname" accept="image/*" /> '} </li>
+                                        </li>
+                                        <li> {' </form> '} </li>
+                                        <li>  </li>
+                                    </span>
+                                    {/*  */}
+                                </span>
+                            </details>
+                        </span>
+                        {/*  */}
+
+                        <span className="mblock">
+                            <details>
                                 <summary className="stitle"> ▶
                                     <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                                 <span className="sblock">

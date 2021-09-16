@@ -1240,9 +1240,10 @@ const LinuxServer = (props) => {
                     <li> Virtual Network Editor에서 Use local DHCP service to distribute IP address to VMs 체크해제
                       # 사용하고 있는 dhcp 끄기 </li>
                     <li> 새롭게 PXE_Client CentOS를 생성 , 단 CD ROOM은 넣지 않고 설치하면 설치가 가능 </li>
+                    <li> 전부 설치하지 말고 언어 설정 나오면 잠시 중지 </li>
                     <li> 이제 언어 등 설정까지 다 해주는 킥스타트  </li>
                     <li> yum -y install system-config-kickstart system-config-keyborard </li>
-                    <li> sustem-config-kickstart
+                    <li> system-config-kickstart
                       <span className='sblock'>
                         <li> 기본설정 - 언어 - 한국어 </li>
                         <li> 기본설정 - 시간대 - Asia/Seoul </li>
@@ -1257,35 +1258,312 @@ const LinuxServer = (props) => {
                         <li> 파티션 정보 - 레이아웃 추가 - 마운트할 지점 / , 크기옵션 사용안된 디스크 공간 모두 채움  </li>
                         <li> 좌측 상단 - 파일 - 저장 - 파일시스템 - var - ftp - centos.ks 라는 파일로 저장 </li>
                         <li> 좌측 상단 - 파일 - 끝내기 </li>
-                        <li> cd /var/ftp </li>
-                        <li> ls -la . </li>
-                        <li> vi centos.ks
-                          <span className='sblock'>
-                            <li> 제일 아래에 아래내용 추가 </li>
-                            <li> %packages </li>
-                            <li> @base </li>
-                            <li> @core </li>
-                            <li> @directory-client </li>
-                            <li> @fonts </li>
-                            <li> @gnome-desktop </li>
-                            <li> @input-methods </li>
-                            <li> @internet-browser </li>
-                            <li> @java-platform </li>
-                            <li> @multimedia </li>
-                            <li> @network-file-system-client </li>
-                            <li> @x11 </li>
-                            <li> %end </li>
-                          </span>
-                        </li>
-                        <li> vim /var/lib/tftpboot/pxelinux.cfg/default
-                          <li> pub 뒤쪽에 ks=ftp://192.168.10.80/centos.ks 추가 </li>
-                        </li>
-                        <li> systemctl restart dhcpd  </li>
-                        <li> systemctl restart vsftpd </li>
-                        <li> systemctl restart xinetd </li>
                       </span>
                     </li>
+                    <li> cd /var/ftp </li>
+                    <li> ls -la . </li>
+                    <li> vi centos.ks
+                      <span className='sblock'>
+                        <li> 제일 아래에 아래내용 추가 </li>
+                        <li> %packages </li>
+                        <li> @base </li>
+                        <li> @core </li>
+                        <li> @directory-client </li>
+                        <li> @fonts </li>
+                        <li> @gnome-desktop </li>
+                        <li> @input-methods </li>
+                        <li> @internet-browser </li>
+                        <li> @java-platform </li>
+                        <li> @multimedia </li>
+                        <li> @network-file-system-client </li>
+                        <li> @x11 </li>
+                        <li> %end </li>
+                      </span>
+                    </li>
+                    <li> vim /var/lib/tftpboot/pxelinux.cfg/default
+                      <li> 192.168.10.80/pub 뒤쪽에 ks=ftp://192.168.10.80/centos.ks 추가 </li>
+                    </li>
+                    <li> systemctl restart dhcpd  </li>
+                    <li> systemctl restart vsftpd </li>
+                    <li> systemctl restart xinetd </li>
+                    <li> 그리고 다시 미설치된 PXE_Client CentOS 재실행 </li>
+                    <li> root , P@ssw0rd! 입력 </li>
+                  </span>
+                  <span className="sstitle">  </span>
+                  <span className="mblock">
                     <li>  </li>
+                  </span>
+                </span>
+              </details>
+            </span>
+            {/*  */}
+            <span className="mblock">
+              <details>
+                <summary className="stitle"> ▶ svn 서버
+                  <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+                <span className="sblock">
+                  <span className="sstitle"> 설명 </span>
+                  <span className="mblock">
+                    <li> git 이전의 사용하던 형상관리 서버 </li>
+                    <li>  </li>
+                  </span>
+                  <span className="sstitle"> 설치 </span>
+                  <span className="mblock">
+                    <li> yum install -y subversion </li>
+                    <li> mkdir -p /app/repo/svn </li>
+                    <li> vim /etc/sysconfig/svnserve
+                      <span className='sblock'>
+                        <li> OPTIONS="-r /var/svn" 을 "--threads --root /app/repo/svn" 으로 변경 </li>
+                      </span>
+                    </li>
+                    <li> firewall-cmd --permanent --zone=public --add-port=3690/tcp </li>
+                    <li> firewall-cmd --reload </li>
+                    <li> cd /app/repo/svn </li>
+                    <li> mkdir proj1 </li>
+                    <li> cd proj1 </li>
+                    <li> svnadmin create --fs-type fsfs /app/repo/svn/proj1 </li>
+                    <li> ls -la </li>
+                    <li> cd conf </li>
+                    <li> vi svnserve.conf
+                      <span className='sblock'>
+                        <li> 19번째 줄 주석해제하고 anon-access = read 를 anon-access = none 로 변경 </li>
+                        <li> 20번째 줄 주석해제 anon-access = write </li>
+                        <li> 27번째 줄 주석해제 password-db = passwd </li>
+                        <li> 34번째 줄 주석해제 authz-db = authz </li>
+                        <li> 39번째 줄 주석해제 realm = My First Repository 를 project1 으로 변경 </li>
+                      </span>
+                    </li>
+                    <li> vi passwd
+                      <span className='sblock'>
+                        <li> test = P@ssw0rd! # 내용 추가 </li>
+                      </span>
+                    </li>
+                    <li> vi authz
+                      <span className='sblock'>
+                        <li> {'[/]'} </li>
+                        <li> test = rw </li>
+                      </span>
+                    </li>
+                    <li> systemctl restart svnserve </li>
+                    <li> systemctl stop firewalld </li>
+                    <li> setenforce 0 </li>
+                    <li> chkconfig svnserve on </li>
+                    <li> 윈도우에서 구글에 tortoisesvn 검색 </li>
+                    <li> <a href="https://osdn.net/projects/tortoisesvn/storage/1.14.1/Application/TortoiseSVN-1.14.1.29085-x64-svn-1.14.1.msi/"
+                      target="_blank" rel="noopener noreferrer"> tortoisesvn 64비트 1.14.1 다운로드 사이트 </a> </li>
+                    <li> <a href={process.env.PUBLIC_URL + '/Download/TortoiseSVN-1.14.1.29085-x64-svn-1.14.1.msi'}
+                      download="TortoiseSVN-1.14.1.29085-x64-svn-1.14.1.msi" > TortoiseSVN-1.14.1.29085-x64-svn-1.14.1.msi </a> </li>
+                    <li> msi 설치 </li>
+                    <li> svn1 snv2 새폴더 2개 만들기 </li>
+                    <li> svn1 폴더 우측클릭해서 SVN Checkout 클릭 </li>
+                    <li> URL에 svn://192.168.10.80/proj1 </li>
+                    <li> test , P@ss0wrd! 입력하기 </li>
+                    <li> 윈도우 검색에 TortoiseSVN Repository Browser 실행 </li>
+                    <li> 윈도우에서 svn1 폴더로 가서 README.txt 파일 만들고 svn1 폴더 우측클릭하고 SVN Commit 클릭 </li>
+                    <li> svn2 폴더 우측클릭해서 SVN Checkout 클릭 </li>
+                    <li> svn2 폴더 우측클릭해서 update 하면 svn1폴더에서 작성했던 README.txt 파일이 생성되는 것을 볼 수 있다. </li>
+                  </span>
+                </span>
+              </details>
+            </span>
+            {/*  */}
+            <span className="mblock">
+              <details>
+                <summary className="stitle"> ▶ Kerberos 서버 <small> </small>
+                  <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+                <span className="sblock">
+                  <span className="sstitle"> 설명 </span>
+                  <span className="mblock">
+                    <li> 케르베로스에서 나온 유래 , 문지기 </li>
+                    <li> 인증을 처리해주는 서버 </li>
+                    <li>  </li>
+                  </span>
+                  <span className="sstitle"> 설치 </span>
+                  <span className="mblock">
+                    <li> hostname </li>
+                    <li> hostnamectl --static set-hostname kdc.test.com </li>
+                    <li> yum -y install bind bind-chroot </li>
+                    <li> vi /etc/named.conf
+                      <span className='sblock'>
+                        <li> 127.0.0.1을 any로 변경 # 13번 째 줄 </li>
+                        <li> ::1을 none로 변경 # 14번 째 줄 </li>
+                        <li> localhost를 any로 변경 # 21번 째 줄 </li>
+                        <li> zone "test.com" IN {'{'} 59번 째 줄
+                          <li> type master; </li>
+                          <li> file "test.zone" </li>
+                          <li> allow-update {'{none;};'} </li>
+                        </li>
+                        <li> {'};'} </li>
+                      </span>
+                    </li>
+                    <li> named-checkconf </li>
+                    <li> cd /var/named  </li>
+                    <li> vi test.zone
+                      <span className="sblock">
+                        <li>
+                          <span> $TTL </span>
+                          <span className="tab_4"> 3H </span>
+                        </li>
+                        <li>
+                          <span> @ </span>
+                          <span className="tab_4"> SOA </span>
+                          <span className="tab_4"> @ </span>
+                          <span className="tab_4"> root. </span>
+                          <span className="tab_4"> (20201111 1D 1H 1W 1H) <small> root는 파일을만든사용자이름,
+                            뒤에는 생성 날짜 </small></span>
+                        </li>
+                        <li>
+                          <span> 공백 </span>
+                          <span className="tab_4"> IN </span>
+                          <span className="tab_4"> NS </span>
+                          <span className="tab_4"> @ <small> 메인 DNS서버의 있다고 알려줌? , NS는 네임서버 </small></span>
+                        </li>
+                        <li>
+                          <span> 공백 </span>
+                          <span className="tab_4"> IN </span>
+                          <span className="tab_4"> A </span>
+                          <span className="tab_4"> 192.168.10.80 <small> DNS서버의 IP주소가 뭔지를 알려줌 , A는 주소? </small> </span>
+                        </li>
+                        <li>
+                          <span> kdc </span>
+                          <span className="tab_4"> IN </span>
+                          <span className="tab_4"> A </span>
+                          <span className="tab_4"> 192.168.10.80 </span>
+                        </li>
+                      </span>
+                    </li>
+                    <li> yum -y install krb5-server krb5-workstation pam_krb5  </li>
+                    <li> vi /etc/brb5.conf
+                      <span className='sblock'>
+                        <li> default_realm = EXAMPLE.COM 을 TEST.COM  으로 변경 # 16번째 줄 주석처리 제거하고 수정 </li>
+                        <li> EXAMPLE.COM 을 TEST.COM 으로 변경# 20번째 줄 수정 </li>
+                        <li> kdc = kerberos.example.com 을 kdc.test.com 으로 변경 # 21번째 줄  </li>
+                        <li> admin_server = kerberos.example.com 을 kdc.test.com 으로 변경 # 22번 째 줄 , 인증 서버  </li>
+                        <li> .example.com = EXAMPLE.COM 을 .test.com = TEST.COM 변경 # 주석해제 </li>
+                        <li> example.com = EXAMPLE.COM 을 test.com = TEST.COM 변경  # 주석해제 </li>
+                      </span>
+                    </li>
+                    <li> vi /var/kerberos/krb5kdc/kadm5.acl
+                      <li> */admin@EXAMPLE.COM 을 */admin@TEST.COM 변경 </li>
+                    </li>
+                    <li> vi /var/kerberos/krb5kdc/kdc.conf
+                      <li> #master_key_type = aes256-cts # 주석 처리되어 있는 부분 제거  </li>
+                      <li> EXAMPLE.COM 을 TEST.COM으로 변경  </li>
+                    </li>
+                    <li> kdb5_util create -r TEST.COM -s # 커버로스 관리프로그램(kdb5_util) </li>
+                    <li> P@ssw0rd! </li>
+                    <li> P@ssw0rd!  </li>
+                    <li> systemctl restart kadmin krb5kdc  </li>
+                    <li> kadmin.local  </li>
+                    <li> add_principal root/admin  </li>
+                    <li> P@ssw0rd!  </li>
+                    <li> P@ssw0rd!  </li>
+                    <li> kadmin.local  </li>
+                    <li> add_principal krbuser  </li>
+                    <li> P@ssw0rd!  </li>
+                    <li> P@ssw0rd!  </li>
+                    <li> listprincs  </li>
+                    <li> quit  </li>
+                    <li> ktadd -k /var/kerberos/krb5kdc/kadm5.keytab kadmin/admin  </li>
+                    <li> ktadd -k /var/kerberos/krb5kdc/kadm5.keytab kadmin/changepw  </li>
+                    <li> addprinc -randkey host/kdc.test.com  </li>
+                    <li> ktadd host/kdc.test.com  </li>
+                    <li> vi /etc/ssh/sshd_config
+                      <li> <span className='sstitle'>  </span> </li>
+                      <span className='sblock'>
+                        <li> GSSAPIAuthentication # 79번째 줄이 yes로 되있으면 된다. </li>
+                        <li> GSSAPICleanupCredentials no # 80번째 줄이 no로 되있으면 된다. </li>
+                      </span>
+                    </li>
+                    <li> vi /etc/ssh/ssh_config
+                      <li> GSSAPIAuthentication yes # 59번째 줄 </li>
+                      <li> GSSAPIDelegatedCredentials yes # 아래에 내용추가 ,   </li>
+                    </li>
+                    <li> systemctl restart sshd  </li>
+                    <li> systemctl restart krb5kdc </li>
+                    <li> systemctl restart kadmin</li>
+                    <li> useradd krbuser  </li>
+                    <li> systemctl stop firewalld  </li>
+                    <li> setenforce 0  </li> <br />
+                    <li> CentOS 클라이언트로 이동  </li>
+                    <li> yum -y install krb5-workstation pam_krb5  </li>
+                    <li> vi /etc/sysconfig/network-scripts/ifcfg-ens33
+                      <li> DNS1=192.168.10.80  # 추가 </li>
+                    </li>
+                    <li> systemctl restart network  </li>
+                    <li> cat /etc/resolv.conf # </li>
+                    <li> vi /etc/ssh/sshd_config
+                      <span className='sblock'>
+                        <li> GSSAPIAuthentication yes 인지 확인</li>
+                      </span>
+                    </li>
+                    <li>  vi /etc/ssh/ssh_config
+                      <li> GSSAPIAuthentication yes # 59번째 줄 </li>
+                      <li> GSSAPIDelegatedCredentials yes # 아래에 내용추가 ,   </li>
+                    </li>
+                    <li> kinit krbuser # kinit는 티겟 발급 명령어, krbuser 라는 티겟을 받겠다.  </li>
+                    <li> ssh krbuser@kdc.test.com # 티겟을 가지고 접속 , 비번 없이 접속 가능 </li>
+                    <li> exit  </li>
+                    <li>   </li>
+                    <li>   </li>
+                  </span>
+                </span>
+              </details>
+            </span>
+            {/*  */}
+            <span className="mblock">
+              <details>
+                <summary className="stitle"> ▶ 프록시 서버 <small> </small>
+                  <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+                <span className="sblock">
+                  <span className="sstitle"> 설명 </span>
+                  <span className="mblock">
+                    <li> 포트번호 3128  </li>
+                    <li> 캐시를 사용하여 리소스를 빠르게 접근하기 위해서  </li>
+                    <li> 웹 프록시는 웹 서버의 웹 페이지를 캐시로 저장하는데 사용  </li>
+                    <li> 익명으로 컴퓨터 유지  </li>
+                    <li> 사용률을 기록하기 위해  </li>
+                    <li> 밖으로 나가는 내용을 검사하기 위해 </li>
+                    <li>   </li>
+                    <li> 보안 밎 통제를 나가기 위해  </li>
+                    <li> IP추적을 피하기 위해  </li>
+                    <li> 지역 제한을 우회하기 위해서  </li>
+                  </span>
+                  <span className="sstitle"> squid 설치 </span>
+                  <span className="mblock">
+                    <li> yum -y install squid </li>
+                    <li> vi /etc/suqid/squid.conf
+                      <li> acl centos7 src 192.168.10.0/255.255.255.0 #26번째 줄 추가   </li>
+                      <li> http_access allow centos7 # 55번째 줄 추가, 프록시 서버에 접근을 허용해주겠다. </li>
+                      <li> cache_dir ufs /var/spool/squid 1000 16 256 # 64번 째 줄주석 해제 및 수정 , 캐시를 얼마만큼의
+                        용량으로 저장 하겠느냐 ( MB 자주쓰는폴더디렉토리갯수 하위디렉토리갯수 ) </li>
+                      <li> cache_access_log /var/log/squid/access.log # , 프록시 서버에 접근할 때 생기는 로그 </li>
+                      <li> cache_log /var/log/squid/cache.log # 프록시 서버에서 발생하는 로그 </li>
+                      <li> cache_store_log /var/log/squid/store.log # 발생하는 세부정보를 store에 저장하는 로그 </li>
+                      <li> cache_mem 8 MB </li>
+                      <li> visible_hostname centos7 # 마지막줄에 추가 , 프록시서버의 이름을 지정  </li>
+                    </li>
+                    <li> systemctl restat squid  </li>
+                    <li> cd /var/spool/squid  </li>
+                    <li> ls -la # 00 ~ 0F 는 사이트라고 생각하면 된다. 아까 지정한 16 의미  </li>
+                    <li> find * -type f # 현재 파일에서 모든 파일을 검사  </li>
+                    <li> systemctl stop firewalld  </li>
+                    <li> CentOS 클라이언트로 이동  </li>
+                    <li> setenforce 0  </li>
+                    <li> firefox 열기  </li>
+                    <li> 우측 위에 메뉴 - 환경 설정 - 일반 - 네트워크 설정으로 이동 </li>
+                    <li> 수동 프록시 설정, HTTP 프록시 192.168.10.80  포트  3128 , 모든 프로토콜에 위의 프록시 설정 사용 체크  </li>
+                    <li> 네이버로 가서 여러개를 눌러보기 , 그리고 서버로 이동해서 프록시 서버의 캐시를 보기  </li>
+                    <li> CentOS 서버로 이동  </li>
+                    <li> find * -type f </li>
+                    <li> 보다보면 css 파일로 저장되어있는 것을 볼 수 있음  </li>
+                    <li> cat /var/log/squid/access.log # 접근한 사이트에 대해서 볼 수 있음  </li>
+                    <li> cat /var/log/squid/cache.log # 캐시 파일이 언제 만들어졌는지 등 </li>
+                    <li> cat /var/log/squid/store.log # 어떤 캐시파일이 저장되었는지 알 수 있음  </li>
+                    <li> 윈도우 실행창 에서 inetcpl.cpl - 연결 - LAN 설정 - 사용자 프록시 서버 사용 체크 -
+                      192.168.10.80 , 3128 이라고 설정하면 CentOS에서 확인 가능(다시 설정해두지 않으면 인터넷이 안됨)  </li>
+                    <li> tail -f /var/log/squid/access.log </li>
+                    <li> 회사에서 프록시 서버를 통하지 않고 막아버리면 통제가능 </li>
                   </span>
                   <span className="sstitle">  </span>
                   <span className="mblock">

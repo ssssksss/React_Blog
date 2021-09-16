@@ -817,6 +817,106 @@ const PythonBasic = (props) => {
 
                         <span className="mblock">
                             <details>
+                                <summary className="stitle"> numpy 모듈
+                                    <a name="" style={{ visibility: "hidden" }}> ▷  </a> </summary>
+                                <span className="sblock">
+                                    <span className="sstitle"> 설명 </span>
+                                    <span className="mblock">
+                                        <li> <a href="https://numpy.org/doc/stable/index.html" target="_blank"
+                                            rel="noopener noreferrer"> numpy 공식 사이트 </a> </li>
+                                        <li>  </li>
+                                        <li>  </li>
+                                    </span>
+                                    {/*  */}
+                                    <span className="sstitle"> 사용 </span>
+                                    <span className="mblock">
+                                        <li> import numpy as np # 선언 </li>
+                                        <li> arr1 = np.array(배열) # array 정의 </li>
+                                        <li> arr1 = np.array(2ckdnjs배열) # array 정의 </li>
+                                        <li> arr1.shape # array 행과 열 조회 </li>
+                                        <li> arr1.dtype # array 자료형 조회 </li>
+                                        <li> np.zeros(10) # 1행 10열 0 요소를 가진 1차원 array </li>
+                                        <li> np.zeros((10,10)) # 10행 10열 0 요소를 가진 2차원 array </li>
+                                        <li> np.ones(1) </li>
+                                        <li> np.ones((10,10)) </li>
+                                        <li> np.arange(10) # 0~9 까지  </li>
+                                        <li> np.arange(1,10) # 1~9 까지  </li>
+                                        <li> arr1 + arr2 , np.add(arr1,arr2) # 행열의 각 요소끼리 덧셈 </li>
+                                        <li> arr1 - arr2 , np.subtract(arr1,arr2) # 행열의 각 요소끼리 뺄셈 </li>
+                                        <li> arr1 * arr2 , np.multiply(arr1,arr2) # 행열의 각 요소끼리 곱셈 </li>
+                                        <li> arr1 / arr2 , np.dividev(arr1,arr2) # 행열의 각 요소끼리 나눗셈 </li>
+                                        <li> arr1 = 2행 2열 , arr2 = 1행 2열 (브로드 캐스트)
+                                            <li> arr1 + arr2 # arr2가 행을 1개 확장하여 계산 </li>
+                                            <li> arr1 - arr2 # arr2가 행을 1개 확장하여 계산 </li>
+                                            <li> arr1 * arr2 # arr2가 행을 1개 확장하여 계산 </li>
+                                            <li> arr1 / arr2 # arr2가 행을 1개 확장하여 계산 </li>
+                                        </li>
+                                        <li> arr1 * 10 # 각요소의 곱셈 </li>
+                                        <li> arr1 ** 2 # 각요소의 제곱 </li>
+                                        <li> arr1[1] #인덱스 조회 </li>
+                                        <li> arr1[1:10] # 슬라이싱 </li>
+                                        <li> arr1[:10]  0부터 9까지 </li>
+                                        <li> arr1[1:] # 1부터 끝까지 </li>
+                                        <li> arr1[:] #모든 요소 </li>
+                                        <li> arr1[1,1] #2차원 인덱싱 </li>
+                                        <li> arr1[1,:] #2차원 1행 모든열 슬라이싱 </li>
+                                        <li> arr1[:,1] #2차원 모든행 1열 슬라이싱 </li>
+                                        <li> np.random.rand(10,10) # 0~1 의 난수를 발생시킨다. , 10행 10열 </li>
+                                        <li> np.random.randn(10,10) # 기대값 0, 표준편차 1의 가우시안 정규분포를 따르는
+                                            난수를 발생시킨다. , 10행 10열 </li>
+                                        <li> mask1 = ( arr1 == '값') # arr1에서 조건에 맞는 값들에 대한 boolean 값을 리턴 </li>
+                                        <li> arr1[arr2 == '값', : ] # arr1에서 arr2 조건에 맞는 행을 출력 </li>
+                                        <li> arr1[ (arr2 == '값') | (arr2 == '값') , :  ] # arr1에서 arr2 조건에 맞는 행을 출력 </li>
+                                        <li> arr1[arr1[ (arr2 == '값') ] {'>'} 0, : ]  </li>
+                                        <li> np.abs(arr1) </li>
+                                        <li> np.sqrt(arr1) , arr1 ** 0.5 # 음수를 제곱근 하면 경고 발생, nan 출력 </li>
+                                        <li> np.square(arr1) , arr1 ** 2 </li>
+                                        <li> np.exp(arr1) </li>
+                                        <li> np.log(arr1) # 자연로그 ln , log<sub>e</sub> </li>
+                                        <li> np.log10(arr1) # 상용로그 log<sub>10</sub> </li>
+                                        <li> np.log2(arr1) # 상용로그 log<sub>2</sub> </li>
+                                        <li> np.sign(arr1) # +는 1, -는 -1 , 0은 0 </li>
+                                        <li> np.isnan(arr1) # nan이면 True , 아니면 False </li>
+                                        <li> np.isinf(arr1) # 무한대이면 True , 아니면 False </li>
+                                        <li> np.ceil(arr1) # 1번째 자리에서 올림 </li>
+                                        <li> np.floor(arr1) # 1번째 자리에서 내림 </li>
+                                        <li> np.sin(arr1) </li>
+                                        <li> np.sinh(arr1) </li>
+                                        <li> np.cos(arr1) </li>
+                                        <li> np.cosh(arr1) </li>
+                                        <li> np.tan(arr1) </li>
+                                        <li> np.tanh(arr1) </li>
+                                        <li> np.maximum(arr1,arr2) # arr1,arr2 배열에서 최댓값 출력 </li>
+                                        <li> np.minimum(arr1,arr2) # arr1,arr2 배열에서 최솟값 출력 </li>
+                                        <li> np.sum(arr1) # 모든 요소 합 </li>
+                                        <li> np.sum(arr1, axis=0) #각 열의 합 </li>
+                                        <li> np.sum(arr1, axis=1) #각 행의 합</li>
+                                        <li> np.mean(arr1) # 평균값 출력 </li>
+                                        <li> np.std(arr1) # 표준편차 </li>
+                                        <li> np.var(arr1) # 분산 </li>
+                                        <li> np.min(arr1) # 최댓값 </li>
+                                        <li> np.max(arr1) # 최솟값 </li>
+                                        <li> np.argmin(arr1) # arr1의 최솟값 인덱스 반환 </li>
+                                        <li> np.argmax(arr1) # arr1의 최댓값 인덱스 반환 </li>
+                                        <li> np.cumsum(arr1) # 첫항부터 누적합을 계산 </li>
+                                        <li> np.cumprod(arr1) # 첫항부터 누적곱을 계산 </li>
+                                        <li> np.sort(arr1) #오름차순 정령 </li>
+                                        <li> np.sort(arr1)[::-1] #내림차순 정령 </li>
+                                        <li>  </li>
+                                        <li>  </li>
+                                    </span>
+                                    {/*  */}
+                                    <span className="sstitle">  </span>
+                                    <span className="mblock">
+                                        <li>  </li>
+                                    </span>
+                                    {/*  */}
+                                </span>
+                            </details>
+                        </span>
+
+                        <span className="mblock">
+                            <details>
                                 <summary className="stitle"> <a name="" style={{ visibility: "hidden" }}> ▷  </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle">  </span>
