@@ -9,7 +9,7 @@ const LinuxServer = (props) => {
             {/*  */}
             <span className="mblock">
               <details>
-                <summary className="stitle"> ▶ 네트워크 연결 <small> </small>
+                <summary className="stitle">  네트워크 연결 <small> </small>
                   <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                 <span className="sblock">
                   <span className="sstitle"> 초기 연결 </span>
@@ -48,7 +48,7 @@ const LinuxServer = (props) => {
             {/*  */}
             <span className="mblock">
               <details>
-                <summary className="stitle"> ▶ httpd 서버 <small> </small>
+                <summary className="stitle">  httpd 서버 <small> </small>
                   <a name="httpd 서버" style={{ visibility: "hidden" }}> httpd 서버 </a> </summary>
                 <span className="sblock">
                   <span className="sstitle"> httpd 서버 설치 </span>
@@ -94,11 +94,11 @@ const LinuxServer = (props) => {
                   <span className="sstitle"> httpd 서버 로그 </span>
                   <span className="mblock">
                     <li> cat /var/log/httpd/error_log
-                      <span className='sblock'>
+                      <div className="sblock">
                         <li> <span className='sstitle'> client denied by server configuration </span> </li>
                         <li> 폴더 경로가 잘 잡혔는지 확인 </li>
                         <li>  </li>
-                      </span>
+                      </div>
                     </li>
                     <li>  </li>
                   </span>
@@ -114,7 +114,7 @@ const LinuxServer = (props) => {
             {/*  */}
             <span className="mblock">
               <details>
-                <summary className="stitle"> ▶ ftp 서버 <small> </small>
+                <summary className="stitle">  ftp 서버 <small> </small>
                   <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                 <span className="sblock">
                   <span className="sstitle"> ftp 서버 설치 </span>
@@ -154,7 +154,7 @@ const LinuxServer = (props) => {
             {/*  */}
             <span className="mblock">
               <details>
-                <summary className="stitle"> ▶ dns 서버 <small> 도메인을 IP주소로 바꿔주는 서버 </small>
+                <summary className="stitle">  dns 서버 <small> 도메인을 IP주소로 바꿔주는 서버 </small>
                   <a name="dns 서버" style={{ visibility: "hidden" }}> dns 서버 </a> </summary>
                 <span className="sblock">
                   <span className="sstitle"> 설명 </span>
@@ -358,7 +358,7 @@ const LinuxServer = (props) => {
             {/*  */}
             <span className="mblock">
               <details>
-                <summary className="stitle"> ▶ ssh 서버 <small> </small>
+                <summary className="stitle">  ssh 서버 <small> </small>
                   <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                 <span className="sblock">
                   <span className="sstitle"> ssh 서버 설명 </span>
@@ -432,7 +432,7 @@ const LinuxServer = (props) => {
             {/*  */}
             <span className="mblock">
               <details>
-                <summary className="stitle"> ▶ raid 서버 <small> </small>
+                <summary className="stitle">  raid 서버 <small> </small>
                   <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                 <span className="sblock">
                   <span className="sstitle"> raid 서버 설명 </span>
@@ -643,7 +643,7 @@ const LinuxServer = (props) => {
             {/*  */}
             <span className="mblock">
               <details>
-                <summary className="stitle"> ▶ mail 서버 <small> </small>
+                <summary className="stitle">  mail 서버 <small> </small>
                   <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                 <span className="sblock">
                   <span className="sstitle"> 메일 서버 설명 </span>
@@ -854,7 +854,7 @@ const LinuxServer = (props) => {
             {/*  */}
             <span className="mblock">
               <details>
-                <summary className="stitle"> ▶ 레포지토리 서버(미완성) <small> </small>
+                <summary className="stitle">  레포지토리 서버(미완성) <small> </small>
                   <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                 <span className="sblock">
                   <span className="sstitle">  </span>
@@ -924,21 +924,21 @@ const LinuxServer = (props) => {
                       <li> mkdir /etc/yum.repos.d/backup </li>
                       <li> mv /etc/yum.repos.d/*.repo /etc/yum.repos.d/backup </li>
                       <li> vi repo-server.repo
-                        <span className='sblock'>
+                        <div className="sblock">
                           <li> [repo-server] </li>
                           <li> name=Repository Server </li>
                           <li> {' baseurl=file://192.168.10.80/repo '} </li>
                           <li> enabled=1 </li>
                           <li> gpgcheck=1 </li>
-                        </span>
+                        </div>
                       </li>
                       <li> yum clean all </li>
                       <li> 만약 yum lock이 있다면 , 반복 시도
-                        <span className='sblock'>
+                        <div className="sblock">
                           <li> ps -ef | grep yum  </li>
                           <li> kill -9 PID번호 </li>
                           <li> yum clean all </li>
-                        </span>
+                        </div>
                       </li>
                       <li> cat /root/RPM-GPG-KEY 의 내용을 모두 복사 </li>
                       <li> vi /tmp/key 에 복사한 내용을 넣어주기 </li>
@@ -984,7 +984,7 @@ const LinuxServer = (props) => {
             {/*  */}
             <span className="mblock">
               <details>
-                <summary className="stitle"> ▶ 톰캣 서버 <small> </small>
+                <summary className="stitle">  톰캣 서버 <small> </small>
                   <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                 <span className="sblock">
                   <span className="sstitle"> 설명 </span>
@@ -1036,7 +1036,7 @@ const LinuxServer = (props) => {
                     <li> vi /usr/lib/systemd/system/firewalld.service # 안을 보면 실행을 어떻게 하는지 볼수있음 </li>
                     <li> cd /etc/systemd/system </li>
                     <li> vi tomcat.service
-                      <span className='sblock'>
+                      <div className="sblock">
                         <li> [Unit] </li>
                         <li> Description=Apache Tomcat Web Application Container </li>
                         <li> After=syslog.target network.target </li>
@@ -1054,13 +1054,13 @@ const LinuxServer = (props) => {
                         <li> Group=root </li>
                         <li> [Install] </li>
                         <li> WantedBy=multi-user.target </li>
-                      </span>
+                      </div>
                     </li>
                     <li> systemctl restart tomcat </li>
                     <li> netstat -tnlp # 8080포트를 보면 자바를 볼 수 있다. </li>
                     <li> cd /app/server/tomcat/conf </li>
                     <li> vi tomcat-users.xml
-                      <span className='sblock'>
+                      <div className="sblock">
                         <li> {' <role rolename="admin-gui"/> '} </li>
                         <li> {' <role rolename="manager-gui"/> '} </li>
                         <li> {' <role rolename="manager-script"/> '} </li>
@@ -1068,14 +1068,14 @@ const LinuxServer = (props) => {
                         <li> {' <role rolename="manager-jmx"/> '} </li>
                         <li> {'<user username="tomcat" password="tomcat" roles="adming-gui,manager-gui,manager-script,manager-status,manager-jmx"/> '}
                           # 다른 사용자가 접근 가능하게 , 56번쨰 줄에 추가 </li>
-                      </span>
+                      </div>
                     </li>
                     <li> vi /app/server/tomcat/conf/Catalina/localhost/manager.xml
-                      <span className='sblock'>
+                      <div className="sblock">
                         <li> {' <Context privileged="true" antiResourceLocking="false" docBase="${catalina.home}/webapps/manager"> '} </li>
                         <li> {' <Valve className="org.apache.catalina.valves.RemoteAddrValve" allow="^.*$" /> '} </li>
                         <li> {' </Context> '} </li>
-                      </span>
+                      </div>
                     </li>
                     <li> systemctl restart tomcat </li>
                     <li> 브라우저에 192.168.10.80:8080 에서 manager app을 클릭 #에러 발생 </li>
@@ -1103,29 +1103,29 @@ const LinuxServer = (props) => {
                     <li> touch /etc/httpd/conf/extra/httpd-ssl.conf </li>
                     <li> cat httpd.conf | grep conf </li>
                     <li> vi /etc/httpd/conf/workers.properties
-                      <span className='sblock'>
+                      <div className="sblock">
                         <li> worker.list=worker1 #아파치와-톰캣이 여러개 일 수 있으므로 이름지정 </li>
                         <li> worker.worker1.port=8009 #아파치-톰캣 포트 연동 </li>
                         <li> worker.worker1.host=localhost #아파치 서버의 위치  </li>
                         <li> worker.worker1.type=ajp13 #아파치-톰캣 프로토콜? 연동 </li>
                         <li> worker.worker1.lbfactor=1 #  </li>
-                      </span>
+                      </div>
                     </li>
                     <li> vi /etc/httpd/conf/uriworkermap.properties
-                      <span className='sblock'>
+                      <div className="sblock">
                         <li> /*=worker1 #서브 디렉토리를 모두 worker1이라는 곳에서 참조해라 </li>
-                      </span>
+                      </div>
                     </li>
                     <li> vi /etc/httpd/conf/httpd.conf
-                      <span className='sblock'>
+                      <div className="sblock">
                         <li> "/var/www/html"을 "/app/server/tomcat/webapps" 이걸로 변경 #119번쨰줄 </li>
-                      </span>
+                      </div>
                     </li>
                     <li> ls -la /app/server/tomcat/webapps #(루트경로처럼 사용) </li>
                     <li> 따라 하지 않아도됨 , sed -i "s/^\s*#.//g" /etc/httpd/conf/httpd.conf # 파일안에 주석을 모두 제거 </li>
                     <li> 따라 하지 않아도됨 , sed -i "/^$/d" /etc/httpd/conf/httpd.conf # 파일안에 공백제거  </li>
                     <li> vim /etc/httpd/conf/httpd.conf
-                      <span className='sblock'>
+                      <div className="sblock">
                         <li> {' <Directory /> '} 이부분의 denied 를 granted로 변경 </li>
                         <li> {' <Directory /var/www> <Directory /var/html> '} 이 두부분은 필요가 없음 </li>
                         <li> LoadModule jk_module modules/mod_jk.so #가장 아래쪽에 추가 </li>
@@ -1140,7 +1140,7 @@ const LinuxServer = (props) => {
                           <li> JkUnMount /*.php worker1 </li>
                         </li>
                         <li> {'<IfModule>'} </li>
-                      </span>
+                      </div>
                     </li>
                     <li> systemctl restart httpd  </li>
                     <li> vi /app/server/tomcat/conf/server.xml
@@ -1164,7 +1164,7 @@ const LinuxServer = (props) => {
             {/*  */}
             <span className="mblock">
               <details>
-                <summary className="stitle"> ▶ PXE 서버 <small> </small>
+                <summary className="stitle">  PXE 서버 <small> </small>
                   <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                 <span className="sblock">
                   <span className="sstitle"> 설명 </span>
@@ -1218,13 +1218,13 @@ const LinuxServer = (props) => {
                     <li> mkdir /var/lib/tftpboot/pxelinux.cfg </li>
                     <li> cd /var/lib/tftpboot/pxelinux.cfg/ </li>
                     <li> vim default
-                      <span className='sblock'>
+                      <div className="sblock">
                         <li> DEFAULT CentOS7_Auto_Install # pxe서버에서 기본적으로 설치할 파일</li>
                         <li> LABEL CentOS7_Auto_Install # 설치할 파일에 대한 내용
                           <li> kernel vmlinuz </li>
                           <li> APPEND initrd=initrd.img repo=ftp://192.168.10.80/pub </li>
                         </li>
-                      </span>
+                      </div>
                     </li>
                     <li> ps -ef | grep dnsmasq # 기본적으로 설치하지 않아도 실행되는 dhcp서버 </li>
                     <li> kill -9 1955 # 사람마다 다름 </li>
@@ -1244,7 +1244,7 @@ const LinuxServer = (props) => {
                     <li> 이제 언어 등 설정까지 다 해주는 킥스타트  </li>
                     <li> yum -y install system-config-kickstart system-config-keyborard </li>
                     <li> system-config-kickstart
-                      <span className='sblock'>
+                      <div className="sblock">
                         <li> 기본설정 - 언어 - 한국어 </li>
                         <li> 기본설정 - 시간대 - Asia/Seoul </li>
                         <li> 기본설정 - 암호 - P@ssw0rd! </li>
@@ -1258,12 +1258,12 @@ const LinuxServer = (props) => {
                         <li> 파티션 정보 - 레이아웃 추가 - 마운트할 지점 / , 크기옵션 사용안된 디스크 공간 모두 채움  </li>
                         <li> 좌측 상단 - 파일 - 저장 - 파일시스템 - var - ftp - centos.ks 라는 파일로 저장 </li>
                         <li> 좌측 상단 - 파일 - 끝내기 </li>
-                      </span>
+                      </div>
                     </li>
                     <li> cd /var/ftp </li>
                     <li> ls -la . </li>
                     <li> vi centos.ks
-                      <span className='sblock'>
+                      <div className="sblock">
                         <li> 제일 아래에 아래내용 추가 </li>
                         <li> %packages </li>
                         <li> @base </li>
@@ -1278,7 +1278,7 @@ const LinuxServer = (props) => {
                         <li> @network-file-system-client </li>
                         <li> @x11 </li>
                         <li> %end </li>
-                      </span>
+                      </div>
                     </li>
                     <li> vim /var/lib/tftpboot/pxelinux.cfg/default
                       <li> 192.168.10.80/pub 뒤쪽에 ks=ftp://192.168.10.80/centos.ks 추가 </li>
@@ -1299,7 +1299,7 @@ const LinuxServer = (props) => {
             {/*  */}
             <span className="mblock">
               <details>
-                <summary className="stitle"> ▶ svn 서버
+                <summary className="stitle">  svn 서버
                   <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                 <span className="sblock">
                   <span className="sstitle"> 설명 </span>
@@ -1312,9 +1312,9 @@ const LinuxServer = (props) => {
                     <li> yum install -y subversion </li>
                     <li> mkdir -p /app/repo/svn </li>
                     <li> vim /etc/sysconfig/svnserve
-                      <span className='sblock'>
+                      <div className="sblock">
                         <li> OPTIONS="-r /var/svn" 을 "--threads --root /app/repo/svn" 으로 변경 </li>
-                      </span>
+                      </div>
                     </li>
                     <li> firewall-cmd --permanent --zone=public --add-port=3690/tcp </li>
                     <li> firewall-cmd --reload </li>
@@ -1325,24 +1325,24 @@ const LinuxServer = (props) => {
                     <li> ls -la </li>
                     <li> cd conf </li>
                     <li> vi svnserve.conf
-                      <span className='sblock'>
+                      <div className="sblock">
                         <li> 19번째 줄 주석해제하고 anon-access = read 를 anon-access = none 로 변경 </li>
                         <li> 20번째 줄 주석해제 anon-access = write </li>
                         <li> 27번째 줄 주석해제 password-db = passwd </li>
                         <li> 34번째 줄 주석해제 authz-db = authz </li>
                         <li> 39번째 줄 주석해제 realm = My First Repository 를 project1 으로 변경 </li>
-                      </span>
+                      </div>
                     </li>
                     <li> vi passwd
-                      <span className='sblock'>
+                      <div className="sblock">
                         <li> test = P@ssw0rd! # 내용 추가 </li>
-                      </span>
+                      </div>
                     </li>
                     <li> vi authz
-                      <span className='sblock'>
+                      <div className="sblock">
                         <li> {'[/]'} </li>
                         <li> test = rw </li>
-                      </span>
+                      </div>
                     </li>
                     <li> systemctl restart svnserve </li>
                     <li> systemctl stop firewalld </li>
@@ -1369,34 +1369,80 @@ const LinuxServer = (props) => {
             {/*  */}
             <span className="mblock">
               <details>
-                <summary className="stitle"> ▶ Kerberos 서버 <small> </small>
+                <summary className='stitle'>  Kerberos 서버
                   <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                 <span className="sblock">
                   <span className="sstitle"> 설명 </span>
                   <span className="mblock">
-                    <li> 케르베로스에서 나온 유래 , 문지기 </li>
+                    <li> 커버로스에서 나온 유래 , 문지기 </li>
                     <li> 인증을 처리해주는 서버 </li>
-                    <li>  </li>
+                    <li> kDC서버에서 인증, 승인을 처리하고 신분 증명서를 발급 해주는 서버 </li>
+                    <li> <a href="https://web.mit.edu/kerberos/krb5-devel/doc/index.html"
+                      target="_blank" rel="noopener noreferrer"> 커버로스 공식문서 </a> </li>
+                    <li> <span className='sstitle'> 티켓에 담긴 정보 </span>
+                      <div className="sblock">
+                        <li> 유저 아이디 </li>
+                        <li> 유저 호스트 IP 주소 </li>
+                        <li> 타임 스탬프 ( 시간 기록 ) </li>
+                        <li> 티켓 수명 </li>
+                        <li> 세션 키 </li>
+                      </div>
+                    </li>
+                    <li> <span className='sstitle'> 커버로스 동작 과정 </span>
+                      <div className="sblock">
+                        <li> AS서버는 TGS비밀키를 알고있고, TGS서버는 SS의비밀키를 알고 있다 </li>
+                        <li> 1. 유저가 암호화 되지 않는 아이디를 AS서버에 보낸다. </li>
+                        <li> 2. AS서버에서 DB에 저장된 아이디가 유효하면 DB에 저장되어 있는 사용자의 PW로 암호화한 TGS 세션키를 생성 </li>
+                        <li> 3. AS서버에서 사용자의PW암호화된TGS세션키( enc_key : 사용자의 PW 비밀키 , enc_data : TGS 세션키 ) , TGT( enc_key : TSG비밀키 , enc_data : 유저ID,주소,유효시간,TGS세션키) 을 발송</li>
+                        <li> 4. 사용자가 받은 TGS세션키를 사용자PW를 이용하여 복호화하여 TGS세션키를 얻을 수 있음 </li>
+                        <li> 5. 사용자가 Authenticator( enc_key : TGS 세션키 , enc_data : 유저ID,타임스탬프 ) , TGT( enc_key : TSG비밀키 , enc_data : 유저ID,주소,유효시간,TGS세션키) 을 발송</li>
+                        <li> 6. TGS서버에서(Ticket Granting Service) Authenticator와 TGT 정보를 이용해서 TGS 세션키를 이용해 SS 세션키를 생성  </li>
+                        <li> 7. TGS서버에서 사용자에게 사용자의TGS로암호화된SS세션키(enc_key : TGS세션키 , enc_data : SS세션키) , Ticket(enc_key : SS비밀키 , enc_data : 유저ID,주소,유효기간,SS세션키) 을 발송 </li>
+                        <li> 8. 사용자가 TGS세션키를 이용해서 SS세션키를 얻어냄 </li>
+                        <li> 9. 사용자가 Authenticator( enc_key : SS 세션키 , enc_data : 유저ID,주소,타임스탬프 ) , Ticket( enc_key : SS비밀키 , enc_data : 유저ID,주소,유효시간,SS세션키)를 실제 서비스 서버에 보낸다. </li>
+                        <li> 10. 서비스 서버에서는 티켓이 있으니 접근을 허용 </li>
+                      </div>
+                    </li>
+                    <li> <span className='sstitle'> 커버로스 단점 </span>
+                      <div className="sblock">
+                        <li> 서버가 다운되면 기존 유저들을 제외한 나머지는 로그인 불가 </li>
+                        <li> AS,TGS,SS 가 비밀키를 서로 알고 있어야 하는 문제점 </li>
+                        <li> 티겟이 유저에게 보관이 되므로 탈취가 될 가능성이 존재 </li>
+                        <li>  </li>
+                      </div>
+                    </li>
                   </span>
+                  <details>
+                    <summary className="sstitle"> 명령어 </summary>
+                    <span className="mblock">
+                      <span className="sstitle"> kdb5_util 명령어 </span>
+                      <span className="sblock">
+                        <li> kdb5_util create -r TEST.COM -s # 커버로스DB영역 생성하고 실행 , -s : stash 파일 생성 , -r : 인증영역을 지정  , 이미 존재하면 실패 </li>
+                        <li> kdb5_util [-f] destroy -r TEST.COM # 커버로스DB영역 삭제 </li>
+                        <li>  </li>
+                      </span>
+                      <li>  </li>
+                    </span>
+                  </details>
                   <span className="sstitle"> 설치 </span>
                   <span className="mblock">
-                    <li> hostname </li>
-                    <li> hostnamectl --static set-hostname kdc.test.com </li>
-                    <li> yum -y install bind bind-chroot </li>
+                    <li> hostname # 리눅스 시스템의 이름을 확인</li>
+                    <li> hostnamectl --static set-hostname kdc.test.com # --static 대소문자 구분, 서버의 이름 변경 </li>
+                    <li> yum -y install bind bind-chroot # dns 서버 설치 , 테스트 해보려고? </li>
                     <li> vi /etc/named.conf
-                      <span className='sblock'>
+                      <div className="sblock">
                         <li> 127.0.0.1을 any로 변경 # 13번 째 줄 </li>
                         <li> ::1을 none로 변경 # 14번 째 줄 </li>
                         <li> localhost를 any로 변경 # 21번 째 줄 </li>
                         <li> zone "test.com" IN {'{'} 59번 째 줄
                           <li> type master; </li>
-                          <li> file "test.zone" </li>
+                          <li> file "test.zone"; </li>
                           <li> allow-update {'{none;};'} </li>
                         </li>
                         <li> {'};'} </li>
-                      </span>
+                      </div>
                     </li>
-                    <li> named-checkconf </li>
+                    <li> named-checkconf # named.conf 파일을 검사하는 명령어 </li>
                     <li> cd /var/named  </li>
                     <li> vi test.zone
                       <span className="sblock">
@@ -1432,52 +1478,70 @@ const LinuxServer = (props) => {
                         </li>
                       </span>
                     </li>
-                    <li> yum -y install krb5-server krb5-workstation pam_krb5  </li>
-                    <li> vi /etc/brb5.conf
-                      <span className='sblock'>
+                    <li> yum -y install krb5-server krb5-workstation pam_krb5 # KDC 서버 설치하는 방법
+                      <li> krb5-libs , krb5-auth-dialog # 나중에 알아보기  </li>
+                    </li>
+                    <li> vi /etc/krb5.conf  # KDC 설정파일
+                      <div className="sblock">
                         <li> default_realm = EXAMPLE.COM 을 TEST.COM  으로 변경 # 16번째 줄 주석처리 제거하고 수정 </li>
-                        <li> EXAMPLE.COM 을 TEST.COM 으로 변경# 20번째 줄 수정 </li>
-                        <li> kdc = kerberos.example.com 을 kdc.test.com 으로 변경 # 21번째 줄  </li>
-                        <li> admin_server = kerberos.example.com 을 kdc.test.com 으로 변경 # 22번 째 줄 , 인증 서버  </li>
+                        <li> EXAMPLE.COM 을 TEST.COM 으로 변경# 20번째 주석해제 및 수정,  영역이름 </li>
+                        <li> kdc = kerberos.example.com 을 kdc.test.com 으로 변경 # 21번째 줄 주석해제, 마스터 KDC  </li>
+                        <li> admin_server = kerberos.example.com 을 kdc.test.com 으로 변경 # 22번 째 줄 주석해제, 인증 서버  </li>
                         <li> .example.com = EXAMPLE.COM 을 .test.com = TEST.COM 변경 # 주석해제 </li>
-                        <li> example.com = EXAMPLE.COM 을 test.com = TEST.COM 변경  # 주석해제 </li>
-                      </span>
+                        <li> example.com = EXAMPLE.COM 을 test.com = TEST.COM 변경  # 주석해제  </li>
+                      </div>
                     </li>
                     <li> vi /var/kerberos/krb5kdc/kadm5.acl
-                      <li> */admin@EXAMPLE.COM 을 */admin@TEST.COM 변경 </li>
+                      <div className="sblock">
+                        <li> */admin@EXAMPLE.COM 을 */admin@TEST.COM 변경 </li>
+                      </div>
                     </li>
                     <li> vi /var/kerberos/krb5kdc/kdc.conf
-                      <li> #master_key_type = aes256-cts # 주석 처리되어 있는 부분 제거  </li>
-                      <li> EXAMPLE.COM 을 TEST.COM으로 변경  </li>
+                      <div className="sblock">
+                        <li> #master_key_type = aes256-cts # 주석 처리되어 있는 부분 제거  </li>
+                        <li> EXAMPLE.COM 을 TEST.COM으로 변경  </li>
+                      </div>
                     </li>
-                    <li> kdb5_util create -r TEST.COM -s # 커버로스 관리프로그램(kdb5_util) </li>
-                    <li> P@ssw0rd! </li>
-                    <li> P@ssw0rd!  </li>
+                    <li> kdb5_util create -r TEST.COM -s # 커버로스 관리프로그램(kdb5_util)
+                      <div className="sblock">
+                        <li> 비번입력 </li>
+                        <li> 비번입력확인  </li>
+                      </div>
+                    </li>
                     <li> systemctl restart kadmin krb5kdc  </li>
-                    <li> kadmin.local  </li>
-                    <li> add_principal root/admin  </li>
-                    <li> P@ssw0rd!  </li>
-                    <li> P@ssw0rd!  </li>
-                    <li> kadmin.local  </li>
-                    <li> add_principal krbuser  </li>
-                    <li> P@ssw0rd!  </li>
-                    <li> P@ssw0rd!  </li>
-                    <li> listprincs  </li>
-                    <li> quit  </li>
-                    <li> ktadd -k /var/kerberos/krb5kdc/kadm5.keytab kadmin/admin  </li>
-                    <li> ktadd -k /var/kerberos/krb5kdc/kadm5.keytab kadmin/changepw  </li>
-                    <li> addprinc -randkey host/kdc.test.com  </li>
-                    <li> ktadd host/kdc.test.com  </li>
+                    <li> kadmin.local # DB Principal 관리?
+                      <div className="sblock">
+                        <li> add_principal root/admin # Principal 추가(티겟을 할당할 수 있는 고유ID 추가)
+                          <span className='mblock'>
+                            <li> 비번입력 </li>
+                            <li> 비번입력확인  </li>
+                          </span>
+                        </li>
+                        <li> add_principal krbuser
+                          <span className='mblock'>
+                            <li> 비번입력 </li>
+                            <li> 비번입력확인  </li>
+                          </span>
+                        </li>
+                        <li> listprincs # 모든 Principal 조회 </li>
+                        <li> ktadd -k /var/kerberos/krb5kdc/kadm5.keytab kadmin/admin  </li>
+                        <li> ktadd -k /var/kerberos/krb5kdc/kadm5.keytab kadmin/changepw #패스워드 권한도 kadmin에게 준다? </li>
+                        <li> addprinc -randkey host/kdc.test.com  </li>
+                        <li> ktadd host/kdc.test.com  </li>
+                        <li> quit  </li>
+                      </div>
+                    </li>
                     <li> vi /etc/ssh/sshd_config
-                      <li> <span className='sstitle'>  </span> </li>
-                      <span className='sblock'>
+                      <div className="sblock">
                         <li> GSSAPIAuthentication # 79번째 줄이 yes로 되있으면 된다. </li>
                         <li> GSSAPICleanupCredentials no # 80번째 줄이 no로 되있으면 된다. </li>
-                      </span>
+                      </div>
                     </li>
                     <li> vi /etc/ssh/ssh_config
-                      <li> GSSAPIAuthentication yes # 59번째 줄 </li>
-                      <li> GSSAPIDelegatedCredentials yes # 아래에 내용추가 ,   </li>
+                      <div className="sblock">
+                        <li> GSSAPIAuthentication yes # 59번째 줄 </li>
+                        <li> GSSAPIDelegateCredentials yes # 아래에 내용추가 ,   </li>
+                      </div>
                     </li>
                     <li> systemctl restart sshd  </li>
                     <li> systemctl restart krb5kdc </li>
@@ -1485,23 +1549,40 @@ const LinuxServer = (props) => {
                     <li> useradd krbuser  </li>
                     <li> systemctl stop firewalld  </li>
                     <li> setenforce 0  </li> <br />
-                    <li> CentOS 클라이언트로 이동  </li>
+
+                    <li> <div className="sstitle"> CentOS 클라이언트로 이동 </div>   </li>
+                    <li> ps -ef | grep yum | grep -v grep | awk '{'{'}print $2{'}'}' | xargs kill -9 2{'>'}/dev/null </li>
                     <li> yum -y install krb5-workstation pam_krb5  </li>
                     <li> vi /etc/sysconfig/network-scripts/ifcfg-ens33
-                      <li> DNS1=192.168.10.80  # 추가 </li>
+                      <div className="sblock">
+                        <li> DNS1=192.168.10.80  # 추가 </li>
+                      </div>
                     </li>
                     <li> systemctl restart network  </li>
-                    <li> cat /etc/resolv.conf # </li>
+                    <li> cat /etc/resolv.conf </li>
+                    <li> scp root@test.com:/etc/krb5.conf /etc/krb5.conf # 서버에있는 파일을 가져와서 덮어쓰기 작동이 안됨
+                      {/*<div className="sblock">
+                        <li> default_realm = EXAMPLE.COM 을 TEST.COM  으로 변경 # 16번째 줄 주석처리 제거하고 수정 </li>
+                        <li> EXAMPLE.COM 을 TEST.COM 으로 변경# 20번째 주석해제 및 수정,  영역이름 </li>
+                        <li> kdc = kerberos.example.com 을 kdc.test.com 으로 변경 # 21번째 줄 주석해제, 마스터 KDC  </li>
+                        <li> admin_server = kerberos.example.com 을 kdc.test.com 으로 변경 # 22번 째 줄 주석해제, 인증 서버  </li>
+                        <li> .example.com = EXAMPLE.COM 을 .test.com = TEST.COM 변경 # 주석해제 </li>
+                        <li> example.com = EXAMPLE.COM 을 test.com = TEST.COM 변경  # 주석해제  </li>
+                      </div>*/}
+                    </li>
                     <li> vi /etc/ssh/sshd_config
-                      <span className='sblock'>
-                        <li> GSSAPIAuthentication yes 인지 확인</li>
-                      </span>
+                      <div className="sblock">
+                        <li> GSSAPIAuthentication yes # 79번 째줄 </li>
+                      </div>
                     </li>
                     <li>  vi /etc/ssh/ssh_config
-                      <li> GSSAPIAuthentication yes # 59번째 줄 </li>
-                      <li> GSSAPIDelegatedCredentials yes # 아래에 내용추가 ,   </li>
+                      <div className="sblock">
+                        <li> GSSAPIAuthentication yes # 59번째 줄 </li>
+                        <li> GSSAPIDelegateCredentials yes # 아래에 내용추가 ,   </li>
+                      </div>
                     </li>
                     <li> kinit krbuser # kinit는 티겟 발급 명령어, krbuser 라는 티겟을 받겠다.  </li>
+                    <li> klist </li>
                     <li> ssh krbuser@kdc.test.com # 티겟을 가지고 접속 , 비번 없이 접속 가능 </li>
                     <li> exit  </li>
                     <li>   </li>
@@ -1513,7 +1594,7 @@ const LinuxServer = (props) => {
             {/*  */}
             <span className="mblock">
               <details>
-                <summary className="stitle"> ▶ 프록시 서버 <small> </small>
+                <summary className="stitle">  프록시 서버 <small> </small>
                   <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                 <span className="sblock">
                   <span className="sstitle"> 설명 </span>
@@ -1575,7 +1656,7 @@ const LinuxServer = (props) => {
             {/*  */}
             <span className="mblock">
               <details>
-                <summary className="stitle"> ▶ <small> </small>
+                <summary className="stitle">  <small> </small>
                   <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                 <span className="sblock">
                   <span className="sstitle">  </span>

@@ -169,6 +169,7 @@ import CTBaekJoon from './Main/CodingTestContent/CTBaekJoon';
 
 // 추천 프로그램
 import ProgramRecDev from './Main/ProgramContent/ProgramRecDev';
+import ProgramRecWin from './Main/ProgramContent/ProgramRecWin';
 
 const Main = (props) => {
     return (
@@ -341,6 +342,7 @@ const Main = (props) => {
 
                 {/* 추천 프로그램 */}
                 <Route path="/program_recdev" component={ProgramRecDev}></Route>
+                <Route path="/program_recwin" component={ProgramRecWin}></Route>
 
             </Switch>
         </div>

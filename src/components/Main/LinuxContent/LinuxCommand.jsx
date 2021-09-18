@@ -1285,6 +1285,25 @@ const LinuxCommand = (props) => {
           {/*  */}
           <span className="mblock">
             <details>
+              <summary className="stitle"> ▶ Host 명령어 <small>  </small>
+                <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+              <span className="sblock">
+                <span className="sstitle">  </span>
+                <span className="mblock">
+                  <li> hostname # 서버의 이름을 조회 </li>
+                  <li> hostname test.com # 서버의 이름을 test.com으로 변경 </li>
+                  <li> hostnamectl set-hostname 호스트이름 # 서버의 이름 변경  </li>
+                  <li> hostnamectl set-hostname --static 호스트이름 # 서버의 이름 변경 </li>
+                  <li> hostname -i # 서버의 IP주소 출력 </li>
+                  <li> hostname -d # 서버의 도메인 주소 출력1 </li>
+                  <li> hostname -h # hostname 명령어 설명 </li>
+                </span>
+              </span>
+            </details>
+          </span>
+          {/*  */}
+          <span className="mblock">
+            <details>
               <summary className="stitle"> ▶ <small>  </small>
                 <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
               <span className="sblock">
