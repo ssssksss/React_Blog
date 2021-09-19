@@ -306,7 +306,7 @@ const LinuxServer = (props) => {
                         속성 -  기본설정 DNS 서버의 포트를 DNS설정(192.168.10.80)으로 전환 ,   </li>
                       <li> systemctl enabled named </li>
                       <li> systemctl restart named </li>
-                      <li> systemctl stop firewalld </li>
+                      <li> systemctl stop firewalld | setenforce 0 </li>
                       {/*<li> vim /etc/resolv.conf <small> DNS 서버의 주소 IP를 설정 </small> </li>*/}
                     </li>
                     <li> <h3> CentOS</h3>
@@ -783,8 +783,7 @@ const LinuxServer = (props) => {
                         <li> systemctl enable sendmail </li>
                         <li> systemctl enable dovecot </li>
                         <li> systemctl disable firewalld  </li>
-                        <li> systemctl stop firewalld # 포트를 개방할 것이 너무 많아서 그냥 중단 </li>
-                        <li> setenforce 0  # se리눅스 끄기</li>
+                        <li> systemctl stop firewalld | setenforce 0 </li>
                         <li> systemctl restart network </li>
                         <li> cat /etc/resolv.conf # 본인의 네임서버 주소 확인 </li>
                         <li> 끝 </li> <br />
@@ -804,7 +803,7 @@ const LinuxServer = (props) => {
                             <li> 인증 방법 : 평문 비밀번호 , 인증 없음 </li>
                             <li> 아이디 : service </li> <br />
                             <li> 접속이 되지 않는 다면 nslookup mail.ssssksss.com 해보기
-                              <li> 서버의 방화벽 제거 , 서버로 이동 , systemctl stop firewalld </li>
+                              <li> 서버의 방화벽 제거 , 서버로 이동 , systemctl stop firewalld | setenforce 0 </li>
                               <li> 유저가 추가되있지 않아서 해결이 안되어 있을 수도 있음 </li>
                             </li>
                           </span>
@@ -824,7 +823,7 @@ const LinuxServer = (props) => {
                             <li> 인증 방법 : 평문 비밀번호 , 인증 없음 </li>
                             <li> 아이디 : admin </li> <br />
                             <li> 접속이 되지 않는 다면 nslookup mail.linux.com 해보기
-                              <li> 클라이언트의 방화벽 제거 , systemctl stop firewalld </li>
+                              <li> 클라이언트의 방화벽 제거 , systemctl stop firewalld | setenforce 0 </li>
                               <li> 유저가 추가되있지 않아서 해결이 안되어 있을 수도 있음 </li>
                             </li>
                           </span>
@@ -854,7 +853,7 @@ const LinuxServer = (props) => {
             {/*  */}
             <span className="mblock">
               <details>
-                <summary className="stitle">  레포지토리 서버(미완성) <small> </small>
+                <summary className="stitle">  Repositoy 서버(미완성) <small> </small>
                   <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                 <span className="sblock">
                   <span className="sstitle">  </span>
@@ -880,13 +879,12 @@ const LinuxServer = (props) => {
                         <li> {' </Directory> '} </li>
                       </div>
                     </li>
-                    <li> systemctl stop firewalld </li>
+                    <li> systemctl stop firewalld | setenforce 0 </li>
                     <li> systemctl start httpd </li>
                     <li> cd /app/repo </li>
                     <li> yum install --downloadonly --downloaddir=/app/repo vsftpd # 다운만받고 설치까지는 하지 않음 </li>
                     <li> yum install --downloadonly --downloaddir=/app/repo net-snmp # 다운만받고 설치까지는 하지 않음 </li>
                     {/*<li> cp /root/rpmbuild/RPMS/x86_64/hello-1.0.0-1.el7.x86_64.rpm /app/repo #개인적으로 만든 rpm파일 </li>*/}
-                    <li> setenforce 0 # se리눅스 끄기 </li>
                     <li> ls -la </li>
                     <li> 인터넷에서 URL에 localhost/repo/파일명.rpm # 인터넷창 아래쪽에 다운이 되면 성공
                       <div className="sblock">
@@ -935,9 +933,7 @@ const LinuxServer = (props) => {
                       <li> yum clean all </li>
                       <li> 만약 yum lock이 있다면 , 반복 시도
                         <div className="sblock">
-                          <li> ps -ef | grep yum  </li>
-                          <li> kill -9 PID번호 </li>
-                          <li> yum clean all </li>
+                          <li> ps -ef | grep yum | grep -v grep | awk '{'{'}print $2{'}'}' | xargs kill -9 2{'>'}/dev/null </li>
                         </div>
                       </li>
                       <li> cat /root/RPM-GPG-KEY 의 내용을 모두 복사 </li>
@@ -984,7 +980,7 @@ const LinuxServer = (props) => {
             {/*  */}
             <span className="mblock">
               <details>
-                <summary className="stitle">  톰캣 서버 <small> </small>
+                <summary className="stitle">  Tomcat 서버 <small> </small>
                   <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                 <span className="sblock">
                   <span className="sstitle"> 설명 </span>
@@ -1007,8 +1003,7 @@ const LinuxServer = (props) => {
                     <li> cd /app/server/tomcat/bin  </li>
                     <li> vim startup.bat </li>
                     <li> ./startup.sh </li>
-                    <li> systemctl stop firewalld </li>
-                    <li> setenforce=0 </li>
+                    <li> systemctl stop firewalld | setenforce 0 </li>
                     <li> java -version </li>
                     <li> which java </li>
                     <li> 구글에 "자바 오라클 아카이브" 검색 </li>
@@ -1234,9 +1229,8 @@ const LinuxServer = (props) => {
                     <li> systemctl enable dhcpd   </li>
                     <li> systemctl enable vsftpd  </li>
                     <li> systemctl enable xinetd  </li>
-                    <li> systemctl stop firewalld  </li>
+                    <li> systemctl stop firewalld | setenforce 0 </li>
                     <li> systemctl disable firewalld  </li>
-                    <li> setenforce 0 </li>
                     <li> Virtual Network Editor에서 Use local DHCP service to distribute IP address to VMs 체크해제
                       # 사용하고 있는 dhcp 끄기 </li>
                     <li> 새롭게 PXE_Client CentOS를 생성 , 단 CD ROOM은 넣지 않고 설치하면 설치가 가능 </li>
@@ -1345,8 +1339,7 @@ const LinuxServer = (props) => {
                       </div>
                     </li>
                     <li> systemctl restart svnserve </li>
-                    <li> systemctl stop firewalld </li>
-                    <li> setenforce 0 </li>
+                    <li> systemctl stop firewalld | setenforce 0 </li>
                     <li> chkconfig svnserve on </li>
                     <li> 윈도우에서 구글에 tortoisesvn 검색 </li>
                     <li> <a href="https://osdn.net/projects/tortoisesvn/storage/1.14.1/Application/TortoiseSVN-1.14.1.29085-x64-svn-1.14.1.msi/"
@@ -1547,8 +1540,7 @@ const LinuxServer = (props) => {
                     <li> systemctl restart krb5kdc </li>
                     <li> systemctl restart kadmin</li>
                     <li> useradd krbuser  </li>
-                    <li> systemctl stop firewalld  </li>
-                    <li> setenforce 0  </li> <br />
+                    <li> systemctl stop firewalld | setenforce 0 </li> <br />
 
                     <li> <div className="sstitle"> CentOS 클라이언트로 이동 </div>   </li>
                     <li> ps -ef | grep yum | grep -v grep | awk '{'{'}print $2{'}'}' | xargs kill -9 2{'>'}/dev/null </li>
@@ -1594,7 +1586,7 @@ const LinuxServer = (props) => {
             {/*  */}
             <span className="mblock">
               <details>
-                <summary className="stitle">  프록시 서버 <small> </small>
+                <summary className="stitle">  Proxy 서버 <small> </small>
                   <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                 <span className="sblock">
                   <span className="sstitle"> 설명 </span>
@@ -1612,30 +1604,31 @@ const LinuxServer = (props) => {
                   </span>
                   <span className="sstitle"> squid 설치 </span>
                   <span className="mblock">
+                    <li> ps -ef | grep yum | grep -v grep | awk '{'{'}print $2{'}'}' | xargs kill -9 2{'>'}/dev/null </li>
                     <li> yum -y install squid </li>
-                    <li> vi /etc/suqid/squid.conf
-                      <li> acl centos7 src 192.168.10.0/255.255.255.0 #26번째 줄 추가   </li>
-                      <li> http_access allow centos7 # 55번째 줄 추가, 프록시 서버에 접근을 허용해주겠다. </li>
-                      <li> cache_dir ufs /var/spool/squid 1000 16 256 # 64번 째 줄주석 해제 및 수정 , 캐시를 얼마만큼의
-                        용량으로 저장 하겠느냐 ( MB 자주쓰는폴더디렉토리갯수 하위디렉토리갯수 ) </li>
-                      <li> cache_access_log /var/log/squid/access.log # , 프록시 서버에 접근할 때 생기는 로그 </li>
-                      <li> cache_log /var/log/squid/cache.log # 프록시 서버에서 발생하는 로그 </li>
-                      <li> cache_store_log /var/log/squid/store.log # 발생하는 세부정보를 store에 저장하는 로그 </li>
-                      <li> cache_mem 8 MB </li>
-                      <li> visible_hostname centos7 # 마지막줄에 추가 , 프록시서버의 이름을 지정  </li>
+                    <li> vi /etc/squid/squid.conf
+                      <div className='sblock'>
+                        <li> acl centos7 src 192.168.10.0/255.255.255.0 #26번째 줄 추가   </li>
+                        <li> http_access allow centos7 # 55번째 줄 추가, 프록시 서버에 접근을 허용해주겠다. </li>
+                        <li> cache_dir ufs /var/spool/squid 1000 16 256 # 64번 째 줄주석 해제 및 수정 , 캐시를 얼마만큼의
+                          용량으로 저장 하겠느냐 , 뒤에 숫자 3개 [MB 자주쓰는폴더디렉토리갯수 하위디렉토리갯수]  </li>
+                        <li> cache_access_log /var/log/squid/access.log # , 프록시 서버에 접근할 때 생기는 로그 </li>
+                        <li> cache_log /var/log/squid/cache.log # 프록시 서버에서 발생하는 로그 </li>
+                        <li> cache_store_log /var/log/squid/store.log # 발생하는 세부정보를 store에 저장하는 로그 </li>
+                        <li> cache_mem 8 MB </li>
+                        <li> visible_hostname centos7 # 마지막줄에 추가 , 프록시서버의 이름을 지정  </li>
+                      </div>
                     </li>
-                    <li> systemctl restat squid  </li>
-                    <li> cd /var/spool/squid  </li>
-                    <li> ls -la # 00 ~ 0F 는 사이트라고 생각하면 된다. 아까 지정한 16 의미  </li>
-                    <li> find * -type f # 현재 파일에서 모든 파일을 검사  </li>
-                    <li> systemctl stop firewalld  </li>
-                    <li> CentOS 클라이언트로 이동  </li>
-                    <li> setenforce 0  </li>
+                    <li> systemctl restart squid  </li>
+                    <li> cd /var/spool/squid | ll # 00 ~ 0F 는 사이트라고 생각하면 된다. 아까 지정한 16 의미 </li>
+                    <li> find * -type f # 현재 파일에서 모든 파일을 검사 , 처음에는 없음  </li>
+                    <li> systemctl stop firewalld | setenforce 0 </li>
+                    <li> <div className="sstitle"> CentOS 클라이언트로 이동 </div>  </li>
                     <li> firefox 열기  </li>
                     <li> 우측 위에 메뉴 - 환경 설정 - 일반 - 네트워크 설정으로 이동 </li>
                     <li> 수동 프록시 설정, HTTP 프록시 192.168.10.80  포트  3128 , 모든 프로토콜에 위의 프록시 설정 사용 체크  </li>
                     <li> 네이버로 가서 여러개를 눌러보기 , 그리고 서버로 이동해서 프록시 서버의 캐시를 보기  </li>
-                    <li> CentOS 서버로 이동  </li>
+                    <li> <div className="sstitle"> CentOS 서버로 이동 </div>  </li>
                     <li> find * -type f </li>
                     <li> 보다보면 css 파일로 저장되어있는 것을 볼 수 있음  </li>
                     <li> cat /var/log/squid/access.log # 접근한 사이트에 대해서 볼 수 있음  </li>
@@ -1644,7 +1637,7 @@ const LinuxServer = (props) => {
                     <li> 윈도우 실행창 에서 inetcpl.cpl - 연결 - LAN 설정 - 사용자 프록시 서버 사용 체크 -
                       192.168.10.80 , 3128 이라고 설정하면 CentOS에서 확인 가능(다시 설정해두지 않으면 인터넷이 안됨)  </li>
                     <li> tail -f /var/log/squid/access.log </li>
-                    <li> 회사에서 프록시 서버를 통하지 않고 막아버리면 통제가능 </li>
+                    <li> 회사에서 프록시 서버를 이용해서 막아버리면 통제가능 </li>
                   </span>
                   <span className="sstitle">  </span>
                   <span className="mblock">
@@ -1656,18 +1649,90 @@ const LinuxServer = (props) => {
             {/*  */}
             <span className="mblock">
               <details>
-                <summary className="stitle">  <small> </small>
+                <summary className="stitle"> Ldap 서버
                   <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
-                <span className="sblock">
-                  <span className="sstitle">  </span>
-                  <span className="mblock">
+                <div className="sblock">
+                  <div className='sstitle'> 설명 </div>
+                  <div className='mblock'>
+                    <li> Lightweight Directory Access Protocol </li>
+                    <li> 로그인 인증을 처리해주는 서버 </li>
                     <li>  </li>
-                  </span>
-                  <span className="sstitle">  </span>
-                  <span className="mblock">
+                  </div>
+                  <div className='sstitle'> 설치 </div>
+                  <div className='mblock'>
+                    <li> DNS_SERVER_IP=$(ifconfig | grep -A 2 ens | grep "inet " | awk '{'{'} print $2 {'}'}') </li>
+                    <li> DOMAIN_NAME=test.com </li>
+                    <li> yum -y install bind bind-chroot </li>
+                    <li> sed -i "s/^\s*listen-on port 53.*/\tlisten-on port 53 {'{'} any; {'}'};/g" /etc/named.conf </li>
+                    <li> sed -i "s/^\s*listen-on-v6 port 53.*/\tlisten-on-v6 port 53 {'{'}none; {'}'};/g" /etc/named.conf </li>
+                    <li> sed -i "s/^\s*allow-query.*/\tallow-query\t{'{'} any; {'}'};/g" /etc/named.conf </li>
                     <li>  </li>
-                  </span>
-                </span>
+                    <li>  </li>
+                    <li>  </li>
+                  </div>
+                  <div className='sstitle'>  </div>
+                  <div className='mblock'>
+                    <li>  </li>
+                    <li>  </li>
+                  </div>
+                </div>
+              </details>
+            </span>
+            {/*  */}
+            <span className="mblock">
+              <details>
+                <summary className="stitle"> NFS 서버
+                  <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+                <div className="sblock">
+                  <div className='sstitle'> 설명 </div>
+                  <div className='mblock'>
+                    <li> 리눅스끼리 저장공간을 공유할 수 있도록 하는 시스템 </li>
+                    <li>  </li>
+                  </div>
+                  <div className='sstitle'>  </div>
+                  <div className='mblock'>
+                    <li>  </li>
+                    <li>  </li>
+                  </div>
+                </div>
+              </details>
+            </span>
+            {/*  */}
+            <span className="mblock">
+              <details>
+                <summary className="stitle">
+                  <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+                <div className="sblock">
+                  <div className='sstitle'>  </div>
+                  <div className='mblock'>
+                    <li>  </li>
+                    <li>  </li>
+                  </div>
+                  <div className='sstitle'>  </div>
+                  <div className='mblock'>
+                    <li>  </li>
+                    <li>  </li>
+                  </div>
+                </div>
+              </details>
+            </span>
+            {/*  */}
+            <span className="mblock">
+              <details>
+                <summary className="stitle">
+                  <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+                <div className="sblock">
+                  <div className='sstitle'>  </div>
+                  <div className='mblock'>
+                    <li>  </li>
+                    <li>  </li>
+                  </div>
+                  <div className='sstitle'>  </div>
+                  <div className='mblock'>
+                    <li>  </li>
+                    <li>  </li>
+                  </div>
+                </div>
               </details>
             </span>
             {/*  */}

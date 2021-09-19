@@ -98,7 +98,6 @@
     }
 
     .common_style  .mblock {
-        background: #ffcfdf;
         width: 100%;
         box-sizing: border-box;
         display: block;
@@ -107,11 +106,11 @@
         min-height: 20px;
         padding: 10px;
         border: black solid 1px;
+        background: #fefdca;
     }
 
     .common_style  .sblock {
         border: #ff7676 solid 1px;
-        background: #fefdca;
         width: 100%;
         box-sizing: border-box;
         display: block;
@@ -119,6 +118,7 @@
         padding: 10px;
         margin: 5px 0px 5px 0px;
         min-height: 20px;
+        background: #ffcfdf;
     }
 
     li {

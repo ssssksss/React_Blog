@@ -11,6 +11,7 @@ const SpringBasic = (props) => {
 						<span className="mblock">
 							<span className="stitle">
 								<a name="스프링이란?"> 스프링이란? </a>
+								<a href="https://spring.io/guides" target="_blank" rel="noopener noreferrer"> 스프링부트 문서 </a>
 							</span>
 							<span className="sblock">
 								<li className="sstitle" ><i> 스프링</i>  </li>
