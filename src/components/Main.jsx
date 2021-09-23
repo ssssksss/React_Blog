@@ -79,6 +79,7 @@ import DBOracleBasic from './Main/DatabaseContent/DBOracleBasic';
 import DBMySQLBasic from './Main/DatabaseContent/DBMySQLBasic';
 import DBVariableName from './Main/DatabaseContent/DBVariableName';
 import DBMariaBasic from './Main/DatabaseContent/DBMariaBasic';
+import DBError from './Main/DatabaseContent/DBError';
 
 // 디자인 패턴
 import DPMvc2 from './Main/DesignPatternContent/DPMvc2';
@@ -120,6 +121,7 @@ import Algorithm_Basic from './Main/AlgorithmContent/Algorithm_Basic';
 // 자료구조
 
 // 클라우드
+import CloudOracle from './Main/CloudContent/CloudOracle';
 
 // 윈도우
 import WindowCommand from './Main/WindowContent/WindowCommand';
@@ -253,6 +255,7 @@ const Main = (props) => {
                 <Route path="/db_mysqlbasic" component={DBMySQLBasic}></Route>
                 <Route path="/db_variablename" component={DBVariableName}></Route>
                 <Route path="/db_mariabasic" component={DBMariaBasic}></Route>
+                <Route path="/db_error" component={DBError}></Route>
 
                 {/* 디자인 패턴 */}
                 <Route path="/dp_mvc2" component={DPMvc2}></Route>
@@ -293,6 +296,7 @@ const Main = (props) => {
                 {/* 자료구조 */}
 
                 {/* 클라우드 */}
+                <Route path="/cloud_oracle" component={CloudOracle}></Route>
 
                 {/* 윈도우 */}
                 <Route path="/window_command" component={WindowCommand}></Route>

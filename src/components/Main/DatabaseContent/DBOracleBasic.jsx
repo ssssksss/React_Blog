@@ -6,321 +6,508 @@ const DBOracleBasic = (props) => {
         <>
             <div className="common_style">
                 <span className="lblock">
+                    <span className="mtitle"> <a name="OracleDB Study">  OracleDB Study  </a> </span>
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> OracleDB 설명
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> 기본 용어 </div>
+                                <div className='mblock'>
+                                    <li> 스키마 : 사용자가 생성한 객체(테이블,인덱스,프로시저,뷰 등), DBMS마다 차이가 있음 </li>
+                                    <li> 테이블 : DB데이터(레코드)를 정렬하여 보관하고 있는 단위 , 테이블을 컬럼(필드)과 레코드로 구성되어있다. </li>
+                                    <li> 레코드 : 한 객체에 대한 정보, 테이블에 가로줄 , ex) 한명의 유저의 아이디,비밀번호,이메일 등을 가지고 있는 단위 </li>
+                                    <li> 컬럼,필드 : 객체에 있는 속성들을 정의하는 단위, ex) 컬럼 종류 : 아이디, 비밀번호, 이메일, 부서, 나이 등등 </li>
+                                </div>
+                                <div className='sstitle'> 실행 순서 </div>
+                                <div className='mblock'>
+                                    <li> FROM - ON - JOIN - WHERE - GROUP BY , HAVING, SELECT, ORDER BY </li>
+                                    <li>  </li>
+                                </div>
+                                <div className='sstitle'>  </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                    <li>  </li>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
 
-                    <span className="mtitle"> <a name="MySQL Study">  OracleDB 공부  </a> </span>
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> OracleDB 시작, 설정
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> oracledb 열기 </div>
+                                <div className='mblock'>
+                                    <li> cmd창 - sql plus 사용자명/비밀번호  </li>
+                                    <li>   </li>
+                                    <li>   </li>
+                                </div>
+
+                                <div className='sstitle'> oracledb 사용자 비번 까먹었을 때 </div>
+                                <div className='mblock'>
+                                    <li> cmd창 - sqlplus - sys as sysdba - 비번없이 엔터  </li>
+                                    <li> show user;  </li>
+                                    <li> alter user sys identified by 1234;  </li>
+                                    <li> conn sys/1234 as sysdba;  </li>
+                                    <li>   </li>
+                                </div>
+
+                                <div className='sstitle'>  </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                </div>
+
+                                <div className='sstitle'>  </div>
+                                <div className='mblock'>
+                                    <li> </li>
+                                    <li> </li>
+                                </div>
+
+                                <div className='sstitle'> 주석 </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> USE, SHOW, DESC, CONN
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+
+                                <div className='sstitle'> USE </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                    <li>  </li>
+                                </div>
+
+                                <div className='sstitle'> SHOW </div>
+                                <div className='mblock'>
+                                    <li> SHOW USER; # 사용자 조회 </li>
+                                    <li>  </li>
+                                </div>
+
+                                <div className='sstitle'> DESC </div>
+                                <div className='mblock'>
+                                    <li> DESC 테이블명; # 테이블 컬럼 조회 </li>
+                                    <li>  </li>
+                                </div>
+
+                                <div className='sstitle'> CONN </div>
+                                <div className='mblock'>
+                                    <li> CONN c##유저명/비밀번호; # 접속 유저 변경 </li>
+                                    <li>  </li>
+                                </div>
+
+                                <div className='sstitle'>  </div>
+                                <div className='mblock'>
+                                    <li> </li>
+                                    <li> </li>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> 필드 타입
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> 숫자 </div>
+                                <div className='mblock'>
+                                    <li> </li>
+                                </div>
+
+                                <div className='sstitle'> 문자 </div>
+                                <div className='mblock'>
+                                    <li> </li>
+                                </div>
+
+                                <div className='sstitle'> 날짜,시간 </div>
+                                <div className='mblock'>
+                                    <li> </li>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+                    {/*  */}
+
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> 제약 조건
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> 종류 </div>
+                                <div className='mblock'>
+                                    <li> PRIMARY KEY # 중복허용x + NULL허용x </li>
+                                    <li> FOREGIN KEY # 왜래키 </li>
+                                    <li> NOT NULL # NULL허용x </li>
+                                    <li> DEFATUL 초기값 # 초기값을 설정 </li>
+                                    <li> UNIQUE # 중복허용x </li>
+                                    <li> CHECK # 특정 조건에 맞는 데이터만 허용 </li>
+                                    <li> INDEX # 인덱스를 지정할 때 사용 </li>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+                    {/*  */}
+
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> 연산자
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> 산술 연산자 </div>
+                                <div className='mblock'>
+                                    <li> </li>
+                                </div>
+
+                                <div className='sstitle'> 대입 연산자 </div>
+                                <div className='mblock'>
+                                    <li> </li>
+                                </div>
+
+                                <div className='sstitle'> 비교 연산자 </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                    <li>  </li>
+                                </div>
+
+                                <div className='sstitle'> 논리 연산자 </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                    <li>  </li>
+                                </div>
+
+                                <div className='sstitle'> 비트 연산자 </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                    <li>  </li>
+                                </div>
+
+                                <div className='sstitle'> 조건 </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                </div>
+
+                                <div className='sstitle'> 패턴 </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                </div>
+
+                                <div className='sstitle'>  </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                    <li>  </li>
+                                </div>
+
+                            </div>
+                        </details>
+                    </div>
+                    {/*  */}
+
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> DML : SELECT, INSERT, UPDATE, DELETE
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> 설명 </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                </div>
+
+                                <div className='sstitle'> SELECT </div>
+                                <div className='mblock'>
+                                    <li> SELECT * FROM ALL_users; # 모든 유저 조회 </li>
+                                    <li> SELECT 유저명 FROM ALL_users; # 특정 유저 조회 </li>
+                                    <li> SELECT * FROM DBA_users; # 모든 DB(스키마) 조회 </li>
+                                    <li> SELECT * FROM 테이블명; # 모든 테이블 조회 </li>
+                                    <li> SELECT [컬럼명1,컬럼명2] FROM 테이블명; # 특정 테이블 조회 </li>
+                                    <li> SELECT tname FROM tab; # 사용자들의 테이블 목록 조회 </li>
+                                    <li> SELECT username FROM DBA_USERS; # </li>
+                                    <li> SELECT username FROM ALL_USERS; # 모든 사용자의 이름 조회 </li>
+                                    <li> SELECT * FROM DBA_SYS_PRIVX WHERE GRANTEE='사용자명'; # 시스템 권한 조회 </li>
+                                    <li> SELECT * FROM DBA_SYS_PRIVS WHERE GRANTEE='사용자명'; # 롤에 부여된 시스템 권한 조회</li>
+                                    <li> SELECT * FROM DBA_ROLE_PRIVX WHERE GRANTEE='사용자명'; </li>
+                                    <li>  </li>
+                                </div>
+
+                                <div className='sstitle'> INSERT </div>
+                                <div className='mblock'>
+                                    <li> INSERT INTO 테이블명 VALUES(필드값1, 필드값2, ...); # 필드명 순서에 맞게 입력값 필요 </li>
+                                    <li> INSERT INTO 테이블명(필드명2, 필드명1, ...) VALUES(필드값2, 필드값1, ...); </li>
+                                    <li> INSERT INTO 테이블명 (SELECT * FROM 다른테이블) # 스키마가 동일해야 가능 </li>
+                                    <li>  </li>
+                                </div>
+
+                                <div className='sstitle'> UPDATE </div>
+                                <div className='mblock'>
+                                    <li> UPDATE 테이블명 SET 필드명=필드값 WHERE 조건; </li>
+                                    <li>  </li>
+                                </div>
+
+                                <div className='sstitle'> DELETE </div>
+                                <div className='mblock'>
+                                    <li> DELETE FROM 테이블명 WHERE 조건; </li>
+                                    <li>  </li>
+                                </div>
+
+                            </div>
+                        </details>
+                    </div>
+
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> DDL : CREATE, DROP, ALTER
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> 설명 </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                    <li>  </li>
+                                </div>
+
+                                <div className='sstitle'> CREATE </div>
+                                <div className='mblock'>
+                                    <li> CREATE TABLE 테이블명(필드명 타입 조건) # 테이블 생성 </li>
+                                    <li> CREATE TABLE 테이블명 AS 서브쿼리; </li>
+                                    <li> CREATE OR REPLACE TABLE 테이블명(필드); # DB사용자 권한은 유지하면서 테이블 재생성 </li>
+                                    <li> CREATE USER 사용자명 IDENTIFIED BY 비밀번호; # 사용자 생성 </li>
+                                    <li>  </li>
+                                </div>
+
+                                <div className='sstitle'> DROP </div>
+                                <div className='mblock'>
+                                    <li> DROP USER c##사용자명; # 사용자 삭제 </li>
+                                    <li> DROP TABLE 테이블명; # 테이블에 레코드가 존재하면 지워지지 않음 </li>
+                                    <li> DROP TABLE 테이블명 CASCADE CONSTRAINTS PURGE; # 테이블 강제 삭제, 레코드 유무 상관없음 </li>
+                                    <li>  </li>
+                                </div>
+
+                                <div className='sstitle'> ALTER </div>
+                                <div className='mblock'>
+                                    <li> ALTER USER c##사용자명 IDENTIFIED BY 변경할비밀번호; # 사용자 비번 변경 </li>
+                                    <li> ALTER TABLE 테이블명 MODIFY(필드명 타입, 바꿀필드명 타입); # 테이블 타입 변경 </li>
+                                    <li> ALTER TABLE 테이블명 ADD(필드명 타입); # 테이블 필드 추가 </li>
+                                    <li> ALTER TABLE 테이블명 DROP(필드명1, 필드명2) # 테이블 필드 삭제 </li>
+                                    <li> ALTER TABLE 테이블명 RENAME TO 변경할테이블명 # 테이블의 이름 변경 </li>
+                                    <li>  </li>
+                                </div>
+
+                                <div className='sstitle'> RENAME </div>
+                                <div className='mblock'>
+                                    <li> </li>
+                                    <li> </li>
+                                </div>
+
+                                <div className='sstitle'> TRUNCATE </div>
+                                <div className='mblock'>
+                                    <li> TRUNCATE TABLE 테이블명; # 테이블의 모든 레코드 삭제 </li>
+                                    <li>  </li>
+                                </div>
+
+                            </div>
+                        </details>
+                    </div>
+
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> DCL : GRANT, REVOKE
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> 설명 </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                </div>
+
+                                <div className='sstitle'> GRANT </div>
+                                <div className='mblock'>
+                                    <li> GRANT CONNECT,RESOURCE,DBA,CREATE TABLE TO c##사용자명 WITH ADMIN OPTION;
+                                        # 권한을 받는 계정이 다른 계정에게도 부여할 수 있는 권한 옵션 </li>
+                                    <li> GRANT CONNECT TO c##사용자명; # 연결 권한 </li>
+                                    <li> GRANT RESOURCE TO c##사용자명; # </li>
+                                    <li> GRANT CREATE VIEW TO c##사용자명; # 뷰 생성 권한 </li>
+                                    <li> GRANT CREATE PROCEDURE TO c##사용자명; # 프로시저 생성 권한 </li>
+                                    <li> GRANT CREATE SEQUENCE TO c##사용자명; # 시퀸스 생성 권한 </li>
+                                    <li> GRANT CREATE ANY TABLE TO c##사용자명; # 모든 유저 테이블 생성 권한</li>
+                                    <li> GRANT CREATE session TO c##사용자명; # 데이터 베이스 접속 권한 </li>
+                                    <li> GRANT CREATE table TO c##사용자명; # 테이블 생성 권한 </li>
+                                    <li> GRANT CREATE USER TO c##사용자명; # 유저 생성 권한 </li>
+                                    <li> GRANT SELECT ANY TABLE TO c##사용자명; # 모든 유저 테이블 조회 권한 </li>
+                                    <li> GRANT ALTER USER TO c##사용자명; </li>
+                                    <li> GRANT DROP USER TO c##사용자명; </li>
+                                    <li> GRANT CREATE SESSION TO c##사용자명; # DB 접속 권한 </li>
+                                    <li> GRANT ALTER SESSION TO c##사용자명; </li>
+                                    <li> GRANT  </li>
+                                    <li> GRANT DBA TO c##사용자명; </li>
+                                    <li> GRANT SYSDBA TO c##사용자명; # 데이터 베이스 최고 권한 </li>
+                                    <li> GRANT SYSOPER TO c##사용자명; # 데이터 베이스 관리 최고 권한 </li>
+                                    <li> GRANT 권한명 TO 롤명; </li>
+                                    <li> GRANT 롤명 TO 사용자명; </li>
+                                    <li>  </li>
+                                    <li>  </li>
+                                </div>
+
+                                <div className='sstitle'> REVOKE </div>
+                                <div className='mblock'>
+                                    <li> REVOKE CONNECT FROM c##사용자명; # 사용자 연결 끊기 </li>
+                                    <li> REVOKE 권한 on 테이블명 FROM c##사용자명; </li>
+                                    <li> REVOKE 권한 FROM c##사용자명; # 사용자에게서 권한을 뺏음 </li>
+                                    <li> REVOKE sys명령 on 테이블명 FROM c##사용자명; </li>
+                                    <li> REVOKE SQL on 테이블명 FROM c##사용자명; </li>
+                                    <li>  </li>
+                                </div>
+
+                            </div>
+                        </details>
+                    </div>
+                    {/*  */}
+
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> TCL : COMMIT, ROLLBACK, SAVEPOINT
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> 설명 </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                </div>
+
+                                <div className='sstitle'> COMMIT </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                    <li>  </li>
+                                </div>
+
+                                <div className='sstitle'> ROLLBACK </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                    <li>  </li>
+                                </div>
+
+                                <div className='sstitle'> SAVEPOINT </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                    <li>  </li>
+                                </div>
+
+                            </div>
+                        </details>
+                    </div>
+                    {/*  */}
+
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> JOIN
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> INNER JOIN - 교집합 </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                </div>
+
+                                <div className='sstitle'> LEFT JOIN , RIGHT JOIN </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                </div>
+
+                                <div className='sstitle'> UNION </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                </div>
+
+                                <div className='sstitle'> Subquerry </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                </div>
+
+                            </div>
+                        </details>
+                    </div>
+                    {/*  */}
+
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> 인덱스
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> 설명 </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                </div>
+                                <div className='sstitle'>  </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+                    {/*  */}
+
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> OracleDB 함수
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'>  </div>
+                                <div className="mblock">
+                                    <div className="sstitle"> 그룹 함수 </div>
+                                    <li> SUM() , AVG() , COUNT() , MAX() , MIN() </li>
+                                    <li> STDDEV()(=표준편차) , VARIANCE()(=분산)  </li>
+                                    <li> GROUP BY 필드 HAVING 조건 </li>
+                                    <div className="sstitle"> 단일 함수 </div>
+                                    <li>  </li>
+                                    <div className="sstitle"> 일반 함수 </div>
+                                    <li> NVL(NOT NULL일떄,NULL일때) </li>
+                                    <li> NVL2(@,@ = NOT NULL일떄, @ = NULL일때) , 삼항연산느낌</li>
+                                    <li> DECODE(필드,데이터값,'@',데이터값,'@',.기본결과) , 스위치문이라고 생각</li>
+                                    <li> CASE WHEN 조건1 then 데이터값1 WHEN 조건2 then 데이터값2 end 별명? from 테이블; </li>
+                                    <div className="sstitle"> 변환 함수 </div>
+                                    <li> TO_CHAR(숫자-&gt;문자), TO_DATE(문자-&gt;숫자) , TO_NUMBER(문자-&gt;숫자) </li>
+                                    <li> YYYY,YY,MM,MON,DD,DAY,DY,AM,PM,HH,HH12,HH24,MI,SS,A.M,P.M </li>
+                                    <li> TO_CHAR(필드,'$999,999,999') , 제일 앞에 $붙이고 3자리마다 쉼표를 붙임 </li>
+                                    <div className="sstitle"> 날짜 함수 </div>
+                                    <li> SYSDATE(현재날짜), MONTHS_BETWEEN(@1,@2) , ADD_MONTHS(필드,개월수), NEXT_DAY </li>
+                                    <li> ROUND, TRUNC, LAST_DAY(달의마지막날짜반환), EXTRACT([YEAR,MONTH,DAY,HOUR,MINUTE,SECOND] FROM 날짜) </li>
+                                    <div className="sstitle"> 숫자 함수 </div>
+                                    <li> ABS, COS, EXP, FLOOR, LOG, POWER(m,n), SIN, TAN, ROUND </li>
+                                    <li> TRUNC(자릿수 버림), MOD(나머지), SIGN(n) -1,0,1 </li>
+                                    <div className="sstitle"> 문자 함수 </div>
+                                    <li> LOWER, UPPER, INITCAP(첫대문자) ,CONCAT(열연결), SUBSTR,SUBSTRB(@,시작위치,추출갯수) </li>
+                                    <li> LENGTH, LENGTHB, INSTR, INSTRB(@,찾는글자,시작위치,몇번쨰), LPAD,RPAD(@,자릿수,채워넣을기호) </li>
+                                    <li> CONVERT, CHR(@-&gt;아스키코드) , ASCII(아스키코드-&gt;문자) , REPLACE ,TRIM(@,FROM 필드)</li>
+                                    <li> TRIM([LEADING|TRAILING|BOTH],['@',from 필드]) </li>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+                    {/*  */}
+
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'>
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'>  </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                    <li>  </li>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+                    {/*  */}
+                </span>
+            </div>
+
+            <div className="common_style">
+                <span className="lblock">
+
                     <ul>
-                        <p> cmd창으로 접속 방법 : sqlplus 유저명/비번 </p>
-
-                        <span className="mblock">
-                            <span className="stitle"> <a name="기본용어,추가내용"> 기본용어,추가내용 </a> </span>
-                            <span className="sblock">
-                                <span className="sstitle"> 기본용어</span>
-
-                                <li> 스키마 : 사용자가 생성한 객체(테이블,인덱스,프로시저,뷰 등), DBMS마다 차이가 있음 </li>
-                                <li> 테이블 : DB데이터(레코드)를 정렬하여 보관하고 있는 단위 , 테이블을 컬럼(필드)과 레코드로 구성되어있다. </li>
-                                <li> 레코드 : 한 객체에 대한 정보, 테이블에 가로줄 , ex{")"} 한명의 유저의 아이디,비밀번호,이메일 등을 가지고 있는 단위 </li>
-                                <li> 컬럼,필드 : 객체에 있는 속성들을 정의하는 단위, ex{")"} 컬럼 종류 : 아이디, 비밀번호, 이메일, 부서, 나이 등등 </li>
-                                <li>  </li>
-
-                            </span>
-                            <span className="sblock">
-                                <span className="sstitle"> 추가내용 </span>
-
-                                <li> 실행순서 : FROM - ON - JOIN - WHERE - GROUP BY , HAVING, SELECT, ORDER BY </li>
-                                <li>  </li>
-                                <li>  </li>
-                                <li>  </li>
-
-                            </span>
-                        </span>
-
-                        <span className="mblock">
-                            <span className="stitle"> <a name="데이터베이스 관련"> 데이터베이스 관련 </a> </span>
-                            <span className="sblock">
-
-                                <span className="sstitle"> 모든 유저 조회 </span>
-                                <li> SELECT * FROM ALL_users; </li>
-                                <span className="sstitle"> 특정 유저 조회 </span>
-                                <li> SELECT 유저명 FROM ALL_users; </li>
-                                <span className="sstitle"> 모든 DB(스키마) 확인 </span>
-                                <li>  SELECT * FROM DBA_users; </li>
-                                <span className="sstitle"> </span>
-                                <li>   </li>
-
-                            </span>
-                        </span>
-
-                        <span className="mblock">
-                            <span className="stitle"> <a name="테이블 관련"> 테이블 관련 </a> </span>
-                            <span className="sblock">
-
-                                <span className="sstitle"> 테이블의 컬럼 조회 </span>
-                                <li> DESC 테이블명; , 역순 </li>
-                                <span className="sstitle">  </span>
-                                <li>   </li>
-                                <span className="sstitle"> </span>
-                                <li>   </li>
-
-                            </span>
-                        </span>
-
-                        <span className="mblock">
-                            <span className="stitle"> <a name="유저 관련 설정">  유저 관련 설정 </a> </span>
-                            <span className="sblock">
-
-                                <span className="sstitle"> 유저 생성 </span>
-                                <li> create user c##유저명 identified by 비번; </li>
-                                <span className="sstitle"> 접속 유저 변경 </span>
-                                <li> conn c##유저명/비번; (connect 권한이 필요) </li>
-                                <span className="sstitle"> 접속사용자 확인 </span>
-                                <li> show user; </li>
-                                <span className="sstitle"> 유저 비번 변경 </span>
-                                <li>  ALTER USER c##유저명 IDENTIFIED BY 변경할 비번; </li>
-                                <span className="sstitle"> 사용자가 가진 테이블 목록을 보여준다. </span>
-                                <li> SELECT tname FROM tab; </li>
-                                <span className="sstitle"> 유저 삭제 </span>
-                                <li> DROP USER c##유저명; </li>
-                                <span className="sstitle"> </span>
-                                <li>  </li>
-                                <span className="sstitle"> </span>
-                                <li>  </li>
-                                <span className="sstitle"> </span>
-                                <li>  </li>
-
-                            </span>
-                        </span>
-
-                        <span className="mblock">
-                            <span className="stitle"> <a name="Grant">  Grant </a> </span>
-                            <span className="sblock">
-
-                                <span className="sstitle"> GRANT </span>
-                                <li> GRANT @ TO C##유저명; </li>
-                                <span className="mblock">
-
-                                    <span className="sstitle"> @에 들어가는 코드 </span>
-                                    <li> CONNECT </li>
-                                    <li> RESOURCE </li>
-                                    <li> CREATE VIEW : 뷰 생성</li>
-                                    <li> CREATE PROCEDURE : 프로시저 생성 </li>
-                                    <li> CREATE SEQUENCE : 시퀸스 생성 </li>
-                                    <li> DBA </li>
-                                    <li> CREATE USER : 유저생성 </li>
-                                    <li> SELECT ANY TABLE : 모든 유저 테이블 조회 </li>
-                                    <li> CREATE ANY TABLE : 모든 유저 테이블 생성 </li>
-                                    <li> CREATE session : 데이터 베이스 접속 </li>
-                                    <li> CREATE table : 테이블 생성 </li>
-                                    <li> SYSDBA : 데이터베이스관리 최고권한(사용 비추) </li>
-                                    <li> SYSOPER : 데이터베이스 관리 권한 </li>
-                                    <li> GRANT 권한명 TO 롤명 </li>
-                                    <li> GRANT 롤명 TO 사용자명 </li>
-                                    <li>  </li>
-
-                                </span>
-
-                            </span>
-                        </span>
-
-                        <span className="mblock">
-                            <span className="stitle"> <a name="함수">  함수 </a> </span>
-                            <span className="sblock">
-
-                                <span className="sstitle"> 그룹 함수 </span>
-                                <li> SUM() , AVG() , COUNT() , MAX() , MIN() </li>
-                                <li> STDDEV()(=표준편차) , VARIANCE()(=분산)  </li>
-                                <li> GROUP BY 컬럼 HAVING 조건 </li>
-                                <span className="sstitle"> 단일 함수 </span>
-                                <li>  </li>
-                                <span className="sstitle"> 일반 함수 </span>
-                                <li> NVL(NOT NULL일떄,NULL일때) </li>
-                                <li> NVL2(@,@ = NOT NULL일떄, @ = NULL일때) , 삼항연산느낌</li>
-                                <li> DECODE(컬럼,데이터값,'@',데이터값,'@',.기본결과) , 스위치문이라고 생각</li>
-                                <li> CASE WHEN 조건1 then 데이터값1 WHEN 조건2 then 데이터값2 end 별명? from 테이블; </li>
-                                <span className="sstitle"> 변환 함수 </span>
-                                <li> TO_CHAR(숫자-&gt;문자), TO_DATE(문자-&gt;숫자) , TO_NUMBER(문자-&gt;숫자) </li>
-                                <li> YYYY,YY,MM,MON,DD,DAY,DY,AM,PM,HH,HH12,HH24,MI,SS,A.M,P.M </li>
-                                <li> TO_CHAR(컬럼,'$999,999,999') , 제일 앞에 $붙이고 3자리마다 쉼표를 붙임 </li>
-                                <span className="sstitle"> 날짜 함수 </span>
-                                <li> SYSDATE(현재날짜), MONTHS_BETWEEN(@1,@2) , ADD_MONTHS(컬럼,개월수), NEXT_DAY </li>
-                                <li> ROUND, TRUNC, LAST_DAY(달의마지막날짜반환), EXTRACT([YEAR,MONTH,DAY,HOUR,MINUTE,SECOND] FROM 날짜) </li>
-                                <span className="sstitle"> 숫자 함수 </span>
-                                <li> ABS, COS, EXP, FLOOR, LOG, POWER(m,n), SIN, TAN, ROUND </li>
-                                <li> TRUNC(자릿수 버림), MOD(나머지), SIGN(n) -1,0,1 </li>
-                                <span className="sstitle"> 문자 함수 </span>
-                                <li> LOWER, UPPER, INITCAP(첫대문자) ,CONCAT(열연결), SUBSTR,SUBSTRB(@,시작위치,추출갯수) </li>
-                                <li> LENGTH, LENGTHB, INSTR, INSTRB(@,찾는글자,시작위치,몇번쨰), LPAD,RPAD(@,자릿수,채워넣을기호) </li>
-                                <li> CONVERT, CHR(@-&gt;아스키코드) , ASCII(아스키코드-&gt;문자) , REPLACE ,TRIM(@,FROM 컬럼)</li>
-                                <li> TRIM([LEADING|TRAILING|BOTH],['@',from 컬럼]) </li>
-                            </span>
-                        </span>
-                        <span className="mblock">
-                            <span className="stitle"> <a name="Revoke">  Revoke </a> </span>
-                            <span className="sblock">
-
-                                <span className="sstitle"> 유저 연결 끊기 </span>
-                                <li> REVOKE CONNECT FROM c##유저명; </li>
-                                <span className="sstitle"> 유저 권한,sys명령,SQL 끊기 </span>
-                                <li> REVOKE 권한,sys명령,SQL on 테이블명 FROM c##유저명; </li>
-                                <span className="sstitle"> </span>
-                                <li>  </li>
-                                <span className="sstitle"> </span>
-                                <li>  </li>
-                                <span className="sstitle"> </span>
-                                <li>  </li>
-                                <span className="sstitle"> </span>
-                                <li>  </li>
-
-                            </span>
-                        </span>
-
-                        <span className="mblock">
-                            <span className="stitle"> <a name="Create"> Create </a> </span>
-                            <span className="sblock">
-
-                                <span className="sstitle"> 테이블 생성 </span>
-                                <li> CREATE TABLE 테이블명(컬럼명 타입 속성) </li>
-                                <span className="mblock">
-                                    <span className="sstitle"> 데이터타입 </span>
-
-                                    <li> NUMBER : 숫자 ,소수점저장가능, mysql이나 mariadb에서는 INT 사용</li>
-                                    <li> VARCHAR2(데이터크기) : 가변길이 텍스트 </li>
-                                    <li> CLOB : 대용량 텍스트 </li>
-                                    <li> DATE : 고정길이 날짜 </li>
-                                    <li> BLOB : 대용량 이진데이터 </li>
-                                    <li> CHAR(데이터크기) : 고정길이 데이터, 문자열 갯수 </li>
-                                    <li> NCHAR(데이터크기) : 전세계문자 </li>
-                                    <li>  </li>
-                                    <li>  </li>
-
-                                    <span className="sstitle"> 조건 </span>
-
-                                    <li> PRIMARY KEY , 중복x + NULL x </li>
-                                    <li> FOREGIN KEY , 왜래키  </li>
-                                    <li> NOT NULL </li>
-                                    <li> DEFAULT 값  </li>
-                                    <li> UNIQUE, 중복x </li>
-                                    <li> CHECK , 특정 조건에 맞는 데이터만 받음, 선택조건 </li>
-                                    <li> INDEX , 인덱스를 지정할 때 사용 </li>
-
-                                </span>
-                                <span className="sstitle"> 테이블 만들기 </span>
-                                <li> CREATE TABLE 테이블명 (컬럼 데이터타입 조건...);  </li>
-                                <span className="sstitle"> 서브쿼리를 이용하여 테이블 만들기 </span>
-                                <li> CREATE TABLE 테이블명 AS 서브쿼리 </li>
-                                <span className="sstitle"> DB유저들과 권한은 유지하면서 테이블을 다시 만드는 방법  </span>
-                                <li>  CREATE OR REPLACE TABLE  테이블명(컬럼</li>
-                                <span className="sstitle">  </span>
-                                <li>   </li>
-                            </span>
-                        </span>
-
-                        <span className="mblock">
-                            <span className="stitle"> <a name="Alter"> Alter </a> </span>
-                            <span className="sblock">
-
-                                <span className="sstitle"> 테이블 컬럼의 타입과 속성을 변경한다 </span>
-                                <li> ALTER TABLE 테이블명 MODIFY(컬럼명 타입, 바꿀컬럼명 타입); </li>
-                                <span className="sstitle"> 테이블 컬럼 추가 </span>
-                                <li> ALTER TABLE 테이블명 ADD(컬럼명 타입); </li>
-                                <span className="sstitle"> 테이블 컬럼 삭제 </span>
-                                <li> ALTER TABLE 테이블명 DROP(컬럼명1, 컬럼명2) </li>
-                                <span className="sstitle"> 테이블 이름 변경 </span>
-                                <li> ALTER TABLE 테이블명 RENAME TO 변경할테이블명 </li>
-                                <span className="sstitle"> </span>
-                                <li>  </li>
-
-                            </span>
-                        </span>
-
-
-                        <span className="mblock">
-                            <span className="stitle"> <a name="Drop"> Drop </a> </span>
-                            <span className="sblock">
-
-                                <span className="sstitle"> 테이블 삭제 </span>
-                                <li> DROP TABLE 테이블명; , 테이블에 레코드가 존재하면 지워지지 않는것으로 알고 있음 </li>
-                                <span className="sstitle"> 테이블에 레코드가 있을 떄 강제 삭제 </span>
-                                <li> DROP TABLE 테이블명 CASCADE CONSTRAINTS PURGE; </li>
-                                {/* <span className="sstitle"> </span>
-                                <li>  </li> */}
-
-                            </span>
-                        </span>
-
-                        <span className="mblock">
-                            <span className="stitle"> <a name="Truncate"> Truncate </a> </span>
-                            <span className="sblock">
-
-                                <span className="sstitle"> 테이블의 모든 레코드 삭제 </span>
-                                <li>  TRUNCATE TABLE 테이블명; </li>
-                                {/* <span className="sstitle"> </span>
-                                <li>  </li> */}
-
-                            </span>
-                        </span>
-
-                        <span className="mblock">
-                            <span className="stitle"> <a name="Insert"> Insert </a> </span>
-                            <span className="sblock">
-
-                                <span className="sstitle"> 레코드 생성 </span>
-                                <li> INSERT INTO 테이블명 VALUES(컬럼값1, 컬럼값2, ...); , 단 컬럼은 순서에 맞게 입력해야 한다. </li>
-                                <li> INSERT INTO 테이블명(컬럼명1, 컬럼명2, ...) VALUES(컬럼값1, 컬럼값2, ...);  </li>
-                                <li> INSERT INTO 테이블명 (SELECT * FROM 다른테이블) , 스키마가 동일해야 가능  </li>
-                                <span className="sstitle"> </span>
-                                <li>  </li>
-                                <span className="sstitle"> </span>
-                                <li>  </li>
-
-                            </span>
-                        </span>
-
-                        <span className="mblock">
-                            <span className="stitle"> <a name="Update"> Update </a> </span>
-                            <span className="sblock">
-
-                                <span className="sstitle"> 조건에 맞는 테이블 레코드의 컬럼값들을 한꺼번에 변경  </span>
-                                <li> UPDATE 테이블명 SET salary=4000 WHERE job='clerk'; </li>
-                                <span className="sstitle">  </span>
-                                <li>  </li>
-                                <span className="sstitle">  </span>
-                                <li>  </li>
-
-                            </span>
-                        </span>
-
-                        <span className="mblock">
-                            <span className="stitle"> <a name="Delete">  Delete </a> </span>
-                            <span className="sblock">
-
-                                <span className="sstitle"> 조건에 맞는 테이블 레코드를 삭제 </span>
-                                <li> DELETE FROM 테이블명 WHERE 조건문 </li>
-                                <span className="sstitle"> </span>
-                                <li>  </li>
-                                <span className="sstitle"> </span>
-                                <li>  </li>
-
-                            </span>
-                        </span>
-
-                        <span className="mblock">
-                            <span className="stitle"> <a name="Select">  Select </a> </span>
-                            <span className="sblock">
-
-                                <span className="sstitle"> 테이블 특정 컬럼값만 조회 </span>
-                                <li> SELECT 컬럼명1,컬럼명2 FROM 테이블명;  </li>
-                                <span className="sstitle"> 테이블 모든 컬럼값 조회 </span>
-                                <li> SELECT * FROM 테이블명; </li>
-                                <span className="sstitle"> 시퀸스 조회 </span>
-                                <li> SELECT * FROM 시퀸스명; </li>
-                                <span className="sstitle"> 다른 테이블의 (컬럼 혹은 일부 컬럼)만 가져와 (비어있는)테이블 생성 </span>
-                                <li> SELECT * INTO 테이블명 FROM 다른테이블 </li>
-                                <li> SELECT * INTO 테이블명 FROM (SELECT 컬럼1,컬럼2... FROM 다른테이블) </li>
-                                <span className="sstitle"> </span>
-                                <li>  </li>
-
-                            </span>
-                        </span>
 
                         <span className="mblock">
                             <span className="stitle"> <a name="Where,On,Like,Between,As,Distinct"> Where,On,Like,Between,As,Distinct </a> </span>
@@ -331,25 +518,25 @@ const DBOracleBasic = (props) => {
                                 <li>  </li>
                                 <li> <small> 둘다 조건을 처리하는 것이 같다. 하지만 ON이 먼저 실행된다. 그래서 OUTER JOIN을 할 때 차이가 발생한다. </small> </li>
                                 <li> 아래 2개의 쿼리는 같아보이지만 실행하였을 떄 1번은 OUTER JOIN의 특성을 살리지 못하고 1000보다 작으면 다 지워버린다. </li>
-                                <li> ON 테이블1.컬럼 = 테이블2.컬럼 WHERE 테이블1.컬럼 &gt; 1000;</li>
-                                <li> ON 테이블1.컬럼 = 테이블2.컬럼 AND 테이블1.컬럼 &gt; 1000; </li>
+                                <li> ON 테이블1.필드 = 테이블2.필드 WHERE 테이블1.필드 &gt; 1000;</li>
+                                <li> ON 테이블1.필드 = 테이블2.필드 AND 테이블1.필드 &gt; 1000; </li>
                             </span>
 
                             <span className="sblock">
                                 <span className="sstitle"> LIKE </span>
-                                <small> LIKE는 대소문자를 구분하여 컬럼값 검색 그러므로 문자열을 대문자나,소문자로 바꾸어서 검색</small>
+                                <small> LIKE는 대소문자를 구분하여 필드값 검색 그러므로 문자열을 대문자나,소문자로 바꾸어서 검색</small>
                                 <li> 와일드카드 : %(어떠한 문자든 검색) , _(자릿수 검색) </li>
-                                <li> WHERE 컬럼명 LIKE 'MI%' , 대문자 MI로 시작하는 컬럼값 비교 </li>
-                                <li> WHERE 컬럼명 LIKE '%KE' , 대문자 KE로 끝나는 컬럼값 검색 </li>
-                                <li> WHERE 컬럼명 LIKE '%IK%', 대문자 IK를 포함하는 컬럼값 검색  </li>
-                                <li> WHERE 컬럼명 (UPPER)LIKE (UPPER)'%IK%', IK를 포함하는 컬럼값 검색  </li>
-                                <li> WHERE 컬럼명 (LOWER)LIKE (LOWER)'%IK%', IK를 포함하는 컬럼값 검색  </li>
-                                <li> WHERE 컬럼명 LIKE '%IK%' OR 컬럼명 LIKE '%OH%', IK혹은 OH를 포함하는 컬럼값 검색  </li>
-                                <li> WHERE REGEXP _LIKE(컬럼명, 'MIKE|JOHN')  , IK혹은 OH를 포함하는 컬럼값 검색  </li>
-                                <li> WHERE 컬럼명 NOT LIKE '%IK%', IK를 포함하지않는 컬럼값 검색  </li>
-                                <li> WHERE 컬럼명 LIKE 'MIK_' , MIK + 1글자 를 가진 컬럼값을 검색   </li>
-                                <li> WHERE 컬럼명 LIKE '%K_' , %K + 1글자 K라는글자뒤에 1글자가 포함된 컬럼값 검색 </li>
-                                <li> WHERE 컬럼명 LIKE '%\_%' ESCAPE '\' , 언더바문자(_)를 포함하는 컬럼값 검색 ,
+                                <li> WHERE 필드명 LIKE 'MI%' , 대문자 MI로 시작하는 필드값 비교 </li>
+                                <li> WHERE 필드명 LIKE '%KE' , 대문자 KE로 끝나는 필드값 검색 </li>
+                                <li> WHERE 필드명 LIKE '%IK%', 대문자 IK를 포함하는 필드값 검색  </li>
+                                <li> WHERE 필드명 (UPPER)LIKE (UPPER)'%IK%', IK를 포함하는 필드값 검색  </li>
+                                <li> WHERE 필드명 (LOWER)LIKE (LOWER)'%IK%', IK를 포함하는 필드값 검색  </li>
+                                <li> WHERE 필드명 LIKE '%IK%' OR 필드명 LIKE '%OH%', IK혹은 OH를 포함하는 필드값 검색  </li>
+                                <li> WHERE REGEXP _LIKE(필드명, 'MIKE|JOHN')  , IK혹은 OH를 포함하는 필드값 검색  </li>
+                                <li> WHERE 필드명 NOT LIKE '%IK%', IK를 포함하지않는 필드값 검색  </li>
+                                <li> WHERE 필드명 LIKE 'MIK_' , MIK + 1글자 를 가진 필드값을 검색   </li>
+                                <li> WHERE 필드명 LIKE '%K_' , %K + 1글자 K라는글자뒤에 1글자가 포함된 필드값 검색 </li>
+                                <li> WHERE 필드명 LIKE '%\_%' ESCAPE '\' , 언더바문자(_)를 포함하는 필드값 검색 ,
                                     \문자말고도 아무런 문자 사용이 가능하다. 동일하게만 설정해주면 가능하다 </li>
                             </span>
 
@@ -365,14 +552,14 @@ const DBOracleBasic = (props) => {
                                 <small> 테이블의 이름이 길 경우 짧게 이름 지어 사용 </small>
                                 <small> AS 별칭(공백x,특수문자x,대소문자x) , 띄어쓰기 별칭(공백,특수문자,대소문자) </small>
                                 <li> SELECT * FROM 테이블 A WHERE A.salary &lt; 1000  </li>
-                                <li> SELECT salary AS sal FROM 테이블 , 출력이 될 떄 컬럼자리에 sal로 표현이 된다. </li>
+                                <li> SELECT salary AS sal FROM 테이블 , 출력이 될 떄 필드자리에 sal로 표현이 된다. </li>
                                 <li>  </li>
                             </span>
 
                             <span className="sblock">
                                 <span className="sstitle"> DISTINCT </span>
                                 <li> 중복값을 제거해서 조회 </li>
-                                <li> SELECT DISTINCT 컬럼명 FROM 테이블; </li>
+                                <li> SELECT DISTINCT 필드명 FROM 테이블; </li>
                             </span>
                         </span>
 
@@ -390,8 +577,8 @@ const DBOracleBasic = (props) => {
                             <span className="sblock">
                                 <span className="sstitle"> ORDER BY </span>
                                 <li> <small> 출력할 때 순서대로 정렬을 해준다. </small>  </li>
-                                <li> 쿼리문 제일 뒤에 Order By 컬럼명,럼럼명 DESC; , 역순 </li>
-                                <li> 쿼리문 제일 뒤에 Order By 컬럼명,럼럼명 ASC;  , 오름차순? </li>
+                                <li> 쿼리문 제일 뒤에 Order By 필드명,럼럼명 DESC; , 역순 </li>
+                                <li> 쿼리문 제일 뒤에 Order By 필드명,럼럼명 ASC;  , 오름차순? </li>
                             </span>
 
                             <span className="sblock">
@@ -417,7 +604,7 @@ const DBOracleBasic = (props) => {
                                 <li> <small> 계층형 구조, 오라클 8버전 이상 지원 </small> </li>
                                 <li> NODE : 항목 한개 , ROOT : 최상단 노드 , PARENT : 상위 노드 </li>
                                 <li> CHILD : 하위 노드 , LEAF : 최하단 노드   </li>
-                                <li> LEVEL :  어떤 단계에 있는지 보여주는 컬럼 , SELECT LEVEL ~ </li>
+                                <li> LEVEL :  어떤 단계에 있는지 보여주는 필드 , SELECT LEVEL ~ </li>
                                 <li> START WITH 최상위노드조건: 최상위 루트노드를 지정 </li>
                                 <li> CONNECT BY PRIOR 자식노드 = 부모노드 : 부모와 자식노드를 연결 </li>
                                 <span className="sstitle"> 일반적인 예시 </span>
@@ -451,7 +638,7 @@ const DBOracleBasic = (props) => {
                             <span className="stitle"> <a name="Sequence">  Sequence </a> </span>
 
                             <li><small> Unique값을 생성해주는 Oracle객체 </small>    </li>
-                            <li><small> 자동으로 증가하는 컬럼 생성가능 </small>   </li>
+                            <li><small> 자동으로 증가하는 필드 생성가능 </small>   </li>
                             <li><small> 시퀸스는 테이블과 독립적으로 작용하며 여러 테이블에 사용이 가능한다. </small>    </li>
 
                             <span className="sblock">
@@ -494,7 +681,7 @@ const DBOracleBasic = (props) => {
                             <span className="stitle"> 시퀸스 사용 </span>
                             <span className="sblock">
                                 <span className="sstitle"> NEXTVAL </span>
-                                <li> 시퀸스명.NEXTVAL , 시퀸스에 컬럼값을 넣을 떄 자동으로 값이 증가한다. </li>
+                                <li> 시퀸스명.NEXTVAL , 시퀸스에 필드값을 넣을 떄 자동으로 값이 증가한다. </li>
                                 <span className="sstitle"> CURRVAL </span>
                                 <li> SELECT 시퀸스명.CURRVAL FROM dual , 현재 시퀸스 순번을 가져온다. NEXTVAL을 한번 실행한
                                     쿼리에서 사용이 가능하다고 한다. </li>
@@ -544,46 +731,46 @@ const DBOracleBasic = (props) => {
                             <span className="stitle"> <a name="Join">  Join </a> </span>
                             <small> JOIN을 하기위해서는 레코드의 수를 고려하여야 한다. </small>
                             <small> JOIN의 종류 : Inner, Outer, Cross, Self, Anti, Semi, ANSI(표준) </small>
-                            <small> JOIN을 사용할 떄는 컬럼을 적을 때 테이블1.컬럼 , 테이블2.컬럼 이런식으로 테이블을 명시해 주어야 한다. </small>
+                            <small> JOIN을 사용할 떄는 필드을 적을 때 테이블1.필드 , 테이블2.필드 이런식으로 테이블을 명시해 주어야 한다. </small>
                             <span className="sblock">
 
                                 <span className="stitle"> inner join,equal join </span>
-                                <span className="sstitle"> 2개의 테이블에서 공통 컬럼이 있을 때(Inner JOIN) </span>
-                                <li> SELECT 컬럼... FROM 테이블1,테이블2 WHERE 테이블1.컬럼=테이블2.컬럼; </li>
-                                <li> SELECT 컬럼... FROM 테이블1 INNER JOIN 테이블2 ON 테이블1.컬럼 = 테이블2.컬럼; </li>
-                                <li> SELECT 컬럼... FROM 테이블1,테이블2 WHERE 테이블1.컬럼=테이블2.컬럼 AND 테이블1.컬럼='ABC'; </li>
-                                <li> SELECT 컬럼... FROM 테이블1 A,테이블2 B WHERE A.컬럼=B.컬럼; , 별칭사용</li>
+                                <span className="sstitle"> 2개의 테이블에서 공통 필드이 있을 때(Inner JOIN) </span>
+                                <li> SELECT 필드... FROM 테이블1,테이블2 WHERE 테이블1.필드=테이블2.필드; </li>
+                                <li> SELECT 필드... FROM 테이블1 INNER JOIN 테이블2 ON 테이블1.필드 = 테이블2.필드; </li>
+                                <li> SELECT 필드... FROM 테이블1,테이블2 WHERE 테이블1.필드=테이블2.필드 AND 테이블1.필드='ABC'; </li>
+                                <li> SELECT 필드... FROM 테이블1 A,테이블2 B WHERE A.필드=B.필드; , 별칭사용</li>
                                 <span className="sstitle"> ANSI 표준 (Inner)JOIN </span>
-                                <li> SELECT 컬럼... FROM 테이블1 JOIN 테이블2 ON 테이블1.컬럼=테이블2.컬럼 </li>
-                                <li> SELECT 컬럼... FROM 테이블1 JOIN 테이블2 ON 테이블1.컬럼=테이블2.컬럼 AND 테이블1.컬럼='ABC' </li>
-                                <li> SELECT 컬럼... FROM 테이블1 JOIN 테이블2 ON 테이블1.컬럼=테이블2.컬럼 WHERE 테이블1.컬럼='ABC' </li>
-                                <li> SELECT 컬럼... FROM 테이블1 JOIN 테이블2 USING 공통컬럼 , ANSI </li>
-                                <li> SELECT 컬럼... FROM 테이블1 NATURAL 테이블2 WHERE = 'ABC'; , 2개의 테이블의 공통컬럼을 알아서 뽑음 , ANSI </li>
+                                <li> SELECT 필드... FROM 테이블1 JOIN 테이블2 ON 테이블1.필드=테이블2.필드 </li>
+                                <li> SELECT 필드... FROM 테이블1 JOIN 테이블2 ON 테이블1.필드=테이블2.필드 AND 테이블1.필드='ABC' </li>
+                                <li> SELECT 필드... FROM 테이블1 JOIN 테이블2 ON 테이블1.필드=테이블2.필드 WHERE 테이블1.필드='ABC' </li>
+                                <li> SELECT 필드... FROM 테이블1 JOIN 테이블2 USING 공통필드 , ANSI </li>
+                                <li> SELECT 필드... FROM 테이블1 NATURAL 테이블2 WHERE = 'ABC'; , 2개의 테이블의 공통필드을 알아서 뽑음 , ANSI </li>
                                 <span className="sstitle"> 2개의 테이블에서 범위 관련 컴럼으로 JOIN </span>
-                                <li> SELECT 컬럼.. FROM 테이블1,테이블2 WHERE 테이블1.컬럼 BETWEEN 테이블2.컬럼명 AND 테이블2.컬럼명 </li>
+                                <li> SELECT 필드.. FROM 테이블1,테이블2 WHERE 테이블1.필드 BETWEEN 테이블2.필드명 AND 테이블2.필드명 </li>
                                 <span className="sstitle"> 1개의 테이블 JOIN </span>
-                                <li> SELECT 컬럼 FROM 테이블1 별칭1,테이블1 별칭2 WHERE 조건 </li>
+                                <li> SELECT 필드 FROM 테이블1 별칭1,테이블1 별칭2 WHERE 조건 </li>
                                 <span className="sstitle"> 3개의 테이블 JOIN</span>
-                                <li> SELECT * FROM 테이블1 A , 테이블2 B , 테이블3 C WHERE A.컬럼=B.컬럼 AND A.컬럼=C.컬럼 </li>
-                                <li> SELECT * FROM 테이블1 A JOIN 테이블2 B ON A.컬럼=B.컬럼 JOIN 테이블3 C ON A.컬럼=C.컬럼 </li>
+                                <li> SELECT * FROM 테이블1 A , 테이블2 B , 테이블3 C WHERE A.필드=B.필드 AND A.필드=C.필드 </li>
+                                <li> SELECT * FROM 테이블1 A JOIN 테이블2 B ON A.필드=B.필드 JOIN 테이블3 C ON A.필드=C.필드 </li>
                                 <span className="stitle"> outer join </span>
-                                <span className="sstitle"> 2개의 테이블 컬럼 균형맞춰서 (OUTER)JOIN </span>
+                                <span className="sstitle"> 2개의 테이블 필드 균형맞춰서 (OUTER)JOIN </span>
                                 <li> <small> INNER과 OUTER JOIN을 동시에 사용하면 에러 발생 </small> </li>
-                                <li> <small> 조건에서 모든 컬럼(테이블x) 조건에 +를 붙여주어야 결과값이 제대로 나온다. </small> </li>
+                                <li> <small> 조건에서 모든 필드(테이블x) 조건에 +를 붙여주어야 결과값이 제대로 나온다. </small> </li>
                                 <li> <small> OR 연산자와는 같이 사용 불가 , 서브쿼리와 같이 사용불가 </small> </li>
                                 <li> <small> 1개의 테이블을 기준으로 잡고 다른 여러개의 테이블에(+) JOIN을 사용해야한다. , 포괄적인 JOIN(x) </small> </li>
-                                <li> SELECT 컬럼 FROM 테이블1,테이블2 WHERE 테이블1.컬럼(+) = 테이블2.컬럼 AND 테이블1.컬럼(+)&gt;100, 데이터가 없을 것 같은 쪽에 +기호 사용</li>
+                                <li> SELECT 필드 FROM 테이블1,테이블2 WHERE 테이블1.필드(+) = 테이블2.필드 AND 테이블1.필드(+)&gt;100, 데이터가 없을 것 같은 쪽에 +기호 사용</li>
                                 <li> SELECT * FROM 테이블1 [LEFT|RIGHT,FULL] OUTER JOIN 테이블2 , ANSI 방식 , 우측테이블이 없다면 LEFT사용 </li>
-                                <li> SELECT * FROM 테이블 A, 테이블 B, 테이블 C WHERE A.컬럼 = B.컬럼(+) AND A.컬럼 = C.컬럼(+) </li>
+                                <li> SELECT * FROM 테이블 A, 테이블 B, 테이블 C WHERE A.필드 = B.필드(+) AND A.필드 = C.필드(+) </li>
                                 <span className="stitle"> cross join </span>
                                 <span className="sstitle"> Cross JOIN 사용방법 </span>
                                 <li> <small> 메모리를 많이 잡아 먹어 거의 사용하지 않음, 행*행 만큼의 갯수가 나옴 </small> </li>
-                                <li> SELECT A.컬럼1 A.컬럼2 B.컬럼1 FROM 테이블 A, 테이블 B </li>
+                                <li> SELECT A.필드1 A.필드2 B.필드1 FROM 테이블 A, 테이블 B </li>
                                 <span className="stitle"> self join </span>
                                 <span className="sstitle"> SELF JOIN 사용방법 </span>
                                 <li> <small> 같은 테이블을 별칭을 2개를 두어서 사용하는 방법 </small>  </li>
                                 <li> <small> 상사와의 관게, 매니저와 직원의 관계, 조직도와 부서 등을 볼때 사용하면 될것 같다 </small>  </li>
-                                <li> SELECT A.컬럼 B.컬럼 FROM 테이블1 A, 테이블1 B WHERE A.컬럼=B.컬럼 </li>
+                                <li> SELECT A.필드 B.필드 FROM 테이블1 A, 테이블1 B WHERE A.필드=B.필드 </li>
                                 <span className="sstitle">  </span>
                                 <li>  </li>
                                 {/* <li> 테이블에서 왼쪽 조인 관리자(매니저) 출력 매니저 아이디 없으면 배제 하향식, 급여는 역순 </li> */}
@@ -600,11 +787,11 @@ const DBOracleBasic = (props) => {
                             <span className="stitle"> <a name="Regular Expression"> Regular Expression </a> </span>
                             <span className="sblock">
 
-                                <span className="sstitle"> REGEXP_LIKE (컬럼,'패턴[조건]') </span>
+                                <span className="sstitle"> REGEXP_LIKE (필드,'패턴[조건]') </span>
                                 <li> WHERE REGEXP_LIKE (DEPT, '경영[^2]팀') , 경영 2팀을 제외한 </li>
                                 <li> WHERE REGEXP_LIKE (DEPT, '경영[1팀2팀]') , 경영1팀 혹은 경영2팀을 포함하는 </li>
                                 <li>  </li>
-                                <span className="sstitle"> REGEXP_SUBSTR (컬럼,'패턴[조건]') </span>
+                                <span className="sstitle"> REGEXP_SUBSTR (필드,'패턴[조건]') </span>
                                 <li> SELECT REGEXP_SUBSTR(EMAIL,'[^@]+') FROM 테이블 , 이메일에서 아이디만 추출 </li>
                                 <li>  </li>
                                 <span className="sstitle"> </span>
@@ -630,14 +817,14 @@ const DBOracleBasic = (props) => {
                                 <li> <small> 단 1개의 조건만 만족을 해도 된다. </small> </li>
                                 <span className="sstitle"> 서브쿼리로 테이블 생성 </span>
                                 <li> CREATE TABLE 테이블 AS (SELECT * from 테이블 WHERE salary &lt; 1000)  </li>
-                                <li> CREATE TABLE 테이블 AS (SELECT * FROM 테이블 WHERE 1=0;) , 테이블의 컬럼만 복사  </li>
+                                <li> CREATE TABLE 테이블 AS (SELECT * FROM 테이블 WHERE 1=0;) , 테이블의 필드만 복사  </li>
                                 <span className="sstitle"> 서브쿼리를 이용하여 다른 테이블에 레코드 넣기 </span>
                                 <li> INSERT INTO 테이블 (SELECT * FROM 테이블) </li>
                                 <span className="sstitle"> 서브쿼리로 테이블 레코드 수정하기 </span>
-                                <li> UPDATE 테이블 SET 컬럼=(서브쿼리) WHERE 조건 </li>
-                                <li> UPDATE 테이블 SET (컬럼1,컬럼2) = (컬럼2개인 서브쿼리) WHERE 조건 </li>
+                                <li> UPDATE 테이블 SET 필드=(서브쿼리) WHERE 조건 </li>
+                                <li> UPDATE 테이블 SET (필드1,필드2) = (필드2개인 서브쿼리) WHERE 조건 </li>
                                 <span className="sstitle"> 서브쿼리 조건에 맞는 데이터 삭제 </span>
-                                <li> DELETE FROM 테이블 WHERE 컬럼-(서브쿼리) </li>
+                                <li> DELETE FROM 테이블 WHERE 필드-(서브쿼리) </li>
                                 {/* <span className="sstitle">  </span>
                                 <li>  </li> */}
 
@@ -658,8 +845,8 @@ const DBOracleBasic = (props) => {
                                 <span className="sstitle"> 뷰 삭제 </span>
                                 <li> DROP VIEW 뷰명 [ CASCADE CONSTRAINTS PURGE ]; </li>
                                 <span className="sstitle"> 뷰 사용 불가능한 경우 </span>
-                                <li> NOTNULL 컬럼이 있는 경우 </li>
-                                <li> 가상컬럼이 존재하면 INSERT , UPDATE 사용 불가 </li>
+                                <li> NOTNULL 필드이 있는 경우 </li>
+                                <li> 가상필드이 존재하면 INSERT , UPDATE 사용 불가 </li>
                                 <li> DISTINCT인 경우 DML명령 사용불가 </li>
                                 <li> 그룹함수나 GROUP BY 포함한 경우에도 DML명령 사용불가  </li>
                                 <span className="sstitle">  </span>
@@ -768,11 +955,11 @@ const DBOracleBasic = (props) => {
                                 <span className="sstitle"> cmd창에서 간격 조절 </span>
                                 <li> SET LINESIZE 문자수; </li>
                                 <li> SET PAGESIZE 라인수; </li>
-                                <li> COL 컬럼명 FOR a출력자리공간(숫자로 a뒤에 입력); </li>
+                                <li> COL 필드명 FOR a출력자리공간(숫자로 a뒤에 입력); </li>
                                 <span className="sstitle"> SELECT로 출력할 때 문자열 적어서 출력하는 방법 </span>
-                                <li> SELECT 컬럼 ||'문자열'|| 컬럼 ~~~; </li>
+                                <li> SELECT 필드 ||'문자열'|| 필드 ~~~; </li>
                                 <span className="sstitle"> 비어있는 테이블 </span>
-                                <li> SELECT 컬럼,계산값 등 FROM dual; </li>
+                                <li> SELECT 필드,계산값 등 FROM dual; </li>
                                 <span className="sstitle"> </span>
                                 <li>  </li>
 

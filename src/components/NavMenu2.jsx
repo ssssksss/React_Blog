@@ -25,6 +25,7 @@ import BlockChainList from './NavMenuList/BlockChainList.jsx';
 import DesignPatternList from './NavMenuList/DesignPatternList.jsx';
 import CodingTestList from './NavMenuList/CodingTestList.jsx';
 import ProgramList from './NavMenuList/ProgramList.jsx';
+import CloudList from './NavMenuList/CloudList.jsx';
 
 import './NavMenu2.css';
 import './NavMenuListStyle.css';
@@ -129,6 +130,9 @@ const NavMenu2 = (props) => {
         }
         else if (props.page === 'program') {
             return <ProgramList onChangePage={(page2) => { send(page2) }}> </ProgramList>;
+        }
+        else if (props.page === 'cloud') {
+            return <CloudList onChangePage={(page2) => { send(page2) }}> </CloudList>;
         }
         else {
             return <div> </div>;

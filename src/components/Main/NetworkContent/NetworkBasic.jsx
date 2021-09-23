@@ -10,7 +10,7 @@ const NetworkBasic = (props) => {
                     {/*  */}
                     <span className="mblock">
                         <details>
-                            <summary className="stitle"> ▶ 네크워크란? <a name="네크워크란?" style={{ visibility: "hidden" }}> 네크워크란? </a> </summary>
+                            <summary className="stitle"> 네크워크란? <a name="네크워크란?" style={{ visibility: "hidden" }}> 네크워크란? </a> </summary>
                             <span className="sblock">
                                 <span className="sstitle"> 설명 : 노드(네트워크에 속한 컴퓨터,통신장비)와 노드간에 통신망을 통하여 DATA를 주고 받는 방식, 환경 </span>
                                 <span className="mblock">
@@ -67,7 +67,7 @@ const NetworkBasic = (props) => {
                     {/*  */}
                     <span className="mblock">
                         <details>
-                            <summary className="stitle"> ▶ MAC, IP, PORT <a name="MAC, IP, PORT?" style={{ visibility: "hidden" }}> MAC, IP, PORT </a> </summary>
+                            <summary className="stitle"> MAC, IP, PORT <a name="MAC, IP, PORT?" style={{ visibility: "hidden" }}> MAC, IP, PORT </a> </summary>
                             <span className="sblock">
                                 <span className="sstitle"> MAC </span>
                                 <span className="mblock">
@@ -97,9 +97,66 @@ const NetworkBasic = (props) => {
                         </details>
                     </span>
                     {/*  */}
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> IP
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> IP주소란? </div>
+                                <div className='mblock'>
+                                    <li> 네트워크에서 컴퓨터 장치들이 서로 통신하는데 사용하기 위한 네트워크 주소 </li>
+                                    <li>  </li>
+                                </div>
+
+                                <div className='sstitle'> IPv4 </div>
+                                <div className='mblock'>
+                                    <li> IP 주소의 구성 : 255.255.255.0 과 같이 4개의 Octet , 이진수 32자리로 구성되어 있음 </li>
+                                    <li> IP Address Class : 많은 사용자의 요구를 충족시키기 위해 만들어짐 , (Network 주소 + Host 주소)로 구성
+                                        <div className='sblock'>
+                                            <li> A 클래스 : <span className="col_be"> 1개의 네트워크 주소 </span> + 3개의 호스트 주소 </li>
+                                            <li> <span className="col_be"> 0xxxxxxx. </span> | <span> xxxxxxxx. </span> | <span> xxxxxxxx. </span> | <span> xxxxxxxx </span> </li>
+                                            <li> 네트워크 부분 : 0.0.0.0 ~ 127.255.255.255 </li>
+                                            <li> 호스트 부분 : 0 ~ 127 </li>
+                                        </div>
+                                        <div className='sblock'>
+                                            <li> B 클래스 : <span className="col_be"> 2개의 네트워크 주소 </span> + 2개의 호스트 주소 </li>
+                                            <li> <span className="col_be"> 10xxxxxx. </span> | <span className="col_be"> xxxxxxxx. </span> | <span> xxxxxxxx. </span> | <span> xxxxxxxx </span> </li>
+                                            <li> 네트워크 부분 : 128.0.0.0 ~ 191.255.255.255 </li>
+                                            <li> 호스트 부분 : 0 ~ 127 </li>
+                                        </div>
+                                        <div className='sblock'>
+                                            <li> C 클래스 : <span className="col_be"> 3개의 네트워크 주소 </span> + 1개의 호스트 주소 </li>
+                                            <li> <span className="col_be"> 110xxxxx. </span> | <span className="col_be"> xxxxxxxx. </span> |
+                                                <span className="col_be"> xxxxxxxx. </span> | <span> xxxxxxxx </span> </li>
+                                            <li> 네트워크 부분 : 192.0.0.0 ~ 223.255.255.255 </li>
+                                            <li> 호스트 부분 : 0 ~ 127 </li>
+                                        </div>
+                                        <div className='sblock'>
+                                            <li> D 클래스 </li>
+                                            <li>  </li>
+                                        </div>
+                                        <div className='sblock'>
+                                            <li> E 클래스 </li>
+                                            <li>  </li>
+                                        </div>
+                                    </li>
+                                    <li>  </li>
+                                </div>
+
+                                <div className='sstitle'>  </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                    <li>  </li>
+                                </div>
+
+                            </div>
+                        </details>
+                    </div>
+                    {/*  */}
+
                     <span className="mblock">
                         <details>
-                            <summary className="stitle"> ▶ 서버의 종류 <a name="서버의 종류" style={{ visibility: "hidden" }}> 서버의 종류 </a> </summary>
+                            <summary className="stitle"> 서버의 종류 <a name="서버의 종류" style={{ visibility: "hidden" }}> 서버의 종류 </a> </summary>
                             <span className="sblock">
                                 <span className="sstitle"> DNS 서버 </span>
                                 <span className="mblock">
@@ -122,7 +179,7 @@ const NetworkBasic = (props) => {
                     {/*  */}
                     <span className="mblock">
                         <details>
-                            <summary className="stitle"> ▶ 인터넷이란? <a name="인터넷이란?" style={{ visibility: "hidden" }}> 인터넷이란? </a> </summary>
+                            <summary className="stitle"> 인터넷이란? <a name="인터넷이란?" style={{ visibility: "hidden" }}> 인터넷이란? </a> </summary>
                             <span className="sblock">
                                 <span className="sstitle"> 여러가지 데이터를 공유할 수 있는 통신망 , 여러가지 통신망 중 가장 큰 통신망 </span>
                                 <span className="mblock">
@@ -134,7 +191,7 @@ const NetworkBasic = (props) => {
                     {/*  */}
                     <span className="mblock">
                         <details>
-                            <summary className="stitle"> ▶ WWW란? <a name="WWW란?" style={{ visibility: "hidden" }}> WWW란? </a> </summary>
+                            <summary className="stitle"> WWW란? <a name="WWW란?" style={{ visibility: "hidden" }}> WWW란? </a> </summary>
                             <span className="sblock">
                                 <span className="sstitle"> 인터넷을 통해서 웹과 관련된 데이터를 공유하는 것 </span>
                                 <span className="mblock">
@@ -147,7 +204,7 @@ const NetworkBasic = (props) => {
 
                     <span className="mblock">
                         <details>
-                            <summary className="stitle"> ▶ 프로토콜(protocol)이란? <a name="프로토콜(protocol)이란?" style={{ visibility: "hidden" }}> 프로토콜(protocol)이란? </a> </summary>
+                            <summary className="stitle"> 프로토콜(protocol)이란? <a name="프로토콜(protocol)이란?" style={{ visibility: "hidden" }}> 프로토콜(protocol)이란? </a> </summary>
                             <span className="sblock">
                                 <span className="sstitle"> 통신하는 기기들 간의 통신 규약(규칙) #프로토콜이 서로 다르면 통신이 불가능하므로 만들어짐 </span>
                                 <span className="sstitle"> 프로토콜의 기능  </span>
@@ -170,7 +227,7 @@ const NetworkBasic = (props) => {
                     {/*  */}
                     <span className="mblock">
                         <details>
-                            <summary className="stitle"> ▶ TCP/IP 프로토콜 <a name="TCP/IP 프로토콜" style={{ visibility: "hidden" }}> TCP/IP 프로토콜 </a> </summary>
+                            <summary className="stitle"> TCP/IP 프로토콜 <a name="TCP/IP 프로토콜" style={{ visibility: "hidden" }}> TCP/IP 프로토콜 </a> </summary>
                             <span className="sblock">
                                 <span className="sstitle"> TCP/IP : 기기과 기기간의 신뢰성있는 데이터를 주고 받기 위한 방식, IP는 기기의 주소 , TCP는 프로토콜 </span>
                                 <span className="mblock">
@@ -182,12 +239,8 @@ const NetworkBasic = (props) => {
                     </span>
                     {/*  */}
                     <span className="mblock">
-
-                    </span>
-                    {/*  */}
-                    <span className="mblock">
                         <details>
-                            <summary className="stitle"> ▶ 4Way Handshake <a name="4Way Handshake" style={{ visibility: "hidden" }}> 4Way Handshake </a> </summary>
+                            <summary className="stitle"> 4Way Handshake <a name="4Way Handshake" style={{ visibility: "hidden" }}> 4Way Handshake </a> </summary>
                             <span className="sblock">
                                 <span className="sstitle"> 세션을 종료하기 위해 수행하는 과정 </span>
                                 <small> 3Way Handshake가 먼저 일어난 뒤에 일어난다? </small>
@@ -206,7 +259,7 @@ const NetworkBasic = (props) => {
                     {/*  */}
                     <span className="mblock">
                         <details>
-                            <summary className="stitle"> ▶ UDP/IP 프로토콜 <a name="UDP/IP 프로토콜" style={{ visibility: "hidden" }}> UDP/IP 프로토콜</a> </summary>
+                            <summary className="stitle"> UDP/IP 프로토콜 <a name="UDP/IP 프로토콜" style={{ visibility: "hidden" }}> UDP/IP 프로토콜</a> </summary>
                             <span className="sblock">
                                 <span className="sstitle"> UDP/IP : 기기과 기기간의 신뢰성을 보장하지 않는 데이터를 주고 받는 방식, IP는 기기의 주소 , UDP는 프로토콜 </span>
                                 <span className="sstitle"> 사용자 데이터그램 프로토콜(User Datagram Protocol, UDP) </span>
@@ -224,7 +277,7 @@ const NetworkBasic = (props) => {
                     {/*  */}
                     <span className="mblock">
                         <details>
-                            <summary className="stitle"> ▶ RIP 프로토콜 <a name="RIP 프로토콜" style={{ visibility: "hidden" }}> RIP 프로토콜 </a> </summary>
+                            <summary className="stitle"> RIP 프로토콜 <a name="RIP 프로토콜" style={{ visibility: "hidden" }}> RIP 프로토콜 </a> </summary>
                             <span className="sblock">
                                 <span className="sstitle"> 라우터 끼리 정보를 공유하는 프로토콜 </span>
                                 <span className="mblock">
@@ -240,7 +293,7 @@ const NetworkBasic = (props) => {
                     {/*  */}
                     <span className="mblock">
                         <details>
-                            <summary className="stitle"> ▶ <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+                            <summary className="stitle"> <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                             <span className="sblock">
                                 <span className="sstitle">  </span>
                                 <span className="mblock">
@@ -252,7 +305,7 @@ const NetworkBasic = (props) => {
                     {/*  */}
                     <span className="mblock">
                         <details>
-                            <summary className="stitle"> ▶ <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+                            <summary className="stitle"> <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                             <span className="sblock">
                                 <span className="sstitle">  </span>
                                 <span className="mblock">
@@ -264,7 +317,7 @@ const NetworkBasic = (props) => {
                     {/*  */}
                     <span className="mblock">
                         <details>
-                            <summary className="stitle"> ▶ 케이블 종류 <a name="케이블 종류" style={{ visibility: "hidden" }}> 케이블 종류 </a> </summary>
+                            <summary className="stitle"> 케이블 종류 <a name="케이블 종류" style={{ visibility: "hidden" }}> 케이블 종류 </a> </summary>
                             <span className="sblock">
                                 <span className="sstitle"> TP(Twisted Pair Cable) </span>
                                 <small> 한 쌍으로 꼬아놓음 </small>
@@ -292,7 +345,7 @@ const NetworkBasic = (props) => {
                     {/*  */}
                     <span className="mblock">
                         <details>
-                            <summary className="stitle"> ▶ <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+                            <summary className="stitle"> <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                             <span className="sblock">
                                 <span className="sstitle">  </span>
                                 <span className="mblock">
