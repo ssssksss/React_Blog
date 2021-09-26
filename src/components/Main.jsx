@@ -55,6 +55,7 @@ import HtmlError from './Main/HtmlContent/HtmlError';
 
 // CSS
 import CssBasic from './Main/CssContent/CssBasic';
+import CssBootStrap from './Main/CssContent/CssBootStrap';
 import CssBlurBusinessCard from './Main/CssContent/CssBlurBusinessCard';
 import CssTextAndVideo from './Main/CssContent/CssTextAndVideo';
 
@@ -80,6 +81,7 @@ import DBMySQLBasic from './Main/DatabaseContent/DBMySQLBasic';
 import DBVariableName from './Main/DatabaseContent/DBVariableName';
 import DBMariaBasic from './Main/DatabaseContent/DBMariaBasic';
 import DBError from './Main/DatabaseContent/DBError';
+import DBTable from './Main/DatabaseContent/DBTable';
 
 // 디자인 패턴
 import DPMvc2 from './Main/DesignPatternContent/DPMvc2';
@@ -230,6 +232,7 @@ const Main = (props) => {
 
                 {/* CSS */}
                 <Route path="/css_basic" component={CssBasic}></Route>
+                <Route path="/css_bootstrap" component={CssBootStrap}></Route>
                 <Route path="/css_blur business card" component={CssBlurBusinessCard}></Route>
                 <Route path="/css_text and video" component={CssTextAndVideo}></Route>
 
@@ -256,6 +259,7 @@ const Main = (props) => {
                 <Route path="/db_variablename" component={DBVariableName}></Route>
                 <Route path="/db_mariabasic" component={DBMariaBasic}></Route>
                 <Route path="/db_error" component={DBError}></Route>
+                <Route path="/db_table" component={DBTable}></Route>
 
                 {/* 디자인 패턴 */}
                 <Route path="/dp_mvc2" component={DPMvc2}></Route>

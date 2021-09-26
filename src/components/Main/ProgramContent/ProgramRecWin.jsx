@@ -35,6 +35,21 @@ const ProgramRecWin = (props) => {
                     {/*  */}
                     <span className="mblock">
                         <details>
+                            <summary className="stitle"> Qick Startup - 윈도우 자동 실행 프로그램 관리
+                                <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+
+                            <div className='sblock'>
+                                <div className='sstitle'>  </div>
+                                <div className='mblock'>
+                                    <li> </li>
+                                    <li> </li>
+                                </div>
+                            </div>
+                        </details>
+                    </span>
+                    {/*  */}
+                    <span className="mblock">
+                        <details>
                             <summary className="stitle">
                                 <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
 

@@ -7,6 +7,7 @@ const CssList = () => {
         <div className="menucontainer">
             <div className="menu menu1">
                 <Link to="/css_basic"> CSS 기본 문법 </Link>
+                <Link to="/css_bootstrap"> CSS 부트스트랩 </Link>
             </div>
             <div className="menu menu2">
                 <Link to="/css_blur business card"> 명함 불러 만들기</Link>

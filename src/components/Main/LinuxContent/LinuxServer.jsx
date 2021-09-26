@@ -1686,8 +1686,47 @@ const LinuxServer = (props) => {
                 <div className="sblock">
                   <div className='sstitle'> 설명 </div>
                   <div className='mblock'>
+                    <li> Network File System </li>
                     <li> 리눅스끼리 저장공간을 공유할 수 있도록 하는 시스템 </li>
+                    <li> 서버의 디렉토리는 본인의 디렉토리와 연결하여 사용 </li>
                     <li>  </li>
+                  </div>
+                  <div className='sstitle'> 설치 </div>
+                  <div className='mblock'>
+                    <div className='sstitle'> NFS 서버 </div>
+                    <div className='sblock'>
+                      <li> yum -y install nfs-utils  </li>
+                      <li> systemctl start nfs-server  </li>
+                      <li> systemctl start rpcbind  </li>
+                      <li> systemctl enable nfs-server  </li>
+                      <li> systemctl enbale rpcbind  </li>
+                      <li> mkdir /nfsfolder  </li>
+                      <li> chmod 700 /nfsfolder  </li>
+                      <li> vi /etc/exports # NFS 설정 파일 </li>
+                      <li> /nfsfolder 192.168.0.*(rw,no_root_squash,rync) #no_root_squash , 클라이언트가 서버의 root계정으로
+                        접근하면 서버의 root와 같은 권한을 가지게됨, 보안 취약 </li>
+                      <li> system restart nfs-server  </li>
+                      <li> firewall-cmd --permanent --add-service=nfs  </li>
+                      <li> exportfs -v </li>
+                      <li>   </li>
+                    </div>
+                    <div className='sstitle'> NFS 클라이언트 </div>
+                    <div className='sblock'>
+                      <li> yum -y install nfs-utils  </li>
+                      <li> systemctl start nfs-server  </li>
+                      <li> systemctl enable nfs-server  </li>
+                      <li> mkdir /nfsfolder </li>
+                      <li> chmod 700 /nfsfolder  </li>
+                      <li> mount -t nfs IP:/nfsfolder /nfsfolder # 외부 nfs폴더를 로컬 nfs폴더와 연결  </li>
+                      <li> vi /etc/fstab
+                        <li> IP:/서버폴더 /클라폴더 nfs hard 0 0  </li>
+                        <li> hard : 연결이 되지 않아도 연결 지속 시도, 성능 영향  </li>
+                        <li> soft : 연결할 수 없으면 오류 응답, 성능 영향 적음, 트랜잭션 중 중단되면 데이터 손상  </li>
+                        <li>   </li>
+                      </li>
+                      <li> df # 마운트 상태 확인  </li>
+                      <li>   </li>
+                    </div>
                   </div>
                   <div className='sstitle'>  </div>
                   <div className='mblock'>

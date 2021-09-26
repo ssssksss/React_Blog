@@ -13,6 +13,7 @@ const DatabaseList = () => {
             <div className="menu menu2">
                 <Link to="/db_mariabasic"> MariaDB 공부 </Link>
                 <Link to="/db_error"> Database 에러 </Link>
+                <Link to="/db_table"> Database 테이블 예시 </Link>
             </div>
         </div>
     );

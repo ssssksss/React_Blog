@@ -117,20 +117,40 @@ const DBOracleBasic = (props) => {
                             <summary className='stitle'> 필드 타입
                                 <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
                             <div className='sblock'>
+                                <div className='sstitle'> 설명 </div>
+                                <div className='mblock'>
+                                    <li> 오라클에는 boolean타입이 없다. PL/SQL문 사용해야함 </li>
+                                    <li>  </li>
+                                </div>
+
                                 <div className='sstitle'> 숫자 </div>
                                 <div className='mblock'>
-                                    <li> </li>
+                                    <li> NUMBER(P,S) : 가변 숫자 (P: 1-38 , S:-84 - 127) , 최대 22byte </li>
+                                    <li> FLOAT(P) : 실수 (P: 1-128) , 최대 22byte </li>
+                                    <li> BINARY_FLOAT : 32비트 부동소수점 , 최대 4byte </li>
+                                    <li> BINARY_DOUBLE : 32비트 부동소수점 , 최대 8byte </li>
+                                    <li>  </li>
                                 </div>
 
                                 <div className='sstitle'> 문자 </div>
                                 <div className='mblock'>
-                                    <li> </li>
+                                    <li> CHAR() : 고정길이, 최대 2000Byte </li>
+                                    <li> VARCHAR2() : 가변길이, 최대 4000Byte </li>
+                                    <li> NCHAR() : 고정길이 유니코드, 최대 2000Byte </li>
+                                    <li> NVARCHAR() : 가변길이 유니코드, 최대 2000Byte </li>
+                                    <li> LONG : 가변길이 , 최대 2GB </li>
+                                    <li> CLOB : 텍스트 , 최대 4GB </li>
+                                    <li> NCLOB : 유니코드 , 최대 4GB </li>
+                                    <li>  </li>
                                 </div>
 
                                 <div className='sstitle'> 날짜,시간 </div>
                                 <div className='mblock'>
-                                    <li> </li>
+                                    <li> DATE :  </li>
+                                    <li> TIMESTAMP :  </li>
+                                    <li>  </li>
                                 </div>
+
                             </div>
                         </details>
                     </div>
@@ -489,6 +509,37 @@ const DBOracleBasic = (props) => {
 
                     <div className='mblock'>
                         <details>
+                            <summary className='stitle'> Where,On,Like,Between,As,Distinct
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> Where </div>
+                                <div className='mblock'>
+                                    <li> 와일드카드 : %(어떠한 문자든 검색) , _(자릿수 검색) </li>
+                                    <li> WHERE 필드명 LIKE 'MI%' , 대문자 MI로 시작하는 필드값 비교 </li>
+                                    <li> WHERE 필드명 LIKE '%KE' , 대문자 KE로 끝나는 필드값 검색 </li>
+                                    <li> WHERE 필드명 LIKE '%IK%', 대문자 IK를 포함하는 필드값 검색 </li>
+                                    <li> WHERE 필드명 (UPPER)LIKE (UPPER)'%IK%', IK를 포함하는 필드값 검색 </li>
+                                    <li> WHERE 필드명 (LOWER)LIKE (LOWER)'%IK%', IK를 포함하는 필드값 검색 </li>
+                                    <li> WHERE 필드명 LIKE '%IK%' OR 필드명 LIKE '%OH%', IK혹은 OH를 포함하는 필드값 검색 </li>
+                                    <li> WHERE REGEXP _LIKE(필드명, 'MIKE|JOHN') , IK혹은 OH를 포함하는 필드값 검색 </li>
+                                    <li> WHERE 필드명 NOT LIKE '%IK%', IK를 포함하지않는 필드값 검색 </li>
+                                    <li> WHERE 필드명 LIKE 'MIK_' , MIK + 1글자 를 가진 필드값을 검색 </li>
+                                    <li> WHERE 필드명 LIKE '%K_' , %K + 1글자 K라는글자뒤에 1글자가 포함된 필드값 검색 </li>
+                                    <li> WHERE 필드명 LIKE '%\_%' ESCAPE '\' , 언더바문자(_)를 포함하는 필드값 검색 , \문자말고도 아무런 문자 사용이 가능하다. 동일하게만 설정해주면 가능하다 </li> <br />
+                                    <li> ON 테이블1.필드 = 테이블2.필드 WHERE 테이블1.필드 {'>'} 1000; # where보다 on이 먼저 실행된다. </li>
+                                    <li> ON 테이블1.필드 = 테이블2.필드 AND 테이블1.필드 {'>'} 1000; </li> <br />
+                                    <li> BETWEEN 시작범위 AND 종료범위 </li> <br />
+                                    <li> SELECT 필드명 AS 필드별칭명 FROM 테이블명 # 출력이 될 떄 필드자리에 sal로 표현이 된다. </li>
+                                    <li> SELECT 필드명 FROM 테이블 DISTINCT; </li>
+                                    <li>  </li>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+                    {/*  */}
+
+                    <div className='mblock'>
+                        <details>
                             <summary className='stitle'>
                                 <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
                             <div className='sblock'>
@@ -508,61 +559,6 @@ const DBOracleBasic = (props) => {
                 <span className="lblock">
 
                     <ul>
-
-                        <span className="mblock">
-                            <span className="stitle"> <a name="Where,On,Like,Between,As,Distinct"> Where,On,Like,Between,As,Distinct </a> </span>
-
-                            <span className="sblock">
-                                <span className="sstitle"> WHERE, ON </span>
-                                <li>  </li>
-                                <li>  </li>
-                                <li> <small> 둘다 조건을 처리하는 것이 같다. 하지만 ON이 먼저 실행된다. 그래서 OUTER JOIN을 할 때 차이가 발생한다. </small> </li>
-                                <li> 아래 2개의 쿼리는 같아보이지만 실행하였을 떄 1번은 OUTER JOIN의 특성을 살리지 못하고 1000보다 작으면 다 지워버린다. </li>
-                                <li> ON 테이블1.필드 = 테이블2.필드 WHERE 테이블1.필드 &gt; 1000;</li>
-                                <li> ON 테이블1.필드 = 테이블2.필드 AND 테이블1.필드 &gt; 1000; </li>
-                            </span>
-
-                            <span className="sblock">
-                                <span className="sstitle"> LIKE </span>
-                                <small> LIKE는 대소문자를 구분하여 필드값 검색 그러므로 문자열을 대문자나,소문자로 바꾸어서 검색</small>
-                                <li> 와일드카드 : %(어떠한 문자든 검색) , _(자릿수 검색) </li>
-                                <li> WHERE 필드명 LIKE 'MI%' , 대문자 MI로 시작하는 필드값 비교 </li>
-                                <li> WHERE 필드명 LIKE '%KE' , 대문자 KE로 끝나는 필드값 검색 </li>
-                                <li> WHERE 필드명 LIKE '%IK%', 대문자 IK를 포함하는 필드값 검색  </li>
-                                <li> WHERE 필드명 (UPPER)LIKE (UPPER)'%IK%', IK를 포함하는 필드값 검색  </li>
-                                <li> WHERE 필드명 (LOWER)LIKE (LOWER)'%IK%', IK를 포함하는 필드값 검색  </li>
-                                <li> WHERE 필드명 LIKE '%IK%' OR 필드명 LIKE '%OH%', IK혹은 OH를 포함하는 필드값 검색  </li>
-                                <li> WHERE REGEXP _LIKE(필드명, 'MIKE|JOHN')  , IK혹은 OH를 포함하는 필드값 검색  </li>
-                                <li> WHERE 필드명 NOT LIKE '%IK%', IK를 포함하지않는 필드값 검색  </li>
-                                <li> WHERE 필드명 LIKE 'MIK_' , MIK + 1글자 를 가진 필드값을 검색   </li>
-                                <li> WHERE 필드명 LIKE '%K_' , %K + 1글자 K라는글자뒤에 1글자가 포함된 필드값 검색 </li>
-                                <li> WHERE 필드명 LIKE '%\_%' ESCAPE '\' , 언더바문자(_)를 포함하는 필드값 검색 ,
-                                    \문자말고도 아무런 문자 사용이 가능하다. 동일하게만 설정해주면 가능하다 </li>
-                            </span>
-
-                            <span className="sblock">
-                                <span className="sstitle"> BETWEEN </span>
-                                <li> BETWEEN 시작범위 AND 종료범위 </li>
-                                <li> SELECT * FROM emp where employage BETWEEN '10' AND '20' </li>
-                                <li>  </li>
-                            </span>
-
-                            <span className="sblock">
-                                <span className="sstitle"> AS </span>
-                                <small> 테이블의 이름이 길 경우 짧게 이름 지어 사용 </small>
-                                <small> AS 별칭(공백x,특수문자x,대소문자x) , 띄어쓰기 별칭(공백,특수문자,대소문자) </small>
-                                <li> SELECT * FROM 테이블 A WHERE A.salary &lt; 1000  </li>
-                                <li> SELECT salary AS sal FROM 테이블 , 출력이 될 떄 필드자리에 sal로 표현이 된다. </li>
-                                <li>  </li>
-                            </span>
-
-                            <span className="sblock">
-                                <span className="sstitle"> DISTINCT </span>
-                                <li> 중복값을 제거해서 조회 </li>
-                                <li> SELECT DISTINCT 필드명 FROM 테이블; </li>
-                            </span>
-                        </span>
-
                         <span className="mblock">
                             <span className="stitle"> <a name="In,Order By,Group By, Having"> In,Order By,Group By, Having </a> </span>
                             <span className="sblock">
@@ -879,7 +875,6 @@ const DBOracleBasic = (props) => {
                             <li> <small> 동작을 일괄적으로 처리하는 데 사용, SQL을 프로시저로 만들어서 일괄적으로 처리 가능 </small></li>
                             <li> <small> 특정한 로직만 처리하고 반환은 하지 않음 </small></li>
                             <span className="sblock">
-
                                 <span className="sstitle"> 프로시저 생성  </span>
                                 <li> <small> CREATE OR REPLACE [PROCEDURE,VIEW,FUNCTION 등] 프로시저명( 변수명 IN 데이터타입, ... )
                                     [RETURN 데이터타입 , FUNCTION일떄 사용] IS [추가적인변수선언]
@@ -892,7 +887,6 @@ const DBOracleBasic = (props) => {
                                 <li> EXEC procedure_company('홍길동',100); </li>
                                 <span className="sstitle"> </span>
                                 <li>  </li>
-
                             </span>
                         </span>
 

@@ -210,7 +210,7 @@ const CssBasic = (props) => {
                                         <small> 요소의 배경을 채우는 공간 설정 </small>
                                         <li> background-clip: border-box; </li>
                                         <li> background-clip: padding-box; </li>
-                                        <li> background-clip: content-box; </li>
+                                        <li> background-clip: content-box; # 패딩 구역을 제외하고 배경색을 준다.</li>
                                         <li> background-clip: text; #글자 뒤로 이미지를 보여줌 , color: transparent; -webkit-background-clip: text;  </li>
                                     </span>
                                     {/*  */}

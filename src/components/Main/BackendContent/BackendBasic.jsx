@@ -174,16 +174,69 @@ const BackendBasic = (props) => {
                             {/*  */}
                         </span>
                         {/*  */}
-                        <span className="mblock">
-                            <span className="stitle"> <a name="">  </a> </span>
-                            <span className="sblock">
-                                <span className="sstitle">  </span>
-                                <span className="mblock">
-                                    <li>  </li>
-                                </span>
-                            </span>
-                        </span>
+                        <div className='mblock'>
+                            <details>
+                                <summary className='stitle'> Apache 와 Nginix
+                                    <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                                <div className='sblock'>
+                                    <div className='sstitle'> Apache </div>
+                                    <div className='mblock'>
+                                        <div className='sstitle'> 설명 </div>
+                                        <div className='sblock'>
+                                            <li> MPM(Multi Processing Modeul) 방식으로 처리
+                                                <li> Prefork MPM
+                                                    <li> 1개의 프로세를 자식 프로세스로 복제하여 1개의 쓰레드를 이용하여 사용 </li>
+                                                    <li> 안정적이나 자원을 많이 잡아먹음 </li>
+                                                </li>
+                                                <li> Worker MPM
+                                                    <li> 1개의 프로세를 자식 프로세스로 복제하여 여래개의 쓰레드를 이용하여 사용 </li>
+                                                    <li> 자원 공유 </li>
+                                                    <li>  </li>
+                                                </li>
+                                                <li>  </li>
+                                            </li>
+                                            <li>  </li>
+                                        </div>
+                                        <div className='sstitle'> 장점 </div>
+                                        <div className='sblock'>
+                                            <li> 여러 운영체제 등에 호환이 좋음 </li>
+                                            <li> 모듈이 다양함 </li>
+                                            <li> 안정적이고 확장성이 좋음 </li>
+                                        </div>
+                                        <div className='sstitle'> 단점 </div>
+                                        <div className='sblock'>
+                                            <li> 프로세스나 스레드를 생성하여 처리하므로 요청이 많으면 처리 불가 </li>
+                                            <li> 동시에 몇만의 접속자가 들어온다면 자원을 사용하는 CPU,메모리 증가하여 대용량에는 한계 </li>
+                                            <li>  </li>
+                                        </div>
+
+                                    </div>
+                                    <div className='sstitle'> Nginix </div>
+                                    <div className='mblock'>
+                                        <div className='sstitle'> 설명 </div>
+                                        <div className='sblock'>
+                                            <li> 비동기식 이벤트 처리 중심의 아키텍처를 목표 </li>
+                                            <li>  </li>
+                                            <li>  </li>
+                                        </div>
+                                        <div className='sstitle'> 장점 </div>
+                                        <div className='sblock'>
+                                            <li> 이벤트 처리 방식 </li>
+                                            <li> 비동기 방식 </li>
+                                            <li> 논블로킹 방식 </li>
+                                            <li>  </li>
+                                        </div>
+                                        <div className='sstitle'> 단점 </div>
+                                        <div className='sblock'>
+                                            <li> 동적인처리는 불가 </li>
+                                            <li>  </li>
+                                        </div>
+                                    </div>
+                                </div>
+                            </details>
+                        </div>
                         {/*  */}
+
                     </span>
                 </ul>
             </div>

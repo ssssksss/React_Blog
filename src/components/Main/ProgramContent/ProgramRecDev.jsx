@@ -9,7 +9,7 @@ const ProgramRecDev = (props) => {
                     {/*  */}
                     <span className="mblock">
                         <details>
-                            <summary className="stitle"> ▶ Everything - 윈도우에서 빠른 검색으로 파일 찾기
+                            <summary className="stitle">  Everything - 윈도우에서 빠른 검색으로 파일 찾기
                                 <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                             <span className="sblock">
                                 <span className="sstitle"> 설명 </span>
@@ -29,16 +29,18 @@ const ProgramRecDev = (props) => {
                     {/*  */}
                     <span className="mblock">
                         <details>
-                            <summary className="stitle"> ▶ <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+                            <summary className="stitle"> PuTTY
+                                <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                             <span className="sblock">
                                 <span className="sstitle"> 설명 </span>
                                 <span className="mblock">
-                                    <li>  </li>
+                                    <li> 윈도우에서 리눅스나 유닉스 계열에 원격으로 접속할 수 있는 클라이언트 프로그램 </li>
                                 </span>
                                 {/*  */}
                                 <span className="sstitle"> 설치 </span>
                                 <span className="mblock">
-                                    <li> <a href="" target="_blank"> 다운로드 링크 </a> </li>
+                                    <li> <a href={process.env.PUBLIC_URL + '/Download/putty-0.76-installer.msi'}
+                                        download="putty-0.76-installer.msi"> putty-0.76-installer.msi </a> </li>
                                     <li>  </li>
                                 </span>
                                 {/*  */}
@@ -48,7 +50,7 @@ const ProgramRecDev = (props) => {
                     {/*  */}
                     <span className="mblock">
                         <details>
-                            <summary className="stitle"> ▶ <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+                            <summary className="stitle">  <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                             <span className="sblock">
                                 <span className="sstitle"> 설명 </span>
                                 <span className="mblock">
