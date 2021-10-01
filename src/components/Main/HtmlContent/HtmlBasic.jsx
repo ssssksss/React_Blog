@@ -10,7 +10,7 @@ const HtmlBasic = (props) => {
                         <span className="mtitle"> <a name="">  Html Study  </a> </span>
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ HTML 기본구조
+                                <summary className="stitle"> HTML 기본구조
                                     <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle"> 예시 </span>
@@ -37,7 +37,7 @@ const HtmlBasic = (props) => {
 
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ HTML 주석
+                                <summary className="stitle"> HTML 주석
                                     <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle"> 설명 </span>
@@ -55,7 +55,7 @@ const HtmlBasic = (props) => {
 
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ 특수문자
+                                <summary className="stitle"> 특수문자
                                     <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle"> 설명 </span>
@@ -81,7 +81,7 @@ const HtmlBasic = (props) => {
 
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ div태그
+                                <summary className="stitle"> div태그
                                     <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle"> 설명 </span>
@@ -102,7 +102,7 @@ const HtmlBasic = (props) => {
 
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ span태그
+                                <summary className="stitle"> span태그
                                     <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle"> 설명 </span>
@@ -123,7 +123,7 @@ const HtmlBasic = (props) => {
 
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ h태그
+                                <summary className="stitle"> h태그
                                     <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle"> 설명 </span>
@@ -155,7 +155,7 @@ const HtmlBasic = (props) => {
 
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ p태그
+                                <summary className="stitle"> p태그
                                     <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle"> 설명 </span>
@@ -177,7 +177,7 @@ const HtmlBasic = (props) => {
 
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ 글자 스타일 관련 태그
+                                <summary className="stitle"> 글자 스타일 관련 태그
                                     <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle"> 설명 </span>
@@ -210,7 +210,7 @@ const HtmlBasic = (props) => {
 
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ 시멘틱태그
+                                <summary className="stitle"> 시멘틱태그
                                     <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle"> 설명 </span>
@@ -245,7 +245,7 @@ const HtmlBasic = (props) => {
 
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ a태그
+                                <summary className="stitle"> a태그
                                     <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle"> 설명 </span>
@@ -283,7 +283,7 @@ const HtmlBasic = (props) => {
 
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ link태그
+                                <summary className="stitle"> link태그
                                     <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle"> 설명 </span>
@@ -309,7 +309,7 @@ const HtmlBasic = (props) => {
 
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ img태그
+                                <summary className="stitle"> img태그
                                     <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle"> 설명 </span>
@@ -330,7 +330,7 @@ const HtmlBasic = (props) => {
 
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ input태그
+                                <summary className="stitle"> input태그
                                     <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle"> 설명 </span>
@@ -341,19 +341,27 @@ const HtmlBasic = (props) => {
                                         <li> input태그의 대표적 속성 required, placeholder </li>
                                         <li> required 속성을 사용한 input태그는 제출시 제출이 불가능 </li>
                                         <li> placeholder 속성을 사용하면 무엇을 입력할지 설명을 넣을 수 있다. </li>
-                                        <span className="sblock">
-                                            <li> input태그의 예시 </li>
-                                            <li> &lt;form&gt; method="GET" action="#"&gt;</li>
-                                            <li> &lt;p&gt; &lt;input type="text" placeholder="아이디를 입력해주세요" required /&gt; &lt;/p&gt;</li>
-                                            <li> &lt;p&gt; &lt;input type="password" placeholder="비밀번호를 입력해주세요" required /&gt; &lt;/p&gt;</li>
-                                            <li> &lt;p&gt; &lt;button&gt; type="submit"&gt; 제출 &lt;/button&gt;  &lt;/p&gt;</li>
-                                            <li> &lt;/form&gt;</li>
+                                        <div className="sstitle"> input 태그 예시 </div>
+                                        <div className="sblock">
+                                            <li> {'<form> method="GET" action="#">'}
+                                                <li> {'<p> <input type="text" placeholder="아이디를 입력해주세요" required /> </p>'}</li>
+                                                <li> {'<p> <input type="password" placeholder="비밀번호를 입력해주세요" required /> </p>'}</li>
+                                                <li> {'<p> <button> type="submit"> 제출 </button> </p>'}</li>
+                                            </li>
+                                            <li> {'</form> '} </li>
+                                        </div>
+                                        <div className='sstitle'>  </div>
+                                        <div className='sblock'>
                                             <form method="GET" action="#">
                                                 <li> <input type="text" placeholder="아이디를 입력해주세요" required /> </li>
                                                 <li> <input type="password" placeholder="비밀번호를 입력해주세요" required /> </li>
+                                                <li> <input type="text" placeholder="오토포커스" required autofocus /> </li>
+                                                <li> <input type="text" value="1+1=2" required /> </li>
+                                                <li> <input type="text" size="40" placeholder="사이즈가 늘어남" required /> </li>
+                                                <li> <input type="text" maxLength="30" placeholder="글자수를 제한" required /> </li>
                                                 <li> <button type="submit"> 제출 </button>  </li>
                                             </form>
-                                        </span>
+                                        </div>
                                     </span>
                                     {/*  */}
                                 </span>
@@ -361,9 +369,41 @@ const HtmlBasic = (props) => {
                         </span>
                         {/*  */}
 
+                        <div className='mblock'>
+                            <details>
+                                <summary className='stitle'> textarea 태그
+                                    <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                                <div className='sblock'>
+                                    <div className='sstitle'> html 문법 </div>
+                                    <div className='mblock'>
+                                        <li> {' <textarea id="" cols="10" rows="10" placeholder="내용을 입력하시오"> '} </li>
+                                        <li> {' <textarea id="" cols="10" rows="10" placeholder="내용을 입력하시오" disabled> '} # 아무것도 할 수 없음</li>
+                                        <li> {' <textarea id="" cols="10" rows="10" placeholder="내용을 입력하시오" autofocus> '} # 자동 포커싱 </li>
+                                        <li> {' <textarea id="" cols="10" rows="10" placeholder="내용을 입력하시오" maxlength> '} </li>
+                                        <li> {' <textarea id="" cols="10" rows="10" placeholder="내용을 입력하시오" minlength> '} </li>
+                                        <li> {' <textarea id="" cols="10" rows="10" placeholder="내용을 입력하시오" readonly> '} # 클릭은 되나 입력불가 </li>
+                                        <li> {' <textarea id="" cols="10" rows="10" placeholder="내용을 입력하시오" required> '} # 필수적으로 입력</li>
+                                    </div>
+                                    <div className='sstitle'> css </div>
+                                    <div className='mblock'>
+                                        <li> textarea {'{'}
+                                            <li> resize: none; </li>
+                                            <li> overflox : scroll; # 디폴트값, overflox-x는 먹히지 않음 </li>
+                                        </li>
+                                        <li> {'}'} </li>
+                                    </div>
+                                    <div className='sstitle'> 예시 </div>
+                                    <div className='mblock'>
+                                        <li>  </li>
+                                    </div>
+                                </div>
+                            </details>
+                        </div>
+                        {/*  */}
+
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ form태그
+                                <summary className="stitle"> form태그
                                     <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle"> 설명 </span>
@@ -490,7 +530,7 @@ const HtmlBasic = (props) => {
 
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ list태그
+                                <summary className="stitle"> list태그
                                     <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle"> 설명 </span>
@@ -501,6 +541,7 @@ const HtmlBasic = (props) => {
                                         <li> 그냥 ul만 써도 충분한것 같다. </li>
                                         <li> 4. 리스트태그는 왼쪽에 원판(disc) 원(circle) 등 list-style-type 속성을 가지고있다. </li>
                                         <li> 왠만하면 그냥 list-style-type="none" 으로 사용할 것 같다. </li>
+                                        <li> 5. 인라인 태그 요소 </li>
                                         <span className="sblock">
                                             <li> &lt; ul &gt; </li>
                                             <li> &nbsp;&nbsp;&lt; li &gt; 첫번째 &lt; /li &gt; </li>
@@ -544,7 +585,7 @@ const HtmlBasic = (props) => {
 
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ table태그
+                                <summary className="stitle"> table태그
                                     <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle"> 설명 </span>
@@ -631,7 +672,7 @@ const HtmlBasic = (props) => {
 
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ details태그
+                                <summary className="stitle"> details태그
                                     <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle"> 설명 </span>
@@ -656,7 +697,7 @@ const HtmlBasic = (props) => {
 
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ 뷰포트(Viewport)
+                                <summary className="stitle"> 뷰포트(Viewport)
                                     <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle">  </span>
@@ -679,7 +720,7 @@ const HtmlBasic = (props) => {
 
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ 파일 다운로드, 업로드
+                                <summary className="stitle"> 파일 다운로드, 업로드
                                     <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle">  </span>
@@ -715,20 +756,22 @@ const HtmlBasic = (props) => {
                         </span>
                         {/*  */}
 
-                        <span className="mblock">
+                        <div className='mblock'>
                             <details>
-                                <summary className="stitle"> ▶
-                                    <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
-                                <span className="sblock">
-                                    <span className="sstitle">  </span>
-                                    <span className="mblock">
+                                <summary className='stitle'>
+                                    <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                                <div className='sblock'>
+                                    <div className='sstitle'>  </div>
+                                    <div className='mblock'>
                                         <li>  </li>
-                                    </span>
-                                    {/*  */}
-                                </span>
+                                        <li>  </li>
+                                    </div>
+                                </div>
                             </details>
-                        </span>
+                        </div>
                         {/*  */}
+
+
                     </span>
                 </ul>
             </div>

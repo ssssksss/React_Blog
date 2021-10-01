@@ -7,68 +7,102 @@ const SpringBasic = (props) => {
 			<div className="common_style">
 				<ul>
 					<span className="lblock">
-						<span className="mtitle"> <a name="main"> 스프링 공부 </a> </span>
-						<span className="mblock">
-							<span className="stitle">
-								<a name="스프링이란?"> 스프링이란? </a>
-								<a href="https://spring.io/guides" target="_blank" rel="noopener noreferrer"> 스프링부트 문서 </a>
-							</span>
-							<span className="sblock">
-								<li className="sstitle" ><i> 스프링</i>  </li>
-								<li> 스프링은 Ioc기반의 프레임워크 , 자바 플랫폼 프레임워크 </li>
-								<li> 의존성 주입(Denpendency Injection) 의존성 주입 : 개발자가 아닌 컨테이너가 관리하는 빈 객체를 주입하는 방법 </li>
-								<li> POJO(Plain Old Java Object) : 기본적인 기능만 가진 자바 객체 </li>
-								<li> AOP(Aspect Oriented Programming) : 관점 지향 프로그래밍 ,기존에 사용하던
-									프로그래밍 방법은 객체지향 프로그래밍을 사용하지만 중복된 코드들이 많고
-									확장,유지 보수를 떨어뜨린다. AOP에서는 핵심기능(서비스)와 공통기능(인증,필터 등)을
-									분리하여 유지보수가 더 좋아지며 재활용성이 높아진다.
-								</li>
-								<li> 컨테이너 : BeanFactory와 ApplicationContext 2개의 대표적인 컨테이너가 있다. 컨테이너는
-									인스턴스의 주기와 추가적인 기능을 관리하는 역할을 한다. </li>
-							</span>
-						</span>
-						{/*  */}
-						<span className="sblock">
-							<li className="sstitle"> 스프링의 일반적인 작동과정 </li>
-							<li> 1. 유저가 서버에 요청 </li>
-							<li>  </li>
-							<li>  </li>
-						</span>
-						{/*  */}
-						<span className="mblock">
-							<span className="stitle"> <a name="의존성 주입(Dependency Injection)">  의존성 주입(Dependency Injection)</a> </span>
-							<li> <small> 객체를 직접 만들지 않고 주입받아 사용하는 방법 </small> </li>
-							<span className="sblock">
-								<li className="sstitle"><i> 사용하는 이유 </i> </li>
-								<li> 1. </li>
-								<li> 1. </li>
-								<li> 1. </li>
-							</span>
-							<li className="stitle"> 의존성 주입하는 방법 3가지 </li>
-							<span className="sblock">
-								<li className="sstitle" ><i>1.</i> 생성자(Constructor) 주입(스프링 팀에서 추천하는 방식) </li>
-								<li>  </li>
-								<li> 1. 생성자로 객체를 생성하는 시점에 인자에 있는 Bean을 호출 </li>
-								<li> 2. Bean을 호출할 때(초기에 생성x) BeanFacotry에 Bean을 만들고 만든 Bean을 찾음 </li>
-								<li> 3. Bean을 찾았으므로 생성자 인자에 Bean을 주입 </li>
-								<li> </li>
-							</span>
-							<span className="sblock">
-								<li className="sstitle"><i>2.</i> 수정자(Setter) 주입</li>
-								<li> 주입 과정 </li>
-								<li> 1. &lt;bean&gt;을 보고 찾음, 찾으면 bean객체 생성 </li>
-								<li> 2. setter호출,  </li>
-								<li> 3. 이후에 주입하려는 빈 객체의 수정자를 호출하여 주입 </li>
+						<span className="mtitle"> <a name="main"> 스프링 기초 </a> </span>
 
-							</span>
-							<span className="sblock">
-								<li className="sstitle"><i>3.</i> 필드(Field) 주입(어노테이션 사용)</li>
-								<li> 주입 과정  </li>
-								<li> 1. 빈 객체를 생성  </li>
-								<li> 2. 빈 객체를 찾아서 주입하는 방법  </li>
-								<li>  </li>
-							</span>
-						</span>
+						<div className='mblock'>
+							<details>
+								<summary className='stitle'> 스프링이란?
+									<a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+								<div className='sblock'>
+									<div className='mblock'>
+										<a href="https://spring.io/guides" target="_blank" rel="noopener noreferrer"> 스프링부트 문서 </a> <br />
+										<li className="sstitle" ><i> 스프링</i>  </li>
+										<li> 스프링은 Ioc기반의 프레임워크 , 자바 플랫폼 프레임워크 </li>
+										<li> 의존성 주입(Denpendency Injection) 의존성 주입 : 개발자가 아닌 컨테이너가 관리하는 빈 객체를 주입하는 방법 </li>
+										<li> POJO(Plain Old Java Object) : 기본적인 기능만 가진 자바 객체 </li>
+										<li> AOP(Aspect Oriented Programming) : 관점 지향 프로그래밍 ,기존에 사용하던
+											프로그래밍 방법은 객체지향 프로그래밍을 사용하지만 중복된 코드들이 많고
+											확장,유지 보수를 떨어뜨린다. AOP에서는 핵심기능(서비스)와 공통기능(인증,필터 등)을
+											분리하여 유지보수가 더 좋아지며 재활용성이 높아진다.
+										</li>
+										<li> 컨테이너 : BeanFactory와 ApplicationContext 2개의 대표적인 컨테이너가 있다. 컨테이너는
+											인스턴스의 주기와 추가적인 기능을 관리하는 역할을 한다. </li>
+									</div>
+								</div>
+
+								<div className='sstitle'> 스프링의 일반적인 작동과정 </div>
+								<div className='sblock'>
+									<li> </li>
+									<li> </li>
+								</div>
+							</details>
+						</div>
+						{/*  */}
+						<div className='mblock'>
+							<details>
+								<summary className='stitle'> 의존성 주입(Dependency Injection)
+									<a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+								<div className='sblock'>
+									<div className='sstitle'> 의존성 주입(Dependency Injection) </div>
+									<div className='mblock'>
+										<li> 객체를 직접 만들지 않고 주입받아 사용하는 방법 </li>
+										<li>  </li>
+									</div>
+									<div className='sstitle'> 의존성 주입하는 방법 3가지  </div>
+									<div className='mblock'>
+										<li> 생성자(Constructor) 주입(스프링 팀에서 추천하는 방식)
+											<li> 1. 생성자로 객체를 생성하는 시점에 인자에 있는 Bean을 호출 </li>
+											<li> 2. Bean을 호출할 때(초기에 생성x) BeanFacotry에 Bean을 만들고 만든 Bean을 찾음 </li>
+											<li> 3. Bean을 찾았으므로 생성자 인자에 Bean을 주입 </li>
+										</li> <br />
+										<li> 수정자(Setter) 주입
+											<li> 1. &lt;bean&gt;을 보고 찾음, 찾으면 bean객체 생성 </li>
+											<li> 2. setter호출,  </li>
+											<li> 3. 이후에 주입하려는 빈 객체의 수정자를 호출하여 주입 </li>
+										</li> <br />
+										<li> 필드(Field) 주입(어노테이션 사용)
+											<li> 1. 빈 객체를 생성  </li>
+											<li> 2. 빈 객체를 찾아서 주입하는 방법  </li>
+										</li> <br />
+									</div>
+									<div className='sstitle'>  </div>
+									<div className='mblock'>
+										<li>  </li>
+										<li>  </li>
+									</div>
+								</div>
+							</details>
+						</div>
+						{/*  */}
+
+						<div className='mblock'>
+								<details>
+										<summary className='stitle'> 영속성(Persistence)
+												<a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+										<div className='sblock'>
+												<div className='sstitle'> 설명 </div>
+												<div className='mblock'>
+														<li> 영속성 컨텍스트는 Entity 저장소  </li>
+														<li> JPA 메소드로 DB를 요청하면 영속성 컨텍스트 내부의 캐시에서 찾고 없으면 데이터베이스에서 꺼내서 캐시에 보관하고
+															클라이언트에게 반환 </li>
+														<li> Entity @Id값으로 영속성 컨텍스트가 식별 </li>
+														<li> EntityManagerFactory : Entity 저장소 </li>
+														<li> EntityManager : Entity를 운반하는 객체 </li>
+														<li> 트랜잭션을 영속성 컨텍스트에 보관하고 있다가 커밋을 하면 그때서야 DB에 데이터를 보내고 
+															flush() 동기화 작업을 진행
+														</li>
+														<li>  </li>
+														<li>  </li>
+												</div>
+												<div className='sstitle'> 예시 </div>
+												<div className='mblock'>
+														<li>  </li>
+														<li>  </li>
+												</div>
+										</div>
+								</details>
+						</div>
+
 						<span className="mblock">
 							<span className="stitle">
 								<a name="POJO(Plain Old Java Object)">  POJO(Plain Old Java Object) </a>

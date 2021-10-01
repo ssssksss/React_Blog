@@ -11,7 +11,7 @@ const CssBasic = (props) => {
                         {/*  */}
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ width(너비) <a name="width(너비)" style={{ visibility: "hidden" }}> width(너비) </a> </summary>
+                                <summary className="stitle"> width(너비) <a name="width(너비)" style={{ visibility: "hidden" }}> width(너비) </a> </summary>
                                 <span className="sblock">
                                     <small> inline속성에는 적용이 되지 않는다.  </small> <br />
                                     <span className="sstitle"> width 속성 </span>
@@ -29,7 +29,7 @@ const CssBasic = (props) => {
                         {/*  */}
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ height(높이) <a name="height(높이)" style={{ visibility: "hidden" }}> height(높이) </a> </summary>
+                                <summary className="stitle"> height(높이) <a name="height(높이)" style={{ visibility: "hidden" }}> height(높이) </a> </summary>
                                 <span className="sblock">
                                     <small> inline속성에는 적용이 되지 않는다.  </small> <br />
                                     <span className="sstitle"> height 속성 </span>
@@ -47,7 +47,7 @@ const CssBasic = (props) => {
                         {/*  */}
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ border(테두리라인) <a name="border(테두리라인)" style={{ visibility: "hidden" }}> border(테두리라인) </a> </summary>
+                                <summary className="stitle"> border(테두리라인) <a name="border(테두리라인)" style={{ visibility: "hidden" }}> border(테두리라인) </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle"> border 속성 </span>
                                     <span className="mblock">
@@ -81,7 +81,7 @@ const CssBasic = (props) => {
                         {/*  */}
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ margin(외부 간격) <a name="margin(외부 간격)" style={{ visibility: "hidden" }}> margin(외부 간격) </a> </summary>
+                                <summary className="stitle"> margin(외부 간격) <a name="margin(외부 간격)" style={{ visibility: "hidden" }}> margin(외부 간격) </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle"> margin 속성 </span>
                                     <small> block요소에만 사용가능? </small>  <br />
@@ -95,7 +95,7 @@ const CssBasic = (props) => {
                         {/*  */}
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ padding(내부 간격) <a name="padding(내부 간격)" style={{ visibility: "hidden" }}> padding(내부 간격) </a> </summary>
+                                <summary className="stitle"> padding(내부 간격) <a name="padding(내부 간격)" style={{ visibility: "hidden" }}> padding(내부 간격) </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle"> padding 속성 </span>
                                     <small> block요소에만 사용가능? </small> <br />
@@ -111,7 +111,7 @@ const CssBasic = (props) => {
                         {/*  */}
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ box-sizing(요소 크기 범위) <a name="box-sizing(요소 크기 범위)" style={{ visibility: "hidden" }}> box-sizing(요소 크기 범위) </a> </summary>
+                                <summary className="stitle"> box-sizing(요소 크기 범위) <a name="box-sizing(요소 크기 범위)" style={{ visibility: "hidden" }}> box-sizing(요소 크기 범위) </a> </summary>
                                 <span className="sblock">
                                     <small> 요소 박스의 크기를 지정할때의 크기를 각각 따로 구분을 할지 안할지의 차이</small>
                                     <span className="sstitle">  </span>
@@ -126,7 +126,7 @@ const CssBasic = (props) => {
                         {/*  */}
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ overflow(흘러내림) <a name="overflow(흘러내림)" style={{ visibility: "hidden" }}> overflow(흘러내림) </a> </summary>
+                                <summary className="stitle"> overflow(흘러내림) <a name="overflow(흘러내림)" style={{ visibility: "hidden" }}> overflow(흘러내림) </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle"> overflow 속성 </span>
                                     <small> 블록 요소안의 컨텐츠가 블록보다 클 때 어떻게 볼 지 처리하는 방법  </small>
@@ -145,7 +145,7 @@ const CssBasic = (props) => {
                         {/*  */}
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ background(배경) <a name="background(배경)" style={{ visibility: "hidden" }}> background(배경) </a> </summary>
+                                <summary className="stitle"> background(배경) <a name="background(배경)" style={{ visibility: "hidden" }}> background(배경) </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle"> background 속성 </span>
                                     <span className="mblock">
@@ -228,7 +228,7 @@ const CssBasic = (props) => {
                         {/*  */}
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ 선택자 <a name="선택자" style={{ visibility: "hidden" }}> 선택자 </a> </summary>
+                                <summary className="stitle"> 선택자 <a name="선택자" style={{ visibility: "hidden" }}> 선택자 </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle"> 선택자 종류 </span>
                                     <span className="mblock">
@@ -247,7 +247,7 @@ const CssBasic = (props) => {
                         {/*  */}
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ vertical-align(수직정렬) <a name="vertical-align(수직정렬)" style={{ visibility: "hidden" }}> vertical-align(수직정렬) </a> </summary>
+                                <summary className="stitle"> vertical-align(수직정렬) <a name="vertical-align(수직정렬)" style={{ visibility: "hidden" }}> vertical-align(수직정렬) </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle"> vertical-align 속성 </span>
                                     <span className="mblock">
@@ -271,7 +271,7 @@ const CssBasic = (props) => {
                         {/*  */}
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ float(띄워서배치) <a name="float(띄워서배치)" style={{ visibility: "hidden" }}> float(띄워서배치) </a> </summary>
+                                <summary className="stitle"> float(띄워서배치) <a name="float(띄워서배치)" style={{ visibility: "hidden" }}> float(띄워서배치) </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle">  </span>
                                     <span className="mblock">
@@ -283,7 +283,7 @@ const CssBasic = (props) => {
                         {/*  */}
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ position(요소위치) <a name="position(요소위치)" style={{ visibility: "hidden" }}> position(요소위치) </a> </summary>
+                                <summary className="stitle"> position(요소위치) <a name="position(요소위치)" style={{ visibility: "hidden" }}> position(요소위치) </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle">  </span>
                                     <span className="mblock">
@@ -303,7 +303,7 @@ const CssBasic = (props) => {
                         {/*  */}
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ 폰트 추가하는 방법 <a name="폰트 추가하는 방법" style={{ visibility: "hidden" }}> 폰트 추가하는 방법 </a> </summary>
+                                <summary className="stitle"> 폰트 추가하는 방법 <a name="폰트 추가하는 방법" style={{ visibility: "hidden" }}> 폰트 추가하는 방법 </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle">  </span>
                                     <span className="mblock">
@@ -315,7 +315,7 @@ const CssBasic = (props) => {
                         {/*  */}
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ text-decoration(텍스트장식) <a name="text-decoration(텍스트장식)" style={{ visibility: "hidden" }}> text-decoration(텍스트장식) </a> </summary>
+                                <summary className="stitle"> text-decoration(텍스트장식) <a name="text-decoration(텍스트장식)" style={{ visibility: "hidden" }}> text-decoration(텍스트장식) </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle"> text-decoration 속성 </span>
                                     <span className="mblock">
@@ -333,7 +333,7 @@ const CssBasic = (props) => {
                         {/*  */}
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ text-align(글자위치조정)
+                                <summary className="stitle"> text-align(글자위치조정)
                                     <a name="text-align(글자위치조정)" style={{ visibility: "hidden" }}> text-align(글자위치조정) </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle">  </span>
@@ -351,7 +351,7 @@ const CssBasic = (props) => {
                         {/*  */}
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ font(폰트)
+                                <summary className="stitle"> font(폰트)
                                     <a name="font(폰트)" style={{ visibility: "hidden" }}> font(폰트) </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle"> font 속성 </span>
@@ -368,7 +368,7 @@ const CssBasic = (props) => {
                         {/*  */}
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ box-shadow(그림자)
+                                <summary className="stitle"> box-shadow(그림자)
                                     <a name="box-shadow(그림자)" style={{ visibility: "hidden" }}> box-shadow(그림자) </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle">  </span>
@@ -381,7 +381,7 @@ const CssBasic = (props) => {
                         {/*  */}
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ @support
+                                <summary className="stitle"> @support
                                     <a name="@support" style={{ visibility: "hidden" }}> @support </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle">  </span>
@@ -397,7 +397,7 @@ const CssBasic = (props) => {
                         {/*  */}
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ snap-scroll
+                                <summary className="stitle"> snap-scroll
                                     <a name="snap-scroll" style={{ visibility: "hidden" }}> snap-scroll </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle"> snap-scroll 속성 </span>
@@ -413,7 +413,7 @@ const CssBasic = (props) => {
                         {/*  */}
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ aspect-ratio(화면 비율 조정)
+                                <summary className="stitle"> aspect-ratio(화면 비율 조정)
                                     <a name="aspect-ratio(화면 비율 조정)" style={{ visibility: "hidden" }}> aspect-ratio(화면 비율 조정) </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle"> aspect-ratio </span>
@@ -428,7 +428,7 @@ const CssBasic = (props) => {
                         {/*  */}
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ line-height(텍스트행사이의거리)
+                                <summary className="stitle"> line-height(텍스트행사이의거리)
                                     <a name="line-height(텍스트행사이의거리)" style={{ visibility: "hidden" }}> line-height(텍스트행사이의거리) </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle"> line-height 속성 </span>
@@ -442,7 +442,7 @@ const CssBasic = (props) => {
                         {/*  */}
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ list-style(목록태그설정)
+                                <summary className="stitle"> list-style(목록태그설정)
                                     <a name="list-style(목록태그설정)" style={{ visibility: "hidden" }}> list-style(목록태그설정) </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle">  </span>
@@ -471,7 +471,7 @@ const CssBasic = (props) => {
                         {/*  */}
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ text-align(가로정렬)
+                                <summary className="stitle"> text-align(가로정렬)
                                     <a name="text-align(가로정렬)" style={{ visibility: "hidden" }}> text-align(가로정렬) </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle">  </span>
@@ -494,7 +494,7 @@ const CssBasic = (props) => {
                         {/*  */}
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ letter-spacing(글자사이간격조정)
+                                <summary className="stitle"> letter-spacing(글자사이간격조정)
                                     <a name="letter-spacing(글자사이간격조정)" style={{ visibility: "hidden" }}> letter-spacing(글자사이간격조정) </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle"> letter-spacing 속성 </span>
@@ -512,7 +512,7 @@ const CssBasic = (props) => {
                         {/*  */}
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ white-space(공백문자처리)
+                                <summary className="stitle"> white-space(공백문자처리)
                                     <a name="white-space(공백문자처리)" style={{ visibility: "hidden" }}> white-space(공백문자처리) </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle">  </span>
@@ -531,7 +531,7 @@ const CssBasic = (props) => {
                         {/*  */}
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ word-break(단어분리처리여부)
+                                <summary className="stitle"> word-break(단어분리처리여부)
                                     <a name="word-break(단어분리처리여부)" style={{ visibility: "hidden" }}> word-break(단어분리처리여부) </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle"> word-break 속성 </span>
@@ -547,7 +547,7 @@ const CssBasic = (props) => {
                         {/*  */}
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ word-wrap(요소를넘은글자처리여부)
+                                <summary className="stitle"> word-wrap(요소를넘은글자처리여부)
                                     <a name="word-wrap(요소를넘은글자처리여부)" style={{ visibility: "hidden" }}> word-wrap(요소를넘은글자처리여부) </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle">  </span>
@@ -563,7 +563,7 @@ const CssBasic = (props) => {
                         {/*  */}
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ display(요소디스플레이속성)
+                                <summary className="stitle"> display(요소디스플레이속성)
                                     <a name="display(요소디스플레이속성)" style={{ visibility: "hidden" }}> display(요소디스플레이속성) </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle"> display 속성 </span>
@@ -584,7 +584,7 @@ const CssBasic = (props) => {
                         {/*  */}
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ transform(회전,크기,기울기,이동)
+                                <summary className="stitle"> transform(회전,크기,기울기,이동)
                                     <a name="transform(회전,크기,기울기,이동)" style={{ visibility: "hidden" }}> transform(회전,크기,기울기,이동) </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle"> transform 속성 </span>
@@ -615,7 +615,7 @@ const CssBasic = (props) => {
                         {/*  */}
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ transition (애니메이션 효과)
+                                <summary className="stitle"> transition (애니메이션 효과)
                                     <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle">  </span>
@@ -642,7 +642,7 @@ const CssBasic = (props) => {
                         {/*  */}
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ 애니메이션 효과
+                                <summary className="stitle"> 애니메이션 효과
                                     <a name="애니메이션 효과" style={{ visibility: "hidden" }}> 애니메이션 효과 </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle">  </span>
@@ -692,7 +692,7 @@ const CssBasic = (props) => {
                         {/*  */}
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ gradient (2개 이상의 색을 배치하는 방법)
+                                <summary className="stitle"> gradient (2개 이상의 색을 배치하는 방법)
                                     <a name="gradient (2개 이상의 색을 배치하는 방법)" style={{ visibility: "hidden" }}> gradient (2개 이상의 색을 배치하는 방법) </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle">  </span>
@@ -721,7 +721,7 @@ const CssBasic = (props) => {
                         <span className="mtitle"> 플렉스 스타일  </span>
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ flex(이어서?배치)
+                                <summary className="stitle"> flex(이어서?배치)
                                     <a name="flex(이어서?배치)" style={{ visibility: "hidden" }}> flex(이어서?배치) </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle">  </span>
@@ -735,7 +735,7 @@ const CssBasic = (props) => {
                         {/*  */}
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ flex-wrap (플렉스요소를 1줄에 배치를 할지 결정)
+                                <summary className="stitle"> flex-wrap (플렉스요소를 1줄에 배치를 할지 결정)
                                     <a name="flex-wrap" style={{ visibility: "hidden" }}> flex-wrap </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle">  </span>
@@ -751,7 +751,7 @@ const CssBasic = (props) => {
                         {/*  */}
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ flex-direction(플렉스요소배치)
+                                <summary className="stitle"> flex-direction(플렉스요소배치)
                                     <a name="flex-direction(플렉스요소배치)" style={{ visibility: "hidden" }}> flex-direction(플렉스요소배치) </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle"> flex-direction </span>
@@ -766,7 +766,7 @@ const CssBasic = (props) => {
                         </span>
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ flex-flow(flex-wrap + flex-direction)
+                                <summary className="stitle"> flex-flow(flex-wrap + flex-direction)
                                     <a name="flex-flow(flex-wrap + flex-direction)" style={{ visibility: "hidden" }}> flex-flow(flex-wrap + flex-direction) </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle"> flex-flow 설명 </span>
@@ -783,7 +783,7 @@ const CssBasic = (props) => {
                         {/*  */}
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ align-content(F,G의 라인을 정렬)
+                                <summary className="stitle"> align-content(F,G의 라인을 정렬)
                                     <a name="align-content(F,G의 라인을 정렬)" style={{ visibility: "hidden" }}> align-content(F,G의 라인을 정렬) </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle"> align-content 속성 </span>
@@ -809,7 +809,7 @@ const CssBasic = (props) => {
                         {/*  */}
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ justify-content(F,G 요소가로축배치)
+                                <summary className="stitle"> justify-content(F,G 요소가로축배치)
                                     <a name="justify-content(F,G 요소가로축배치)" style={{ visibility: "hidden" }}> justify-content(F,G 요소가로축배치) </a> </summary>
                                 <span className="sblock">
                                     <small> flex-line을 기준으로 아이템을 정렬 </small>
@@ -833,7 +833,7 @@ const CssBasic = (props) => {
                         {/*  */}
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ align-items(F,G 라인을기준으로 아이템세로축정렬)
+                                <summary className="stitle"> align-items(F,G 라인을기준으로 아이템세로축정렬)
                                     <a name="align-items(F,G 라인을기준으로 아이템세로축정렬)" style={{ visibility: "hidden" }}> align-items(F,G 라인을기준으로 아이템세로축정렬) </a> </summary>
                                 <span className="sblock">
                                     <small> flex요소들을 세로축에 대하여 정렬 </small>
@@ -858,7 +858,7 @@ const CssBasic = (props) => {
                         {/*  */}
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ align-self (F 요소마다 속성값을 설정)
+                                <summary className="stitle"> align-self (F 요소마다 속성값을 설정)
                                     <a name="align-self (플렉스 요소마다 속성값을 설정)" style={{ visibility: "hidden" }}> align-self (플렉스 요소마다 속성값을 설정능) </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle"> align-self 속성 </span>
@@ -885,7 +885,7 @@ const CssBasic = (props) => {
                         {/*  */}
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ flex요소 순서와 크기
+                                <summary className="stitle"> flex요소 순서와 크기
                                     <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle">  </span>
@@ -905,7 +905,7 @@ const CssBasic = (props) => {
                         {/*  */}
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ filter(필터효과)
+                                <summary className="stitle"> filter(필터효과)
                                     <a name="filter(필터효과)" style={{ visibility: "hidden" }}> filter(필터효과) </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle">  </span>
@@ -928,7 +928,7 @@ const CssBasic = (props) => {
                         {/*  */}
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ variable(변수)
+                                <summary className="stitle"> variable(변수)
                                     <a name="variable(변수)" style={{ visibility: "hidden" }}> variable(변수) </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle"> variable 속성 </span>
@@ -957,7 +957,7 @@ const CssBasic = (props) => {
 
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ 미디어 쿼리
+                                <summary className="stitle"> 미디어 쿼리
                                     <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle"> 설명 </span>
@@ -998,7 +998,7 @@ const CssBasic = (props) => {
                         {/*  */}
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ 밴더 프리픽스(vender prefix)
+                                <summary className="stitle"> 밴더 프리픽스(vender prefix)
                                     <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle">  </span>
@@ -1027,7 +1027,7 @@ const CssBasic = (props) => {
 
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ CSS 우선순위
+                                <summary className="stitle"> CSS 우선순위
                                     <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle"> 우선순위 </span>
@@ -1073,7 +1073,7 @@ const CssBasic = (props) => {
 
                         <span className="mblock">
                             <details>
-                                <summary className="stitle"> ▶ 기타 <a name="기타" style={{ visibility: "hidden" }}> 기타 </a> </summary>
+                                <summary className="stitle"> 기타 <a name="기타" style={{ visibility: "hidden" }}> 기타 </a> </summary>
                                 <span className="sblock">
                                     <span className="sstitle">  </span>
                                     <span className="mblock">

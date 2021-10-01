@@ -10,7 +10,7 @@ const ReactBasic = (props) => {
           {/*  */}
           <span className="mblock">
             <details>
-              <summary className="stitle"> ▶ React 설치방법 <a name="React 설치방법" style={{ visibility: "hidden" }}>  React 설치방법 </a> </summary>
+              <summary className="stitle"> React 설치방법 <a name="React 설치방법" style={{ visibility: "hidden" }}>  React 설치방법 </a> </summary>
               <span className="sblock">
                 <span className="sstitle">  </span>
                 <span className="mblock">
@@ -36,7 +36,7 @@ const ReactBasic = (props) => {
           {/*  */}
           <span className="mblock">
             <details>
-              <summary className="stitle"> ▶ 리액트 기초 설명 <a name="리액트 기초 설명" style={{ visibility: "hidden" }}> 리액트 기초 설명 </a> </summary>
+              <summary className="stitle"> 리액트 기초 설명 <a name="리액트 기초 설명" style={{ visibility: "hidden" }}> 리액트 기초 설명 </a> </summary>
               <span className="sblock">
                 <span className="sstitle">  </span>
                 <span className="mblock">
@@ -64,7 +64,7 @@ const ReactBasic = (props) => {
           {/*  */}
           <span className="mblock">
             <details>
-              <summary className="stitle"> ▶ 리액트 깃허브
+              <summary className="stitle"> 리액트 깃허브
                 <a name="리액트 깃허브" style={{ visibility: "hidden" }}> 리액트 깃허브 </a> </summary>
               <span className="sblock">
                 <span className="sstitle"> 리액트 깃허브에 올리기 </span>
@@ -112,7 +112,7 @@ const ReactBasic = (props) => {
           {/*  */}
           <span className="mblock">
             <details>
-              <summary className="stitle"> ▶ 리액트 코드 돌려보기 <a name="리액트 코드 돌려보기" style={{ visibility: "hidden" }}> 리액트 코드 돌려보기 </a> </summary>
+              <summary className="stitle"> 리액트 코드 돌려보기 <a name="리액트 코드 돌려보기" style={{ visibility: "hidden" }}> 리액트 코드 돌려보기 </a> </summary>
               <span className="sblock">
                 <span className="sstitle">  </span>
                 <span className="mblock">
@@ -131,7 +131,7 @@ const ReactBasic = (props) => {
           {/*  */}
           <span className="mblock">
             <details>
-              <summary className="stitle"> ▶ React Directory <a name="React Directory" style={{ visibility: "hidden" }}>  React Directory </a> </summary>
+              <summary className="stitle"> React Directory <a name="React Directory" style={{ visibility: "hidden" }}>  React Directory </a> </summary>
               <span className="sblock">
                 <span className="sstitle">  </span>
                 <span className="mblock">
@@ -155,7 +155,7 @@ const ReactBasic = (props) => {
           {/*  */}
           <span className="mblock">
             <details>
-              <summary className="stitle"> ▶ React 함수 <a name="React 함수" style={{ visibility: "hidden" }}> React 함수 </a> </summary>
+              <summary className="stitle"> React 함수 <a name="React 함수" style={{ visibility: "hidden" }}> React 함수 </a> </summary>
               <span className="sblock">
                 <span className="sstitle">  </span>
                 <span className="mblock">
@@ -174,7 +174,7 @@ const ReactBasic = (props) => {
           {/*  */}
           <span className="mblock">
             <details>
-              <summary className="stitle"> ▶  React 조건문 <a name="React 조건문" style={{ visibility: "hidden" }}> React 조건문 </a> </summary>
+              <summary className="stitle">  React 조건문 <a name="React 조건문" style={{ visibility: "hidden" }}> React 조건문 </a> </summary>
               <span className="sblock">
                 <span className="sstitle">  </span>
                 <span className="mblock">
@@ -193,7 +193,7 @@ const ReactBasic = (props) => {
           {/*  */}
           <span className="mblock">
             <details>
-              <summary className="stitle"> ▶ React 반복문 <a name="React 반복문" style={{ visibility: "hidden" }}> React 반복문 </a> </summary>
+              <summary className="stitle"> React 반복문 <a name="React 반복문" style={{ visibility: "hidden" }}> React 반복문 </a> </summary>
               <span className="sblock">
                 <span className="sstitle">  </span>
                 <span className="mblock">
@@ -212,7 +212,7 @@ const ReactBasic = (props) => {
           {/*  */}
           <span className="mblock">
             <details>
-              <summary className="stitle"> ▶ React Props <small> 컴포넌트간에 state값이나 변수를 주고 받는 방법 </small>
+              <summary className="stitle"> React Props <small> 컴포넌트간에 state값이나 변수를 주고 받는 방법 </small>
                 <a name="React Props" style={{ visibility: "hidden" }}> React Props </a> </summary>
               <span className="sblock">
                 <span className="sstitle">  </span>
@@ -232,7 +232,7 @@ const ReactBasic = (props) => {
           {/*  */}
           <span className="mblock">
             <details>
-              <summary className="stitle"> ▶ React Class Component
+              <summary className="stitle"> React Class Component
                 <a name="React Component" style={{ visibility: "hidden" }}> React Component </a> </summary>
               <span className="sblock">
                 <span className="sstitle"> 클래스 컴포넌트의 장단점 </span>
@@ -273,7 +273,7 @@ const ReactBasic = (props) => {
           {/*  */}
           <span className="mblock">
             <details>
-              <summary className="stitle"> ▶ React Class - React Context <small> 하위 컴포넌트에 state값을 props를 이용하지 않고 주기 </small>
+              <summary className="stitle"> React Class - React Context <small> 하위 컴포넌트에 state값을 props를 이용하지 않고 주기 </small>
                 <a name="React Class - React Context" style={{ visibility: "hidden" }}> React Class - React Context </a> </summary>
               <span className="sblock">
                 {/*  */}
@@ -312,7 +312,7 @@ const ReactBasic = (props) => {
           {/*  */}
           <span className="mblock">
             <details>
-              <summary className="stitle"> ▶ React Hooks - functional Component
+              <summary className="stitle"> React Hooks - functional Component
                 <a name="React Hooks" style={{ visibility: "hidden" }}> React Hooks </a> </summary>
               <span className="sblock">
                 <span className="sstitle">  </span>
@@ -347,7 +347,7 @@ const ReactBasic = (props) => {
           {/*  */}
           <span className="mblock">
             <details>
-              <summary className="stitle"> ▶ React Hooks - useState
+              <summary className="stitle"> React Hooks - useState
                 <a name="React useState" style={{ visibility: "hidden" }}> React useState </a> </summary>
               <span className="sblock">
                 <span className="sstitle"> 설명 </span>
@@ -442,7 +442,7 @@ const ReactBasic = (props) => {
           {/*  */}
           <span className="mblock">
             <details>
-              <summary className="stitle"> ▶ React Hooks -  useRef
+              <summary className="stitle"> React Hooks -  useRef
                 <a name="React useRef" style={{ visibility: "hidden" }}> React useRef </a> </summary>
               <span className="sblock">
                 <span className="sstitle"> React useRef 설명 </span>
@@ -481,7 +481,7 @@ const ReactBasic = (props) => {
           {/*  */}
           <span className="mblock">
             <details>
-              <summary className="stitle"> ▶ React Class - useEffect
+              <summary className="stitle"> React Class - useEffect
                 <a name="React useEffect" style={{ visibility: "hidden" }}> React useEffect </a> </summary>
               <span className="sblock">
                 <span className="sstitle"> 설치 </span>
@@ -525,7 +525,7 @@ const ReactBasic = (props) => {
           {/*  */}
           <span className="mblock">
             <details>
-              <summary className="stitle"> ▶ React Hooks - useEffect <small> 상태값이 변할 때 렌더링 </small>
+              <summary className="stitle"> React Hooks - useEffect <small> 상태값이 변할 때 렌더링 </small>
                 <a name="React useEffect" style={{ visibility: "hidden" }}> React useEffect </a> </summary>
               <span className="sblock">
                 <span className="sstitle"> 설치 </span>
@@ -582,7 +582,7 @@ const ReactBasic = (props) => {
           {/*  */}
           <span className="mblock">
             <details>
-              <summary className="stitle"> ▶ React Router - React library
+              <summary className="stitle"> React Router - React library
                 <a name="React Router" style={{ visibility: "hidden" }}> React Router </a> </summary>
               <span className="sblock">
                 <span className="sstitle"> React Router 설치 </span>
@@ -627,7 +627,7 @@ const ReactBasic = (props) => {
           {/*  */}
           <span className="mblock">
             <details>
-              <summary className="stitle"> ▶ React Emmet
+              <summary className="stitle"> React Emmet
                 <a name="React Emmet" style={{ visibility: "hidden" }}> React Emmet </a> </summary>
               <span className="sblock">
                 <span className="sstitle">  </span>
@@ -647,7 +647,7 @@ const ReactBasic = (props) => {
           {/*  */}
           <span className="mblock">
             <details>
-              <summary className="stitle"> ▶ React Redux - library
+              <summary className="stitle"> React Redux - library
                 <a name="React Redux" style={{ visibility: "hidden" }}> React Redux </a> </summary>
               <span className="sblock">
                 <span className="sstitle"> 설치 </span>
@@ -709,7 +709,7 @@ const ReactBasic = (props) => {
           {/*  */}
           <span className="mblock">
             <details>
-              <summary className="stitle"> ▶ React Event
+              <summary className="stitle"> React Event
                 <a name="React Event" style={{ visibility: "hidden" }}> React Event </a> </summary>
               <span className="sblock">
                 <span className="sstitle"> Mouse </span>
@@ -751,7 +751,7 @@ const ReactBasic = (props) => {
           {/*  */}
           <span className="mblock">
             <details>
-              <summary className="stitle"> ▶ React Css <a name="React Css" style={{ visibility: "hidden" }}>  React Css </a> </summary>
+              <summary className="stitle"> React Css <a name="React Css" style={{ visibility: "hidden" }}>  React Css </a> </summary>
               <span className="sblock">
                 <span className="sstitle"> 설명 </span>
                 <span className="mblock">
@@ -812,7 +812,7 @@ const ReactBasic = (props) => {
           {/*  */}
           <span className="mblock">
             <details>
-              <summary className="stitle"> ▶ styled-components - React library
+              <summary className="stitle"> styled-components - React library
                 <a name="styled-components" style={{ visibility: "hidden" }}> styled-components </a> </summary>
               <span className="sblock">
                 <span className="sstitle"> styled-components 설치 </span>
@@ -880,7 +880,7 @@ const ReactBasic = (props) => {
           {/*  */}
           <span className="mblock">
             <details>
-              <summary className="stitle"> ▶
+              <summary className="stitle">
                 <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
               <span className="sblock">
                 <span className="sstitle"> 설치 </span>
@@ -924,7 +924,7 @@ const ReactBasic = (props) => {
           {/*  */}
           <span className="mblock">
             <details>
-              <summary className="stitle"> ▶
+              <summary className="stitle">
                 <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
               <span className="sblock">
                 <span className="sstitle"> 설치 </span>
@@ -968,7 +968,7 @@ const ReactBasic = (props) => {
           {/*  */}
           <span className="mblock">
             <details>
-              <summary className="stitle"> ▶
+              <summary className="stitle">
                 <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
               <span className="sblock">
                 <span className="sstitle"> 설치 </span>

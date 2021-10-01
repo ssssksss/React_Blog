@@ -320,7 +320,24 @@ const KeyMapVscode = (props) => {
                 </div>
               </details>
             </div>
-            {/*  */}
+
+            <div className='mblock'>
+              <details>
+                <summary className='stitle'> django html 자동변환 되는것을 .html로 바꾸는 방법
+                  <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                <div className='sblock'>
+                  <div className='sstitle'>  </div>
+                  <div className='mblock'>
+                    <li> Ctrl +, - settings.json 검색 - settings.json 파일 열기 - 아래 코드 추가
+                      <li> {'     "files.associations": {  '} </li>
+                      <li> {'         "*.html": "html"  '} </li>
+                      <li> {'     },  '} </li>
+                    </li>
+                  </div>
+                </div>
+              </details>
+            </div>
+
             <div className='mblock'>
               <details>
                 <summary className='stitle'>
@@ -334,7 +351,7 @@ const KeyMapVscode = (props) => {
                 </div>
               </details>
             </div>
-            {/*  */}
+
           </span>
         </ul>
       </div>

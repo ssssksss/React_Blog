@@ -915,23 +915,28 @@ const PythonBasic = (props) => {
                             </details>
                         </span>
 
-                        <span className="mblock">
+                        <div className='mblock'>
                             <details>
-                                <summary className="stitle"> <a name="" style={{ visibility: "hidden" }}> ▷  </a> </summary>
-                                <span className="sblock">
-                                    <span className="sstitle">  </span>
-                                    <span className="mblock">
+                                <summary className='stitle'> 판다스 문법
+                                    <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                                <div className='sblock'>
+                                    <div className='sstitle'>  </div>
+                                    <div className='mblock'>
+                                        <li> row_df = pd.DataFrame(['a','b','c','d'], axis=0) # axis=0은 아래로 추가, 디폴트값 </li>
+                                        <li> row_df = pd.DataFrame(['a','b','c','d'], axis=0) # axis=1은 우측으로 추가 </li>
+                                        <li> column_df = pd.DataFrame([['a','b','c','d']]) </li>
+                                        <li> column_df = pd.DataFrame([['a','b','c','d']], columns=['A','B','C','D']) </li>
+                                        <li> df2 = pd.concat([데이터프레임1,데이터프레임2]) </li>
+                                        <li> df2.append(데이터프레임3,ignore_index=True) </li>
+                                        <li> df4 = {'{'} 'A':'n1', 'B':'n2', 'C':'n3', 'D':'n4' {'}'} </li>
+                                        <li> df2.append(df4, ignore_index=True) # 딕셔너리형태로 데이터프레임에 넣으려면 인덱스가 필요 </li>
+                                        <li> df.  RangeIndex(start=0, stop=10, step=1) </li>
                                         <li>  </li>
-                                    </span>
-                                    {/*  */}
-                                    <span className="sstitle">  </span>
-                                    <span className="mblock">
-                                        <li>  </li>
-                                    </span>
-                                    {/*  */}
-                                </span>
+                                    </div>
+                                </div>
                             </details>
-                        </span>
+                        </div>
+                        {/*  */}
 
                     </span>
                 </ul>

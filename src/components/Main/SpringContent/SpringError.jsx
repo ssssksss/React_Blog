@@ -54,12 +54,30 @@ const SpringError = (props) => {
                             <span className="sstitle"> 톰캣 VM Options 바꾸기 </span>
                         </span>
                     </span>
-                    {/* <span className="mblock">
-                        <span className="stitle"> <a name="">   </a> </span>
-                        <span className="sblock">
-                            <span className="sstitle"> </span>
-                        </span>
-                    </span> */}
+
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> 스프링 yml 설정 에러
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> Caused by: org.springframework.beans.factory.BeanCreationException:
+                                    Error creating bean with name 'dataSource' defined in class path resource
+                                    [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]:
+                                    Bean instantiation via factory method failed; nested exception is
+                                    org.springframework.beans.BeanInstantiationException:
+                                    Failed to instantiate [com.zaxxer.hikari.HikariDataSource]:
+                                    Factory method 'dataSource' threw exception; nested exception
+                                    is java.lang.IllegalStateException: Cannot load driver class:
+                                    oracle.jdbc.OracleDriver </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                    <li>  </li>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+                    {/*  */}
+
                 </span>
             </div>
         </>

@@ -71,14 +71,14 @@
         margin: 10px 0px;
     }
     .common_style .title4 {
-        font-size: 14px;
-        font-weight: 800;
+        font-size: 20px;
+        font-weight: 500;
         box-sizing: border-box;
         display: inline-block;
-        border-radius: 2px;
-        padding: 5px;
-        background-color: rgba(169,228,255);
-        margin: 10px 0px;
+        border-radius: 5px;
+        padding: 10px;
+        background-color: rgb(118, 227, 104);
+        margin: 15px 0px 10px 0px;
     }
     .common_style  .lblock {
         border: black solid 3px;

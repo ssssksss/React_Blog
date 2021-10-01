@@ -928,19 +928,25 @@ const DBOracleBasic = (props) => {
                             </span>
                         </span>
 
-                        <span className="mblock">
-                            <span className="stitle"> <a name="">   </a> </span>
-                            <span className="sblock">
-
-                                <span className="sstitle"> </span>
-                                <li>  </li>
-                                <span className="sstitle"> </span>
-                                <li>  </li>
-                                <span className="sstitle"> </span>
-                                <li>  </li>
-
-                            </span>
-                        </span>
+                        <div className='mblock'>
+                            <details>
+                                <summary className='stitle'> 오라클데이터 타입과 자바 데이터 타입
+                                    <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                                <div className='sblock'>
+                                    <div className='sstitle'> 비교 </div>
+                                    <div className='mblock'>
+                                        <li> Oracle : Java </li>
+                                        <li> char(),varchar() : String </li>
+                                        <li> number : String,int,double </li>
+                                        <li> Date,Timestamp : java.sql.Date, String, java.sql.Time java.sql.Timestamp </li>
+                                        <li> CLOB : String </li>
+                                        <li> BLOB : String </li>
+                                        <li>  </li>
+                                    </div>
+                                </div>
+                            </details>
+                        </div>
+                        {/*  */}
 
                         <span className="mblock">
                             <span className="stitle"> <a name="기타">  기타 </a> </span>

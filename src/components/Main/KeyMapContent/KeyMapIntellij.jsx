@@ -52,19 +52,31 @@ const KeyMapIntellij = (props) => {
 								<span className="sstitle"> Gradle 사용할 경우 실행 속도를 빠르게 하기 위한 설정 </span>
 								<li> File - Settings - Build,Extension,Deployment - Build Tools - Gradle - Build and run using, Run tests using
 									을 둘다 Intellij IDEA 로 바꾸기 </li>
+								<span className="sstitle"> 콘솔창 가로 스크롤 생성하지 않게 하는 방법 </span>
+								<li> 아래 아이콘들 중에 메뉴바3개에 줄바꿈을 표시하는 soft-wrap 아이콘을 클릭하면 된다. </li>
 								<span className="sstitle">  </span>
 								<li> </li>
 							</span>
 						</span>
 						{/*  */}
-						<span className="mblock">
-							<span className="stitle"> <a name="">  </a> </span>
-							<span className="sblock">
-								<span className="sstitle">  </span>
-								<li> </li>
-							</span>
-						</span>
+
+						<div className='mblock'>
+							<details>
+								<summary className='stitle'> 깃허브에 올리는 방법
+									<a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+								<div className='sblock'>
+									<div className='sstitle'>  </div>
+									<div className='mblock'>
+										<li> VCS - Enable Version Control Integration - Git </li>
+										<li> VCS - Git - commit - 모두체크하고 commit </li>
+										<li> VCS - Git - remote - github 연결 </li>
+										<li> VCS - Git - push </li>
+									</div>
+								</div>
+							</details>
+						</div>
 						{/*  */}
+
 					</span>
 				</ul>
 			</div>

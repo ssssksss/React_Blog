@@ -16,17 +16,17 @@ const DBTable = (props) => {
                                     <div className='sstitle'> 게시판 테이블(오라클) </div>
                                     <div className='mblock'>
                                         <li> CREATE TABLE board (
-                                            <li>     bbd_no number generated always as identity primary key, -- 게시판 번호 </li>
-                                            <li>     bbd_title varchar(180) not null, -- 게시판 제목</li>
-                                            <li>     bbd_content varchar(4000) not null, --게시판 제목 </li>
-                                            <li>     bbd_writer varchar(30) not null, --게시판 작성자 </li>
-                                            <li>     bbd_regdate date default sysdate, --게시판 생성일 </li>
-                                            <li>     bbd_revdate date default sysdate, --게시판 수정일 </li>
-                                            <li>     bbd_viewcnt number default 0, --게시판 조회수 </li>
-                                            <li>     bbd_goodcnt number default 0, --게시판 좋아요 횟수 </li>
-                                            <li>     bbd_badcnt number default 0, --게시판 싫어요 횟수 </li>
-                                            <li>     bbd_reportcount number default 0, --게시판 신고횟수 </li>
-                                            <li>     bdd_viewaccess char default 'T' --게시판 보이기 허용 여부  </li>
+                                            <li> board_no number generated always as identity primary key, </li>
+                                            <li> board_title varchar(180) not null, </li>
+                                            <li> board_content varchar(4000) not null, </li>
+                                            <li> board_writer varchar(30) not null,  </li>
+                                            <li> board_credate date default sysdate,  </li>
+                                            <li> board_upddate date default sysdate,  </li>
+                                            <li> board_viewcnt number default 0,  </li>
+                                            <li> board_goodcnt number default 0,  </li>
+                                            <li> board_badcnt number default 0,  </li>
+                                            <li> board_reportcount number default 0,  </li>
+                                            <li> board_state number default 1  </li>
                                         </li>
                                         <li> ); </li>
                                     </div>
@@ -36,7 +36,34 @@ const DBTable = (props) => {
                         {/*  */}
                         <div className='mblock'>
                             <details>
-                                <summary className='stitle'>
+                                <summary className='stitle'> 고객 테이블
+                                    <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                                <div className='sblock'>
+                                    <div className='sstitle'>  </div>
+                                    <div className='mblock'>
+                                        <li> CREATE TABLE user (
+                                            <li> user_no number generated always as identity primary key, </li>
+                                            <li> user_name varchar(30) not null, </li>
+                                            <li> user_birth date not null, </li>
+                                            <li> user_gender varchar(3) not null, </li>
+                                            <li> user_id varchar(60) not null, </li>
+                                            <li> user_password varchar(120) not null, </li>
+                                            <li> user_email varchar(120) not null, </li>
+                                            <li> user_address varchar(120) not null, </li>
+                                            <li> user_phone varchar(11) not null, </li>
+                                            <li> user_rank number default 1, </li>
+                                            <li> user_state number default 1, </li>
+                                            <li> user_logincnt number default 0 </li>
+                                        </li>
+                                        <li> ); </li>
+                                    </div>
+                                </div>
+                            </details>
+                        </div>
+                        {/*  */}
+                        <div className='mblock'>
+                            <details>
+                                <summary className='stitle'> 고객 테이블
                                     <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
                                 <div className='sblock'>
                                     <div className='sstitle'>  </div>
