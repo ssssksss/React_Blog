@@ -26,14 +26,28 @@ const SpringBasic = (props) => {
 											분리하여 유지보수가 더 좋아지며 재활용성이 높아진다.
 										</li>
 										<li> 컨테이너 : BeanFactory와 ApplicationContext 2개의 대표적인 컨테이너가 있다. 컨테이너는
-											인스턴스의 주기와 추가적인 기능을 관리하는 역할을 한다. </li>
+											인스턴스의 주기와 추가적인 기능을 관리하는 역할을 한다.
+											<li>
+												{/* 아래 내용은 일단 옮겨놓음 */}
+												<span className="sblock">
+													<li className="sstitle" ><i> 컨테이너의 빈 객체 </i>  </li>
+													<li> CGLIB라는 바이트코드 조작 라이브러리를 이용하여 Bean객체를 싱글턴패턴으로 유지하게 한다.
+														클래스를 복제?한 클래스객체를 따로 만들어서 컨테이너에서 만들어서 사용한다. 컨테이너에
+														Bean객체가 없으면 Bean객체를 생성하고 존재한다면 기존에 Bean객체를 반환해준다. </li>
+												</span>
+											</li>
+										</li>
 									</div>
 								</div>
 
 								<div className='sstitle'> 스프링의 일반적인 작동과정 </div>
 								<div className='sblock'>
-									<li> </li>
-									<li> </li>
+									<li> 1. 클라이언트 요청 </li>
+									<li> 2. Dispatcher Servlet 접근 </li>
+									<li> 3. Handler Mapping 참조하여 Controller 연결 </li>
+									<li> 4. Mapping된 Controller에 서비스 로직에 따라 DAO,Entity등을 통해 DB에 접근  </li>
+									<li> 5. 모델과 뷰 객체를 담아 DispatcherServlet에 반환 </li>
+									<li> 6. ViewResolver를 통해 View와 연결되어 화면으로 출력 </li>
 								</div>
 							</details>
 						</div>
@@ -76,31 +90,293 @@ const SpringBasic = (props) => {
 						{/*  */}
 
 						<div className='mblock'>
-								<details>
-										<summary className='stitle'> 영속성(Persistence)
-												<a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+							<details>
+								<summary className='stitle'> 영속성(Persistence)
+									<a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+								<div className='sblock'>
+									<div className='sstitle'> 설명 </div>
+									<div className='mblock'>
+										<li> 영속성 컨텍스트는 Entity 저장소  </li>
+										<li> JPA 메소드로 DB를 요청하면 영속성 컨텍스트 내부의 캐시에서 찾고 없으면 데이터베이스에서 꺼내서 캐시에 보관하고
+											클라이언트에게 반환 </li>
+										<li> Entity @Id값으로 영속성 컨텍스트가 식별 </li>
+										<li> EntityManagerFactory : Entity 저장소 </li>
+										<li> EntityManager : Entity를 운반하는 객체 </li>
+										<li> 트랜잭션을 영속성 컨텍스트에 보관하고 있다가 커밋을 하면 그때서야 DB에 데이터를 보내고
+											flush() 동기화 작업을 진행
+										</li>
+										<li>  </li>
+										<li>  </li>
+									</div>
+									<div className='sstitle'> 예시 </div>
+									<div className='mblock'>
+										<li>  </li>
+										<li>  </li>
+									</div>
+								</div>
+							</details>
+						</div>
+
+						<div className='mblock'>
+							<details>
+								<summary className='stitle'> Controller
+									<a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+								<div className='sblock'>
+									<div className='sstitle'> 설명 </div>
+									<div className='mblock'>
+										<li>  </li>
+										<li>  </li>
+									</div>
+									<div className='sstitle'> 어노테이션 </div>
+									<div className='mblock'>
+										<li>  </li>
+									</div>
+									<div className='sstitle'> 예시 </div>
+									<div className='mblock'>
+										<li> @Controller </li>
+										<li> @RequestMapping("경로") </li>
+										<li> public class BoardController {'{'}
+											<li> @Autowired </li>
+											<li> private BoardReposiotry boardRepository </li>
+											<li>  </li> <br />
+
+											<li> @GetMapping("/index") </li>
+											<li> public String getIndex() {'{'}
+												<li> return "index"; </li>
+											</li>
+											<li> {'}'} </li> <br />
+
+											<li> @GetMapping("/") </li>
+											<li> public String getIndex(Model model, @RequestParam(required = false) Long num ) {'{'}
+												<li> {' List<BoardEntity> '} boardlist = boardRepository.findAll() <small> # JPA 사용 </small> </li>
+												<li> model.addAttribute("객체키",객체명) </li>
+												<li> return ""; </li>
+											</li>
+											<li> {'}'} </li> <br />
+
+											<li>  @PostMapping("/doCreateUpdateBoard")  </li>
+											<li> {' public String doCreateBoard( BoardEntity boardEntity, BindingResult bindingResult) { '}
+												<li> boardValidator.validate(boardEntity, bindingResult);  </li> <br />
+
+												<li> {' if(bindingResult.hasErrors()) { '}
+													<li> return "boardForm";  </li>
+												</li>
+												<li> {' } '} </li> <br />
+
+												<li>  boardRepository.save(boardEntity);  </li>
+												<li>  return "redirect:/boardMainpage";  </li>
+											</li>
+											<li> {' } '} </li>
+											<li>  </li>
+										</li>
+										<li> {'}'} </li>
+									</div>
+								</div>
+							</details>
+						</div>
+
+						<div className='mblock'>
+							<details>
+								<summary className='stitle'> Validator
+									<a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+								<div className='sblock'>
+									<div className='sstitle'> 설명 </div>
+									<div className='mblock'>
+										<li> 유효성 검사를 해주는 클래스 </li>
+										<li> <a href="https://beanvalidation.org/" target="_blank" rel="noopener noreferrer">
+											Jakarta Bean Validation </a>
+											<a href="https://docs.jboss.org/hibernate/stable/validator/reference/en-US/html_single/#validator-gettingstarted-createproject" target="_blank" rel="noopener noreferrer">
+												Hibernate Validator </a>
+											<li> validator를 사용할 떄는 ValidationUtils를 사용하는 방법과 사용하지 않는 2가지 방법이 있다. </li>
+											<li> 사용자의 정보를 검증하는 단계는 컨트롤러 즉 사용자의 정보를 처음에 받는 곳에서 처리를 해야한다. </li>
+										</li>
+										<li> <a href="https://docs.spring.io/spring-framework/docs/4.1.x/spring-framework-reference/html/validation.html"
+											target="_blank" rel="noopener noreferrer"> 공식 문서 </a>
+											<li> Validator 인터페이스는 Errors객체를 사용하여 유효성 실패를 보고할 수 있다. </li>
+											<li> support메소드는 Validator가 제공된 클래스 객체를 유효 검사할 수 있는지 판단  </li>
+											<li> validate메소드는 주어진 객체가 오류 객체인 경우 Error객체로 등록한다. </li>
+											<li> Validator 구현은 간단하고 , 스프링 프레임워크는 ValidationUtils 제공한다.
+												하지만 스프링 Validation API를 사용하면 편리하다. </li>
+										</li>
+									</div>
+									<div className='sstitle'> Validator 클래스 </div>
+									<div className='mblock'>
+										<li> @Component <small> # Bean 으로 등록 </small>  </li>
+										<li> public class ValidatorClass implements Validator {'{'}
+											<li> <br /> @Override </li>
+											<li> {'public boolean supprot(Class<?> clazz) { '} <small> # Validator가 해당클래스의 유효성을 지원하는지 여부확인</small>
+												<li> return _Entity.class.equals(clazz); </li>
+											</li>
+											<li> {'}'} </li> <br />
+
+											<li> @Override </li>
+											<li> void validate(Object target,Erros errors) {'{'} <small> # 유효검사를 해서 틀리면 에러 객체에 저장</small>
+												<li> <br /> #ValidationUtils를 사용하지 않는 방법  </li>
+												<li> <span className="col_r"> Entity </span> entity = (<span className="col_r"> Entity </span>)target; </li>
+												<li> {' if(entity.'}<span className="col_r">get필드명 </span>{'() == null) {'}
+													<li> errors.rejectValue("<span className="col_r"> Entity필드명 </span> ","errorCode","에러가발생할경우보여줄메시지작성"); </li>
+												</li>
+												<li> {'}'} </li> <br />
+												{/*<li> # ValidationUtils를 사용하는 방법 	</li>*/}
+												{/*<li> ValidationUtils.rejectIfEmpty(errors,"field","defaultMessage"); </li>*/}
+											</li>
+											<li> {'}'} </li>
+										</li>
+										<li> {'}'} </li>
+									</div>
+									<div className='sstitle'> Errors 인터페이스 </div>
+									<div className='mblock'>
+										<li> reject(String errorCode) # 모든 객체에 대해서 에러 코드를 추가 </li>
+										<li> reject(String errorCode, String defaultMessage) </li>
+										<li> reject(String errorCode, Object[] errorArgs, String defaultMessage) # errorArgs 에러 메세지를 전달함 </li>
+										<li> rejectValue(String field, String errorCode) # 필드에 대한 에러 코드 추가</li>
+										<li> rejectValue(String field, String errorCode, String defaultMessage) </li>
+										<li> rejectValue(String field, String errorCode, Object[] errorArgs, String defaultMessage) </li> <br />
+										<li> boolean hasError() # 에러 발생 여부 </li>
+										<li> int getErrorCount() # 에러 갯수 리턴 </li>
+										<li> boolean hasGlobalErrors() # reject() 에러 발생 여부 </li>
+										<li> int getGlobalErrorCount() # reject() 에러 갯수 리턴 </li>
+										<li> boolean hasFieldErrors() # rejectValue() 에러 발생 여부 </li>
+										<li> int getFieldErrorCount() # rejectValue() 에러 갯수 리턴 </li>
+										<li> boolean hasFieldErrors() # rejectValue() 를 사용한 특정 필드 에러 발생 여부 </li>
+										<li> int getFieldErrorCount(String field) # rejectValue() 를 사용한 특정 필드 에러 갯수 리턴 </li>
+										<li>  </li>
+									</div>
+									<div className='sstitle'> Entity 어노테이션 </div>
+									<div className='mblock'>
+										<li> implementation 'org.springframework.boot:spring-boot-starter-validation' </li>
+										<li> @Positive @PositiveOrZero @Negative @NegativeOrZero </li>
+										<li> @Size(min=1,max=2) @Min(1) @Max(2) </li>
+										<li> @Null </li>
+										<li> @NotNull # Null 불가능 </li>
+										<li> @NotEmpty # Null, 빈문자열("") 불가능 , " " 은 가능 </li>
+										<li> @NotBlank # Null, 빈문자열("") , " " 모두 불가능</li>
+										<li> @Pattern(regex="이곳에 정규표현식 작성") </li>
+										<li> @Future @FutureOrPresent @Past @PastOrPresent </li>
+										<li> @Email </li>
+										<li> @AssertTrue @AssertFalse # 값이 항상 true거나 false </li>
+										<li> @Digits(integer= 최대허용되는정수자릿수 , fraction = 최대허용되는소수자릿수 ) </li>
+										<li> @DecimalMax(value=) @DecimalMin(value=) </li>
+										<li> 어노테이션에 추가 속성 : message="에러 날 경우 메시지 표현" </li>
+									</div>
+									<div className='sstitle'> 예시 </div>
+									<div className='mblock'>
+										<div className='sstitle'> Controller </div>
 										<div className='sblock'>
-												<div className='sstitle'> 설명 </div>
-												<div className='mblock'>
-														<li> 영속성 컨텍스트는 Entity 저장소  </li>
-														<li> JPA 메소드로 DB를 요청하면 영속성 컨텍스트 내부의 캐시에서 찾고 없으면 데이터베이스에서 꺼내서 캐시에 보관하고
-															클라이언트에게 반환 </li>
-														<li> Entity @Id값으로 영속성 컨텍스트가 식별 </li>
-														<li> EntityManagerFactory : Entity 저장소 </li>
-														<li> EntityManager : Entity를 운반하는 객체 </li>
-														<li> 트랜잭션을 영속성 컨텍스트에 보관하고 있다가 커밋을 하면 그때서야 DB에 데이터를 보내고 
-															flush() 동기화 작업을 진행
-														</li>
-														<li>  </li>
-														<li>  </li>
-												</div>
-												<div className='sstitle'> 예시 </div>
-												<div className='mblock'>
-														<li>  </li>
-														<li>  </li>
-												</div>
+											<li> {'     @PostMapping("/doCreateUpdateBoard") '} </li>
+											<li> {'     public String doCreateBoard( BoardEntity boardEntity, BindingResult bindingResult) { '}
+												<li> {'         boardValidator.validate(boardEntity, bindingResult); '} </li> <br />
+
+												<li> {'         if(bindingResult.hasErrors()) { '}
+													<li> {'             return "boardForm"; '} </li>
+												</li>
+												<li> {'         } '} </li>
+												<li> {'         boardRepository.save(boardEntity); '} </li>
+												<li> {'         return "redirect:/boardMainpage"; '} </li>
+											</li>
+											<li> {'     } '} </li>
 										</div>
-								</details>
+										<div className='sstitle'> BoardEntity </div>
+										<div className='sblock'>
+											<li> @Entity </li>
+											<li> @Getter </li>
+											<li> @Setter </li>
+											<li> @AllArgsConstructor </li>
+											<li> @NoArgsConstructor </li>
+											<li> @ToString </li>
+											<li> public class BoardEntity {'{'}
+												<li>   <br />  @Id </li>
+												<li> @GeneratedValue(strategy = GenerationType.AUTO) </li>
+												<li> @Column(name="board_no") </li>
+												<li> private Long boardNo; </li> <br />
+
+												<li> @Column(name="board_title") </li>
+												<li> private String boardTitle; </li> <br />
+
+												<li> @Column(name="board_content") </li>
+												<li> private String boardContent; </li>
+											</li>
+											<li> {'}'} </li>
+										</div>
+										<div className='sstitle'> BoardValidator </div>
+										<div className='sblock'>
+											<li> {' @Component '} </li>
+											<li> {' public class BoardValidator implements Validator { '}
+												<li> {' '} </li> <br />
+												<li> {' @Override '} </li>
+												<li> {' public boolean supports(Class<?> clazz) { '}
+													<li> {' return BoardEntity.class.equals(clazz); '} </li>
+												</li>
+												<li> {' } '} </li>
+												<li> {' '} </li> <br />
+												<li> {' @Override '} </li>
+												<li> {' public void validate(Object target, Errors errors) { '}
+													<li> {' BoardEntity boardEntity = (BoardEntity)target; '} </li>
+													<li> {' '} </li>
+													<li> <small> # thymeleaf util 사용</small> </li>
+													<li> {' if(StringUtils.isEmpty(boardEntity.getBoardTitle())) { '}
+														<li> {' errors.rejectValue("boardTitle","empty","empty boardTitle"); '} </li>
+													</li>
+													<li> {' } '} </li>
+													<li> <small> # java 사용 </small> </li>
+													<li> {' if(boardEntity.getBoardTitle().isEmpty()) { '}
+														<li> {' errors.rejectValue("boardTitle","empty","empty boardTitle"); '} </li>
+													</li>
+													<li> {' } '} </li>
+												</li>
+												<li> {' } '} </li>
+											</li>
+											<li> {' } '} </li>
+										</div>
+										<div className='sstitle'> boardForm.html </div>
+										<div className='sblock'>
+											<li> <small> # thymeleaf + bootstrap을 이용하여 작성 </small> </li>
+											<li> {' <form action="/doCreateUpdateBoard" method="post" th:object="${boardEntity}"> '}
+												<li> {' <input th:if="*{boardNo != null}" type="hidden" th:field="*{boardNo}"/> '} </li>
+												<li> {'  '} </li> <br />
+												<li> {' <div class="mb-3"> '}
+													<li> {'     <label for="exampleFormControlInput1" class="form-label"> 제목 </label> '} </li>
+													<li> {'     <input type="text" class="form-control" th:classappend="${#fields.hasErrors('}'boardTitle'{'})} ? '}'is-invalid'
+														{'" id="exampleFormControlInput1" th:field="*{boardTitle}">'} </li>
+													<li> {'     <div class="invalid-feedback" th:if="${#fields.hasErrors('}'boardTitle'{')}" th:errors="*{boardTitle}">Name Error</div> '} </li>
+												</li>
+												<li> {' </div> '} </li>
+												<li> {'  '} </li> <br />
+												<li> {' <div class="mb-3"> '}
+													<li> {' <label for="exampleFormControlTextarea1" class="form-label"> 내용 </label> '} </li>
+													<li> {' <textarea class="form-control" th:classappend="${#fields.hasErrors('}'boardContent'{')} ? '}'is-invalid'
+														{'" id="exampleFormControlTextarea1" rows="3" th:field="*{boardContent}"> </textarea>'} </li>
+													<li> {' <div class="invalid-feedback" th:if="${#fields.hasErrors('}'boardContent'{')}" th:errors="*{boardContent}">Name Error</div> '} </li>
+												</li>
+												<li> {' </div> '} </li>
+												<li> {'  '} </li> <br />
+												<li> {' <button type="submit" class="btn btn-primary"> 제출 </button> '} </li>
+											</li>
+											<li> {' </form> '} </li>
+										</div>
+										{/*  */}
+									</div>
+								</div>
+							</details>
+						</div>
+
+						<div className='mblock'>
+							<details>
+								<summary className='stitle'> REST API
+									<a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+								<div className='sblock'>
+									<div className='sstitle'> 설명 </div>
+									<div className='mblock'>
+										<li> 자원의 경로를  </li>
+										<li>  </li>
+									</div>
+									<div className='sstitle'> 예시 </div>
+									<div className='mblock'>
+										<li>  </li>
+										<li>  </li>
+									</div>
+								</div>
+							</details>
 						</div>
 
 						<span className="mblock">
@@ -156,183 +432,6 @@ const SpringBasic = (props) => {
 								<li> aop:after : 메소드 실행중 exception이 발생해도 advice 실행 </li>
 								<li> aop:around : 메소드 실행 전/후 및 exception 발생시 advice 실행 </li>
 
-							</span>
-							<span className="sblock">
-								<li className="sstitle" ><i>1.</i>  </li>
-							</span>
-							<span className="sblock">
-								<li className="sstitle" ><i>1.</i>  </li>
-							</span>
-							<span className="sblock">
-								<li className="sstitle" ><i>1.</i>  </li>
-							</span>
-						</span>
-						{/*  */}
-						<span className="mblock">
-							<span className="stitle">
-								<a name="컨테이너">  컨테이너 </a>
-							</span>
-							<span className="sblock">
-								<li className="sstitle" ><i> 컨테이너의 빈 객체 </i>  </li>
-								<li> CGLIB라는 바이트코드 조작 라이브러리를 이용하여 Bean객체를 싱글턴패턴으로 유지하게 한다.
-									클래스를 복제?한 클래스객체를 따로 만들어서 컨테이너에서 만들어서 사용한다. 컨테이너에
-									Bean객체가 없으면 Bean객체를 생성하고 존재한다면 기존에 Bean객체를 반환해준다. </li>
-							</span>
-							<span className="sblock">
-								<li className="sstitle" ><i>1.</i>  </li>
-							</span>
-							<span className="sblock">
-								<li className="sstitle" ><i>1.</i>  </li>
-							</span>
-						</span>
-						{/*  */}
-						<span className="mblock">
-							<span className="stitle">
-								<a name="MVC">  MVC </a>
-							</span>
-							<span className="sblock">
-								<li className="sstitle" ><i>DAO(Data Access Object)</i>  </li>
-								<li> DB에 제일 가까이서 접근하는 객체 </li>
-								<li> DB와 Service 구간사이에서 DB데이터를 보내고 받는다.</li>
-								<li> 스프링에서는 직접 구현하지않고 CrudRepositoy나 JpaReposioty를 상속해서 처리한다. </li>
-							</span>
-							<span className="sblock">
-								<li className="sstitle" ><i>DTO(Data Transfer Object) </i>  </li>
-								<li> controller와 service사이에서 사용할 데이터를 주고 받는 객체 </li>
-								<li> Entity와 비슷하지만 Entity는 DB와 데이터를 주고 받는 용도로 사용하고
-									다른 곳에서 데이터를 주고 받는 용도로는 dto를 사용하는 것을 추천
-								</li>
-							</span>
-							<span className="sblock">
-								<li className="sstitle" ><i>VO(Value Object)</i>  </li>
-								<li> VO는 DTO와 비슷하지만 오직 읽는 용도로만 사용하는 것이다. </li>
-							</span>
-							<span className="sblock">
-								<li className="sstitle" ><i>Entity</i>  </li>
-								<li> Entity </li>
-								<li> toEntity() 메소드를 통해서 DTO에 필요한 부분만을 사용해서 Entity로 만들어서 사용 </li>
-								<li> 실제 DB 테이블과 일치되는 클래스 </li>
-							</span>
-							<span className="sblock">
-								<li className="sstitle" ><i> Controller </i>  </li>
-								<small> URL을 맵핑하고 service 로직을 처리 , 반환 값으로 템플릿(view)을 응답한다. </small>
-								<span className='mblock'>
-									<li>  @Controller </li>
-									<li>  public class 클래스명 {'{'} </li>
-									<li>  {'@GetMapping("/URL경로") public String 메소드명() { return "html파일명"; } '}</li>
-									<li>  {'@PostMapping("/URL경로") public String 메소드명(Model model) {  '} </li>
-									<li>  {' model.addAttribute("key","value"); 서비스로직 + return "html파일명"; } '} </li>
-									<li>  {'}'} </li>
-								</span>
-								<li>  </li>
-							</span>
-							<span className="sblock">
-								<li className="sstitle" ><i> Restcontroller </i>  </li>
-								<small> URL을 맵핑하고 service 로직을 처리 , 반환 값으로 JSON과 같은 객체를 응답한다. </small>
-								<li>  </li>
-							</span>
-							<span className="sblock">
-								<li className="sstitle" ><i> service </i>  </li>
-								<li> 비즈니스 로직을 구현 </li>
-								<li> DB에 저장하거나 비즈니스 로직을 처리 </li>
-							</span>
-							<span className="sblock">
-								<li className="sstitle" ><i> enity </i>  </li>
-								<li> DB테이블과 연결되는 객체  </li>
-								<li> JPA에서는 Entity객체를 사용 </li>
-							</span>
-							<span className="sblock">
-								<li className="sstitle" ><i> repository </i>  </li>
-								<li> 데이터를 가져오거나 조작하는 함수를 정의 </li>
-								<li> JpaRepository&lt;Entity클래스,@Id타입&gt;나 CrudRepository 상속하여 그 안에 함수를 사용 </li>
-								<li> <a href="https://docs.spring.io/spring-data/jpa/docs/1.10.1.
-                            RELEASE/reference/html/#jpa.sample-app.finders.strategies"> 참고 사이트 </a></li>
-								<span className="mblock">
-									<li className="sstitle"> JPA 메소드 종류 </li>
-									<li> save() : 레코드 저장(insert, update) </li>
-									<li> findOne() : primary key로 레코드 한건 찾기 </li>
-									<li> findAll() : 전체 레코드 불러오기, sort기능, pageable기능 </li>
-									<li> count() : 레코드 갯수</li>
-									<li> delete() : 레코드 삭제 </li>
-									<li className="sstitle"> 쿼리 메소드 종류 </li>
-									<li> findBy : 쿼리를 요청하는 메서드 </li>
-									<li> countBy : 쿼리 결과 레코드 수를 요청하는 메서드 </li>
-									<li className="sstitle"> 쿼리 메소드 키워드 종류 </li>
-									<li> And : 여러필드를 검색 ( findByUserIdAndUserPwd(String userid,String userpwd)) </li>
-									<li> Or : 여러필드를 검색 ( findByUserIdOrUserPwd(String userid,String userpwd)) </li>
-									<li> Between : 필드의 두 값 사이의 항목 검색 findByCreatedAtBetween() </li>
-									<li> LessThan : 작은 항목 검색 (findByAgeLessThanEqual(int)) </li>
-									<li> GreaterThanEqual : 크거나 같은 항목 (findByAgeGraterThanEqual(int)) </li>
-									<li> Like : like 사용 (findByNameLike(String)) </li>
-									<li> IsNull : null인 항목 검색 (findByJoblsNull()) </li>
-									<li> In : 여러 값 중에 하나의 항목 (findByJob(String...)) </li>
-									<li> OrderBy : 검색 결과를 정렬하여 전달 (findByEmailOrderByNameAsc(String)) </li>
-								</span>
-							</span>
-							<span className="sblock">
-								<li className="sstitle" ><i> static </i>  </li>
-								<li> css,js,img 등 자원을 모아놓는 공간 </li>
-							</span>
-							<span className="sblock">
-								<li className="sstitle" ><i> templates </i>  </li>
-								<li> 템플릿을 모아놓는 공간 </li>
-							</span>
-						</span>
-						<span className="mblock">
-							<span className="stitle">
-								<a name="스프링 프레임워크의 기본 동작 원리"> 스프링 프레임워크의 기본 동작 원리 </a>
-							</span>
-							<span className="sblock">
-								<li className="sstitle" ><i>1. </i>  </li>
-								<li> 1. 클라이언트 요청 </li>
-								<li> 2. Dispatcher Servlet 접근 </li>
-								<li> 3. Handler Mapping 참조하여 Controller 연결 </li>
-								<li> 4. Mapping된 Controller에 서비스 로직에 따라 DAO,Entity등을 통해 DB에 접근  </li>
-								<li> 5. 모델과 뷰 객체를 담아 DispatcherServlet에 반환 </li>
-								<li> 6. ViewResolver를 통해 View와 연결되어 화면으로 출력 </li>
-							</span>
-						</span>
-						{/*  */}
-						<span className="mblock">
-							<span className="stitle">
-								<a name="lombok 어노테이션"> lombok 어노테이션  </a>
-							</span>
-							<small>  어노테이션으로 코드를 자동으로 만들어주는 라이브러리 </small>
-							<li> 가독성, 유지보수, 자동생성으로 생산성 향상 </li>
-							<span className="sblock">
-								<details>
-									<summary className="sstitle" ><i> 어노테이션의 종류 </i> </summary>
-									<ol>
-										<li> @Value : 프로퍼티에서 정의한 값을 가져오는 방법 </li>
-										<li> @Controller : Model 객체를 이용하여 데이터를 담고 view를 찾아 이동하는 역할 </li>
-										<li> @PostMapping : Post방식으로 요청을 받을 때 맵핑을 처리함 </li>
-										<li> @GetMapping :  Get방식으로 요청을 받을 때 맵핑을 처리함 </li>
-										<li> @RequestBody : http요청 데이터를 담은 공간 </li>
-										<li> @ReponseBody : http응답 데이터를 담은 공간 </li>
-										<li> @RestController(@Controller + @ResponseBody) : 객체로 반환하고 JSON이나 XML형식으로 http에 담아서 응답  </li>
-										<li> @RequestMapping("") : 어떤 Controller에 어떤 메소드를 처리할지 맵핑하는 용도  </li>
-										<li> @SuppressWarnings("unchecked") :   </li>
-										<span className="mblock">
-
-											<li> value(String) : URL값으로 맵핑 조건으로 사용 </li>
-											<li> method : HTTP Request 메소드값을 맵핑 조건으로 사용 </li>
-											<li> params : HTTP Request 파라미터(GET,POST 등)를 맵핑 조건으로 사용 </li>
-											<li> consumes : Content-Type request 헤더가 일치할 경우 URL이 호출됨 </li>
-											<li> produces : 설정과 Accept request 헤더가 일치할 경우에만 URL이 호출됨 </li>
-
-										</span>
-										<li> @RequestParam : Controller메소드의 파라미터와 웹 요청 파라미터와 맵핑하는 용도 </li>
-										<li> @ModelAttribute : Controller 메소드의 파라미터나 리턴값을 Model 객체와 바인딩하기 위한 용도 </li>
-										<li> @SessionAttributes : Model 객체를 세션에 젖아하고 사용하기 위한 용도 </li>
-										<li> @RequestPart : Multipart 요청의 경우, 웹 요청 파라미터와 맵핑 용도 </li>
-										<li> @CommandMap : Controller메소드의 파라미터를 Map형태로 받을 떄 웹 요청 파라미터와 맵핑하기 위한 용도 </li>
-										<li> @ControllerAdvice : Controller에 쓰이는 공통기능을 모듈화하여 전역으로 쓰기 위한 용도 </li>
-										<li> @Transactional : 트랜잭션 속성을 클래스 내의 모든 메서드에게 부여</li>
-										<li> @NonNUll : null을 허용하지 않을 경우 </li>
-										<li> @Nullable : null을 허용할 경우 </li>
-										<li>  </li>
-									</ol>
-								</details>
 							</span>
 						</span>
 						{/*  */}

@@ -77,17 +77,12 @@ const SpringThymeleaf = (props) => {
                                     <li> 삼항연산 : x = f() ? f() : g() 이거와 같은 식 x = f() ?: g() </li>
                                     <li>  </li>
                                 </div>
-                                <div className='sstitle'> th:text </div>
+                                <div className='sstitle'> th:text th:utext </div>
                                 <div className='mblock'>
-                                    <li> 서버에서 객체에 html태그를 담아 보내면 </li>
+                                    <li>  th:text : 서버에서 객체에 html태그를 담아 보내면 객체를 텍스트로 인식해서 출력</li>
+                                    <li>  th:utext : 서버에서 객체에 html태그를 담아 보내면 객체를 html태그로 인식해서 출력</li>
                                     <li> {' <div th:text="${객체명}"> </div> '} </li>
-                                    <li> 결과 : 객체를 텍스트로 인식해서 출력 </li>
-                                </div>
-                                <div className='sstitle'> th:utext </div>
-                                <div className='mblock'>
-                                    <li> 서버에서 객체에 html태그를 담아 보내면 </li>
                                     <li> {' <div th:utext="${객체명}"> </div> '} </li>
-                                    <li> 결과 : 객체를 태그로 인식해서 출력 </li>
                                 </div>
                                 <div className='sstitle'> th:value </div>
                                 <div className='mblock'>
@@ -153,7 +148,7 @@ const SpringThymeleaf = (props) => {
                                 <div className='sstitle'> th:object </div>
                                 <div className='mblock'>
                                     <li> form 태그에서 submit으로 보낼때 객체로 설정 </li>
-                                    <li>  </li>
+                                    <li> 객체를 받아와서 뿌려줄수도 있고, 폼태그와 같이 객체를 담아서 다시 보낼수도 있다. </li>
                                     <li> {'<form action="@{/userlogin}" th:object ="${user}"> method="post" '}
                                         <li> {' <input type="text" th:field="*{userid}" /> '} </li>
                                         <li> {' <input type="password" th:field="*{userpwd}" /> '} </li>
@@ -161,11 +156,16 @@ const SpringThymeleaf = (props) => {
                                     <li> {' </form>'} </li>
                                     <li> 결과 :  </li>
                                 </div>
-                                <div className='sstitle'> th:fragement </div>
+                                <div className='sstitle'> th:fragement th:insert th:replace </div>
                                 <div className='mblock'>
-                                    <li> header나 footer등 공통으로 사용되는 태그 ,  </li>
-                                    <li> {' <div th: ="${}"> </div> '} </li>
-                                    <li> 결과 :  </li>
+                                    <li> header나 footer등 공통으로 사용되는 태그를 다른 html에서 가져오는 방법 </li>
+                                    <li> 설정 , templates/index.html에 어떤 태그라고 가정
+                                        <li> {' <div th:fragment="fragment참조이름">  </div> '} </li>
+                                    </li>
+                                    <li> 불러오기 , insert는 div태그 내부에 선언이고, replace는 div태그를 제거하고 그대로 모든 태그를 가져와서 배치하는 것인것 같다(확인필요)
+                                        <li> {'<div th:insert="~{/index :: fragment참조이름}"></div>'}  </li>
+                                        <li> {'<div th:replace="~{/index :: fragment참조이름}"></div>'}  </li>
+                                    </li>
                                 </div>
                                 <div className='sstitle'> th:insert </div>
                                 <div className='mblock'>

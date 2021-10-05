@@ -22,7 +22,6 @@ import SpringCode from './Main/SpringContent/SpringCode';
 import SpringBasic from './Main/SpringContent/SpringBasic';
 import SpringThymeleaf from './Main/SpringContent/SpringThymeleaf';
 import SpringLombok from './Main/SpringContent/SpringLombok';
-import SpringAnnotation from './Main/SpringContent/SpringAnnotation';
 import SpringJpa from './Main/SpringContent/SpringJpa';
 import SpringSetting from './Main/SpringContent/SpringSetting';
 import SpringAPI from './Main/SpringContent/SpringAPI';
@@ -199,7 +198,6 @@ const Main = (props) => {
                 <Route path="/spring_thymeleaf" component={SpringThymeleaf}></Route>
                 <Route path="/spring_jpa" component={SpringJpa}></Route>
                 <Route path="/spring_lombok" component={SpringLombok}></Route>
-                <Route path="/spring_annotation" component={SpringAnnotation}></Route>
                 <Route path="/spring_setting" component={SpringSetting}></Route>
                 <Route path="/spring_api" component={SpringAPI}></Route>
                 <Route path="/spring_oauth2" component={SpringOAuth2}></Route>

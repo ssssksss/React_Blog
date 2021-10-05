@@ -230,98 +230,297 @@ const SpringLombok = (props) => {
                         </details>
                     </div>
 
-                    {/*  */}
-                    <span className="mblock">
-                        <span className="stitle"> <a name="@EqualsAndHashCode"> @EqualsAndHashCode </a> </span>
-                        <span className="sblock">
-                            <span className="sstitle">  equals(),hashCode() 메소드 생성 </span>
-                            <span className="mblock">
-                                <li> (of={"멤버변수1", "멤버변수2"},callSuper=false)를 추가하면
-                                    멤버변수1과 멤버변수2가 같다면 같은 객체로 판단을 하여 처리하게 할 수 있다. </li>
-                            </span>
-                        </span>
-                    </span>
-                    {/*  */}
-                    <span className="mblock">
-                        <span className="stitle"> <a name="@Cleanup"> @Cleanup </a> </span>
-                        <span className="sblock">
-                            <span className="sstitle"> 리소르를 종료되기전에 .close() 해준다.  </span>
-                            <span className="mblock">
-                                <li> @Cleanup ABC abc = new FileInput() #대략적인 형식</li>
-                            </span>
-                        </span>
-                    </span>
-                    {/*  */}
-                    <span className="mblock">
-                        <span className="stitle"> <a name="@Delegate"> @Delegate </a> </span>
-                        <span className="sblock">
-                            <span className="sstitle"> lombok??? </span>
-                            <span className="mblock">
-                                <li> 한 객체의 메소드를 다른 객체로 위임한다. </li>
-                            </span>
-                        </span>
-                    </span>
-                    {/*  */}
-                    <span className="mblock">
-                        <span className="stitle"> <a name="@Syncronized"> @Syncronized </a> </span>
-                        <span className="sblock">
-                            <span className="sstitle">  </span>
-                            <span className="mblock">
-                                <li>  </li>
-                            </span>
-                        </span>
-                    </span>
-                    {/*  */}
-                    <span className="mblock">
-                        <span className="stitle"> <a name="@Value"> @Value </a> </span>
-                        <span className="sblock">
-                            <span className="sstitle">  </span>
-                            <span className="mblock">
-                                <li>  </li>
-                            </span>
-                        </span>
-                    </span>
-                    {/*  */}
-                    <span className="mblock">
-                        <span className="stitle"> <a name="@Slf4j"> @Slf4j </a> </span>
-                        <span className="sblock">
-                            <span className="sstitle">  </span>
-                            <span className="mblock">
-                                <li>  </li>
-                            </span>
-                        </span>
-                    </span>
-                    {/*  */}
-                    <span className="mblock">
-                        <span className="stitle"> <a name="@Log4j2"> @Log4j2 </a> </span>
-                        <span className="sblock">
-                            <span className="sstitle">  </span>
-                            <span className="mblock">
-                                <li>  </li>
-                            </span>
-                        </span>
-                    </span>
-                    {/*  */}
-                    <span className="mblock">
-                        <span className="stitle"> <a name="@NonNull"> @NonNull </a> </span>
-                        <span className="sblock">
-                            <span className="sstitle"> NonNull #필드에 값이 필수적으로 들어와야한다. </span>
-                            <span className="mblock">
-                                <li>  </li>
-                            </span>
-                        </span>
-                    </span>
-                    {/*  */}
-                    <span className="mblock">
-                        <span className="stitle"> <a name="">  </a> </span>
-                        <span className="sblock">
-                            <span className="sstitle">  </span>
-                            <span className="mblock">
-                                <li>  </li>
-                            </span>
-                        </span>
-                    </span>
-                    {/*  */}
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> @EqualsAndHashCode
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> 설명 </div>
+                                <div className='mblock'>
+                                    <li> equals(),hashCode() 메소드 생성 </li>
+                                    <li> (of={"멤버변수1", "멤버변수2"},callSuper=false)를 추가하면
+                                        멤버변수1과 멤버변수2가 같다면 같은 객체로 판단을 하여 처리하게 할 수 있다. </li>
+                                </div>
+                                <div className='sstitle'> 예시 </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                    <li>  </li>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> @Cleanup
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> 설명 </div>
+                                <div className='mblock'>
+                                    <li> 리소스를 종료되기전에 .close() 해준다. </li>
+                                    <li> @Cleanup ABC abc = new FileInput() #대략적인 형식 </li>
+                                </div>
+                                <div className='sstitle'> 예시 </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                    <li>  </li>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> @Delegate
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> 설명 </div>
+                                <div className='mblock'>
+                                    <li> 한 객체의 메소드를 다른 객체로 위임한다. </li>
+                                    <li>  </li>
+                                </div>
+                                <div className='sstitle'> 예시 </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                    <li>  </li>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> @Syncronized
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> 설명 </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                    <li>  </li>
+                                </div>
+                                <div className='sstitle'> 예시 </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                    <li>  </li>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> @Value
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> 설명 </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                    <li>  </li>
+                                </div>
+                                <div className='sstitle'> 예시 </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                    <li>  </li>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> @Slf4j
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> 설명 </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                    <li>  </li>
+                                </div>
+                                <div className='sstitle'> 예시 </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                    <li>  </li>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> @Log4j2
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> 설명 </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                    <li>  </li>
+                                </div>
+                                <div className='sstitle'> 예시 </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                    <li>  </li>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> @NonNull
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> 설명 </div>
+                                <div className='mblock'>
+                                    <li> 필드에 값이 필수적으로 들어와야한다. </li>
+                                    <li>  </li>
+                                </div>
+                                <div className='sstitle'> 예시 </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                    <li>  </li>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> @Entity @Table @Id @GenerateValue @Column
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> 설명 </div>
+                                <div className='mblock'>
+                                    <li> @Entity : DB의  테이블과 매칭을 하게 해준다. </li>
+                                    <li> @Table , @Table(name="테이블이름지정") </li>
+                                    <li> @Id , JPA가 식별할 기본키를 정의</li>
+                                    <li> @GenerateValue(strategy = GenerationType.[IDENTITY,ATUO,SEQUENCE,TABLE])
+                                        <li> AUTO : (persistence provider)가 특정 DB에 맞게 자동 선택 </li>
+                                        <li> IDENTITY : DB의 identity 컬럼을 이용 # mysql에서 사용, auto increment </li>
+                                        <li> TABLE : 유일성이 보장된 데이터베이스 테이블을 이용 , @TableGenerator와 같이 사용 </li>
+                                        <li> SEQUENCE : DB의 시퀸스 컬럼을 이용 , Oracle에서 사용 , @SequenceGenerator 필요
+                                            <li> @SequenceGenrator(name="시퀸스생성자이름", sequenceName=""(매핑할 DB시퀸스 이름),
+                                                initialValue=1(시작값), allocationSize=1(증가값) ) </li>
+                                        </li>
+                                    </li>
+                                    <li> @Column(name="DB필드명", unique=true, nullable=false, length=10, columnDefinition="데이터타입 제약조건 '제약조건값'" ) : DB에 매핑되는 필드명 </li>
+                                </div>
+                                <div className='sstitle'> 예시 </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                    <li>  </li>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> @Temporal @Transient @Enumerated
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> 설명 </div>
+                                <div className='mblock'>
+                                    <li> @Temporal : 시간 날짜 타입을 지정하는 어노테이션 </li>
+                                    <li> @Transient : 테이블의 어떤 컬럼과 매핑하지 않을 것을 나타내는 어노테이션 </li>
+                                    <li> @Enumerated(EnumType.STRING : enum값을 인덱스가 아닌 문자열로 저장하는 방법 </li>
+                                    <li>  </li>
+                                </div>
+                                <div className='sstitle'> 예시 </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                    <li>  </li>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> @Order @EnableGlobalMethodSecurity @Secured @PreAuthorize @PostAuthorize @AuthenticationPrincipal
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> 설명 </div>
+                                <div className='mblock'>
+                                    <li> @Order(숫자) : 순서가 낮을 수록 우선순위, 빈의 등록 순서를 결정 </li>
+                                    <li> @EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true) : @Secured활성화, @perAuthorize,@PostAuthorize 활성화 </li>
+                                    <li> @Secured : 특정 메소드 실행전 에 권한을 지정할 수 있다. </li>
+                                    <li> @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')") : 특정 메소드에 권한을 1개이상 지정 가능하다. </li>
+                                    <li> @PostAuthorize : 메소드가 끝난 뒤에 ?? </li>
+                                    <li> @AuthenticationPrincipal : 1. 로그인한 사용자의 정보를 Principal 객체로 받아온다. , 2. UserDetailsService에서 Return한 객체를 파라미터로 받아 사용할 수 있다. </li>
+                                </div>
+                                <div className='sstitle'> 예시 </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                    <li>  </li>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> validation 관련
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> 어노테이션 </div>
+                                <div className='mblock'>
+                                    <li> @NotNull # null,공백 허용하지 않음</li>
+                                    <li> @Size(min=2, max=30) </li>
+                                    <li> @Min(18) </li>
+                                    <li> @NotBlank(message="비어있으면 내용 출력") # null을 허용하지 않음 </li>
+                                    <li>  </li>
+                                </div>
+                                <div className='sstitle'> 예시 </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                    <li>  </li>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'>
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> 설명 </div>
+                                <div className='mblock'>
+                                    <li> @Value : 프로퍼티에서 정의한 값을 가져오는 방법 </li>
+                                    <li> @Controller : Model 객체를 이용하여 데이터를 담고 view를 찾아 이동하는 역할 </li>
+                                    <li> @PostMapping : Post방식으로 요청을 받을 때 맵핑을 처리함 </li>
+                                    <li> @GetMapping :  Get방식으로 요청을 받을 때 맵핑을 처리함 </li>
+                                    <li> @RequestBody : http요청 데이터를 담은 공간 </li>
+                                    <li> @ReponseBody : http응답 데이터를 담은 공간 </li>
+                                    <li> @RestController(@Controller + @ResponseBody) : 객체로 반환하고 JSON이나 XML형식으로 http에 담아서 응답  </li>
+                                    <li> @RequestMapping("") : 어떤 Controller에 어떤 메소드를 처리할지 맵핑하는 용도  </li>
+                                    <li> @SuppressWarnings("unchecked") :   </li>
+                                    <span className="mblock">
+                                        <li> value(String) : URL값으로 맵핑 조건으로 사용 </li>
+                                        <li> method : HTTP Request 메소드값을 맵핑 조건으로 사용 </li>
+                                        <li> params : HTTP Request 파라미터(GET,POST 등)를 맵핑 조건으로 사용 </li>
+                                        <li> consumes : Content-Type request 헤더가 일치할 경우 URL이 호출됨 </li>
+                                        <li> produces : 설정과 Accept request 헤더가 일치할 경우에만 URL이 호출됨 </li>
+                                    </span>
+                                    <li> @RequestParam : Controller메소드의 파라미터와 웹 요청 파라미터와 맵핑하는 용도 </li>
+                                    <li> @ModelAttribute : Controller 메소드의 파라미터나 리턴값을 Model 객체와 바인딩하기 위한 용도 </li>
+                                    <li> @SessionAttributes : Model 객체를 세션에 젖아하고 사용하기 위한 용도 </li>
+                                    <li> @RequestPart : Multipart 요청의 경우, 웹 요청 파라미터와 맵핑 용도 </li>
+                                    <li> @CommandMap : Controller메소드의 파라미터를 Map형태로 받을 떄 웹 요청 파라미터와 맵핑하기 위한 용도 </li>
+                                    <li> @ControllerAdvice : Controller에 쓰이는 공통기능을 모듈화하여 전역으로 쓰기 위한 용도 </li>
+                                    <li> @Transactional : 트랜잭션 속성을 클래스 내의 모든 메서드에게 부여</li>
+                                    <li> @NonNUll : null을 허용하지 않을 경우 </li>
+                                    <li> @Nullable : null을 허용할 경우 </li>
+                                </div>
+                                <div className='sstitle'> 예시 </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                    <li>  </li>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+
                 </span>
             </div>
         </>

@@ -97,6 +97,12 @@ const SpringJpa = (props) => {
                                     <li> @Builder: </li>
                                     <li> @NamedQuery(name="Entity명.Repository메소드명",query="사용자정의쿼리작성") </li>
                                     <li> @Temporal(TemporalType.TIMESTAMP) # 자바의 날짜 타입 사용 </li>
+                                    <div className='sstitle'> 제약조건 어노테이션 </div>
+                                    <div className='sblock'>
+                                        <li> @NotNull </li>
+                                        <li> @Size(min=2, max=30) </li>
+                                        <li>  </li>
+                                    </div>
                                     <li>  </li>
                                 </div>
                                 <div className='sstitle'> Entity 코드 예시 </div>
@@ -194,12 +200,16 @@ const SpringJpa = (props) => {
                                     <div className='sblock'>
                                         <li> select m from 테이블 m where m.fieldname1 = ?1 order by m.fieldname2 asc </li>
                                     </div>
+                                    <div className='title4'> deleteById(String fieldname) </div>
+                                    <div className='sblock'>
+                                        <li> delete from 테이블 where Id필드 = ?1  </li>
+                                    </div>
+                                    <div className='title4'>  </div>
+                                    <div className='sblock'>
+                                        <li>  </li>
+                                    </div>
                                     <a href="https://goodgid.github.io/Spring-Data-JPA-Query_Part_1/"
                                         target="_blank" rel="noopener noreferrer"> 좀 더 참고해서 공부하기 </a>
-                                    {/*<div className='title4'>  </div>
-                                    <div className='sblock'>
-                                        <li> select m from 테이블 m </li>
-                                    </div>*/}
                                 </div>
                             </div>
                         </details>

@@ -6,69 +6,18 @@ const SpringError = (props) => {
         <>
             <div className="common_style">
                 <span className="lblock">
-                    <span className="mtitle"> <a name=""> 스프링 오류나 에러 </a> </span>
-
-                    <span className="mblock">
-                        <span className="stitle"> <a name="">  </a> </span>
-                        <span className="sblock">
-                            <span className="sstitle"> To display the conditions report re-run your application with 'debug' enabled </span>
-                            <p> 1. run &gt; edit configuration</p>
-                            <p> 2. enable debug output 체크해제 </p>
-                        </span>
-                    </span>
-                    <span className="mblock">
-                        <span className="stitle"> <a name=""> hibernate나 DB연결문제 </a> </span>
-                        <span className="sblock">
-                            <span className="sstitle"> Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured </span>
-                            <span className="sstitle"> org.hibernate.service.spi.ServiceException: Unable to create requested service </span>
-                            <p> DB에 연결하는 설정 정보가 없어서 발생하는 에러이다. application.properties나 yml, xml 파일등에 datasource관련 코드를
-                                추가하며 해결이 된다. </p>
-                            <span className="mblock">
-                                <p> spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver  </p>
-                                <p> spring.datasource.url=jdbc:mysql://localhost:3306/스키마이름?characterEncoding=UTF-8
-                                    &amp;serverTimezone=UTC  </p>
-                                <p> spring.datasource.username=DB유저이름  </p>
-                                <p> spring.datasource.password=DB유저비번  </p>
-                            </span>
-                            <span className="sstitle"> </span>
-                            <p> 1. </p>
-                            <span className="sstitle"> </span>
-                            <p> 1. </p>
-                            <span className="sstitle"> </span>
-                            <p> 1. </p>
-                            <span className="sstitle"> </span>
-                            <p> 1. </p>
-                            <span className="sstitle"> </span>
-                            <p> 1. </p>
-                        </span>
-                    </span>
-                    <span className="mblock">
-                        <span className="stitle"> <a name="인텔리제이 한글 꺠짐"> 인텔리제이 한글 꺠짐  </a> </span>
-                        <span className="sblock">
-                            <span className="sstitle"> 파일 설정 encoding 바꾸기 </span>
-                            <p> ctrl+alt+s - settings - editor - file encodings </p>
-                            <p> Global Encoding , Project Encoding , Default encoding for properties files 3곳 UTF-8로 변경</p>
-                            <span className="sstitle"> 인텔리제이 VM Options 바꾸기 </span>
-                            <p> Help - Edit Custom VM Options </p>
-                            <p> 제일 아래에 -Dfile.encoding=UTF-8 코드 추가 </p>
-                            <span className="sstitle"> 톰캣 VM Options 바꾸기 </span>
-                        </span>
-                    </span>
 
                     <div className='mblock'>
                         <details>
-                            <summary className='stitle'> 스프링 yml 설정 에러
+                            <summary className='stitle'> spring boot 어플리케이션 실행 중 문제
                                 <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
                             <div className='sblock'>
-                                <div className='sstitle'> Caused by: org.springframework.beans.factory.BeanCreationException:
-                                    Error creating bean with name 'dataSource' defined in class path resource
-                                    [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Hikari.class]:
-                                    Bean instantiation via factory method failed; nested exception is
-                                    org.springframework.beans.BeanInstantiationException:
-                                    Failed to instantiate [com.zaxxer.hikari.HikariDataSource]:
-                                    Factory method 'dataSource' threw exception; nested exception
-                                    is java.lang.IllegalStateException: Cannot load driver class:
-                                    oracle.jdbc.OracleDriver </div>
+                                <div className='sstitle'> To display the conditions report re-run your application with 'debug' enabled </div>
+                                <div className='mblock'>
+                                    <li> {' 1. run > edit configuration '} </li>
+                                    <li> 2. enable debug output 체크해제 </li>
+                                </div>
+                                <div className='sstitle'>  </div>
                                 <div className='mblock'>
                                     <li>  </li>
                                     <li>  </li>
@@ -76,7 +25,28 @@ const SpringError = (props) => {
                             </div>
                         </details>
                     </div>
-                    {/*  */}
+
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> hibernate나 DB연결문제
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured </div>
+                                <div className="sstitle"> org.hibernate.service.spi.ServiceException: Unable to create requested service </div>
+                                <div className='mblock'>
+                                    <li> spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver </li>
+                                    <li> {' spring.datasource.url=jdbc:mysql://localhost:3306/스키마이름?characterEncoding=UTF-8&serverTimezone=UTC '} </li>
+                                    <li> spring.datasource.username=DB유저이름 </li>
+                                    <li> spring.datasource.password=DB유저비번 </li>
+                                </div>
+                                <div className='sstitle'> 예시 </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                    <li>  </li>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
 
                 </span>
             </div>

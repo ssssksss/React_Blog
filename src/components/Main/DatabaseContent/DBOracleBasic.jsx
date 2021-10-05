@@ -166,9 +166,16 @@ const DBOracleBasic = (props) => {
                                     <li> PRIMARY KEY # 중복허용x + NULL허용x </li>
                                     <li> FOREGIN KEY # 왜래키 </li>
                                     <li> NOT NULL # NULL허용x </li>
-                                    <li> DEFATUL 초기값 # 초기값을 설정 </li>
+                                    <li> DEFAULT 초기값 # 초기값을 설정
+                                        <li> DEFAULT 0  </li>
+                                        <li> DEFAULT 'M'  </li>
+                                    </li>
                                     <li> UNIQUE # 중복허용x </li>
-                                    <li> CHECK # 특정 조건에 맞는 데이터만 허용 </li>
+                                    <li> CHECK # 특정 조건에 맞는 데이터만 허용
+                                        <li> CHECK ( age {'>'} 0) </li>
+                                        <li> CHECK ( gender in ('M','F')) </li>
+                                        <li>  </li>
+                                    </li>
                                     <li> INDEX # 인덱스를 지정할 때 사용 </li>
                                 </div>
                             </div>
@@ -313,8 +320,15 @@ const DBOracleBasic = (props) => {
                                     <li> ALTER USER c##사용자명 IDENTIFIED BY 변경할비밀번호; # 사용자 비번 변경 </li>
                                     <li> ALTER TABLE 테이블명 MODIFY(필드명 타입, 바꿀필드명 타입); # 테이블 타입 변경 </li>
                                     <li> ALTER TABLE 테이블명 ADD(필드명 타입); # 테이블 필드 추가 </li>
-                                    <li> ALTER TABLE 테이블명 DROP(필드명1, 필드명2) # 테이블 필드 삭제 </li>
-                                    <li> ALTER TABLE 테이블명 RENAME TO 변경할테이블명 # 테이블의 이름 변경 </li>
+                                    <li> ALTER TABLE 테이블명 DROP(필드명1, 필드명2); # 테이블 필드 삭제 </li>
+                                    <li> ALTER TABLE 테이블명 RENAME TO 변경할테이블명; # 테이블의 이름 변경 </li>
+                                    <li> ALTER TABLE 테이블명 add 제약조건(필드명); </li>
+                                    <li> ALTER TABLE 테이블명 add constraint 제약조건명 제약조건(필드명); </li>
+                                    <li> ALTER TABLE 테이블명 modify 필드명 not null; # not null만 제약조건 추가방법이 다름 </li>
+                                    <li> ALTER TABLE 테이블명 drop 제약조건 # 제약조건 삭제 </li>
+                                    <li> ALTER TABLE 테이블명 drop constraint 제약조건명 # not null은 이렇게만 삭제가능 </li>
+                                    <li> ALTER TABLE 테이블명 disable constraint 제약조건명; # 제약조건 비활성화 </li>
+                                    <li> ALTER TABLE 테이블명 enable constraint 제약조건명; # 제약조건 활성화 </li>
                                     <li>  </li>
                                 </div>
 
@@ -399,18 +413,21 @@ const DBOracleBasic = (props) => {
 
                                 <div className='sstitle'> COMMIT </div>
                                 <div className='mblock'>
-                                    <li>  </li>
+                                    <li> COMMIT; </li>
+                                    <li> SET AUTOCOMMIT ON; # 자동으로 커밋을 시켜줌 </li>
+                                    <li> SET AUTOCOMMIT OFF; # 자동으로 커밋 사용 x</li>
+                                    <li> SHOW AUTOCOMMIT; # 현재 오토커밋을 사용하는지 조회 </li>
                                     <li>  </li>
                                 </div>
-
                                 <div className='sstitle'> ROLLBACK </div>
                                 <div className='mblock'>
-                                    <li>  </li>
-                                    <li>  </li>
-                                </div>
-
-                                <div className='sstitle'> SAVEPOINT </div>
-                                <div className='mblock'>
+                                    <li> ROLLBACK; # 이전 커밋으로 복구 </li>
+                                    <li> ROLLBACK TO SAVEPOINT 롤백세이브명; # 세이브 포인트로 이동 </li>
+                                    <li> SAVAPOINT 롤백세이브명; # 세이브 포인트 지점을 지정 </li>
+                                    <li> SELECT * FROM 테이블명 AS OF TIMESTAMP(SYSTIMESTAMP - INTERVAL '시간(숫자)' MINUTE)
+                                        # 몇분 이전의 데이터를 조회 </li>
+                                    <li> SELECT * FROM 테이블명 AS OF TIMESTAMP(TO_DATE('2000-00-00 00:00:00', 'YYYY-MM-DD HH24:MI:SS'))
+                                        # 원하는 시점 이전의 데이터를 조회 </li>
                                     <li>  </li>
                                     <li>  </li>
                                 </div>
@@ -540,58 +557,50 @@ const DBOracleBasic = (props) => {
 
                     <div className='mblock'>
                         <details>
-                            <summary className='stitle'>
+                            <summary className='stitle'> In,Order By,Group By, Having
                                 <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
                             <div className='sblock'>
-                                <div className='sstitle'>  </div>
+                                <div className='sstitle'> IN </div>
                                 <div className='mblock'>
+                                    <li> SELECT * FROM 테이블명 WHERE 필드명 IN (user,manager)  </li>
+                                    <li> SELECT * FROM 테이블명 WHERE 필드명 NOT IN 'M'  </li>
+                                </div>
+                                <div className='sstitle'> Order By </div>
+                                <div className='mblock'>
+                                    <li> SELECT * FROM 테이블명 Order By 필드명 DESC; # 내림차순 </li>
+                                    <li> SELECT * FROM 테이블명 Order By 필드명 ASC; # 오름차순 </li>
+                                    <li> SELECT * FROM 테이블명 Order By 필드명1 ASC, 필드명2 DESC;
+                                        # 필드명1을 정렬하고 같은 값이면 우선순위로 필드명2를 기준으로 정렬 </li>
                                     <li>  </li>
+                                </div>
+                                <div className='sstitle'> Group By </div>
+                                <div className='mblock'>
+                                    <li> SELECT class, SUM(score) FROM student GROUP BY class; # 학급별로 시험의 합계를 볼 수 있음</li>
+                                    <li>  </li>
+                                </div>
+                                <div className='sstitle'> Having </div>
+                                <div className='mblock'>
+                                    <li> GROUP BY와 함께 사용, WHERE처럼 GROUP BY에 조건을 줄 수 있음 </li>
+                                    <li> SELECT class, SUM(score) FROM student GROUP BY class HAVING SUM(score) {'>'} 1000;
+                                        # 학년에 총 점수가 1000이 넘는 것만 조회 </li>
+                                    <li> SELECT count(*), sum(salary) FROM employees GROUP BY dept_no HAVING count(*) {'>'} 2;
+                                        # 부서에 2명이상일 경우</li>
                                     <li>  </li>
                                 </div>
                             </div>
                         </details>
                     </div>
-                    {/*  */}
+
+
                 </span>
             </div>
+
+
 
             <div className="common_style">
                 <span className="lblock">
 
                     <ul>
-                        <span className="mblock">
-                            <span className="stitle"> <a name="In,Order By,Group By, Having"> In,Order By,Group By, Having </a> </span>
-                            <span className="sblock">
-                                <span className="sstitle"> IN(다중 OR) </span>
-                                <li> WHERE job IN (clerk,manager); </li>
-                                <li> WHERE job NOT IN (clerk,manager); </li>
-                                <li>  </li>
-                                <span className="sstitle"> </span>
-                                <li>  </li>
-                            </span>
-
-                            <span className="sblock">
-                                <span className="sstitle"> ORDER BY </span>
-                                <li> <small> 출력할 때 순서대로 정렬을 해준다. </small>  </li>
-                                <li> 쿼리문 제일 뒤에 Order By 필드명,럼럼명 DESC; , 역순 </li>
-                                <li> 쿼리문 제일 뒤에 Order By 필드명,럼럼명 ASC;  , 오름차순? </li>
-                            </span>
-
-                            <span className="sblock">
-                                <span className="sstitle"> GROUP BY </span>
-                                <li> <small> 그룹으로 묶어서 결과를 보고싶을때 </small> </li>
-                                <li> SELECT class, SUM(score) FROM student GROUP BY class; , 학급별로 시험의 합계를 볼 수 있음 </li>
-                                <li>  </li>
-                            </span>
-
-                            <span className="sblock">
-                                <span className="sstitle"> HAVING </span>
-                                <li> SELECT class, SUM(score) FROM student GROUP BY class HAVING SUM(class) &gt; 100 </li>
-                                <li> SELECT count(*), sum(salary) FROM employees GROUP BY dept_no HAVING count(*) &gt; 2 , 부서에 2명이상일 경우 </li>
-                                <li>  </li>
-                                <li>  </li>
-                            </span>
-                        </span>
 
                         <span className="mblock">
                             <span className="stitle"> <a name="계층형 쿼리"> 계층형 쿼리  </a> </span>
@@ -610,25 +619,6 @@ const DBOracleBasic = (props) => {
                                 <li>  </li>
                             </span>
                         </span>
-
-                        <span className="mblock">
-                            <span className="stitle"> <a name="트랜잭션"> 트랜잭션 </a> </span>
-                            <span className="sblock">
-                                <span className="sstitle"> 커밋 </span>
-                                <li> COMMIT; </li>
-                                <li> SET AUTOCOMMIT=1(auto),0(!auto) </li>
-                                <li> 자동 COMMIT : 정상 졸료되거나, DDL,DCL명령이 수행된 경우 </li>
-                                <span className="sstitle"> 롤백 </span>
-                                <li> ROLLBACK; : 이전 커밋까지 복구 </li>
-                                <li> ROLLBACK TO SAVAPOINT 롤백세이브명 : 세이브 포인트 지점으로 롤백한다. </li>
-                                <li> SAVAPOINT 롤백세이브명 : 세이브 포인트 지점을 저장한다. </li>
-                                <li> 자동 ROLLBACK : 비정상종료 된 경우 </li>
-                                <span className="sstitle">  </span>
-                                <li>  </li>
-
-                            </span>
-                        </span>
-
 
                         <span className="mblock">
                             <span className="stitle"> <a name="Sequence">  Sequence </a> </span>
