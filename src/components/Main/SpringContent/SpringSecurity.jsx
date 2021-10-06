@@ -7,66 +7,99 @@ const Term2 = (props) => {
             <div className="common_style">
                 <span className="lblock">
                     {/*  */}
-                    <span className="mblock">
+                    <div className='mblock'>
                         <details>
-                            <summary className="stitle"> ▶ <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
-                            <span className="sblock">
-                                <span className="sstitle">  </span>
-                                <span className="mblock">
+                            <summary className='stitle'> Security 기초
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> 설명 </div>
+                                <div className='mblock'>
+                                    <li> 사용자의 인증,권한,보안 처리를 간단하게 구현 </li>
+                                    <li> 인증방식 : credential방식(사용자명,비번) , 이중인증(개인정보인증+추가인증(OTP) , ) </li>
+                                    <li> Principal(접근주체): 보호된 대상에 접근하는 대상 </li>
+                                    <li> Credential(비밀번호): Resource에 접근하는 대상의 비밀번호 </li>
+                                    <li> Authentication(인증): 현재 유저가 누구인지 확인, 작업을 수행할 수 있는지 여부를 판단 </li>
+                                    <li> Authorize(인가): 현재 유저가 어떤 서비스,페이지에 접근할 수 있는 권한이 있는지 검사 </li>
+                                    <li> Authority(권한): 특정 작어에 수행 권한이 있는지 판단 (GUEST,USER,MEMBER,ADMIN) </li>
+                                </div>
+                                <div className='sstitle'> 예시 </div>
+                                <div className='mblock'>
                                     <li>  </li>
-                                </span>
-                            </span>
-                        </details>
-                    </span>
-                    {/*  */}
-                    <span className="mblock">
-                        <details>
-                            <summary className="stitle"> ▶ <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
-                            <span className="sblock">
-                                <span className="sstitle">  </span>
-                                <span className="mblock">
                                     <li>  </li>
-                                </span>
-                            </span>
+                                </div>
+                            </div>
                         </details>
-                    </span>
-                    {/*  */}
+                    </div>
+
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> CustomWebSecurityConfig [Custom]
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> 예시 </div>
+                                <div className='mblock'>
+                                    <li> @Override </li>
+                                    <li> public void configure(HttpSecurity http) throws Exception {'{'}
+                                        <li> http.
+                                            <li>  .csrf().disable() <small> # csrf(보안) 비활성화 </small>  </li>
+                                            <li>  .authorizeRequests() <small> # 요청에 대한 권한 설정 </small>
+                                                <li> .antMatchers("/경로").authenticated() <small> # 인증된 사용자만 접근가능 </small>  </li>
+                                                <li> .antMatchers("/**").permitAll() <small> # 모든 경로 인증없이 허용 </small>  </li>
+                                                <li> .antMatchers("/경로").hasRole("[GUEST,USER,MEMER,ADMIN]") <small> # 권한이 있어야 경로로 접속가능 </small>   </li>
+                                                <li> .antMatchers("/경로").hasAnyRole("[GUEST,USER,MEMER,ADMIN]") <small> # 권한 중 1개를 가지고있어야 접속가능 </small>   </li>
+                                                <li> .antMatchers("/경로").hasAuthority("ROLE_[GUEST,USER,MEMER,ADMIN]") <small> # 권한이 있어야 경로로 접속가능 </small>   </li>
+                                                <li> .antMatchers("/경로").hasAnyAuthority("ROLE_[GUEST,USER,MEMER,ADMIN]") <small> # 권한 중 1개를 가지고있어야 접속가능 </small>   </li>
+                                                <li> .antMatchers("/경로").access("hasRole('ADMIN')") <small> # SpEL 표현식 결과에 따라 접근 </small>   </li>
+                                                <li> .antMatchers("/경로").hasIpAddress() <small> # 특정 IP 주소를 가지는 사용자만 접근 할 수 있다. </small>   </li>
+                                                <li> .antMatcher("/경로").denyAll <small> # 모두 접근 불가 </small>   </li>
+                                                <li> .antMatcher("/경로").isAnonymous() <small> # 인증이 없는 사용자 접근 가능 </small>   </li>
+                                                <li> .antMatcher("/경로").isRememberMe() <small> # Remember-me기능으로 로그인한 사용자 접근 가능 </small>    </li>
+                                                <li> .antMatcher("/경로").isAuthenticated() <small> # 인증된 사용자만 접근 가능 </small>     </li>
+                                                <li> .antMatcher("/경로").isFullyAuthenticated() <small> # 익명의 사용자가 아니고 Remember-me로 로그인하지 않은 사용자 접근 가능 </small>   </li>
+                                                <li> .anyRequest().authenticated() <small> # 이외에 다른 요청들은 모두 권한이 필요 </small>  </li>
+                                            </li>
+                                            <li> .and() </li>
+                                            <li> .formLogin() <small> # 로그인 설정 </small>
+                                                <li> .loginPage("/경로")  <small> # 커스텀 로그인 페이지 경로와 로그인 인증 경로 등록</small> </li>
+                                                <li> .loginProcessingUrl("/do경로") <small> # 로그인 처리할 경로, default /login</small>   </li>
+                                                <li> .defaultSuccessUrl("/경로") <small> # 로그인이 성공할 경우 리다이렉트 주소</small>  </li>
+                                                <li> .usernameParameter("파라미터명") <small> # 유저의 이름 파라미터</small> </li>
+                                                <li> .passwordParameter("파라미터명") <small> # 유저의 비번 파라미터</small> </li>
+                                            </li>
+                                            <li> .and() </li>
+                                            <li> .logout() <small> # </small> 로그아웃 설정
+                                                <li> .logoutUrl("/do경로") <small> # </small> 로그아웃을 요청할 경로<small> # </small> 기본값은 ("/logout")? </li>
+                                                <li> .logoutSuccessUrl("/경로") <small> # </small> 로그아웃이 성공할 경우 이동할 경로 <small> # </small> 기본값은 ("/login?logout")? </li>
+                                                <li> .invalidateHttpSession(true) <small> # </small> 로그아웃 성공 시 세션을 제거 </li>
+                                            </li>
+                                            <li> .and() </li>
+                                            <li> .exceptionHandling() <small> # </small> </li>
+                                            <li> .accessDeniedPage("/경로" 혹은 커스텀메소드) <small> # 예외처리가 발생하면 이동할 경로?? </small>  </li>
+                                            <li> .authenticationEntryPoint(커스텀메소드) <small> # </small> </li>
+                                            <li> .and() </li>
+                                            <li> .addFilter(커스텀필터메소드) <small> # 필터 구현체를 등록하여 필터 처리 </small>  </li>
+                                            <li> .and() </li>
+                                            <li> .oauth2Login() <small> # Oauth 로그인 설정 </small>
+                                                <li> .loginPage("/loginForm") <small> # </small> </li>
+                                                <li> .userInfoEndpoint() <small> # </small> </li>
+                                                <li> .userService(customOAuth2UserService); <small> # Oauth 로그인 커스텀 서비스 처리 설정 </small> </li>
+                                            </li>
+                                        </li>
+                                    </li>
+                                    <li> {'}'} </li>
+                                </div>
+
+                            </div>
+                        </details>
+                    </div>
+
+
                     <span className="mblock">
                         <details>
-                            <summary className="stitle"> ▶ <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
-                            <span className="sblock">
-                                <span className="sstitle">  </span>
-                                <span className="mblock">
-                                    <li>  </li>
-                                </span>
-                            </span>
-                        </details>
-                    </span>
-                    {/*  */}
-                    <span className="mblock">
-                        <details>
-                            <summary className="stitle"> ▶ <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
-                            <span className="sblock">
-                                <span className="sstitle">  </span>
-                                <span className="mblock">
-                                    <li>  </li>
-                                </span>
-                            </span>
-                        </details>
-                    </span>
-                    {/*  */}
-                    <span className="mblock">
-                        <details>
-                            <summary className="stitle"> ▶ Spring Security 관련 객체 <a name="Spring Security 관련 객체" style={{ visibility: "hidden" }}> Spring Security 관련 객체 </a> </summary>
+                            <summary className="stitle">  Spring Security 관련 객체 <a name="Spring Security 관련 객체" style={{ visibility: "hidden" }}> Spring Security 관련 객체 </a> </summary>
                             <small> 사용자의 인증,권한,보안 처리를 간단하게 구현 </small>
                             <li> <small> 인증방식 : credential방식(사용자명,비번) , 이중인증(개인정보인증+추가인증(OTP) , ) </small> </li>
                             <span className="sblock">
-                                <span className="sstitle"> 용어 </span>
-                                <li> Principal(접근주체) : 보호된 대상에 접근하는 대상 </li>
-                                <li> Credential(비밀번호) : Resource에 접근하는 대상의 비밀번호 </li>
-                                <li> Authentication(인증) : 현재 유저가 누구인지 확인, 작업을 수행할 수 있는지 여부를 판단 </li>
-                                <li> Authorize(인가) : 현재 유저가 어떤 서비스,페이지에 접근할 수 있는 권한이 있는지 검사 </li>
-                                <li> Authority(권한) : 특정 작어에 수행 권한이 있는지 판단 (GUEST,USER,MEMBER,ADMIN) </li>
 
                                 <span className="sstitle"> 스프링 시큐리티 메소드,객체 </span>
                                 <span className="mblock">
