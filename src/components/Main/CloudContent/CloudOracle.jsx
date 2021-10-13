@@ -69,7 +69,7 @@ const CloudOracle = (props) => {
                                         <li>  </li>
                                     </div>
                                     <div className='sstitle'> sql developer에 연결하기 </div>
-                                    <div className='sblock'>
+                                    <div className='mblock'>
                                         <li> 좌측상단 초록색 + 버튼 클릭  </li>
                                         <li> DB이름, 사용자 이름 : Admin , 비밀번호는 설정한 비밀번호 # Admin은 변경이 되지 않는것 같음 </li>
                                         <li> 접속 유형을 클라우드 전자 지갑으로 변경 </li>
@@ -78,13 +78,40 @@ const CloudOracle = (props) => {
                                         <li>  </li>
                                     </div>
                                     <div className='sstitle'> JDBC 연결하기(미확인) </div>
-                                    <div className='sblock'>
+                                    <div className='mblock'>
                                         <li> 전자지갑 파일 압축 해제를 하고 tnsnames.ora 파일을 보면 오라클클라우드DB명_high 와같은 문구를 볼 수 있다. </li>
                                         <li> url: jdbc:oracle:thin:@오라클클라우드DB명_high?TNS_ADMIN=전자지갑경로(D:/Wallet) </li>
+                                        <li> application.yml <small> 아래 내용들 확인 </small>
+                                            <div className="sblock">
+                                                <li> spring:
+                                                    <li> datasource:
+                                                        <li> {' driver-class-name: oracle.jdbc.OracleDriver '} </li>
+                                                        <li> {' url: jdbc:oracle:thin:@ssssksss_medium?TNS_ADMIN=${./src/main/resources/Wallet_ssssksss} '} </li>
+                                                        <li> {' username: ${ssssksss.dbinfo.id} '} </li>
+                                                        <li> {' password: ${ssssksss.dbinfo.password} '} </li>
+                                                    </li>
+                                                </li> <br />
+                                                <li> jpa:
+                                                    <li> properties:
+                                                        <li> hibernate:
+                                                            <li> dialect: org.hibernate.dialect.Oracle10gDialect </li>
+                                                        </li>
+                                                    </li>
+                                                </li>
+                                            </div>
+                                        </li> <br />
+                                        <li> build.gradle <small> #아래와 같이 되어 있는지 확인 </small>
+                                            <div className="sblock">
+                                                <li> 	implementation 'com.oracle.database.security:oraclepki' </li>
+                                                <li> 	implementation 'com.oracle.database.security:osdt_core' </li>
+                                                <li> 	implementation 'com.oracle.database.security:osdt_cert' </li>
+                                                <li> runtimeOnly 'com.oracle.database.jdbc:ojdbc8' </li>
+                                            </div>
+                                        </li>
                                         <li>  </li>
                                     </div>
                                     <div className='sstitle'> 오라클에 VM과 네트워크 생성하기 </div>
-                                    <div className='sblock'>
+                                    <div className='mblock'>
                                         <li> 메뉴 - ID {'&'} 보안 - 구획 - 구획 생성  </li>
                                         <li> 메뉴 - 네트워킹 - 가상클라우드네트워크 - 좌측에 구획 선택 - VCN 마법사 생성
                                             <li> 이름 작성 , IPv4 CIDR 블록 10.0.0.0/16 입력 </li>
@@ -109,7 +136,12 @@ const CloudOracle = (props) => {
                                         <li>   </li>
                                     </div>
                                     <div className='sstitle'>  </div>
-                                    <div className='sblock'>
+                                    <div className='mblock'>
+                                        <li>  </li>
+                                        <li>  </li>
+                                    </div>
+                                    <div className='sstitle'>  </div>
+                                    <div className='mblock'>
                                         <li>  </li>
                                         <li>  </li>
                                     </div>

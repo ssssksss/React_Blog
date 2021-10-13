@@ -23,10 +23,13 @@ import SpringBasic from './Main/SpringContent/SpringBasic';
 import SpringThymeleaf from './Main/SpringContent/SpringThymeleaf';
 import SpringLombok from './Main/SpringContent/SpringLombok';
 import SpringJpa from './Main/SpringContent/SpringJpa';
-import SpringSetting from './Main/SpringContent/SpringSetting';
+import SpringYml from './Main/SpringContent/SpringYml';
 import SpringAPI from './Main/SpringContent/SpringAPI';
 import SpringOAuth2 from './Main/SpringContent/SpringOAuth2';
+import SpringEntity from './Main/SpringContent/SpringEntity';
+import SpringController from './Main/SpringContent/SpringController';
 import SpringSecurity from './Main/SpringContent/SpringSecurity';
+import SpringValidator from './Main/SpringContent/SpringValidator';
 import SpringSecurityExCode1 from './Main/SpringContent/SpringSecurityExCode1';
 import SpringSecurityExCode2 from './Main/SpringContent/SpringSecurityExCode2';
 import SpringSecurityExCode3 from './Main/SpringContent/SpringSecurityExCode3';
@@ -198,10 +201,13 @@ const Main = (props) => {
                 <Route path="/spring_thymeleaf" component={SpringThymeleaf}></Route>
                 <Route path="/spring_jpa" component={SpringJpa}></Route>
                 <Route path="/spring_lombok" component={SpringLombok}></Route>
-                <Route path="/spring_setting" component={SpringSetting}></Route>
+                <Route path="/spring_yml" component={SpringYml}></Route>
                 <Route path="/spring_api" component={SpringAPI}></Route>
                 <Route path="/spring_oauth2" component={SpringOAuth2}></Route>
                 <Route path="/spring_security" component={SpringSecurity}></Route>
+                <Route path="/spring_entity" component={SpringEntity}></Route>
+                <Route path="/spring_controller" component={SpringController}></Route>
+                <Route path="/spring_validator" component={SpringValidator}></Route>
                 <Route path="/spring_securityexcode1" component={SpringSecurityExCode1}></Route>
                 <Route path="/spring_securityexcode2" component={SpringSecurityExCode2}></Route>
                 <Route path="/spring_securityexcode3" component={SpringSecurityExCode3}></Route>

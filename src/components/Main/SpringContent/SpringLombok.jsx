@@ -481,6 +481,28 @@ const SpringLombok = (props) => {
 
                     <div className='mblock'>
                         <details>
+                            <summary className='stitle'> @Configuration
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> 설명 </div>
+                                <div className='mblock'>
+                                    <li> Bean으로 등록하게 해주는 어노테이션 </li>
+                                    <li> 싱글톤이 되게 해준다. , CGLIB 바이트조작 라이브러리를 사용해서 임의의 클래스를 생성해서 사용하게 한다. </li>
+                                    <li> 스프링컨테이너에서 관리 가능 </li>
+                                    <li>  </li>
+                                    <li>  </li>
+                                </div>
+                                <div className='sstitle'> 예시 </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                    <li>  </li>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div className='mblock'>
+                        <details>
                             <summary className='stitle'>
                                 <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
                             <div className='sblock'>
@@ -520,6 +542,7 @@ const SpringLombok = (props) => {
                             </div>
                         </details>
                     </div>
+
 
                 </span>
             </div>

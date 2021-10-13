@@ -51,6 +51,36 @@ const SpringThymeleaf = (props) => {
                     {/*  */}
                     <div className='mblock'>
                         <details>
+                            <summary className='stitle'> thymeleaf + 스프링(인텔리제이) live server
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> 설정하기 </div>
+                                <div className='mblock'>
+                                    <li> Gradle에 compileOnly "org.springframework.boot:spring-boot-devtools"  </li>
+                                    <li> application.properties 나 application.yml 에추가
+                                        <div className='sblock'>
+                                            <li> spring.devtools.livereload.enabled=true  </li>
+                                            <li> spring.resources.static-locations=file:src/main/resources/static/  </li>
+                                            <li> spring.thymeleaf.cache=false  </li>
+                                            <li> spring.thymeleaf.prefix=file:src/main/resources/templates/  </li>
+                                        </div>
+                                    </li>
+                                    <li> Ctrl + Shift + A - regi 입력 Registry... -
+                                        compiler.automake.allow.when.app.running 체크
+                                    </li>
+                                    <li> Ctrl + Alt + S - Build, Execution, Deployment - Compiler
+                                        - Build project automatically 체크  </li>
+                                    <li> <a href="https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei"
+                                        target="_blank" rel="noopener noreferrer"> Browser Extension인 Live Reload 설치 </a>  </li>
+                                    <li> 마지막으로 주의 : 서버 배포시 라이브 서버 관련내용들은 반드시 삭제해야함  </li>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+                    {/*  */}
+
+                    <div className='mblock'>
+                        <details>
                             <summary className='stitle'> thymeleaf 문법
                                 <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
                             <div className='sblock'>
@@ -67,14 +97,10 @@ const SpringThymeleaf = (props) => {
                                         </div>
                                     </li>
                                     <li> {' #{} '} # 메시지 표현식 </li>
-                                    <li> {' @{} '} # URL 표현식
-                                        <li>  </li>
-                                        <li>  </li>
-                                        <li>  </li>
-                                        <li>  </li>
-                                    </li>
+                                    <li> {' @{} '} # URL 표현식 </li>
                                     <li> {' ~{} '} </li>
                                     <li> 삼항연산 : x = f() ? f() : g() 이거와 같은 식 x = f() ?: g() </li>
+                                    <li> {'${param.name} '} <small> html에서 name=""에 있는 변수를 가져와서 사용 가능 </small>  </li>
                                     <li>  </li>
                                 </div>
                                 <div className='sstitle'> th:text th:utext </div>
@@ -125,9 +151,9 @@ const SpringThymeleaf = (props) => {
                                 </div>
                                 <div className='sstitle'> th:action </div>
                                 <div className='mblock'>
-                                    <li> 해당 경로로 요청을 보냄 </li>
+                                    <li> <small> th:action은 context-path를 생략할 수 있다. </small>  </li>
                                     <li>  </li>
-                                    <li> {' <div th: ="${}"> </div> '} </li>
+                                    <li> {' <form th:action ="{@{/경로}}"> </form> '} </li>
                                     <li> 결과 :  </li>
                                 </div>
                                 <div className='sstitle'> th:href </div>
@@ -159,32 +185,30 @@ const SpringThymeleaf = (props) => {
                                 <div className='sstitle'> th:fragement th:insert th:replace </div>
                                 <div className='mblock'>
                                     <li> header나 footer등 공통으로 사용되는 태그를 다른 html에서 가져오는 방법 </li>
-                                    <li> 설정 , templates/index.html에 어떤 태그라고 가정
-                                        <li> {' <div th:fragment="fragment참조이름">  </div> '} </li>
-                                    </li>
-                                    <li> 불러오기 , insert는 div태그 내부에 선언이고, replace는 div태그를 제거하고 그대로 모든 태그를 가져와서 배치하는 것인것 같다(확인필요)
+                                    <li>  <small> templates/index.html에 div 태그라고 가정 </small>
+                                        <li> {' <div th:fragment="fragment참조이름"> 여러 내용~~~ </div> '} </li>
+                                    </li> <br />
+                                    <li> <small> index.html에 태그 불러오기 , insert는 div태그 내부에 선언이고, replace는 div태그를 제거하고 그대로 모든 태그를 가져와서 배치하는 것인것 같다(확인필요) </small>
                                         <li> {'<div th:insert="~{/index :: fragment참조이름}"></div>'}  </li>
                                         <li> {'<div th:replace="~{/index :: fragment참조이름}"></div>'}  </li>
                                     </li>
                                 </div>
-                                <div className='sstitle'> th:insert </div>
+
+                                <div className='sstitle'> th:classappend </div>
                                 <div className='mblock'>
-                                    <li> 공부 필요 </li>
-                                    <li> {' <div th:insert="fragments.html :: content" </div> '} </li>
-                                    <li> 결과 :  </li>
-                                </div>
-                                <div className='sstitle'> th:replace </div>
-                                <div className='mblock'>
-                                    <li> 공부 필요 </li>
-                                    <li> {' <head th:replace="fragments.html :: head"></head> '} </li>
-                                    <li> 결과 :  </li>
-                                </div>
-                                <div className='sstitle'>  </div>
-                                <div className='mblock'>
-                                    <li>  </li>
+                                    <li> <small> 조건에 따라서 html 클래스에 추가하게 할 수 있다. </small> </li>
+                                    <li> {' <div th:classappend="${currentPage} == 0 ? '}'disabled'{'"> </div> '} </li>
                                     <li> {' <div th: ="${}"> </div> '} </li>
                                     <li> 결과 :  </li>
                                 </div>
+
+                                <div className='sstitle'> th:errors </div>
+                                <div className='mblock'>
+                                    <li> <small> 에러를 필드에 담아서 보내서 에러가 있는 객체가 있으면 에러 발생 </small> </li>
+                                    <li> {' <div th:errors ="${boardTitle}"> </div> '} </li>
+                                    <li> 결과 :  </li>
+                                </div>
+
                                 <div className='sstitle'>  </div>
                                 <div className='mblock'>
                                     <li>  </li>
@@ -196,40 +220,33 @@ const SpringThymeleaf = (props) => {
                     </div>
                     {/*  */}
 
+
                     <div className='mblock'>
                         <details>
-                            <summary className='stitle'> thymeleaf + 스프링(인텔리제이) live server
+                            <summary className='stitle'> thymeleaf에서 spring security
                                 <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
                             <div className='sblock'>
-                                <div className='sstitle'> 설정하기 </div>
+                                <div className='sstitle'>  </div>
                                 <div className='mblock'>
-                                    <li> Gradle에 compileOnly "org.springframework.boot:spring-boot-devtools"  </li>
-                                    <li> application.properties 나 application.yml 에추가
-                                        <div className='sblock'>
-                                            <li> spring.devtools.livereload.enabled=true  </li>
-                                            <li> spring.resources.static-locations=file:src/main/resources/static/  </li>
-                                            <li> spring.thymeleaf.cache=false  </li>
-                                            <li> spring.thymeleaf.prefix=file:src/main/resources/templates/  </li>
-                                        </div>
+                                    <li>  </li>
+                                    <li> sec:를 사용하려면
+                                        <li> {'<html lang="UTF-8" xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">'} </li>
+                                        <li> build.gradle dependencies에 추가
+                                            <li> implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5' </li>
+                                        </li>
                                     </li>
-                                    <li> Ctrl + Shift + A - regi 입력 Registry... -
-                                        compiler.automake.allow.when.app.running 체크
-                                    </li>
-                                    <li> Ctrl + Alt + S - Build, Execution, Deployment - Compiler
-                                        - Build project automatically 체크  </li>
-                                    <li> <a href="https://chrome.google.com/webstore/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei"
-                                        target="_blank" rel="noopener noreferrer"> Browser Extension인 Live Reload 설치 </a>  </li>
-                                    <li> 마지막으로 주의 : 서버 배포시 라이브 서버 관련내용들은 반드시 삭제해야함  </li>
+                                    <li>  </li>
                                 </div>
-                            </div>
-                        </details>
-                    </div>
-                    {/*  */}
-                    <div className='mblock'>
-                        <details>
-                            <summary className='stitle'>
-                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
-                            <div className='sblock'>
+                                <div className='sstitle'> sec:authorize </div>
+                                <div className='mblock'>
+                                    <li> {' <sec:authorize access="isAnonymous()"> </sec:authorize> '} </li>
+                                    <li> {' <sec:authorize access="isAuthenticated()"> </sec:authorize> '} </li>
+                                    <li> {' <sec:authorize access="!isAuthenticated()"> </sec:authorize> '} </li>
+                                    <li> {' <sec:authorize access="hasRole('}'ROLE_USER'{')"> </sec:authorize> '} </li>
+                                    <li> {' <sec:authorize access="!hasRole('}'ROLE_USER'{')"> </sec:authorize> '} </li>
+                                    <li> {' <sec:authorize access="hasAnyRole('}'ROLE_USER','ROLE_ADMIN'{')"> </sec:authorize> '} </li>
+                                    <li>  </li>
+                                </div>
                                 <div className='sstitle'>  </div>
                                 <div className='mblock'>
                                     <li> </li>

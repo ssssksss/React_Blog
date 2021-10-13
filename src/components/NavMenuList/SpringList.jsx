@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 const SpringList = () => {
 
-
     return (
         <div className="menucontainer">
             <div className="menu menu1">
@@ -11,12 +10,17 @@ const SpringList = () => {
                 <Link to="/spring_code"> 스프링 코드 정리 </Link>
                 <Link to="/spring_basic"> 스프링 기초 </Link>
                 <Link to="/spring_thymeleaf"> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Thymeleaf_icon.svg'} /> Thymeleaf </Link>
-                <Link to="/spring_jpa"> 스프링 JPA </Link>
                 <Link to="/spring_lombok"> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Lombok_icon.svg'} /> Lombok, Annotation </Link>
-                <Link to="/spring_setting"> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Settings_icon.svg'} /> 외부 설정 파일 </Link>
-                <Link to="/spring_api"> 스프링 관련 API </Link>
+                {/*<Link to="/spring_setting"> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Settings_icon.svg'} /> yml(properties) </Link>*/}
+                {/*<Link to="/spring_api"> 스프링 관련 API </Link>*/}
+                <Link to="">   </Link>
+                <Link to="/spring_yml"> 스프링 yml(properties) </Link>
+                <Link to="/spring_jpa"> 스프링 JPA </Link>
                 <Link to="/spring_oauth2">  스프링 OAuth2  </Link>
                 <Link to="/spring_security"> 스프링 Security </Link>
+                <Link to="/spring_entity"> 스프링 Entity </Link>
+                <Link to="/spring_controller"> 스프링 Controller </Link>
+                <Link to="/spring_validator"> 스프링 Validator </Link>
 
             </div>
             <div className="menu menu2">

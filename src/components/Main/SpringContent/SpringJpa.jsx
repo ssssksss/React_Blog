@@ -238,65 +238,6 @@ const SpringJpa = (props) => {
                     </div>
                     {/*  */}
 
-                    <div className='mblock'>
-                        <details>
-                            <summary className='stitle'> JPA yml(properties) 설정
-                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
-                            <div className='sblock'>
-                                <div className='sstitle'> DB설정 </div>
-                                <div className='mblock'>
-                                    <li> spring:
-                                        <li>  datasource:
-                                            <li>  <br /> driver-class-name: org.h2.Driver <small># h2 DB</small> </li>
-                                            <li> driver-class-name: oracle.jdbc.OracleDriver <small># 오라클,오라클 클라우드</small> </li>
-                                            <li> driver-class-name: oracle.mysql.jdbc.Driver <small># 5.x 버전 이하 mysql</small> </li>
-                                            <li> driver-class-name: oracle.mysql.cj.jdbc.Driver <small># 6.x 버전 이상 mysql</small> </li>  <br />
-                                            <li> driver-class-name: org.mariadb.jdbc.Driver <small># mariadb </small> </li>  <br />
-                                            <li> url: jdbc:h2:tcp//localhost/~/test <small># h2 확인 필요</small> </li>
-                                            <li> url: jdbc:mariadb://localhost:3306/DB명 <small> mariadb 드라이버 </small> </li>
-                                            <li> url: jdbc:mysql://localhost:3306/DB명?characterEncoding=UTF-8{'&'}serverTimezone=Asia/Seoul <small># mysql db 드라이버</small></li>
-                                            <li> url: jdbc:oracle:thin:@localhost:1521:XE?characterEncoding=UTF-8{'&'}serverTimezone=Asia/Seoul <small># oracle db 드라이버</small></li>
-                                            <li> url: jdbc:oracle:thin:@사용자_medium?TNS_ADMIN=전자지갑경로
-                                                <li> 전자지갑경로 : ./src/main/resources/전자지갑명 <small># 전자지갑을 src폴더에 넣은경우</small> </li>
-                                                <li>  </li>
-                                            </li>  <br />
-                                            <li> username: 사용자명 </li>
-                                            <li> username: Admin <small># 오라클 클라우드 무료 DB사용할 때 사용하는 사용자명</small> </li>  <br />
-                                            <li> password:  </li>
-                                        </li>
-                                        <li>  <br /> jpa:
-                                            <li>  <br /> database-platform: org.hibernate.dialect.MySQL5InnoDBDialect <small> MySQL Dialect 설정 </small> </li>
-                                            <li> database-platform: org.hibernate.dialect.Oracle10gDialect <small> Oracle Dialect 설정 </small> </li>
-                                            <li> show-sql: true  <small> # 콘솔에 JPA 실행 쿼리를 보여줌 </small>  </li>
-                                            <li> generate-ddl: true <small># hibernate에서 자동으로 ddl을 생성해서 table설정들을 자동으로 수행</small> </li>
-                                            <li> hibernate: <small> # JPA프레임워크 hibernate 설정 </small>
-                                                <li> format_sql: true <small># JPA실행쿼리를 가독성 있게 표현</small> </li>  <br />
-                                                <li> ddl-auto: none <small># 아무것도 하지 않는다</small>. </li>
-                                                <li> ddl-auto: create <small># 세션 팩토리가 시작될 때마다 테이블을 drop하고 ddl을 실행한다. , 배포서버에서 사용x, 로컬용도</small> </li>
-                                                <li> ddl-auto: create-drop <small># 세션 팩토리가 시작될 때마다 테이블을 drop하고 ddl을 실행한다. 그리고
-                                                    세션 팩토리가 종료될떄 테이블을 drop한다.</small> </li>
-                                                <li> ddl-auto: update <small># 변경 스키마을 저장한다. , 운영DB에서도 사용x , 개발 초기 테스트 단계 사용</small>  </li>
-                                                <li> ddl-auto: validate <small># 변경된 스키마를 출력하고 프로그램 종료</small> </li>
-                                            </li>  <br />
-                                            <li> open-in-view: false <small># Open Session In View</small> <a href="https://stackoverflow.com/questions/30549489/what-is-this-spring-jpa-open-in-view-true-property-in-spring-boot" target="_blank" rel="noopener noreferrer"> 참고 </a> </li>
-                                            <li>  </li>
-                                            <li>  </li>
-                                        </li>
-                                    </li>
-                                    <li>  </li>
-                                    <li>  </li>
-                                </div>
-                                <div className='sstitle'>  </div>
-                                <div className='mblock'>
-                                    <li> </li>
-                                    <li> </li>
-                                </div>
-                            </div>
-                        </details>
-                    </div>
-                    {/*  */}
-
-
                 </span>
             </div >
         </>

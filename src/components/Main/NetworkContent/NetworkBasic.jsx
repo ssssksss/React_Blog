@@ -99,13 +99,16 @@ const NetworkBasic = (props) => {
                     {/*  */}
                     <div className='mblock'>
                         <details>
-                            <summary className='stitle'> IP
+                            <summary className='stitle'> IP , 서브넷
                                 <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
                             <div className='sblock'>
                                 <div className='sstitle'> IP주소란? </div>
                                 <div className='mblock'>
-                                    <li> 네트워크에서 컴퓨터 장치들이 서로 통신하는데 사용하기 위한 네트워크 주소 </li>
-                                    <li>  </li>
+                                    <li> - 네트워크에서 컴퓨터 장치들이 서로 통신하는데 사용하기 위한 네트워크 주소 </li>
+                                    <li> - 네트워크 장비에 IP를 줄떄는 IP + S/M 으로 주는데 192.168.2.0/28 과 같이 주면 서브넷마스크 28개를 지정 했으므로 1개의 네트워크 대역을 16개의 크기로 할당을 하겠다라는 것을 알 수 있음  </li>
+                                    <li> - 네트워크의 장비에는 제일 처음에는 네트워크 주소로 사용하고, 2번째는 게이트웨이 주소로 사용하고 , 마지막주소는 브로드캐스트 주소로 사용하므로 나누어진
+                                        대역에서 3개의 대역은 사용을 할 수 없으므로 16개로 나누어도 13개만 사용이 가능한다. 게이트웨이주소는 아무곳이나 사용은 가능은하다.  </li>
+                                    <li>   </li>
                                 </div>
 
                                 <div className='sstitle'> IPv4 </div>
@@ -140,6 +143,17 @@ const NetworkBasic = (props) => {
                                             <li>  </li>
                                         </div>
                                     </li>
+                                    <li>  </li>
+                                </div>
+
+                                <div className='sstitle'> 서브넷 </div>
+                                <div className='mblock'>
+                                    <li> 네트워크 대역과 IP 대역을 구분하기 위한 방법 </li>
+                                    <li> 몇개 짜리 망을 사용을 할지 설정하는 방법 </li>
+                                    <li> 대역을 나누고 일부 대역의 IP를 사용하면 자동으로 인식 </li>
+                                    <li> 255.255.255.0 <small> # A클래스를 뜻함 , 256개의 대역을 사용한다. 단 3개의 대역은 제외한다. </small>  </li>
+                                    <li> ex) 50명의 회사 부서가 있다면 서브넷마스크는 255.255.255.192 를 주면 64개의 대역 4개로 나뉘고 3개를 제외한 각 대역당 61개를 사용할 수 있다. </li>
+                                    <li> ex) A부서 50 , B부서 5 , C부서 60 이면 , 네트워크를 192.168.2.1/26 192.168.2.64/27 192.168.2.96/29 이렇게 3개로 분리해서 줄 수 있다. </li>
                                     <li>  </li>
                                 </div>
 

@@ -791,6 +791,7 @@ const ReactBasic = (props) => {
                       <li> return(
                         <li> {'<> '}
                           <li> {' <button style={스타일명}> 버튼 </button> '} </li>
+                          <li> {' <button style={{height: "100px"}}> 버튼 </button> '} </li>
                         </li>
                         <li> {'</> '} </li>
                       </li>
