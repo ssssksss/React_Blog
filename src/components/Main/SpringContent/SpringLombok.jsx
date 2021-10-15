@@ -7,12 +7,12 @@ const SpringLombok = (props) => {
                 <span className="lblock">
                     <div className='mblock'>
                         <details>
-                            <summary className='stitle'> <a href="https://projectlombok.org/features/all" target="_blank"> lombok 사이트 </a>
+                            <summary className='stitle'> lombok 사이트
                                 <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
                             <div className='sblock'>
                                 <div className='sstitle'>  </div>
                                 <div className='mblock'>
-                                    <li>  </li>
+                                    <li> <a href="https://projectlombok.org/features/all" target="_blank"> lombok 사이트 </a> </li>
                                     <li>  </li>
                                 </div>
                             </div>
@@ -314,7 +314,7 @@ const SpringLombok = (props) => {
                             <div className='sblock'>
                                 <div className='sstitle'> 설명 </div>
                                 <div className='mblock'>
-                                    <li>  </li>
+                                    <li> 프로퍼티에서 정의한 값을 가져오는 방법  </li>
                                     <li>  </li>
                                 </div>
                                 <div className='sstitle'> 예시 </div>
@@ -328,7 +328,7 @@ const SpringLombok = (props) => {
 
                     <div className='mblock'>
                         <details>
-                            <summary className='stitle'> @Slf4j
+                            <summary className='stitle'> @Slf4j @Log4j2
                                 <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
                             <div className='sblock'>
                                 <div className='sstitle'> 설명 </div>
@@ -345,34 +345,20 @@ const SpringLombok = (props) => {
                         </details>
                     </div>
 
-                    <div className='mblock'>
-                        <details>
-                            <summary className='stitle'> @Log4j2
-                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
-                            <div className='sblock'>
-                                <div className='sstitle'> 설명 </div>
-                                <div className='mblock'>
-                                    <li>  </li>
-                                    <li>  </li>
-                                </div>
-                                <div className='sstitle'> 예시 </div>
-                                <div className='mblock'>
-                                    <li>  </li>
-                                    <li>  </li>
-                                </div>
-                            </div>
-                        </details>
-                    </div>
+
 
                     <div className='mblock'>
                         <details>
-                            <summary className='stitle'> @NonNull
+                            <summary className='stitle'> @NotNull @Nullable @NotEmpty
                                 <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
                             <div className='sblock'>
                                 <div className='sstitle'> 설명 </div>
                                 <div className='mblock'>
-                                    <li> 필드에 값이 필수적으로 들어와야한다. </li>
-                                    <li>  </li>
+                                    <li> @NotNull <small> # Null 불가능 </small> </li>
+                                    <li> @NotEmpty <small> # Null, 빈문자열("") 불가능 , " " 은 가능 </small> </li>
+                                    <li> @NotBlank <small> # Null, 빈문자열("") , " " 모두 불가능 </small> </li>
+                                    <li> @NonNull <small> null을 허용하지 않음 </small>  </li>
+                                    <li> @Nullable <small> null을 허용 </small>  </li>
                                 </div>
                                 <div className='sstitle'> 예시 </div>
                                 <div className='mblock'>
@@ -459,15 +445,14 @@ const SpringLombok = (props) => {
 
                     <div className='mblock'>
                         <details>
-                            <summary className='stitle'> validation 관련
+                            <summary className='stitle'> @Size @Min @Max
                                 <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
                             <div className='sblock'>
                                 <div className='sstitle'> 어노테이션 </div>
                                 <div className='mblock'>
-                                    <li> @NotNull # null,공백 허용하지 않음</li>
                                     <li> @Size(min=2, max=30) </li>
                                     <li> @Min(18) </li>
-                                    <li> @NotBlank(message="비어있으면 내용 출력") # null을 허용하지 않음 </li>
+                                    <li> @Max(18) </li>
                                     <li>  </li>
                                 </div>
                                 <div className='sstitle'> 예시 </div>
@@ -481,16 +466,123 @@ const SpringLombok = (props) => {
 
                     <div className='mblock'>
                         <details>
-                            <summary className='stitle'> @Configuration
+                            <summary className='stitle'> @RequestParam @RequestBody @ModelAttribute @ReponseBody
                                 <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
                             <div className='sblock'>
                                 <div className='sstitle'> 설명 </div>
                                 <div className='mblock'>
+                                    <div className="sstitle"> @RequestParam </div>
+                                    <li> HttpServletRequest 객체 역할 </li>
+                                    <li> 1개의 파라미터를 받아옴 </li>
+                                    <li> http에서 파라미터가 오지 않으면 400 Error 발생 </li>
+                                    <li> Controller메소드의 파라미터와 웹 요청 파라미터와 맵핑하는 용도 </li>
+                                    <li> @RequestParam(value="파라미터명", required = false, defaultValue="디폴트값") 타입 변수명 <small>  </small> </li>
+                                    <li> @RequestParam {'HashMap<타입,타입> map객체명'} </li>
+                                    <li>  </li> <br />
+                                    <div className="sstitle"> @RequestBody </div>
+                                    <li> Json 형태의 http body를 자바 객체 로 변환(Reflection 사용) </li>
+                                    <li> MessageConverter 나 MappingJackson2HttpMessageConverter 를 이용 </li>
+                                    <li>  </li>
+                                    <li>  </li> <br />
+                                    <div className="sstitle"> @ModelAttribute </div>
+                                    <li> multipart/form-data 형태의 http body 내용과 파라미터를 setter를 통해 1대1 매핑 </li>
+                                    <li> 매핑 중에 타입일치 등 검증과정이 진행 </li>
+                                    <li> setter함수가 없으면 바인딩이 되지 않음 </li>
+                                    <li> @ModelAttribute("특정파라미터명") 객체타입 변수명 </li>
+                                    <li>  </li>
+                                    <div className="sstitle"> @ReponseBody </div>
+                                    <li> http응답 데이터를 담은 공간 </li>
+                                    <li>  </li>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> @Configuration @Service @Repository @Controller @RestController @Entity @Component
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> 설명 </div>
+                                <div className='mblock'>
+                                    <div className="sstitle"> @Configuration </div>
                                     <li> Bean으로 등록하게 해주는 어노테이션 </li>
                                     <li> 싱글톤이 되게 해준다. , CGLIB 바이트조작 라이브러리를 사용해서 임의의 클래스를 생성해서 사용하게 한다. </li>
                                     <li> 스프링컨테이너에서 관리 가능 </li>
+                                    <div className="sstitle"> @Service </div>
                                     <li>  </li>
                                     <li>  </li>
+                                    <div className="sstitle"> @Repository </div>
+                                    <li>  </li>
+                                    <li>  </li>
+                                    <div className="sstitle"> @Controller </div>
+                                    <li> Model 객체를 이용하여 데이터를 담고 view를 찾아 이동하는 역할 </li>
+                                    <li>  </li>
+                                    <div className="sstitle"> @RestController </div>
+                                    <li> @Controller + @ResponseBody </li>
+                                    <li>  객체로 반환하고 JSON이나 XML형식으로 http에 담아서 응답 </li>
+                                    <li>  </li>
+                                    <div className="sstitle"> @Entity </div>
+                                    <li>  </li>
+                                    <li>  </li>
+                                    <div className="sstitle"> @Component </div>
+                                    <li>  </li>
+                                    <li>  </li>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> @PostMapping @GetMapping @RequestMapping
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> 설명 </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                    <li>  </li>
+                                </div>
+                                <div className='sstitle'> 예시 </div>
+                                <div className='mblock'>
+                                    <div className="sstitle"> @PostMapping </div>
+                                    <li> Post방식으로 요청을 받을 때 맵핑을 처리함 </li>
+                                    <li>  </li>
+                                    <div className="sstitle"> @GetMapping </div>
+                                    <li> Get방식으로 요청을 받을 때 맵핑을 처리함 </li>
+                                    <li> public String board(Model model) {'{'}
+                                        <li> board = boardRepository.findById(id).orElse(null);  </li>
+                                        <li> model.addAttribute("board", board);  </li>
+                                        <li> return "boardForm";  </li>
+                                    </li>
+                                    <li> {'}'} </li>
+                                    <div className="sstitle"> @RequestMapping </div>
+                                    <li> 어떤 Controller에 어떤 메소드를 처리할지 맵핑하는 용도 </li>
+                                    <li> Controller 상단에 선언 </li>
+                                    <li> @RequestMapping("/경로명") </li>
+                                    <li>  </li>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> @PageableDefault @SortDefault
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> 설명 </div>
+                                <div className='mblock'>
+                                    <div className="sstitle"> @PageableDefault </div>
+                                    <li> @PageableDefault(size=1,sort="필드명",direction = Sort.Direction.ASC) Pageable pageable </li>
+                                    <li> Page타입에는 pageNumber,pagesize,totalpage 등의 멤버변수가 존재한다. </li>
+                                    <div className="sstitle"> @SortDefault </div>
+                                    <li> @PageableDefault는 1개의 조건만 정렬이 가능하지만 SortDefault는 여러개의 조건으로 정렬이 가능하다. </li>
+                                    <li> {'   @SortDefault.SortDefaults({ '}
+                                        <li> {' @SortDefault(sort = "title", direction = Sort.Direction.DESC), '} </li>
+                                        <li> {' @SortDefault(sort = "writer", direction = Sort.Direction.DESC) '} </li>
+                                    </li>
+                                    <li> {' }) '} </li>
                                 </div>
                                 <div className='sstitle'> 예시 </div>
                                 <div className='mblock'>
@@ -503,19 +595,11 @@ const SpringLombok = (props) => {
 
                     <div className='mblock'>
                         <details>
-                            <summary className='stitle'>
+                            <summary className='stitle'> 기타
                                 <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
                             <div className='sblock'>
                                 <div className='sstitle'> 설명 </div>
                                 <div className='mblock'>
-                                    <li> @Value : 프로퍼티에서 정의한 값을 가져오는 방법 </li>
-                                    <li> @Controller : Model 객체를 이용하여 데이터를 담고 view를 찾아 이동하는 역할 </li>
-                                    <li> @PostMapping : Post방식으로 요청을 받을 때 맵핑을 처리함 </li>
-                                    <li> @GetMapping :  Get방식으로 요청을 받을 때 맵핑을 처리함 </li>
-                                    <li> @RequestBody : http요청 데이터를 담은 공간 </li>
-                                    <li> @ReponseBody : http응답 데이터를 담은 공간 </li>
-                                    <li> @RestController(@Controller + @ResponseBody) : 객체로 반환하고 JSON이나 XML형식으로 http에 담아서 응답  </li>
-                                    <li> @RequestMapping("") : 어떤 Controller에 어떤 메소드를 처리할지 맵핑하는 용도  </li>
                                     <li> @SuppressWarnings("unchecked") :   </li>
                                     <span className="mblock">
                                         <li> value(String) : URL값으로 맵핑 조건으로 사용 </li>
@@ -524,15 +608,12 @@ const SpringLombok = (props) => {
                                         <li> consumes : Content-Type request 헤더가 일치할 경우 URL이 호출됨 </li>
                                         <li> produces : 설정과 Accept request 헤더가 일치할 경우에만 URL이 호출됨 </li>
                                     </span>
-                                    <li> @RequestParam : Controller메소드의 파라미터와 웹 요청 파라미터와 맵핑하는 용도 </li>
                                     <li> @ModelAttribute : Controller 메소드의 파라미터나 리턴값을 Model 객체와 바인딩하기 위한 용도 </li>
                                     <li> @SessionAttributes : Model 객체를 세션에 젖아하고 사용하기 위한 용도 </li>
                                     <li> @RequestPart : Multipart 요청의 경우, 웹 요청 파라미터와 맵핑 용도 </li>
                                     <li> @CommandMap : Controller메소드의 파라미터를 Map형태로 받을 떄 웹 요청 파라미터와 맵핑하기 위한 용도 </li>
                                     <li> @ControllerAdvice : Controller에 쓰이는 공통기능을 모듈화하여 전역으로 쓰기 위한 용도 </li>
                                     <li> @Transactional : 트랜잭션 속성을 클래스 내의 모든 메서드에게 부여</li>
-                                    <li> @NonNUll : null을 허용하지 않을 경우 </li>
-                                    <li> @Nullable : null을 허용할 경우 </li>
                                 </div>
                                 <div className='sstitle'> 예시 </div>
                                 <div className='mblock'>

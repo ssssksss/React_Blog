@@ -15,16 +15,30 @@ const SpringJpa = (props) => {
                             <div className='sblock'>
                                 <div className='sstitle'> JPA란 </div>
                                 <div className='mblock'>
-                                    <li> Java Persistence API </li>
-                                    <li> 관계형 데이터베이스에 SQL을 작성해야 하는데 SQL을 작성하지 않고
-                                        자동으로 매핑해주는 기술 </li>
-                                    <li> ORM 기술 표준
-                                        <div className='sblock'>
-                                            <li> Object Relational Mapping </li>
-                                            <li> 자바객체를 ORM에 저장  - ORM에서 SQL을 생성 - DB에 저장  </li>
-                                            <li> ORM을 사용하는 이유는 객체 중심의 개발이 가능해지기 떄문에 사용 </li>
-                                        </div>
+                                    <li> ORM : Object relational mapping , 프레임 워크가 자바 객체와 데이터베이스를 분리해서 사용하게 해준다.
+                                        <li> ORM을 사용하는 이유는 객체 중심의 개발이 가능해지기 떄문에 사용 </li>
                                     </li>
+                                    <li> JPA : Java Persistence API
+                                        <li> EJB : 과거 자바 ORM , 불편 복잡 </li>
+                                        <li> Hibernate : 대표적인 ORM 프레임워크 </li>
+                                        <li> JPA : 자바 쪽의 ORM 기술 표준 , JPA 인터페이스를 구현한 대표적인 ORM 프레임워크가 Hibernate, EclipseLink, DataNucleus </li>
+                                        <li> JPA 실행 과정 : 개발자가 자바객체를 ORM에 저장  - ORM에서 SQL을 생성 - DB에 저장 <small> SQL생성과 실행을 개발자가 직접하지 않아도 JPA가 처리 </small>  </li>
+                                        <li> 관계형 데이터베이스에 SQL을 작성해야 하는데 SQL을 작성하지 않고 자동으로 매핑해주는 기술 </li>
+                                    </li>
+                                    <li> JPA의 장점 : 개발자는 객체 중심의 개발에 집중할 수 있다. </li>
+                                    <li> JPA의 단점 : 복잡한 쿼리를 작성하기에는 불편, 현업에서는 아직 사용 불가, 2개의 테이블간의 다대다 관계 형성 불가능 중간에 매핑 테이븡을
+                                        하나 만들고 관계를 형성을 해야 한다. </li>
+                                    <li> JPA에는 최적화 기능이 있다.
+                                        <li> 1. 캐싱 기능 : 같은 트랜잭션에서는 똑같은 쿼리를 2번 생성하지 않고 보관하고 있다가 같은 쿼리가 발생하면 실행 </li>
+                                        <li> 2. 버퍼링, 지연 기능 : SQL쿼리를 개발자가 시작할 때 바로 날리지 않고 커밋을 할 떄 까지 기다렸다가 한번에 쿼리를 날린다.
+                                            batch processing 방식 사용
+                                            <li> transaction.begin(); <small> 트랜잭션 시작 </small> </li>
+                                            <li>  </li>
+                                            <li> transaction.commit(); <small> 트랜잭션 끝 </small> </li>
+                                        </li>
+                                        <li>  </li>
+                                    </li>
+                                    <li>  </li>
                                     <li> <a href="https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.query-creation"
                                         target="_blank" rel="noopener noreferrer"> 스프링 JPA 공식 문서</a> </li>
                                     <li>  </li>
@@ -73,9 +87,39 @@ const SpringJpa = (props) => {
                                 <div className='sstitle'> Entity란 </div>
                                 <div className='mblock'>
                                     <li> 관계형 데이터베이스에서 테이블을 만들듯이 JPA가 참조할 테이블을 만들어 둔것 </li>
+                                    <li> entity는 논리적인 모델 , 집합 정도라고 생각  </li>
+                                    <li> DB의 테이블로 사용도 하지만 사용을 안할 수도 있다. </li>
+                                    <li> @Entity와 @Table의 차이, @Table은 DB에 생성될 테이블의 이름을 지정하는데 사용하고, @Entity는 엔티티를 뜻한다.
+                                        하지만 @Table의 이름이 명시되지 않는다면 @Entity의 name속성이 DB테이블의 이름으로 사용된다. </li>
                                 </div>
-                                <div className='sstitle'> Entity 코드 설명 </div>
+                                <div className='sstitle'> Entity 관련 어노테이션 </div>
                                 <div className='mblock'>
+                                    <li> @Entity(name="") <small> # Entity를 명시 </small> </li>
+                                    <li> @Table(name="") <small> # Table 이름 명시 </small> </li>
+                                    <li> @Id <small> # JPA가 식별자로 사용, PK를 뜻하는 필드를 지정, @GeneratedValue 하고 주로 같이 사용 </small> </li>
+                                    <li> @GeneratedValue(strategy = GenerationType.IDENTITY) <small># MYSQL Auto_Increment</small></li>
+                                    <li> @GeneratedValue(strategy = GenerationType.SEQUENCE) <small># Oracle, @SequenceGenerator 필요</small> </li>
+                                    <li> @GeneratedValue(strategy = GenerationType.TABLE) <small># TABLE, @TableGenerator 필요</small> </li>
+                                    <li> @GeneratedValue(strategy = GenerationType.AUTO)<small># 선택한 dialect에 따라 자동 선택(default) </small>  </li>
+                                    <li> @Column(name="DB 필드명", length = 10, nullable = false, unique=false,
+                                        columnDefinition = "DB필드타입 제약조건 '제약조건값'", )
+                                        <small> # 필수로 사용할 필요는 없고 DB테이블의 필드명과 일치하면 자동으로 매핑이 된다.만약에 일치하지 않으면
+                                            name="" 속성에 적어서 맞추어 줄수 있고 DB에서 사용하는 제약조건 등을 지정할 수도 있다.</small></li>
+                                    <li>  <small> # </small> </li>
+                                    <li> implementation 'org.springframework.boot:spring-boot-starter-validation' </li>
+                                    <li> @Positive @PositiveOrZero @Negative @NegativeOrZero </li>
+                                    <li> @Size(min=1,max=2) @Min(1) @Max(2) </li>
+                                    <li> @Null </li>
+                                    <li> @NotNull # Null 불가능 </li>
+                                    <li> @NotEmpty # Null, 빈문자열("") 불가능 , " " 은 가능 </li>
+                                    <li> @NotBlank # Null, 빈문자열("") , " " 모두 불가능</li>
+                                    <li> @Pattern(regex="이곳에 정규표현식 작성") </li>
+                                    <li> @Future @FutureOrPresent @Past @PastOrPresent </li>
+                                    <li> @Email </li>
+                                    <li> @AssertTrue @AssertFalse # 값이 항상 true거나 false </li>
+                                    <li> @Digits(integer= 최대허용되는정수자릿수 , fraction = 최대허용되는소수자릿수 ) </li>
+                                    <li> @DecimalMax(value=) @DecimalMin(value=) </li>
+                                    <li> 어노테이션에 추가 속성 : message="에러 날 경우 메시지 표현" </li>
                                     <li> @Getter: getter 메소드 </li>
                                     <li> @Setter: setter 메소드, 일반적으로 사용을 하지 않음 </li>
                                     <li> @NoArgsConstructor: 기본 생성자</li>
@@ -104,6 +148,28 @@ const SpringJpa = (props) => {
                                         <li>  </li>
                                     </div>
                                     <li>  </li>
+                                </div>
+                                <div className='sstitle'> 예시 </div>
+                                <div className='mblock'>
+                                    <li> @Entity <small> # entity를 명시 </small> </li>
+                                    <li> @Getter<small>  </small></li>
+                                    <li> @Setter<small>  </small></li>
+                                    <li> @AllArgsConstructor<small>  </small> </li>
+                                    <li> @NoArgsConstructor <small>  </small></li>
+                                    <li> @ToString <small>  </small></li>
+                                    <li> public class BoardEntity {'{'}
+                                        <li>   <br />  @Id </li>
+                                        <li> @GeneratedValue(strategy = GenerationType.AUTO) </li>
+                                        <li> @Column(name="board_no") </li>
+                                        <li> private Long boardNo; </li> <br />
+
+                                        <li> @Column(name="board_title") </li>
+                                        <li> private String boardTitle; </li> <br />
+
+                                        <li> @Column(name="board_content") </li>
+                                        <li> private String boardContent; </li>
+                                    </li>
+                                    <li> {'}'} </li>
                                 </div>
                                 <div className='sstitle'> Entity 코드 예시 </div>
                                 <div className='mblock'>
@@ -237,6 +303,56 @@ const SpringJpa = (props) => {
                         </details>
                     </div>
                     {/*  */}
+
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> @ManyToMany
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> Client </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                    <li> @Table(name="client") </li>
+                                    <li> public class Client {'{'}
+                                        <li>  </li> <br />
+                                        <li> @Id </li>
+                                        <li> @GeneratedValue(strategy = GenerationType.AUTO) </li>
+                                        <li> private Long id; </li>
+                                        <li> private String username; </li>
+                                        <li> private String password; </li>
+                                        <li> private Boolean enabled=true; </li> <br />
+                                        <li> @ManyToMany(cascade = {'{'}
+                                            <li> CascadeType.PERSIST, </li>
+                                            <li> CascadeType.MERGE </li>
+                                        </li>
+                                        <li> {'})'} </li>
+                                        <li> @JoinTable(
+                                            <li> name="client_role", <small> 매핑 테이블의 컬럼명 </small> </li>
+                                            <li> joinColumns = @JoinColumn(name = "client_id"), </li>
+                                            <li> inverseJoinColumns = @JoinColumn(name = "role_id")) </li>
+                                        </li>
+                                        <li> private Set{'<Role>'} roles = new HashSet{'<Role>'}(); </li>
+                                    </li>
+                                    <li> {'}'} </li>
+                                </div>
+                                <div className='sstitle'> Role </div>
+                                <div className='mblock'>
+                                    <li> @Table(name="role") </li>
+                                    <li> public class Role {'{'}
+                                        <li>  </li> <br />
+                                        <li> @Id </li>
+                                        <li> @GeneratedValue(strategy = GenerationType.AUTO) </li>
+                                        <li> private Long id; </li>
+                                        <li> private String name="ROLE_USER"; </li>
+                                        <li>  </li> <br />
+                                        <li> @ManyToMany(mappedBy="roles") </li>
+                                        <li> private Set{'<Client>'} clients = new HashSet{'<Client>'}(); </li>
+                                    </li>
+                                    <li>  </li>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
 
                 </span>
             </div >

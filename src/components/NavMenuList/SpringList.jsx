@@ -15,10 +15,9 @@ const SpringList = () => {
                 {/*<Link to="/spring_api"> 스프링 관련 API </Link>*/}
                 <Link to="">   </Link>
                 <Link to="/spring_yml"> 스프링 yml(properties) </Link>
-                <Link to="/spring_jpa"> 스프링 JPA </Link>
+                <Link to="/spring_jpa_entity"> 스프링 JPA,Entity </Link>
                 <Link to="/spring_oauth2">  스프링 OAuth2  </Link>
                 <Link to="/spring_security"> 스프링 Security </Link>
-                <Link to="/spring_entity"> 스프링 Entity </Link>
                 <Link to="/spring_controller"> 스프링 Controller </Link>
                 <Link to="/spring_validator"> 스프링 Validator </Link>
 

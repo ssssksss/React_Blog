@@ -239,18 +239,21 @@ const SpringThymeleaf = (props) => {
                                 </div>
                                 <div className='sstitle'> sec:authorize </div>
                                 <div className='mblock'>
-                                    <li> {' <sec:authorize access="isAnonymous()"> </sec:authorize> '} </li>
-                                    <li> {' <sec:authorize access="isAuthenticated()"> </sec:authorize> '} </li>
-                                    <li> {' <sec:authorize access="!isAuthenticated()"> </sec:authorize> '} </li>
-                                    <li> {' <sec:authorize access="hasRole('}'ROLE_USER'{')"> </sec:authorize> '} </li>
-                                    <li> {' <sec:authorize access="!hasRole('}'ROLE_USER'{')"> </sec:authorize> '} </li>
-                                    <li> {' <sec:authorize access="hasAnyRole('}'ROLE_USER','ROLE_ADMIN'{')"> </sec:authorize> '} </li>
+                                    <li> {' <div sec:authorize="isAnonymous()"> </div> '} </li>
+                                    <li> {' <div sec:authorize="isAuthenticated()"> </div> '} </li>
+                                    <li> {' <div sec:authorize="!isAuthenticated()"> </div> '} </li>
+                                    <li> {' <div sec:authorize="hasRole('}'ROLE_USER'{')"> </div> '} </li>
+                                    <li> {' <div sec:authorize="!hasRole('}'ROLE_USER'{')"> </div> '} </li>
+                                    <li> {' <div sec:authorize="hasAnyRole('}'ROLE_USER','ROLE_ADMIN'{')"> </div> '} </li>
                                     <li>  </li>
                                 </div>
-                                <div className='sstitle'>  </div>
+                                <div className='sstitle'> sec:authentication </div>
                                 <div className='mblock'>
-                                    <li> </li>
-                                    <li> </li>
+                                    <li> {' <div class="nav-item" sec:authorize="isAuthenticated()"> '}
+                                        <li> {' <span sec:authentication="name">  </span> '} <small> 사용자 접속 이름 </small> </li>
+                                        <li> {' <span sec:authentication="principal.authorities">  </span> '} <small> 사용자 권한 </small> </li>
+                                    </li>
+                                    <li> {' </div> '} </li>
                                 </div>
                             </div>
                         </details>
@@ -263,8 +266,8 @@ const SpringThymeleaf = (props) => {
                             <div className='sblock'>
                                 <div className='sstitle'>  </div>
                                 <div className='mblock'>
-                                    <li> </li>
-                                    <li> </li>
+                                    <li>  </li>
+                                    <li>  </li>
                                 </div>
                             </div>
                         </details>

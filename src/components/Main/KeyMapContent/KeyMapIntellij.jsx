@@ -19,6 +19,7 @@ const KeyMapIntellij = (props) => {
 										<li> <a href="https://gmlwjd9405.github.io/2019/05/21/intellij-shortkey.html" target="_blank"> 참고 </a></li>
 										<li> Ctrl + D   : 코드 한줄 아래 복사 붙여넣기 </li>
 										<li> Ctrl + R   : 내용 바꾸기 </li>
+										<li> Ctrl + Shift + R   : 모든 파일 내용 바꾸기 </li>
 										<li> Alt + Insert   : 생성자, getter,setter 등 </li>
 										<li> Ctrl + O : 오버라이딩 메소드 선택 </li>
 										<li> Ctrl + X   : 코드 한줄 지우기 </li>

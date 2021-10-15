@@ -22,11 +22,10 @@ import SpringCode from './Main/SpringContent/SpringCode';
 import SpringBasic from './Main/SpringContent/SpringBasic';
 import SpringThymeleaf from './Main/SpringContent/SpringThymeleaf';
 import SpringLombok from './Main/SpringContent/SpringLombok';
-import SpringJpa from './Main/SpringContent/SpringJpa';
+import SpringJpaEntity from './Main/SpringContent/SpringJpaEntity';
 import SpringYml from './Main/SpringContent/SpringYml';
 import SpringAPI from './Main/SpringContent/SpringAPI';
 import SpringOAuth2 from './Main/SpringContent/SpringOAuth2';
-import SpringEntity from './Main/SpringContent/SpringEntity';
 import SpringController from './Main/SpringContent/SpringController';
 import SpringSecurity from './Main/SpringContent/SpringSecurity';
 import SpringValidator from './Main/SpringContent/SpringValidator';
@@ -199,13 +198,12 @@ const Main = (props) => {
                 <Route path="/spring_code" component={SpringCode}></Route>
                 <Route path="/spring_basic" component={SpringBasic}></Route>
                 <Route path="/spring_thymeleaf" component={SpringThymeleaf}></Route>
-                <Route path="/spring_jpa" component={SpringJpa}></Route>
+                <Route path="/spring_jpa_entity" component={SpringJpaEntity}></Route>
                 <Route path="/spring_lombok" component={SpringLombok}></Route>
                 <Route path="/spring_yml" component={SpringYml}></Route>
                 <Route path="/spring_api" component={SpringAPI}></Route>
                 <Route path="/spring_oauth2" component={SpringOAuth2}></Route>
                 <Route path="/spring_security" component={SpringSecurity}></Route>
-                <Route path="/spring_entity" component={SpringEntity}></Route>
                 <Route path="/spring_controller" component={SpringController}></Route>
                 <Route path="/spring_validator" component={SpringValidator}></Route>
                 <Route path="/spring_securityexcode1" component={SpringSecurityExCode1}></Route>

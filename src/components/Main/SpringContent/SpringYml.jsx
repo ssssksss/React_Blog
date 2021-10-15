@@ -104,7 +104,8 @@ const SettingFile = (props) => {
                                             <li> show-sql: true  <small> # 콘솔에 JPA 실행 쿼리를 보여줌 </small>  </li>
                                             <li> generate-ddl: true <small># hibernate에서 @Entity가 붙은 클래스를 자동으로 ddl을 실행해서 table설정들을 자동으로 수행</small> </li>
                                             <li> hibernate: <small> # JPA프레임워크 hibernate 설정 </small>
-                                                <li> format_sql: true <small># JPA실행쿼리를 가독성 있게 표현</small> </li>  <br />
+                                                <li> format_sql: true <small># JPA실행쿼리를 가독성 있게 표현</small> </li>
+                                                <li> show_sql: true <small>  </small> </li>
                                                 <li> ddl-auto: none <small># 아무것도 하지 않는다</small>. </li>
                                                 <li> ddl-auto: create <small># 세션 팩토리가 시작될 때마다 테이블을 drop하고 ddl을 실행한다. , 배포서버에서 사용x, 로컬용도</small> </li>
                                                 <li> ddl-auto: create-drop <small># 세션 팩토리가 시작될 때마다 테이블을 drop하고 ddl을 실행한다. 그리고
@@ -114,6 +115,16 @@ const SettingFile = (props) => {
                                                 <li> use_sql_comments=true <small> # 디버깅 정보 출력 </small> </li>
                                                 <li> naming.physical-strategy=org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl <small> db의 속성 이름이 camel-case일 경우 설정이 필요, default는 snake-case </small> </li>
                                             </li>  <br />
+                                            <li> properties: <small> 확인 필요 </small>
+                                                <li> hibernate:
+                                                    <li> jdbc:
+                                                        <li> batch_size: 10 </li>
+                                                    </li>
+                                                    <li> order_inserts: true </li>
+                                                    <li> order_updates: true </li>
+                                                </li>
+                                                <li>  </li>
+                                            </li> <br />
                                             <li> open-in-view: false <small># Open Session In View</small> <a href="https://stackoverflow.com/questions/30549489/what-is-this-spring-jpa-open-in-view-true-property-in-spring-boot" target="_blank" rel="noopener noreferrer"> 참고 </a> </li>
                                             <li> <small> 웹 요청이 완료될 때까지 동일한 EntityManager를 갖도록 해줍니다., 성능과 확장에 좋지 않다고 하는데 정확하게는 아직 모름 </small> </li>
                                             <li>  </li>
