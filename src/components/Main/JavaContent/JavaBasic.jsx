@@ -6,21 +6,21 @@ const JavaBasic = (props) => {
         <>
             <div className="common_style">
                 <ul>
-                    <span className="lblock">
-                        <span className="mtitle"> <a name="자바 문법"> 자바 문법 </a> </span>
-                        <span className="mblock">
-                            <details> <summary className="stitle"> <a name="출력메소드"> ▶ 출력메소드 </a> </summary>
-                                <span className="sblock">
+                    <div className="lblock">
+                        <div className="mtitle"> <a name="자바 문법"> 자바 문법 </a> </div>
+                        <div className="mblock">
+                            <details> <summary className="stitle"> <a name="출력메소드">  출력메소드 </a> </summary>
+                                <div className="sblock">
                                     <small>  </small>
                                     <li> System.out.println(""); #줄바꿈</li>
                                     <li> System.out.print(""); </li>
-                                </span>
+                                </div>
                             </details>
-                        </span>
+                        </div>
                         {/*  */}
-                        <span className="mblock">
-                            <details> <summary className="stitle"> <a name="자료형"> ▶ 자료형 </a> </summary>
-                                <span className="sblock">
+                        <div className="mblock">
+                            <details> <summary className="stitle"> <a name="자료형">  자료형 </a> </summary>
+                                <div className="sblock">
                                     <small>  </small>
                                     <li> byte : 정수형</li>
                                     <li> short : 정수형 </li>
@@ -31,25 +31,25 @@ const JavaBasic = (props) => {
                                     <li> char : 문자형</li>
                                     <li> boolean : 참거짓</li>
                                     <li> string : 문자열</li>
-                                </span>
+                                </div>
                             </details>
-                        </span>
+                        </div>
                         {/*  */}
-                        <span className="mblock">
-                            <details> <summary className="stitle"> <a name="입력메소드"> ▶ 입력메소드 </a> </summary>
-                                <span className="sblock">
+                        <div className="mblock">
+                            <details> <summary className="stitle"> <a name="입력메소드">  입력메소드 </a> </summary>
+                                <div className="sblock">
                                     <small> import java.util.Scanner; </small>
                                     <li> Scanner scanner = new Scanner(System.in); </li>
                                     <li> scanner.nextlnt(); #숫자입력</li>
                                     <li> scanner.next(); #문자열입력</li>
                                     <li>  </li>
-                                </span>
+                                </div>
                             </details>
-                        </span>
+                        </div>
                         {/*  */}
-                        <span className="mblock">
-                            <details> <summary className="stitle"> <a name="문자열"> ▶ 문자열 </a> </summary>
-                                <span className="sblock">
+                        <div className="mblock">
+                            <details> <summary className="stitle"> <a name="문자열">  문자열 </a> </summary>
+                                <div className="sblock">
                                     <small>  </small>
                                     <li> 문자열.toLowerCase() #모두 소문자로 </li>
                                     <li> 문자열.toUpperCase() #모두 대문자로 </li>
@@ -57,12 +57,12 @@ const JavaBasic = (props) => {
                                     {/* 기억이 잘안나서 다시 봐야 된다. */}
                                     <li>  </li>
                                     <li>  </li>
-                                </span>
-                            </details></span>
+                                </div>
+                            </details></div>
                         {/*  */}
-                        <span className="mblock">
-                            <details> <summary className="stitle"> <a name="배열"> ▶ 배열 </a> </summary>
-                                <span className="sblock">
+                        <div className="mblock">
+                            <details> <summary className="stitle"> <a name="배열">  배열 </a> </summary>
+                                <div className="sblock">
                                     <small>  </small>
                                     <li> int arr[] = {'{1,2,3}'} </li>
                                     <li> int arr[][] = {'{1,2,3},{4,5,6}'} </li>
@@ -73,136 +73,133 @@ const JavaBasic = (props) => {
                                     <li> 배열1 = Arrays.copyOf(배열2, 배열2.length) #깊은복사 </li>
                                     <li> 배열1 = Arrays.copyOfRange(배열2, 시작인덱스, 원하는인덱스) #일정 배열을 깊은복사 </li>
                                     <li> 2차원 배열을 복사하는 방법은 반복문을 통해서 작업한다. </li>
-                                </span>
-                            </details></span>
+                                </div>
+                            </details></div>
                         {/*  */}
-                        <span className="mblock">
-                            <details> <summary className="stitle"> <a name="반복문"> ▶ 반복문 </a> </summary>
-                                <span className="sblock">
+                        <div className="mblock">
+                            <details> <summary className="stitle"> <a name="반복문">  반복문 </a> </summary>
+                                <div className="sblock">
                                     <small>  </small>
                                     <li> for ( int i : 배열) {'{ 코드작성 }'} </li>
                                     <li> for ( String name : 배열) {'{ 코드작성 }'} </li>
                                     <li>  </li>
                                     <li>  </li>
-                                </span>
-                            </details></span>
+                                </div>
+                            </details></div>
                         {/*  */}
-                        <span className="mblock">
-                            <details> <summary className="stitle"> <a name="상속"> ▶ 상속 </a> </summary>
-                                <span className="sblock">
+                        <div className="mblock">
+                            <details> <summary className="stitle"> <a name="상속">  상속 </a> </summary>
+                                <div className="sblock">
                                     <small>  </small>
                                     <li> @Override #굳이 선언을 해줄 필요는 없지만 개발자들이 보기 편함 </li>
                                     <li> extends 부모클래스 </li>
                                     <li> implements 인터페이스 </li>
-                                </span>
-                            </details></span>
+                                </div>
+                            </details></div>
                         {/*  */}
-                        <span className="mblock">
-                            <details> <summary className="stitle"> <a name="랜덤"> ▶ 랜덤 </a> </summary>
-                                <span className="sblock">
+                        <div className="mblock">
+                            <details> <summary className="stitle"> <a name="랜덤">  랜덤 </a> </summary>
+                                <div className="sblock">
                                     <small>  </small>
                                     <li> rand.nextInt() #랜덤함수 사용 </li>
-                                </span>
-                            </details></span>
+                                </div>
+                            </details></div>
                         {/*  */}
-                        <span className="mblock">
-                            <details> <summary className="stitle"> <a name="인터페이스"> ▶ 인터페이스 </a> </summary>
-                                <span className="sblock">
+                        <div className="mblock">
+                            <details> <summary className="stitle"> <a name="인터페이스">  인터페이스 </a> </summary>
+                                <div className="sblock">
                                     <small> 인터페이스를 상속받은 클래스는 무조건 메소드를 선언해주어야 한다. </small>
                                     <li> public interface 인터페이스명 {'{'} </li>
                                     <li> &nbsp;자료형 메소드명(); </li>
                                     <li> {'}'} </li> <br />
                                     <li> public class 클래스명 implements 인터페이스명 </li>
-                                </span>
-                            </details></span>
+                                </div>
+                            </details></div>
                         {/*  */}
-                        <span className="mblock">
-                            <details> <summary className="stitle"> <a name="캐스팅"> ▶ 캐스팅 </a> </summary>
-                                <span className="sblock">
+                        <div className="mblock">
+                            <details> <summary className="stitle"> <a name="캐스팅">  캐스팅 </a> </summary>
+                                <div className="sblock">
                                     <small>  </small>
                                     <li>  </li>
-                                </span>
-                            </details></span>
+                                </div>
+                            </details></div>
                         {/*  */}
-                        <span className="mblock">
-                            <details> <summary className="stitle"> <a name="형변환"> ▶ 형변환 </a> </summary>
-                                <span className="sblock">
+                        <div className="mblock">
+                            <details> <summary className="stitle"> <a name="형변환">  형변환 </a> </summary>
+                                <div className="sblock">
                                     <small>  </small>
                                     <li>  </li>
-                                </span>
-                            </details></span>
+                                </div>
+                            </details></div>
                         {/*  */}
-                        <span className="mblock">
-                            <details> <summary className="stitle"> ▶ Optional </summary>
-                                <li> T타입의 객체를 포장해주는 래퍼 클래스 </li>
-                                <li> Null을 예외처리하지 않고 처리가 가능하다는 장점이 있다. </li>
-                                <span className="sblock">
-                                    <span className="mblock">
-                                        <li>  {" opt.isEmpty() "}  : 값이 존재하는지 boolean값 리턴 </li>
-                                    </span>
-                                    <span className="mblock">
-                                        <li>  {" opt.orElseGet() "}  : 저장된 값이 존재하면 값을 반환 값이 없으면 인수로 전달된
-                                            람다 표현식 결과값 반환 </li>
-                                    </span>
-                                    <li> 시작 처리 : 옵셔널 객체 생성 메소드 </li>
-                                    <span className="mblock">
-                                        <li>  {"Optional.of()"}  : 저장된 값이 존재하면 입력된 값을 반환 없으면
-                                            인수로 전달된 예외를 발생 </li>
-                                        <li>  Optional&lt;String&gt; opt = Optional.of("result"); </li>
-                                    </span>
-                                    <span className="mblock">
-                                        <li>  {"Optional.ofNullable()"}  : value가 null인 경우 Optional 반환</li>
-                                        <li> Optional&lt;String&gt; opt = Optional.ofNullable(객체); </li>
-                                        <li> 객체가 존재하지 않으면 return Optional.empty + 에러발생</li>
-                                        <li> 객체가 존재하면 return Optional객체 </li>
-                                    </span>
-                                    <span className="mblock">
-                                        <li>  {"Optional.empty()"}  : 비어있는 Optional 객체 생성, Optional을 null로 초기화하기도 함 </li>
-                                        <li> Optional&lt;String&gt; opt = Optional.empty(); </li>
-                                    </span>
-                                    <li> 중간 처리 , 옵셔널 객체가 생성된 후 사용가능, 아래 메서드는 옵셔널 객체를 반환 </li>
-                                    <span className="mblock">
-                                        <li>  {" opt.ifPresent() "}  : </li>
-                                        <li> Optional.of("객체").ifPresent((value) {"->"} {"{"} {"}"} );</li>
-                                        <li> Optional.ofNullable(null).ifPresent((value) {"->"} {"{"} {"}"} );</li>
-                                    </span>
-                                    <li> 종단 처리 , 옵셔널 객체의 체이닝을 끝냄 </li>
-                                    <span className="mblock">
-                                        <li>  {" opt.ifPresent() "}  : </li>
-                                        <li> Optional.of("객체").ifPresent((value) {"->"} {"{"} {"}"} );</li>
-                                        <li> Optional.ofNullable(null).ifPresent((value) {"->"} {"{"} {"}"} );</li>
-                                    </span>
-                                    <span className="mblock">
-                                        <li>  {" opt.isPresent() "}  : 객체가 존재하는지 여부 판단, 있으면 true </li>
-                                        <li>  {" Optional.ofNullable(객체).isPresent(); "} : 객체가 존재하는지 여부 판단, 있으면 true </li>
-                                    </span>
-                                    <span className="mblock">
-                                        <li>  {" opt.get() "}  : 객체를 꺼냄, 비어있는 옵셔널 객체면 예외 발생 </li>
-                                        <li>  {" Optional.ofNullable(null).get(); "}  </li>
-                                    </span>
-                                    <span className="mblock">
-                                        <li>  {" opt.orElse() "}  : 옵셔널 객체가 비어있든,아니든 실행 기본값으로 제공할 객체를 지정 </li>
-                                        <li>  {" Optional.ofNullable(null).orElse(객체);"} </li>
-                                    </span>
-                                    <span className="mblock">
-                                        <li>  {" opt.orElseGet() "}  : 옵셔널 객체가 비어있을때만 실행 , 기본갑으로 제공할 공급자함수 지정 </li>
-                                    </span>
-                                    <span className="mblock">
-                                        <li>  {" opt.orElseThrow() "}  : (자바10)옵셔널 객체가 비어있으면 , 예외 공급자함수를 통해 예외 발생 </li>
-                                    </span>
-                                </span>
+
+                        <div className='mblock'>
+                            <details>
+                                <summary className='stitle'> Optional
+                                    <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                                <div className='sblock'>
+                                    <div className='sstitle'> 설명 </div>
+                                    <div className='mblock'>
+                                        <li> T타입의 객체를 포장해주는 래퍼 클래스 </li>
+                                        <li> Null을 예외처리하지 않고 처리가 가능하다는 장점이 있다. </li>
+                                    </div>
+                                    <div className='sstitle'> 설명 </div>
+                                    <div className='mblock'>
+                                        <li> opt.isEmpty() <small> # 값이 존재하는지 boolean값 리턴  </small> </li>
+                                        <li> opt.orElseGet() <small> # 저장된 값이 존재하면 값을 반환 값이 없으면 인수로 전달된
+                                            람다 표현식 결과값 반환 </small> </li>
+                                    </div>
+                                    <div className='sstitle'>  시작 처리 : 옵셔널 객체 생성 메소드 </div>
+                                    <div className='mblock'>
+                                        <li> Optional.of() <small> # 저장된 값이 존재하면 입력된 값을 반환 없으면 인수로 전달된 예외를 발생 </small>
+                                            <li> Optional{'<String>'} opt = Optional.of("result"); </li>
+                                        </li> <br />
+                                        <li> Optional.ofNullable() <small> # value가 null인 경우 Optional 반환 </small>
+                                            <li> {' Optional<String> opt = Optional.ofNullable(객체); '} </li>
+                                            <li> 객체가 존재하지 않으면 return Optional.empty + 에러발생 </li>
+                                            <li> 객체가 존재하면 return Optional객체 </li>
+                                        </li> <br />
+                                        <li> Optional.empty() <small> # 비어있는 Optional 객체 생성, Optional을 null로 초기화하기도 함 </small>
+                                            <li> {' Optional<String> opt = Optional.empty(); '} </li>
+                                        </li> <br />
+                                    </div>
+                                    <div className='sstitle'> 중간 처리 , 옵셔널 객체가 생성된 후 사용가능, 아래 메서드는 옵셔널 객체를 반환 </div>
+                                    <div className='mblock'>
+                                        <li> {' opt.ifPresent() : '} <small> # </small> </li>
+                                        <li> {' Optional.of("객체").ifPresent((value) -> { } ); '} <small> # </small> </li>
+                                        <li> {' Optional.ofNullable(null).ifPresent((value) -> { } ); '} <small> # </small> </li>
+                                    </div>
+                                    <div className='sstitle'> 종단 처리 , 옵셔널 객체의 체이닝을 끝냄 </div>
+                                    <div className='mblock'>
+                                        <li> opt.isPresent()  <small> # 객체가 존재하는지 여부 판단, 있으면 true </small> </li>
+                                        <li> Optional.ofNullable(객체).isPresent();  <small> # 객체가 존재하는지 여부 판단, 있으면 true </small> </li> <br />
+                                        <li> opt.get()  <small> # 객체를 꺼냄, 비어있는 옵셔널 객체면 예외 발생</small>
+                                            <li> Optional.ofNullable(null).get(); </li>
+                                        </li> <br />
+                                        <li> opt.orElse()  <small> # 옵셔널 객체가 null이든 아니든 실행 기본값으로 제공할 객체를 지정 </small>
+                                            <li> Optional.ofNullable(객체).orElse(객체,문자열); <small> # 객체값이 Null일때 사용할 문자열이나 객체를 지정  </small> </li>
+                                        </li> <br />
+                                        <li> opt.orElseGet()  <small> # 옵셔널 객체가 null일 때만 실행 , 기본값으로 제공할 공급자함수 지정 </small>
+                                            <li>  {' Optional.ofNullable(username).orElseGet(() -> "" ); '}  </li>
+                                        </li> <br />
+                                        <li> opt.orElseThrow()  <small> # 옵셔널 객체가 비어있으면 , 예외 공급자함수를 통해 예외 발생 </small> </li>
+                                        <li> {' opt.ifPresent() : '}  <small> # </small> </li>
+                                        <li> {' Optional.of("객체").ifPresent((value) -> { } ); '}  <small> # </small> </li>
+                                        <li> {' Optional.ofNullable(null).ifPresent((value) -> { } ); '}  <small> # </small> </li>
+                                    </div>
+                                </div>
                             </details>
-                        </span>
-                        {/*  */}
-                        <span className="mblock">
-                            <details> <summary className="stitle"> <a name="Stream"> ▶ Stream </a> </summary>
+                        </div>
+
+                        <div className="mblock">
+                            <details> <summary className="stitle"> <a name="Stream">  Stream </a> </summary>
                                 <li> 스트림은 배열 또는 컬렉션 인스턴스를 이용해서 사용 가능</li>
-                                <span className="sblock">
+                                <div className="sblock">
                                     <li> 배열 스트림</li>
                                     <li> {"Stream<String> stream = Arrays.stream(arr)"} </li>
                                     <li> {"Stream<String> streamOfArrayPart = Arrays.stream(arr,1,3)"} </li>
-                                </span>
-                                <span className="sblock">
+                                </div>
+                                <div className="sblock">
                                     <li> 컬렉션 스트림</li>
                                     <li> {"public interface Collection<E> extends Iterable<E>"} </li>
                                     <li> {"default Stream<E> stream() "} </li>
@@ -210,13 +207,13 @@ const JavaBasic = (props) => {
                                     <li> {" "}</li>
                                     <li> {" Stream<String> stream = list.stream(); "}</li>
                                     <li> {" Stream<String> parallelStream = list.parallelStream(); "}</li>
-                                </span>
+                                </div>
                             </details>
-                        </span>
+                        </div>
                         {/*  */}
-                        <span className="mblock">
-                            <details> <summary className="stitle"> <a name="함수의 종류"> ▶ 함수의 종류</a> </summary>
-                                <span className="sblock">
+                        <div className="mblock">
+                            <details> <summary className="stitle"> <a name="함수의 종류">  함수의 종류</a> </summary>
+                                <div className="sblock">
 
                                     <li> <a href="https://moreget.github.io/dev-00000061-Java-Consumer_Supplier/" target="_blank"> 참고 사이트 </a> </li>
                                     <li> Consumer : 매개값은 있고 리턴값은 없음 </li>
@@ -228,12 +225,12 @@ const JavaBasic = (props) => {
                                     <li> Operator : 매개값으로 연산하고 리턴 반환</li>
 
                                     <li> Predicate : 매개값은 있고 리턴은 boolean반환 </li>
-                                </span>
+                                </div>
                             </details>
-                        </span>
-                        <span className="mblock">
-                            <details> <summary className="stitle"> <a name="Assertion"> ▶ Assertion </a> </summary>
-                                <span className="sblock">
+                        </div>
+                        <div className="mblock">
+                            <details> <summary className="stitle"> <a name="Assertion">  Assertion </a> </summary>
+                                <div className="sblock">
                                     <li> 코드가 잘 작성되었는지 확인하는데 돕는 기능이다. 예외 처리와 비슷하기는
                                         하지만 예외처리는 개발자가 생각하지 못한 에러에 대한 처리를 담당하는 것이다.
                                     </li>
@@ -243,13 +240,13 @@ const JavaBasic = (props) => {
                                     <li> Assertion을 적당한 위치에 배치시켜 사용하면 좋은 동작을 수행할 수 있다. 반대로
                                         모든 상황에 적용시키면 좋지 않다.
                                     </li>
-                                </span>
+                                </div>
                             </details>
-                        </span>
+                        </div>
                         {/*  */}
-                        <span className="mblock">
-                            <details> <summary className="stitle"> <a name="자료구조"> ▶ 자료구조 </a> </summary>
-                                <span className="sblock">
+                        <div className="mblock">
+                            <details> <summary className="stitle"> <a name="자료구조">  자료구조 </a> </summary>
+                                <div className="sblock">
                                     <li> {"Map<자료형,자료형> Map객체명 = new HashMap<>(); "}</li>
                                     <li> 메서드 종류 </li>
                                     <li>  Map객체.put(키,값)  : 맵객체에 추가 </li>
@@ -263,49 +260,49 @@ const JavaBasic = (props) => {
                                     <li> ArrayList{'<String>'} array = new ArrayList{'<String>();'} #초기에 지정하지 않아도 사용이 가능</li>
                                     <li> HashMap{'<string>'} hashmap = new HashMap{'<>();'} </li>
                                     <li>  </li>
-                                </span>
+                                </div>
                             </details>
-                        </span>
+                        </div>
                         {/*  */}
-                        <span className="mblock">
-                            <details> <summary className="stitle"> <a name="Enum"> ▶ Enum </a> </summary>
-                                <span className="sblock">
+                        <div className="mblock">
+                            <details> <summary className="stitle"> <a name="Enum">  Enum </a> </summary>
+                                <div className="sblock">
                                     <small> 상수들로 만들어진 집합, 열거형 클래스</small>
                                     <li> enum 클래스를 만들고 사용할 때는 enum클래스.값 , enum클래스[인덱스] 처럼 사용</li>
-                                </span>
+                                </div>
                             </details>
-                        </span>
+                        </div>
                         {/*  */}
-                        <span className="mblock">
-                            <details> <summary className="stitle"> <a name="Generic"> ▶ Generic </a> </summary>
+                        <div className="mblock">
+                            <details> <summary className="stitle"> <a name="Generic">  Generic </a> </summary>
                                 <small> 자료형 타입을 정해서 사용하는 메소드 </small>
-                                <span className="sblock">
-                                    <span className="sstitle"> 설명 </span>
-                                    <span className="mblock">
+                                <div className="sblock">
+                                    <div className="sstitle"> 설명 </div>
+                                    <div className="mblock">
                                         <li> JDK1.5 , Java5에 도입 </li>
                                         <li>  </li>
                                         <li> Java SE 7 부터 {'<>'}타입변수가 추측이 가능하면 아래와 같이 생략가능
-                                            <span className="sblock">
+                                            <div className="sblock">
                                                 <li> {'Test<Integer> test = new Test<>(Integer); '} # Java SE 7 이전 </li>
                                                 <li> {'Test<Integer> test = new Test<>(); '} # Java SE 7 이후 </li>
-                                            </span>
+                                            </div>
                                         </li>
                                         <li> 자바 컴파일시에 클래스나 메소드에서 사용할 내부 데이터 타입을 지정 </li>
                                         <li> 자바 컴파일시 제너릭 타입은 타입 변환이 되고 선언되었던 모든 제너릭타입은 제거가 된다. </li>
                                         <li className="col_be"> 사용되는 객체의 타입 안정성 증가</li>
                                         <li className="col_be"> 반환값에 대한 Object객체 타입변환 및 변환검사에 드는 비용을 아낄 수 있음 </li>
                                         <li>  </li>
-                                    </span>
-                                    <span className="sstitle"> 제너릭 클래스 </span>
-                                    <span className="mblock">
+                                    </div>
+                                    <div className="sstitle"> 제너릭 클래스 </div>
+                                    <div className="mblock">
                                         <li> public class 클래스명{'<T>'}  </li>
                                         <li> public class 클래스명{'<T extends 클래스명>'} # 특정 타입만 사용하게 제한   </li>
                                         <li> public class 클래스명{'<T extends 인터페이스명>'} # 특정 타입만 사용하게 제한   </li>
                                         <li> public class 클래스명{'<T extends 클래스명 & 인터페이스명>'}    </li>
                                         <li> 클래스명{'<T>'} 객체명 = new 클래스{'<>'}() </li>
-                                    </span>
-                                    <span className="sstitle"> 제너릭 메소드 </span>
-                                    <span className="mblock">
+                                    </div>
+                                    <div className="sstitle"> 제너릭 메소드 </div>
+                                    <div className="mblock">
                                         <li> <h3> 설명 : </h3>
                                             <li> 제너릭 클래스의 타입변수와 메소드의 타입변수는 다른 타입변수임  </li>
                                             <li> 타입변수의 ?(와일드카드) 는 모든 타입 사용 가능 </li>
@@ -318,13 +315,13 @@ const JavaBasic = (props) => {
                                         <li>   </li>
                                         <li>   </li>
                                         <li>   </li>
-                                    </span>
+                                    </div>
 
-                                    <span className="sstitle"> </span>
+                                    <div className="sstitle"> </div>
                                     <li>  </li>
-                                </span>
-                                <span className="sblock">
-                                    <span className="sstitle"> 제너릭 타입변수(임의의 참조형 타입) 종류 </span>
+                                </div>
+                                <div className="sblock">
+                                    <div className="sstitle"> 제너릭 타입변수(임의의 참조형 타입) 종류 </div>
 
                                     <li> E : 요소(Element, 자바 컬렉션)  </li>
                                     <li> K : 키  </li>
@@ -332,33 +329,33 @@ const JavaBasic = (props) => {
                                     <li> T : 타입  </li>
                                     <li> V : 값  </li>
 
-                                </span>
-                                <span className="sblock">
-                                    <span className="sstitle"> 시큐리티에서 사용하는 제너릭 타입 종류 </span>
+                                </div>
+                                <div className="sblock">
+                                    <div className="sstitle"> 시큐리티에서 사용하는 제너릭 타입 종류 </div>
 
                                     <li> O : 빌드 하려는 개체의 유형?  </li>
                                     <li> B : SecurityBuilder의 타입  </li>
                                     <li>  </li>
 
-                                </span>
-                                <span className="sblock">
-                                    <span className="sstitle"> Generic WildCard </span>
+                                </div>
+                                <div className="sblock">
+                                    <div className="sstitle"> Generic WildCard </div>
                                     <li> {'<?>'} : 모든 타입의 인자를 받을 수 있음  </li>
                                     <li> {'<? extends 부모클래스>'} : 부모 클래스의 자식 클래스를 인자로 받음,
                                         하지만 부모클래스의 정의된 기능만 사용가능하다?  </li>
                                     <li> {'<? super 자식클래스>'} : 자식클래스의 부모클래스를 인자로 받음  </li>
-                                </span>
-                                <span className="sblock">
-                                    <span className="sstitle"> Generic example </span>
+                                </div>
+                                <div className="sblock">
+                                    <div className="sstitle"> Generic example </div>
                                     <li> ArrayList{'<T>'} array = new ArrayList{'<>'}(); </li>
                                     <li> 클래스{'<T extends 부모클래스>'} </li>
-                                </span>
+                                </div>
                             </details>
-                        </span>
+                        </div>
                         {/*  */}
-                        <span className="mblock">
-                            <details> <summary className="stitle"> <a name="람다식"> ▶ 람다식 </a> </summary>
-                                <span className="sblock">
+                        <div className="mblock">
+                            <details> <summary className="stitle"> <a name="람다식">  람다식 </a> </summary>
+                                <div className="sblock">
                                     <li> <h3> 설명 : </h3>
                                         <li> 기존 메소드 표현을 간단하게 표현한 방식 </li>
                                         <li>   </li>
@@ -366,7 +363,7 @@ const JavaBasic = (props) => {
                                     </li>
                                     {/*  */}
                                     <li> <h3>  메소드 예시 1</h3>
-                                        <span className="mblock">
+                                        <div className="mblock">
                                             <li> <h4> 기존 메소드 방식 </h4>
                                                 <li> {'for(int i=0; i<10; i++) { '}
                                                     <li> System.out.println(i); </li>
@@ -379,11 +376,11 @@ const JavaBasic = (props) => {
                                                 </li>
                                                 <li> ); </li>
                                             </li>
-                                        </span>
+                                        </div>
                                     </li>
                                     {/*  */}
                                     <li> <h3> 메소드  예시 2</h3>
-                                        <span className="mblock">
+                                        <div className="mblock">
                                             <li> <h4> 기존 메소드 방식 </h4>
                                                 <li> int add(int x,int y) {'{'}
                                                     <li> return x+y; </li>
@@ -393,44 +390,44 @@ const JavaBasic = (props) => {
                                             <li> <h4> 람다 메소드 방식 </h4>
                                                 <li> {'(x,y)-> x < y ? x : y; '} </li>
                                             </li>
-                                        </span>
+                                        </div>
                                     </li>
                                     {/*  */}
                                     <li> <h3> 1회용 클래스 예시 </h3>
-                                        <span className="mblock">
+                                        <div className="mblock">
                                             <li> <h4> 람다 클래스 방식 </h4>
                                                 <li> {'new 클래스명(()-> {'}
                                                     <li> System.out.println(""); </li>
                                                 </li>
                                                 <li> {'}'} </li>
                                             </li>
-                                        </span>
+                                        </div>
                                     </li>
                                     {/*  */}
                                     <li>  </li>
-                                </span>
+                                </div>
                             </details>
-                        </span>
+                        </div>
                         {/*  */}
-                        <span className="mblock">
-                            <details> <summary className="stitle"> <a name=""> ▶ </a> </summary>
-                                <span className="sblock">
+                        <div className="mblock">
+                            <details> <summary className="stitle"> <a name="">  </a> </summary>
+                                <div className="sblock">
                                     <small>  </small>
                                     <li> </li>
-                                </span>
+                                </div>
                             </details>
-                        </span>
+                        </div>
                         {/*  */}
-                        <span className="mblock">
-                            <details> <summary className="stitle"> <a name=""> ▶  </a> </summary>
-                                <span className="sblock">
+                        <div className="mblock">
+                            <details> <summary className="stitle"> <a name="">   </a> </summary>
+                                <div className="sblock">
                                     <small>  </small>
                                     <li> </li>
-                                </span>
+                                </div>
                             </details>
-                        </span>
+                        </div>
                         {/*  */}
-                    </span>
+                    </div>
                 </ul>
             </div>
         </>

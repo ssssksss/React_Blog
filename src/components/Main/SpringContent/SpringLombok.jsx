@@ -498,6 +498,40 @@ const SpringLombok = (props) => {
                         </details>
                     </div>
 
+
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> @PostMapping @GetMapping @RequestMapping @PathVariable
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> 예시 </div>
+                                <div className='mblock'>
+                                    <div className="sstitle"> @PostMapping </div>
+                                    <li> Post방식으로 요청을 받을 때 맵핑을 처리함 </li>
+                                    <li>  </li>
+                                    <div className="sstitle"> @GetMapping </div>
+                                    <li> Get방식으로 요청을 받을 때 맵핑을 처리함 </li>
+                                    <li> public String board(Model model) {'{'}
+                                        <li> board = boardRepository.findById(id).orElse(null);  </li>
+                                        <li> model.addAttribute("board", board);  </li>
+                                        <li> return "boardForm";  </li>
+                                    </li>
+                                    <li> {'}'} </li>
+                                    <div className="sstitle"> @RequestMapping </div>
+                                    <li> 어떤 Controller에 어떤 메소드를 처리할지 맵핑하는 용도 </li>
+                                    <li> Controller 상단에 선언 </li>
+                                    <li> @RequestMapping("/경로명") </li>
+                                    <li>  </li>
+                                    <div className='sstitle'> @PathVariable </div>
+                                    <li>  </li>
+                                    <li> @어떤Mapiing("/aaa/{'{abc}'}") </li>
+                                    <li> (@PathVariable(name="abc") 타입 변수명) </li>
+                                    <li>  </li>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+
                     <div className='mblock'>
                         <details>
                             <summary className='stitle'> @Configuration @Service @Repository @Controller @RestController @Entity @Component
@@ -533,38 +567,6 @@ const SpringLombok = (props) => {
                         </details>
                     </div>
 
-                    <div className='mblock'>
-                        <details>
-                            <summary className='stitle'> @PostMapping @GetMapping @RequestMapping
-                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
-                            <div className='sblock'>
-                                <div className='sstitle'> 설명 </div>
-                                <div className='mblock'>
-                                    <li>  </li>
-                                    <li>  </li>
-                                </div>
-                                <div className='sstitle'> 예시 </div>
-                                <div className='mblock'>
-                                    <div className="sstitle"> @PostMapping </div>
-                                    <li> Post방식으로 요청을 받을 때 맵핑을 처리함 </li>
-                                    <li>  </li>
-                                    <div className="sstitle"> @GetMapping </div>
-                                    <li> Get방식으로 요청을 받을 때 맵핑을 처리함 </li>
-                                    <li> public String board(Model model) {'{'}
-                                        <li> board = boardRepository.findById(id).orElse(null);  </li>
-                                        <li> model.addAttribute("board", board);  </li>
-                                        <li> return "boardForm";  </li>
-                                    </li>
-                                    <li> {'}'} </li>
-                                    <div className="sstitle"> @RequestMapping </div>
-                                    <li> 어떤 Controller에 어떤 메소드를 처리할지 맵핑하는 용도 </li>
-                                    <li> Controller 상단에 선언 </li>
-                                    <li> @RequestMapping("/경로명") </li>
-                                    <li>  </li>
-                                </div>
-                            </div>
-                        </details>
-                    </div>
 
                     <div className='mblock'>
                         <details>

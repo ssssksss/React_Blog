@@ -24,9 +24,11 @@ const DBOracleBasic = (props) => {
                                     <li> FROM - ON - JOIN - WHERE - GROUP BY , HAVING, SELECT, ORDER BY </li>
                                     <li>  </li>
                                 </div>
-                                <div className='sstitle'>  </div>
+                                <div className='sstitle'> 기타 지식 </div>
                                 <div className='mblock'>
-                                    <li>  </li>
+                                    <li> 오라클에는 boolean 값이 없다. </li>
+                                    <li> 외래키에는 식별과 비식별이라는 2가지의 외래키가 있는데 식별은 부모 필드의 조건(unique 등)을 가져오는 것이고
+                                        비식별은 부모필드의 조건은 가져오지 않고 값만 가져오는 것이다. </li>
                                     <li>  </li>
                                 </div>
                             </div>
@@ -163,7 +165,7 @@ const DBOracleBasic = (props) => {
                             <div className='sblock'>
                                 <div className='sstitle'> 종류 </div>
                                 <div className='mblock'>
-                                    <li> PRIMARY KEY # 중복허용x + NULL허용x </li>
+                                    <li> PRIMARY KEY  <small> # 중복허용x + NULL허용x </small>  </li>
                                     <li> FOREGIN KEY # 왜래키 </li>
                                     <li> NOT NULL # NULL허용x </li>
                                     <li> DEFAULT 초기값 # 초기값을 설정
@@ -174,9 +176,10 @@ const DBOracleBasic = (props) => {
                                     <li> CHECK # 특정 조건에 맞는 데이터만 허용
                                         <li> CHECK ( age {'>'} 0) </li>
                                         <li> CHECK ( gender in ('M','F')) </li>
-                                        <li>  </li>
                                     </li>
                                     <li> INDEX # 인덱스를 지정할 때 사용 </li>
+                                    <li> ON DELETE CASCADE <small> 부모가 지워질때 같이 지워지게함, 외래키? 에 사용 </small> </li>
+                                    <li>  </li>
                                 </div>
                             </div>
                         </details>
@@ -312,6 +315,7 @@ const DBOracleBasic = (props) => {
                                     <li> DROP USER c##사용자명; # 사용자 삭제 </li>
                                     <li> DROP TABLE 테이블명; # 테이블에 레코드가 존재하면 지워지지 않음 </li>
                                     <li> DROP TABLE 테이블명 CASCADE CONSTRAINTS PURGE; # 테이블 강제 삭제, 레코드 유무 상관없음 </li>
+                                    <li> DROP TABLE 테이블명 CASCADE CONSTRAINTS; <small> # 테이블의 제약조건을 제거한다. , 외래키에 의해 참조된  </small> </li>
                                     <li>  </li>
                                 </div>
 
@@ -323,7 +327,15 @@ const DBOracleBasic = (props) => {
                                     <li> ALTER TABLE 테이블명 DROP(필드명1, 필드명2); # 테이블 필드 삭제 </li>
                                     <li> ALTER TABLE 테이블명 RENAME TO 변경할테이블명; # 테이블의 이름 변경 </li>
                                     <li> ALTER TABLE 테이블명 add 제약조건(필드명); </li>
-                                    <li> ALTER TABLE 테이블명 add constraint 제약조건명 제약조건(필드명); </li>
+                                    <li> ALTER TABLE 테이블명 add constraint 제약조건명 제약조건(필드명); <small> # 제약조건명을 사용하는 것이 추후에 좋다고 생각한다. </small>
+                                        <div className="sblock">
+                                            <li> ALTER TABLE 테이블명 ADD CONSTRAINT 제약조건명_PK PRIMARY KEY(필드명); </li>
+                                            <li> ALTER TABLE 테이블명 ADD CONSTRAINT 제약조건명 FOREIGN(외래키로사용할필드명) REFERENCES PARENT (부모테이블의기본필드명) ON DELETE CASCADE;  </li>
+                                            <li> ALTER TABLE 테이블명 ADD CONSTRAINT 제약조건명 UNIQUE(필드명); </li>
+                                            <li> ALTER TABLE 테이블명 ADD CONSTRAINT 제약조건명 CHECK(필드명 BETWEEN 값 AND 값) </li>
+                                            <li>  </li>
+                                        </div>
+                                    </li>
                                     <li> ALTER TABLE 테이블명 modify 필드명 not null; # not null만 제약조건 추가방법이 다름 </li>
                                     <li> ALTER TABLE 테이블명 drop 제약조건 # 제약조건 삭제 </li>
                                     <li> ALTER TABLE 테이블명 drop constraint 제약조건명 # not null은 이렇게만 삭제가능 </li>

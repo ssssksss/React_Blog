@@ -7,7 +7,6 @@ const SpringJpa = (props) => {
 
             <div className="common_style">
                 <span className="lblock">
-
                     <div className='mblock'>
                         <details>
                             <summary className='stitle'> JPA 설명
@@ -190,90 +189,86 @@ const SpringJpa = (props) => {
                                 <div className='mblock'>
                                     <li> Entity명은 DB에서 테이블을 지칭, Fieldname DB에서 필드명을 지칭, 필드명의 첫 시작은 대문자이고
                                         _로 구분되면 대문자로 시작하는것으로 기억  </li> <br />
-                                    <div className='title4'> Entity명 findByFieldname(String fieldname) (대표예시) </div>
-                                    <div className='sblock'>
-                                        <li> select m from 테이블(Entity) m where m.fieldname = ?1 </li>
+                                    <div> Entity명 findByFieldname(String fieldname) (대표예시)
+                                        <li> <small> select m from 테이블(Entity) m where m.fieldname = ?1 </small> </li>
                                     </div>
-                                    <div className='title4'> {' List<Entity> findAll() '}</div>
-                                    <div className='sblock'>
-                                        <li> select m from 테이블 m; </li>
+
+                                    <div> {' List<Entity> findAll() '}
+                                        <li> <small> select m from 테이블 m; </small> </li>
                                     </div>
-                                    <div className='title4'> findByFieldname1AndFieldname2(String fieldname1, String fieldname2) </div>
-                                    <div className='sblock'>
-                                        <li> select m from 테이블 m where m.fieldname1 = ?1 and m.fieldname2 = ?2; </li>
+
+                                    <div> findByFieldname1AndFieldname2(String fieldname1, String fieldname2)
+                                        <li> <small> select m from 테이블 m where m.fieldname1 = ?1 and m.fieldname2 = ?2; </small> </li>
                                     </div>
-                                    <div className='title4'> findByFieldname1OrFieldname2(String fieldname1, String fieldname2) </div>
-                                    <div className='sblock'>
-                                        <li> select m from 테이블 m where m.fieldname1 = ?1 or m.fieldname2 = ?2; </li>
+
+                                    <div> findByFieldname1OrFieldname2(String fieldname1, String fieldname2)
+                                        <li> <small> select m from 테이블 m where m.fieldname1 = ?1 or m.fieldname2 = ?2; </small> </li>
                                     </div>
-                                    <div className='title4'> findDistinctByFieldname1 </div>
-                                    <div className='sblock'>
-                                        <li> select m distinct from 테이블 m where m.fieldname1 = ?1; </li>
+
+                                    <div> findDistinctByFieldname1
+                                        <li> <small> select m distinct from 테이블 m where m.fieldname1 = ?1; </small> </li>
                                     </div>
-                                    <div className='title4'> findByFieldnameIs(String name) </div>
-                                    <div className='sblock'>
-                                        <li> select m from 테이블 m where m.fieldname1 = ?1; </li>
+
+                                    <div> findByFieldnameIs(String name)
+                                        <li> <small> select m from 테이블 m where m.fieldname1 = ?1; </small> </li>
                                     </div>
-                                    <div className='title4'> findByFieldnameEquals(String name) </div>
-                                    <div className='sblock'>
-                                        <li> select m from 테이블 m where m.fieldname1 = ?1; </li>
+
+                                    <div> findByFieldnameEquals(String name)
+                                        <li> <small> select m from 테이블 m where m.fieldname1 = ?1; </small> </li>
                                     </div>
-                                    <div className='title4'> findByFieldnameBetween(num start, num end) </div>
-                                    <div className='sblock'>
-                                        <li> select m from 테이블 m where m.fieldname between ?1 and ?2 </li>
+
+                                    <div> findByFieldnameBetween(num start, num end)
+                                        <li> <small> select m from 테이블 m where m.fieldname between ?1 and ?2 </small> </li>
                                     </div>
-                                    <div className='title4'> findByFieldnameGreaterThan(String num) </div>
-                                    <div className='sblock'>
-                                        <li> select m from 테이블 m where m.fieldname {'>'} ?1 </li>
+
+                                    <div> findByFieldnameGreaterThan(String num)
+                                        <li> <small> select m from 테이블 m where m.fieldname {'>'} ?1 </small> </li>
                                     </div>
-                                    <div className='title4'> findByFieldnameGreaterThanEqual(String num) </div>
-                                    <div className='sblock'>
-                                        <li> select m from 테이블 m where m.fieldname {'>='} ?1 </li>
+
+                                    <div> findByFieldnameGreaterThanEqual(String num)
+                                        <li> <small> select m from 테이블 m where m.fieldname {'>='} ?1 </small> </li>
                                     </div>
-                                    <div className='title4'> findByFieldnameLessThan(String num) </div>
-                                    <div className='sblock'>
-                                        <li> select m from 테이블 m where m.fieldname {'<'} ?1</li>
+
+                                    <div> findByFieldnameLessThan(String num)
+                                        <li> <small> select m from 테이블 m where m.fieldname {'<'} ?1</small> </li>
                                     </div>
-                                    <div className='title4'> findByFieldnameLessThanEqual(String num) </div>
-                                    <div className='sblock'>
-                                        <li> select m from 테이블 m where m.fieldname {'<='} ?1 </li>
+
+                                    <div> findByFieldnameLessThanEqual(String num)
+                                        <li> <small> select m from 테이블 m where m.fieldname {'<='} ?1 </small> </li>
                                     </div>
-                                    <div className='title4'> findByFieldNameNotLike(String word); </div>
-                                    <div className='sblock'>
-                                        <li> select m from 테이블 m where m.fieldname not like '?1'  </li>
+
+                                    <div> findByFieldNameNotLike(String word);
+                                        <li> <small> select m from 테이블 m where m.fieldname not like '?1'  </small> </li>
                                     </div>
-                                    <div className='title4'> findByFieldNameLike(String word); </div>
-                                    <div className='sblock'>
-                                        <li> select m from 테이블 m where m.fieldname like '?1'  </li>
+
+                                    <div> findByFieldNameLike(String word);
+                                        <li> <small> select m from 테이블 m where m.fieldname like '?1'  </small> </li>
                                     </div>
-                                    <div className='title4'> findByFieldNameStartingWith(String word); </div>
-                                    <div className='sblock'>
-                                        <li> select m from 테이블 m where m.fieldname like '%?1' </li>
+
+                                    <div> findByFieldNameStartingWith(String word);
+                                        <li> <small> select m from 테이블 m where m.fieldname like '%?1' </small> </li>
                                     </div>
-                                    <div className='title4'> findByFieldNameEndingWith(String word); </div>
-                                    <div className='sblock'>
-                                        <li> select m from 테이블 m where m.fieldname like '?1%' </li>
+
+                                    <div> findByFieldNameEndingWith(String word);
+                                        <li> <small> select m from 테이블 m where m.fieldname like '?1%' </small> </li>
                                     </div>
-                                    <div className='title4'> findByFieldNameContaining(String word); </div>
-                                    <div className='sblock'>
-                                        <li> select m from 테이블 m where m.fieldname like '%?1%' </li>
+
+                                    <div> findByFieldNameContaining(String word);
+                                        <li> <small> select m from 테이블 m where m.fieldname like '%?1%' </small> </li>
                                     </div>
-                                    <div className='title4'> findByFieldname1ByFieldname2Desc(String fieldname1) </div>
-                                    <div className='sblock'>
-                                        <li> select m from 테이블 m where m.fieldname1 = ?1 order by m.fieldname2 desc </li>
+
+                                    <div> findByFieldname1ByFieldname2Desc(String fieldname1)
+                                        <li> <small> select m from 테이블 m where m.fieldname1 = ?1 order by m.fieldname2 desc </small> </li>
                                     </div>
-                                    <div className='title4'> findByFieldname1ByFieldname2Asc(String fieldname1) </div>
-                                    <div className='sblock'>
-                                        <li> select m from 테이블 m where m.fieldname1 = ?1 order by m.fieldname2 asc </li>
+
+                                    <div> findByFieldname1ByFieldname2Asc(String fieldname1)
+                                        <li> <small> select m from 테이블 m where m.fieldname1 = ?1 order by m.fieldname2 asc </small> </li>
                                     </div>
-                                    <div className='title4'> deleteById(String fieldname) </div>
-                                    <div className='sblock'>
-                                        <li> delete from 테이블 where Id필드 = ?1  </li>
+
+                                    <div> deleteById(String fieldname)
+                                        <li> <small> delete from 테이블 where Id필드 = ?1  </small> </li>
                                     </div>
-                                    <div className='title4'>  </div>
-                                    <div className='sblock'>
-                                        <li>  </li>
-                                    </div>
+
                                     <a href="https://goodgid.github.io/Spring-Data-JPA-Query_Part_1/"
                                         target="_blank" rel="noopener noreferrer"> 좀 더 참고해서 공부하기 </a>
                                 </div>
@@ -327,9 +322,9 @@ const SpringJpa = (props) => {
                                         </li>
                                         <li> {'})'} </li>
                                         <li> @JoinTable(
-                                            <li> name="client_role", <small> 매핑 테이블의 컬럼명 </small> </li>
-                                            <li> joinColumns = @JoinColumn(name = "client_id"), </li>
-                                            <li> inverseJoinColumns = @JoinColumn(name = "role_id")) </li>
+                                            <li> name="client_role", <small> 매핑 테이블의 테이블명 </small> </li>
+                                            <li> joinColumns = @JoinColumn(name = "client_id"), <small> Client 엔티티의 id를 외래키로 하고 client_id 라는 컬럼명을 생성 </small> </li>
+                                            <li> inverseJoinColumns = @JoinColumn(name = "role_id")) <small> role의 id를 외래키로 하고 role_id 라는 컬럼명을 생성 </small> </li>
                                         </li>
                                         <li> private Set{'<Role>'} roles = new HashSet{'<Role>'}(); </li>
                                     </li>
@@ -345,10 +340,56 @@ const SpringJpa = (props) => {
                                         <li> private Long id; </li>
                                         <li> private String name="ROLE_USER"; </li>
                                         <li>  </li> <br />
-                                        <li> @ManyToMany(mappedBy="roles") </li>
+                                        <li> @ManyToMany(mappedBy="roles") <small> Client 엔티티의 roles를 참조하여 role_id 컬럼명에 Role 엔티티의 id를  매핑 </small> </li>
                                         <li> private Set{'<Client>'} clients = new HashSet{'<Client>'}(); </li>
                                     </li>
                                     <li>  </li>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> @OneToMany @ManyToOne
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> 속성 </div>
+                                <div className='mblock'>
+                                    <li> targetEntity <small> 매핑할 Entity 정의 </small> </li>
+                                    <li> @OneToMany(cascade=CascadeType.[ALL,PERSIST,MERGE,REMOVE,REFRESH,DETACH] <small>  </small> </li>
+                                    <li> @OneToMany(fetch=[FetchType.EAGER,FetchType.LAZY])  <small> EAGER,LAZY 방식 , 데이터를 호출할때 가져올지 미리 가져올지 선택 </small> </li>
+                                    <li> mappedBy <small> 양방향 관계 주체의 필드명 </small> </li>
+                                    <li> orphanRemoval <small> 관계 Entity에서 변경이 일어나면 DB변경을 같이 할지 설정, [JPA Layer,DB Layer]에서 처리할지 선택 </small> </li>
+                                </div>
+                                <div className='sstitle'> Board </div>
+                                <div className='mblock'>
+                                    <li> @Table(name="board") </li>
+                                    <li> public class Board {'{'}
+                                        <li>     @Id </li>
+                                        <li>     @GeneratedValue(strategy = GenerationType.AUTO) </li>
+                                        <li>     @Column(name="id") </li>
+                                        <li>     private Long id; </li>
+                                        <li>  </li> <br />
+                                        <li> @ManyToOne </li>
+                                        <li> @JoinColumn(name="client_id") <small> # 참조할테이블명_컬럼명 </small> </li>
+                                        <li> private Client client; </li>
+                                    </li>
+                                    <li> {'}'} </li>
+                                </div>
+                                <div className='sstitle'> Client </div>
+                                <div className='mblock'>
+                                    <li> @Table(name="client") </li>
+                                    <li> public class Client {'{'}
+                                        <li>     @Id </li>
+                                        <li>     @GeneratedValue(strategy = GenerationType.AUTO) </li>
+                                        <li>     private Long id; </li>
+                                        <li>  </li> <br />
+                                        <li>   @OneToMany(mappedBy="client") <small> # 참조할 테이블의 컬럼명 </small> </li>
+                                        <li> {'private Set<Board> boards = new HashSet<Board>();'} </li>
+                                        <li>  </li>
+                                    </li>
+                                    <li> {'}'} </li>
                                 </div>
                             </div>
                         </details>
