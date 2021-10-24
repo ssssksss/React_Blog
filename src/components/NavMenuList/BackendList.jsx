@@ -11,6 +11,7 @@ const BackendList = () => {
                 <Link to="/backend_solid"> Solid 5대 원칙 </Link>
                 <Link to="/backend_sctcache"> 세션 쿠키 토큰 캐시 </Link>
                 <Link to="/backend_browserdevtool"> 브라우저 개발자 도구 </Link>
+                <Link to="/backend_compiler_interpreter"> 컴파일러 와 인터프리터 </Link>
             </div>
             <div className="menu menu2">
             </div>

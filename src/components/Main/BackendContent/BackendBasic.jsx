@@ -263,6 +263,58 @@ const BackendBasic = (props) => {
                         </details>
                     </div>
 
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> 쓰레드, 싱글톤, 자원
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> 설명 </div>
+                                <div className='mblock'>
+                                    <li> eager initialization(이른 초기화) : 인스턴스를 미리 생성해서 고유한 인스턴스를 만드는 방법
+                                        <li> private static final 객체 INSTANCE = new 객체(); </li>
+                                        <li class="col_be"> 장점 : 싱글톤을 유지할 수 있다. </li>
+                                        <li class="col_r"> 단점 : 미리 인스턴스를 생성하였는데 사용을 하지 않게되면 손해, 자원이 커서 리소스 비용이
+                                            크다면 더 손해 </li>
+                                    </li> <br />
+                                    <li> synchronized(동기화) : 동기화 처리를 하여서 처리를 하는 방법
+                                        <li class="col_be"> 장점 : 싱글톤을 유지를 할 수 있음 </li>
+                                        <li class="col_r"> 단점 : 동기화 처리를 함으로 처리속도에 문제 </li>
+                                    </li> <br />
+                                    <li> double checked locking : 인스턴스가 없는 경우에 우연히 겹쳐서 들어오면 synchronized로 처리를 해서 방지를 해주고
+                                        인스턴스가 이미 있다면 새로 만들지 않게하는 방법
+                                        <li class="col_be">  </li>
+                                        <li class="col_r">  </li>
+                                    </li> <br />
+                                    <li> static inner :
+                                        <li>  </li>
+                                        <li class="col_be">  </li>
+                                        <li class="col_r">  </li>
+                                        <div className="sblock">
+                                            <li> public class 클래스  {'{'}
+
+                                                <li> private 클래스() {'{}'}</li> <br />
+                                                <li> private static class 내부클래스명 {'{'}
+                                                    <li> private static final 킄래스 INSTANCE = new 클래스(); </li>
+                                                </li>
+                                                <li> {'}'} </li> <br />
+                                                <li> public static 클래스 메소드명() {'{'}
+                                                    <li> return 내부클래스명.INSTANCE; </li>
+                                                </li>
+                                                <li> {'}'} </li>
+                                            </li>
+                                            <li> {'}'} </li>
+                                        </div>
+                                    </li>
+                                </div>
+                                <div className='sstitle'> 예시 </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                    <li>  </li>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+
                 </span>
 
             </div>

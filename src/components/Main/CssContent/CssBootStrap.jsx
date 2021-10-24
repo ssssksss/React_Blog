@@ -28,7 +28,7 @@ const CssBootStrap = (props) => {
 
                     <div className='mblock'>
                         <details>
-                            <summary className='stitle'> 버튼
+                            <summary className='stitle'> button
                                 <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
                             <div className='sblock'>
                                 <div className='sstitle'> 버튼 </div>
@@ -145,20 +145,55 @@ const CssBootStrap = (props) => {
 
                     <div className='mblock'>
                         <details>
-                            <summary className='stitle'> margin , padding
+                            <summary className='stitle'> Margin , Padding, Spacing
                                 <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
                             <div className='sblock'>
-                                <div className='sstitle'> margin padding </div>
+                                <div className='sstitle'> margin padding spacing </div>
                                 <div className='mblock'>
+                                    <li> <small> 중심으로 배치되는 것은 block 요소일 떄만 가능한것 같다 </small> </li>
                                     <li> @의 범위는 0~5 </li>
                                     <li> class="m-@" <small> # margin: @px </small> </li>
                                     <li> class="p-@" <small> # padding: @px </small> </li> <br />
-                                    <li> class="mt-@ mb-@ ml-@ mr-@" <small> # margin-[top,bottom,left,right]: @px </small> </li>
-                                    <li> class="pt-@ pb-@ pl-@ pr-@" <small> # padding-[top,bottom,left,right]: @px </small> </li> <br />
+                                    <li> class="mt-@ mb-@ ms-@ me-@" <small> # margin-[top,bottom,left,right]: @px </small> </li>
+                                    <li> class="pt-@ pb-@ ps-@ pe-@" <small> # padding-[top,bottom,left,right]: @px </small> </li> <br />
                                     <li> class="mx-auto mx-@" <small> #margin-[left and right]: @px  </small> </li>
                                     <li> class="px-auto px-@" <small> #padding-[left and right]: @px  </small> </li> <br />
                                     <li> class="my-auto my-@" <small> #margin-[top and bottom]: @px  </small> </li>
                                     <li> class="py-auto py-@" <small> #padding-[top and bottom]: @px  </small> </li> <br />
+                                    <li> <small> # </small> </li>
+                                    <li> <small> # </small> </li>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> width, height
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> width, height </div>
+                                <div className='mblock'>
+                                    <li> class="width: 25%" , class="w-25", class="w-auto", style="width: 100px" </li>
+                                    <li> class="height: 25%", class="h-25", class="h-auto", style="height: 100px"  </li>
+                                    <li> class="mw-100 mh-100 min-vw-100 min-vh-100 vw-100 vh-100" <small> # 너비 높이 최대 최소 길이 지정 </small> </li>
+                                    <li>  </li> <br />
+                                    <li>
+                                        <div class="w-25 p-1" style={{ backgroundColor: '#eee' }}>class="w-25 p-1"</div>
+                                        <div class="w-50 p-1" style={{ backgroundColor: '#eee' }}>class="w-50 p-1"</div>
+                                        <div class="w-75 p-1" style={{ backgroundColor: '#eee' }}>class="w-75 p-1"</div>
+                                        <div class="w-100 p-1" style={{ backgroundColor: '#eee' }}>class="w-100 p-1"</div>
+                                        <div class="w-auto p-1" style={{ backgroundColor: '#eee' }}>class="w-auto p-1"</div>
+                                    </li> <br />
+                                    <li>
+                                        <div style={{ height: '300px' }}>
+                                            <div class="h-25 d-inline-block width: 100px" style={{ backgroundColor: '#eee' }}>class="h-25"</div>
+                                            <div class="h-50 d-inline-block width: 100px" style={{ backgroundColor: '#eee' }}>class="h-50"</div>
+                                            <div class="h-75 d-inline-block width: 100px" style={{ backgroundColor: '#eee' }}>class="h-75"</div>
+                                            <div class="h-100 d-inline-block width: 100px" style={{ backgroundColor: '#eee' }}>class="h-100"</div>
+                                            <div class="h-auto d-inline-block width: 100px" style={{ backgroundColor: '#eee' }}>class="auto"</div>
+                                        </div>
+                                    </li>
                                 </div>
                             </div>
                         </details>
@@ -174,6 +209,27 @@ const CssBootStrap = (props) => {
                                     <li> class="row" <small> # 행으로 분할(세로배치) </small> </li>
                                     <li> class="col" <small> # 열로 분할(가로배치) </small> </li>
                                     <li>  </li> <br />
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> display
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> 설명 </div>
+                                <div className='mblock'>
+                                    <li> class="d-inline-block" </li>
+                                    <li> class="d-block" </li>
+                                    <li> class="d-inline" </li>
+                                    <li>  </li>
+                                </div>
+                                <div className='sstitle'> 예시 </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                    <li>  </li>
                                 </div>
                             </div>
                         </details>
@@ -334,6 +390,20 @@ const CssBootStrap = (props) => {
 
                     <div className='mblock'>
                         <details>
+                            <summary className='stitle'> Spacing
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> 설명 </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                    <li>  </li>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div className='mblock'>
+                        <details>
                             <summary className='stitle'> position
                                 <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
                             <div className='sblock'>
@@ -364,6 +434,19 @@ const CssBootStrap = (props) => {
                                     </div>
                                 </div>
                                 <div className="mblock">
+                                    <li> {' <button type="button" class="btn btn-primary position-relative mx-5"> '}
+                                        <li> {'     Mails <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">+99 <span class="visually-hidden">unread messages</span></span> '} </li>
+                                    </li>
+                                    <li> {' </button> '} </li> <br />
+                                    <li> {' <button type="button" class="btn btn-dark position-relative  mx-5"> '}
+                                        <li> {'     Marker <svg width="1em" height="1em" viewBox="0 0 16 16" class="position-absolute top-100 start-50 translate-middle mt-1 bi bi-caret-down-fill" fill="#212529" xmlns="http://www.w3.org/2000/svg"><path d="M7.247 11.14L2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z" /></svg> '} </li>
+                                    </li>
+                                    <li> {' </button> '} </li> <br />
+                                    <li> {' <button type="button" class="btn btn-primary position-relative mx-5"> '}
+                                        <li> {'     Alerts <span class="position-absolute top-0 start-100 translate-middle badge border border-light rounded-circle bg-danger p-2"><span class="visually-hidden">unread messages</span></span> '} </li>
+                                    </li>
+                                    <li> {' </button> '} </li> <br />
+                                    <li>  </li> <br />
                                     <button type="button" class="btn btn-primary position-relative mx-5">
                                         Mails <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-secondary">+99 <span class="visually-hidden">unread messages</span></span>
                                     </button>
@@ -378,6 +461,70 @@ const CssBootStrap = (props) => {
                                 </div>
                             </div>
 
+                        </details>
+                    </div>
+
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> progress , 막대 진행바
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> 설명 </div>
+                                <div className='mblock'>
+                                    <li> 1. {' class="progress-bar" role="progressbar" style={{ width: "25%" }} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" '} </li>
+                                    <li> 2.  class="progress-bar w-25" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" </li>
+                                    <li> 3. {' class="progress" style={{ height: "30px" }} '} <small> # 막대 진행바의 높이는 이와 같이 사용하면 된다. </small>  </li> <br />
+                                    <li> 4. <small> # 막대바에 색깔 넣는 방법 </small>
+                                        <li> {' <div class="progress-bar w-25 bg-primary" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div> '} </li>
+                                        <li> {' <div class="progress-bar w-25 bg-secondary" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div> '} </li>
+                                        <li> {' <div class="progress-bar w-25 bg-danger" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div> '} </li>
+                                    </li>
+                                    <li>  </li> <br />
+                                    <li> 5. class="progress-bar progress-bar-striped w-25 bg-danger" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" </li>
+                                    <li> 6. class="progress-bar progress-bar-striped progress-bar-animated w-75" </li>
+                                    <li>  </li> <br />
+                                    <li>
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div> <br />
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" style={{ width: "25%" }} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">1 2</div>
+                                        </div> <br />
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" style={{ width: "50%" }} aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">1 2</div>
+                                        </div> <br />
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" style={{ width: "75%" }} aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">1 2</div>
+                                        </div> <br />
+                                        <div class="progress">
+                                            <div class="progress-bar" role="progressbar" style={{ width: "100%" }} aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">1 2</div>
+                                        </div> <br />
+                                        <div class="progress">
+                                            <div class="progress-bar w-25" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">1 2</div>
+                                        </div> <br />
+                                        <div class="progress" style={{ height: "30px" }}>
+                                            <div class="progress-bar" role="progressbar" style={{ width: "25%" }} aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">3</div>
+                                        </div> <br />
+                                        <div class="progress">
+                                            <div class="progress-bar w-25 bg-primary" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">4</div>
+                                            <div class="progress-bar w-25 bg-secondary" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">4</div>
+                                            <div class="progress-bar w-25 bg-danger" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">4</div>
+                                        </div> <br />
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-striped w-25 bg-danger" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">5</div>
+                                        </div> <br />
+                                        <div class="progress">
+                                            <div class="progress-bar progress-bar-striped progress-bar-animated w-75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"> 6 </div>
+                                        </div> <br />
+                                    </li>
+                                    <li>  </li>
+                                </div>
+                                <div className='sstitle'> 예시 </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                    <li>  </li>
+                                </div>
+                            </div>
                         </details>
                     </div>
 

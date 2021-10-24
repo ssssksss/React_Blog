@@ -16,7 +16,7 @@ const KeyMapVscode = (props) => {
                   <span className="sstitle">  </span>
                   <li> Ctrl + , : 설정창 이동 </li>
                   <li> Alt + Shift + F : 포맷팅 단축키 </li>
-                  <li>  </li>
+                  <li> Ctrl + k + f : 자동정렬 </li>
                   <li>  </li>
                   <li>  </li>
                   <li>  </li>

@@ -357,10 +357,20 @@ const SpringJpa = (props) => {
                                 <div className='sstitle'> 속성 </div>
                                 <div className='mblock'>
                                     <li> targetEntity <small> 매핑할 Entity 정의 </small> </li>
-                                    <li> @OneToMany(cascade=CascadeType.[ALL,PERSIST,MERGE,REMOVE,REFRESH,DETACH] <small>  </small> </li>
+                                    <li> @OneToMany(cascade=CascadeType.[ALL,PERSIST,MERGE,REMOVE,REFRESH,DETACH] <small>  </small>
+                                        <li> <small> 엔티티에 Cascade는 여러개를 적용가능하다. </small> </li>
+                                        <li> CascadeType.PERSIST : 엔티티를 저장하면, 필드에 있는 엔티티도 저장  <small> # 좀더 알아볼것 </small> </li>
+                                        <li> CascadeType.MERGE : 엔티티를 합칠 떄, 필드에 있는 엔티티도 합친다 <small> # </small> </li>
+                                        <li> CascadeType.REFRESH : 엔티티를 수정할 떄, 필드에 있는 엔티티도 수정 <small> # </small> </li>
+                                        <li> CascadeType.REMOVE : 엔티티를 삭제할 떄, 필드에 있는 엔티티도 삭제한다.  <small> # </small> </li>
+                                        <li> CascadeType.DETACH : 엔티티를 detach할떄 , 필드에 있는 엔티티도 detach를 한다. <small> # 영속성 컨텍스트에서 엔티티를 제거(엔티티 삭제가 아님) </small> </li>
+                                        <li> CascadeType.ALL : 위에 있는 내용을 모두 적용 <small> # </small> </li> <br />
+                                    </li>
                                     <li> @OneToMany(fetch=[FetchType.EAGER,FetchType.LAZY])  <small> EAGER,LAZY 방식 , 데이터를 호출할때 가져올지 미리 가져올지 선택 </small> </li>
                                     <li> mappedBy <small> 양방향 관계 주체의 필드명 </small> </li>
                                     <li> orphanRemoval <small> 관계 Entity에서 변경이 일어나면 DB변경을 같이 할지 설정, [JPA Layer,DB Layer]에서 처리할지 선택 </small> </li>
+                                    <li> 1:N 테이블에서 자식 엔티티의 변경이 생기면 변경된것을 삽입하고 기존에 있는것을 null로 만들고 orphanRemoval=true로 놓으면 null로된 고아객체
+                                        를 삭제 해준다. <small> #  1번유저의 board에 2개의 데이터가 있는데 orphanRemoval=true로 놓고 2개의 데이터를 clear해주면 삭제가 된다. </small> </li>
                                 </div>
                                 <div className='sstitle'> Board </div>
                                 <div className='mblock'>
@@ -390,6 +400,57 @@ const SpringJpa = (props) => {
                                         <li>  </li>
                                     </li>
                                     <li> {'}'} </li>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> JPQL
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> 설명 </div>
+                                <div className='mblock'>
+                                    <li> 테이블명이 아닌 엔티티명을 사용한다. </li>
+                                    <li> 엔티티와 필드는 대소문자를 구분 </li>
+                                    <li> JPQL 키워드는 대소문자를 구분하지 않음 </li>
+                                    <li> 별칭을 사용한다 </li>
+                                    <li> 파라미터 바인딩
+                                        <li> query.setParameter("키",값) <small> x.test=키 </small>  </li>
+                                        <li> query.setParameter(1,값) <small> x.test=?1 </small> </li>
+                                    </li>
+                                    <li>  </li>
+                                </div>
+                                <div className='sstitle'> 예시 </div>
+                                <div className='mblock'>
+                                    <li> 1. 어노테이션 방식(Repository JPA 쿼리 메소드 위에)
+                                        <li> @Query("select m from Member m") <small> # 사용자 쿼리 작성 </small> </li>
+                                    </li>
+                                    <li> 2. 순수 sql 쿼리(Repository 사용자 쿼리 메소드 위에)
+                                        <li> @Query(value="select * from Member m",nativeQuery = true) </li>
+                                    </li>
+                                    <li>  </li>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> QueryDSL
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> 설명 </div>
+                                <div className='mblock'>
+                                    <li> 추가적인 gradle 설정이 필요,  </li>
+                                    <li> @Entity 클래스를 탐색하고 JPAAnnotationProcessor를 이용해 Q클래스를 생성 </li>
+                                    <li>  </li>
+                                </div>
+                                <div className='sstitle'> 예시 </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                    <li>  </li>
                                 </div>
                             </div>
                         </details>

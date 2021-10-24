@@ -103,18 +103,20 @@ const SettingFile = (props) => {
                                             <li> database-platform: org.hibernate.dialect.Oracle10gDialect <small> Oracle Dialect 설정 </small> </li>
                                             <li> show-sql: true  <small> # 콘솔에 JPA 실행 쿼리를 보여줌 </small>  </li>
                                             <li> generate-ddl: true <small># hibernate에서 @Entity가 붙은 클래스를 자동으로 ddl을 실행해서 table설정들을 자동으로 수행</small> </li>
-                                            <li> hibernate: <small> # JPA프레임워크 hibernate 설정 </small>
-                                                <li> format_sql: true <small># JPA실행쿼리를 가독성 있게 표현</small> </li>
-                                                <li> show_sql: true <small>  </small> </li>
-                                                <li> ddl-auto: none <small># 아무것도 하지 않는다</small>. </li>
-                                                <li> ddl-auto: create <small># 세션 팩토리가 시작될 때마다 테이블을 drop하고 ddl을 실행한다. , 배포서버에서 사용x, 로컬용도</small> </li>
-                                                <li> ddl-auto: create-drop <small># 세션 팩토리가 시작될 때마다 테이블을 drop하고 ddl을 실행한다. 그리고
-                                                    세션 팩토리가 종료될떄 테이블을 drop한다.</small> </li>
-                                                <li> ddl-auto: update <small># 변경 스키마을 저장한다. , 운영DB에서도 사용x , 개발 초기 테스트 단계 사용</small>  </li>
-                                                <li> ddl-auto: validate <small># 변경된 스키마를 출력하고 프로그램 종료</small> </li>
-                                                <li> use_sql_comments=true <small> # 디버깅 정보 출력 </small> </li>
-                                                <li> naming.physical-strategy=org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl <small> db의 속성 이름이 camel-case일 경우 설정이 필요, default는 snake-case </small> </li>
-                                            </li>  <br />
+                                            <li> properties:
+                                                <li> hibernate: <small> # JPA프레임워크 hibernate 설정 </small>
+                                                    <li> format_sql: true <small># JPA실행쿼리를 가독성 있게 표현</small> </li>
+                                                    <li> show_sql: true <small>  </small> </li>
+                                                    <li> ddl-auto: none <small># 아무것도 하지 않는다</small>. </li>
+                                                    <li> ddl-auto: create <small># 세션 팩토리가 시작될 때마다 테이블을 drop하고 ddl을 실행한다. , 배포서버에서 사용x, 로컬용도</small> </li>
+                                                    <li> ddl-auto: create-drop <small># 세션 팩토리가 시작될 때마다 테이블을 drop하고 ddl을 실행한다. 그리고
+                                                        세션 팩토리가 종료될떄 테이블을 drop한다.</small> </li>
+                                                    <li> ddl-auto: update <small># 변경 스키마을 저장한다. , 운영DB에서도 사용x , 개발 초기 테스트 단계 사용</small>  </li>
+                                                    <li> ddl-auto: validate <small># 변경된 스키마를 출력하고 프로그램 종료</small> </li>
+                                                    <li> use_sql_comments=true <small> # 주석 출력 </small> </li>
+                                                    <li> naming.physical-strategy=org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl <small> db의 속성 이름이 camel-case일 경우 설정이 필요, default는 snake-case </small> </li>
+                                                </li>  <br />
+                                            </li>
                                             <li> properties: <small> 확인 필요 </small>
                                                 <li> hibernate:
                                                     <li> jdbc:
@@ -153,7 +155,21 @@ const SettingFile = (props) => {
                                     <li> logging.pattern.console= <small> # 어떤 로그메시도 출력하지 않음, 개발이 끝난뒤에 서버 운영할때 설정 </small> </li>
                                     <li> loggin.pattern.console <small> # 콘솔 로깅에 붙일 패턴 </small> </li>
                                     <li> loggin.pattern.file <small> # 파일 로깅에 붙일 패턴 </small> </li>
-                                    <li> loggin.pattern.level <small> # 로그 레벨에 붙일 패턴 </small> </li>
+                                    <li> loggin.pattern.level <small> # 로그 레벨에 붙일 패턴 </small> </li> <br />
+
+                                    <li> logging:
+                                        <li> level:
+                                            <li> org:
+                                                <li> hibernate:
+                                                    <li> type:
+                                                        <li> descriptor:
+                                                            <li> sql: trace <small> # 쿼리에서 ?에 어떤 값이 들어갔는지 알려준다. </small></li>
+                                                        </li>
+                                                    </li>
+                                                </li>
+                                            </li>
+                                        </li>
+                                    </li>
                                 </div>
                             </div>
                         </details>
