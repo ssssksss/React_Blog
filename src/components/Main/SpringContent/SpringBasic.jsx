@@ -89,55 +89,6 @@ const SpringBasic = (props) => {
 						</div>
 						{/*  */}
 
-						<div className='mblock'>
-							<details>
-								<summary className='stitle'> 영속성(Persistence)
-									<a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
-								<div className='sblock'>
-									<div className='sstitle'> 설명 </div>
-									<div className='mblock'>
-										<li> 영속성 컨텍스트는 Entity 저장소  </li>
-										<li> JPA 메소드로 DB를 요청하면 영속성 컨텍스트 내부의 캐시에서 찾고 없으면 데이터베이스에서 꺼내서 캐시에 보관하고
-											클라이언트에게 반환 </li>
-										<li> Entity @Id값으로 영속성 컨텍스트가 식별 </li>
-										<li> EntityManagerFactory : Entity 저장소 </li>
-										<li> EntityManager : Entity를 운반하는 객체 </li>
-										<li> 트랜잭션을 영속성 컨텍스트에 보관하고 있다가 커밋을 하면 그때서야 DB에 데이터를 보내고
-											flush() 동기화 작업을 진행
-										</li>
-										<li>  </li>
-										<li>  </li>
-									</div>
-									<div className='sstitle'> 예시 </div>
-									<div className='mblock'>
-										<li>  </li>
-										<li>  </li>
-									</div>
-								</div>
-							</details>
-						</div>
-
-
-
-						<div className='mblock'>
-							<details>
-								<summary className='stitle'> REST API
-									<a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
-								<div className='sblock'>
-									<div className='sstitle'> 설명 </div>
-									<div className='mblock'>
-										<li> 자원의 경로를  </li>
-										<li>  </li>
-									</div>
-									<div className='sstitle'> 예시 </div>
-									<div className='mblock'>
-										<li>  </li>
-										<li>  </li>
-									</div>
-								</div>
-							</details>
-						</div>
-
 						<span className="mblock">
 							<span className="stitle">
 								<a name="POJO(Plain Old Java Object)">  POJO(Plain Old Java Object) </a>

@@ -251,9 +251,24 @@ const SpringThymeleaf = (props) => {
                                 <div className='mblock'>
                                     <li> {' <div class="nav-item" sec:authorize="isAuthenticated()"> '}
                                         <li> {' <span sec:authentication="name">  </span> '} <small> 사용자 접속 이름 </small> </li>
-                                        <li> {' <span sec:authentication="principal.authorities">  </span> '} <small> 사용자 권한 </small> </li>
+                                        <li> {' <span sec:authentication property="principal" var="">  </span> '} </li>
+                                        <li> {' <span sec:authentication property="principal.authorities" var="">  </span> '} <small> # 사용자 권한 </small> </li>
+                                        <li> {' <span sec:authentication property="principal.username" var="">  </span> '} <small> #사용자 접속 이름 </small> </li>
+                                        <li> {' <span sec:authentication property="principal.password" var="">  </span> '} </li>
+                                        <li> {' <span sec:authentication property="principal.email" var="">  </span> '} </li>
+                                        <li> {' <span sec:authentication property="principal.enabled" var="">  </span> '} </li>
+                                        <li> {' <span sec:authentication property="principal.accountNonExpired" var="">  </span> '} </li>
+                                        <li>  </li>
                                     </li>
                                     <li> {' </div> '} </li>
+                                </div>
+                                <div className='sstitle'> #authorization </div>
+                                <div className='mblock'>
+                                    <li> {' <div th:text="${#authorization.getAuthentication()}"> </div> '} <small> # 인증객체에 대한 설명 </small> </li>
+                                    <li> {' <div th:text="${#authorization.expression('}'isAuthenticated()'{')}" }>  </div> '} <small> # true 출력 </small>
+                                        <li> 단, 인증되지 않은 객체가 접근하면 에러를 발생시키므로 authorization.getAuthentication() != null로 먼저 확인하고 사용한다.  </li>
+                                    </li>
+                                    <li>  </li>
                                 </div>
                             </div>
                         </details>

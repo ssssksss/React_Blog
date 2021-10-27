@@ -9,6 +9,7 @@ const DatabaseList = () => {
                 <Link to="/db_oraclebasic"> OreacleDB 공부 </Link>
                 <Link to="/db_mysqlbasic"> Mysql 공부 </Link>
                 <Link to="/db_variablename"> Database 변수 이름 </Link>
+                <Link to="/db_erd"> ERD </Link>
             </div>
             <div className="menu menu2">
                 <Link to="/db_mariabasic"> MariaDB 공부 </Link>

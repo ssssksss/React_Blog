@@ -22,22 +22,43 @@ const SpringLombok = (props) => {
                     {/*  */}
                     <div className='mblock'>
                         <details>
-                            <summary className='stitle'> @Getter / @Setter
+                            <summary className='stitle'> @Getter @Setter @Data @ToString
                                 <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
                             <div className='sblock'>
                                 <div className='sstitle'> 설명 </div>
                                 <div className='mblock'>
+                                    <div className="sstitle"> @Getter @Setter </div>
                                     <li> Getter,Setter 메소드를 구현 (일반적으로 Setter는 구현을 하지 않음) </li>
                                     <li> 기본적으로 public, @Setter(AccessLevel.[PRIVATE | PROTECTED ]) </li>
+                                    <div className="sstitle"> @Data </div>
+                                    <li> @ToString + @EqualsAndHashCode + @Getter + @Setter + @RequiredArgsConstructor </li>
+                                    <li> 무거워서 사용을 권장하지 않음, @AllArgsConstructor동시에 사용하면 @RequiredArgsConstructor사용불가 </li>
+                                    <div className="sstitle"> @ToString </div>
+                                    <li> ToString 메소드를 구현 </li>
+                                    <li>  @ToString(exclude="password") #password 필드를 toString메소드에서 제외시킨다. </li> <br />
                                 </div>
                                 <div className='sstitle'> 예시 </div>
                                 <div className='mblock'>
+                                    <div className='sstitle'> @Getter @Setter </div>
                                     <li className="col_r"> @Getter </li>
                                     <li className="col_r"> @Setter </li>
                                     <li> public class User {'{'}
                                         <li> private String id; </li>
                                     </li>
                                     <li> {'}'} </li>
+                                    <div className='sstitle'> @Data </div>
+                                    <li className="col_r"> @Data </li>
+                                    <li> public class User {'{'}
+                                        <li> private String id; </li>
+                                    </li>
+                                    <li> {'}'} </li>
+                                    <div className="sstitle"> @ToString </div>
+                                    <li className="col_r"> @ToString(exclude="password") </li>
+                                    <li> public class User {'{'}
+                                        <li> private String id; </li>
+                                        <li> private String password; </li>
+                                    </li>
+                                    <li> {'}'} </li> <br />
                                 </div>
                             </div>
                         </details>
@@ -72,53 +93,6 @@ const SpringLombok = (props) => {
                                         <li> private final String id; #생성자 필드에 포함</li> <br />
                                         <li> @Nonnull private String id; #생성자 필드에 포함</li>
                                         <li> private String id; #생성자 필드에 포함되지 않음</li>
-                                    </li>
-                                    <li> {'}'} </li>
-                                </div>
-                            </div>
-                        </details>
-                    </div>
-                    {/*  */}
-
-                    <div className='mblock'>
-                        <details>
-                            <summary className='stitle'> @ToString
-                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
-                            <div className='sblock'>
-
-                                <div className='sstitle'> 설명 </div>
-                                <div className='mblock'>
-                                    <li> ToString 메소드를 구현 </li>
-                                    <li>  @ToString(exclude="password") #password 필드를 toString메소드에서 제외시킨다. </li>
-                                </div>
-                                <div className='sstitle'> 예시 </div>
-                                <div className='mblock'>
-                                    <li className="col_r"> @ToString(exclude="password") </li>
-                                    <li> public class User {'{'}
-                                        <li> private String id; </li>
-                                        <li> private String password; </li>
-                                    </li>
-                                    <li> {'}'} </li>
-                                </div>
-                            </div>
-                        </details>
-                    </div>
-                    {/*  */}
-                    <div className='mblock'>
-                        <details>
-                            <summary className='stitle'> @Data
-                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
-                            <div className='sblock'>
-                                <div className='sstitle'> 설명 </div>
-                                <div className='mblock'>
-                                    <li> @ToString + @EqualsAndHashCode + @Getter + @Setter + @RequiredArgsConstructor </li>
-                                    <li> 무거워서 사용을 권장하지 않음, @AllArgsConstructor동시에 사용하면 @RequiredArgsConstructor사용불가 </li>
-                                </div>
-                                <div className='sstitle'> 예시 </div>
-                                <div className='mblock'>
-                                    <li className="col_r"> @Data </li>
-                                    <li> public class User {'{'}
-                                        <li> private String id; </li>
                                     </li>
                                     <li> {'}'} </li>
                                 </div>
@@ -376,9 +350,13 @@ const SpringLombok = (props) => {
                             <div className='sblock'>
                                 <div className='sstitle'> 설명 </div>
                                 <div className='mblock'>
+                                    <div className="sstitle"> @Entity </div>
                                     <li> @Entity : DB의  테이블과 매칭을 하게 해준다. </li>
+                                    <div className="sstitle"> @Table </div>
                                     <li> @Table , @Table(name="테이블이름지정") </li>
+                                    <div className="sstitle"> @Id </div>
                                     <li> @Id , JPA가 식별할 기본키를 정의</li>
+                                    <div className="sstitle"> @GenerateValue </div>
                                     <li> @GenerateValue(strategy = GenerationType.[IDENTITY,ATUO,SEQUENCE,TABLE])
                                         <li> AUTO : (persistence provider)가 특정 DB에 맞게 자동 선택 </li>
                                         <li> IDENTITY : DB의 identity 컬럼을 이용 # mysql에서 사용, auto increment </li>
@@ -388,7 +366,9 @@ const SpringLombok = (props) => {
                                                 initialValue=1(시작값), allocationSize=1(증가값) ) </li>
                                         </li>
                                     </li>
+                                    <div className="sstitle"> @Column </div>
                                     <li> @Column(name="DB필드명", unique=true, nullable=false, length=10, columnDefinition="데이터타입 제약조건 '제약조건값'" ) : DB에 매핑되는 필드명 </li>
+
                                 </div>
                                 <div className='sstitle'> 예시 </div>
                                 <div className='mblock'>
@@ -406,9 +386,16 @@ const SpringLombok = (props) => {
                             <div className='sblock'>
                                 <div className='sstitle'> 설명 </div>
                                 <div className='mblock'>
-                                    <li> @Temporal : 시간 날짜 타입을 지정하는 어노테이션 </li>
+                                    <div className="sstitle"> @Temporal  </div>
+                                    <li> 기본값은 timestamp  </li>
+                                    <li> @Temporal(TemporalType.DATE) : 년-월-일 </li>
+                                    <li> @Temporal(TemporalType.TIME) : 시:분:초 </li>
+                                    <li> @Temporal(TemporalType.TIMESTAMP) : timestamp 타입(date+time) </li>
+                                    <li>  </li>
+                                    <div className="sstitle"> @Transient </div>
                                     <li> @Transient : 테이블의 어떤 컬럼과 매핑하지 않을 것을 나타내는 어노테이션 </li>
-                                    <li> @Enumerated(EnumType.STRING : enum값을 인덱스가 아닌 문자열로 저장하는 방법 </li>
+                                    <div className="sstitle"> @Eumerated </div>
+                                    <li> @Eumerated([EnumType.ORDINAL , EnumType.STRING]) <small> # ENUM의 값과 매칭되는 값을 ORDINAL은 번호로 DB에 저장, STRING은 문자열로 DB에 저장 </small> </li>
                                     <li>  </li>
                                 </div>
                                 <div className='sstitle'> 예시 </div>
@@ -422,16 +409,23 @@ const SpringLombok = (props) => {
 
                     <div className='mblock'>
                         <details>
-                            <summary className='stitle'> @Order @EnableGlobalMethodSecurity @Secured @PreAuthorize @PostAuthorize @AuthenticationPrincipal
+                            <summary className='stitle'> @Order @EnableGlobalMethodSecurity @Secured @RolesAllowed @PreAuthorize @PostAuthorize @AuthenticationPrincipal
                                 <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
                             <div className='sblock'>
                                 <div className='sstitle'> 설명 </div>
                                 <div className='mblock'>
                                     <li> @Order(숫자) : 순서가 낮을 수록 우선순위, 빈의 등록 순서를 결정 </li>
-                                    <li> @EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true) : @Secured활성화, @perAuthorize,@PostAuthorize 활성화 </li>
-                                    <li> @Secured : 특정 메소드 실행전 에 권한을 지정할 수 있다. </li>
-                                    <li> @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')") : 특정 메소드에 권한을 1개이상 지정 가능하다. </li>
-                                    <li> @PostAuthorize : 메소드가 끝난 뒤에 ?? </li>
+                                    <li> @EnableGlobalMethodSecurity(securedEnabled = true, prePostEnabled = true, jsr250Enabled = true) : @Secured활성화, @perAuthorize,@PostAuthorize 활성화,@RolesAllowed 활성화 </li>
+                                    <li> @Secured("ROLE_USER") , {' @Secured({"ROLE_USER","ROLE_ADMIN"}) '} : 특정 메소드 실행전 권한을 확인하여 접근을 막음 (스프링 지원), SpEL 지원x </li>
+                                    <li> @RolesAllowed("ROLE_USER") : 특정 메소드 실행전 권한을 확인하여 접근을 막음 (자바 지원), SpEL 지원x </li>
+                                    <li> @PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')") : 메소드 실행 전 권한을 확인, 권한을 1개이상 지정 가능하다. SpEL 지원 </li>
+                                    <li> @PostAuthorize("")
+                                        <li> @PostAuthorize("#username == authentication.principal.username") : 클라이언트에게 응답하기전, 메소드 실행 후 권한을 확인, 권한을 1개이상 지정 가능하다. SpEL 지원 </li>
+                                        <li> @PostAuthorize("returnObject.username == authentication.principal.nickName") : returnObject는 메소드가 반환하는 객체를 뜻함 </li>
+                                        <li> @PostAuthorize(["isAuthenticated()" , "isAnonymous()" , "isRememberMe()" , "isFullyAuthenticated()" ,
+                                            "denyAll" , "permitAll" , "authentication.@" , "principal.name" , "hasRole()"]) 등 다양한 조건 설정 가능 </li>
+                                        <li> #파라미터 <small> # 이렇게 해서 변수에 접근이 가능하다. </small> </li>
+                                    </li>
                                     <li> @AuthenticationPrincipal : 1. 로그인한 사용자의 정보를 Principal 객체로 받아온다. , 2. UserDetailsService에서 Return한 객체를 파라미터로 받아 사용할 수 있다. </li>
                                 </div>
                                 <div className='sstitle'> 예시 </div>
@@ -524,9 +518,9 @@ const SpringLombok = (props) => {
                                     <li>  </li>
                                     <div className='sstitle'> @PathVariable </div>
                                     <li>  </li>
-                                    <li> @어떤Mapiing("/aaa/{'{abc}'}") </li>
+                                    <li> 매핑경로에 있는 변수를 사용할 수 있게 해준다. </li>
+                                    <li> @GetMapiing("/aaa/{'{abc}'}") </li>
                                     <li> (@PathVariable(name="abc") 타입 변수명) </li>
-                                    <li>  </li>
                                 </div>
                             </div>
                         </details>

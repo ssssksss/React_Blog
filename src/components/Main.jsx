@@ -18,7 +18,6 @@ import NodejsBasic from './Main/NodejsContent/NodejsBasic';
 
 // 스프링
 import SpringError from './Main/SpringContent/SpringError';
-import SpringCode from './Main/SpringContent/SpringCode';
 import SpringBasic from './Main/SpringContent/SpringBasic';
 import SpringThymeleaf from './Main/SpringContent/SpringThymeleaf';
 import SpringLombok from './Main/SpringContent/SpringLombok';
@@ -85,6 +84,7 @@ import DBVariableName from './Main/DatabaseContent/DBVariableName';
 import DBMariaBasic from './Main/DatabaseContent/DBMariaBasic';
 import DBError from './Main/DatabaseContent/DBError';
 import DBTable from './Main/DatabaseContent/DBTable';
+import DBErd from './Main/DatabaseContent/DBErd';
 
 // 디자인 패턴
 import DPMvc2 from './Main/DesignPatternContent/DPMvc2';
@@ -198,7 +198,6 @@ const Main = (props) => {
 
                 {/* 스프링 */}
                 <Route path="/spring_error" component={SpringError}></Route>
-                <Route path="/spring_code" component={SpringCode}></Route>
                 <Route path="/spring_basic" component={SpringBasic}></Route>
                 <Route path="/spring_thymeleaf" component={SpringThymeleaf}></Route>
                 <Route path="/spring_jpa_entity" component={SpringJpaEntity}></Route>
@@ -267,6 +266,7 @@ const Main = (props) => {
                 <Route path="/db_mariabasic" component={DBMariaBasic}></Route>
                 <Route path="/db_error" component={DBError}></Route>
                 <Route path="/db_table" component={DBTable}></Route>
+                <Route path="/db_erd" component={DBErd}></Route>
 
                 {/* 디자인 패턴 */}
                 <Route path="/dp_mvc2" component={DPMvc2}></Route>

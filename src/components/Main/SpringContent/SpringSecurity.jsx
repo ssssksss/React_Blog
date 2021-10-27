@@ -14,6 +14,13 @@ const Term2 = (props) => {
               <div className='sblock'>
                 <div className='sstitle'> 설명 </div>
                 <div className='mblock'>
+                  <li> 서버가 시작되면 Spring Security 초기화 및 보안 설정 발생 </li>
+                  <li> 모든 요청이 인증이 되어야 자원에 접근이 가능 </li>
+                  <li> form로그인 방식과 httpbasic로그인 방식을 제공한다. </li>
+                  <li> 기본적인 로그인 페이지를 제공한다. </li>
+                  <li> 기본 계정 user와 비번 제공 </li>
+                  <li> application.properties에 설정이 가능하다. </li>
+                  <li> 계정추가, 권한추가, DB연동등 하지 않으면 사용을 할 수 없게 만듬 </li>
                   <li> 사용자의 인증,권한,보안 처리를 간단하게 구현 </li>
                   <li> 인증방식 : credential방식(사용자명,비번) , 이중인증(개인정보인증+추가인증(OTP) , ) </li>
                   <li> 1. 스프링 시큐리티에서 인증이 된 객체인지 일단 확인한다. </li>
@@ -197,6 +204,25 @@ const Term2 = (props) => {
 
           <div className='mblock'>
             <details>
+              <summary className='stitle'> MethodSecurityConfig [Custom]
+                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+              <div className='sblock'>
+                <div className='sstitle'> 설명 </div>
+                <div className='mblock'>
+                  <li> 메소드를 호출할 때, security권한을 이용해서 접근 유무 설정가능 </li>
+                  <li>  </li>
+                </div>
+                <div className='sstitle'> 예시 </div>
+                <div className='mblock'>
+                  <li>  </li>
+                  <li>  </li>
+                </div>
+              </div>
+            </details>
+          </div>
+
+          <div className='mblock'>
+            <details>
               <summary className='stitle'> Handler
                 <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
               <div className='sblock'>
@@ -204,6 +230,55 @@ const Term2 = (props) => {
                 <div className='mblock'>
                   <li>  </li>
                   <li>  </li>
+                </div>
+                <div className='sstitle'> 예시 </div>
+                <div className='mblock'>
+                  <li>  </li>
+                  <li>  </li>
+                </div>
+              </div>
+            </details>
+          </div>
+
+          <div className='mblock'>
+            <details>
+              <summary className='stitle'> SecurityFiletrChain
+                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+              <div className='sblock'>
+                <div className="sstitle" > SecurityFiletrChain 종류  </div>
+                <div className='mblock'>
+                  <li> <i> 1. ChannelProcessingFilter </i> </li>
+                  <li> <i> 2. SecurityContextPersistenceFilter(필수) </i>
+                    SecurityContextRepository에서 SecurityContext를 로드하고 저장하는 일을 담당 </li>
+                  <li> <i> 3. ConcurrentSessionFilter </i> </li>
+                  <li> <i> 4. HEADERS_FILTER </i> </li>
+                  <li> <i> 5. CSRF_FILTER </i> </li>
+                  <li> <i> 6. LogoutFilter(필수) </i>
+                    로그아웃 URL로 지정된 가상URL에 대한 요청을 감시하고 매칭되는 요청이 있으면 사용자를
+                    로그아웃시킴</li>
+                  <li> <i> 7. UsernamePasswordAuthenticationFilter(필수) </i>
+                    사용자명과 비밀번호로 이뤄진 폼기반 인증에 사용하는 가상 URL요청을 감시하고 요청이
+                    있으면 사용자의 인증을 진행함</li>
+                  <li> <i> 8. DefaultLoginPageGeneratingFilter </i> 폼기반 또는 OpenID 기반 인증에
+                    사용하는 가상URL에 대한 요청을 감시하고 로그인 폼 기능을 수행하는데 필요한 HTML을 생성함</li>
+                  <li> <i> 9. CasAuthenticationFilter </i> </li>
+                  <li> <i> 10. BasicAuthenticationFilter(필수) </i> HTTP 기본 인증 헤더를 감시하고 이를 처리함 </li>
+                  <li> <i> 11.RequestCacheAwareFilter </i> 로그인 성공 이후 인증 요청에 의해 가로채어진 사용자의
+                    원래 요청을 재구성하는데 사용됨</li>
+                  <li> <i> 12. SecurityContextHolderAwareRequestFilter </i> </li>
+                  <li> <i> 13. JaasApiIntegrationFilter </i> </li>
+                  <li> <i> 14. RememberMeAuthenticationFilter </i> </li>
+                  <li> <i> 15. AnonymousAuthenticationFilter </i>
+                    이 필터가 호출되는 시점까지 사용자가 아직 인증을 받지 못했다면 요청 관련 인증
+                    토큰에서 사용자가 익명 사용자로 나타나게 됨</li>
+                  <li> <i> 16. SessionManagementFilter </i>
+                    인증된 주체를 바탕으로 세션 트래킹을 처리해 단일 주체와 관련한 모든 세션들이 트래킹되도록 도움</li>
+                  <li> <i> 17. ExceptionTranslationFilter(필수) </i>
+                    이 필터는 보호된 요청을 처리하는 동안 발생할 수 있는 기대한 예외의 기본
+                    라우팅과 위임을 처리함</li>
+                  <li> <i> 18. FilterSecurityInterceptor(필수) </i>
+                    이 필터는 권한부여와 관련한 결정을 AccessDecisionManager에게 위임해 권한부여
+                    결정 및 접근 제어 결정을 쉽게 만들어 줌</li>
                 </div>
                 <div className='sstitle'> 예시 </div>
                 <div className='mblock'>

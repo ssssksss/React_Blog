@@ -32,12 +32,13 @@ const SpringJpa = (props) => {
                                         <li> 2. 버퍼링, 지연 기능 : SQL쿼리를 개발자가 시작할 때 바로 날리지 않고 커밋을 할 떄 까지 기다렸다가 한번에 쿼리를 날린다.
                                             batch processing 방식 사용
                                             <li> transaction.begin(); <small> 트랜잭션 시작 </small> </li>
-                                            <li>  </li>
                                             <li> transaction.commit(); <small> 트랜잭션 끝 </small> </li>
                                         </li>
+                                    </li>
+                                    <li> 영속성 컨텍스트(persistence context)
+                                        <li> 엔티티를 저장하는 공간 </li>
                                         <li>  </li>
                                     </li>
-                                    <li>  </li>
                                     <li> <a href="https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.query-creation"
                                         target="_blank" rel="noopener noreferrer"> 스프링 JPA 공식 문서</a> </li>
                                     <li>  </li>
@@ -78,6 +79,123 @@ const SpringJpa = (props) => {
                         </details>
                     </div>
                     {/*  */}
+
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> 영속성 관련 설명
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> Entity Manager Factory </div>
+                                <div className='mblock'>
+                                    <li> 어플리케이션에서 DB를 한개만 사용하면 1개만 만들어서 사용 </li>
+                                    <li> 여러 스레드가 동시 접근 가능, 스레드끼리 공유 가능 </li>
+                                    <li>  </li>
+                                    <li> EntityManagerFactory emf = Persistence.createEntityManagerFactory(""); </li>
+                                </div>
+                                <div className='sstitle'> Entity Manager </div>
+                                <div className='mblock'>
+                                    <li> 여러 스레드가 동시에 접근 불가 </li>
+                                    <li> 스레드가 공유 불가 </li>
+                                    <li> 사용자의 요청에 1개씩 만들어짐 </li>
+                                    <li> EntityManager em = emf.createEntityManger(); </li>
+                                </div>
+                                <div className='sstitle'> EntityTransaction </div>
+                                <div className='mblock'>
+                                    <li> EntityTransaction transaction = em.getTransaction(); </li>
+                                    <li> transaction.begin(); <small> # 트랜잭션 시작 </small> </li>
+                                    <li> 영속성 컨텍스트에 등록할 엔티티 관련 코드들 작성 ( ex) em.persist(엔티티명); ) </li>
+                                    <li> transaction.commit(); <small> # 트랜잭션 커밋 </small>  </li>
+                                </div>
+                                <div className='sstitle'> persistence context </div>
+                                <div className='mblock'>
+                                    <li> em.persist(엔티티객체); <small> # EntityManager를 이용해 영속성 컨텍스트에 저장 </small> </li>
+                                    <li> em.detach() <small> # 영속상태에서 분리 (삭제는 아니고 보류) </small> </li>
+                                    <li> em.remove(엔티티 객체) <small> # </small> </li>
+                                    <li> em.flush() <small> # 플러쉬 실행 </small> </li>
+                                    <li> em.close() <small> # 영속상태를 준영속상태로 변경  </small> </li>
+                                    <li> em.merge(엔티티객체) </li>
+                                    <li> em.clear <small> # 영속성 컨텍스트 초기화 </small> </li>
+                                    <li> 객체 객체명 = em.find(객체.class,"식별자") <small> # 1차 캐시에서 엔티티를 조회하고 없으면 DB를 조회해서 찾고 1차캐시에 저장하고 값을 반환 </small> </li>
+                                </div>
+                                <div className='sstitle'> JPA 진행과정, 영속성 컨텍스트 특징 </div>
+                                <div className='mblock'>
+                                    <li> 진행 과정 : 트랜잭션 커밋 - 엔티티 매니저 플러시 호출 - 엔티티와 스냅샷을 비교해서 변경된 엔티티를 찾음 - 변경되었으면 수정 쿼리를 생성 -
+                                        쓰기 지연 SQL 저장소로 보냄 - SQL을 DB로 보냄 - 실제 DB에 트랜잭션 커밋 </li>
+                                    <li> 영속 상태가 되기 위해서는 식별자(@Id)가 반드시 존재해야 한다. 없으면 예외가 발생한다. </li>
+                                    <li> JPA 메소드로 DB를 요청하면 영속성 컨텍스트 내부의 캐시에서 찾고 없으면 데이터베이스에서 꺼내서 캐시에 보관하고 클라이언트에게 반환 </li>
+                                    <li> JPA는 트랙잭션을 커밋하는 순간에 영속성 컨텍스트에 저장된 엔티티를 DB에 반영하고 flush() 동기화 작업을 수행한다. </li>
+                                    <li> JPA는 동일한 쿼리를 기억해두었다가 재사용 ( 파싱된 쿼리를 가지고 있으므로 똑같은 쿼리를 매번 파싱할 필요가 없음) </li>
+                                </div>
+                                <div className='sstitle'> flush(동기화) </div>
+                                <div className='mblock'>
+                                    <li> 1. 직접 호출 </li>
+                                    <li> 2. 트랜잭션 커밋 </li>
+                                    <li> 3. JPQL 쿼리 사용 </li>
+                                    <li> FlushModeType.AUTO (default값) <small> # 커밋이나 쿼리 실행할 때 flush </small> </li>
+                                    <li> FlushModeType.COMMIT <small> # 커밋일 때만 플러시 </small> </li>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> Entity - DB 데이터 타입
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> 설명 </div>
+                                <div className='mblock'>
+                                    <li> Long
+                                        <li> 오라클 : NUMBER(19,0) </li>
+                                        <li>  </li>
+                                    </li> <br />
+                                    <li> Boolean
+                                        <li> 오라클 : NUMBER(1,0) <small> # true=1 , false=0 </small> </li>
+                                        <li>  </li>
+                                        <li>  </li>
+                                    </li> <br />
+                                    <li> String
+                                        <li> 오라클 : VARCHAR2(255 CHAR) </li>
+                                        <li>  </li>
+                                        <li>  </li>
+                                    </li> <br />
+                                    <li> Int
+                                        <li> 오라클 : NUMBER(10,0) </li>
+                                        <li>  </li>
+                                        <li>  </li>
+                                    </li> <br />
+                                    <li> LocalDateTime <small> # Java8부터 , JPA버전이 API를 지원하는지 확인 </small>
+                                        <li> 오라클 : TIMESTAMP(6)  <small> # 21/10/26 10:46:46.397863000 </small> </li>
+                                        <li>  </li>
+                                        <li>  </li>
+                                    </li> <br />
+                                    <li> LocalDate <small> #  </small>
+                                        <li> 오라클 : TIMESTAMP(6) <small> # 21/10/26 </small> </li>
+                                        <li>  </li>
+                                        <li>  </li>
+                                    </li> <br />
+                                    <li> Date <small> # JDK1.0 시절에 사용하던 문자타입, 불편 </small>
+                                        <li> 오라클 : TIMESTAMP(6) <small>  </small> </li>
+                                        <li>  </li>
+                                        <li>  </li>
+                                    </li> <br />
+                                    <li> Calender <small> # 비용이 비싸고, 이것도 불편  </small>
+                                        <li>  </li>
+                                        <li>  </li>
+                                        <li>  </li>
+                                    </li> <br />
+                                    <li>  </li> <br />
+                                    <li>  </li> <br />
+                                </div>
+                                <div className='sstitle'> 예시 </div>
+                                <div className='mblock'>
+                                    <li>  </li>
+                                    <li>  </li>
+                                </div>
+                            </div>
+                        </details>
+                    </div>
+
                     <div className='mblock'>
                         <details>
                             <summary className='stitle'> JPA에서 Entity 사용하는 방법
@@ -323,8 +441,8 @@ const SpringJpa = (props) => {
                                         <li> {'})'} </li>
                                         <li> @JoinTable(
                                             <li> name="client_role", <small> 매핑 테이블의 테이블명 </small> </li>
-                                            <li> joinColumns = @JoinColumn(name = "client_id"), <small> Client 엔티티의 id를 외래키로 하고 client_id 라는 컬럼명을 생성 </small> </li>
-                                            <li> inverseJoinColumns = @JoinColumn(name = "role_id")) <small> role의 id를 외래키로 하고 role_id 라는 컬럼명을 생성 </small> </li>
+                                            <li> joinColumns = @JoinColumn(name = "client_id"), <small> client테이블의 id를 외래키로 하여 현재 엔티티를 참조 </small> </li>
+                                            <li> inverseJoinColumns = @JoinColumn(name = "role_id")) <small> role테이블의 id를 외래키로 하여 다른 엔티티를 참조 </small> </li>
                                         </li>
                                         <li> private Set{'<Role>'} roles = new HashSet{'<Role>'}(); </li>
                                     </li>
@@ -351,55 +469,148 @@ const SpringJpa = (props) => {
 
                     <div className='mblock'>
                         <details>
-                            <summary className='stitle'> @OneToMany @ManyToOne
+                            <summary className='stitle'> @NamedEntityGraph @EntityGraph
                                 <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
                             <div className='sblock'>
-                                <div className='sstitle'> 속성 </div>
+                                <div className='sstitle'> 설명 </div>
                                 <div className='mblock'>
-                                    <li> targetEntity <small> 매핑할 Entity 정의 </small> </li>
-                                    <li> @OneToMany(cascade=CascadeType.[ALL,PERSIST,MERGE,REMOVE,REFRESH,DETACH] <small>  </small>
-                                        <li> <small> 엔티티에 Cascade는 여러개를 적용가능하다. </small> </li>
-                                        <li> CascadeType.PERSIST : 엔티티를 저장하면, 필드에 있는 엔티티도 저장  <small> # 좀더 알아볼것 </small> </li>
-                                        <li> CascadeType.MERGE : 엔티티를 합칠 떄, 필드에 있는 엔티티도 합친다 <small> # </small> </li>
-                                        <li> CascadeType.REFRESH : 엔티티를 수정할 떄, 필드에 있는 엔티티도 수정 <small> # </small> </li>
-                                        <li> CascadeType.REMOVE : 엔티티를 삭제할 떄, 필드에 있는 엔티티도 삭제한다.  <small> # </small> </li>
-                                        <li> CascadeType.DETACH : 엔티티를 detach할떄 , 필드에 있는 엔티티도 detach를 한다. <small> # 영속성 컨텍스트에서 엔티티를 제거(엔티티 삭제가 아님) </small> </li>
-                                        <li> CascadeType.ALL : 위에 있는 내용을 모두 적용 <small> # </small> </li> <br />
-                                    </li>
-                                    <li> @OneToMany(fetch=[FetchType.EAGER,FetchType.LAZY])  <small> EAGER,LAZY 방식 , 데이터를 호출할때 가져올지 미리 가져올지 선택 </small> </li>
-                                    <li> mappedBy <small> 양방향 관계 주체의 필드명 </small> </li>
-                                    <li> orphanRemoval <small> 관계 Entity에서 변경이 일어나면 DB변경을 같이 할지 설정, [JPA Layer,DB Layer]에서 처리할지 선택 </small> </li>
-                                    <li> 1:N 테이블에서 자식 엔티티의 변경이 생기면 변경된것을 삽입하고 기존에 있는것을 null로 만들고 orphanRemoval=true로 놓으면 null로된 고아객체
-                                        를 삭제 해준다. <small> #  1번유저의 board에 2개의 데이터가 있는데 orphanRemoval=true로 놓고 2개의 데이터를 clear해주면 삭제가 된다. </small> </li>
+                                    <li> <div className="sstitle"> @NamedEntityGraph 속성 </div> </li>
+                                    <li> 엔티티 클래스 위에 선언을 하여 사용 </li>
+                                    <li> 엔티티 그래프를 둘 이상 사용할 경우 사용 </li>
+                                    <li> name="엔티티클래스명.변수명" <small> # 엔티티 그래프 이름을 정의 </small> </li>
+                                    <li> attributeNodes = @NamedAttributeNode("필드명") <small> # 함께 조회할 속성 선택 </small> </li>
+                                    <li>  </li>
+                                    <li> <div className="sstitle"> @EntityGraph 속성 </div> </li>
+                                    <li> Repositoy클래스의 메소드 위에 선언하여 사용 </li>
+                                    <li> EntityGraph 로딩 정책을 가져와서 적용 </li>
+                                    <li> fetch가 lazy로 되어있어도 EntityGraph를 이용하면 같이 조회 가능 </li>
+                                    <li> @EntityGraph(value="엔티티클래스명.변수명") </li>
+                                    <li> @EntityGraph(attributePaths={'{"AttributeNode에 명시된 필드명"}'}) </li>
+                                    <li> @EntityGraph("엔티티클래스명.변수명") </li>
+                                    <li>  </li>
                                 </div>
-                                <div className='sstitle'> Board </div>
+                                <div className='sstitle'> 예시 </div>
                                 <div className='mblock'>
-                                    <li> @Table(name="board") </li>
-                                    <li> public class Board {'{'}
-                                        <li>     @Id </li>
-                                        <li>     @GeneratedValue(strategy = GenerationType.AUTO) </li>
-                                        <li>     @Column(name="id") </li>
-                                        <li>     private Long id; </li>
-                                        <li>  </li> <br />
-                                        <li> @ManyToOne </li>
-                                        <li> @JoinColumn(name="client_id") <small> # 참조할테이블명_컬럼명 </small> </li>
-                                        <li> private Client client; </li>
-                                    </li>
-                                    <li> {'}'} </li>
+                                    <li> @EntityGraph(attributePaths = {'{"엔티티필드명"},'} type = EntityGraph.EntityGraphType.LOAD) </li>
+                                    <li>  </li>
                                 </div>
-                                <div className='sstitle'> Client </div>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div className='mblock'>
+                        <details>
+                            <summary className='stitle'> @JoinTable @JoinColumn @ManyToOne @OneToOne @OneToMany @ManyToMany
+                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
+                            <div className='sblock'>
+                                <div className='sstitle'> 설명 </div>
                                 <div className='mblock'>
-                                    <li> @Table(name="client") </li>
-                                    <li> public class Client {'{'}
-                                        <li>     @Id </li>
-                                        <li>     @GeneratedValue(strategy = GenerationType.AUTO) </li>
-                                        <li>     private Long id; </li>
-                                        <li>  </li> <br />
-                                        <li>   @OneToMany(mappedBy="client") <small> # 참조할 테이블의 컬럼명 </small> </li>
-                                        <li> {'private Set<Board> boards = new HashSet<Board>();'} </li>
+                                    <li> <div className="sstitle"> @JoinTable 속성 </div> <small> # 조인테이블을 만들어서 연관관계를 설정하는 방법 </small>
+                                        <li> name : </li>
+                                        <li> joinColumns : <small> # 현재 엔티티를 참조하는 외래키 </small> </li>
+                                        <li> inverseJoinColumns : <small> # 다른 엔티리를 참조하는 외래키 </small> </li>
+                                        <div className='sstitle'> @JoinTable 예시 </div>
+                                        <div className='sblock'>
+                                            <li> @JoinTable(
+                                                <li> name="client_role", <small> 매핑 테이블의 테이블명 </small> </li>
+                                                <li> joinColumns = @JoinColumn(name = "client_id"), <small> 현재 엔티티의 컬럼명(default: 엔티티명_필드명) ,client테이블의 id를 외래키로 하여 현재 엔티티를 참조 </small> </li>
+                                                <li> inverseJoinColumns = @JoinColumn(name = "role_id") <small> 참조 엔티티의 컬럼명(default: 엔티티명_필드명) ,role테이블의 id를 외래키로 하여 다른 엔티티를 참조 </small> </li>
+                                            </li>
+                                            <li> ) </li>
+                                        </div>
+                                    </li> <br />
+                                    <li> <div className="sstitle"> @JoinColumn 속성 </div> <small> # 외래키 매핑할 때 사용 </small>
+                                        <li> name : 매핑할 외래키 명 , default = 필드명_참조테이블기본키컬럼명 <small> # name_refname </small> </li>
+                                        <li> referencedColumnName : 외래키가 참조하는 테이블의 컬럼명 </li>
+                                        <li> foreignKey(DDL) : 외래키 제약조건을 직접 작성, 테이블생성시에만 가능? </li>
+                                        <li> unique, nullable, insertable, updatable, columnDefinition, table </li>
                                         <li>  </li>
-                                    </li>
-                                    <li> {'}'} </li>
+                                    </li> <br />
+                                    <li> <div className="sstitle"> @ManyToOne 속성 </div> <small> # Many쪽에서 @JoinTable을 선언 </small>
+                                        <li> optional=false (객체에 null이 들어갈수 있음, inner join) , optional=true(default값) (객체에 null이 들어갈 수 없음, outer join) </li>
+                                        <li> fetch=FetchType.EAGER (default값) : 엔티티 조회할 떄 연관된 엔티티도 같이 조회, 객체가 계속 연결되어 있으면 연달아 조회를 함으로 좋지 않음,
+                                            반대로 한꺼번에 조회 함으로 네트워크 비용을 아낄 수 있다는 장점도 존재 </li>
+                                        <li> fetch=FetchType.LAZY : 엔티티를 나중에 조회 </li>
+                                        <li>  </li>
+                                    </li> <br />
+                                    <li> <div className="sstitle"> @OneToOne 속성 </div>
+                                        <li> optional=false (객체에 null이 들어갈수 있음) , optional=true (객체에 null이 들어갈 수 없음) </li>
+                                        <li> fetch=FetchType.EAGER (default값) : 엔티티 조회할 떄 연관된 엔티티도 같이 조회, 객체가 계속 연결되어 있으면 연달아 조회를 함으로 좋지 않음,
+                                            반대로 한꺼번에 조회 함으로 네트워크 비용을 아낄 수 있다는 장점도 존재 </li>
+                                        <li> fetch=FetchType.LAZY : 엔티티를 나중에 조회 </li>
+                                        <li> cascade=CascadeType.[ALL,PERSIST,MERGE,REMOVE,REFRESH,DETACH]
+                                            <li> CascadeType.PERSIST : 엔티티를 저장하면, 필드에 있는 엔티티도 저장  <small> # 좀더 알아볼것 </small> </li>
+                                            <li> CascadeType.MERGE : 엔티티를 합칠 떄, 필드에 있는 엔티티도 합친다 <small> # </small> </li>
+                                            <li> CascadeType.REFRESH : 엔티티를 수정할 떄, 필드에 있는 엔티티도 수정 <small> # </small> </li>
+                                            <li> CascadeType.REMOVE : 엔티티를 삭제할 떄, 필드에 있는 엔티티도 삭제한다.  <small> # </small> </li>
+                                            <li> CascadeType.DETACH : 엔티티를 detach할떄 , 필드에 있는 엔티티도 detach를 한다. <small> # 영속성 컨텍스트에서 엔티티를 제거(엔티티 삭제가 아님) </small> </li>
+                                            <li> CascadeType.ALL : 위에 있는 내용을 모두 적용 <small> # </small> </li> <br />
+                                        </li>
+                                        <li> orphanRemoval = [true, false] : true로 하면 엔티티의 연관관계가 끊어졌을때 끊어진 고아 엔티티를 삭제 </li>
+                                        <li> </li>
+                                    </li> <br />
+                                    <li> <div className="sstitle"> @OneToMany 속성 </div>   <small> # Many쪽에서 @JoinTable을 선언 </small>
+                                        <li> fetch=FetchType.EAGER : 엔티티 조회할 떄 연관된 엔티티도 같이 조회, 객체가 계속 연결되어 있으면 연달아 조회를 함으로 좋지 않음,
+                                            반대로 한꺼번에 조회 함으로 네트워크 비용을 아낄 수 있다는 장점도 존재 </li>
+                                        <li> fetch=FetchType.LAZY (default값) : 엔티티를 나중에 조회 </li>
+                                        <li> cascade=CascadeType.[ALL,PERSIST,MERGE,REMOVE,REFRESH,DETACH]
+                                            <li> CascadeType.PERSIST : 엔티티를 저장하면, 필드에 있는 엔티티도 저장  <small> # 좀더 알아볼것 </small> </li>
+                                            <li> CascadeType.MERGE : 엔티티를 합칠 떄, 필드에 있는 엔티티도 합친다 <small> # </small> </li>
+                                            <li> CascadeType.REFRESH : 엔티티를 수정할 떄, 필드에 있는 엔티티도 수정 <small> # </small> </li>
+                                            <li> CascadeType.REMOVE : 엔티티를 삭제할 떄, 필드에 있는 엔티티도 삭제한다.  <small> # </small> </li>
+                                            <li> CascadeType.DETACH : 엔티티를 detach할떄 , 필드에 있는 엔티티도 detach를 한다. <small> # 영속성 컨텍스트에서 엔티티를 제거(엔티티 삭제가 아님) </small> </li>
+                                            <li> CascadeType.ALL : 위에 있는 내용을 모두 적용 <small> # </small> </li> <br />
+                                        </li>
+                                        <li> orphanRemoval = [true, false] : true로 하면 엔티티의 연관관계가 끊어졌을때 끊어진 고아 엔티티를 삭제 </li>
+
+                                    </li> <br />
+                                    <li> <div className="sstitle"> @ManyToMany(mappedBy="") 속성 </div>  <small> # mappedBy : 참조하고 있는 다른엔티티의 필드명을 적어서 매핑 </small>
+                                        <li> optional=false (외부조인) , optional=true (외부조인) </li>
+                                        <li> fetch=FetchType.EAGER : 엔티티 조회할 떄 연관된 엔티티도 같이 조회, 객체가 계속 연결되어 있으면 연달아 조회를 함으로 좋지 않음,
+                                            반대로 한꺼번에 조회 함으로 네트워크 비용을 아낄 수 있다는 장점도 존재 </li>
+                                        <li> fetch=FetchType.LAZY (default값) : 엔티티를 나중에 조회 </li>
+                                        <li> cascade=CascadeType.[ALL,PERSIST,MERGE,REMOVE,REFRESH,DETACH]
+                                            <li> CascadeType.PERSIST : 엔티티를 저장하면, 필드에 있는 엔티티도 저장  <small> # 좀더 알아볼것 </small> </li>
+                                            <li> CascadeType.MERGE : 엔티티를 합칠 떄, 필드에 있는 엔티티도 합친다 <small> # </small> </li>
+                                            <li> CascadeType.REFRESH : 엔티티를 수정할 떄, 필드에 있는 엔티티도 수정 <small> # </small> </li>
+                                            <li> CascadeType.REMOVE : 엔티티를 삭제할 떄, 필드에 있는 엔티티도 삭제한다.  <small> # </small> </li>
+                                            <li> CascadeType.DETACH : 엔티티를 detach할떄 , 필드에 있는 엔티티도 detach를 한다. <small> # 영속성 컨텍스트에서 엔티티를 제거(엔티티 삭제가 아님) </small> </li>
+                                            <li> CascadeType.ALL : 위에 있는 내용을 모두 적용 <small> # </small> </li> <br />
+                                        </li>
+                                    </li> <br />
+                                    <li>  </li>
+                                </div>
+                                <div className='sstitle'> 예시 </div>
+                                <div className='mblock'>
+                                    <div className='sstitle'> Board </div>
+                                    <div className='mblock'>
+                                        <li> @Table(name="board") </li>
+                                        <li> public class Board {'{'}
+                                            <li>     @Id </li>
+                                            <li>     @GeneratedValue(strategy = GenerationType.AUTO) </li>
+                                            <li>     @Column(name="id") </li>
+                                            <li>     private Long id; </li>
+                                            <li>  </li> <br />
+                                            <li> @ManyToOne </li>
+                                            <li> @JoinColumn(name="client_id") <small> # 참조할테이블명_컬럼명 </small> </li>
+                                            <li> private Client client; </li>
+                                        </li>
+                                        <li> {'}'} </li>
+                                    </div>
+                                    <div className='sstitle'> Client </div>
+                                    <div className='mblock'>
+                                        <li> @Table(name="client") </li>
+                                        <li> public class Client {'{'}
+                                            <li>     @Id </li>
+                                            <li>     @GeneratedValue(strategy = GenerationType.AUTO) </li>
+                                            <li>     private Long id; </li>
+                                            <li>  </li> <br />
+                                            <li>   @OneToMany(mappedBy="client") <small> # 참조할 테이블의 컬럼명 </small> </li>
+                                            <li> {'private Set<Board> boards = new HashSet<Board>();'} </li>
+                                            <li>  </li>
+                                        </li>
+                                        <li> {'}'} </li>
+                                    </div>
                                 </div>
                             </div>
                         </details>
@@ -455,6 +666,8 @@ const SpringJpa = (props) => {
                             </div>
                         </details>
                     </div>
+
+
 
                 </span>
             </div >

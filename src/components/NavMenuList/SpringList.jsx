@@ -7,7 +7,6 @@ const SpringList = () => {
         <div className="menucontainer">
             <div className="menu menu1">
                 <Link to="/spring_error"> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Error_icon.svg'} /> 스프링 오류 </Link>
-                <Link to="/spring_code"> 스프링 코드 정리 </Link>
                 <Link to="/spring_basic"> 스프링 기초 </Link>
                 <Link to="/spring_thymeleaf"> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Thymeleaf_icon.svg'} /> Thymeleaf </Link>
                 <Link to="/spring_lombok"> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Lombok_icon.svg'} /> Lombok, Annotation </Link>

@@ -56,29 +56,31 @@ const JavaScriptAjax = (props) => {
                                 </div>
                                 <div className='sstitle'> 예시 </div>
                                 <div className='mblock'>
-                                    <li> {' <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> '} <small> # jquery 추가해주기 </small> </li>
-                                    <li> {'<script>'}
-                                        <li> function getBoard(id) {'{'}
-                                            <li>  $.ajax({'{'}
-                                                <li> {' url: "/api/boards/" + id, '} </li>
-                                                <li> {' type: "GET", '} </li>
-                                                <li> {' cache: , '} </li>
-                                                <li> {' dataType: "", '} </li>
-                                                <li> {' data: "", '} <small> # 키와 값으로 이루어진 형태의 객체를 넣거나 ""으로 만들어주어야 한다.  </small> </li>
-                                                <li> {' success: function(data) { '}
-                                                    <li> console.log("조회",data); </li>
-                                                    <li> alert("조회 완료") </li>
+                                    <li> 경우에 따라 약간의 차이는 있을 수 있으므로 안된다면 다시 찾아보기 </li> <br />
+                                    <li> {'     <script src="//code.jquery.com/jquery-3.2.1.min.js"> </script> '} </li>
+                                    <li> {'  '} </li> <br />
+                                    <li> {' <script> '}
+                                        <li> {' function deleteBoard(id) { '}
+                                            <li> {' $.ajax({ '}
+                                                <li> {' url: "/api/board/remove/" + id, '} </li>
+                                                <li> {' type: "DELETE", '} </li>
+                                                <li> {' success: function (results) { '}
+                                                    <li> {' console.log("results", results); '} </li>
+                                                    <li> {' alert("삭제되었습니다."); '} </li>
+                                                    <li> {' location.href = "/board/boardMainpage"; '} </li>
                                                 </li>
                                                 <li> {' }, '} </li>
-                                                <li> {' error: function (request, status, error) { '} </li>
+                                                <li> {' error: function (data) { '}
+                                                    <li> {' alert("에러 발생. " + data); '} </li>
+                                                </li>
                                                 <li> {' } '} </li>
-                                                <li> {' }); '} </li>
                                             </li>
-                                            <li> {'  '} </li>
+                                            <li> {' }) '} </li>
                                         </li>
-                                        <li> {'}'} </li>
+                                        <li> {' } '} </li>
                                     </li>
-                                    <li> {'</script> '} </li>
+                                    <li> {' </script> '} </li>
+
                                 </div>
                             </div>
                         </details>
