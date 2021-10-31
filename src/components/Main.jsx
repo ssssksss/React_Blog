@@ -21,7 +21,7 @@ import SpringError from './Main/SpringContent/SpringError';
 import SpringBasic from './Main/SpringContent/SpringBasic';
 import SpringThymeleaf from './Main/SpringContent/SpringThymeleaf';
 import SpringLombok from './Main/SpringContent/SpringLombok';
-import SpringJpaEntity from './Main/SpringContent/SpringJpaEntity';
+import SpringModel from './Main/SpringContent/SpringModel';
 import SpringYml from './Main/SpringContent/SpringYml';
 import SpringAPI from './Main/SpringContent/SpringAPI';
 import SpringOAuth2 from './Main/SpringContent/SpringOAuth2';
@@ -47,12 +47,14 @@ import BackendSolid from './Main/BackendContent/BackendSolid';
 import BackendBrowserDevTool from './Main/BackendContent/BackendBrowserDevTool';
 import BackendSCTCache from './Main/BackendContent/BackendSCTCache';
 import BackendCompilerInterpreter from './Main/BackendContent/BackendCompilerInterpreter';
+import BackendCodingConvention from './Main/BackendContent/BackendCodingConvention';
 
 // ========== 프론트엔드 ==========
 // HTML
 import HtmlBasic from './Main/HtmlContent/HtmlBasic';
 import HtmlDOM from './Main/HtmlContent/HtmlDOM';
 import HtmlError from './Main/HtmlContent/HtmlError';
+import HtmlTest from './Main/HtmlContent/HtmlTest';
 
 // CSS
 import CssBasic from './Main/CssContent/CssBasic';
@@ -200,7 +202,7 @@ const Main = (props) => {
                 <Route path="/spring_error" component={SpringError}></Route>
                 <Route path="/spring_basic" component={SpringBasic}></Route>
                 <Route path="/spring_thymeleaf" component={SpringThymeleaf}></Route>
-                <Route path="/spring_jpa_entity" component={SpringJpaEntity}></Route>
+                <Route path="/spring_model" component={SpringModel}></Route>
                 <Route path="/spring_lombok" component={SpringLombok}></Route>
                 <Route path="/spring_yml" component={SpringYml}></Route>
                 <Route path="/spring_api" component={SpringAPI}></Route>
@@ -227,6 +229,7 @@ const Main = (props) => {
                 <Route path="/backend_sctcache" component={BackendSCTCache}></Route>
                 <Route path="/backend_browserdevtool" component={BackendBrowserDevTool}></Route>
                 <Route path="/backend_compiler_interpreter" component={BackendCompilerInterpreter}></Route>
+                <Route path="/backend_codingconvention" component={BackendCodingConvention}></Route>
 
                 {/*========== 프론트엔드 ==========*/}
 
@@ -234,6 +237,7 @@ const Main = (props) => {
                 <Route path="/html_basic" component={HtmlBasic}></Route>
                 <Route path="/html_dom" component={HtmlDOM}></Route>
                 <Route path="/html_error" component={HtmlError}></Route>
+                <Route path="/html_test" component={HtmlTest}></Route>
 
                 {/* CSS */}
                 <Route path="/css_basic" component={CssBasic}></Route>

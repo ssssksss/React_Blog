@@ -16,7 +16,8 @@ code {
 } */
 
 body {
-  background: url(./mountain_and_sea.jpg);
+  background: url(./background.jpg);
+  background-attachment: fixed;
   background-repeat: repeat-y;
   background-size: cover;
 }

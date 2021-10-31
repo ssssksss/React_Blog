@@ -48,6 +48,9 @@
     border: none;
     box-shadow: 1px 1px 1px 1px gray;
 }
+.navMenu > .menu > .col_b_r {
+    background-color: red;
+}
 .navMenu > .menu > button > img {
     max-width: 14px;
     max-height: 14px;
@@ -64,3 +67,4 @@
 .navMenu > .menu img {
     /* vertical-align: bottom; */
 } 
+

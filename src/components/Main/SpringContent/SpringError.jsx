@@ -26,6 +26,18 @@ const SpringError = (props) => {
                         </details>
                     </div>
 
+                    <div className='sstitle'> HTTP 응답 상태 코드 </div>
+                    <div className='mblock'>
+                        <li> 200 : 정상적 수행  </li>
+                        <li> 201 : 클라이언트가 리소스 생성 요청, 리소스가 성공적으로 생성(Post) </li>
+                        <li> 301 : 클라이언트가 요청한 리소스에 대한 URI가 변경이 된 경우  </li>
+                        <li> 400 : 클라이언트의 요청이 부적절한 경우   </li>
+                        <li> 401 : 클라이언트가 인증되지 않을 떄 보호된 리소스에 접근했을 때 발생하는 에러  </li>
+                        <li> 403 : 클라이언트가 응답하고 싶지 않은 리소스를 요청할 때 ( 권장x )  </li>
+                        <li> 405 : 클라이언트가 사용불가능한 Method를 이용해서 리소스를 요청할 때  </li>
+                        <li> 500 : 서버에 문제가 있을 경우 발생하는 코드  </li>
+                    </div>
+
                     <div className='mblock'>
                         <details>
                             <summary className='stitle'> 에러

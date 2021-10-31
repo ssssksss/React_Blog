@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SpringJpa = (props) => {
+const SpringModel = (props) => {
 
     return (
         <>
@@ -256,6 +256,8 @@ const SpringJpa = (props) => {
                                         name="" 속성에 적어서 맞추어 줄수 있고 DB에서 사용하는 제약조건 등을 지정할 수도 있다.</li>
                                     <li>  </li>
                                     <li> @Builder: </li>
+                                    <li> @org.hibernate.annotations.DynamicUpdate : 엔티티에 선언하며 레코드를 전체 업데이트 하지않고
+                                        일부만 업데이트를 하게 해준다.  </li>
                                     <li> @NamedQuery(name="Entity명.Repository메소드명",query="사용자정의쿼리작성") </li>
                                     <li> @Temporal(TemporalType.TIMESTAMP) # 자바의 날짜 타입 사용 </li>
                                     <div className='sstitle'> 제약조건 어노테이션 </div>
@@ -675,4 +677,4 @@ const SpringJpa = (props) => {
     );
 }
 
-export default SpringJpa;
+export default SpringModel;

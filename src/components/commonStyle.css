@@ -1,5 +1,4 @@
-   /* 공통 */
-    .col_r{ color: red; }
+    /*.col_r{ color: red; }
     .col_g{ color: green; }
     .col_p{ color: purple;}
     .col_w{ color: white; }
@@ -9,7 +8,6 @@
         margin-left: 40px;
         list-style-type: circle;
     }
-    /* 왼쪽 사이드에 펼치는 메뉴 설정 */
     .main {
         position: relative;
     }
@@ -18,23 +16,13 @@
         border: gray solid 2px;
         border-radius: 5px;
     }
-    details::before{
-        content: "▷";
-    }
-    details[open]::before{
-        content: "▼";
-    }
+    
     summary {
         color:black;
         cursor: pointer;
     }
     summary small {
         font-size: 0.6em;
-    }
-    .common_style > .subject {
-        text-align: center;
-        background: #c4c4c4;
-        border-radius: 10px;
     }
     .common_style  .mtitle {
         font-size: 25px;
@@ -57,9 +45,6 @@
         min-width: 90%;
         min-height: 16px;
     }
-    details > .sstitle:hover {
-        background-color: chocolate;
-    }
     .common_style  .sstitle {
         font-size: 14px;
         font-weight: 800;
@@ -67,7 +52,6 @@
         display: inline-block;
         border-radius: 2px;
         padding: 5px;
-        background-color: #95dac1;
         margin: 10px 0px;
     }
     .common_style .title4 {
@@ -77,12 +61,10 @@
         display: inline-block;
         border-radius: 5px;
         padding: 10px;
-        background-color: rgb(118, 227, 104);
         margin: 15px 0px 10px 0px;
     }
     .common_style  .lblock {
         border: black solid 3px;
-        background-color: #a5dee5;
         width: 100%;
         box-sizing: border-box;
         display: inline-block;
@@ -91,8 +73,6 @@
     }
 
     .common_style .lblock > .mblock {
-        background-color: #e0f9b5;
-        /*border-radius: 0px 15px 15px 0px;*/
         margin: 8px 0px 8px 0px;
         padding: 5px 5px 5px 5px;
     }
@@ -106,11 +86,9 @@
         min-height: 20px;
         padding: 10px;
         border: black solid 1px;
-        background: #fefdca;
     }
 
     .common_style  .sblock {
-        border: #ff7676 solid 1px;
         width: 100%;
         box-sizing: border-box;
         display: block;
@@ -118,21 +96,13 @@
         padding: 10px;
         margin: 5px 0px 5px 0px;
         min-height: 20px;
-        background: #ffcfdf;
     }
-
-    li {
-        list-style: none;
-    }
-
-    /* 이미지위에 마우스 올라가면 화면 확대 지금 정지*/
     .common_style img {
         transition: all 0.3s ease-in-out;
         cursor: pointer;
         max-width: 100%;
     }
     
-    /* 단어 : 설명 을 구분하기 위해 단어에 색을 준 스타일 */
     .common_style i {
         color:#ff3d00;
         font-weight: 800;
@@ -141,14 +111,12 @@
         word-break: break-all;
         
     }
-    /* 주석 용도로 사용 */
     .common_style small {
         color: green;
         font-weight: 800;
     }
     
 
-/* 1024px이상이 되어야 스타일이 작동 */
 @media screen and (min-width: 1024px)
 {
     .common_style {
@@ -157,7 +125,6 @@
     }
 }
 
-/* 1024px 이내일 경우 발생 */
 @media screen and (max-width: 1024px)
 {
    
@@ -166,5 +133,92 @@
         width: 100%;
     }
 
+}*/
+/*  */
+/*  */
+/*  */
+.common_style {
+    width: 100%;
+    display: inline-block;
+}
+.common_style small {
+    color: green;
+}
+.common_style h2 {
+    color: #B3713C;
+    margin: 20px 0px 10px 10px;
+    padding: 5px 5px;
+    display: inline-block;
+    font-weight: 800;
+    background-color: orange;
+}
+.common_style h3 {
+    color:#3366FF;
+    margin-left: 15px;
+}
+.common_style h4 {
+    color:#FF33CC;
+}
+.common_style h5 {
+}
+.common_style details::before{
+    content: "🌝";
+}
+.common_style details[open]::before{
+    content: "🌚";
+    display: inline-block
+}
+.common_style summary {
+    display: inline-block;
+    width: 90%;
+    padding-left: 10px;
+}
+.common_style summary:hover {
+    color: red;
 }
 
+/* 사이즈 크기1 big */
+.common_style .block1 {
+    width: 100%;
+    display: inline-block;
+    font-size: 32px;
+    border: solid black 4px;
+    background-color: rgba(255,255,255,0.8);
+    margin-bottom: 5px;
+    word-wrap: break-word;
+
+}
+/* 사이즈 크기2 mid */
+.common_style .block2 {
+    font-size: 0.8em;
+    display: block;
+    margin: 10px 2px 2px 2px;
+    padding: 2px;
+    border: solid #B3713C 4px;
+}
+/* 사이즈 크기3 small */
+.common_style .block3 {
+    font-size: 0.8em;
+    border: solid #3366FF 4px;
+    margin: 2px 12px 10px 2px;
+    padding: 10px 0px;
+}
+.common_style .block3 li {
+    list-style: none;
+}
+.common_style .block4 {
+    font-size: 1em;
+    border: solid #FF33CC 4px;
+    margin: 2px 12px 10px 2px;
+    padding: 10px 0px;
+    background-color: #f8fafe;
+}
+.common_style .block4 p {
+    margin-left: 15px;
+}
+.common_style .block5 {
+    font-size: 12px;
+}
+.common_style .block6 {
+    font-size: 10px;
+}

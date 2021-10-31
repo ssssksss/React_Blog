@@ -6,16 +6,36 @@ const JavaBasic = (props) => {
         <>
             <div className="common_style">
 
+                <div className="block1">
+                    <details>
+                        <summary> 123 </summary>
+                        <div className='sblock'>
+                            <h2> <b> 설명 </b> </h2>
+                            <div className='block2'>
+                                <li> 123 </li>
+                                <li> 123 </li>
+                            </div>
+                            <h2> <b> 예시 </b> </h2>
+                            <div className='block2'>
+                                <li>  </li>
+                                <li>  </li>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+
+
+
                 <div className="lblock">
                     <div className="mtitle"> <a name="자바 문법"> 자바 문법 </a> </div>
 
-                    <div className='mblock'>
+                    <div className="block1">
                         <details>
                             <summary className='stitle'> 자바
                                 <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
                             <div className='sblock'>
                                 <div className='sstitle'> 설명 </div>
-                                <div className='mblock'>
+                                <div className='block2'>
                                     <li> 1. 컴파일 기반의 언어 </li>
                                     <li> 2. 객체 지향 언어, 클래스기반 </li>
                                     <li> 3. 변수형에 타입을 항상 선언해야한다. (인터프리터 언어에서는 선언을 하지 않고도 사용이 가능하다.) </li>
@@ -25,7 +45,7 @@ const JavaBasic = (props) => {
                                     <li>  </li>
                                 </div>
                                 <div className='sstitle'> 예시 </div>
-                                <div className='mblock'>
+                                <div className='block2'>
                                     <li>  </li>
                                     <li>  </li>
                                 </div>
@@ -33,7 +53,7 @@ const JavaBasic = (props) => {
                         </details>
                     </div>
 
-                    <div className="mblock">
+                    <div className="block1">
                         <details> <summary className="stitle"> <a name="출력메소드">  출력메소드 </a> </summary>
                             <div className="sblock">
                                 <small>  </small>
@@ -43,13 +63,13 @@ const JavaBasic = (props) => {
                         </details>
                     </div>
                     {/*  */}
-                    <div className='mblock'>
+                    <div className="block1">
                         <details>
                             <summary className='stitle'> 자료형
                                 <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
                             <div className='sblock'>
                                 <div className='sstitle'> Primitive Data Type </div>
-                                <div className='mblock'>
+                                <div className='block2'>
                                     <li> 객체가 아니므로 null값을 넣을수 없다. 만약 넣고 싶다면 Wrapper클래스로 감싸주자! </li>
                                     <li> byte : 정수형 , 8bits , ( -2^7 ~ 2^7-1  ) </li>
                                     <li> short : 정수형 , 16bits , ( -2^15 ~ 2^15-1 ) </li>
@@ -69,7 +89,7 @@ const JavaBasic = (props) => {
                                     </li>
                                 </div>
                                 <div className='sstitle'> Reference Type </div>
-                                <div className='mblock'>
+                                <div className='block2'>
                                     <li>  </li>
                                     <li>  </li>
                                 </div>
@@ -77,7 +97,7 @@ const JavaBasic = (props) => {
                         </details>
                     </div>
                     {/*  */}
-                    <div className="mblock">
+                    <div className="block1">
                         <details> <summary className="stitle"> <a name="입력메소드">  입력메소드 </a> </summary>
                             <div className="sblock">
                                 <small> import java.util.Scanner; </small>
@@ -89,7 +109,7 @@ const JavaBasic = (props) => {
                         </details>
                     </div>
                     {/*  */}
-                    <div className="mblock">
+                    <div className="block1">
                         <details> <summary className="stitle"> <a name="문자열">  문자열 </a> </summary>
                             <div className="sblock">
                                 <small>  </small>
@@ -102,7 +122,7 @@ const JavaBasic = (props) => {
                             </div>
                         </details></div>
                     {/*  */}
-                    <div className="mblock">
+                    <div className="block1">
                         <details> <summary className="stitle"> <a name="배열">  배열 </a> </summary>
                             <div className="sblock">
                                 <small>  </small>
@@ -118,7 +138,7 @@ const JavaBasic = (props) => {
                             </div>
                         </details></div>
                     {/*  */}
-                    <div className="mblock">
+                    <div className="block1">
                         <details> <summary className="stitle"> <a name="반복문">  반복문 </a> </summary>
                             <div className="sblock">
                                 <small>  </small>
@@ -129,26 +149,26 @@ const JavaBasic = (props) => {
                             </div>
                         </details></div>
                     {/*  */}
-                    <div className='mblock'>
+                    <div className="block1">
                         <details>
                             <summary className='stitle'> 클래스
                                 <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
                             <div className='sblock'>
                                 <div className='sstitle'> 설명 </div>
-                                <div className='mblock'>
+                                <div className='block2'>
                                     <li> 클래스란 속성과 기능을 가지고 있는 데이터 타입 </li>
                                     <li> class는 실제 동작하는 대상이 아닌 붕어빵의 틀과 같은 존재  </li>
                                     <li> 실제로 동작하는 대상은 인스턴스(객체)라고 불리는 것이다. </li>
                                 </div>
                                 <div className='sstitle'> 예시 </div>
-                                <div className='mblock'>
+                                <div className='block2'>
                                     <li>  </li>
                                     <li>  </li>
                                 </div>
                             </div>
                         </details>
                     </div>
-                    <div className="mblock">
+                    <div className="block1">
                         <details> <summary className="stitle"> <a name="상속">  상속 </a> </summary>
                             <div className="sblock">
                                 <small>  </small>
@@ -158,7 +178,7 @@ const JavaBasic = (props) => {
                             </div>
                         </details></div>
                     {/*  */}
-                    <div className="mblock">
+                    <div className="block1">
                         <details> <summary className="stitle"> <a name="랜덤">  랜덤 </a> </summary>
                             <div className="sblock">
                                 <small>  </small>
@@ -166,7 +186,7 @@ const JavaBasic = (props) => {
                             </div>
                         </details></div>
                     {/*  */}
-                    <div className="mblock">
+                    <div className="block1">
                         <details> <summary className="stitle"> <a name="인터페이스">  인터페이스 </a> </summary>
                             <div className="sblock">
                                 <small> 인터페이스를 상속받은 클래스는 무조건 메소드를 선언해주어야 한다. </small>
@@ -177,7 +197,7 @@ const JavaBasic = (props) => {
                             </div>
                         </details></div>
                     {/*  */}
-                    <div className="mblock">
+                    <div className="block1">
                         <details> <summary className="stitle"> <a name="캐스팅">  캐스팅 </a> </summary>
                             <div className="sblock">
                                 <small>  </small>
@@ -185,7 +205,7 @@ const JavaBasic = (props) => {
                             </div>
                         </details></div>
                     {/*  */}
-                    <div className="mblock">
+                    <div className="block1">
                         <details> <summary className="stitle"> <a name="형변환">  형변환 </a> </summary>
                             <div className="sblock">
                                 <small>  </small>
@@ -194,24 +214,24 @@ const JavaBasic = (props) => {
                         </details></div>
                     {/*  */}
 
-                    <div className='mblock'>
+                    <div className="block1">
                         <details>
                             <summary className='stitle'> Optional
                                 <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
                             <div className='sblock'>
                                 <div className='sstitle'> 설명 </div>
-                                <div className='mblock'>
+                                <div className='block2'>
                                     <li> T타입의 객체를 포장해주는 래퍼 클래스 </li>
                                     <li> Null을 예외처리하지 않고 처리가 가능하다는 장점이 있다. </li>
                                 </div>
                                 <div className='sstitle'> 설명 </div>
-                                <div className='mblock'>
+                                <div className='block2'>
                                     <li> opt.isEmpty() <small> # 값이 존재하는지 boolean값 리턴  </small> </li>
                                     <li> opt.orElseGet() <small> # 저장된 값이 존재하면 값을 반환 값이 없으면 인수로 전달된
                                         람다 표현식 결과값 반환 </small> </li>
                                 </div>
                                 <div className='sstitle'>  시작 처리 : 옵셔널 객체 생성 메소드 </div>
-                                <div className='mblock'>
+                                <div className='block2'>
                                     <li> Optional.of() <small> # 저장된 값이 존재하면 입력된 값을 반환 없으면 인수로 전달된 예외를 발생 </small>
                                         <li> Optional{'<String>'} opt = Optional.of("result"); </li>
                                     </li> <br />
@@ -225,13 +245,13 @@ const JavaBasic = (props) => {
                                     </li> <br />
                                 </div>
                                 <div className='sstitle'> 중간 처리 , 옵셔널 객체가 생성된 후 사용가능, 아래 메서드는 옵셔널 객체를 반환 </div>
-                                <div className='mblock'>
+                                <div className='block2'>
                                     <li> {' opt.ifPresent() : '} <small> # </small> </li>
                                     <li> {' Optional.of("객체").ifPresent((value) -> { } ); '} <small> # </small> </li>
                                     <li> {' Optional.ofNullable(null).ifPresent((value) -> { } ); '} <small> # </small> </li>
                                 </div>
                                 <div className='sstitle'> 종단 처리 , 옵셔널 객체의 체이닝을 끝냄 </div>
-                                <div className='mblock'>
+                                <div className='block2'>
                                     <li> opt.isPresent()  <small> # 객체가 존재하는지 여부 판단, 있으면 true </small> </li>
                                     <li> Optional.ofNullable(객체).isPresent();  <small> # 객체가 존재하는지 여부 판단, 있으면 true </small> </li> <br />
                                     <li> opt.get()  <small> # 객체를 꺼냄, 비어있는 옵셔널 객체면 예외 발생</small>
@@ -252,7 +272,7 @@ const JavaBasic = (props) => {
                         </details>
                     </div>
 
-                    <div className="mblock">
+                    <div className="block1">
                         <details> <summary className="stitle"> <a name="Stream">  Stream </a> </summary>
                             <li> 스트림은 배열 또는 컬렉션 인스턴스를 이용해서 사용 가능</li>
                             <div className="sblock">
@@ -272,7 +292,7 @@ const JavaBasic = (props) => {
                         </details>
                     </div>
                     {/*  */}
-                    <div className="mblock">
+                    <div className="block1">
                         <details> <summary className="stitle"> <a name="함수의 종류">  함수의 종류</a> </summary>
                             <div className="sblock">
 
@@ -289,7 +309,7 @@ const JavaBasic = (props) => {
                             </div>
                         </details>
                     </div>
-                    <div className="mblock">
+                    <div className="block1">
                         <details> <summary className="stitle"> <a name="Assertion">  Assertion </a> </summary>
                             <div className="sblock">
                                 <li> 코드가 잘 작성되었는지 확인하는데 돕는 기능이다. 예외 처리와 비슷하기는
@@ -305,7 +325,7 @@ const JavaBasic = (props) => {
                         </details>
                     </div>
                     {/*  */}
-                    <div className="mblock">
+                    <div className="block1">
                         <details> <summary className="stitle"> <a name="자료구조">  자료구조 </a> </summary>
                             <div className="sblock">
                                 <li> {"Map<자료형,자료형> Map객체명 = new HashMap<>(); "}</li>
@@ -325,7 +345,7 @@ const JavaBasic = (props) => {
                         </details>
                     </div>
                     {/*  */}
-                    <div className="mblock">
+                    <div className="block1">
                         <details> <summary className="stitle"> <a name="Enum">  Enum </a> </summary>
                             <div className="sblock">
                                 <small> 상수들로 만들어진 집합, 열거형 클래스</small>
@@ -334,13 +354,13 @@ const JavaBasic = (props) => {
                         </details>
                     </div>
                     {/*  */}
-                    <div className='mblock'>
+                    <div className="block1">
                         <details>
                             <summary className='stitle'> Wrapper
                                 <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
                             <div className='sblock'>
                                 <div className='sstitle'> 설명 </div>
-                                <div className='mblock'>
+                                <div className='block2'>
                                     <li> 박싱(기본타입을 클래스 인스턴스로)과 언박싱의 과정을 거쳐 변경한다.  </li>
                                     <li> Byte, Short, Integer, Long, Float, Double, Char, Boolean </li>
                                     <li> wrapper 클래스를 사용하면 ==연산자(주소비교)가 아닌 .equals() 를 사용해서 비교해야 한다. </li>
@@ -348,7 +368,7 @@ const JavaBasic = (props) => {
                                     <li> 대체적으로 객체를 사용하는 경우가 많은데 기본 타입으로 처리가 안되는 경우가 있고, 멀티스레딩에서는 객체를 사용한다. </li>
                                 </div>
                                 <div className='sstitle'> 예시 </div>
-                                <div className='mblock'>
+                                <div className='block2'>
                                     <li> Integer num = new Interger(10); , int num1 = num.intValue(); </li>
                                     <li> Character chr = "char"; , char c = chr; <small> # 오토박싱, 언제인지는 기억이 안나지만 new Character("char")로 적지 않아도된다. </small> </li>
                                     <li>  </li>
@@ -357,12 +377,12 @@ const JavaBasic = (props) => {
                         </details>
                     </div>
 
-                    <div className="mblock">
+                    <div className="block1">
                         <details> <summary className="stitle"> <a name="Generic">  Generic </a> </summary>
                             <small> 자료형 타입을 정해서 사용하는 메소드 </small>
                             <div className="sblock">
                                 <div className="sstitle"> 설명 </div>
-                                <div className="mblock">
+                                <div className="block2">
                                     <li> JDK1.5 , Java5에 도입 </li>
                                     <li>  </li>
                                     <li> Java SE 7 부터 {'<>'}타입변수가 추측이 가능하면 아래와 같이 생략가능
@@ -378,7 +398,7 @@ const JavaBasic = (props) => {
                                     <li>  </li>
                                 </div>
                                 <div className="sstitle"> 제너릭 클래스 </div>
-                                <div className="mblock">
+                                <div className="block2">
                                     <li> public class 클래스명{'<T>'}  </li>
                                     <li> public class 클래스명{'<T extends 클래스명>'} # 특정 타입만 사용하게 제한   </li>
                                     <li> public class 클래스명{'<T extends 인터페이스명>'} # 특정 타입만 사용하게 제한   </li>
@@ -386,7 +406,7 @@ const JavaBasic = (props) => {
                                     <li> 클래스명{'<T>'} 객체명 = new 클래스{'<>'}() </li>
                                 </div>
                                 <div className="sstitle"> 제너릭 메소드 </div>
-                                <div className="mblock">
+                                <div className="block2">
                                     <li> <h3> 설명 : </h3>
                                         <li> 제너릭 클래스의 타입변수와 메소드의 타입변수는 다른 타입변수임  </li>
                                         <li> 타입변수의 ?(와일드카드) 는 모든 타입 사용 가능 </li>
@@ -437,7 +457,7 @@ const JavaBasic = (props) => {
                         </details>
                     </div>
                     {/*  */}
-                    <div className="mblock">
+                    <div className="block1">
                         <details> <summary className="stitle"> <a name="람다식">  람다식 </a> </summary>
                             <div className="sblock">
                                 <li> <h3> 설명 : </h3>
@@ -447,7 +467,7 @@ const JavaBasic = (props) => {
                                 </li>
                                 {/*  */}
                                 <li> <h3>  메소드 예시 1</h3>
-                                    <div className="mblock">
+                                    <div className="block2">
                                         <li> <h4> 기존 메소드 방식 </h4>
                                             <li> {'for(int i=0; i<10; i++) { '}
                                                 <li> System.out.println(i); </li>
@@ -464,7 +484,7 @@ const JavaBasic = (props) => {
                                 </li>
                                 {/*  */}
                                 <li> <h3> 메소드  예시 2</h3>
-                                    <div className="mblock">
+                                    <div className="block2">
                                         <li> <h4> 기존 메소드 방식 </h4>
                                             <li> int add(int x,int y) {'{'}
                                                 <li> return x+y; </li>
@@ -478,7 +498,7 @@ const JavaBasic = (props) => {
                                 </li>
                                 {/*  */}
                                 <li> <h3> 1회용 클래스 예시 </h3>
-                                    <div className="mblock">
+                                    <div className="block2">
                                         <li> <h4> 람다 클래스 방식 </h4>
                                             <li> {'new 클래스명(()-> {'}
                                                 <li> System.out.println(""); </li>
@@ -494,13 +514,13 @@ const JavaBasic = (props) => {
                     </div>
                     {/*  */}
 
-                    <div className='mblock'>
+                    <div className="block1">
                         <details>
                             <summary className='stitle'> volatile
                                 <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
                             <div className='sblock'>
                                 <div className='sstitle'> 설명 </div>
-                                <div className='mblock'>
+                                <div className='block2'>
                                     <li> CPU cache가 아닌 Main Memory에 변수의 값을 저장하고 읽어들이는 것 </li>
                                     <li> 멀티쓰레드에서 변수의 값을 일치시켜주기 위해서 사용한다. </li>
                                     <li> 하지만 volatile로 Main Memory에 직접 값을 넣어주어도 충돌하는 경우가 있다.
@@ -511,7 +531,7 @@ const JavaBasic = (props) => {
                                     <li> volatile은 Main Memory에서 데이터를 가져오기 때문에 비용이 조금 더 비싸다. </li>
                                 </div>
                                 <div className='sstitle'> 예시 </div>
-                                <div className='mblock'>
+                                <div className='block2'>
                                     <li>  </li>
                                     <li>  </li>
                                 </div>
@@ -519,13 +539,13 @@ const JavaBasic = (props) => {
                         </details>
                     </div>
 
-                    <div className='mblock'>
+                    <div className="block1">
                         <details>
                             <summary className='stitle'> reflection
                                 <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
                             <div className='sblock'>
                                 <div className='sstitle'> 설명 </div>
-                                <div className='mblock'>
+                                <div className='block2'>
                                     <li> Test1 클래스에는 public int x=1 와 private int y=2 가 있다고 가정 </li>
                                     <li> Test1 test = new Test1(); </li>
                                     <li> Class{'<?>'} cls = test.getClass(); <small> # 이와같이 클래스를 제너릭으로 바꾸어준다? </small> </li> <br />
@@ -549,7 +569,7 @@ const JavaBasic = (props) => {
                                     <li>  </li>
                                 </div>
                                 <div className='sstitle'> 예시 </div>
-                                <div className='mblock'>
+                                <div className='block2'>
                                     <li> {' public class Test { '}
                                         <li> {'  '} </li> <br />
                                         <li> {' public static void main(String[] args) { '}
@@ -588,20 +608,20 @@ const JavaBasic = (props) => {
                         </details>
                     </div>
 
-                    <div className='mblock'>
+                    <div className="block1">
                         <details>
                             <summary className='stitle'> 싱글톤 패턴
                                 <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
                             <div className='sblock'>
                                 <div className='sstitle'> 설명 </div>
-                                <div className='mblock'>
+                                <div className='block2'>
                                     <li> 1개의 인스턴스만을 유지시켜주는 패턴 </li>
                                     <li> <a href="https://www.journaldev.com/1377/java-singleton-design-pattern-best-practices-examples"
                                         target="_blank" rel="noopener noreferrer"> 참고 </a> </li>
                                     <li>  </li>
                                 </div>
                                 <div className='sstitle'>  예시 </div>
-                                <div className='mblock'>
+                                <div className='block2'>
                                     <li className='sstitle'> 기본적인 형식 <small> # 멀티 쓰레드 방식에서는 사용x </small> </li> <br />
                                     <li> public class Singleton {'{'}
                                         <li>  </li> <br />

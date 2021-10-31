@@ -319,20 +319,23 @@ const SpringLombok = (props) => {
                         </details>
                     </div>
 
-
-
                     <div className='mblock'>
                         <details>
-                            <summary className='stitle'> @NotNull @Nullable @NotEmpty
+                            <summary className='stitle'> @NotNull @Nullable @NotEmpty @Size @Min @Max @Length
                                 <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
                             <div className='sblock'>
                                 <div className='sstitle'> 설명 </div>
                                 <div className='mblock'>
+                                    <li> Model객체의 필드위에 선언해서 사용 </li>
                                     <li> @NotNull <small> # Null 불가능 </small> </li>
-                                    <li> @NotEmpty <small> # Null, 빈문자열("") 불가능 , " " 은 가능 </small> </li>
+                                    <li> @NotEmpty(message="") <small> # Null, 빈문자열("") 불가능 , " " 은 가능 </small> </li>
                                     <li> @NotBlank <small> # Null, 빈문자열("") , " " 모두 불가능 </small> </li>
                                     <li> @NonNull <small> null을 허용하지 않음 </small>  </li>
                                     <li> @Nullable <small> null을 허용 </small>  </li>
+                                    <li> @Size(min=2, max=30, message = "{'최소 {min}자 최대 {max}자'}") </li>
+                                    <li> @Min(18) </li>
+                                    <li> @Max(18) </li>
+                                    <li> @Length(min=5,max=10,message="") </li>
                                 </div>
                                 <div className='sstitle'> 예시 </div>
                                 <div className='mblock'>
@@ -437,26 +440,7 @@ const SpringLombok = (props) => {
                         </details>
                     </div>
 
-                    <div className='mblock'>
-                        <details>
-                            <summary className='stitle'> @Size @Min @Max
-                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
-                            <div className='sblock'>
-                                <div className='sstitle'> 어노테이션 </div>
-                                <div className='mblock'>
-                                    <li> @Size(min=2, max=30) </li>
-                                    <li> @Min(18) </li>
-                                    <li> @Max(18) </li>
-                                    <li>  </li>
-                                </div>
-                                <div className='sstitle'> 예시 </div>
-                                <div className='mblock'>
-                                    <li>  </li>
-                                    <li>  </li>
-                                </div>
-                            </div>
-                        </details>
-                    </div>
+
 
                     <div className='mblock'>
                         <details>
