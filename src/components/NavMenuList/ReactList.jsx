@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const ReactList = () => {
 
     return (
-        <div className="menucontainer">
+        <div className="nav-menu2__inner-box">
             <div className="menu menu1">
                 <Link to="/react_basic"> 리액트 기초 </Link>
                 <Link to="/react_javascript"> 리액트 자바스크립트 </Link>

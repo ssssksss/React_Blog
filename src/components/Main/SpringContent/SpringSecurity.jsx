@@ -13,7 +13,7 @@ const HtmlTest = (props) => {
             <summary> Spring Security 설명 </summary>
             <div className='block2'>
 
-              <h2> 📌 설명 </h2>
+              <h2 className="h2"> 📌 설명 </h2>
               <li> 서버가 시작되면 Spring Security 초기화 및 보안 설정 발생 </li>
               <li> 모든 요청이 인증이 되어야 자원에 접근이 가능 </li>
               <li> form로그인 방식과 httpbasic로그인 방식을 제공한다. </li>
@@ -27,7 +27,7 @@ const HtmlTest = (props) => {
               <li> 2. 인증이 된 객체라면 그 다음 어떤 경로에 접근 권한이 있는 객체인지를 확인한다. </li>
               <li> 3. 권한이 있다면 동작을 할 수 있게 하고, 없다면 동작을 할 수 없게 막는다. </li>
               <li> 필터 방식으로 작동 </li>
-              <h2> 📌 관련 용어 </h2>
+              <h2 className="h2"> 📌 관련 용어 </h2>
               <li> Principal(접근주체): 보호된 대상에 접근하는 대상 </li>
               <li> Credential(비밀번호): Resource에 접근하는 대상의 비밀번호 </li>
               <li> Authentication(인증): 현재 유저가 누구인지 확인, 작업을 수행할 수 있는지 여부를 판단 </li>
@@ -36,7 +36,7 @@ const HtmlTest = (props) => {
                 <li> 웹 권한, 메소드호출, 도메인 인스턴스 </li>
               </li>
 
-              <h2> 📌 스프링 부트 시큐리티 추가 </h2>
+              <h2 className="h2"> 📌 스프링 부트 시큐리티 추가 </h2>
               <li> gradle
                 <li> implementation 'org.springframework.boot:spring-boot-starter-security' </li>
                 <li> implementation 'org.springframework.security:spring-security-test' </li>
@@ -52,15 +52,15 @@ const HtmlTest = (props) => {
             <summary> Spring Security 설정 클래스 </summary>
             <div className='block2'>
 
-              <h2> 📌 설명 </h2>
+              <h2 className="h2"> 📌 설명 </h2>
               <li> security관련 설정을 하는 곳 </li>
               <li> 2 </li>
               <li> 3 </li>
 
-              <h2> ✔ 설정코드설명 {'&'} 예시 </h2>
+              <h2 className="h2"> ✔ 설정코드설명 {'&'} 예시 </h2>
               <li> 소제목
                 <div className="block3">
-                  <li> <h3>  </h3>
+                  <li> <h3 className="h3">  </h3>
                     <li> WebSecurityConfig [Custom] </li>
                     <li> @Configuration </li>
                     <li> @EnableWebSecurity  <small> # springSecurityFilterChain에 등록 , 스프링 시큐리티 활성화 </small> </li>
@@ -68,7 +68,7 @@ const HtmlTest = (props) => {
                     <li> public class WebSecurityConfig extends WebSecurityConfigurerAdapter {'{'}
 
                       <li> </li> <br />
-                      <h3> 🎈 시큐리티 필터 체인 관련 설정, 리소스 접근 제외할 경로 설정 </h3>
+                      <h3 className="h3"> 🎈 시큐리티 필터 체인 관련 설정, 리소스 접근 제외할 경로 설정 </h3>
                       <div className="block4">
                         <li> @Override </li>
                         <li> public void configure(WebSecurity web) throws Exception {'{'}
@@ -78,7 +78,7 @@ const HtmlTest = (props) => {
                       </div>
 
                       <li> </li> <br />
-                      <h3> 🎈 인증, 로그인, 로그아웃 등 설정 , securityconfig 파일에 대부분 설정을 여기에서 한다. </h3>
+                      <h3 className="h3"> 🎈 인증, 로그인, 로그아웃 등 설정 , securityconfig 파일에 대부분 설정을 여기에서 한다. </h3>
                       <div className="block4">
 
 
@@ -178,10 +178,10 @@ const HtmlTest = (props) => {
 
 
                       <li> </li> <br />
-                      <h3> 아래는 security 인증을 처리하는 방식을 설정하는 2가지 방법이다. (~~방식 인증이라고 말한것은 대략 지어놓은 말이다.) </h3>
+                      <h3 className="h3"> 아래는 security 인증을 처리하는 방식을 설정하는 2가지 방법이다. (~~방식 인증이라고 말한것은 대략 지어놓은 말이다.) </h3>
                       <div className="block4">
 
-                        <h3> 🎈 1. InMemory 방식 인증 <small> # 안 써봐서 잘 모르지만 내부에 저장을 해놓고서 인증을 처리하는 방식으로 기억 </small> </h3>
+                        <h3 className="h3"> 🎈 1. InMemory 방식 인증 <small> # 안 써봐서 잘 모르지만 내부에 저장을 해놓고서 인증을 처리하는 방식으로 기억 </small> </h3>
                         <li>  @Bean </li>
                         <li> 	@Override </li>
                         <li> 	public UserDetailsService userDetailsService() {'{'}
@@ -198,7 +198,7 @@ const HtmlTest = (props) => {
                         <li> 	{'}'} </li> <br />
 
                         <li> </li> <br />
-                        <h3> 🎈 2. jdbcAuthentication() 방식 인증 <small> # security로 인증을 처리하는 방법 </small> </h3>
+                        <h3 className="h3"> 🎈 2. jdbcAuthentication() 방식 인증 <small> # security로 인증을 처리하는 방법 </small> </h3>
                         <li> @Autowired </li>
                         <li> DataSource dataSource; </li> <br />
                         <li> @Bean </li>
@@ -241,19 +241,19 @@ const HtmlTest = (props) => {
             <summary> Spring Security 권한을 이용해서 Method 접근 설정 ( 정리 필요 ) </summary>
             <div className='block2'>
 
-              <h2> 📌 설명 </h2>
+              <h2 className="h2"> 📌 설명 </h2>
               <li> 메소드를 호출할 때, security권한을 이용해서 접근 유무 설정가능 </li>
               <li> 2 </li>
               <li> 3 </li>
 
-              <h2> 📌 장점, 단점 </h2>
+              <h2 className="h2"> 📌 장점, 단점 </h2>
               <li> 장점 : </li>
               <li> 단점 : </li>
 
-              <h2> ✔ 예시 </h2>
+              <h2 className="h2"> ✔ 예시 </h2>
               <li> MethodSecurityConfig [Custom]
                 <div className="block3">
-                  <li> <h3>  </h3>
+                  <li> <h3 className="h3">  </h3>
                     <li> {' @Configuration '} </li>
                     <li> {' @EnableGlobalMethodSecurity( '}
                       <li> {'         prePostEnabled = true, '} </li>
@@ -276,12 +276,12 @@ const HtmlTest = (props) => {
             <summary> Security FiletrChain (제대로 된 정리가 되있지 않음) </summary>
             <div className='block2'>
 
-              <h2> 📌 설명 </h2>
+              <h2 className="h2"> 📌 설명 </h2>
               <li> 1 </li>
               <li> 2 </li>
               <li> 3 </li>
 
-              <h2> 📌 필터 체인 종류 및 설명 </h2>
+              <h2 className="h2"> 📌 필터 체인 종류 및 설명 </h2>
               <li> <i> 1. ChannelProcessingFilter </i> </li>
               <li> <i> 2. SecurityContextPersistenceFilter(필수) </i>
                 SecurityContextRepository에서 SecurityContext를 로드하고 저장하는 일을 담당 </li>
@@ -317,20 +317,20 @@ const HtmlTest = (props) => {
 
 
 
-              <h2> 📌 장점, 단점 </h2>
+              <h2 className="h2"> 📌 장점, 단점 </h2>
               <li> 장점 : </li>
               <li> 단점 : </li>
 
-              <h2> ✔ 예시 </h2>
+              <h2 className="h2"> ✔ 예시 </h2>
               <li> 소제목
                 <div className="block3">
-                  <li> <h3>  </h3>
+                  <li> <h3 className="h3">  </h3>
                     <li>  </li>
                     <div className='block4'>
                       <li> </li>
                     </div>
                   </li> <br />
-                  <li> <h3>  </h3>
+                  <li> <h3 className="h3">  </h3>
                     <li>  </li>
                     <div className='block4'>
                       <li> </li>

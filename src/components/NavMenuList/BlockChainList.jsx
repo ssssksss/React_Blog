@@ -5,7 +5,7 @@ const BlockChain = () => {
 
 
     return (
-        <div className="menucontainer">
+        <div className="nav-menu2__inner-box">
             <div className="menu menu1">
                 <Link to="/blockchain_pow"> BlockChainPow  </Link>
             </div>

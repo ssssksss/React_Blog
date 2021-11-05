@@ -5,7 +5,7 @@ const TermList = () => {
 
     return (
 
-        <div className="menucontainer">
+        <div className="nav-menu2__inner-box">
             <div className="menu menu1">
                 <Link to="/term"> 용어 </Link>
             </div>

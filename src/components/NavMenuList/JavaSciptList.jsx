@@ -5,7 +5,7 @@ const JavaSciptList = () => {
 
 
     return (
-        <div className="menucontainer">
+        <div className="nav-menu2__inner-box">
             <div className="menu menu1">
                 <Link to="/javascript_basic"> JavaScript 공부 </Link>
                 <Link to="/javascript_ajax">  Ajax </Link>

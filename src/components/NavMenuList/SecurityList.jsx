@@ -5,7 +5,7 @@ const BlankList = () => {
 
 
     return (
-        <div className="menucontainer">
+        <div className="nav-menu2__inner-box">
             <div className="menu menu1">
                 <Link to="/security_basic"> 보안 공부 </Link>
                 <Link to="/security_jwt"> JWT 토큰 </Link>

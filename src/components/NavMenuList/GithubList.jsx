@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const GithubList = () => {
 
     return (
-        <div className="menucontainer">
+        <div className="nav-menu2__inner-box">
             <div className="menu menu1">
                 <Link to="/github_basic"> 깃허브 공부 </Link>
             </div>

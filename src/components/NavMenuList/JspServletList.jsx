@@ -5,7 +5,7 @@ const JspServletList = () => {
 
 
     return (
-        <div className="menucontainer">
+        <div className="nav-menu2__inner-box">
             <div className="menu menu1">
                 <Link to="/jspservlet_basic"> JSP,Servlet 기초 </Link>
                 <Link to="/jspservlet_information"> JSP,Servlet 정보 </Link>

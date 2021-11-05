@@ -4,16 +4,16 @@ import { Link } from 'react-router-dom';
 const KeyMapList = () => {
 
     return (
-        <div className="menucontainer">
+        <div className="nav-menu2__inner-box">
             <div className="menu menu1">
-                <Link to="/keymap_intellij"> 인텔리제이 단축키 및 설정 </Link>
-                <Link to="/keymap_vscode"> 비쥬얼코드 단축키 및 설정 </Link>
-                <Link to="/keymap_eclipse"> 이클립스 단축키 및 설정 </Link>
+                <Link to="/keymap_intellij"> Intellij 단축키, 설정, 익스텐션 </Link>
+                <Link to="/keymap_vscode"> VScode 단축키, 설정, 익스텐션 </Link>
+                <Link to="/keymap_eclipse"> Eclipse 단축키 및 설정 </Link>
                 <Link to="/keymap_sublimetext"> SublimeText 단축키 및 설정 </Link>
             </div>
             <div className="menu menu2">
-                <Link to="/keymap_window"> 윈도우 단축키 및 설정 </Link>
-                <Link to="/keymap_browser"> 브라우저 단축키 및 설정 </Link>
+                <Link to="/keymap_window"> Window 단축키 및 설정 </Link>
+                <Link to="/keymap_browser"> Browser 단축키 및 설정 </Link>
             </div>
         </div>
     );

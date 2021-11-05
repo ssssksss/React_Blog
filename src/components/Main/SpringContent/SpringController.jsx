@@ -11,22 +11,22 @@ const SpringController = (props) => {
                         <summary> Controller </summary>
                         <div className='block2'>
 
-                            <h2> 📌 설명 </h2>
+                            <h2 className="h2"> 📌 설명 </h2>
                             <li> MVC 패턴에서 Sevice와 View를 분리해서 이어주는 역할을 한다. </li>
                             <li> 사용자가 요청하는 경로를 처리하는 역할을 한다. </li>
                             <li> 어떤 service를 연결할지와 예외만 처리 </li>
                             <li> controller에서는 비즈니스 로직을 구현하는 것을 지양한다. </li>
 
-                            <h2> 📌 장점, 단점 </h2>
+                            <h2 className="h2"> 📌 장점, 단점 </h2>
                             <li> 장점 :
                                 <li> 컨트롤러에 경로 설정들이 되어있으므로 개발할 때 찾기가 쉬움 </li>
                             </li>
                             <li> 단점 : </li>
 
-                            <h2> ✔ 예시 </h2>
+                            <h2 className="h2"> ✔ 예시 </h2>
                             <li> controller 예시
                                 <div className="block3">
-                                    <li> <h3>  </h3>
+                                    <li> <h3 className="h3">  </h3>
                                         <li> @Controller </li>
                                         <li> @RequestMapping("/board") <small> # 이 컨트롤러의 prefix 경로라고 생각하면된다. </small> </li>
                                         <li> public class BoardController {'{'}
@@ -111,10 +111,10 @@ const SpringController = (props) => {
                         <summary> ApiController </summary>
                         <div className='block2'>
 
-                            <h2> 📌 설명 </h2>
+                            <h2 className="h2"> 📌 설명 </h2>
                             <li> api를 이용하여 컨트롤러를 사용한 방식 </li>
 
-                            <h2> 📌 REST API란 </h2>
+                            <h2 className="h2"> 📌 REST API란 </h2>
                             <li> 개발자들끼리 정해놓은 규칙이지 표준은 사용자들끼리 정한것이고 공식적인 표준은 없음 </li>
                             <li> 클라이언트와 서버, 애플리케이션과 애플리케이션이 서로 주고 받으려고 정의한 인터페이스 </li>
                             <li> 서버의 리소스에 접근을 가능하게 해준다.  </li>
@@ -138,14 +138,14 @@ const SpringController = (props) => {
                                 </div>
                             </li>
 
-                            <h2> 📌 장점, 단점 </h2>
+                            <h2 className="h2"> 📌 장점, 단점 </h2>
                             <li> 장점 :  </li>
                             <li> 단점 : </li>
 
-                            <h2> ✔ 예시 ( 전체적으로 수정 필요)  </h2>
+                            <h2 className="h2"> ✔ 예시 ( 전체적으로 수정 필요)  </h2>
                             <li> apicontroller 예시
                                 <div className='block3'>
-                                    <li> <h3> 🎈API PUT 예시 </h3>
+                                    <li> <h3 className="h3"> 🎈API PUT 예시 </h3>
                                         <li> {' @PutMapping("/board/{id}") '} </li>
                                         <li> {' Board replaceEmployee(@RequestBody Board newBoard, @PathVariable Long id) { '}
                                             <li> {' return boardRepository.findById(id).map(board -> { '}

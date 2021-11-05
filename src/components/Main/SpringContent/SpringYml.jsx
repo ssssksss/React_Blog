@@ -11,18 +11,18 @@ const SpringYml = (props) => {
                         <summary> yml 설명(미완성) </summary>
                         <div className='block2'>
 
-                            <h2> 📌 설명 </h2>
+                            <h2 className="h2"> 📌 설명 </h2>
                             <li> 링크 : <a href="https://velog.io/@max9106/Spring-Boot-%EC%99%B8%EB%B6%80%EC%84%A4%EC%A0%95-uik69crax3" target="_blank"> 설정파일 우선순위 </a></li>
                             <li> 링크 : <a href="https://blog.voidmainvoid.net/40" target="_blank"> application.properties 설명, 너무많음.. </a></li>
                             <li> application.properties : 개발과 서버 두 환경에서 필요한 코드 작성 </li>
                             <li> application-dev.properties : 개발에 필요한 코드 작성 , spring.profiles.active=dev로 개발용 설정파일 사용 </li>
                             <li> application-prod.properties : 서버 운영에 필요한 코드 작성 , spring.profiles.active=prod로 서버 운영 설정파일 사용 </li>
 
-                            <h2> 📌 장점, 단점 </h2>
+                            <h2 className="h2"> 📌 장점, 단점 </h2>
                             <li> 장점 : yml로 작성하면 개발자가 보기에 편하다. </li>
                             <li> 단점 : </li>
 
-                            <h2> ✔ 예시 </h2>
+                            <h2 className="h2"> ✔ 예시 </h2>
                             <li> 소제목
                                 <div className='block3'>
                                     <li> 1 </li>
@@ -40,16 +40,16 @@ const SpringYml = (props) => {
                         <summary> yml 코드 문법(진행중, 몇몇은 확인 필요) </summary>
                         <div className='block2'>
 
-                            <h2> 📌 yml 코드 속성 </h2>
+                            <h2 className="h2"> 📌 yml 코드 속성 </h2>
                             <li> id: ssssksss <small> # 변수명 = 변수값 </small> </li>
                             <li> {'${id}'} <small> # 변수값 사용하기 </small> </li>
                             <li> {'${random.int}'} <small> # 랜덤값 사용하기 </small> </li>
 
-                            <h2> ✔ 예시 </h2>
+                            <h2 className="h2"> ✔ 예시 </h2>
                             <li> application.yml
                                 <div className='block3'>
                                     <ul style={{ listStyle: 'none' }}>
-                                        <li> <h3> Server </h3>
+                                        <li> <h3 className="h3"> Server </h3>
                                             <li> server:
                                                 <li> address=localhost <small> # 서버 경로 설정 </small>
                                                     <li> port=8080 <small> # 서버 포트 설정 </small> </li>
@@ -57,7 +57,7 @@ const SpringYml = (props) => {
                                             </li>
                                         </li> <br />
 
-                                        <li> <h3> DataSource (확인 필요한 부분 존재) </h3>
+                                        <li> <h3 className="h3"> DataSource (확인 필요한 부분 존재) </h3>
                                             <li> spring:
                                                 <li>  datasource:
                                                     <li> driver-class-name: org.h2.Driver <small># h2 DB</small> </li>
@@ -80,7 +80,7 @@ const SpringYml = (props) => {
                                             </li>
                                         </li> <br />
 
-                                        <li> <h3> JPA (확인 필요한 부분 존재) </h3>
+                                        <li> <h3 className="h3"> JPA (확인 필요한 부분 존재) </h3>
                                             <li> spring:
                                                 <li>  jpa:
                                                     <li> database-platform: org.hibernate.dialect.MySQL5InnoDBDialect <small> MySQL Dialect 설정 </small> </li>
@@ -118,7 +118,7 @@ const SpringYml = (props) => {
                                             </li>
                                         </li> <br />
 
-                                        <li> <h3> Logging (확인 필요한 부분 존재) </h3>
+                                        <li> <h3 className="h3"> Logging (확인 필요한 부분 존재) </h3>
                                             <li> logging.level.org.hibernate=[error, warn, info, debug] <small> # sql쿼리문 레벨에 맞는 메시지 출력(default=info) </small> </li>
                                             <li> logging.level.패키지~.클래스=[error, warn, info, debug] <small> # 아래의 경로로 설정된 파일에 대해서 로그 레벨을 설정 </small> </li>
                                             <li> logging.level.org.hibernate.type.descriptor.sql.BasicBinder = TRACE <small> # sql 파라미터로 전달되는 값을 출력, trace등급의 메시지 출력 </small> </li>
@@ -147,13 +147,13 @@ const SpringYml = (props) => {
                                             </li>
                                         </li> <br />
 
-                                        <li> <h3> Thymeleaf </h3>
+                                        <li> <h3 className="h3"> Thymeleaf </h3>
                                             <li> spring.thymeleaf.cache=false <small> # 바꾼 데이터를 실시간 반영하기 위해서 설정 </small> </li>
                                             <li> spring.thymeleaf.prefix=classpath:/templates/ <small> # thymeleaf 참조 경로 설정 </small> </li>
                                             <li> spring.thymeleaf.suffix=.html <small> # return할 때 .html 생략가능 </small> </li>
                                         </li> <br />
 
-                                        <li> <h3> livereload </h3>
+                                        <li> <h3 className="h3"> livereload </h3>
                                             <li> <small> # 1. build.gradle에 developmentOnly 'org.springframework.boot:spring-boot-devtools' 추가 </small> </li>
                                             <li> <small> # 2. Ctrl + Shift + A - regi 입력 Registry... - compiler.automake.allow.when.app.running 체크 </small> </li>
                                             <li> <small> # 3. Ctrl + Alt + S - Build, Execution, Deployment - Compiler - Build project automatically 체크 </small> </li>
@@ -168,7 +168,7 @@ const SpringYml = (props) => {
                                             </li>
                                             <li> spring.devtools.livereload.enabled=true <small> # 정적리소스에 변화가 있을 때 화면 렌더링 </small> </li>
                                         </li> <br />
-                                        <li> <h3>  </h3>
+                                        <li> <h3 className="h3">  </h3>
                                             <li>  </li>
                                         </li> <br />
                                     </ul>

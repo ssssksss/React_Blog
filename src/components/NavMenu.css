@@ -1,29 +1,31 @@
-.navMenu {
+.nav-menu {
     width: 100%;
     margin-top: 10px;
     display: flex;
 }
-.navMenu > .menu {
-    box-sizing: border-box;
+.nav-menu > .menu {
     background-color: #b085f5;
     border-radius: 10px;
     box-shadow: 2px 2px 2px 2px black;
 }
-.navMenu > .firstMenu {
-    width: 25%;
-    max-width: 400px;
-
-}
-.navMenu > .secondMenu {
+.nav-menu > .nav-menu__container1 {
     width: 25%;
     max-width: 400px;
 }
-.navMenu > .thirdMenu {
-    width: 50%;
-    max-width: 800px;
+.nav-menu > .nav-menu__container2 {
+    width: 25%;
+    max-width: 400px;
+}
+.nav-menu > .nav-menu__container3 {
+    width: 25%;
+    max-width: 400px;
+}
+.nav-menu > .nav-menu__container4 {
+    width: 25%;
+    max-width: 400px;
 }
 
-.navMenu > .menu > p {
+.nav-menu > .menu > p {
     text-align: center;
     font-size: 1em;
     background-color: #7e57c2;
@@ -32,7 +34,7 @@
     box-sizing: border-box;
     border-radius: 6px 6px 0px 0px;
 }
-.navMenu > .menu > button {
+.nav-menu > .menu > button {
     float:left;
     padding: 5px 0px;
     min-width: 100px;
@@ -48,23 +50,20 @@
     border: none;
     box-shadow: 1px 1px 1px 1px gray;
 }
-.navMenu > .menu > .col_b_r {
+.nav-menu > .menu > .col_b_r {
     background-color: red;
 }
-.navMenu > .menu > button > img {
+.nav-menu > .menu > button > img {
     max-width: 14px;
     max-height: 14px;
     vertical-align: top;
 }
-.navMenu > .menu > button > span {
+.nav-menu > .menu > button > span {
     font-size: 0.8em;
 }
-.navMenu > .menu > button:hover {
+.nav-menu > .menu > button:hover {
     background: white;
     color: #7e57c2;
 }
 
-.navMenu > .menu img {
-    /* vertical-align: bottom; */
-} 
 

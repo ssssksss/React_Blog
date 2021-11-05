@@ -5,7 +5,7 @@ const BackendList = () => {
 
 
     return (
-        <div className="menucontainer">
+        <div className="nav-menu2__inner-box">
             <div className="menu menu1">
                 <Link to="/backend_basic"> 백엔드 개발 </Link>
                 <Link to="/backend_solid"> Solid 5대 원칙 </Link>

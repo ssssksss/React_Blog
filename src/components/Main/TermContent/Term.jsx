@@ -5,6 +5,204 @@ const Term = (props) => {
   return (
     <>
       <div className="common_style">
+
+        <div className='block1'>
+          <details>
+            <summary> 컴퓨터 구성 및 작동 방법 </summary>
+            <div className='block2'>
+
+              <h2 className='h2'> 📌 1. CPU(중앙 처리 장치) - 사람의 두뇌 </h2>
+              <div className="block3">
+                <h3 className='h3'> 🎈 CPU의 3가지 기능 </h3>
+                <li> 1. 제어장치 </li>
+                <div className="block4">
+                  <li className='h4'> 제어장치 구성요소 </li>
+                  <li> 명령해독기(Decoder) : 명령 레지스터에 있는 명령을 해독하는 회로 </li>
+                  <li> 부호기(Encoder) : 해독된 명령에 따라 각 장치로 보낼 제어신호를 생성하는 회로 </li>
+                  <li> 제어 주소 레지스터(CAR) : 다음에 실행할 마이크로명령어의 주소를 저장하는 레지스터 </li>
+                  <li> 제어 버퍼 레지스터 : 제어 기억장치로부터 읽혀진 마이크로 명령어 비트들을 일시적으로 저장하는 레지스터 </li>
+                  <li> 제어 기억장치 : 마이크로 명령어들로 이루어진 마이크로 프로그램을 저장하는 내부 기억장치 </li>
+                  <li> 순서 제어 모듈 : 마이크로 명령어의 실행순서를 결정하는 회로들의 집합 </li>
+                  <li>  </li>
+                  <h4 className='h4'>  </h4>
+                </div>
+                <li> 2. 연산장치(ALU) </li>
+                <div className="block4">
+                  <li className='h4'> 연산장치 구성요소 </li>
+                  <li> 산술,논리,관계,이동 등의 연산 </li>
+                  <li> 가산기,누산기,보수기,데이터레지스터,어버플로검출기, 쉬프트 레지스터 </li>
+                </div>
+                <li> 3. 레지스터(임시 기억장치) </li>
+                <li> CPU 내부에서 처리할 명령어나 연산의 중간 결과값 등을 일시적으로 기억하는 임시 기억장소 </li>
+                <div className="block4">
+                  <li className="h4">  </li>
+                  <li> Program Counter : 다음에 수행할 명령어 주소를 기억하는 레지스터 </li>
+                  <li> Memory Address Register : 주소를 기억하는 레지스터 </li>
+                  <li>  </li>
+                </div>
+                <div className="block4">
+                  <li className="h4"> 레지스터간의 자료 전송 </li>
+                  <li> 직렬전송 : 직렬 시프트 마이크로 오퍼레이션, 병렬전송보다 속도가 느림 </li>
+                  <li> 병렬전송 : 하나의 클록 펄스 동안 레지스터 내의 모든 비트가 동시에 전송되는 방식 </li>
+                  <li> 버스전송 : 모든 레지스터들이 이용하는 경로로 결선의 수를 줄일 수 있다는 장점을 가진다. </li>
+                </div> <br />
+
+                <h3 className="h3"> 📌 CPU 성능 평가 단위 </h3>
+                <li> MIPS(Million Instruction Per Second) : 명령갯수/1초 (단위 1000000) </li>
+                <li> FLOPS(FLoating-point Operations Per Second) : 부동소수점연산횟수/1초 </li>
+                <li> Clock : 클럭주파수발생횟수/1초 , 1초마다 얼마나 많은 작업이 가능한지 알려줌, 높을수록 비싸고 좋다.  </li>
+                <li> Hz : 클럭속도의 단위, 요즘에는 GHz </li>
+
+                <h3 className="h3"> 📌 CPU Core, Process, Thread, Cache, Process Control Block</h3>
+                <li> Core : 물리적으로 존재하고 핵심적인 연산을 처리하는 역할,
+                  코어가 많으면 여러 프로그램을 작동하여도 속도가 느려지지 않는다. </li>
+                <li> Cache : 자주 사용하는 변수나 참조 값들을 보관하는 공간  </li>
+                <li> Process : 실행중인 프로그램을 뜻한다.  </li>
+                <li> Thread : 논리적으로 존재하여 process 작업을 처리해주는 역할 </li>
+                <div className="block4">
+                  <li className="h4"> Multi Thread </li>
+                  <li> 1개의 process를 논리적인 방법으로 쓰레드를 번갈아가면서 작업하는 방법
+                    , 인텔에서는 하이퍼스레딩, AMD에서는 SMT라는 기술로 불리운다.
+                    process의 resource를 여러 Thread가 공유가 가능하다.
+                    단 Thread의 Stack은 각각 가지고 있고 공유되지 않는다.  </li>
+                  <li> 사용하는 이유 : Single Thread를 사용하면 병목 현상(다른 작업을
+                    처리하기 위해서 기다려야하는 현상)이 발생하고 처리속도도 더 늦기 때문이다.   </li>
+                </div>
+                <div className="block4">
+                  <li className="h4"> Thread와 관련된 문제 </li>
+                  <li>  </li>
+                  <li>  </li>
+                  <li>  </li>
+                </div>
+                <div className="block4">
+                  <li className="h4"> </li>
+                  <li>  </li>
+                </div>
+                <li> Process Control Block : 여러 Process를 관리하는 정보를 가지고 있는 공간(CPU에 존재?) </li>
+              </div>
+
+              <div className='block1'>
+                <details>
+                  <summary> 병렬 프로그래밍 </summary>
+                  <div className='block2'>
+
+                    <h2 className='h2'> 📌 Message Passing </h2>
+                    <li> 하나의 프로그램을 여러개의 프로세스에서 처리를 할 때 서로
+                      통신이 필요한데 메시지들의 송신과 수신으로 구현하는 기법 </li>
+                    <li> 프로세스끼리 메모리를 서로 공유가 가능하지만
+                      직접적으로 공유하지 않는 것 </li>
+                    <li>  </li>
+
+                    <h2 className='h2'> 📌 설명 </h2>
+                    <li> 1 </li>
+
+                  </div>
+                </details>
+              </div>
+
+              {/* ======================================================================== */}
+
+              <h2 className='h2'> 📌 RAM </h2>
+              <li>  </li>
+              <li> data area </li>
+              <div className="block4">
+                <li> 전역변수, Static 변수 </li>
+                <li>  </li>
+              </div>
+              <li> Stack </li>
+              <div className="block4">
+                <li> 지역변수, 매개변수(컴파일 타임 크기에 결정) </li>
+                <li>  </li>
+              </div>
+              <li> Heap </li>
+              <div className="block4">
+                <li> 프로그래머가 할당 (런타임 크기에 결정) </li>
+                <li> Object 값들을 보관한다.(스택 영역에서 heap을 참조) </li>
+                <li>  </li>
+              </div>
+
+              <h2 className='h2'> 📌 Harddisk(SSD, HDD) </h2>
+              <li> cell로 구성되어 있다. (1cell = 1byte) </li>
+              <li> 1개의 하드디스크에 여러개의 운영체제를 설치할 수 있는 이유가 파티션을 나눌 수 있기 때문이다. </li>
+              <li> 4개의 공간 구성(Partition) </li>
+              <div className="block4">
+                <li> 1. MBR(Master Boot Recoder): Harddisk에서 가장 먼저 읽는 부분 </li>
+                <li> 2. Primary Drive : 파티션 앞에 부트 섹터가 있어서 운영체제를 설치할 수 있다.
+                  Primary는 3개정도까지 되고 활성되는 Primary는 1개만 존재할 수 있다.
+                </li>
+                <li> 3. Exteded Drive : Exteded은 1개만 설정가능하고 Logical Drive를 구분해주는 역할? </li>
+                <li> 4. Logical Drive : 데이터를 저장하는 공간(운영체제 설치를 할 수 없는 공간) </li>
+              </div>
+              <li> 가상 메모리(Swap) : RAM공간이 부족할 때 하드에 RAM처럼 사용할 수 있는 공간이 있다.
+                이런 공간에 존재하는 파일을 paging file이나 swap file이라고 하고 이런 파일을
+                사용하는 것을 Hard swap(Disk thrashing)이라고 칭한다.
+              </li>
+              <li> 2 </li>
+
+              <h2 className='h2'> 📌 가상 메모리 </h2>
+              <li> 2 </li>
+              <li> 2 </li>
+
+              <h2 className='h2'> 📌 Process </h2>
+              <li> 운영체제로부터 자원을 할당받는 작업의 단위 </li>
+              <li> 1개의 어플리케이션에는 1개이상의 process가 작업  </li>
+              <li> 각각의 Process는 서로 자원을 공유할 수 없다. </li>
+              <li> Multi Process </li>
+              <div className="block4">
+                <li> 1개의 어플리케이션을 여러개의 process로 나누어서 처리를 하는 방법 </li>
+                <li> process 1개가 고장나도 어플리케이션은 동작한다. </li>
+                <li>  </li>
+              </div>
+
+              <h2 className='h2'> 📌 Thread </h2>
+              <li> process에 할당 받은 자원을 이용하는 실행 단위 </li>
+              <li> 1개의 process는 1개이상의 쓰레드를 이용하여 작업을 한다. </li>
+              <li> 쓰레드가 포함되어 있는 process의 메모리에 대해서는 접근이 가능하다. </li>
+              <li> 2 </li>
+
+              <h2 className='h2'> 📌 Context Switching </h2>
+              <li> 현재 진행하고 있는 Process,Thread의 상태를 저장하고 다음 진행할
+                Process,Thread 상태값을 읽어 적용하는 과정 </li>
+              <li> Process,Thread는 Register에 저장되고 Process Control Block에 관리된다. </li>
+              <li>  </li>
+
+              <h2 className='h2'> 📌  </h2>
+              <li> 1 </li>
+              <li> 2 </li>
+
+            </div>
+          </details>
+        </div>
+
+        <div className='block1'>
+          <details>
+            <summary>  </summary>
+            <div className='block2'>
+
+              <h2 className='h2'> 📌 설명 </h2>
+              <li> 1 </li>
+              <li> 2 </li>
+              <li> 3 </li>
+
+              <h2 className='h2'> 📌 장점, 단점 </h2>
+              <li> 장점 : </li>
+              <li> 단점 : </li>
+
+              <h2 className='h2'> ✔ 예시 </h2>
+              <li> 소제목
+                <div className='block3'>
+                  <h3 className='h3'> 🎈 </h3>
+                  <div className='block4'>
+                    <li>  </li>
+                  </div>
+                </div>
+              </li>
+
+            </div>
+          </details>
+        </div>
+
+
         <div className="lblock">
 
           <div className='mblock'>

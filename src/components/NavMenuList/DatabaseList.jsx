@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const DatabaseList = () => {
 
     return (
-        <div className="menucontainer">
+        <div className="nav-menu2__inner-box">
             <div className="menu menu1">
                 <Link to="/db_oraclebasic"> OreacleDB 공부 </Link>
                 <Link to="/db_mysqlbasic"> Mysql 공부 </Link>

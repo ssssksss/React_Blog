@@ -1,432 +1,742 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 const SpringModel = (props) => {
 
     return (
         <>
-
             <div className="common_style">
-                <span className="lblock">
-                    <div className='mblock'>
-                        <details>
-                            <summary className='stitle'> JPA 설명
-                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
-                            <div className='sblock'>
-                                <div className='sstitle'> JPA란 </div>
-                                <div className='mblock'>
-                                    <li> ORM : Object relational mapping , 프레임 워크가 자바 객체와 데이터베이스를 분리해서 사용하게 해준다.
-                                        <li> ORM을 사용하는 이유는 객체 중심의 개발이 가능해지기 떄문에 사용 </li>
-                                    </li>
-                                    <li> JPA : Java Persistence API
-                                        <li> EJB : 과거 자바 ORM , 불편 복잡 </li>
-                                        <li> Hibernate : 대표적인 ORM 프레임워크 </li>
-                                        <li> JPA : 자바 쪽의 ORM 기술 표준 , JPA 인터페이스를 구현한 대표적인 ORM 프레임워크가 Hibernate, EclipseLink, DataNucleus </li>
-                                        <li> JPA 실행 과정 : 개발자가 자바객체를 ORM에 저장  - ORM에서 SQL을 생성 - DB에 저장 <small> SQL생성과 실행을 개발자가 직접하지 않아도 JPA가 처리 </small>  </li>
-                                        <li> 관계형 데이터베이스에 SQL을 작성해야 하는데 SQL을 작성하지 않고 자동으로 매핑해주는 기술 </li>
-                                    </li>
-                                    <li> JPA의 장점 : 개발자는 객체 중심의 개발에 집중할 수 있다. </li>
-                                    <li> JPA의 단점 : 복잡한 쿼리를 작성하기에는 불편, 현업에서는 아직 사용 불가, 2개의 테이블간의 다대다 관계 형성 불가능 중간에 매핑 테이븡을
-                                        하나 만들고 관계를 형성을 해야 한다. </li>
-                                    <li> JPA에는 최적화 기능이 있다.
-                                        <li> 1. 캐싱 기능 : 같은 트랜잭션에서는 똑같은 쿼리를 2번 생성하지 않고 보관하고 있다가 같은 쿼리가 발생하면 실행 </li>
-                                        <li> 2. 버퍼링, 지연 기능 : SQL쿼리를 개발자가 시작할 때 바로 날리지 않고 커밋을 할 떄 까지 기다렸다가 한번에 쿼리를 날린다.
-                                            batch processing 방식 사용
+
+                <div className='block1'>
+                    <details>
+                        <summary> JPA 설명 (내용 보충 필요) </summary>
+                        <div className='block2'>
+
+                            <h2 className="h2"> 📌 설명 </h2>
+                            <li> 1. Java Persistence Aplication , 자바 쪽의 ORM 표준 기술 , 자바에서 제공하는 API
+                                <div className="block4">
+                                    <h3 className="h3"> 🎈 ORM : Object Relational Mapping , 객체 관계 매핑 </h3>
+                                    <li> ORM 프레임 워크가 자바 객체와 데이터베이스를 분리해서 사용하게 해준다. </li>
+                                    <li> ORM 프레임 워크가 SQL을 생성해서 DB에 객체를 저장해준다. </li>
+                                    <li> EJB(과거 자바 ORM) , Hibernate(JPA의 기반 ORM) , Mybatis </li>
+                                </div>
+                            </li>
+                            <li> 2. DB SQL문을 작성하지 않고 JPA가 대신 SQL문을 만들어서 DB에 레코드를 넣어준다. </li>
+                            <li> 3. JPA는 JDBC API를 이용하는데 개발자가 직접 사용하면 불편하다. (DB연결,쿼리작성, DB종료 등 DB와 관련된 불편) </li>
+                            <li> 4. 영속성 컨텍스트를 이용한다.
+                                <div className="block4">
+                                    <h3 className="h3"> 🎈 Persistence Context </h3>
+                                    <li> 0. 쓰기지연 SQL 공간 + 1차 캐시 공간(엔티티 저장 공간) </li>
+                                    <li> 1. Entity를 영구 저장하는 환경 </li>
+                                    <li> 2. Entity 매니저를 이용해서 Entity를 영속성컨텍스트에 저장하거나 조회한다.  </li>
+                                    <li> 3. 실제 DB에 저장되기 전에 보관된는 가상의 DB라고 생각하면 된다. </li>
+                                    <li> 4. 영속성 컨텍스트는 Entity를 식별자로 구분한다. ( 그러므로 식별자를 필수로 넣어주어야 한다.) </li>
+                                    <li> 5. 영속성 컨텍스트는 Entity의 동일성을 보장한다. ( DB에서 똑같은 레코드를 2번 조회하였을 떄 똑같은 인스턴스로 인식
+                                        , Mybatis에서는 이와 같이 하면 다르다고 인식하는것 같다.) </li>
+                                    <li> 6. 트랜잭션을 커밋할 때 실제 DB에 반영되는 flush()를 실행 </li>
+                                    <li> 7. 캐시 기능이 있어서 JPA는 1차캐시 공간에서 Entity를 먼저 조회하고 없으면 DB에서 조회한다 그리고 그 값을 1차캐시에 저장한다. ( em.find(ENTITY.class,"식별자") )  </li>
+                                    <li> 8. 지연 기능이 있어서 JPA는 트랜잭션 커밋 전까지 쿼리를 내부 쿼리 저장소에 모아두고 커밋할 떄 실제 DB에 반영한다.
+                                        <div className="block4">
                                             <li> transaction.begin(); <small> 트랜잭션 시작 </small> </li>
                                             <li> transaction.commit(); <small> 트랜잭션 끝 </small> </li>
-                                        </li>
+                                        </div>
                                     </li>
-                                    <li> 영속성 컨텍스트(persistence context)
-                                        <li> 엔티티를 저장하는 공간 </li>
+                                    <li> 9. 트랜잭션이 커밋 되기전에 먼저 flush()로 이전 스냅샷과 변경 Entity를 비교하고 쓰기 지연 저장소에 SQL을 보관하였다가 flush()를 하고
+                                        DB 트랜잭션 커밋을 수행한다. </li>  <br />
+
+                                    <h3 className="h3"> 🎈 Persistence Context의 Entity 상태 </h3>
+                                    <li> 1. 영속 : 영속성 컨텍스트에 Entity가 저장된 상태 ( em.persist(ENTITY명) ) </li>
+                                    <li> 2. 비영속 : 영속성 컨텍스트와 Entity가 상관이 없는 상태 </li>
+                                    <li> 3. 준영속 : 영속성 컨텍스트에서 잠깐 분리되어 있는 상태, 식별자는 존재 그러나 어떠한 행위도 할 수 없음 ( em.detach(ENTITY명) , em.clear() , em.close() ) </li>
+                                    <li> 4. 삭제 : 영속성 컨텍스트와 DB에서 삭제 ( em.remove(ENTITY명) )  </li>
+                                </div>
+                            </li>
+                            <li> 5. JPA는 JDBC API를 사용해서 SQL을 이용해 DB의 데이터를 조회한다 </li>
+                            <li> 6. 쿼리를 사용하는 방법은 JPQL, 네이티브 SQL, JDBC API, MyBatis , QuertDSL , JPA Criteria 등이 있다. </li>
+                            <li> 7. JPA를 사용하면 특정 DB에 쿼리가 종속되지 않는다는 점이 있다. </li>
+                            <li> 8. JPA에서는 DB의 레코드의 필드값을 EntityManager를 이용해서 1개만 수정하면
+                                1개만 수정하는 것이 아니라 레코드 전체를 업데이트하는 쿼리를 작성해서 보낸다(기본) </li>
+
+                            <h2 className="h2"> 📌 JPA 실행과정(대략적인 설명, 완벽하지는 않음)  </h2>
+                            <li> 1. 자바 Entity 클래스를 생성 </li>
+                            <li> 2. Entity를 영속성 컨텍스트에 등록 </li>
+                            <li> 3. Entity에 값을 넣어서 insert를 트랜잭션에 넣고 커밋을 실행 </li>
+                            <li> 4. 영속성 컨테스트는 이전 스냅샷과 변경되는 Entity를 비교(flush)하고
+                                SQL을 쓰기 지연 저장소에 보관하였다가 쿼리를 실행하여 실제 DB에 저장 </li>
+
+                            <h2 className="h2"> 📌 장점, 단점 </h2>
+                            <li> 장점 :
+                                <div className="block4">
+                                    <li> 1. DB쿼리를 작성하지 않아도 된다는 점이 좋다. ( 생산성 증가 ) </li>
+                                    <li> 2. 개발자가 DB개발이 아닌 어플리케이션 개발에 집중을 할 수 있도록 도와준다. </li>
+                                    <li> 3. 쿼리를 직접 입력하지 않으니 쿼리 작성 실수가 줄어들고 , 객체와 메소드만 보아도 알 수 있어서 가독성이 좋아진다.  </li>
+                                    <li> 4. Mysql, OracleDB 등 여러 DB를 사용해도 기존 Entity객체를 변경할 필요가 없기 때문에 객체 재사용성도 좋다. </li>
+                                    <li> 5. 캐싱 기능이 존재하여 똑같은 쿼리를 기억하고 있다가 다시 생성하지 않고 재사용을 한다. </li>
+                                    <li> 6. 지연 기능이 존재하여 쿼리를 잠시 보관하고 있다가 나중에 한꺼번에 쿼리를 실행할 수 있다. </li>
+                                    <li> 7. 특정 DB에 쿼리가 종속되지 않아서 좋다. </li>
+                                </div>
+                            </li>
+                            <li> 단점 :
+                                <div className="block4">
+                                    <li> 1. JPA 문법을 익히는데 시간이 걸린다. </li>
+                                    <li> 2. 실제 업무에서는 JPA만을 이용해서 코드를 작성하기 어렵다. (JPQL이라는 쿼리를 작성해서 사용하는 방법이 존재) </li>
+                                    <li> 3. JPA가 단순한 내용은 쉽지만 복잡한 쿼리 작성등 큰 프로젝트에서는 오히려 쿼리를 작성하는 것보다 어려울수 있따. </li>
+                                    <li> 4. 코드를 잘못 작성하면 속도  </li>
+                                    <li> 2.  </li>
+                                </div>
+                            </li>
+
+                        </div>
+                    </details>
+                </div>
+
+                <div className='block1'>
+                    <details>
+                        <summary> Entity (정리할 필요 있음) </summary>
+                        <div className='block2'>
+
+                            <h2 className="h2"> 📌 설명 </h2>
+                            <li> 관계형 데이터베이스에서 테이블을 만들듯이 JPA가 참조할 테이블을 만들어 둔것 </li>
+                            <li> DB와 매핑되는 클래스 객체 </li>
+                            <li> DB테이블에 들어간 컬럼들을 작성 </li>
+                            <li> DB테이블하고 매핑이 되므로 변경이 되지 않게 해야한다. </li>
+                            <li> Setter 메소드를 사용하지 말고 Builder로 생성자를 만들어서 사용한다. </li>
+                            <li>  </li>
+
+                            <h2 className="h2"> 📌 Entity 관련 어노테이션 </h2>
+                            <li> @Entity(name="") <small> # Entity를 명시 </small> </li>
+                            <li> @Table(name="") <small> # Table 이름 명시 </small> </li>
+                            <li> @Id <small> # JPA가 식별자로 사용, PK를 뜻하는 필드를 지정, @GeneratedValue 하고 주로 같이 사용 </small> </li>
+                            <li> @GeneratedValue(strategy = GenerationType.IDENTITY) <small># MYSQL Auto_Increment</small></li>
+                            <li> @GeneratedValue(strategy = GenerationType.SEQUENCE) <small># Oracle, @SequenceGenerator 필요</small> </li>
+                            <li> @GeneratedValue(strategy = GenerationType.TABLE) <small># TABLE, @TableGenerator 필요</small> </li>
+                            <li> @GeneratedValue(strategy = GenerationType.AUTO)<small># 선택한 dialect에 따라 자동 선택(default) </small>  </li>
+                            <li> @Column(name="DB 필드명", length = 10, nullable = false, unique=false,
+                                columnDefinition = "DB필드타입 제약조건 '제약조건값'", )
+                                <small> # 필수로 사용할 필요는 없고 DB테이블의 필드명과 일치하면 자동으로 매핑이 된다.만약에 일치하지 않으면
+                                    name="" 속성에 적어서 맞추어 줄수 있고 DB에서 사용하는 제약조건 등을 지정할 수도 있다.</small></li>
+                            <li> implementation 'org.springframework.boot:spring-boot-starter-validation' </li>
+                            <li> @Positive @PositiveOrZero @Negative @NegativeOrZero </li>
+                            <li> @Size(min=1,max=2) @Min(1) @Max(2) </li>
+                            <li> @Null </li>
+                            <li> @NotNull # Null 불가능 </li>
+                            <li> @NotEmpty # Null, 빈문자열("") 불가능 , " " 은 가능 </li>
+                            <li> @NotBlank # Null, 빈문자열("") , " " 모두 불가능</li>
+                            <li> @Pattern(regex="이곳에 정규표현식 작성") </li>
+                            <li> @Future @FutureOrPresent @Past @PastOrPresent </li>
+                            <li> @Email </li>
+                            <li> @AssertTrue @AssertFalse # 값이 항상 true거나 false </li>
+                            <li> @Digits(integer= 최대허용되는정수자릿수 , fraction = 최대허용되는소수자릿수 ) </li>
+                            <li> @DecimalMax(value=) @DecimalMin(value=) </li>
+                            <li> 어노테이션에 추가 속성 : message="에러 날 경우 메시지 표현" </li>
+                            <li> @Getter: getter 메소드 </li>
+                            <li> @Setter: setter 메소드, 일반적으로 사용을 하지 않음 </li>
+                            <li> @NoArgsConstructor: 기본 생성자</li>
+                            <li> @AllArgsConstructor: </li>
+                            <li> @Entity: Entity 클래스라고 선언, DB테이블과 매칭되는 클래스, DB테이블이(aa_bb_cc)이면
+                                Entity이름은 AaBbCc와 같이 첫글자는 대문자이고 _문자를 없애고 그 뒤에 글자를 대문자로 치환한다.</li>
+                            <li> @Id: 식별자를 지정, @GeneratedValue 하고 주로 같이 사용 </li>
+                            <div className="block4">
+                                <li> @GeneratedValue(strategy = GenerationType.IDENTITY) <small># MYSQL Auto_Increment</small></li>
+                                <li> @GeneratedValue(strategy = GenerationType.SEQUENCE) <small># Oracle, @SequenceGenerator 필요</small> </li>
+                                <li> @GeneratedValue(strategy = GenerationType.TABLE) <small># TABLE, @TableGenerator 필요</small> </li>
+                                <li> @GeneratedValue(strategy = GenerationType.AUTO)<small># 선택한 dialect에 따라 자동 선택(default) </small>  </li> <br />
+                            </div>
+                            <li> @Table(name="") DB의 테이블명과 매핑을 시켜주는 어노테이션 </li>
+                            <li> @Column(name="DB 필드명", length = 10, nullable = false, unique=false,
+                                columnDefinition = "DB필드타입 제약조건 '제약조건값'", )
+                                필수로 사용할 필요는 없고 DB테이블의 필드명과 일치하면 자동으로 매핑이 된다.만약에 일치하지 않으면
+                                name="" 속성에 적어서 맞추어 줄수 있고 DB에서 사용하는 제약조건 등을 지정할 수도 있다.</li>
+                            <li> @Builder: </li>
+                            <li> @org.hibernate.annotations.DynamicUpdate : 엔티티에 선언하며 레코드를 전체 업데이트 하지않고
+                                일부만 업데이트를 하게 해준다.  </li>
+                            <li> @NamedQuery(name="ENTITY.Repository메소드명",query="사용자정의쿼리작성") </li>
+                            <li> @Temporal(TemporalType.TIMESTAMP) # 자바의 날짜 타입 사용 </li>
+
+                            <h2 className="h2"> ✔ 예시 </h2>
+                            <li> 소제목
+                                <div className='block3'>
+                                    <li> <h3 className="h3"> 🎈 Entity 클래스 </h3>
+                                        <div className="block4">
+                                            <li> @Entity <small> # entity를 명시 </small> </li>
+                                            <li> @Getter<small>  </small></li>
+                                            <li> @Setter<small>  </small></li>
+                                            <li> @AllArgsConstructor<small>  </small> </li>
+                                            <li> @NoArgsConstructor <small>  </small></li>
+                                            <li> @ToString <small>  </small></li>
+                                            <li> public class BoardEntity {'{'}
+                                                <li> </li> <br />
+                                                <li> @Id <small> # 식별 지정자 </small> </li>
+                                                <li> @GeneratedValue(strategy = GenerationType.AUTO) </li>
+                                                <li> @Column(name="board_no") </li>
+                                                <li> private Long boardNo; </li> <br />
+
+                                                <li> @Column(name="board_title") </li>
+                                                <li> private String boardTitle; </li> <br />
+
+                                                <li> @Column(name="board_content") </li>
+                                                <li> private String boardContent; </li>
+                                            </li>
+                                            <li> {'}'} </li>
+                                        </div>
+                                    </li> <br />
+                                </div>
+                            </li>
+
+                        </div>
+                    </details>
+                </div>
+
+                <div className='block1'>
+                    <details>
+                        <summary> DTO (내용 보충 필요) </summary>
+                        <div className='block2'>
+
+                            <h2 className="h2"> 📌 설명 </h2>
+                            <li> Layer와 Layer사이에서 데이터를 교환하는 객체(DB Layer에서만 사용x)</li>
+                            <li> 로직을 가지지 않고 getter , setter로 운반만 하는 역할 </li>
+                            <li> 3 </li>
+
+                            <h2 className="h2"> 📌 장점, 단점 </h2>
+                            <li> 장점 : </li>
+                            <li> 단점 : </li>
+
+                            <h2 className="h2"> ✔ 예시 </h2>
+                            <li> 소제목
+                                <div className='block3'>
+                                    <li> <h3 className="h3"> 🎈 </h3>
                                         <li>  </li>
-                                    </li>
-                                    <li> <a href="https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#jpa.query-methods.query-creation"
-                                        target="_blank" rel="noopener noreferrer"> 스프링 JPA 공식 문서</a> </li>
-                                    <li>  </li>
+                                    </li> <br />
                                 </div>
-                                <div className='sstitle'> JPA의 작동 방식 </div>
-                                <div className='mblock'>
-                                    <li>  </li>
-                                    <li>  </li>
+                            </li>
+
+                        </div>
+                    </details>
+                </div>
+
+                <div className='block1'>
+                    <details>
+                        <summary> VO (내용 보충 필요) </summary>
+                        <div className='block2'>
+
+                            <h2 className="h2"> 📌 설명 </h2>
+                            <li> Value Object </li>
+                            <li> VO는 메모리 주소 참조와 관련이 있는데</li>
+                            <li> equals() 와 hashcode() 메소드를 사용 </li>
+                            <li> 3 </li>
+
+                            <h2 className="h2"> 📌 장점, 단점 </h2>
+                            <li> 장점 : </li>
+                            <li> 단점 : </li>
+
+                            <h2 className="h2"> ✔ 예시 </h2>
+                            <li> 소제목
+                                <div className='block3'>
+                                    <li> <h3 className="h3"> 🎈 </h3>
+                                        <li>  </li>
+                                    </li> <br />
                                 </div>
-                                <div className='sstitle'> JPA 프레임워크 </div>
-                                <div className='mblock'>
-                                    <div className='sstitle'> Hibernate ( 대표적인 JPA 프레임워크 ) </div>
-                                    <div className='sblock'>
-                                        <li> 장점 :
-                                            <li> 메서드만을 이용해서 쿼리를 수행가능 </li>
-                                            <li> 특정 DB에 종속적이지 않아서 DB를 바꾸어도 잘 작동 </li>
-                                            <li>  </li>
+                            </li>
+
+                        </div>
+                    </details>
+                </div>
+
+                <div className='block1'>
+                    <br />
+                </div>
+
+                <div className='block1'>
+                    <details>
+                        <summary> JDBC API ( 나중에 천천히 정리 , 정리 x ) </summary>
+                        <div className='block2'>
+
+                            <h2 className="h2"> 📌 설명 </h2>
+                            <li> 직접 JDBC를 Connection으로 연결하고 쿼리를 작성해서 넣어주고 excute를 재주고 연결도 끊어주어야 하는 방법(불편) </li>
+                            <li> 2 </li>
+                            <li> 3 </li>
+
+                            <h2 className="h2"> 📌 코드 설명 </h2>
+                            <li>  </li>
+                            <li> sql = "쿼리작성"; </li>
+                            <li> pstmt.executeUpdate(sql); </li>
+                            <li> ResultSet rs = stmt.executeQuery(sql); <small> #  </small> </li>
+                            <li>  </li>
+
+                            <h2 className="h2"> ✔ 예시 </h2>
+                            <li> 소제목
+                                <div className='block3'>
+                                    <li> <h3 className="h3"> 🎈 </h3>
+                                        <li>  </li>
+                                    </li> <br />
+                                </div>
+                            </li>
+
+                        </div>
+                    </details>
+                </div>
+
+                <div className='block1'>
+                    <details>
+                        <summary> JPQL </summary>
+                        <div className='block2'>
+
+                            <h2 className="h2"> 📌 설명 </h2>
+                            <li> Java Persistence Query Language </li>
+                            <li> DB쿼리가 아닌 객체지향 쿼리 </li>
+                            <li> 특정 SQL에 의존하지 않는 쿼리 </li>
+                            <li> SQL과 쿼리 구조는 비슷해서 사용하기 쉬움 </li>
+                            <li> SQL쿼리와는 다르게 JPQL는 별칭을 필수로 사용함 </li>
+                            <li> JPQL 실행 시 쿼리객체(TypedQuery , Query) 생성 필요 </li>
+
+                            <h2 className="h2"> 📌 EntityManagerFactory </h2>
+                            <li> 비용이 비싸서 어플리케이션에서 1개만 만들어서 사용 </li>
+                            <li> 여러 스레드가 동시에 접근이 가능, 스레드끼리 공유가 가능 </li>
+                            <li> 어플리케이션이 종료되기전에 닫아주어야 한다. </li>
+                            <div className="block4">
+                                <li> EntityManagerFactory emf = Persistence.createEntityManagerFactory("jpabook"); </li>
+                            </div>
+
+                            <h2 className="h2"> 📌 EntityManager </h2>
+                            <li> 여러 스레드가 동시에 접근이 불가능 </li>
+                            <li> 스레드간 공유 불가능 </li>
+                            <li> 사용자의 요청에 1개씩 만들어짐 </li>
+                            <li> 만들어지는 비용이 비싸지는 않지만 닫아주어야 한다. </li>
+                            <div className="block4">
+                                <li> EntityManager em = emf.createEntityManager(); </li>
+                            </div>
+
+                            <h2 className="h2"> 📌 Persistence Context  </h2>
+                            <li> Entity를 저장하는 환경 </li>
+                            <li> 논리적인 개념에 가까움</li>
+                            <li> Persistence Context에 EntityManager가 접근하여 Entity를 관리한다.  </li>
+                            <div className="block4">
+                                <img style={{ width: "60%" }} src={process.env.PUBLIC_URL + '/img/SpringModel/EntityManager.svg'} alt="" />
+                                <li> em.persist(ENTITY_INSTANCE) <small> # 영속성 상태로 만듬 </small> </li>
+                                <li> em.detach(ENTITY_INSTANCE) <small> # 영속상태를 준영속상태로 만듬 </small> </li>
+                                <li> em.clear() <small> # Persistence Context 초기화 </small> </li>
+                                <li> em.close() <small> # Persistence Context 닫음 </small> </li>
+                                <li> em.merge() </li>
+                                <li> em.remove(ENTITY_INSTANCE) <small> # 커밋을 해야 비영속 상태로 만듬 - flush() - DB에서 삭제 </small> </li>
+                                <li> em.flush()
+                                    <div className="block4">
+                                        <p> em.setFlushMode(javax.persistence.FlushModeType.AUTO) <small> # 기본값, 커밋이나 쿼리 실행할 때 flush() </small> </p>
+                                        <p> em.setFlushMode(javax.persistence.FlushModeType.COMMIT) <small> # 커밋할 때만 flush() </small> </p>
+                                    </div>
+                                </li>
+                                <li> em.find(ENTITY.class, ENTITY_INSTANCE.getId()); <small> # EntityManager에서 Entity의 식별자로 조회 </small> </li>
+                                <li> EntityTransaction et = em.getTransaction(); <small> #  </small> </li>
+                                <li> et.begin(); </li>
+                                <li> et.commit(); </li>
+                                <li> em.close() <small> # EntityManager를 종료해주어야 한다. </small> </li>
+                                <li> em.createQuery()
+                                    <div className="block4" style={{ listStyle: "none" }}>
+                                        <li> TypedQuery{"<ENTITY>"} query = em.createQuery("JPQL_QUERY", ENTITY.class); <small> # 반환 타입이 명확함, 1종류의 엔티티 타입을 반활할 때 </small> </li>
+                                        <li> Query{"<ENTITY>"} query = em.createQuery("JPQL_QUERY"); <small> # 여러 엔티티나 컬럼을 반환할 때 </small> </li>
+                                        <li> List{'<ENTITY>'} resultList = query.getResultList(); <small> # 결과가 없으면 빈 컬렉션 반환 </small> </li>
+                                        <li> ENTITY result = query.getSingleResult(); <small> # 결과가 없거나 결과가 2개이상이면 에러 발생 </small> </li>
+                                    </div>
+                                </li>
+                                <li> em.getTransaction().commit(); </li>
+                            </div>
+
+
+                            <h2 className="h2"> 📌 Select </h2>
+                            <li> SELECT m FROM User m WHERE m.name =: name <small> # name이라는 파라미터를 넣을 때 </small> </li>
+                            <li> SELECT m FROM User m where m.name = ?1 <small> # 첫번째 파라미터에 name을 넣을 때 </small> </li>
+                            <li> SELECT u.name FROM User u <small> # 프로젝션으로 반환값은 {'List<String> name'} 처럼 컬럼값을 반환한다. </small> </li>
+
+                            <h2 className="h2"> 📌 Insert </h2>
+                            <li>  </li>
+                            <li>  </li>
+
+                            <h2 className="h2"> 📌  </h2>
+                            <li>  </li>
+                            <li>  </li>
+
+                            <h2 className="h2"> 📌 Delete </h2>
+                            <li>  </li>
+                            <li>  </li>
+
+
+                            <h2 className="h2"> ✔ 예시 </h2>
+                            <li> 소제목
+                                <div className='block3'>
+                                    <li> <h3 className="h3"> 🎈 </h3>
+                                        <li>  </li>
+                                    </li> <br />
+                                </div>
+                            </li>
+
+                        </div>
+                    </details>
+                </div>
+
+                <div className='block1'>
+                    <details>
+                        <summary> QueryDSL (설명x) </summary>
+                        <div className='block2'>
+
+                            {/*<h2 className="h2"> 📌 설명 </h2> 
+                         <li> 1 </li> 
+                         <li> 2 </li> 
+                         <li> 3 </li> 
+                  
+                         <h2 className="h2"> 📌 장점, 단점 </h2> 
+                         <li> 장점 : </li> 
+                         <li> 단점 : </li> 
+                  
+                         <h2 className="h2"> ✔ 예시 </h2> 
+                         <li> 소제목 
+                             <div className='block3'> 
+                                <h3 className="h3"> 🎈 </h3> 
+                                    <div className='block4'> 
+                                    <li>  </li> 
+                                    </div> 
+                             </div> 
+                         </li> */}
+
+                        </div>
+                    </details>
+                </div>
+
+                <div className='block1'>
+                    <details>
+                        <summary> Spring Data JPA </summary>
+                        <div className='block2'>
+
+                            <h2 className="h2"> 📌 설명 </h2>
+                            <div> ENTITY findByFieldname(String FIELDNAME) (대표예시)
+                                <li> <small> select m from ENTITY m where m.FIELDNAME = ?1 </small> </li>
+                            </div>
+
+                            <div> {' List<ENTITY> findAll() '}
+                                <li> <small> select m from ENTITY m; </small> </li>
+                            </div>
+
+                            <div> findByFieldname1AndFieldname2(String FIELDNAME1, String FIELDNAME2)
+                                <li> <small> select m from ENTITY m where m.FIELDNAME1 = ?1 and m.FIELDNAME2 = ?2; </small> </li>
+                            </div>
+
+                            <div> findByFieldname1OrFieldname2(String FIELDNAME1, String FIELDNAME2)
+                                <li> <small> select m from ENTITY m where m.FIELDNAME1 = ?1 or m.FIELDNAME2 = ?2; </small> </li>
+                            </div>
+
+                            <div> findDistinctByFieldname1
+                                <li> <small> select m distinct from ENTITY m where m.FIELDNAME1 = ?1; </small> </li>
+                            </div>
+
+                            <div> findByFieldnameIs(String name)
+                                <li> <small> select m from ENTITY m where m.FIELDNAME1 = ?1; </small> </li>
+                            </div>
+
+                            <div> findByFieldnameEquals(String name)
+                                <li> <small> select m from ENTITY m where m.FIELDNAME1 = ?1; </small> </li>
+                            </div>
+
+                            <div> findByFieldnameBetween(num start, num end)
+                                <li> <small> select m from ENTITY m where m.FIELDNAME between ?1 and ?2 </small> </li>
+                            </div>
+
+                            <div> findByFieldnameGreaterThan(String num)
+                                <li> <small> select m from ENTITY m where m.FIELDNAME {'>'} ?1 </small> </li>
+                            </div>
+
+                            <div> findByFieldnameGreaterThanEqual(String num)
+                                <li> <small> select m from ENTITY m where m.FIELDNAME {'>='} ?1 </small> </li>
+                            </div>
+
+                            <div> findByFieldnameLessThan(String num)
+                                <li> <small> select m from ENTITY m where m.FIELDNAME {'<'} ?1</small> </li>
+                            </div>
+
+                            <div> findByFieldnameLessThanEqual(String num)
+                                <li> <small> select m from ENTITY m where m.FIELDNAME {'<='} ?1 </small> </li>
+                            </div>
+
+                            <div> findByFieldNameNotLike(String word);
+                                <li> <small> select m from ENTITY m where m.FIELDNAME not like '?1'  </small> </li>
+                            </div>
+
+                            <div> findByFieldNameLike(String word);
+                                <li> <small> select m from ENTITY m where m.FIELDNAME like '?1'  </small> </li>
+                            </div>
+
+                            <div> findByFieldNameStartingWith(String word);
+                                <li> <small> select m from ENTITY m where m.FIELDNAME like '%?1' </small> </li>
+                            </div>
+
+                            <div> findByFieldNameEndingWith(String word);
+                                <li> <small> select m from ENTITY m where m.FIELDNAME like '?1%' </small> </li>
+                            </div>
+
+                            <div> findByFieldNameContaining(String word);
+                                <li> <small> select m from ENTITY m where m.FIELDNAME like '%?1%' </small> </li>
+                            </div>
+
+                            <div> findByFieldname1ByFieldname2Desc(String FIELDNAME1)
+                                <li> <small> select m from ENTITY m where m.FIELDNAME1 = ?1 order by m.FIELDNAME2 desc </small> </li>
+                            </div>
+
+                            <div> findByFieldname1ByFieldname2Asc(String FIELDNAME1)
+                                <li> <small> select m from ENTITY m where m.FIELDNAME1 = ?1 order by m.FIELDNAME2 asc </small> </li>
+                            </div>
+
+                            <div> deleteById(String FIELDNAME)
+                                <li> <small> delete from ENTITY where FIELDNAME = ?1  </small> </li>
+                            </div>
+
+                            <div> 1. 어노테이션 방식(Repository JPA 쿼리 메소드 위에)
+                                <li> @Query("select m from Member m") <small> # 사용자 쿼리 작성 </small> </li>
+                            </div>
+
+                            <div> 2. 순수 sql 쿼리(Repository JPA 사용자 쿼리 메소드 위에)
+                                <li> @Query(value="select * from Member m",nativeQuery = true) </li>
+                            </div>
+
+                            <h2 className="h2"> ✔ 예시 </h2>
+                            <li> 소제목
+                                <div className='block3'>
+                                    <li> <h3 className="h3"> 🎈Repository 클래스 예시 </h3>
+                                        <div className="block4" style={{ listStyle: "none" }}>
+                                            <li> @Repository </li>
+                                            <li> public interface Repository명 extends JpaRepository{'<User,Long> {'}
+                                                <li> <small> # ID타입 : Long, Integer, String 등이 있다.</small>  </li>
+                                                <li> public User findByName(String name); </li> <br />
+
+                                                <li> @Query("select m from User m where m.username = ?1") </li>
+                                                <li> public User findByUsername(String username) </li>
+                                                <li>  </li>
+                                            </li>
+                                            <li> {'}'} </li>
+                                        </div>
+                                    </li> <br />
+                                </div>
+                            </li>
+
+                        </div>
+                    </details>
+                </div>
+
+                <div className='block1'>
+                    <details>
+                        <summary> Entity와 DB컬럼 타입 </summary>
+                        <div className='block2'>
+
+                            <h2 className="h2"> 📌 설명 </h2>
+                            <li> Long
+                                <div className="block4">
+                                    <p> 오라클 : NUMBER(19,0) </p>
+                                </div>
+                            </li> <br />
+                            <li> Boolean
+                                <div className="block4">
+                                    <p> 오라클 : NUMBER(1,0) <small> # true=1 , false=0 </small> </p>
+                                </div>
+                            </li> <br />
+                            <li> String
+                                <div className="block4">
+                                    <p> 오라클 : VARCHAR2(255 CHAR) </p>
+                                </div>
+                            </li> <br />
+                            <li> Int
+                                <div className="block4">
+                                    <p> 오라클 : NUMBER(10,0) </p>
+                                </div>
+                            </li> <br />
+                            <li> LocalDateTime <small> # Java8부터 , JPA버전이 API를 지원하는지 확인 </small>
+                                <div className="block4">
+                                    <p> 오라클 : TIMESTAMP(6)  <small> # 21/10/26 10:46:46.397863000 </small> </p>
+                                </div>
+                            </li> <br />
+                            <li> LocalDate <small> #  </small>
+                                <div className="block4">
+                                    <p> 오라클 : TIMESTAMP(6) <small> # 21/10/26 </small> </p>
+                                </div>
+                            </li> <br />
+                            <li> Date <small> # JDK1.0 시절에 사용하던 문자타입, 불편 </small>
+                                <div className="block4">
+                                    <p> 오라클 : TIMESTAMP(6) <small>  </small> </p>
+                                </div>
+                            </li> <br />
+                            <li> Calender <small> # 비용이 비싸고, 이것도 불편  </small>
+                                <div className="block4">
+                                    <p>  </p>
+                                </div>
+                            </li> <br />
+
+                        </div>
+                    </details>
+                </div>
+
+                <div className='block1'>
+                    <details>
+                        <summary> @JoinTable @JoinColumn @ManyToOne @OneToOne @OneToMany @ManyToMany </summary>
+                        <div className='block2'>
+
+                            <h2 className="h2"> 📌 @JoinTable 속성  </h2>
+                            <li> 조인테이블을 만들어서 연관관계를 설정하는 방법 </li>
+                            <li> name : </li>
+                            <li> joinColumns : <small> # 현재 엔티티를 참조하는 외래키 </small> </li>
+                            <li> inverseJoinColumns : <small> # 다른 엔티리를 참조하는 외래키 </small> </li>
+                            <div className="block4">
+                                <li> @JoinTable(
+                                    <li> name="client_role", <small> 매핑 테이블의 테이블명 </small> </li>
+                                    <li> joinColumns = @JoinColumn(name = "client_id"), <small> 현재 엔티티의 컬럼명(default: 엔티티명_필드명) ,client테이블의 id를 외래키로 하여 현재 엔티티를 참조 </small> </li>
+                                    <li> inverseJoinColumns = @JoinColumn(name = "role_id") <small> 참조 엔티티의 컬럼명(default: 엔티티명_필드명) ,role테이블의 id를 외래키로 하여 다른 엔티티를 참조 </small> </li>
+                                </li>
+                            </div>
+
+                            <h2 className="h2"> 📌 @JoinColumn 속성 </h2>
+                            <li> 외래키 매핑할 때 사용 </li>
+                            <li> name : 매핑할 외래키 명 , default = 필드명_참조테이블기본키컬럼명 <small> # name_refname </small> </li>
+                            <li> referencedColumnName : 외래키가 참조하는 테이블의 컬럼명 </li>
+                            <li> foreignKey(DDL) : 외래키 제약조건을 직접 작성, 테이블생성시에만 가능? </li>
+                            <li> unique, nullable, insertable, updatable, columnDefinition, table </li>
+
+                            <h2 className="h2"> 📌 @ManyToOne 속성 </h2>
+                            <li> Many쪽에서 @JoinTable을 선언 </li>
+                            <li> optional=false (객체에 null이 들어갈수 있음, inner join) , optional=true(default값) (객체에 null이 들어갈 수 없음, outer join) </li>
+                            <li> fetch=FetchType.EAGER (default값) : 엔티티 조회할 떄 연관된 엔티티도 같이 조회, 객체가 계속 연결되어 있으면 연달아 조회를 함으로 좋지 않음,
+                                반대로 한꺼번에 조회 함으로 네트워크 비용을 아낄 수 있다는 장점도 존재 </li>
+                            <li> fetch=FetchType.LAZY : 엔티티를 나중에 조회 </li>
+
+                            <h2 className="h2"> 📌 @ManyToOne 속성 </h2>
+                            <li> Many쪽에서 @JoinTable을 선언 </li>
+                            <li> optional=false (객체에 null이 들어갈수 있음, inner join) , optional=true(default값) (객체에 null이 들어갈 수 없음, outer join) </li>
+                            <li> fetch=FetchType.EAGER (default값) : 엔티티 조회할 떄 연관된 엔티티도 같이 조회, 객체가 계속 연결되어 있으면 연달아 조회를 함으로 좋지 않음,
+                                반대로 한꺼번에 조회 함으로 네트워크 비용을 아낄 수 있다는 장점도 존재 </li>
+                            <li> fetch=FetchType.LAZY : 엔티티를 나중에 조회 </li>
+
+                            <h2 className="h2"> 📌 @OneToOne 속성 </h2>
+                            <li> optional=false (객체에 null이 들어갈수 있음) , optional=true (객체에 null이 들어갈 수 없음) </li>
+                            <li> fetch=FetchType.EAGER (default값) : 엔티티 조회할 떄 연관된 엔티티도 같이 조회, 객체가 계속 연결되어 있으면 연달아 조회를 함으로 좋지 않음,
+                                반대로 한꺼번에 조회 함으로 네트워크 비용을 아낄 수 있다는 장점도 존재 </li>
+                            <li> fetch=FetchType.LAZY : 엔티티를 나중에 조회 </li>
+                            <li> cascade=CascadeType.[ALL,PERSIST,MERGE,REMOVE,REFRESH,DETACH]
+                                <li> CascadeType.PERSIST : 엔티티를 저장하면, 필드에 있는 엔티티도 저장  <small> # 좀더 알아볼것 </small> </li>
+                                <li> CascadeType.MERGE : 엔티티를 합칠 떄, 필드에 있는 엔티티도 합친다 <small> # </small> </li>
+                                <li> CascadeType.REFRESH : 엔티티를 수정할 떄, 필드에 있는 엔티티도 수정 <small> # </small> </li>
+                                <li> CascadeType.REMOVE : 엔티티를 삭제할 떄, 필드에 있는 엔티티도 삭제한다.  <small> # </small> </li>
+                                <li> CascadeType.DETACH : 엔티티를 detach할떄 , 필드에 있는 엔티티도 detach를 한다. <small> # 영속성 컨텍스트에서 엔티티를 제거(엔티티 삭제가 아님) </small> </li>
+                                <li> CascadeType.ALL : 위에 있는 내용을 모두 적용 <small> # </small> </li> <br />
+                            </li>
+                            <li> orphanRemoval = [true, false] : true로 하면 엔티티의 연관관계가 끊어졌을때 끊어진 고아 엔티티를 삭제 </li>
+
+                            <h2 className="h2"> 📌 @OneToMany 속성 </h2>
+                            <li> Many쪽에서 @JoinTable을 선언 </li>
+                            <li> fetch=FetchType.EAGER : 엔티티 조회할 떄 연관된 엔티티도 같이 조회, 객체가 계속 연결되어 있으면 연달아 조회를 함으로 좋지 않음,
+                                반대로 한꺼번에 조회 함으로 네트워크 비용을 아낄 수 있다는 장점도 존재 </li>
+                            <li> fetch=FetchType.LAZY (default값) : 엔티티를 나중에 조회 </li>
+                            <li> cascade=CascadeType.[ALL,PERSIST,MERGE,REMOVE,REFRESH,DETACH]
+                                <li> CascadeType.PERSIST : 엔티티를 저장하면, 필드에 있는 엔티티도 저장  <small> # 좀더 알아볼것 </small> </li>
+                                <li> CascadeType.MERGE : 엔티티를 합칠 떄, 필드에 있는 엔티티도 합친다 <small> # </small> </li>
+                                <li> CascadeType.REFRESH : 엔티티를 수정할 떄, 필드에 있는 엔티티도 수정 <small> # </small> </li>
+                                <li> CascadeType.REMOVE : 엔티티를 삭제할 떄, 필드에 있는 엔티티도 삭제한다.  <small> # </small> </li>
+                                <li> CascadeType.DETACH : 엔티티를 detach할떄 , 필드에 있는 엔티티도 detach를 한다. <small> # 영속성 컨텍스트에서 엔티티를 제거(엔티티 삭제가 아님) </small> </li>
+                                <li> CascadeType.ALL : 위에 있는 내용을 모두 적용 <small> # </small> </li> <br />
+                            </li>
+                            <li> orphanRemoval = [true, false] : true로 하면 엔티티의 연관관계가 끊어졌을때 끊어진 고아 엔티티를 삭제 </li>
+
+
+                            <h2 className="h2"> 📌 @ManyToMany(mappedBy="") 속성 </h2>
+                            <li> mappedBy : 참조하고 있는 다른엔티티의 필드명을 적어서 매핑 </li>
+                            <li> optional=false (외부조인) , optional=true (외부조인) </li>
+                            <li> fetch=FetchType.EAGER : 엔티티 조회할 떄 연관된 엔티티도 같이 조회, 객체가 계속 연결되어 있으면 연달아 조회를 함으로 좋지 않음,
+                                반대로 한꺼번에 조회 함으로 네트워크 비용을 아낄 수 있다는 장점도 존재 </li>
+                            <li> fetch=FetchType.LAZY (default값) : 엔티티를 나중에 조회 </li>
+                            <li> cascade=CascadeType.[ALL,PERSIST,MERGE,REMOVE,REFRESH,DETACH]
+                                <li> CascadeType.PERSIST : 엔티티를 저장하면, 필드에 있는 엔티티도 저장  <small> # 좀더 알아볼것 </small> </li>
+                                <li> CascadeType.MERGE : 엔티티를 합칠 떄, 필드에 있는 엔티티도 합친다 <small> # </small> </li>
+                                <li> CascadeType.REFRESH : 엔티티를 수정할 떄, 필드에 있는 엔티티도 수정 <small> # </small> </li>
+                                <li> CascadeType.REMOVE : 엔티티를 삭제할 떄, 필드에 있는 엔티티도 삭제한다.  <small> # </small> </li>
+                                <li> CascadeType.DETACH : 엔티티를 detach할떄 , 필드에 있는 엔티티도 detach를 한다. <small> # 영속성 컨텍스트에서 엔티티를 제거(엔티티 삭제가 아님) </small> </li>
+                                <li> CascadeType.ALL : 위에 있는 내용을 모두 적용 <small> # </small> </li> <br />
+                            </li>
+
+                            <h2 className="h2"> ✔ 예시 </h2>
+                            <li> 소제목
+                                <div className='block3'>
+                                    <h3 className="h3"> 🎈 Board </h3>
+                                    <div className='block4'>
+                                        <li> @Table(name="board") </li>
+                                        <li> public class Board {'{'}
+                                            <li>  @Id </li>
+                                            <li>  @GeneratedValue(strategy = GenerationType.AUTO) </li>
+                                            <li>  @Column(name="id") </li>
+                                            <li>  private Long id; </li>
+                                            <li>  </li> <br />
+                                            <li> @ManyToOne </li>
+                                            <li> @JoinColumn(name="client_id") <small> # 참조할테이블명_컬럼명 </small> </li>
+                                            <li> private Client client; </li>
                                         </li>
-                                        <li> 단점 :
-                                            <li> 실제 쿼리를 사용하지않으므로 성능이 떨어질 수 있음 </li>
-                                            <li> 복잡한 쿼리는 작성하기 힘듬 , JPQL 이라는 기술이 있다고함(알아봐야함) </li>
-                                            <li> JPA를 사용하기 위해서는 많은 공부가 필요 </li>
+                                        <li> {'}'} </li>
+                                    </div>
+                                    <h3 className="h3"> 🎈 Client </h3>
+                                    <div className='block4'>
+                                        <li> @Table(name="client") </li>
+                                        <li> public class Client {'{'}
+                                            <li>  @Id </li>
+                                            <li>  @GeneratedValue(strategy = GenerationType.AUTO) </li>
+                                            <li>  private Long id; </li>
+                                            <li>  </li> <br />
+
+                                            <li> {'  @ManyToMany(fetch=FetchType.LAZY, cascade = { '}
+                                                <li> {'CascadeType.PERSIST, '} </li>
+                                                <li> {'CascadeType.MERGE '} </li>
+                                            </li>
+                                            <li> {'  }) '} </li>
+                                            <li> {'  @JoinTable( '}
+                                                <li> {'name="client_role", '} </li>
+                                                <li> {'joinColumns = @JoinColumn(name = "client_id"), '} </li>
+                                                <li> {'inverseJoinColumns = @JoinColumn(name = "role_id")) '} </li>
+                                            </li>
+                                            <li> {'  private Set<Role> roles = new HashSet<Role>(); '} </li>
+                                            <li>  </li> <br />
+
+                                            <li> {'  @OneToMany(mappedBy="client") '} </li>
+                                            <li> {'  private Set<Board> boards = new HashSet<Board>(); '} </li>
+                                            <li>  </li> <br />
                                         </li>
+                                        <li> {'}'} </li>
                                     </div>
-                                    <div className='sstitle'> Mybatis </div>
-                                    <div className='sblock'>
-                                        <li> DAO와 테이블이 너무 의존적이여서 하나를 변경하면 다른것도 변경해야 한다는 단점이 존재
-                                            (자세히 알아본것은 아니라서 대략 정리) </li>
-                                        <li>  </li>
-                                    </div>
-                                    <div className='sstitle'>  </div>
-                                    <div className='sblock'>
-                                        <li> </li>
-                                        <li> </li>
-                                    </div>
-                                </div>
-                            </div>
-                        </details>
-                    </div>
-                    {/*  */}
-
-                    <div className='mblock'>
-                        <details>
-                            <summary className='stitle'> 영속성 관련 설명
-                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
-                            <div className='sblock'>
-                                <div className='sstitle'> Entity Manager Factory </div>
-                                <div className='mblock'>
-                                    <li> 어플리케이션에서 DB를 한개만 사용하면 1개만 만들어서 사용 </li>
-                                    <li> 여러 스레드가 동시 접근 가능, 스레드끼리 공유 가능 </li>
-                                    <li>  </li>
-                                    <li> EntityManagerFactory emf = Persistence.createEntityManagerFactory(""); </li>
-                                </div>
-                                <div className='sstitle'> Entity Manager </div>
-                                <div className='mblock'>
-                                    <li> 여러 스레드가 동시에 접근 불가 </li>
-                                    <li> 스레드가 공유 불가 </li>
-                                    <li> 사용자의 요청에 1개씩 만들어짐 </li>
-                                    <li> EntityManager em = emf.createEntityManger(); </li>
-                                </div>
-                                <div className='sstitle'> EntityTransaction </div>
-                                <div className='mblock'>
-                                    <li> EntityTransaction transaction = em.getTransaction(); </li>
-                                    <li> transaction.begin(); <small> # 트랜잭션 시작 </small> </li>
-                                    <li> 영속성 컨텍스트에 등록할 엔티티 관련 코드들 작성 ( ex) em.persist(엔티티명); ) </li>
-                                    <li> transaction.commit(); <small> # 트랜잭션 커밋 </small>  </li>
-                                </div>
-                                <div className='sstitle'> persistence context </div>
-                                <div className='mblock'>
-                                    <li> em.persist(엔티티객체); <small> # EntityManager를 이용해 영속성 컨텍스트에 저장 </small> </li>
-                                    <li> em.detach() <small> # 영속상태에서 분리 (삭제는 아니고 보류) </small> </li>
-                                    <li> em.remove(엔티티 객체) <small> # </small> </li>
-                                    <li> em.flush() <small> # 플러쉬 실행 </small> </li>
-                                    <li> em.close() <small> # 영속상태를 준영속상태로 변경  </small> </li>
-                                    <li> em.merge(엔티티객체) </li>
-                                    <li> em.clear <small> # 영속성 컨텍스트 초기화 </small> </li>
-                                    <li> 객체 객체명 = em.find(객체.class,"식별자") <small> # 1차 캐시에서 엔티티를 조회하고 없으면 DB를 조회해서 찾고 1차캐시에 저장하고 값을 반환 </small> </li>
-                                </div>
-                                <div className='sstitle'> JPA 진행과정, 영속성 컨텍스트 특징 </div>
-                                <div className='mblock'>
-                                    <li> 진행 과정 : 트랜잭션 커밋 - 엔티티 매니저 플러시 호출 - 엔티티와 스냅샷을 비교해서 변경된 엔티티를 찾음 - 변경되었으면 수정 쿼리를 생성 -
-                                        쓰기 지연 SQL 저장소로 보냄 - SQL을 DB로 보냄 - 실제 DB에 트랜잭션 커밋 </li>
-                                    <li> 영속 상태가 되기 위해서는 식별자(@Id)가 반드시 존재해야 한다. 없으면 예외가 발생한다. </li>
-                                    <li> JPA 메소드로 DB를 요청하면 영속성 컨텍스트 내부의 캐시에서 찾고 없으면 데이터베이스에서 꺼내서 캐시에 보관하고 클라이언트에게 반환 </li>
-                                    <li> JPA는 트랙잭션을 커밋하는 순간에 영속성 컨텍스트에 저장된 엔티티를 DB에 반영하고 flush() 동기화 작업을 수행한다. </li>
-                                    <li> JPA는 동일한 쿼리를 기억해두었다가 재사용 ( 파싱된 쿼리를 가지고 있으므로 똑같은 쿼리를 매번 파싱할 필요가 없음) </li>
-                                </div>
-                                <div className='sstitle'> flush(동기화) </div>
-                                <div className='mblock'>
-                                    <li> 1. 직접 호출 </li>
-                                    <li> 2. 트랜잭션 커밋 </li>
-                                    <li> 3. JPQL 쿼리 사용 </li>
-                                    <li> FlushModeType.AUTO (default값) <small> # 커밋이나 쿼리 실행할 때 flush </small> </li>
-                                    <li> FlushModeType.COMMIT <small> # 커밋일 때만 플러시 </small> </li>
-                                </div>
-                            </div>
-                        </details>
-                    </div>
-
-                    <div className='mblock'>
-                        <details>
-                            <summary className='stitle'> Entity - DB 데이터 타입
-                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
-                            <div className='sblock'>
-                                <div className='sstitle'> 설명 </div>
-                                <div className='mblock'>
-                                    <li> Long
-                                        <li> 오라클 : NUMBER(19,0) </li>
-                                        <li>  </li>
-                                    </li> <br />
-                                    <li> Boolean
-                                        <li> 오라클 : NUMBER(1,0) <small> # true=1 , false=0 </small> </li>
-                                        <li>  </li>
-                                        <li>  </li>
-                                    </li> <br />
-                                    <li> String
-                                        <li> 오라클 : VARCHAR2(255 CHAR) </li>
-                                        <li>  </li>
-                                        <li>  </li>
-                                    </li> <br />
-                                    <li> Int
-                                        <li> 오라클 : NUMBER(10,0) </li>
-                                        <li>  </li>
-                                        <li>  </li>
-                                    </li> <br />
-                                    <li> LocalDateTime <small> # Java8부터 , JPA버전이 API를 지원하는지 확인 </small>
-                                        <li> 오라클 : TIMESTAMP(6)  <small> # 21/10/26 10:46:46.397863000 </small> </li>
-                                        <li>  </li>
-                                        <li>  </li>
-                                    </li> <br />
-                                    <li> LocalDate <small> #  </small>
-                                        <li> 오라클 : TIMESTAMP(6) <small> # 21/10/26 </small> </li>
-                                        <li>  </li>
-                                        <li>  </li>
-                                    </li> <br />
-                                    <li> Date <small> # JDK1.0 시절에 사용하던 문자타입, 불편 </small>
-                                        <li> 오라클 : TIMESTAMP(6) <small>  </small> </li>
-                                        <li>  </li>
-                                        <li>  </li>
-                                    </li> <br />
-                                    <li> Calender <small> # 비용이 비싸고, 이것도 불편  </small>
-                                        <li>  </li>
-                                        <li>  </li>
-                                        <li>  </li>
-                                    </li> <br />
-                                    <li>  </li> <br />
-                                    <li>  </li> <br />
-                                </div>
-                                <div className='sstitle'> 예시 </div>
-                                <div className='mblock'>
-                                    <li>  </li>
-                                    <li>  </li>
-                                </div>
-                            </div>
-                        </details>
-                    </div>
-
-                    <div className='mblock'>
-                        <details>
-                            <summary className='stitle'> JPA에서 Entity 사용하는 방법
-                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
-                            <div className='sblock'>
-                                <div className='sstitle'> Entity란 </div>
-                                <div className='mblock'>
-                                    <li> 관계형 데이터베이스에서 테이블을 만들듯이 JPA가 참조할 테이블을 만들어 둔것 </li>
-                                    <li> entity는 논리적인 모델 , 집합 정도라고 생각  </li>
-                                    <li> DB의 테이블로 사용도 하지만 사용을 안할 수도 있다. </li>
-                                    <li> @Entity와 @Table의 차이, @Table은 DB에 생성될 테이블의 이름을 지정하는데 사용하고, @Entity는 엔티티를 뜻한다.
-                                        하지만 @Table의 이름이 명시되지 않는다면 @Entity의 name속성이 DB테이블의 이름으로 사용된다. </li>
-                                </div>
-                                <div className='sstitle'> Entity 관련 어노테이션 </div>
-                                <div className='mblock'>
-                                    <li> @Entity(name="") <small> # Entity를 명시 </small> </li>
-                                    <li> @Table(name="") <small> # Table 이름 명시 </small> </li>
-                                    <li> @Id <small> # JPA가 식별자로 사용, PK를 뜻하는 필드를 지정, @GeneratedValue 하고 주로 같이 사용 </small> </li>
-                                    <li> @GeneratedValue(strategy = GenerationType.IDENTITY) <small># MYSQL Auto_Increment</small></li>
-                                    <li> @GeneratedValue(strategy = GenerationType.SEQUENCE) <small># Oracle, @SequenceGenerator 필요</small> </li>
-                                    <li> @GeneratedValue(strategy = GenerationType.TABLE) <small># TABLE, @TableGenerator 필요</small> </li>
-                                    <li> @GeneratedValue(strategy = GenerationType.AUTO)<small># 선택한 dialect에 따라 자동 선택(default) </small>  </li>
-                                    <li> @Column(name="DB 필드명", length = 10, nullable = false, unique=false,
-                                        columnDefinition = "DB필드타입 제약조건 '제약조건값'", )
-                                        <small> # 필수로 사용할 필요는 없고 DB테이블의 필드명과 일치하면 자동으로 매핑이 된다.만약에 일치하지 않으면
-                                            name="" 속성에 적어서 맞추어 줄수 있고 DB에서 사용하는 제약조건 등을 지정할 수도 있다.</small></li>
-                                    <li>  <small> # </small> </li>
-                                    <li> implementation 'org.springframework.boot:spring-boot-starter-validation' </li>
-                                    <li> @Positive @PositiveOrZero @Negative @NegativeOrZero </li>
-                                    <li> @Size(min=1,max=2) @Min(1) @Max(2) </li>
-                                    <li> @Null </li>
-                                    <li> @NotNull # Null 불가능 </li>
-                                    <li> @NotEmpty # Null, 빈문자열("") 불가능 , " " 은 가능 </li>
-                                    <li> @NotBlank # Null, 빈문자열("") , " " 모두 불가능</li>
-                                    <li> @Pattern(regex="이곳에 정규표현식 작성") </li>
-                                    <li> @Future @FutureOrPresent @Past @PastOrPresent </li>
-                                    <li> @Email </li>
-                                    <li> @AssertTrue @AssertFalse # 값이 항상 true거나 false </li>
-                                    <li> @Digits(integer= 최대허용되는정수자릿수 , fraction = 최대허용되는소수자릿수 ) </li>
-                                    <li> @DecimalMax(value=) @DecimalMin(value=) </li>
-                                    <li> 어노테이션에 추가 속성 : message="에러 날 경우 메시지 표현" </li>
-                                    <li> @Getter: getter 메소드 </li>
-                                    <li> @Setter: setter 메소드, 일반적으로 사용을 하지 않음 </li>
-                                    <li> @NoArgsConstructor: 기본 생성자</li>
-                                    <li> @AllArgsConstructor: </li>
-                                    <li> @Entity: Entity 클래스라고 선언, DB테이블과 매칭되는 클래스, DB테이블이(aa_bb_cc)이면
-                                        Entity이름은 AaBbCc와 같이 첫글자는 대문자이고 _문자를 없애고 그 뒤에 글자를 대문자로 치환한다.</li>
-                                    <li>  </li>
-                                    <li> @Id: PK를 뜻하는 필드를 지정, @GeneratedValue 하고 주로 같이 사용 </li> <br />
-                                    <li> @GeneratedValue(strategy = GenerationType.IDENTITY) <small># MYSQL Auto_Increment</small></li>
-                                    <li> @GeneratedValue(strategy = GenerationType.SEQUENCE) <small># Oracle, @SequenceGenerator 필요</small> </li>
-                                    <li> @GeneratedValue(strategy = GenerationType.TABLE) <small># TABLE, @TableGenerator 필요</small> </li>
-                                    <li> @GeneratedValue(strategy = GenerationType.AUTO)<small># 선택한 dialect에 따라 자동 선택(default) </small>  </li> <br />
-                                    <li> @Table(name="") DB의 테이블명과 매핑을 시켜주는 어노테이션 </li>
-                                    <li> @Column(name="DB 필드명", length = 10, nullable = false, unique=false,
-                                        columnDefinition = "DB필드타입 제약조건 '제약조건값'", )
-                                        필수로 사용할 필요는 없고 DB테이블의 필드명과 일치하면 자동으로 매핑이 된다.만약에 일치하지 않으면
-                                        name="" 속성에 적어서 맞추어 줄수 있고 DB에서 사용하는 제약조건 등을 지정할 수도 있다.</li>
-                                    <li>  </li>
-                                    <li> @Builder: </li>
-                                    <li> @org.hibernate.annotations.DynamicUpdate : 엔티티에 선언하며 레코드를 전체 업데이트 하지않고
-                                        일부만 업데이트를 하게 해준다.  </li>
-                                    <li> @NamedQuery(name="Entity명.Repository메소드명",query="사용자정의쿼리작성") </li>
-                                    <li> @Temporal(TemporalType.TIMESTAMP) # 자바의 날짜 타입 사용 </li>
-                                    <div className='sstitle'> 제약조건 어노테이션 </div>
-                                    <div className='sblock'>
-                                        <li> @NotNull </li>
-                                        <li> @Size(min=2, max=30) </li>
-                                        <li>  </li>
-                                    </div>
-                                    <li>  </li>
-                                </div>
-                                <div className='sstitle'> 예시 </div>
-                                <div className='mblock'>
-                                    <li> @Entity <small> # entity를 명시 </small> </li>
-                                    <li> @Getter<small>  </small></li>
-                                    <li> @Setter<small>  </small></li>
-                                    <li> @AllArgsConstructor<small>  </small> </li>
-                                    <li> @NoArgsConstructor <small>  </small></li>
-                                    <li> @ToString <small>  </small></li>
-                                    <li> public class BoardEntity {'{'}
-                                        <li>   <br />  @Id </li>
+                                    <h3 className="h3"> 🎈 Role </h3>
+                                    <div className='block4'>
+                                        <li> @Id </li>
                                         <li> @GeneratedValue(strategy = GenerationType.AUTO) </li>
-                                        <li> @Column(name="board_no") </li>
-                                        <li> private Long boardNo; </li> <br />
+                                        <li> private Long id; </li>
+                                        <li> private String name; </li>
+                                        <li>  </li> <br />
 
-                                        <li> @Column(name="board_title") </li>
-                                        <li> private String boardTitle; </li> <br />
+                                        <li> {' @ManyToMany(mappedBy = "roles") '} </li>
+                                        <li> {' private Set<Client> clients = new HashSet<Client>(); '} </li>
+                                        <li>  </li> <br />
 
-                                        <li> @Column(name="board_content") </li>
-                                        <li> private String boardContent; </li>
-                                    </li>
-                                    <li> {'}'} </li>
+                                    </div>
                                 </div>
-                                <div className='sstitle'> Entity 코드 예시 </div>
-                                <div className='mblock'>
-                                    <li>  </li>
-                                    <li>  </li>
-                                    <li>  </li>
-                                </div>
-                            </div>
-                        </details>
-                    </div>
-                    {/*  */}
-                    <div className='mblock'>
-                        <details>
-                            <summary className='stitle'> JPA 쿼리 메소드
-                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
-                            <div className='sblock'>
-                                <div className='sstitle'>  </div>
-                                <div className='mblock'>
-                                    <li> Entity명은 DB에서 테이블을 지칭, Fieldname DB에서 필드명을 지칭, 필드명의 첫 시작은 대문자이고
-                                        _로 구분되면 대문자로 시작하는것으로 기억  </li> <br />
-                                    <div> Entity명 findByFieldname(String fieldname) (대표예시)
-                                        <li> <small> select m from 테이블(Entity) m where m.fieldname = ?1 </small> </li>
-                                    </div>
+                            </li>
 
-                                    <div> {' List<Entity> findAll() '}
-                                        <li> <small> select m from 테이블 m; </small> </li>
-                                    </div>
+                        </div>
+                    </details>
+                </div>
 
-                                    <div> findByFieldname1AndFieldname2(String fieldname1, String fieldname2)
-                                        <li> <small> select m from 테이블 m where m.fieldname1 = ?1 and m.fieldname2 = ?2; </small> </li>
-                                    </div>
+                <div className='block1'>
+                    <details>
+                        <summary> @ManyToMany </summary>
+                        <div className='block2'>
 
-                                    <div> findByFieldname1OrFieldname2(String fieldname1, String fieldname2)
-                                        <li> <small> select m from 테이블 m where m.fieldname1 = ?1 or m.fieldname2 = ?2; </small> </li>
-                                    </div>
+                            <h2 className="h2"> 📌 설명 </h2>
+                            <li> 다대다 관계 매핑 </li>
+                            <li> 2 </li>
+                            <li> 3 </li>
 
-                                    <div> findDistinctByFieldname1
-                                        <li> <small> select m distinct from 테이블 m where m.fieldname1 = ?1; </small> </li>
-                                    </div>
+                            <h2 className="h2"> 📌 장점, 단점 </h2>
+                            <li> 장점 : </li>
+                            <li> 단점 : </li>
 
-                                    <div> findByFieldnameIs(String name)
-                                        <li> <small> select m from 테이블 m where m.fieldname1 = ?1; </small> </li>
-                                    </div>
-
-                                    <div> findByFieldnameEquals(String name)
-                                        <li> <small> select m from 테이블 m where m.fieldname1 = ?1; </small> </li>
-                                    </div>
-
-                                    <div> findByFieldnameBetween(num start, num end)
-                                        <li> <small> select m from 테이블 m where m.fieldname between ?1 and ?2 </small> </li>
-                                    </div>
-
-                                    <div> findByFieldnameGreaterThan(String num)
-                                        <li> <small> select m from 테이블 m where m.fieldname {'>'} ?1 </small> </li>
-                                    </div>
-
-                                    <div> findByFieldnameGreaterThanEqual(String num)
-                                        <li> <small> select m from 테이블 m where m.fieldname {'>='} ?1 </small> </li>
-                                    </div>
-
-                                    <div> findByFieldnameLessThan(String num)
-                                        <li> <small> select m from 테이블 m where m.fieldname {'<'} ?1</small> </li>
-                                    </div>
-
-                                    <div> findByFieldnameLessThanEqual(String num)
-                                        <li> <small> select m from 테이블 m where m.fieldname {'<='} ?1 </small> </li>
-                                    </div>
-
-                                    <div> findByFieldNameNotLike(String word);
-                                        <li> <small> select m from 테이블 m where m.fieldname not like '?1'  </small> </li>
-                                    </div>
-
-                                    <div> findByFieldNameLike(String word);
-                                        <li> <small> select m from 테이블 m where m.fieldname like '?1'  </small> </li>
-                                    </div>
-
-                                    <div> findByFieldNameStartingWith(String word);
-                                        <li> <small> select m from 테이블 m where m.fieldname like '%?1' </small> </li>
-                                    </div>
-
-                                    <div> findByFieldNameEndingWith(String word);
-                                        <li> <small> select m from 테이블 m where m.fieldname like '?1%' </small> </li>
-                                    </div>
-
-                                    <div> findByFieldNameContaining(String word);
-                                        <li> <small> select m from 테이블 m where m.fieldname like '%?1%' </small> </li>
-                                    </div>
-
-                                    <div> findByFieldname1ByFieldname2Desc(String fieldname1)
-                                        <li> <small> select m from 테이블 m where m.fieldname1 = ?1 order by m.fieldname2 desc </small> </li>
-                                    </div>
-
-                                    <div> findByFieldname1ByFieldname2Asc(String fieldname1)
-                                        <li> <small> select m from 테이블 m where m.fieldname1 = ?1 order by m.fieldname2 asc </small> </li>
-                                    </div>
-
-                                    <div> deleteById(String fieldname)
-                                        <li> <small> delete from 테이블 where Id필드 = ?1  </small> </li>
-                                    </div>
-
-                                    <a href="https://goodgid.github.io/Spring-Data-JPA-Query_Part_1/"
-                                        target="_blank" rel="noopener noreferrer"> 좀 더 참고해서 공부하기 </a>
-                                </div>
-                            </div>
-                        </details>
-                    </div>
-                    {/*  */}
-
-                    <div className='mblock'>
-                        <details>
-                            <summary className='stitle'> JPA Repository 사용하는 방법
-                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
-                            <div className='sblock'>
-                                <div className='sstitle'> 레포지토리 생성 </div>
-                                <div className='mblock'>
-                                    <li> @Repository </li>
-                                    <li> public interface Repository명 extends JpaRepository{'<Entity명,필드 ID 타입> {'}
-                                        <li> <small> # ID타입 : Long, Integer, String 등이 있다.</small>  </li>
-                                        <li> public Entity명 findByFieldname(String fieldname); </li>
-                                        <li> @Query("사용자정의쿼리작성") </li>
-                                        <li> public Entity명 findByMakeQuerry(String make) </li>
-                                        <li>  </li>
-                                    </li>
-                                    <li> {'}'} </li>
-                                </div>
-                            </div>
-                        </details>
-                    </div>
-                    {/*  */}
-
-                    <div className='mblock'>
-                        <details>
-                            <summary className='stitle'> @ManyToMany
-                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
-                            <div className='sblock'>
-                                <div className='sstitle'> Client </div>
-                                <div className='mblock'>
-                                    <li>  </li>
+                            <h2 className="h2"> ✔ 예시 </h2>
+                            <li> Client와 Role을 다대다 매핑한 예시
+                                <div className='block3'>
+                                    <h3 className="h3"> 🎈 Client </h3>
                                     <li> @Table(name="client") </li>
                                     <li> public class Client {'{'}
                                         <li>  </li> <br />
@@ -449,9 +759,7 @@ const SpringModel = (props) => {
                                         <li> private Set{'<Role>'} roles = new HashSet{'<Role>'}(); </li>
                                     </li>
                                     <li> {'}'} </li>
-                                </div>
-                                <div className='sstitle'> Role </div>
-                                <div className='mblock'>
+                                    <h3 className="h3"> 🎈 Role </h3>
                                     <li> @Table(name="role") </li>
                                     <li> public class Role {'{'}
                                         <li>  </li> <br />
@@ -460,219 +768,52 @@ const SpringModel = (props) => {
                                         <li> private Long id; </li>
                                         <li> private String name="ROLE_USER"; </li>
                                         <li>  </li> <br />
-                                        <li> @ManyToMany(mappedBy="roles") <small> Client 엔티티의 roles를 참조하여 role_id 컬럼명에 Role 엔티티의 id를  매핑 </small> </li>
+                                        <li> @ManyToMany(mappedBy="roles") <small> Client(Entity)의 field roles를 참조하여 role_id 컬럼명에 Role 엔티티의 id를  매핑 </small> </li>
                                         <li> private Set{'<Client>'} clients = new HashSet{'<Client>'}(); </li>
                                     </li>
-                                    <li>  </li>
+                                    <li> {'}'} </li>
                                 </div>
-                            </div>
-                        </details>
-                    </div>
+                            </li>
 
-                    <div className='mblock'>
-                        <details>
-                            <summary className='stitle'> @NamedEntityGraph @EntityGraph
-                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
-                            <div className='sblock'>
-                                <div className='sstitle'> 설명 </div>
-                                <div className='mblock'>
-                                    <li> <div className="sstitle"> @NamedEntityGraph 속성 </div> </li>
-                                    <li> 엔티티 클래스 위에 선언을 하여 사용 </li>
-                                    <li> 엔티티 그래프를 둘 이상 사용할 경우 사용 </li>
-                                    <li> name="엔티티클래스명.변수명" <small> # 엔티티 그래프 이름을 정의 </small> </li>
-                                    <li> attributeNodes = @NamedAttributeNode("필드명") <small> # 함께 조회할 속성 선택 </small> </li>
-                                    <li>  </li>
-                                    <li> <div className="sstitle"> @EntityGraph 속성 </div> </li>
-                                    <li> Repositoy클래스의 메소드 위에 선언하여 사용 </li>
-                                    <li> EntityGraph 로딩 정책을 가져와서 적용 </li>
-                                    <li> fetch가 lazy로 되어있어도 EntityGraph를 이용하면 같이 조회 가능 </li>
-                                    <li> @EntityGraph(value="엔티티클래스명.변수명") </li>
-                                    <li> @EntityGraph(attributePaths={'{"AttributeNode에 명시된 필드명"}'}) </li>
-                                    <li> @EntityGraph("엔티티클래스명.변수명") </li>
-                                    <li>  </li>
-                                </div>
-                                <div className='sstitle'> 예시 </div>
-                                <div className='mblock'>
+                        </div>
+                    </details>
+                </div>
+
+                <div className='block1'>
+                    <details>
+                        <summary> @NamedEntityGraph @EntityGraph (좀더 알아볼것) </summary>
+                        <div className='block2'>
+
+                            <h2 className="h2"> 📌 @NamedEntityGraph 속성 </h2>
+                            <li> 엔티티 클래스 위에 선언을 하여 사용 </li>
+                            <li> 엔티티 그래프를 둘 이상 사용할 경우 사용 </li>
+                            <li> name="엔티티클래스명.변수명" <small> # 엔티티 그래프 이름을 정의 </small> </li>
+                            <li> attributeNodes = @NamedAttributeNode("필드명") <small> # 함께 조회할 속성 선택 </small> </li>
+                            <li>  </li>
+                            <h2 className="h2"> 📌 @EntityGraph 속성 </h2>
+                            <li> Repositoy클래스의 메소드 위에 선언하여 사용 </li>
+                            <li> EntityGraph 로딩 정책을 가져와서 적용 </li>
+                            <li> fetch가 lazy로 되어있어도 EntityGraph를 이용하면 같이 조회 가능 </li>
+                            <li> @EntityGraph(value="엔티티클래스명.변수명") </li>
+                            <li> @EntityGraph(attributePaths={'{"AttributeNode에 명시된 필드명"}'}) </li>
+                            <li> @EntityGraph("엔티티클래스명.변수명") </li>
+
+                            <h2 className="h2"> ✔ 예시 </h2>
+                            <li> 소제목
+                                <div className='block3'>
+                                    <h3 className="h3"> 🎈 </h3>
                                     <li> @EntityGraph(attributePaths = {'{"엔티티필드명"},'} type = EntityGraph.EntityGraphType.LOAD) </li>
-                                    <li>  </li>
-                                </div>
-                            </div>
-                        </details>
-                    </div>
-
-                    <div className='mblock'>
-                        <details>
-                            <summary className='stitle'> @JoinTable @JoinColumn @ManyToOne @OneToOne @OneToMany @ManyToMany
-                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
-                            <div className='sblock'>
-                                <div className='sstitle'> 설명 </div>
-                                <div className='mblock'>
-                                    <li> <div className="sstitle"> @JoinTable 속성 </div> <small> # 조인테이블을 만들어서 연관관계를 설정하는 방법 </small>
-                                        <li> name : </li>
-                                        <li> joinColumns : <small> # 현재 엔티티를 참조하는 외래키 </small> </li>
-                                        <li> inverseJoinColumns : <small> # 다른 엔티리를 참조하는 외래키 </small> </li>
-                                        <div className='sstitle'> @JoinTable 예시 </div>
-                                        <div className='sblock'>
-                                            <li> @JoinTable(
-                                                <li> name="client_role", <small> 매핑 테이블의 테이블명 </small> </li>
-                                                <li> joinColumns = @JoinColumn(name = "client_id"), <small> 현재 엔티티의 컬럼명(default: 엔티티명_필드명) ,client테이블의 id를 외래키로 하여 현재 엔티티를 참조 </small> </li>
-                                                <li> inverseJoinColumns = @JoinColumn(name = "role_id") <small> 참조 엔티티의 컬럼명(default: 엔티티명_필드명) ,role테이블의 id를 외래키로 하여 다른 엔티티를 참조 </small> </li>
-                                            </li>
-                                            <li> ) </li>
-                                        </div>
-                                    </li> <br />
-                                    <li> <div className="sstitle"> @JoinColumn 속성 </div> <small> # 외래키 매핑할 때 사용 </small>
-                                        <li> name : 매핑할 외래키 명 , default = 필드명_참조테이블기본키컬럼명 <small> # name_refname </small> </li>
-                                        <li> referencedColumnName : 외래키가 참조하는 테이블의 컬럼명 </li>
-                                        <li> foreignKey(DDL) : 외래키 제약조건을 직접 작성, 테이블생성시에만 가능? </li>
-                                        <li> unique, nullable, insertable, updatable, columnDefinition, table </li>
+                                    <div className='block4'>
                                         <li>  </li>
-                                    </li> <br />
-                                    <li> <div className="sstitle"> @ManyToOne 속성 </div> <small> # Many쪽에서 @JoinTable을 선언 </small>
-                                        <li> optional=false (객체에 null이 들어갈수 있음, inner join) , optional=true(default값) (객체에 null이 들어갈 수 없음, outer join) </li>
-                                        <li> fetch=FetchType.EAGER (default값) : 엔티티 조회할 떄 연관된 엔티티도 같이 조회, 객체가 계속 연결되어 있으면 연달아 조회를 함으로 좋지 않음,
-                                            반대로 한꺼번에 조회 함으로 네트워크 비용을 아낄 수 있다는 장점도 존재 </li>
-                                        <li> fetch=FetchType.LAZY : 엔티티를 나중에 조회 </li>
-                                        <li>  </li>
-                                    </li> <br />
-                                    <li> <div className="sstitle"> @OneToOne 속성 </div>
-                                        <li> optional=false (객체에 null이 들어갈수 있음) , optional=true (객체에 null이 들어갈 수 없음) </li>
-                                        <li> fetch=FetchType.EAGER (default값) : 엔티티 조회할 떄 연관된 엔티티도 같이 조회, 객체가 계속 연결되어 있으면 연달아 조회를 함으로 좋지 않음,
-                                            반대로 한꺼번에 조회 함으로 네트워크 비용을 아낄 수 있다는 장점도 존재 </li>
-                                        <li> fetch=FetchType.LAZY : 엔티티를 나중에 조회 </li>
-                                        <li> cascade=CascadeType.[ALL,PERSIST,MERGE,REMOVE,REFRESH,DETACH]
-                                            <li> CascadeType.PERSIST : 엔티티를 저장하면, 필드에 있는 엔티티도 저장  <small> # 좀더 알아볼것 </small> </li>
-                                            <li> CascadeType.MERGE : 엔티티를 합칠 떄, 필드에 있는 엔티티도 합친다 <small> # </small> </li>
-                                            <li> CascadeType.REFRESH : 엔티티를 수정할 떄, 필드에 있는 엔티티도 수정 <small> # </small> </li>
-                                            <li> CascadeType.REMOVE : 엔티티를 삭제할 떄, 필드에 있는 엔티티도 삭제한다.  <small> # </small> </li>
-                                            <li> CascadeType.DETACH : 엔티티를 detach할떄 , 필드에 있는 엔티티도 detach를 한다. <small> # 영속성 컨텍스트에서 엔티티를 제거(엔티티 삭제가 아님) </small> </li>
-                                            <li> CascadeType.ALL : 위에 있는 내용을 모두 적용 <small> # </small> </li> <br />
-                                        </li>
-                                        <li> orphanRemoval = [true, false] : true로 하면 엔티티의 연관관계가 끊어졌을때 끊어진 고아 엔티티를 삭제 </li>
-                                        <li> </li>
-                                    </li> <br />
-                                    <li> <div className="sstitle"> @OneToMany 속성 </div>   <small> # Many쪽에서 @JoinTable을 선언 </small>
-                                        <li> fetch=FetchType.EAGER : 엔티티 조회할 떄 연관된 엔티티도 같이 조회, 객체가 계속 연결되어 있으면 연달아 조회를 함으로 좋지 않음,
-                                            반대로 한꺼번에 조회 함으로 네트워크 비용을 아낄 수 있다는 장점도 존재 </li>
-                                        <li> fetch=FetchType.LAZY (default값) : 엔티티를 나중에 조회 </li>
-                                        <li> cascade=CascadeType.[ALL,PERSIST,MERGE,REMOVE,REFRESH,DETACH]
-                                            <li> CascadeType.PERSIST : 엔티티를 저장하면, 필드에 있는 엔티티도 저장  <small> # 좀더 알아볼것 </small> </li>
-                                            <li> CascadeType.MERGE : 엔티티를 합칠 떄, 필드에 있는 엔티티도 합친다 <small> # </small> </li>
-                                            <li> CascadeType.REFRESH : 엔티티를 수정할 떄, 필드에 있는 엔티티도 수정 <small> # </small> </li>
-                                            <li> CascadeType.REMOVE : 엔티티를 삭제할 떄, 필드에 있는 엔티티도 삭제한다.  <small> # </small> </li>
-                                            <li> CascadeType.DETACH : 엔티티를 detach할떄 , 필드에 있는 엔티티도 detach를 한다. <small> # 영속성 컨텍스트에서 엔티티를 제거(엔티티 삭제가 아님) </small> </li>
-                                            <li> CascadeType.ALL : 위에 있는 내용을 모두 적용 <small> # </small> </li> <br />
-                                        </li>
-                                        <li> orphanRemoval = [true, false] : true로 하면 엔티티의 연관관계가 끊어졌을때 끊어진 고아 엔티티를 삭제 </li>
-
-                                    </li> <br />
-                                    <li> <div className="sstitle"> @ManyToMany(mappedBy="") 속성 </div>  <small> # mappedBy : 참조하고 있는 다른엔티티의 필드명을 적어서 매핑 </small>
-                                        <li> optional=false (외부조인) , optional=true (외부조인) </li>
-                                        <li> fetch=FetchType.EAGER : 엔티티 조회할 떄 연관된 엔티티도 같이 조회, 객체가 계속 연결되어 있으면 연달아 조회를 함으로 좋지 않음,
-                                            반대로 한꺼번에 조회 함으로 네트워크 비용을 아낄 수 있다는 장점도 존재 </li>
-                                        <li> fetch=FetchType.LAZY (default값) : 엔티티를 나중에 조회 </li>
-                                        <li> cascade=CascadeType.[ALL,PERSIST,MERGE,REMOVE,REFRESH,DETACH]
-                                            <li> CascadeType.PERSIST : 엔티티를 저장하면, 필드에 있는 엔티티도 저장  <small> # 좀더 알아볼것 </small> </li>
-                                            <li> CascadeType.MERGE : 엔티티를 합칠 떄, 필드에 있는 엔티티도 합친다 <small> # </small> </li>
-                                            <li> CascadeType.REFRESH : 엔티티를 수정할 떄, 필드에 있는 엔티티도 수정 <small> # </small> </li>
-                                            <li> CascadeType.REMOVE : 엔티티를 삭제할 떄, 필드에 있는 엔티티도 삭제한다.  <small> # </small> </li>
-                                            <li> CascadeType.DETACH : 엔티티를 detach할떄 , 필드에 있는 엔티티도 detach를 한다. <small> # 영속성 컨텍스트에서 엔티티를 제거(엔티티 삭제가 아님) </small> </li>
-                                            <li> CascadeType.ALL : 위에 있는 내용을 모두 적용 <small> # </small> </li> <br />
-                                        </li>
-                                    </li> <br />
-                                    <li>  </li>
-                                </div>
-                                <div className='sstitle'> 예시 </div>
-                                <div className='mblock'>
-                                    <div className='sstitle'> Board </div>
-                                    <div className='mblock'>
-                                        <li> @Table(name="board") </li>
-                                        <li> public class Board {'{'}
-                                            <li>     @Id </li>
-                                            <li>     @GeneratedValue(strategy = GenerationType.AUTO) </li>
-                                            <li>     @Column(name="id") </li>
-                                            <li>     private Long id; </li>
-                                            <li>  </li> <br />
-                                            <li> @ManyToOne </li>
-                                            <li> @JoinColumn(name="client_id") <small> # 참조할테이블명_컬럼명 </small> </li>
-                                            <li> private Client client; </li>
-                                        </li>
-                                        <li> {'}'} </li>
-                                    </div>
-                                    <div className='sstitle'> Client </div>
-                                    <div className='mblock'>
-                                        <li> @Table(name="client") </li>
-                                        <li> public class Client {'{'}
-                                            <li>     @Id </li>
-                                            <li>     @GeneratedValue(strategy = GenerationType.AUTO) </li>
-                                            <li>     private Long id; </li>
-                                            <li>  </li> <br />
-                                            <li>   @OneToMany(mappedBy="client") <small> # 참조할 테이블의 컬럼명 </small> </li>
-                                            <li> {'private Set<Board> boards = new HashSet<Board>();'} </li>
-                                            <li>  </li>
-                                        </li>
-                                        <li> {'}'} </li>
                                     </div>
                                 </div>
-                            </div>
-                        </details>
-                    </div>
+                            </li>
 
-                    <div className='mblock'>
-                        <details>
-                            <summary className='stitle'> JPQL
-                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
-                            <div className='sblock'>
-                                <div className='sstitle'> 설명 </div>
-                                <div className='mblock'>
-                                    <li> 테이블명이 아닌 엔티티명을 사용한다. </li>
-                                    <li> 엔티티와 필드는 대소문자를 구분 </li>
-                                    <li> JPQL 키워드는 대소문자를 구분하지 않음 </li>
-                                    <li> 별칭을 사용한다 </li>
-                                    <li> 파라미터 바인딩
-                                        <li> query.setParameter("키",값) <small> x.test=키 </small>  </li>
-                                        <li> query.setParameter(1,값) <small> x.test=?1 </small> </li>
-                                    </li>
-                                    <li>  </li>
-                                </div>
-                                <div className='sstitle'> 예시 </div>
-                                <div className='mblock'>
-                                    <li> 1. 어노테이션 방식(Repository JPA 쿼리 메소드 위에)
-                                        <li> @Query("select m from Member m") <small> # 사용자 쿼리 작성 </small> </li>
-                                    </li>
-                                    <li> 2. 순수 sql 쿼리(Repository 사용자 쿼리 메소드 위에)
-                                        <li> @Query(value="select * from Member m",nativeQuery = true) </li>
-                                    </li>
-                                    <li>  </li>
-                                </div>
-                            </div>
-                        </details>
-                    </div>
+                        </div>
+                    </details>
+                </div>
 
-                    <div className='mblock'>
-                        <details>
-                            <summary className='stitle'> QueryDSL
-                                <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
-                            <div className='sblock'>
-                                <div className='sstitle'> 설명 </div>
-                                <div className='mblock'>
-                                    <li> 추가적인 gradle 설정이 필요,  </li>
-                                    <li> @Entity 클래스를 탐색하고 JPAAnnotationProcessor를 이용해 Q클래스를 생성 </li>
-                                    <li>  </li>
-                                </div>
-                                <div className='sstitle'> 예시 </div>
-                                <div className='mblock'>
-                                    <li>  </li>
-                                    <li>  </li>
-                                </div>
-                            </div>
-                        </details>
-                    </div>
-
-
-
-                </span>
-            </div >
+            </div>
         </>
     );
 }

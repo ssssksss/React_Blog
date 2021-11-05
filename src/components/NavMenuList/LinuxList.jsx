@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const LinuxList = () => {
 
     return (
-        <div className="menucontainer">
+        <div className="nav-menu2__inner-box">
             <div className="menu menu1">
                 <Link to="/linux_basic"> 리눅스 공부 </Link>
                 <Link to="/linux_command"> 리눅스 명령어 </Link>

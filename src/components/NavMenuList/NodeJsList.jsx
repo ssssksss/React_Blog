@@ -5,7 +5,7 @@ const NodeJsList = () => {
 
     return (
 
-        <div className="menucontainer">
+        <div className="nav-menu2__inner-box">
             <div className="menu menu1">
                 <Link to="/nodejs_basic"> NodeJs 기본 문법 </Link>
             </div>

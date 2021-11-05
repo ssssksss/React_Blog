@@ -1,20 +1,14 @@
-.navMenu2 {
+.nav-menu2 {
     width: 100%;
-    /* max-width: 1600px; */
     margin-top: 10px;
-    display: flex;
-}
-.navMenu2 > .menu {
-    width: 100%;
     box-sizing: border-box;
     box-shadow: 2px 2px 2px 2px black;
     background-color: #1976d2;
     border-radius: 10px;
     color: white;
-    /* display: inline-block; */
 }
 
-.navMenu2 > .menu > p {
+.nav-menu2 > p {
     text-align: center;
     font-size: 1em;
     background-color: #004ba0;
@@ -23,7 +17,7 @@
     border-radius: 10px 10px 0px 0px;
 }
 
-.navMenu2 button {
+.nav-menu2 button {
     float: left;
     padding: 5px 0px;
     min-width: 220px;
@@ -41,7 +35,9 @@
     border: none;
     box-shadow: 1px 1px 1px 1px gray;
 }
-.navMenu2 a {
+
+/* Link태그에 속성을 넣는것 */
+.nav-menu2 a {
     float: left;
     padding: 5px 0px;
     min-width: 220px;
@@ -59,27 +55,9 @@
     border: none;
     box-shadow: 1px 1px 1px 1px gray;
 }
-.navMenu2 > .menu button:hover {
-    background: white;
-    color: #1976d2;
+/* Link태그에 속성을 넣는것 */
+.nav-menu2 .nav-menu2__inner-box .menu a:hover{
+    background-color: white;
+    
 
-}
-
-.menucontainer {
-    display: flex;
-}
-
-.menucontainer .menu {
-    width: 50%;
-}
-.menucontainer > .menu > a  {
-    text-decoration: none;
-}
-.menucontainer > .menu > a > img {
-    max-width: 14px;
-    max-height: 14px;
-    vertical-align: top;
-}
-.menucontainer > .menu > a > span {
-    font-size: 0.8em;
 }

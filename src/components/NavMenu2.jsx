@@ -39,10 +39,6 @@ const NavMenu2 = (props) => {
     function send(page2) {
         props.onChangePage(page2)
     }
-    // function changeTitle(title) {
-    //     document.querySelector("title").innerHTML = title;
-    // }
-
 
     // NavMenu.jsx에서 선택한 목록을 보여주고 NavMenuList.jsx에서 클릭한 목록을 Main.jsx에 보여준다.
     const showpage = () => {
@@ -139,12 +135,10 @@ const NavMenu2 = (props) => {
         }
     }
     return (
-        <div className="navMenu2">
-            <div className="menu">
-                <p> {props.page} </p>
-                <div>
-                    {showpage()}
-                </div>
+        <div className="nav-menu2">
+            <p> {props.page} </p>
+            <div>
+                {showpage()}
             </div>
         </div>
     );

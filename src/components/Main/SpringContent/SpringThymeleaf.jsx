@@ -11,7 +11,7 @@ const SpringThymeleaf = (props) => {
                         <summary> thymeleaf란 </summary>
                         <div className='block2'>
 
-                            <h2> 📌 설명 </h2>
+                            <h2 className="h2"> 📌 설명 </h2>
                             <li> thymeleaf 공식 사이트: https://www.thymeleaf.org/ </li>
                             <li> <a href="https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html#standard-expression-syntax" target="_blank">    thymeleaf 예제 튜토리얼 </a> </li>
                             <li> 스프링부트 메뉴얼: https://docs.spring.io/spring-boot/docs/2.3.1.RELEASE/reference/
@@ -27,11 +27,11 @@ const SpringThymeleaf = (props) => {
                         <summary> thymeleaf 기본 코드 </summary>
                         <div className='block2'>
 
-                            <h2> ✔ 예시 </h2>
+                            <h2 className="h2"> ✔ 예시 </h2>
                             <li> 기본 형식
                                 <div className='block3'>
                                     <ul style={{ listStyle: 'none' }}>
-                                        <li> <h3>  </h3>
+                                        <li> <h3 className="h3">  </h3>
                                             <li> {'<!DOCTYPE html>'} </li>
                                             <li> {'<html lang="UTF-8" xmlns:th="http://www.thymeleaf.org">'} </li>
                                             <li> {'<head>'}
@@ -58,7 +58,7 @@ const SpringThymeleaf = (props) => {
                         <summary> thymeleaf에 live server 적용하기 (FW.Intellij) </summary>
                         <div className='block2'>
 
-                            <h2> 📌 설명 </h2>
+                            <h2 className="h2"> 📌 설명 </h2>
                             <li> Gradle에 compileOnly "org.springframework.boot:spring-boot-devtools"  </li>
                             <li> application.properties 나 application.yml에 아래코드 추가
                                 <div className="block3">
@@ -86,7 +86,7 @@ const SpringThymeleaf = (props) => {
                         <summary> thymeleaf 문법 (아직 정리 필요) </summary>
                         <div className='block2'>
 
-                            <h2> 📌 기본 속성 (정리 필요) </h2>
+                            <h2 className="h2"> 📌 기본 속성 (정리 필요) </h2>
                             <li> {' ${변수명} '} # 변수를 출력 </li>
                             <li> {' *{}'} # 선택 변수 표현식
                                 <div className='block3'>
@@ -103,10 +103,10 @@ const SpringThymeleaf = (props) => {
                             <li> 삼항연산 : x = f() ? f() : g() 이거와 같은 식 x = f() ?: g() </li>
                             <li> {'${param.name} '} <small> html에서 name=""에 있는 변수를 가져와서 사용 가능 </small>  </li>
 
-                            <h2> ✔ 설명 {'&'} 예시 </h2>
+                            <h2 className="h2"> ✔ 설명 {'&'} 예시 </h2>
                             <li> 소제목
                                 <div className='block3'>
-                                    <li> <h3> th:text th:utext </h3>
+                                    <li> <h3 className="h3"> th:text th:utext </h3>
                                         <li>  th:text : 서버에서 객체에 html태그를 담아 보내면 객체를 텍스트로 인식해서 출력</li>
                                         <li>  th:utext : 서버에서 객체에 html태그를 담아 보내면 객체를 html태그로 인식해서 출력</li>
                                         <li> {' <div th:text="${객체명}"> </div> '} </li>
@@ -116,7 +116,7 @@ const SpringThymeleaf = (props) => {
                                         </div>
                                     </li> <br />
 
-                                    <li> <h3> th:value (확인필요) </h3>
+                                    <li> <h3 className="h3"> th:value (확인필요) </h3>
                                         <li> th:value : input태그에 값을 넣어줄때 사용 , + 기호로 여러개를 넣어줄 수 있음 </li>
                                         <li> {' <div th:value="${객체명}+'}'문자열넣기'{'+${객체명}"> </div> '} </li>
                                         <div className="block4">
@@ -124,7 +124,7 @@ const SpringThymeleaf = (props) => {
                                         </div>
                                     </li> <br />
 
-                                    <li> <h3> th:with (with를 이용하여 변수를 만들면 범위가 어디까지인지 확인할 것) </h3>
+                                    <li> <h3 className="h3"> th:with (with를 이용하여 변수를 만들면 범위가 어디까지인지 확인할 것) </h3>
                                         <li> 변수값으로 지정해서 사용 , 객체를 변수에 넣고 변수를 text방식으로 출력 </li>
                                         <li> {' <div th:with="변수명=${객체명}" th:text="${변수명}"> </div> '} </li>
                                         <div className="block4">
@@ -132,7 +132,7 @@ const SpringThymeleaf = (props) => {
                                         </div>
                                     </li> <br />
 
-                                    <li> <h3> th:switch , th:case (객체값이 존재하지 않는다면 에러가 나는지 안나는지 확인) </h3>
+                                    <li> <h3 className="h3"> th:switch , th:case (객체값이 존재하지 않는다면 에러가 나는지 안나는지 확인) </h3>
                                         <li> switch - case 문 사용방법 </li>
                                         <li> {' <div th:switch="${객체명}"> </div> '}
                                             <li> {' <div th:case="'}'조건값'{'"> </div> '} </li>
@@ -150,7 +150,7 @@ const SpringThymeleaf = (props) => {
                                         </div>
                                     </li> <br />
 
-                                    <li> <h3> th:if (else 사용방법에 대해 테스트 해보기, 일단 추측으로 적어놓음) </h3>
+                                    <li> <h3 className="h3"> th:if (else 사용방법에 대해 테스트 해보기, 일단 추측으로 적어놓음) </h3>
                                         <li> if,if else문 </li>
                                         <li> {' <div th:if="${객체명}=='}'조건값'"{' th:text="${객체명}"> </div> '} </li>
                                         <li> {' <div th:unless="${객체명}=='}'조건값'"{' th:text="${객체명}"> </div> '} </li>
@@ -161,7 +161,7 @@ const SpringThymeleaf = (props) => {
                                         </div>
                                     </li> <br />
 
-                                    <li> <h3> th:each </h3>
+                                    <li> <h3 className="h3"> th:each </h3>
                                         <li> 리스트 객체를 받아와서 foreach문 처럼 처리 </li>
                                         <li> {' <div th:each="사용할변수명:${리스트객체}"> </div> '}
                                             <li> {' <div th:text="${사용할변수명.리스트객체의멤버변수명}"> </div> '} </li>
@@ -173,14 +173,14 @@ const SpringThymeleaf = (props) => {
                                         </div>
                                     </li> <br />
 
-                                    <li> <h3> th:action (context-path가 뭔지는 알았지만 나중에 테스트를 좀 해봐야할 것 같다.) </h3>
+                                    <li> <h3 className="h3"> th:action (context-path가 뭔지는 알았지만 나중에 테스트를 좀 해봐야할 것 같다.) </h3>
                                         <li> th:action은 context-path를 생략할 수 있다 </li>
                                         <div className="block4">
                                             <li> {' <form th:action ="{@{/경로}}"> </form> '} </li>
                                         </div>
                                     </li> <br />
 
-                                    <li> <h3> th:href </h3>
+                                    <li> <h3 className="h3"> th:href </h3>
                                         <li> html의 a태그의 href 속성이다. </li>
                                         <li> {' <a th:href="@{url주소나 경로}"> </a> '} </li>
                                         <div className="block4">
@@ -191,14 +191,14 @@ const SpringThymeleaf = (props) => {
                                         </div>
                                     </li> <br />
 
-                                    <li> <h3> th:attr (알아 볼것) </h3>
+                                    <li> <h3 className="h3"> th:attr (알아 볼것) </h3>
                                         <li>  </li>
                                         <div className="block4">
                                             <li> </li>
                                         </div>
                                     </li> <br />
 
-                                    <li> <h3> th:object </h3>
+                                    <li> <h3 className="h3"> th:object </h3>
                                         <li> form 태그에서 submit으로 보낼때 객체로 설정 </li>
                                         <li> 객체를 받아와서 뿌려줄수도 있고, 폼태그와 같이 객체를 담아서 다시 보낼수도 있다. </li>
                                         <li> {'<form action="@{주소나 경로}" th:object="${사용할객체명 혹은 값을 받은 객체명}"> method="post" '} </li>
@@ -212,7 +212,7 @@ const SpringThymeleaf = (props) => {
                                         </div>
                                     </li> <br />
 
-                                    <li> <h3> th:fragement th:insert th:replace (확인필요)  </h3>
+                                    <li> <h3 className="h3"> th:fragement th:insert th:replace (확인필요)  </h3>
                                         <li> th:fragement : 공통으로 사용되는 html태그를 통째로 가져옴 </li>
                                         <li> th:insert : th:fragement로 정의한 태그 덩어리를 지정한 태그 내부에 불러옴 </li>
                                         <li> th:insert : th:fragement로 정의한 태그 덩어리를 지정한 태그를 제거하고 불러옴 </li>
@@ -229,7 +229,7 @@ const SpringThymeleaf = (props) => {
                                         </div>
                                     </li> <br />
 
-                                    <li> <h3> th:classappend (사용방법 좀 더 알아보기) </h3>
+                                    <li> <h3 className="h3"> th:classappend (사용방법 좀 더 알아보기) </h3>
                                         <li> html 태그에 속성을 추가 할 수 있다. </li>
                                         <li> {' <div th:classappend="'}'추가할 속성'{'"> </div> '} </li>
                                         <li> 추가할 속성 : 'disabled' ,  </li>
@@ -238,7 +238,7 @@ const SpringThymeleaf = (props) => {
                                         </div>
                                     </li> <br />
 
-                                    <li> <h3> th:errors (사용방법 좀 더 알아보기) </h3>
+                                    <li> <h3 className="h3"> th:errors (사용방법 좀 더 알아보기) </h3>
                                         <li> 에러를 필드에 담아서 보내서 에러가 있는 객체가 있으면 에러 발생, 아마 get 파라미터에 error이 오는것으로 알고는 있음 </li>
                                         <li> {' <div th:errors="${}"> </div> '} </li>
                                         <div className="block4">
@@ -258,7 +258,7 @@ const SpringThymeleaf = (props) => {
                         <summary> thymeleaf 와 spring security </summary>
                         <div className='block2'>
 
-                            <h2> 📌 thymeleaf sec 사용조건 </h2>
+                            <h2 className="h2"> 📌 thymeleaf sec 사용조건 </h2>
                             <li> sec:를 사용하려면
                                 <div className="block3">
                                     <li> {'<html lang="UTF-8" xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/extras/spring-security">'} <small> # html 상단에 추가 </small> </li>
@@ -266,10 +266,10 @@ const SpringThymeleaf = (props) => {
                                 </div>
                             </li>
 
-                            <h2> ✔ 설명 {'&'} 예시</h2>
+                            <h2 className="h2"> ✔ 설명 {'&'} 예시</h2>
                             <div className="block3">
 
-                                <li> <h3> sec:authorize (나중에 확인) </h3>
+                                <li> <h3 className="h3"> sec:authorize (나중에 확인) </h3>
                                     <li> 권한과 관련된 내용을 처리할 수 있다. </li>
                                     <div className='block4'>
                                         <li> {' <div sec:authorize="isAnonymous()"> </div> '} </li>
@@ -281,7 +281,7 @@ const SpringThymeleaf = (props) => {
                                     </div>
                                 </li> <br />
 
-                                <li> <h3> sec:authentication (확인필요, jsp에서 사용되는 것이 spring에는 적용이 되지 않음 다시한번 확인 할것!!) </h3>
+                                <li> <h3 className="h3"> sec:authentication (확인필요, jsp에서 사용되는 것이 spring에는 적용이 되지 않음 다시한번 확인 할것!!) </h3>
                                     <li>  </li>
                                     <li> {' <div class="nav-item" sec:authorize="isAuthenticated()"> '}
                                         <li> {' <span sec:authentication="name">  </span> '} <small> 사용자 접속 이름 </small> </li>
@@ -300,7 +300,7 @@ const SpringThymeleaf = (props) => {
                                     </div>
                                 </li> <br />
 
-                                <li> <h3> #authorization ( 나중에 더 알아보기 )</h3>
+                                <li> <h3 className="h3"> #authorization ( 나중에 더 알아보기 )</h3>
                                     <li> sec:authentication에서 인증된 객체의 이름을 가져오려고 했으나 되지를 않아 방법을 찾던 도중 발견 </li>
                                     <li> 시큐리티 메소드를 가져와서 사용하는 것 같아서 편리함 </li>
                                     <li> 인증되지 않은 객체가 접근하면 에러를 발생시키므로 authorization.getAuthentication() != null로 먼저 확인하고 사용한다. </li>

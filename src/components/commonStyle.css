@@ -1,4 +1,4 @@
-    /*.col_r{ color: red; }
+    .col_r{ color: red; }
     .col_g{ color: green; }
     .col_p{ color: purple;}
     .col_w{ color: white; }
@@ -10,19 +10,6 @@
     }
     .main {
         position: relative;
-    }
-    details{
-        box-sizing: border-box;
-        border: gray solid 2px;
-        border-radius: 5px;
-    }
-    
-    summary {
-        color:black;
-        cursor: pointer;
-    }
-    summary small {
-        font-size: 0.6em;
     }
     .common_style  .mtitle {
         font-size: 25px;
@@ -111,10 +98,6 @@
         word-break: break-all;
         
     }
-    .common_style small {
-        color: green;
-        font-weight: 800;
-    }
     
 
 @media screen and (min-width: 1024px)
@@ -133,33 +116,39 @@
         width: 100%;
     }
 
-}*/
-/*  */
-/*  */
-/*  */
+}
+/* 아래부터가 사용할 css */
+
 .common_style {
     width: 100%;
     display: inline-block;
 }
+.common_style img {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 .common_style small {
     color: green;
 }
-.common_style h2 {
+.common_style .h2 {
     color: #B3713C;
     margin: 20px 0px 10px 10px;
     padding: 5px 5px;
     display: inline-block;
+    font-size: 26px;
     font-weight: 800;
     background-color: orange;
 }
-.common_style h3 {
+.common_style .h3 {
     color:#3366FF;
     margin-left: 15px;
 }
-.common_style h4 {
+.common_style .h4 {
     color:#FF33CC;
 }
-.common_style h5 {
+.common_style .h5 {
 }
 .common_style details::before{
     content: "🌝";
@@ -181,8 +170,8 @@
 .common_style .block1 {
     width: 100%;
     display: inline-block;
-    font-size: 32px;
-    border: solid black 4px;
+    font-size: 24px;
+    /*border: solid black 4px;*/
     background-color: rgba(255,255,255,0.8);
     margin-bottom: 5px;
     word-wrap: break-word;
@@ -208,10 +197,19 @@
 }
 .common_style .block4 {
     font-size: 1em;
-    border: solid #FF33CC 4px;
+    border: solid #FF33CC 2px;
     margin: 2px 12px 10px 2px;
     padding: 10px 0px;
     background-color: #f8fafe;
+    list-style: none;
+}
+.common_style .block5 {
+    font-size: 1em;
+    border: solid #5d00ff 2px;
+    margin: 2px 12px 10px 2px;
+    padding: 10px 0px;
+    background-color: #f8fafe;
+    list-style: none;
 }
 .common_style .block4 p {
     margin-left: 15px;
@@ -221,4 +219,17 @@
 }
 .common_style .block6 {
     font-size: 10px;
+}
+.common_style .col_keymap {
+    background: linear-gradient(90deg, rgba(222,98,98,1) 0%, rgba(255,184,140,1) 100%);
+    color: white;
+    padding: 0px 5px;
+    border-radius: 5px;
+    font-weight: 600;
+}
+.common_style .col_green {
+    color: green;
+}
+.common_style .col_red {
+    color: red;
 }

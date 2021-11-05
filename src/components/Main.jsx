@@ -52,13 +52,12 @@ import BackendCodingConvention from './Main/BackendContent/BackendCodingConventi
 // ========== 프론트엔드 ==========
 // HTML
 import HtmlBasic from './Main/HtmlContent/HtmlBasic';
-import HtmlDOM from './Main/HtmlContent/HtmlDOM';
-import HtmlError from './Main/HtmlContent/HtmlError';
 import HtmlTest from './Main/HtmlContent/HtmlTest';
 
 // CSS
 import CssBasic from './Main/CssContent/CssBasic';
 import CssBootStrap from './Main/CssContent/CssBootStrap';
+import CssScss from './Main/CssContent/CssScss';
 import CssBlurBusinessCard from './Main/CssContent/CssBlurBusinessCard';
 import CssTextAndVideo from './Main/CssContent/CssTextAndVideo';
 
@@ -235,13 +234,12 @@ const Main = (props) => {
 
                 {/* HTML */}
                 <Route path="/html_basic" component={HtmlBasic}></Route>
-                <Route path="/html_dom" component={HtmlDOM}></Route>
-                <Route path="/html_error" component={HtmlError}></Route>
                 <Route path="/html_test" component={HtmlTest}></Route>
 
                 {/* CSS */}
                 <Route path="/css_basic" component={CssBasic}></Route>
                 <Route path="/css_bootstrap" component={CssBootStrap}></Route>
+                <Route path="/css_scss" component={CssScss}></Route>
                 <Route path="/css_blur business card" component={CssBlurBusinessCard}></Route>
                 <Route path="/css_text and video" component={CssTextAndVideo}></Route>
 

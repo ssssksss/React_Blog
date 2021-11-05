@@ -1,18 +1,18 @@
-.menucontainer {
+.nav-menu2__inner-box {
     display: flex;
 }
 
-.menucontainer .menu {
+.nav-menu2__inner-box .menu {
     width: 50%;
 }
-.menucontainer > .menu > a  {
+.nav-menu2__inner-box > .menu > a  {
     text-decoration: none;
 }
-.menucontainer > .menu > a > img {
+.nav-menu2__inner-box > .menu > a > img {
     max-width: 14px;
     max-height: 14px;
     vertical-align: top;
 }
-.menucontainer > .menu > a > span {
+.nav-menu2__inner-box > .menu > a > span {
     font-size: 0.8em;
 }

@@ -11,7 +11,7 @@ const SpringValidator = (props) => {
                         <summary> Validator </summary>
                         <div className='block2'>
 
-                            <h2> 📌 설명 </h2>
+                            <h2 className="h2"> 📌 설명 </h2>
                             <li> 유효성 검사를 해주는 클래스 </li>
                             <li> <a href="https://beanvalidation.org/" target="_blank" rel="noopener noreferrer">
                                 Jakarta Bean Validation </a>
@@ -38,7 +38,7 @@ const SpringValidator = (props) => {
                         <summary> Validator 클래스 </summary>
                         <div className='block2'>
 
-                            <h2> 📌 Errors 인터페이스 속성 </h2>
+                            <h2 className="h2"> 📌 Errors 인터페이스 속성 </h2>
                             <li> reject(String errorCode) # 모든 객체에 대해서 에러 코드를 추가 </li>
                             <li> reject(String errorCode, String defaultMessage) </li>
                             <li> reject(String errorCode, Object[] errorArgs, String defaultMessage) # errorArgs 에러 메세지를 전달함 </li>
@@ -55,10 +55,10 @@ const SpringValidator = (props) => {
                             <li> int getFieldErrorCount(String field) # rejectValue() 를 사용한 특정 필드 에러 갯수 리턴 </li>
                             <li>  </li>
 
-                            <h2> ✔ 예시 </h2>
+                            <h2 className="h2"> ✔ 예시 </h2>
                             <li> 소제목
                                 <div className="block3">
-                                    <li> <h3> validator 예시 ( 사용방법은 좀 더 알아볼 것 ) </h3>
+                                    <li> <h3 className="h3"> validator 예시 ( 사용방법은 좀 더 알아볼 것 ) </h3>
                                         <li> 컨트롤러에서 사용하는 방법(service에서는 알아서 변경해서 사용) </li>
                                         <div className="block4">
                                             <li> {'     public String doCreateBoard(Board board, BindingResult bindingResult, Authentication authentication) { '}

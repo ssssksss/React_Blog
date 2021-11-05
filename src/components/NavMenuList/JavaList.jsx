@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const JavaList = () => {
 
     return (
-        <div className="menucontainer">
+        <div className="nav-menu2__inner-box">
             <div className="menu menu1">
                 <Link to="/java_basic"> JAVA 공부 </Link>
                 <Link to="/java_annotation"> JAVA 어노테이션 </Link>

@@ -17,11 +17,16 @@
     justify-content: center;
 }
 .FootMenu button {
-    border-radius: 10px;
     margin-right: 10px;
     border: none;
+    border-radius: 20px;
+}
+.FootMenu img {
+    width: 500px;
+    height: 500px;
 }
 .FootMenu button img {
     width: 80px;
     height: 80px;
+    border-radius: 20px;
 }

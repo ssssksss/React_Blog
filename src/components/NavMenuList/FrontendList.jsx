@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const FrontendList = () => {
 
     return (
-        <div className="menucontainer">
+        <div className="nav-menu2__inner-box">
             <div className="menu menu1">
                 <Link to="/frontend_basic"> 프론트 개발 </Link>
                 <Link to="/frontend_regex"> 프론트 정규표현식 </Link>

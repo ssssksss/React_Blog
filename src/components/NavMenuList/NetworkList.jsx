@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const NetworkList = () => {
 
     return (
-        <div className="menucontainer">
+        <div className="nav-menu2__inner-box">
             <div className="menu menu1">
                 <Link to="/network_basic"> 네트워크 기초 </Link>
                 <Link to="/network_command"> 네트워크 명령어 </Link>
