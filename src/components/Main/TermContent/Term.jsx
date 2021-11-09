@@ -51,13 +51,18 @@ const Term = (props) => {
                 <li> MIPS(Million Instruction Per Second) : 명령갯수/1초 (단위 1000000) </li>
                 <li> FLOPS(FLoating-point Operations Per Second) : 부동소수점연산횟수/1초 </li>
                 <li> Clock : 클럭주파수발생횟수/1초 , 1초마다 얼마나 많은 작업이 가능한지 알려줌, 높을수록 비싸고 좋다.  </li>
-                <li> Hz : 클럭속도의 단위, 요즘에는 GHz </li>
+                <li> Hz : 클럭속도의 단위, 요즘에는 GHz </li> <br />
 
                 <h3 className="h3"> 📌 CPU Core, Process, Thread, Cache, Process Control Block</h3>
                 <li> Core : 물리적으로 존재하고 핵심적인 연산을 처리하는 역할,
                   코어가 많으면 여러 프로그램을 작동하여도 속도가 느려지지 않는다. </li>
                 <li> Cache : 자주 사용하는 변수나 참조 값들을 보관하는 공간  </li>
                 <li> Process : 실행중인 프로그램을 뜻한다.  </li>
+                <div className="block4">
+                  <li className="h4"> Inter Process Communication </li>
+                  <li> 프로세스 간의 통신을 하는 것 </li>
+                  <li> <a href="https://doitnow-man.tistory.com/110" target="_blank" rel="noopener noreferrer"> 필요할 때 공부할 사이트 </a> </li>
+                </div>
                 <li> Thread : 논리적으로 존재하여 process 작업을 처리해주는 역할 </li>
                 <div className="block4">
                   <li className="h4"> Multi Thread </li>
@@ -66,12 +71,21 @@ const Term = (props) => {
                     process의 resource를 여러 Thread가 공유가 가능하다.
                     단 Thread의 Stack은 각각 가지고 있고 공유되지 않는다.  </li>
                   <li> 사용하는 이유 : Single Thread를 사용하면 병목 현상(다른 작업을
-                    처리하기 위해서 기다려야하는 현상)이 발생하고 처리속도도 더 늦기 때문이다.   </li>
+                    처리하기 위해서 기다려야하는 현상)이 발생하고 처리속도도 더 늦기 때문이다. </li>
                 </div>
                 <div className="block4">
-                  <li className="h4"> Thread와 관련된 문제 </li>
+                  <li className="h4"> Context Switch </li>
+                  <li> 멀티프로세스 환경에서 실행중인 Process가 Interrupt에 의해서 잠시 중단이 될 때
+                    기존 실행중인 Process 정보를 실행중인 Process PCB에 저장하고 Interrupt에서 다음 실행될
+                    Process를 PCB를 참조하여 실행을 시키는 것, 간단하게 말하면 Process를 교체하는 것  </li>
+                  <li> Context Switch가 많이 발생하면 CPU가 작업을 하지를 못해서 문제가 발생하므로
+                    멀티프로세스 환경에서 사용을 할 때 고려를 잘 해야된다. </li>
                   <li>  </li>
-                  <li>  </li>
+                </div>
+                <div className="block4">
+                  <li className="h4"> Interrupt </li>
+                  <li> 인터럽트는 현재 작업중인것을 일시적으로 중단을 시키고 이벤트를 발생시켜
+                    작업을 처리해주는 역할을 한다.  </li>
                   <li>  </li>
                 </div>
                 <div className="block4">
@@ -620,7 +634,7 @@ const Term = (props) => {
           <div className="mblock">
             <div className="stitle"> <a name="프레임워크와 라이브러리"> 프레임워크와 라이브러리  </a> </div>
             <li> 프레임워크 : 소프트웨어의 특정 문제를 해결하기 위해서 상호 협력하는 클래스와 인터페이스의 집합,
-              어플리케이션 개발할 떄 코드,자료구조,DB연결 등 기능들이 제공이 되는 소프트웨어 프로그램(Maven,Gradle 등)  </li>
+              어플리케이션 개발할 때 코드,자료구조,DB연결 등 기능들이 제공이 되는 소프트웨어 프로그램(Maven,Gradle 등)  </li>
             <li> 라이브러리 : 특정 기능들과 도구들을 모아놓은 집합 </li>
             <li>   </li>
             <li>   </li>
@@ -739,9 +753,9 @@ const Term = (props) => {
               <li> 장바구니에 담기 여러개 상품구매나 호텔+항공 예약 등 여러개의 쿼리를 사용하여 처리할 때 도중에 문제가 생기면 처음으로
                 돌려놓기 위한 방법   </li>
               <div className="sstitle">  1. 트랜잭션 동기화 </div>
-              <li> Connection 객체를 특정 장소에 보관하고 필요할 떄 꺼내쓰는 방법, 작업 쓰레드마다 Connection 객체를
-                독립적으로 관리하기 떄문에, 멀티쓰레드 환경에서 충돌이 발생할 여지가 없다. JDBC와 같은 종속적인 트랜잭션 동기화 코드는
-                hibernate에서 Connection이 아닌 session객체를 사용하기 떄문에 문제를 유발한다. </li>
+              <li> Connection 객체를 특정 장소에 보관하고 필요할 때 꺼내쓰는 방법, 작업 쓰레드마다 Connection 객체를
+                독립적으로 관리하기 때문에, 멀티쓰레드 환경에서 충돌이 발생할 여지가 없다. JDBC와 같은 종속적인 트랜잭션 동기화 코드는
+                hibernate에서 Connection이 아닌 session객체를 사용하기 때문에 문제를 유발한다. </li>
               <div className="sstitle">  2. 트랜잭션 추상화</div>
               <li> 스프링에서는 트랜잭션 기술의 공통점을 담은 추상화 기술을 제공하여 종속적인 코드를 이용하지 않고
                 일관된 트랜잭션을 처리할 수 있게 도와준다.
@@ -863,7 +877,7 @@ const Term = (props) => {
               <li> 토큰에 3개로 구분이 되므로 정보가 많으면 토큰의 길이가 늘어난다. </li>
               <li> 인코딩된 데이터는 탈취하여 디코딩하여 정보를 볼 수 있으므로 중요 데이터를 넣으면 안된다. </li>
               <li> JWT는 Stateless이므로 토큰에 만료시간을 꼭 넣어주어야 한다. </li>
-              <li> 토큰을 클라이언트 측에서 관리해야 하기 떄문에 토큰을 저장해야 한다. </li>
+              <li> 토큰을 클라이언트 측에서 관리해야 하기 때문에 토큰을 저장해야 한다. </li>
 
             </div>
             <div className="sblock">

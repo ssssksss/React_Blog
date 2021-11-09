@@ -76,7 +76,7 @@ const BackendBrowserDevTool = (props) => {
                             <span className="sstitle"> content="same-origin" </span>
                             <li> 같은 웹사이트 주소로 이동할 때만 주소를 남김 </li>
                             <span className="sstitle"> content="origin-when-cross-origin" </span>
-                            <li> 웹사이트가 같을 떄는 전체주소, 다를 떄는 도메인 주소만을 남김 </li>
+                            <li> 웹사이트가 같을 때는 전체주소, 다를 때는 도메인 주소만을 남김 </li>
                             <span className="sstitle"> content="strict-origin-when-cross-origin" </span>
                             <li> https를 사용하고 웹사이트가 같으면 전체주소, 다르면 도메인주소 그리고 http
                               를 사용하면 웹사이트 주소를 남기지 않음 </li>

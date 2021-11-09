@@ -124,7 +124,7 @@ const KeyMapVscode = (props) => {
 
               <li> 🚩 advanced-new-file </li>
               <div className="block3">
-                <li> 새 파일을 만들 떄 코드를 입력하고 저장하고 폴더이름을 입력하는 방법을 생략하고 바로 파일이름하고 만들어짐 </li>
+                <li> 새 파일을 만들 때 코드를 입력하고 저장하고 폴더이름을 입력하는 방법을 생략하고 바로 파일이름하고 만들어짐 </li>
                 <li> Ctrl + Shift + P - Advanced New File - 파일 만들 경로 선택 - "파일명.확장자명" 입력 </li>
                 <li> 기존 새로운 파일 만들기 변경해서 사용하기 : Ctrl + K , Ctrl + S - "new file" 입력 - Advanced New File에 Key Binding 변경하기  </li>
                 <li>  </li>

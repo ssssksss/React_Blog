@@ -24,14 +24,14 @@ const JspServletInformation = (props) => {
                     <p> Init() , Service() , Destroy()  3가지의 메서드로 구성된다. </p>
                     <p> Init() : Servlet객체가 처음 생성될 때 실행된다 </p>
                     <p> Service() : 클라이언트가 Servlet을 요청할 때 마다 실행된다 </p>
-                    <p> Destroy() : 서블릿객체가 소멸될 떄는 더이상 사용하지 않을 떄라고 되어있는데
+                    <p> Destroy() : 서블릿객체가 소멸될 때는 더이상 사용하지 않을 때라고 되어있는데
                         서버가 종료되거나 기존에 있던 서블릿객체의 내용이 새로 갱신되었을 경우 </p>
                     <span className="mblock">
                         <p> 1. 클라이언트 요청 </p>
                         <p> 2. 웹 컨테이너에서 클라이언트가 요청한 서블릿 객체가 있는지 확인 </p>
                         <p> 3. 없으면 서블릿 객체를 생성</p>
                         <p> 4. 서블릿 객체에 service()메소드를 실행 , 일반적으로 사용할 때는 HttpServlet클래스를
-                            상속받기 떄문에 요청된 방식에 따라 doGet(), doPost() 메소드로 사용한다
+                            상속받기 때문에 요청된 방식에 따라 doGet(), doPost() 메소드로 사용한다
                         </p>
                         <p> 5. 그 다음 DAO,DB,JSP 등 다른 과정을 거치고 사용자에게 응답한다.</p>
                         <p> <img src={process.env.PUBLIC_URL + '/img/Servlet_Lifecycle.png'} /> </p>
@@ -40,7 +40,7 @@ const JspServletInformation = (props) => {
                 <span className="lblock">
                     <span className="mtitle"> <a name="Servlet 장점"> 3. Servlet 장점 </a> </span>
                     <p> 1. 자바기반으로 Java API를 사용이 가능하다 </p>
-                    <p> 2. 쓰레드를 이용하기 떄문에 클라이언트의 요청에 대해 자원을 효율적으로 사용가능한다 </p>
+                    <p> 2. 쓰레드를 이용하기 때문에 클라이언트의 요청에 대해 자원을 효율적으로 사용가능한다 </p>
                     <p> 다수의 클라이언트가 요청하면 서블릿 객체를 여러개를 만드는 것이 아니라 한개의 서블릿 객체만을 만들고
                         쓰레드를 이용하여 객체가 접근하므로 효율적으로 작동이 가능하다 </p>
                     <p> 3. 비즈니스 로직(서비스) 과 프레젠테이션(클라이언트가 보는 화면)의 분리가 가능하다 </p>

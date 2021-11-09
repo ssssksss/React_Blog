@@ -78,7 +78,7 @@ const SecurityJwt = (props) => {
                                     <li> 서버는 로그인 정보를 받아서 사용자의 고유 ID 값을 설정하고 Payload에 기타 정보를 넣고
                                         JWT토큰의 유효기간을 설정하고 Secret Key로 암호화하고 토큰을 발급 </li>
                                     <small> JWT토큰은 static변수(바로사용)와 local stroage에 저장, 로그아웃시 local stroage에서 삭제  </small>
-                                    <li> 클라이언트는 서버에 요청할 떄 Authorization header나 URL에 JWT토큰을 담아서 전달 </li>
+                                    <li> 클라이언트는 서버에 요청할 때 Authorization header나 URL에 JWT토큰을 담아서 전달 </li>
                                     <li> 서버는 JWT Signature을 Secret Key로 복호화해서 사용자 정보와 유효기간을 확인  </li>
                                     <li> Payload에서 사용자의 정보에 맞는 데이터를 가져온다.  </li>
                                 </ol>

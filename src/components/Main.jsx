@@ -65,6 +65,10 @@ import CssTextAndVideo from './Main/CssContent/CssTextAndVideo';
 
 // 자바스크립트
 import JavaScriptBasic from './Main/JavaScriptContent/JavaScriptBasic';
+import JavaScriptDocument from './Main/JavaScriptContent/JavaScriptDocument';
+import JavaScriptElement from './Main/JavaScriptContent/JavaScriptElement';
+import JavaScriptEvent from './Main/JavaScriptContent/JavaScriptEvent';
+import JavaScriptEventObject from './Main/JavaScriptContent/JavaScriptEventObject';
 import JavaScriptAjax from './Main/JavaScriptContent/JavaScriptAjax';
 
 // 리액트
@@ -247,6 +251,10 @@ const Main = (props) => {
 
                 {/* 자바스크립트  */}
                 <Route path="/javascript_basic" component={JavaScriptBasic}></Route>
+                <Route path="/javascript_document" component={JavaScriptDocument}></Route>
+                <Route path="/javascript_element" component={JavaScriptElement}></Route>
+                <Route path="/javascript_event" component={JavaScriptEvent}></Route>
+                <Route path="/javascript_event_object" component={JavaScriptEventObject}></Route>
                 <Route path="/javascript_ajax" component={JavaScriptAjax}></Route>
 
                 {/* 리액트 */}

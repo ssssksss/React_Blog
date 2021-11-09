@@ -137,7 +137,7 @@
     margin: 20px 0px 10px 10px;
     padding: 5px 5px;
     display: inline-block;
-    font-size: 26px;
+    font-size: 22px;
     font-weight: 800;
     background-color: orange;
 }
@@ -198,10 +198,13 @@
 .common_style .block4 {
     font-size: 1em;
     border: solid #FF33CC 2px;
-    margin: 2px 12px 10px 2px;
+    margin: 2px 12px 10px 12px;
     padding: 10px 0px;
     background-color: #f8fafe;
     list-style: none;
+}
+.common_style .block4 p {
+    margin-left: 15px;
 }
 .common_style .block5 {
     font-size: 1em;
@@ -210,9 +213,6 @@
     padding: 10px 0px;
     background-color: #f8fafe;
     list-style: none;
-}
-.common_style .block4 p {
-    margin-left: 15px;
 }
 .common_style .block5 {
     font-size: 12px;

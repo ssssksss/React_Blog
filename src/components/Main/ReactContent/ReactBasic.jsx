@@ -385,7 +385,7 @@ const ReactBasic = (props) => {
                   </ul>
                 </span>
                 {/*  */}
-                <span className="sstitle"> 예시2 - 2개의 입력값을 받았을 떄 변경 </span>
+                <span className="sstitle"> 예시2 - 2개의 입력값을 받았을 때 변경 </span>
                 <span className="mblock">
                   <ul style={{ listStyle: "none" }}>
                     <li> {' import React from "react"; '} </li> <br />
@@ -447,8 +447,8 @@ const ReactBasic = (props) => {
               <span className="sblock">
                 <span className="sstitle"> React useRef 설명 </span>
                 <span className="mblock">
-                  <li> 특정 DOM을 선택할 떄 사용 </li>
-                  <li> input이나 textarea 등에 focus() 를 할 떄 사용 </li>
+                  <li> 특정 DOM을 선택할 때 사용 </li>
+                  <li> input이나 textarea 등에 focus() 를 할 때 사용 </li>
                   <li> 득정 DOM의 스크롤 위치를 가져올 때 </li>
                   <li> 외부 라이브러리를 사용할 때   </li>
                   <li> Ref의 사용은 최대한 안하는 것이 좋다. </li>

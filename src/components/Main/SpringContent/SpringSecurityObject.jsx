@@ -1795,7 +1795,7 @@ const SpringSecurityObject = (props) => {
                                         요청 이후 인증된 사용자인지 확인하고, 인증된 사용자일 경우 SeesionAuthenticationStrategy를 호출하여
                                         세션 고정 보호 메커니즘을 활성화 하거나 여러 동시 로그인을 확인하는 것과 같은 세션 관련 활동을 수행 </small>
                                     <li> <small> 세션 변조 공격 방지(SessionId를 계속 변경), 최대 세션 수(동시 접속) 설정, 유효하지 않은 세션으로
-                                        접근 했을떄 URL 핸들링 </small> </li>
+                                        접근 했을때 URL 핸들링 </small> </li>
                                     <li> <small> 관련 : SecurityContextRepository, SecurityContextHolder, SecurityContext, Authentication </small> </li>
                                     <li> <small> 관련 : AuthenticationFilter </small> </li>
                                     <li> <small> 관련 : SessionAuthenticationStrategy, SessionRegistry </small> </li>

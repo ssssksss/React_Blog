@@ -24,7 +24,7 @@ const JspServletJdbc = (props) => {
                                 <li> ResultSet cursor = st.executeQuery(sql); , st.Set자료형(콜럼,넣을값) , st.executeUpdate();</li>
                                 <li> //resultset은 그릇 , executeQuery : 래코드를 가리키는 커서</li>
                                 <li> //executeQuery는 selec에서 데이터타입 전달 , executeUpdate는 DML에서 int타입 전달 </li>
-                                <li> //오류가 날경우 SQL문법이 틀리거나, 패러미터 값이 틀리거나, 이클과SQL 인코딩 방식이 틀렸을떄</li>
+                                <li> //오류가 날경우 SQL문법이 틀리거나, 패러미터 값이 틀리거나, 이클과SQL 인코딩 방식이 틀렸을때</li>
                                 <li> while(cursor.next()) {'String id = cursor.getString(“ID”);'}</li>
                                 <li> {'System.out.println(id);'}</li>
                                 <li> try-resouce문으로 처리하면 안적어도됨</li>

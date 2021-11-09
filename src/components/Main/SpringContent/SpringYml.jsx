@@ -94,7 +94,7 @@ const SpringYml = (props) => {
                                                             <li> ddl-auto: none <small># 아무것도 하지 않는다</small>. </li>
                                                             <li> ddl-auto: create <small># 세션 팩토리가 시작될 때마다 테이블을 drop하고 ddl을 실행한다. , 배포서버에서 사용x, 로컬용도</small> </li>
                                                             <li> ddl-auto: create-drop <small># 세션 팩토리가 시작될 때마다 테이블을 drop하고 ddl을 실행한다. 그리고
-                                                                세션 팩토리가 종료될떄 테이블을 drop한다.</small> </li>
+                                                                세션 팩토리가 종료될때 테이블을 drop한다.</small> </li>
                                                             <li> ddl-auto: update <small># 변경 스키마을 저장한다. , 운영DB에서도 사용x , 개발 초기 테스트 단계 사용</small>  </li>
                                                             <li> ddl-auto: validate <small># 변경된 스키마를 출력하고 프로그램 종료</small> </li>
                                                             <li> use_sql_comments=true <small> # 주석 출력 </small> </li>

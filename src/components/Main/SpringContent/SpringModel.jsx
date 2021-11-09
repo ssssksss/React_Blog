@@ -30,11 +30,11 @@ const SpringModel = (props) => {
                                     <li> 2. Entity 매니저를 이용해서 Entity를 영속성컨텍스트에 저장하거나 조회한다.  </li>
                                     <li> 3. 실제 DB에 저장되기 전에 보관된는 가상의 DB라고 생각하면 된다. </li>
                                     <li> 4. 영속성 컨텍스트는 Entity를 식별자로 구분한다. ( 그러므로 식별자를 필수로 넣어주어야 한다.) </li>
-                                    <li> 5. 영속성 컨텍스트는 Entity의 동일성을 보장한다. ( DB에서 똑같은 레코드를 2번 조회하였을 떄 똑같은 인스턴스로 인식
+                                    <li> 5. 영속성 컨텍스트는 Entity의 동일성을 보장한다. ( DB에서 똑같은 레코드를 2번 조회하였을 때 똑같은 인스턴스로 인식
                                         , Mybatis에서는 이와 같이 하면 다르다고 인식하는것 같다.) </li>
                                     <li> 6. 트랜잭션을 커밋할 때 실제 DB에 반영되는 flush()를 실행 </li>
                                     <li> 7. 캐시 기능이 있어서 JPA는 1차캐시 공간에서 Entity를 먼저 조회하고 없으면 DB에서 조회한다 그리고 그 값을 1차캐시에 저장한다. ( em.find(ENTITY.class,"식별자") )  </li>
-                                    <li> 8. 지연 기능이 있어서 JPA는 트랜잭션 커밋 전까지 쿼리를 내부 쿼리 저장소에 모아두고 커밋할 떄 실제 DB에 반영한다.
+                                    <li> 8. 지연 기능이 있어서 JPA는 트랜잭션 커밋 전까지 쿼리를 내부 쿼리 저장소에 모아두고 커밋할 때 실제 DB에 반영한다.
                                         <div className="block4">
                                             <li> transaction.begin(); <small> 트랜잭션 시작 </small> </li>
                                             <li> transaction.commit(); <small> 트랜잭션 끝 </small> </li>
@@ -596,43 +596,43 @@ const SpringModel = (props) => {
                             <h2 className="h2"> 📌 @ManyToOne 속성 </h2>
                             <li> Many쪽에서 @JoinTable을 선언 </li>
                             <li> optional=false (객체에 null이 들어갈수 있음, inner join) , optional=true(default값) (객체에 null이 들어갈 수 없음, outer join) </li>
-                            <li> fetch=FetchType.EAGER (default값) : 엔티티 조회할 떄 연관된 엔티티도 같이 조회, 객체가 계속 연결되어 있으면 연달아 조회를 함으로 좋지 않음,
+                            <li> fetch=FetchType.EAGER (default값) : 엔티티 조회할 때 연관된 엔티티도 같이 조회, 객체가 계속 연결되어 있으면 연달아 조회를 함으로 좋지 않음,
                                 반대로 한꺼번에 조회 함으로 네트워크 비용을 아낄 수 있다는 장점도 존재 </li>
                             <li> fetch=FetchType.LAZY : 엔티티를 나중에 조회 </li>
 
                             <h2 className="h2"> 📌 @ManyToOne 속성 </h2>
                             <li> Many쪽에서 @JoinTable을 선언 </li>
                             <li> optional=false (객체에 null이 들어갈수 있음, inner join) , optional=true(default값) (객체에 null이 들어갈 수 없음, outer join) </li>
-                            <li> fetch=FetchType.EAGER (default값) : 엔티티 조회할 떄 연관된 엔티티도 같이 조회, 객체가 계속 연결되어 있으면 연달아 조회를 함으로 좋지 않음,
+                            <li> fetch=FetchType.EAGER (default값) : 엔티티 조회할 때 연관된 엔티티도 같이 조회, 객체가 계속 연결되어 있으면 연달아 조회를 함으로 좋지 않음,
                                 반대로 한꺼번에 조회 함으로 네트워크 비용을 아낄 수 있다는 장점도 존재 </li>
                             <li> fetch=FetchType.LAZY : 엔티티를 나중에 조회 </li>
 
                             <h2 className="h2"> 📌 @OneToOne 속성 </h2>
                             <li> optional=false (객체에 null이 들어갈수 있음) , optional=true (객체에 null이 들어갈 수 없음) </li>
-                            <li> fetch=FetchType.EAGER (default값) : 엔티티 조회할 떄 연관된 엔티티도 같이 조회, 객체가 계속 연결되어 있으면 연달아 조회를 함으로 좋지 않음,
+                            <li> fetch=FetchType.EAGER (default값) : 엔티티 조회할 때 연관된 엔티티도 같이 조회, 객체가 계속 연결되어 있으면 연달아 조회를 함으로 좋지 않음,
                                 반대로 한꺼번에 조회 함으로 네트워크 비용을 아낄 수 있다는 장점도 존재 </li>
                             <li> fetch=FetchType.LAZY : 엔티티를 나중에 조회 </li>
                             <li> cascade=CascadeType.[ALL,PERSIST,MERGE,REMOVE,REFRESH,DETACH]
                                 <li> CascadeType.PERSIST : 엔티티를 저장하면, 필드에 있는 엔티티도 저장  <small> # 좀더 알아볼것 </small> </li>
-                                <li> CascadeType.MERGE : 엔티티를 합칠 떄, 필드에 있는 엔티티도 합친다 <small> # </small> </li>
-                                <li> CascadeType.REFRESH : 엔티티를 수정할 떄, 필드에 있는 엔티티도 수정 <small> # </small> </li>
-                                <li> CascadeType.REMOVE : 엔티티를 삭제할 떄, 필드에 있는 엔티티도 삭제한다.  <small> # </small> </li>
-                                <li> CascadeType.DETACH : 엔티티를 detach할떄 , 필드에 있는 엔티티도 detach를 한다. <small> # 영속성 컨텍스트에서 엔티티를 제거(엔티티 삭제가 아님) </small> </li>
+                                <li> CascadeType.MERGE : 엔티티를 합칠 때, 필드에 있는 엔티티도 합친다 <small> # </small> </li>
+                                <li> CascadeType.REFRESH : 엔티티를 수정할 때, 필드에 있는 엔티티도 수정 <small> # </small> </li>
+                                <li> CascadeType.REMOVE : 엔티티를 삭제할 때, 필드에 있는 엔티티도 삭제한다.  <small> # </small> </li>
+                                <li> CascadeType.DETACH : 엔티티를 detach할때 , 필드에 있는 엔티티도 detach를 한다. <small> # 영속성 컨텍스트에서 엔티티를 제거(엔티티 삭제가 아님) </small> </li>
                                 <li> CascadeType.ALL : 위에 있는 내용을 모두 적용 <small> # </small> </li> <br />
                             </li>
                             <li> orphanRemoval = [true, false] : true로 하면 엔티티의 연관관계가 끊어졌을때 끊어진 고아 엔티티를 삭제 </li>
 
                             <h2 className="h2"> 📌 @OneToMany 속성 </h2>
                             <li> Many쪽에서 @JoinTable을 선언 </li>
-                            <li> fetch=FetchType.EAGER : 엔티티 조회할 떄 연관된 엔티티도 같이 조회, 객체가 계속 연결되어 있으면 연달아 조회를 함으로 좋지 않음,
+                            <li> fetch=FetchType.EAGER : 엔티티 조회할 때 연관된 엔티티도 같이 조회, 객체가 계속 연결되어 있으면 연달아 조회를 함으로 좋지 않음,
                                 반대로 한꺼번에 조회 함으로 네트워크 비용을 아낄 수 있다는 장점도 존재 </li>
                             <li> fetch=FetchType.LAZY (default값) : 엔티티를 나중에 조회 </li>
                             <li> cascade=CascadeType.[ALL,PERSIST,MERGE,REMOVE,REFRESH,DETACH]
                                 <li> CascadeType.PERSIST : 엔티티를 저장하면, 필드에 있는 엔티티도 저장  <small> # 좀더 알아볼것 </small> </li>
-                                <li> CascadeType.MERGE : 엔티티를 합칠 떄, 필드에 있는 엔티티도 합친다 <small> # </small> </li>
-                                <li> CascadeType.REFRESH : 엔티티를 수정할 떄, 필드에 있는 엔티티도 수정 <small> # </small> </li>
-                                <li> CascadeType.REMOVE : 엔티티를 삭제할 떄, 필드에 있는 엔티티도 삭제한다.  <small> # </small> </li>
-                                <li> CascadeType.DETACH : 엔티티를 detach할떄 , 필드에 있는 엔티티도 detach를 한다. <small> # 영속성 컨텍스트에서 엔티티를 제거(엔티티 삭제가 아님) </small> </li>
+                                <li> CascadeType.MERGE : 엔티티를 합칠 때, 필드에 있는 엔티티도 합친다 <small> # </small> </li>
+                                <li> CascadeType.REFRESH : 엔티티를 수정할 때, 필드에 있는 엔티티도 수정 <small> # </small> </li>
+                                <li> CascadeType.REMOVE : 엔티티를 삭제할 때, 필드에 있는 엔티티도 삭제한다.  <small> # </small> </li>
+                                <li> CascadeType.DETACH : 엔티티를 detach할때 , 필드에 있는 엔티티도 detach를 한다. <small> # 영속성 컨텍스트에서 엔티티를 제거(엔티티 삭제가 아님) </small> </li>
                                 <li> CascadeType.ALL : 위에 있는 내용을 모두 적용 <small> # </small> </li> <br />
                             </li>
                             <li> orphanRemoval = [true, false] : true로 하면 엔티티의 연관관계가 끊어졌을때 끊어진 고아 엔티티를 삭제 </li>
@@ -641,15 +641,15 @@ const SpringModel = (props) => {
                             <h2 className="h2"> 📌 @ManyToMany(mappedBy="") 속성 </h2>
                             <li> mappedBy : 참조하고 있는 다른엔티티의 필드명을 적어서 매핑 </li>
                             <li> optional=false (외부조인) , optional=true (외부조인) </li>
-                            <li> fetch=FetchType.EAGER : 엔티티 조회할 떄 연관된 엔티티도 같이 조회, 객체가 계속 연결되어 있으면 연달아 조회를 함으로 좋지 않음,
+                            <li> fetch=FetchType.EAGER : 엔티티 조회할 때 연관된 엔티티도 같이 조회, 객체가 계속 연결되어 있으면 연달아 조회를 함으로 좋지 않음,
                                 반대로 한꺼번에 조회 함으로 네트워크 비용을 아낄 수 있다는 장점도 존재 </li>
                             <li> fetch=FetchType.LAZY (default값) : 엔티티를 나중에 조회 </li>
                             <li> cascade=CascadeType.[ALL,PERSIST,MERGE,REMOVE,REFRESH,DETACH]
                                 <li> CascadeType.PERSIST : 엔티티를 저장하면, 필드에 있는 엔티티도 저장  <small> # 좀더 알아볼것 </small> </li>
-                                <li> CascadeType.MERGE : 엔티티를 합칠 떄, 필드에 있는 엔티티도 합친다 <small> # </small> </li>
-                                <li> CascadeType.REFRESH : 엔티티를 수정할 떄, 필드에 있는 엔티티도 수정 <small> # </small> </li>
-                                <li> CascadeType.REMOVE : 엔티티를 삭제할 떄, 필드에 있는 엔티티도 삭제한다.  <small> # </small> </li>
-                                <li> CascadeType.DETACH : 엔티티를 detach할떄 , 필드에 있는 엔티티도 detach를 한다. <small> # 영속성 컨텍스트에서 엔티티를 제거(엔티티 삭제가 아님) </small> </li>
+                                <li> CascadeType.MERGE : 엔티티를 합칠 때, 필드에 있는 엔티티도 합친다 <small> # </small> </li>
+                                <li> CascadeType.REFRESH : 엔티티를 수정할 때, 필드에 있는 엔티티도 수정 <small> # </small> </li>
+                                <li> CascadeType.REMOVE : 엔티티를 삭제할 때, 필드에 있는 엔티티도 삭제한다.  <small> # </small> </li>
+                                <li> CascadeType.DETACH : 엔티티를 detach할때 , 필드에 있는 엔티티도 detach를 한다. <small> # 영속성 컨텍스트에서 엔티티를 제거(엔티티 삭제가 아님) </small> </li>
                                 <li> CascadeType.ALL : 위에 있는 내용을 모두 적용 <small> # </small> </li> <br />
                             </li>
 

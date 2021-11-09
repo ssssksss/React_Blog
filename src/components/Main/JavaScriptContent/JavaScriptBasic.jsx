@@ -14,10 +14,8 @@ const JavaScriptBasic = (props) => {
                         <div className='block2'>
 
                             <h2 className='h2'> 📌 설명 </h2>
-                            <li> JS에는 호이스팅이 존재한다.
-                                <p> 호이스팅 : 변수나 함수를 호출하는 코드보다 아래에 적어놓아도
-                                    JS엔진 평가단계에서 선언된 값을 찾아준다. </p>
-                            </li>
+                            <li> 호이스팅 : JS에서는 변수나 함수를 호출하는 코드보다 아래에 변수나 함수의 정의를
+                                적어놓아도 JS엔진이 평가 단계에서 선언된 값을 찾아준다. </li>
                             <li> 스코프 체인 : 외부에서는 내부함수의 값에 접근 할 수 없다.(당연한 말이다.) </li>
                             <li> 3 </li>
 
@@ -72,6 +70,7 @@ const JavaScriptBasic = (props) => {
                             <h2 className='h2'> 📌 설명 </h2>
                             <li> var로 변수를 정의하는 것은 코드를 작성할 때 헷갈리게 만든다. </li>
                             <li> 이벤트로 var변수를 불러오면 반복문이 끝난결과의 값을 가져오기도 한다. </li>
+                            <li> var로 선언한 변수를 let으로 다시 재선언하게되면 에러가 발생한다. </li>
                             <li> var x=0; <small> # 전역변수로 선언 </small> </li>
                             <li> let x=0; <small> # 지역변수 </small> </li>
                             <div className="block4">
@@ -103,6 +102,26 @@ const JavaScriptBasic = (props) => {
                             <li> 지역 스코프 : 지역 범위 </li>
                             <li> 함수 스코프 : 함수안에서만 작동되는 범위 </li>
                             <li> 블럭 스코프 : </li>
+
+
+                            <h3 className="h3"> 잘못된 예시 </h3>
+                            <div className="block3">
+                                <li> 1. function에서의 var </li>
+                                <div className="block4">
+                                    <li> {' function f1() { '}
+                                        <li> {' 	var var1 = "test"; '} </li>
+                                    </li>
+                                    <li> {' } '} </li>
+                                    <li> ❌ {' console.log(var1); '} </li>
+                                </div>
+                                <li> var 과 let </li>
+                                <div className="block4">
+                                    <li> let var1 = "test1"; </li>
+                                    <li> ❌ var var1 = ""; <small> # Syntax Error 발생, let ↔ var로 재선언 불가능 </small> </li>
+                                    <li> console.log(var1); </li>
+                                </div>
+
+                            </div>
 
                         </div>
                     </details>
@@ -262,12 +281,49 @@ const JavaScriptBasic = (props) => {
                     <details>
                         <summary> 함수 </summary>
                         <div className='block2'>
-
                             <h2 className='h2'> 📌 설명 </h2>
                             <li> function 사용자정의함수명(매개변수) {'{  }'} #함수 정의(함수 선언식) , 함수 선언식으로 만들면 호이스팅(위치에 상관없이 함수가 에러발생하지 않음)됨 </li>
                             <li> const 함수명 = function(매개변수) {'{ }'} {'{  }'} #함수 정의 및 선언(함수 표현식) ,
                                 함수표현식으로 작성하면 호이스팅이 되지 않음, 상단에 미리 선언 필요 </li>
                             <li> 함수명(); #함수 사용 </li>
+                            <h4 className="h4"> 함수 예시 </h4>
+                            <div className="block4">
+                                <li> function f1(var, array, map) {'{'}
+                                    <li> console.log(var); <small> # 일반변수 </small> </li>
+                                    <li> console.log(array[0]); <small> # 배열 </small> </li>
+                                    <li> console.log(map.key); <small> # Map객체 </small> </li>
+                                </li>
+                                <li> {'}'} </li> <br />
+
+                                <li> var add_value = function add(num1,num2) {'{ return num1+num2; }'} </li> <br />
+                            </div>
+                        </div>
+                    </details>
+                </div>
+
+                <div className='block1'>
+                    <details>
+                        <summary> Closure </summary>
+                        <div className='block2'>
+
+                            <h2 className='h2'> 📌 설명 </h2>
+                            <li> JS에서는 함수를 함수에 대입할 수 있다. var f1 = function f2 {' { return function f3() { retrun 1; } } '} <small> var f1 = {' function f3() { retrun 1; } '} </small> </li>
+                            <li> JS에서 함수1을 함수2에 대입했을 때 그때 당시의 함수1에 들어있는 지역변수 등의 환경을 기억해서 가지고 있는 함수2를 클로저라 한다. </li>
+                            <h4 className="h4"> 클로저 예시 </h4>
+                            <div className="block4">
+                                <li> {' function f1(x,y) { '}
+                                    <li> {' 	return function(z) { '}
+                                        <li> {' 		return x*y+z; '} </li>
+                                    </li>
+                                    <li> {' 	}; '} </li>
+                                </li>
+                                <li> {' } '} </li> <br />
+                                <li> {' var f2 = f1(1,1); '} <small> # 클로저 , f2 = function(z) {' { return 1*1+z } '}; </small> </li>
+                                <li> {' var f3 = f1(2,2); '} <small> # 클로저 , f3 = function(z) {' { return 2*2+z } '}; </small> </li>
+                                <li> {' console.log(f2(1)); '} <small> # 1*1+1 </small>  </li>
+                                <li> {' console.log(f3(1)); '} <small> # 2*2+2 </small>  </li>
+
+                            </div>
 
                         </div>
                     </details>
@@ -290,11 +346,10 @@ const JavaScriptBasic = (props) => {
                             <li> 프로토타입.prototype.필드명 = 값 #프로토타입에 필드를 추가하는 방법 </li>
                             <li> 프로토타입.prototype.메소드명 = function() {'{ 메소드내용 } '} #프로토 타입에 메소드 추가 생성 </li>
 
-
-
                         </div>
                     </details>
                 </div>
+
 
                 <div className='block1'>
                     <details>
@@ -385,17 +440,66 @@ const JavaScriptBasic = (props) => {
                     </details>
                 </div>
 
+
+
                 <div className='block1'>
                     <details>
-                        <summary> document 객체 </summary>
+                        <summary> HTML DOM Element </summary>
                         <div className='block2'>
 
                             <h2 className='h2'> 📌 설명 </h2>
-                            <li> getElementsByTagName() : 해당 태그이름의 요소를 모두 선택 </li>
-                            <li> getElementById : 해당 아이디 요소를 선택</li>
-                            <li> getElementsByClassName() : 해당 클래스 요소를 모두 선택 </li>
-                            <li> getElementsByName() : 해당 name 요소를 모두 선택 </li>
-                            <li> querySelectorAll(css요소 입력) : 해당 선택자 요소를 모두 선택 </li>
+                            <li> document.createElement("TAG") <small> # 태그 요소를 생성 </small> </li>
+                            <li> document.createTextNode() <small> # 텍스트 노드를 생성 </small> </li>
+                            <li> document.write() <small> #  </small> </li>
+                            <li> document.요소.onclick = function() {'{}'} <small> # 요소를 클릭했을 때 함수를 실행시킴 </small> </li>
+                            <li> document.요소.appendChild(노드) <small> # 요소의 자식 노드의 마지막에 삽입 </small> </li>
+                            <li> document.요소.prepend(노드) <small> # 요소의 자식 노드의 제일 앞에 삽입 </small> </li>
+                            <li> document.요소.insertBefore(노드1,자식노드1) <small> # 요소의 자식노드1 앞에 노드1을 배치함 </small> </li>
+                            <div className="block4">
+                                <li> var crebtn = document.createElement('button'); </li>
+                                <li> var btntext = document.createTextNode("BUTTON"); </li>
+                                <li> crebtn.appendChild(btntext); </li>
+                                <li> document.body.appendChild(crebtn); </li>
+                            </div>
+
+                            <h2 className='h2'> ✔ 예시 </h2>
+                            <li> 소제목
+                                <div className='block3'>
+                                    <h3 className='h3'> 🎈 </h3>
+                                    <div className='block4'>
+                                        <li> {' <body> '}
+                                            <li> {' 	<div class="div1">1 '}
+                                                <li> {' 		<div class="div1-1"> 1-1 </div> '} </li>
+                                                <li> {' 		<div class="div1-2"> 1-2 </div> '} </li>
+                                            </li>
+                                            <li> {' 	</div> '} </li>
+                                            <li> {' 	<div class="div2">2</div> '} </li>
+                                            <li> {' 	<div class="div3">3</div> '} </li>
+                                            <li> {' 	<div class="div4">4</div> '} </li>
+                                            <li> {' 	<div class="div5">5</div> '} </li>
+                                            <li> {' </body> '} </li>
+                                        </li>
+                                        <li> {' <script> '}
+                                            <li> {' 	var crebtn = document.createElement("button"); '} </li>
+                                            <li> {' 	var btntext = document.createTextNode("BUTTON"); '} </li>
+                                            <li> {' 	var btntext1 = document.create '} </li>
+                                            <li> {' 	crebtn.appendChild(btntext); '} </li>
+                                            <li> {' 	document.body.appendChild(crebtn); '} </li>
+                                            <li> {' 	var div1 = document.getElementsByClassName("div1")[0]; '} </li>
+                                            <li> {' 	var div1_1 = document.getElementsByClassName("div1-1")[0]; '} </li>
+                                            <li> {' 	var div1_2 = document.getElementsByClassName("div1-2")[0]; '} </li>
+                                            <li> {' 	var div3 = document.getElementsByClassName("div3")[0]; '}  </li>
+                                            <li> {' 	div1.appendChild(div3); '} <small> # div1 내부태그의 마지막에 배치 </small> </li>
+                                            <li> {' 	var div4 = document.getElementsByClassName("div4")[0]; '}  </li>
+                                            <li> {' 	div1.prepend(div4) '} <small> # div1 내부태그의 제일 앞에 배치 </small> </li>
+                                            <li> {' 	var div5 = document.getElementsByClassName("div5")[0]; '} </li>
+                                            <li> {' 	div1.insertBefore(div5, div1_2); '} <small> # div1.div1-2 태그 앞쪽에 배치 </small> </li>
+                                            <li> {' 	crebtn.onclick = function () { alert("버튼!!!") }; '} </li>
+                                        </li>
+                                        <li> {' </script> '} </li>
+                                    </div>
+                                </div>
+                            </li>
 
                         </div>
                     </details>
@@ -405,7 +509,6 @@ const JavaScriptBasic = (props) => {
                     <details>
                         <summary> 자바스크립트 html출력 </summary>
                         <div className='block2'>
-
                             <h2 className='h2'> 📌 설명 </h2>
                             <li> 자바스크립트 html출력 </li>
                             <li> document.write() #body에 출력 </li>
@@ -415,7 +518,6 @@ const JavaScriptBasic = (props) => {
                             <li> alert() 또는 window.alert() : 사용자에게 메세지를 보여주고, 확인을 기다립니다. </li>
                             <li> confirm() 또는 window.confirm() : 사용자에게 메세지를 보여주고, 확인이나 취소를 누르면 그 결과를 불리언값으로 리턴합니다. </li>
                             <li> prompt() 또는 window.prompt() : 사용자에게 메세지를 보여주고, 사용자가 입력한 문자열을 리턴합니다. </li>
-
                         </div>
                     </details>
                 </div>

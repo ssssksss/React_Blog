@@ -106,7 +106,7 @@ const LinuxUbuntu = (props) => {
                                         <li> {'        wait = no '} #바로 서버를 사용?</li>
                                         <li> {'        user = root '} #접속할수 있는 유저</li>
                                         <li> {'        server = /usr/sbin/in.telnetd '} #텔넷서버에 대한 명령어 </li>
-                                        <li> {'        log_on_failure += USERID '} #접속실패했을떄 유저의 아이디를 로그로 남겨라</li>
+                                        <li> {'        log_on_failure += USERID '} #접속실패했을때 유저의 아이디를 로그로 남겨라</li>
                                         <li> {'} '} </li>
                                     </li>
                                     <li> /etc/init.d/xinetd restart </li>
@@ -151,7 +151,7 @@ const LinuxUbuntu = (props) => {
                                 <span className="sstitle"> dhcp 서버란? </span>
                                 <span className="mblock">
                                     <li> Dynamic Host Configuration Protocol </li>
-                                    <li> 자신의 네트워크 안에 클라이언트 컴퓨터가 부팅될 떄 자동으로 IP주소, 서브넷마스크, 게이트웨이 주소, DNS 서버 주소를
+                                    <li> 자신의 네트워크 안에 클라이언트 컴퓨터가 부팅될 때 자동으로 IP주소, 서브넷마스크, 게이트웨이 주소, DNS 서버 주소를
                                         할당해주는 것 </li>
                                     <li> 일반 사용자는 IP에 관련된 어려운 정보를 알지 못해도 사용을 하는데 문제가 없음 </li>
                                     <li> dhcp 서버는 관리가 편하고 이용자도 편함 </li>
@@ -199,7 +199,7 @@ const LinuxUbuntu = (props) => {
                                     <li> range dynamic-bootp 192.168.10.30 192.168.10.50; , #30~50번 IP를 나누어 준다.   </li>
                                     <li> option domain-name-servers 8.8.8.8;  , # 도메인 주소를 설정 </li>
                                     <li> default-lease-time 86400; , # 클라이언트에게 준 IP의 시간을 초단위로 설정  </li>
-                                    <li> max-lease-time 172800; , # 클라이언트에게 준 동일한 IP의 최대 시간을 초단위로 설정, 오랜기간 사용하면 악용의 소지떄문에 제한  </li>
+                                    <li> max-lease-time 172800; , # 클라이언트에게 준 동일한 IP의 최대 시간을 초단위로 설정, 오랜기간 사용하면 악용의 소지때문에 제한  </li>
                                     <li> {'}'}  </li>
                                     <li>  </li>
                                     <li>  </li>

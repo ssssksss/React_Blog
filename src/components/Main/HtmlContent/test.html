@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta class="viewport" content="width=device-width, initial-scale=1.0">
+	<title> Document </title>
+</head>
+
+<body>
+	<div id="btn_container">
+		<button> 버튼1 </button>
+		<button> 버튼2 </button>
+	</div>
+</body>
+
+<script>
+
+	var btn_container = document.getElementById("btn_container");
+	btn_container.addEventListener("click", (x) => {
+		alert();
+	});
+
+	var doc = document.createElement("button");
+	doc.appendChild(document.createTextNode("버튼3"));
+	btn_container.appendChild(doc);
+</script>
+
+</html>

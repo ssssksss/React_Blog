@@ -20,7 +20,7 @@ const CssBootStrap = (props) => {
                             <li> {' integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/> '}  </li>
                             <li> 위의 2줄 내용을 index.html 의 head 부분안에 넣어준다.  </li>
 
-                            <h2 className='h2'> 📌 intellij gradle에서 사용 ( 기억이 잘 안나서 나중에 다시 사용할 떄 추가하기) </h2>
+                            <h2 className='h2'> 📌 intellij gradle에서 사용 ( 기억이 잘 안나서 나중에 다시 사용할 때 추가하기) </h2>
                             <li> {' <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"> '}
                                 head 태그 내부에 추가해주기 </li>
 
@@ -198,7 +198,7 @@ const CssBootStrap = (props) => {
                         <div className='block2'>
 
                             <h2 className='h2'> 📌 설명 </h2>
-                            <li> 중심으로 배치되는 것은 block 요소일 떄만 가능한것 같다 </li>
+                            <li> 중심으로 배치되는 것은 block 요소일 때만 가능한것 같다 </li>
 
                             <h2 className='h2'> 📌 속성 </h2>
                             <li> @의 범위는 0~5 </li>

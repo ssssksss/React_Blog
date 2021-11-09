@@ -60,7 +60,7 @@ const LinuxCommand = (props) => {
                   <li> stat [파일명] : 파일에 대한 정보를 알려줌
                     <li> atime이 변할 때 : cat와 같이 접근을 하면 변경 </li>
                     <li> mtime이 변할 때 : vi편집기로 수정을 했다면 변경 </li>
-                    <li> ctime이 변할 때 : Inode가 변경될 떄 변경 <small> Inode가 변할 때 : chmod, chown이 변경될 때 </small> </li>
+                    <li> ctime이 변할 때 : Inode가 변경될 때 변경 <small> Inode가 변할 때 : chmod, chown이 변경될 때 </small> </li>
                   </li>
                   <li>  </li>
                   <li> alias
@@ -488,7 +488,7 @@ const LinuxCommand = (props) => {
                   <li className="sstitle"> useradd [옵션s] [계정이름] , useradd [계정이름] , adduser [옵션s] [계정이름] , adduser [계정이름] </li>
                   <li> [계정이름] : 계정을 생성 </li>
                   <li> -p :  </li>
-                  <li> -d : 홈 디렉토리를 지정할 떄 사용, 중간 경로는 생성을 해주지 않는다. </li>
+                  <li> -d : 홈 디렉토리를 지정할 때 사용, 중간 경로는 생성을 해주지 않는다. </li>
                   <li> -u : 사용자 추가시 UID 지정 </li>
                   <small> useradd -u UID번호 계정명 </small>
                   <li> -g : 그룹(GID)을 지정할 때 사용 </li>

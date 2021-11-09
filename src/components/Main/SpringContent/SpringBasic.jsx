@@ -96,9 +96,9 @@ const SpringBasic = (props) => {
 						<div className='block2'>
 
 							<h2 className="h2"> 📌 POJO가 탄생한 이유 </h2>
-							<li> 자바를 개발할 떄 과거에 개발자가 비즈니스로직 + 트랜잭션,보안,필터 등등을 구현해야
+							<li> 자바를 개발할 때 과거에 개발자가 비즈니스로직 + 트랜잭션,보안,필터 등등을 구현해야
 								했다. 그러므로 너무 많은 부담을 지게 되었고 그 부담을 덜기 위하여 기업에서 개발하기 위한
-								서비스 EJB(Enterprise Java Beans)가 탄생하여 부담이 줄어들었다. 하지만 작은 서비스를 개발할떄도
+								서비스 EJB(Enterprise Java Beans)가 탄생하여 부담이 줄어들었다. 하지만 작은 서비스를 개발할때도
 								거대한 EJB를 상속받아 사용해야되는 불편함이 있었고 기능을 바꾸기 위해서는 전체적으로 코드를
 								수정해야되는 문제점이 발생하였다. EJB는 객체지향의 특징과 장점을 사용할 수 없었다. </li>
 							<li> POJO는 이러한 문제점에서 벗어나 객체지향에 집중하고, 클래스나 라이브러리에 종속되지 않아
@@ -141,7 +141,7 @@ const SpringBasic = (props) => {
 							<li> Advice : Aspect 해야할 일, 기능 </li>
 							<li> Pointcut : 어디에 적용할 지 </li>
 							<li> Target : Pointcut에서 적용이 되는 대상  </li>
-							<li> Join point : Advice를 사용할 지점(메서드 실행, 필드에서 값을 가져갈 떄 등)  </li>
+							<li> Join point : Advice를 사용할 지점(메서드 실행, 필드에서 값을 가져갈 때 등)  </li>
 							<li> Weaving : Advice를 핵심기능에 적용하는 행위  </li>
 
 							<h2 className="h2"> 📌 관련 태그? 메소드? </h2>

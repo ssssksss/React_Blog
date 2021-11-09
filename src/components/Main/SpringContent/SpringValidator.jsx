@@ -17,7 +17,7 @@ const SpringValidator = (props) => {
                                 Jakarta Bean Validation </a>
                                 <a href="https://docs.jboss.org/hibernate/stable/validator/reference/en-US/html_single/#validator-gettingstarted-createproject" target="_blank" rel="noopener noreferrer">
                                     Hibernate Validator </a>
-                                <li> validator를 사용할 떄는 ValidationUtils를 사용하는 방법과 사용하지 않는 2가지 방법이 있다. </li>
+                                <li> validator를 사용할 때는 ValidationUtils를 사용하는 방법과 사용하지 않는 2가지 방법이 있다. </li>
                                 <li> 사용자의 정보를 검증하는 단계는 컨트롤러 즉 사용자의 정보를 처음에 받는 곳에서 처리를 해야한다. </li>
                             </li>
                             <li> <a href="https://docs.spring.io/spring-framework/docs/4.1.x/spring-framework-reference/html/validation.html"

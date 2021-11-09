@@ -511,8 +511,8 @@ const DBOracleBasic = (props) => {
                                     <div className="sstitle"> 단일 함수 </div>
                                     <li>  </li>
                                     <div className="sstitle"> 일반 함수 </div>
-                                    <li> NVL(NOT NULL일떄,NULL일때) </li>
-                                    <li> NVL2(@,@ = NOT NULL일떄, @ = NULL일때) , 삼항연산느낌</li>
+                                    <li> NVL(NOT NULL일때,NULL일때) </li>
+                                    <li> NVL2(@,@ = NOT NULL일때, @ = NULL일때) , 삼항연산느낌</li>
                                     <li> DECODE(필드,데이터값,'@',데이터값,'@',.기본결과) , 스위치문이라고 생각</li>
                                     <li> CASE WHEN 조건1 then 데이터값1 WHEN 조건2 then 데이터값2 end 별명? from 테이블; </li>
                                     <div className="sstitle"> 변환 함수 </div>
@@ -558,7 +558,7 @@ const DBOracleBasic = (props) => {
                                     <li> ON 테이블1.필드 = 테이블2.필드 WHERE 테이블1.필드 {'>'} 1000; # where보다 on이 먼저 실행된다. </li>
                                     <li> ON 테이블1.필드 = 테이블2.필드 AND 테이블1.필드 {'>'} 1000; </li> <br />
                                     <li> BETWEEN 시작범위 AND 종료범위 </li> <br />
-                                    <li> SELECT 필드명 AS 필드별칭명 FROM 테이블명 # 출력이 될 떄 필드자리에 sal로 표현이 된다. </li>
+                                    <li> SELECT 필드명 AS 필드별칭명 FROM 테이블명 # 출력이 될 때 필드자리에 sal로 표현이 된다. </li>
                                     <li> SELECT 필드명 FROM 테이블 DISTINCT; </li>
                                     <li>  </li>
                                 </div>
@@ -679,7 +679,7 @@ const DBOracleBasic = (props) => {
                             <span className="stitle"> 시퀸스 사용 </span>
                             <span className="sblock">
                                 <span className="sstitle"> NEXTVAL </span>
-                                <li> 시퀸스명.NEXTVAL , 시퀸스에 필드값을 넣을 떄 자동으로 값이 증가한다. </li>
+                                <li> 시퀸스명.NEXTVAL , 시퀸스에 필드값을 넣을 때 자동으로 값이 증가한다. </li>
                                 <span className="sstitle"> CURRVAL </span>
                                 <li> SELECT 시퀸스명.CURRVAL FROM dual , 현재 시퀸스 순번을 가져온다. NEXTVAL을 한번 실행한
                                     쿼리에서 사용이 가능하다고 한다. </li>
@@ -729,7 +729,7 @@ const DBOracleBasic = (props) => {
                             <span className="stitle"> <a name="Join">  Join </a> </span>
                             <small> JOIN을 하기위해서는 레코드의 수를 고려하여야 한다. </small>
                             <small> JOIN의 종류 : Inner, Outer, Cross, Self, Anti, Semi, ANSI(표준) </small>
-                            <small> JOIN을 사용할 떄는 필드을 적을 때 테이블1.필드 , 테이블2.필드 이런식으로 테이블을 명시해 주어야 한다. </small>
+                            <small> JOIN을 사용할 때는 필드을 적을 때 테이블1.필드 , 테이블2.필드 이런식으로 테이블을 명시해 주어야 한다. </small>
                             <span className="sblock">
 
                                 <span className="stitle"> inner join,equal join </span>
@@ -879,7 +879,7 @@ const DBOracleBasic = (props) => {
                             <span className="sblock">
                                 <span className="sstitle"> 프로시저 생성  </span>
                                 <li> <small> CREATE OR REPLACE [PROCEDURE,VIEW,FUNCTION 등] 프로시저명( 변수명 IN 데이터타입, ... )
-                                    [RETURN 데이터타입 , FUNCTION일떄 사용] IS [추가적인변수선언]
+                                    [RETURN 데이터타입 , FUNCTION일때 사용] IS [추가적인변수선언]
                                     BEGIN 동작쿼리 END [파라미터명];</small>  </li>
                                 <li> CREATE OR REPLACE PROCEDURE procedure_company( c_name IN VARCHAR2, c_age IN NUMBER)
                                     IS c_dept := '회계'; BEGIN INSERT INTO (name,age,dept) VALUES (c_name,c_age,c_dept);

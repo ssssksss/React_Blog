@@ -263,7 +263,7 @@ const HtmlBasic = (props) => {
                             <li> 1. 비어있는 태그 </li>
                             <li> 2. 속성만 넣을 수 있음  </li>
                             <li> 3. 외부 소스를 불러주는 태그 </li>
-                            <li> 4. HTML에서 css파일을 불러서 사용할 떄 일반적으로 사용 </li>
+                            <li> 4. HTML에서 css파일을 불러서 사용할 때 일반적으로 사용 </li>
 
                             <h2 className='h2'> 📌 속성 </h2>
                             <li> link태그는 head태그 안에 넣는다. </li>

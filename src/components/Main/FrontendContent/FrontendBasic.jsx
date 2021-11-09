@@ -6,6 +6,77 @@ const FrontendBasic = (props) => {
         <>
 
             <div className="common_style">
+
+                <div className='block1'>
+                    <details>
+                        <summary> 보안 관련 </summary>
+                        <div className='block2'>
+
+                            <h2 className='h2'> 📌 노드에 값을 추가하는 방법 3가지 - innerHTML, DOM, insertAdjacentHTML </h2>
+                            <li> innerHTML : XSS 보안공격에 취약 </li>
+                            <li> DOM :  </li>
+                            <li> insertAdjacentHTML : XSS 보안공격에 취약 </li>
+
+                            <h2 className='h2'> 📌  </h2>
+                            <li>  </li>
+
+                        </div>
+                    </details>
+                </div>
+
+                <div className='block1'>
+                    <details>
+                        <summary> JS 관련 </summary>
+                        <div className='block2'>
+
+                            <h2 className='h2'> 📌 이벤트 버블링과 이벤트 캡처 </h2>
+                            <li> 이벤트 버블링 : 특정 요소에서 이벤트가 발생하였을 때 상위 요소들로 이벤트를 전달하는 방법 </li>
+                            <li> 버블링 사용 이유 1 : 버블링은 DOM으로 추가할 때 추가한 요소에도 이벤트를 주기 위해 사용 </li>
+                            <div className="block3">
+                                <div className="block4">
+                                    <h4 className="h4"> 기존에 버튼 요소 2개가 있고, 버튼 요소를 추가로 1개를 넣었을 때 이벤트가 작동되지 않는 예시 </h4>
+                                    <li> {' <body> '}
+                                        <li> {' <div id="btn_container"> '}
+                                            <li> {' <button> 버튼1 </button> '} </li>
+                                            <li> {' <button> 버튼2 </button> '} </li>
+                                        </li>
+                                        <li> {' </div> '} </li>
+                                    </li>
+                                    <li> {' </body> '} </li>
+                                    <li> {'  '} </li>
+                                    <li> {' <script> '}
+                                        <li> {' var buttons = document.querySelectorAll("button"); '} </li>
+                                        <li> {' buttons.forEach((x) => { '}
+                                            <li> {' x.addEventListener("click", () => { '}
+                                                <li> {' alert(x.innerText); '} </li>
+                                            </li>
+                                            <li> {' }); '} </li>
+                                        </li>
+                                        <li> {' }); '} </li>
+                                        <li> {'  '} </li>
+                                        <li> {' var btn_container = document.getElementById("btn_container"); '} </li>
+                                        <li> {' var doc = document.createElement("button"); '} </li>
+                                        <li> {' doc.appendChild(document.createTextNode("버튼3")); '} </li>
+                                        <li> {' btn_container.appendChild(doc); '} </li>
+                                    </li>
+                                    <li> {' </script> '} </li>
+                                </div>
+                                <div className="block4">
+                                    <h4 className="h4"> 위의 예시 때문에 버블링을 사용하는 이유 </h4>
+                                    <li>  </li>
+                                    <li>  </li>
+                                </div>
+                            </div>
+                            <li> 이벤트 캡처 : 이벤트 버블링과 반대로 하위 요소로 이동하면서 이벤트가 전달되는 방법 </li>
+
+                            <h2 className='h2'> 📌  </h2>
+                            <li>  </li>
+
+                        </div>
+                    </details>
+                </div>
+
+
                 <div className="lblock">
                     {/*  */}
                     <div className="mblock">
@@ -179,8 +250,8 @@ const FrontendBasic = (props) => {
                                 </div>
                                 <div className='sstitle'> post </div>
                                 <div className='mblock'>
-                                    <li> 1. 클라이언트가 서버에 요청을 보내 데이터를 저장하거나 업데이트 할 떄 사용 </li>
-                                    <li> 2. 로그인이나 회원가입등 외부의 사람들은 보이지 않게하면서 중요한 정보들을 보낼 떄 사용 </li>
+                                    <li> 1. 클라이언트가 서버에 요청을 보내 데이터를 저장하거나 업데이트 할 때 사용 </li>
+                                    <li> 2. 로그인이나 회원가입등 외부의 사람들은 보이지 않게하면서 중요한 정보들을 보낼 때 사용 </li>
                                     <li> 3. http body의 부분에 내용을 담아서 보낸다.( body의 타입은 content-type의 의해서 결정) </li>
                                     <li> 4. 용량이 큰 데이터를 보낼경우 get방식이 아닌 post방식을 사용한다. </li>
                                     <li> 5. post는 캐시를 사용할수 없고 브라우저 히스토리에도 남지 않는다. </li>

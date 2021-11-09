@@ -82,7 +82,7 @@ const JavaBasic = (props) => {
                                     <li> string : 문자열</li>
                                     <li> LocalDateTime : 날짜 </li>
                                     <li> 자바에는 C언와 다르게 unsigned가 원래는 존재하지 않았음 , 자바8에서 생김
-                                        <li> 보기에도 C언어와는 다르게 사용이 불편해 보인다. 필요할떄 찾아보자 </li>
+                                        <li> 보기에도 C언어와는 다르게 사용이 불편해 보인다. 필요할때 찾아보자 </li>
                                         <li> num = Integer.parseUnsignedInt("1234"); </li>
                                         <li> Integer.toUnsignedString(num) <small> # 십진법으로 표기된다. </small> </li>
                                         <li> Integer.toUnsignedString(num,2) <small> # 이진법으로 표현됨, 1010.. 이렇게 </small> </li>

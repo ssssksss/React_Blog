@@ -62,7 +62,7 @@ const SpringOAuth2 = (props) => {
                                 <li> 로그인시에 API에 POST로 grant_type=password 로 넘김 </li>
 
                                 <h3 className="h3"> 🎈 4. Client Credentials Grant </h3>
-                                <li> 어플리케이션이 Confidential Client일 떄 id,secret을 가지고 인증하는 방식 </li>
+                                <li> 어플리케이션이 Confidential Client일 때 id,secret을 가지고 인증하는 방식 </li>
                                 <li> 로그인시에 API에 POST로 grant_type=client_credentials 로 넘김 </li>
 
                             </div> <br />
@@ -244,7 +244,7 @@ const SpringOAuth2 = (props) => {
                                                     <li> naver:
                                                         <li> authorization-uri: https://nid.naver.com/ouath2.0/authorize <small> # 네이버 로그인창이 뜨게 만듬 </small> </li>
                                                         <li> token-uri: https://nid.naver.com/oauth2.0/toke <small> # 토큰을 받기 위해 사용</small> </li>
-                                                        <li> user-info-uri: https://openapi.naver.com/v1/nid/me <small> # 프로필 API를 호출할 떄 사용 </small> </li>
+                                                        <li> user-info-uri: https://openapi.naver.com/v1/nid/me <small> # 프로필 API를 호출할 때 사용 </small> </li>
                                                         <li> user-name-attribute: response <small> # 응답을 받을 때</small> </li>
                                                     </li>
                                                 </li>

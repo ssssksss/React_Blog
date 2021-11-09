@@ -39,7 +39,7 @@ const JavaScriptAjax = (props) => {
                                     <li> dataType : [xml,html,json,jsonp,script,text] <small> # 보낼 데이터 타입, 적지 않는다면 자동으로 판단 </small> </li>
                                     <li> async : [true,false] <small> # 동기(false), 비동기(true) 처리 여부 </small> </li>
                                     <li> statusCode : <small> #  </small> </li>
-                                    <li> jsonp : <small> # jsonp를 사용할 떄 파라미터명 설정 </small> </li>
+                                    <li> jsonp : <small> # jsonp를 사용할 때 파라미터명 설정 </small> </li>
                                     <li> contentType : [application/json, text/plain, text/html] <small> # 서버로 요청할 데이터 방식 설정 </small> </li>
                                     <li> timeout : <small> # http 요청에 대한 제한시간 지정 (ms) </small> </li>
                                     <li> headers :  </li>
