@@ -63,8 +63,28 @@ const FrontendBasic = (props) => {
                                 </div>
                                 <div className="block4">
                                     <h4 className="h4"> 위의 예시 때문에 버블링을 사용하는 이유 </h4>
-                                    <li>  </li>
-                                    <li>  </li>
+                                    <li> {' <body> '}
+                                        <li> {' <div id="btn_container"> '}
+                                            <li> {' <button value="버튼1"> 버튼1 </button> '} </li>
+                                            <li> {' <button value="버튼2"> 버튼2 </button> '} </li>
+                                        </li>
+                                        <li> {' </div> '} </li>
+                                    </li>
+                                    <li> {' </body> '} </li>
+                                    <li> {'  '} </li>
+                                    <li> {' <script> '}
+                                        <li> {' var btn_container = document.getElementById("btn_container"); '} </li>
+                                        <li> {' btn_container.addEventListener("click", (e) => { '}
+                                            <li> {' alert(e.target.value); '} </li>
+                                        </li>
+                                        <li> {' }); '} </li>
+                                        <li> {'  '} </li>
+                                        <li> {' var doc = document.createElement("button"); '} </li>
+                                        <li> {' doc.appendChild(document.createTextNode("버튼3")); '} </li>
+                                        <li> {' doc.setAttribute("value", "버튼3"); '} </li>
+                                        <li> {' btn_container.appendChild(doc); '} </li>
+                                    </li>
+                                    <li> {' </script> '} </li>
                                 </div>
                             </div>
                             <li> 이벤트 캡처 : 이벤트 버블링과 반대로 하위 요소로 이동하면서 이벤트가 전달되는 방법 </li>

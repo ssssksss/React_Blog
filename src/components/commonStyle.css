@@ -137,7 +137,7 @@
     margin: 20px 0px 10px 10px;
     padding: 5px 5px;
     display: inline-block;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 800;
     background-color: orange;
 }
@@ -170,7 +170,7 @@
 .common_style .block1 {
     width: 100%;
     display: inline-block;
-    font-size: 24px;
+    font-size: 20px;
     /*border: solid black 4px;*/
     background-color: rgba(255,255,255,0.8);
     margin-bottom: 5px;
@@ -191,6 +191,7 @@
     border: solid #3366FF 4px;
     margin: 2px 12px 10px 2px;
     padding: 10px 0px;
+    background-color: #efefea;
 }
 .common_style .block3 li {
     list-style: none;
@@ -226,6 +227,14 @@
     padding: 0px 5px;
     border-radius: 5px;
     font-weight: 600;
+}
+.common_style .col_word {
+    background: linear-gradient(90deg, #D1913C 0%, #FFD194 100%);
+    color: black;
+    padding: 0px 5px;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 20px;
 }
 .common_style .col_green {
     color: green;

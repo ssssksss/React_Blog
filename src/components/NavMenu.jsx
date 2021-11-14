@@ -23,7 +23,7 @@ const NavMenu = (props) => {
                 <button onClick={() => { send("html") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Html_icon.png'} /> HTML </button>
                 <button onClick={() => { send("css") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Css_icon.svg'} /> CSS </button>
                 <button className="col_b_r" onClick={() => { send("typescript") }}> TypeScript </button>
-                <button className="col_b_r" onClick={() => { send("javascript") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Javascript_icon.svg'} /> <span> JavaScript</span> </button>
+                <button onClick={() => { send("javascript") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Javascript_icon.svg'} /> <span> JavaScript</span> </button>
                 <button className="col_b_r" onClick={() => { send("react") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/React_icon.svg'} /> React </button>
                 <button className="col_b_r" onClick={() => { send("frontend") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Frontenddvl_icon.svg'} /> <span> 프론트 개발자 </span> </button>
             </div>

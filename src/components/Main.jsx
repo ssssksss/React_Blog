@@ -70,6 +70,9 @@ import JavaScriptElement from './Main/JavaScriptContent/JavaScriptElement';
 import JavaScriptEvent from './Main/JavaScriptContent/JavaScriptEvent';
 import JavaScriptEventObject from './Main/JavaScriptContent/JavaScriptEventObject';
 import JavaScriptAjax from './Main/JavaScriptContent/JavaScriptAjax';
+import JavaScriptAttribute from './Main/JavaScriptContent/JavaScriptAttribute';
+import JavaScriptLocation from './Main/JavaScriptContent/JavaScriptLocation';
+import JavaScriptStyle from './Main/JavaScriptContent/JavaScriptStyle';
 
 // 리액트
 import ReactBasic from './Main/ReactContent/ReactBasic';
@@ -256,6 +259,9 @@ const Main = (props) => {
                 <Route path="/javascript_event" component={JavaScriptEvent}></Route>
                 <Route path="/javascript_event_object" component={JavaScriptEventObject}></Route>
                 <Route path="/javascript_ajax" component={JavaScriptAjax}></Route>
+                <Route path="/javascript_attribute" component={JavaScriptAttribute}></Route>
+                <Route path="/javascript_location" component={JavaScriptLocation}></Route>
+                <Route path="/javascript_style" component={JavaScriptStyle}></Route>
 
                 {/* 리액트 */}
                 <Route path="/react_basic" component={ReactBasic}></Route>

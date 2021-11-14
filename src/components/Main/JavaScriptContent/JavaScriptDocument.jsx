@@ -28,129 +28,14 @@ const JavaScriptDocument = (props) => {
 									텍스트 노드는 자식노드를 가질 수 없고 최하단 노드이다. </li>
 							</div>
 
-						</div>
-					</details>
-				</div>
-
-				<div className='block1'>
-					<details>
-						<summary> DOM 노드에 접근하는 방법 </summary>
-						<div className='block2'>
-
-							<h2 className='h2'> 📌 요소,노드에 접근하는 방법 </h2>
+							<h2 className='h2'> 📌 DOM 요소 컬렉션 종류 </h2>
 							<div className="block3">
-								<li> 🔸 document.getElementById("ID") : 해당 아이디 요소를 선택, return HTML.ELEMENT </li>
-								<li> 🔸document.getElementsByTagName("TAG") : 해당 태그이름의 요소를 모두 선택, return HTML.Collection(live) </li>
-								<li>  🔸document.getElementsByClassName("CLASSNAME") : 해당 클래스 요소를 모두 선택, 노드 상태 변경이
-									바로 되므로 반복문 사용할 때 주의(while,for역방향,배열로변경,querySelectorAll사용),return HTML.Collection(live) </li>
-								<li> 🔸 document.getElementsByName("NAME") : 해당 name 요소를 모두 선택, return HTML.Collection(live) </li>
-								<li> 🔸 document.querySelector([HTML선택자, CSS선택자]) : 선택자에 해당되는 제일 첫번째 요소 반환 , return HTML.ELEMENT </li>
-								<li> 🔸 document.querySelectorAll([HTML선택자, CSS선택자]) : 선택자에 해당되는 요소 객체 반환, return NodeList </li>
-								<div className="block4">
-									<li> document.querySelectorAll("#ID") <small> # querySelectorAll("#div1") </small> </li>
-									<li> document.querySelectorAll(".CLASSNAME") <small> # querySelectorAll(".btn1") </small> </li>
-									<li> document.querySelectorAll("TAG") <small> # querySelectorAll("div") </small> </li>
-									<li> document.querySelectorAll("TAG.CLASSNAME") <small> # querySelectorAll("div.btn1") </small> </li>
-									<li> document.querySelectorAll("CSS.SELECTOR") <small> # querySelectorAll("ul{'>'}li:last-child") </small> </li>
-								</div>
+								<li> 컬렌션내부의 값이 바뀌면 실시간으로 DOM트리에 반영해서 반복문을 사용할 때 주의 </li>
+								<li> 🔸 HTMLCollection </li>
+								<li> 🔸 NodeList </li>
+								<li> 🔸 classList </li>
 							</div>
 
-							<h2 className='h2'> 📌 JQuery DOM Traversing </h2>
-							<div className="block3">
-								<li> 🔸 ELEMENT.parentNode : 부모 노드 , return HTML.ELEMENT </li>
-								<li> 🔸 ELEMENT.firstChild : 1번째 자식 노드, return HTML.ELEMENT </li>
-								<li> 🔸 ELEMENT.lastChild : 마지막 자식 노드, return HTML.ELEMENT </li>
-								<li> 🔸 ELEMENT.firstElementChild : 1번째 자식 노드, return HTML.ELEMENT </li>
-								<li> 🔸 ELEMENT.lastElementChild : 마지막 자식 노드, return HTML.ELEMENT </li>
-								<li> 🔸 ELEMENT.hasChildNodes() : 자식 노드 여부 판단, return boolean </li>
-								<li> 🔸 ELEMENT.childNodes : 모든 자식 요소 반환, return NodeList </li>
-								<li> 🔸 ELEMENT.children : 자식 노드 중 ELEMENT TYPE만 컬렉션으로 반환, return HTML.Collection(live) </li>
-								<li> 🔸 ELEMENT.previousSibling : 이전 형제 노드, return HTML.ELEMENT</li>
-								<li> 🔸 ELEMENT.nextSibling : 다음 형제 노드, return HTML.ELEMENT </li>
-								<li> 🔸 ELEMENT.previousElementSibling : 이전 형제 요소 노드, return HTML.ELEMENT</li>
-								<li> 🔸 ELEMENT.nextElementSibling : 다음 형제 요소 노드, return HTML.ELEMENT </li>
-							</div>
-
-							<h2 className='h2'> 📌 요소,노드 값을 수정하거나 조회하는 방법  </h2>
-							<div className="block3">
-								<li> 🔸 ELEMENT.nodeValue = "" : 노드 값을 수정 </li>
-								<li> 🔸 ELEMENT.nodeValue  : 노드 값을 조회 </li>
-								<li> 🔸 NodeList.ClassList </li>
-								<div className="block4">
-									<li> NodeList.ClassList.add() </li>
-									<li> NodeList.ClassList.remove() </li>
-									<li> NodeList.ClassList.item </li>
-									<li> NodeList.ClassList.toggle </li>
-									<li> NodeList.ClassList.contains </li>
-									<li> NodeList.ClassList.replace("OLD_VALUE","NEW_VALUE") </li>
-								</div>
-								<li> 🔸 ELEMENT.id </li>
-								<li> 🔸 ELEMENT.hasAttribute("ATTRIRUBTE"): 요소가 속성을 가지고 있는지 여부, return boolean </li>
-								<li> 🔸 ELEMENT.getAttribute("ATTRIBUTE") : 요소의 속성 이름 반환, return string </li>
-								<li> 🔸 ELEMENT.setAttribute("ATTRIBUTE","VALUE") : 요소에 속성 추가 </li>
-								<li> 🔸 ELEMENT.removeAttribute("ATTRIBUTE") : 요소에 속성 제거 </li>
-								<li> 🔸 ELEMENT.textContent </li>
-								<li> 🔸 ELEMENT.innerHTML : 해당 요소와 자식 요소의 모든 HTML내용을 마크업을 포함한 문자열로 반환
-									, XSS공격에 취약 HTML에 몰래 코드를 추가할 수 있음 , HTML을 재파싱함(비효율)</li>
-								<div className="block4">
-									<li> 1. XSS공격에 취약 HTML에 몰래 코드를 추가할 수 있음 <small> # {' document.getElementById("test").innerHTML = "<p> 나는 해커다 </p>"; '} </small> </li>
-									<li> 2. 내용을 덮어쓰고 HTML을 재파싱함(비효율) </li>
-									<li> 3. DOM 객체에 접근해서 사용하는 방법보다는 빠르고 편하지만 위의 2가지 문제로 비추천한다. </li>
-								</div>
-								<li> 🔸 ELEMENT.insertAdjacentHTML(POSITION, TEXT); </li>
-								<div className="block4">
-									<li> POSITION = [ beforebegin(요소전), afterbegin(요소첫번째자식보다앞), beforeend(요소마지막자식보다뒤), afterend(요소보다뒤) ] </li>
-									<li> innertHTML과는 다르게 덮어쓰기를 하지않고 파싱을해서 위치에 추가를 해준다. </li>
-									<li> innertHTML과 마찬가지로 XSS 공격에 취약하므로 사용해 주의해야 한다. </li>
-								</div>
-							</div>
-
-							<h2 className='h2'> 📌 요소를 수정하거나 추가,삭제 하는 방법 </h2>
-							<div className="block3">
-								<li> var x = document.createElement("TAG"); : 요소 노드 생성 </li>
-								<li> var x = document.createTextNode("TEXT"); : 텍스트 노드 생성 </li>
-								<li> ELEMENT.appendChild(x); : 요소의 마지막 자식노드로 추가  </li>
-								<li> ELEMENT:removeChild(x) : 요소 자식의 x노드를 제거  </li>
-								<li>  </li>
-							</div>
-
-							<h2 className='h2'> 📌 요소 css스타일 설정 </h2>
-							<div className="block3">
-								<li> ELEMENT.style.STYLE = "STYLE_VALUE"; <small> # 요소에 스타일을 바꾸는 방법 </small> </li>
-								<li> window.getComputedStyle(ELEMENT,null).getPropertyValue("STYLE") <small> # 요소의 스타일 값을 가져오는 방법 </small>  </li>
-								<li>  </li>
-							</div>
-
-
-							<h2 className='h2'> ✔ 예시 </h2>
-							<div className="block3">
-								<h3 className="h3"> html </h3>
-								<div className="block4">
-									<li> {' <body> '}
-										<li> {' 	<button class="class1"> class="class1" </button> '}  </li>
-										<li> {' 	<button id="id1"> id="id1" </button> '}  </li>
-										<li> {' 	<button> <span> &lt;span&gt; &lt;/span&gt; </span> </button> '}  </li>
-										<li> {' 	<button name="name1"> name="name1" </button> '}  </li>
-									</li>
-									<li> {' </body> '}  </li>
-									<li> {'  '}  </li> <br />
-									<li> {' <script> '}
-										<li> {' 	function switchBackground() { '}
-											<li> {' 		return function () { '}
-												<li> {' 			document.body.style.backgroundColor = "blue"; '}  </li>
-											</li>
-											<li> {' 		}; '}  </li>
-										</li>
-										<li> {' 	} '}  </li>
-										<li> {' 	var f1 = switchBackground(); '}  </li>
-										<li> {' 	document.getElementsByClassName("class1")[0].onclick = f1; '}  </li>
-										<li> {' 	document.getElementById("id1").onclick = f1; '}  </li>
-										<li> {' 	document.getElementsByTagName("span")[0].onclick = f1; '}  </li>
-										<li> {' 	document.getElementsByName("name1")[0].onclick = f1; '}  </li>
-									</li>
-									<li> {' </script> '}  </li>
-								</div>
-							</div>
 
 						</div>
 					</details>
@@ -158,11 +43,113 @@ const JavaScriptDocument = (props) => {
 
 				<div className='block1'>
 					<details>
-						<summary> activeElement - focus된 요소 </summary>
+						<summary> Document Property </summary>
 						<div className='block2'>
+
+							<h2 className='h2'> 📌 anchors - document에 있는 name속성을 가진 요소 노드를 찾는다. </h2>
+							<li> document.anchors : document에서 a태그에 name속성을 가진 요소들을 HTML_COLLECTION으로 반환 </li>
+							<li> document.anchors[INDEX] : HTML_COLLECTION에서 인덱스에 맞는 요소 노드를 반환, 존재하지 않으면 null반환 </li>
+							<li> document.anchors.item(INDEX) : HTML_COLLECTION에서 인덱스에 맞는 요소 노드를 반환, 존재하지 않으면 null반환 </li>
+							<li> document.anchors.namedItem(ID) : HTML_COLLECTION에서 특정 ID를 가진 요소 노드를 반환, 존재하지 않으면 null반환  </li>
+
+							<h2 className='h2'> 📌 document내부의 HTML태그 관련 속성  </h2>
+							<li> document.doctype : document의 doctype을 반환 </li>
+							<li> document.documentElement : document의 html 노드를 반환 </li>
+							<li> document.body : document의 body 노드를 반환 </li>
+							<li> document.title : document의 title 노드를 반환  </li>
+							<li> document.scripts.length : 스크립트의 갯수를 반환하는데 코드가 사용되는 위치에 따라 갯수가 달라진다. </li>
+							<li> document.referrer : document의 referrer을 반환 </li>
+							<li> document.links[.length] : document의 link(a)태그 컬렉션을 반환 , 단 href속성을 가지고 있어야 한다. </li>
+							<li> document.embeds[.length] : document의 embed태그 컬렉션을 반환 </li>
+							<li> document.forms[.length] : document의 form태그 컬렉션을 반환 </li>
+							<li> document.head : document의 form태그 반환 </li>
+							<li> document.images[.length] : document의 image태그 컬렉션을 반환 </li>
+							<li> 1 </li>
+
+							<h2 className='h2'> 📌 Element </h2>
+							<li> document.createElement("HTML_TAG") : document에 요소 노드를 생성한다. </li>
+
+							<h2 className='h2'> 📌 document의 내부 정보 </h2>
+							<li> document.cookie : document의 cookie를 반환 </li>
+							<li> document.characterSet : document의 문자 인코딩을 반환 </li>
+							<li> document.inputEncoding : document의 parsing될때의 문자 인코딩 값을 반환 </li>
+							<li> document.defaultView : document의 window객체 반환 </li>
+							<li> document.implementation : // TODO: 확인 필요, 무슨 말인지 모르겠음 </li>
+							<li>  </li>
+
+							<h2 className='h2'> 📌 document의 상태 </h2>
+							<li> document.readyState : document의 loading 상태를 반환, [uninitialized, loading, interactive, complete] </li>
+							<li> document.fullscreenElement : document가 전체화면이면 요소반환 아니면 null반환, 다른메소드
+								(requestFullscreen(), exitFullscreen())와 같이 사용 브라우저 버전 확인 필요 </li>
+							<li> document.fullscreenEnabled() : 전체 화면이 가능한지를 판단 </li>
+							<li> document.lastModified : document가 마지막으로 수정된 날짜를 반환 <small> # 11/13/2021 05:58:54 </small> </li>
+							<li>  </li>
+
+							<h2 className='h2'> 📌 document관련 주소 </h2>
+							<li> document.baseURI : HTML document의 base URI를 반환 <small> # html head태그 제일 위쪽에 base태그를 선언해서 사용 </small> </li>
+							<li> document.documentURI : HTML document의 URI를 반환 </li>
+							<li> document.URL : HTML document의 URL을 반환 </li>
+							<li> document.domain : 문서를 로드한 domain을 반환 <small> # // TODO: 나중에 써봐야할 속성 </small> </li>
+
+							<h2 className='h2'> 📌 designMode </h2>
+							<li> document.designMode = "on"; : document 전체를 editable하게 만든다.(default="off") <small> # 전체 쓰기 가능은.. 쓸일이 없을것 같다. </small> </li>
+							<li> document.execCommand("") : 선택 영역에 입력 인자를 받은 명령을 통해서 스타일 등을 바꾸어준다. , 브라우저 버전들을 확인해볼것 </li>
+							// TODO: 이거는 쓸 내용이 많으니 최대한 빨리 정리 필요 그리고 이 명령은 텍스트 편집기를 만드는데 사용을 한다.
+							<li> 1 </li>
+
+							<h2 className='h2'> 📌 기타 - 잘안사용하는 것들 기록 </h2>
+							<li> document.documentMode : document를 렌더링한 브라우저 모드를 알려주는데 IE만 지원을 한다.. <small> # 그냥 사용하기는 그렇다.. </small> </li>
+							<li> document.strictErrorChecking : 모든 브라우저가 지원을 하지 않아 공부하지 않음 </li>
+							<li> document.renameNode : 모든 브라우저가 지원을 하지 않아 공부하지 않음 </li>
+							<li> document.normalizeDocument() : 모든 브라우저가 지원을 하지 않아 공부하지 않음 </li>
+							<li> document.domConfig : 구식 </li>
+							<li>  </li>
+
+						</div>
+					</details>
+				</div>
+
+				<div className='block1'>
+					<details>
+						<summary> Document Method </summary>
+						<div className='block2'>
+
+							<h2 className='h2'> 📌 normalize() </h2>
+							<li> 🔸 document.normalize() : 이웃해 있는 텍스트 노드를 모두 합쳐서 하나의 텍스트 노드로 만듬
+								<small> # createTextNode를 사용하면 텍스트 노드가 2개로 분리가 된다.
+									만약에 합치지 않고 결과만 얻고 싶다면 wholeText을 사용하면 된다. </small> </li>
+
+							<h2 className='h2'> 📌 hasFocus() </h2>
+							<li> document.hasFocus() : document가 focus가 되어있는지 판단 </li>
+
+							<h2 className='h2'> 📌 importNode() </h2>
+							<li> document.importNode(OTHER_DOCUMENT_NODE, [true,false]) : 다른 document에서 node를 가져온다. true이면 자식노드까지 모드 가져옴 </li>
 
 							<h2 className='h2'> 📌  </h2>
-							<li> 1 </li>
+							<li>  </li>
+
+							<h2 className='h2'> ✔ 예시 </h2>
+							<li> 소제목
+								<div className='block3'>
+									<h3 className='h3'> 🎈 </h3>
+									<div className='block4'>
+										<li>  </li>
+									</div>
+								</div>
+							</li>
+
+						</div>
+					</details>
+				</div>
+
+				<div className='block1'>
+					<details>
+						<summary> activeElement - focus된 요소를 반환 </summary>
+						<div className='block2'>
+
+							<h2 className='h2'> 📌 설명 </h2>
+							<li> var a = document.activeElement  </li>
+							<li> document에서 focus된 요소를 반환해준다.  </li>
 
 							<h2 className='h2'> ✔ 예시 </h2>
 							<li> 소제목
@@ -192,7 +179,7 @@ const JavaScriptDocument = (props) => {
 
 				<div className='block1'>
 					<details>
-						<summary> addEventListener, removeEventListener - 요소에 이벤트를 추가하고 삭제하는 방법 </summary>
+						<summary> addEventListener(), removeEventListener() - 요소에 이벤트를 추가하고 삭제하는 방법 </summary>
 						<div className='block2'>
 
 							<h2 className='h2'> 📌 document.addEventListener </h2>
@@ -232,6 +219,64 @@ const JavaScriptDocument = (props) => {
 											<li> {' 	}); '} </li>
 										</li>
 										<li> {' </script> '} </li>
+									</div>
+								</div>
+							</li>
+
+						</div>
+					</details>
+				</div>
+
+				<div className='block1'>
+					<details>
+						<summary> createDocumentFragment() - DOM Fragment, 비어있는 노드 임시 공간 </summary>
+						<div className='block2'>
+
+							<h2 className='h2'> 📌 document.createDocumentFragment() </h2>
+							<li> var d = document.createDocumentFragment() </li>
+							<li> 문서의 일부를 추출하거나 일부 내용을 변경,추가,삭제 후 문서에 다시 삽입해서 사용을 할 수 있다. </li>
+							<li> 비어있는 노드라고 생각하면 되고 parentNode는 존재하지 않는다. 대신 자손 노드를 생성해서 사용하면 된다. </li>
+							<li> fragment 노드를 다른 노드에 추가하거나 삽입을 하면 fragment 노드는 초기화가 된다. </li>
+
+							<h2 className='h2'> 📌 예시 </h2>
+							<li> var d = document.createDocumentFragment() : fragment 노드 생성 </li>
+							<li> d.appendChild(NODE) : fragment 노드에 노드를 넣는 방법 </li>
+							<li> ELEMENT_NODE.appendChild(d) : 요소 노드 자식으로 fragment 노드 삽입 </li>
+							<li> NODE.appendChild(d) : 이미 존재하는 노드에 삽입을 하면 기존 노드는 사라지고 fragment 노드 바뀐다. </li>
+
+							<h2 className='h2'> ✔ 예시 </h2>
+							<li> 소제목
+								<div className='block3'>
+									<h3 className='h3'> 🎈 </h3>
+									<div className='block4'>
+										<li>  </li>
+									</div>
+								</div>
+							</li>
+
+						</div>
+					</details>
+				</div>
+
+				<div className='block1'>
+					<details>
+						<summary> open(), close() </summary>
+						<div className='block2'>
+
+							<h2 className='h2'> 📌 설명 </h2>
+							<li> 출력스트림을 open() 문서를 작성하고 close()로 닫으면 문서를 지운다.  </li>
+							<li> window.open()을 사용하면 새로운 창으로 바꿔서 문서를 작성할 수 있다. </li>
+
+							<h2 className='h2'> 📌 장점, 단점 </h2>
+							<li> 장점 : </li>
+							<li> 단점 : </li>
+
+							<h2 className='h2'> ✔ 예시 </h2>
+							<li> 소제목
+								<div className='block3'>
+									<h3 className='h3'> 🎈 </h3>
+									<div className='block4'>
+										<li>  </li>
 									</div>
 								</div>
 							</li>

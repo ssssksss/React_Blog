@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const JavaSciptList = () => {
+const JavaScriptList = () => {
 
 
     return (
@@ -12,6 +12,10 @@ const JavaSciptList = () => {
                 <Link to="/javascript_element"> JavaScript Element </Link>
                 <Link to="/javascript_event"> JavaScript Event </Link>
                 <Link to="/javascript_event_object"> JavaScript EventObject </Link>
+                <Link to="/javascript_attribute"> JavaScript Attribute </Link>
+                <Link to="/javascript_window"> JavaScript Window </Link>
+                <Link to="/javascript_location"> JavaScript Location </Link>
+                <Link to="/javascript_style"> JavaScript Style </Link>
                 <Link to="/javascript_ajax">  Ajax </Link>
             </div>
             <div className="menu menu2">
@@ -20,4 +24,4 @@ const JavaSciptList = () => {
     );
 }
 
-export default JavaSciptList;
+export default JavaScriptList;

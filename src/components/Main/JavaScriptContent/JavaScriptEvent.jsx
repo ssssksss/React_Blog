@@ -6,6 +6,7 @@ const JavaScriptEvent = (props) => {
 
 			<div className="common_style" >
 
+
 				<div className='block1'>
 					<details>
 						<summary> 이벤트 설명 </summary>
@@ -36,22 +37,22 @@ const JavaScriptEvent = (props) => {
 							<h2 className='h2'> 📌 속성 및 메소드 </h2>
 							<li> defaultPrevented : preventDefault()가 이벤트에서 호출되었는지를 반환 </li>
 							<li> target : 이벤트를 발생시킨 요소 반환 </li>
+							<li> currentTarget : 이벤트의 부모 요소를 반환 </li>
 							<li> type : 이벤트 이름 반환 </li>
 							<li> view :  </li>
+							<li> document.createEvent("EVENT_TYPE") : 이벤트 개체를 생성, 딱히 사용할 필요가 있는지 몰라서 일단 넘어간다...  </li>
 							<li>  </li>
 
 						</div>
 					</details>
 				</div>
 
-
 				<div className='block1'>
 					<details>
-						<summary> 마우스, 키보드, 스크롤, 터치 </summary>
+						<summary> 마우스 </summary>
 						<div className='block2'>
 
-							<h2 className='h2'> 📌 이벤트 설명 </h2>
-							<li> 이벤트 : MouserEvent,  </li>
+							<h2 className='h2'> 📌 마우스 이벤트 </h2>
 							<li> click : 요소에 마우스를 클릭하고 떼었을 때 이벤트 발생 </li>
 							<li> dbclick : 요소에 마우스를 더블클릭하였을 때 이벤트 발생 </li>
 							<li> mousedown : 요소에 안에서 마우스를 클릭하였을 때 이벤트 발생 </li>
@@ -63,12 +64,43 @@ const JavaScriptEvent = (props) => {
 							<li> mousewheel : 마우스 휠을 사용할 때 이벤트 발생 </li>
 							<li> scroll : 스크롤바를 움직였을 때 이벤트 발생  </li>
 							<li> wheel : 마우스 휠을 움직일 때 이벤트 발생 </li>
+
+							<h2 className='h2'> 📌 속성 및 메소드 </h2>
+							<li> event.which : 마우스 어떤 버튼이 눌렸는지 </li>
+							<li> event.deltaX : 마우스 휠의 x축(가로) 스크롤 양 반환 , ???</li>
+							<li> event.deltaY : 마우스 휠의 y축(세로) 스크롤 양 반환 , ???</li>
+							<li> event.deltaZ : 마우스 휠의 z축 스크롤 양 반환 , ???</li>
+							<li> event.detail : 마우스 클릭 횟수 반환 </li>
+							<li> relatedTarget : 마우스,포커스 이벤트를 트리거한 요소와 관련된 요소를 반환합니다. </li>
+							<li> MovementX :  mousemove 이벤트의 마지막 가로 좌표 반환 </li>
+							<li> MovementY :  mousemove 이벤트의 마지막 세로 좌표 반환 </li>
+
+							<h2 className='h2'> ✔ 예시 </h2>
+							<li> 소제목
+								<div className='block3'>
+									<h3 className='h3'> 🎈 </h3>
+									<div className='block4'>
+										<li>  </li>
+									</div>
+								</div>
+							</li>
+
+						</div>
+					</details>
+				</div>
+
+
+				<div className='block1'>
+					<details>
+						<summary> 키보드, 스크롤, 터치 </summary>
+						<div className='block2'>
+
+							<h2 className='h2'> 📌 이벤트 설명 </h2>
+							<li> 이벤트 : MouserEvent,  </li>
 							<li> keydown : 요소(input)위에서 키보드를 눌렀을 때 이벤트 발생 <small> # 어떤 요소에서 되는지는 확인이 필요 </small> </li>
 							<li> keypress : 요소를 눌렀을 때 이벤트 발생(누르고 있으면 계속 이벤트 발생) , 방향키 등 입력이 되지 않는
 								키보드의 입력에는 이벤트가 발생하지 않는다. </li>
 							<li> keyup : 요소(input)위에서 키보드를 눌렀다가 떼었을 때 이벤트 발생 </li>
-							<li>  </li> <br />
-
 
 							<h2 className='h2'> 📌 속성 및 메소드 </h2>
 							<li> event.altKey : 마우스,키보드 이벤트에서 Alt 키가 눌렸는지 여부 반환 </li>
@@ -77,7 +109,7 @@ const JavaScriptEvent = (props) => {
 							<li> event.button : 마우스가 눌렸으면 0반환 , 아니면 undefined </li>
 							<li> event.buttons : 마우스가 어떤 버튼이 눌렸는지 반환 좌측0,우측2,스크롤4 , 아니면 undefined , 작동하는 것에 대해서는
 								좀더 알아볼 필요가 있다. </li>
-							<li> event.which : 마우스 어떤 버튼이 눌렸는지 </li>
+
 							<li> event.cancelable : 취소 가능한 이벤트인지 여부 , 어떻게 사용하는지 모르겠다. </li>
 							<li> offsetX : 이벤트가 발생하는 요소를 기준 </li>
 							<li> offsetY : 이벤트가 발생하는 요소를 기준 </li>
@@ -89,11 +121,7 @@ const JavaScriptEvent = (props) => {
 							<li> event.clientY : 브라우저에서 사용자에게 보이는 화면 기준 </li>
 							<li> event.code : 키보드로 입력한 키 코드 반환 </li>
 							<li> event.composed : 이벤트가 작성되었는지 여부 반환, 무슨 의미인지 모르겠다. </li>
-							<li> event.deltaX : 마우스 휠의 x축(가로) 스크롤 양 반환 , ???</li>
-							<li> event.deltaY : 마우스 휠의 y축(세로) 스크롤 양 반환 , ???</li>
-							<li> event.deltaZ : 마우스 휠의 z축 스크롤 양 반환 , ???</li>
 							<li> event.deltaMode : 델타 값을 반환 , ??? </li>
-							<li> event.detail : 마우스 클릭 횟수 반환 </li>
 							<li> isComposing : 이벤트 상태인지 아닌지 여부 판단 </li>
 							<li> event.key : 이벤트가 보여주는 키의 값 반환 </li>
 							<li> event.keyCode : 키보드 이벤트에서 유니코드 문자나 유니코드 키코드를 반환 </li>
@@ -101,9 +129,6 @@ const JavaScriptEvent = (props) => {
 							<li> metakey : metakey가 눌렸을 때의 여부 반환, 메타키가 특정키보드나 운영체제에 있나보다(Mac,MIT기계 등등) </li>
 							<li> region :  </li>
 							<li> repeat : 키보드가 반복적으로 눌렸는지 판단 여부 </li>
-							<li> relatedTarget : 마우스,포커스 이벤트를 트리거한 요소와 관련된 요소를 반환합니다. </li>
-							<li> MovementX :  mousemove 이벤트의 마지막 가로 좌표 반환 </li>
-							<li> MovementY :  mousemove 이벤트의 마지막 세로 좌표 반환 </li>
 							<li> targetTouches : 현재 대상 요소에서 터치 이벤트가 발생한 모든 터치 객체 목록 반환 </li>
 							<li> touches : 표면에 접촉하고 있는 모든 터치 객체 목록 반환 </li>
 							<li> getModifierState([Alt,AltGraph,Control,Meta,Shift,CapsLock,NumLock,ScrollLock]) : 특정 키가 활성화 되었는지 판단 여부  </li>
