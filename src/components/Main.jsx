@@ -56,6 +56,7 @@ import HtmlTest from './Main/HtmlContent/HtmlTest';
 
 // CSS
 import CssBasic from './Main/CssContent/CssBasic';
+import CssBasic2 from './Main/CssContent/CssBasic2';
 import CssBootStrap from './Main/CssContent/CssBootStrap';
 import CssScss from './Main/CssContent/CssScss';
 import CssBlurBusinessCard from './Main/CssContent/CssBlurBusinessCard';
@@ -83,6 +84,7 @@ import ReactVscode from './Main/ReactContent/ReactVscode';
 import FrontendBasic from './Main/FrontendContent/FrontendBasic';
 import FrontendBrowserDevTool from './Main/FrontendContent/FrontendBrowserDevTool';
 import FrontendRegex from './Main/FrontendContent/FrontendRegex';
+import FrontendBuildName from './Main/FrontendContent/FrontendBuildName';
 
 // ========== 기타 ==========
 // 데이터 베이스
@@ -245,6 +247,7 @@ const Main = (props) => {
 
                 {/* CSS */}
                 <Route path="/css_basic" component={CssBasic}></Route>
+                <Route path="/css_basic2" component={CssBasic2}></Route>
                 <Route path="/css_bootstrap" component={CssBootStrap}></Route>
                 <Route path="/css_scss" component={CssScss}></Route>
                 <Route path="/css_blur business card" component={CssBlurBusinessCard}></Route>
@@ -272,6 +275,7 @@ const Main = (props) => {
                 <Route path="/frontend_basic" component={FrontendBasic}></Route>
                 <Route path="/frontend_browserdevtool" component={FrontendBrowserDevTool}></Route>
                 <Route path="/frontend_regex" component={FrontendRegex}></Route>
+                <Route path="/frontend_buildname" component={FrontendBuildName}></Route>
 
                 {/*========== 기타 ==========*/}
 

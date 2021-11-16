@@ -16,19 +16,352 @@ const CssBootStrap = (props) => {
                             <h2 className='h2'> 📌 react에 설치방법 </h2>
                             <li> yarn add react-bootstrap bootstrap 혹은 npm install react-bootstrap bootstrap </li>
                             <li> import 'bootstrap/dist/css/bootstrap.css' 를 최상단 컴포넌트인 index.js에 추가를 해준다. </li>
-                            <li> {' <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" '}  </li>
-                            <li> {' integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/> '}  </li>
-                            <li> 위의 2줄 내용을 index.html 의 head 부분안에 넣어준다.  </li>
+                            <li> {' <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" '}
+                                {' integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/> '}  </li>
+                            <li> 위의 코드를 index.html 의 head 부분안에 넣어준다.  </li>
 
                             <h2 className='h2'> 📌 intellij gradle에서 사용 ( 기억이 잘 안나서 나중에 다시 사용할 때 추가하기) </h2>
                             <li> {' <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous"> '}
                                 head 태그 내부에 추가해주기 </li>
+
+                            <h2 className='h2'> 📌 js 추가 </h2>
+                            <li> {' <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" '}
+                                {' integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" '}
+                                {' crossorigin="anonymous"></script> '} </li>
 
                             <h2 className='h2'> ✔ 예시 </h2>
                             <li> 소제목
                                 <div className='block3'>
                                     <h3 className='h3'> 🎈 </h3>
                                     <li>  </li>
+                                </div>
+                            </li>
+
+                        </div>
+                    </details>
+                </div>
+
+                <div className='block1'>
+                    <details>
+                        <summary> CONTAINERS </summary>
+                        <div className='block2'>
+
+                            <h2 className='h2'> 📌 설명 </h2>
+                            <li> 1. 중앙 배치 </li>
+                            <li> 2. 중단점에서 알아서 크기 변경 </li>
+                            <li> 3. 인라인 속성 </li>
+                            <table border="1" width="100%" style={{ background: "#ffffff" }}>
+                                <colgroup>
+                                    <col />
+                                    <col style={{ background: "#eaeaea" }} />
+                                    <col />
+                                    <col style={{ background: "#eaeaea" }} />
+                                    <col />
+                                    <col style={{ background: "#eaeaea" }} />
+                                    <col />
+                                </colgroup>
+                                <thead>
+                                    <tr>
+                                        <th colSpan="1">  </th>
+                                        <th colSpan="1"> {'<576px'} </th>
+                                        <th colSpan="1"> {'≥576px'} </th>
+                                        <th colSpan="1"> {'≥768px '} </th>
+                                        <th colSpan="1"> {'≥992px '} </th>
+                                        <th colSpan="1"> {'≥1200px '} </th>
+                                        <th colSpan="1"> {'≥1400px '} </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>.container</td>
+                                        <td> <b> 100% </b></td>
+                                        <td>540px</td>
+                                        <td>720px</td>
+                                        <td>960px</td>
+                                        <td>1140px</td>
+                                        <td>1320px</td>
+                                    </tr>
+                                    <tr>
+                                        <td>.container-sm</td>
+                                        <td> <b> 100% </b></td>
+
+                                        <td>540px</td>
+                                        <td>720px</td>
+                                        <td>960px</td>
+                                        <td>1140px</td>
+                                        <td>1320px</td>
+                                    </tr>
+                                    <tr>
+                                        <td>.container-md</td>
+                                        <td> <b> 100% </b></td>
+                                        <td> <b> 100% </b></td>
+                                        <td>720px</td>
+                                        <td>960px</td>
+                                        <td>1140px</td>
+                                        <td>1320px</td>
+                                    </tr>
+                                    <tr>
+                                        <td>.container-lg</td>
+                                        <td> <b> 100% </b></td>
+                                        <td> <b> 100% </b></td>
+                                        <td> <b> 100% </b></td>
+                                        <td>960px</td>
+                                        <td>1140px</td>
+                                        <td>1320px</td>
+                                    </tr>
+                                    <tr>
+                                        <td>.container-xl</td>
+                                        <td> <b> 100% </b></td>
+                                        <td> <b> 100% </b></td>
+                                        <td> <b> 100% </b></td>
+                                        <td> <b> 100% </b></td>
+                                        <td>1140px</td>
+                                        <td>1320px</td>
+                                    </tr>
+                                    <tr>
+                                        <td>.container-xxl</td>
+                                        <td> <b> 100% </b></td>
+                                        <td> <b> 100% </b></td>
+                                        <td> <b> 100% </b></td>
+                                        <td> <b> 100% </b></td>
+                                        <td> <b> 100% </b></td>
+                                        <td>1320px</td>
+                                    </tr>
+                                    <tr>
+                                        <td>.container-fluid</td>
+                                        <td> <b> 100% </b></td>
+                                        <td> <b> 100% </b></td>
+                                        <td> <b> 100% </b></td>
+                                        <td> <b> 100% </b></td>
+                                        <td> <b> 100% </b></td>
+                                        <td> <b> 100% </b></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </details>
+                </div>
+
+                <div className='block1'>
+                    <details>
+                        <summary> NAV </summary>
+                        <div className='block2'>
+
+                            <h2 className='h2'> 📌 설명 </h2>
+                            <li> .nav <small> # nav 컨테이너 </small> </li>
+                            <li> .nav nav-tabs <small> # nav 탭 컨테이너 </small> </li>
+                            <li> .nav  nav-pills <small> # nav 탭 컨테이너 </small> </li>
+                            <li> .nav  nav-pills  nav-fill <small> # nav 탭 컨테이너 </small> </li>
+                            <li> .nav-itme  </li>
+                            <li> .nav-link active <small> # 현재 요소 선택 </small> </li>
+                            <li> .nav-link disabled <small> # 현재 요소 비활성화 </small> </li>
+
+                            <h2 className='h2'> 📌 장점, 단점 </h2>
+                            <li> 장점 : </li>
+                            <li> 단점 : </li>
+
+                            <h2 className='h2'> ✔ 예시 </h2>
+                            <li> 소제목
+                                <div className='block3'>
+                                    <h3 className='h3'> 🎈 </h3>
+                                    <div className='block4'>
+                                        <li>  </li>
+                                    </div>
+                                </div>
+                            </li>
+
+                        </div>
+                    </details>
+                </div>
+
+                <div className='block1'>
+                    <details>
+                        <summary> BORDER </summary>
+                        <div className='block2'>
+
+                            <h2 className='h2'> 📌 border 방향 </h2>
+                            <li> .border : 전체 방향 </li>
+                            <li> .border-[top, end, bottom, start] : 상 우 하 좌  </li>
+
+                            <h2 className='h2'> 📌 border 색깔 </h2>
+                            <li> .border .border-[primary, secondary, success, danger, warning, info, light, dark, white] : 경계선의 색깔 선택</li>
+
+                            <h2 className='h2'> 📌 border 두께 </h2>
+                            <li> .border .border-[top, end, bottom, start]-[0~5] : 0이면 경계선을 제거 </li>
+
+                            <h2 className='h2'> 📌 border radius </h2>
+                            <li> .rounded-[0~3] </li>
+                            <li> .rounded-[top, end, bottom, start, circle, pill] : 상 우 하 좌 원형 양쪽원형 </li>
+
+                            <h2 className='h2'> ✔ 예시 </h2>
+                            <li> 소제목
+                                <div className='block3'>
+                                    <h3 className='h3'> 🎈 </h3>
+                                    <div className='block4'>
+                                        <li>  </li>
+                                    </div>
+                                </div>
+                            </li>
+
+                        </div>
+                    </details>
+                </div>
+
+                <div className='block1'>
+                    <details>
+                        <summary> BREAKPOINTS - 반응형 </summary>
+                        <div className='block2'>
+
+                            <h2 className='h2'> 📌 설명 </h2>
+                            <li> 요소의 </li>
+                            <li> sm : 576이상 </li>
+                            <li> md : 768이상 </li>
+                            <li> lg : 992이상 </li>
+                            <li> xl : 1200이상 </li>
+                            <li> xxl : 1400이상 </li>
+
+                            <h2 className='h2'> ✔ 예시 </h2>
+                            <li> 소제목
+                                <div className='block3'>
+                                    <h3 className='h3'> 🎈 </h3>
+                                    <div className='block4'>
+                                        <li>  </li>
+                                    </div>
+                                </div>
+                            </li>
+
+                        </div>
+                    </details>
+                </div>
+
+                <div className='block1'>
+                    <details>
+                        <summary> ACCORDION </summary>
+                        <div className='block2'>
+
+                            <h2 className='h2'> 📌 설명 </h2>
+                            <li> .accordion <small> # 아코디언 컨테이너 </small> </li>
+                            <li> .accordion-flush </li>
+                            <li> .accordion-item </li>
+                            <li> .accordion-header </li>
+                            <li> .accordion-button </li>
+                            <li> .accordion-body </li>
+                            <li> .accordion-collapse collapse </li>
+
+                            <h2 className='h2'> ✔ 예시 </h2>
+                            <li> 소제목
+                                <div className='block3'>
+                                    <h3 className='h3'> 🎈 </h3>
+                                    <div className='block4'>
+                                        <li> {' <div class="accordion" id="accordionExample"> '}
+                                            <li> {' <div class="accordion-item"> '}
+                                                <li> {' <h2> '}
+                                                    <li> {' <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-ex1" '}
+                                                        {' aria-expanded="true" aria-controls="collapse-ex1"> '} </li>
+                                                    <li> {' 아코디언 1번 '} </li>
+                                                    <li> {' </button> '} </li>
+                                                </li>
+                                                <li> {' </h2> '} </li>
+                                                <li> {' <div id="collapse-ex1" class="accordion-collapse collapse" data-bs-parent="#accordionExample"> '}
+                                                    <li> {' <div class="accordion-body"> '}
+                                                        <li> {' 텍스트 '} </li>
+                                                    </li>
+                                                    <li> {' </div> '} </li>
+                                                </li>
+                                                <li> {' </div> '} </li>
+                                            </li>
+                                            <li> {' </div> '} </li>
+                                        </li>
+                                        <li> {' </div> '} </li>
+                                    </div>
+                                </div>
+                            </li>
+
+                        </div>
+                    </details>
+                </div>
+
+                <div className='block1'>
+                    <details>
+                        <summary> COLLAPSE </summary>
+                        <div className='block2'>
+
+                            <h2 className='h2'> 📌 설명 </h2>
+                            <li> .collapse : 내용을 숨김 </li>
+                            <li> .collapsing : 트랜지션 동안 적용? </li>
+
+                            <h2 className='h2'> 📌 collapse a  </h2>
+                            <li> data-bs-toggle="collapse" : </li>
+                            <li> data-bs-target="#ID_NAME" </li>
+
+                            <h2 className='h2'> 📌 collapse button  </h2>
+                            <li> data-bs-toggle="collapse" </li>
+                            <li> data-bs-target="#ID_NAME" </li>
+                            <li> data-bs-target=".multi-collapse" <small> # 여러개의 요소를 한번에 닫을 때 클래스 사용 </small> </li>
+
+                            <h2 className='h2'> 📌 collapse   </h2>
+                            <li>  </li>
+
+                            <h2 className='h2'> 📌 적용시킬 요소 </h2>
+                            <li> .collapse </li>
+                            <li> .collapse-horizontal <small> # 수평에서 나오게 하기 </small> </li>
+                            <li> id="ID_NAME" </li>
+                            <li> class="multi-collapse" <small> # 1개의 버튼으로 모두 닫을 요소 설정 </small> </li>
+                            <li> .show : 내용을 처음에 보여주는 설정 </li>
+
+                            <h2 className='h2'> 📌 collapse method </h2>
+                            <li> toggle </li>
+                            <li> show </li>
+                            <li> hide </li>
+                            <li> dispose </li>
+                            <li> getInstance </li>
+                            <li> getOrCreateInstance </li>
+
+                            <h2 className='h2'> 📌 collapse event </h2>
+                            <li> show.bs.collapse </li>
+                            <li> shown.bs.collapse </li>
+                            <li> hide.bs.collapse </li>
+                            <li> hidden.bs.collapse </li>
+
+                            <h2 className='h2'> ✔ 예시 </h2>
+                            <li> 소제목
+                                <div className='block3'>
+                                    <h3 className='h3'> 🎈 </h3>
+                                    <div className='block4'>
+                                        <li> {' <div> '}
+                                            <li> {' <button data-bs-toggle="collapse" data-bs-target="#collapse-ex1"> 버튼1 </button> '} </li>
+                                        </li>
+                                        <li> {' </div> '} </li>
+                                        <li> {' <div> '}
+                                            <li> {' <p class="collapse show" id="collapse-ex1"> 테스트1 </p> '} </li>
+                                        </li>
+                                        <li> {' </div> '} </li>
+                                    </div>
+                                </div>
+                            </li>
+
+                        </div>
+                    </details>
+                </div>
+
+                <div className='block1'>
+                    <details>
+                        <summary> align-items </summary>
+                        <div className='block2'>
+
+                            <h2 className='h2'> 📌 설명 </h2>
+                            <li> .align-items-start : </li>
+                            <li> .align-items-center : </li>
+                            <li> .align-items-end :  </li>
+
+                            <h2 className='h2'> ✔ 예시 </h2>
+                            <li> 소제목
+                                <div className='block3'>
+                                    <h3 className='h3'> 🎈 </h3>
+                                    <div className='block4'>
+                                        <li>  </li>
+                                    </div>
                                 </div>
                             </li>
 
@@ -281,8 +614,9 @@ const CssBootStrap = (props) => {
                         <div className='block2'>
 
                             <h2 className='h2'> 📌 속성 </h2>
-                            <li> class="row" <small> # 행으로 분할(세로배치) </small> </li>
-                            <li> class="col" <small> # 열로 분할(가로배치) </small> </li>
+                            <li> col은 12칸을 기준으로 한다. </li>
+                            <li> .row-@ <small> # 행으로 분할(세로배치) </small> </li>
+                            <li> .col-@ <small> # 열로 분할(가로배치) </small> </li>
 
 
                             <h2 className='h2'> ✔ 예시 </h2>
@@ -299,14 +633,46 @@ const CssBootStrap = (props) => {
 
                 <div className='block1'>
                     <details>
-                        <summary> display </summary>
+                        <summary> DISPLAY </summary>
                         <div className='block2'>
 
                             <h2 className='h2'> 📌 속성 </h2>
-                            <li> class="d-inline-block" </li>
-                            <li> class="d-block" </li>
-                            <li> class="d-inline" </li>
+                            <li> .d-inline-block </li>
+                            <li> .d-block </li>
+                            <li> .d-inline </li>
+                            <li> .d-[BREAKPOINT]-[VALUE] </li>
 
+                            <h2 className='h2'> 📌 display hidden </h2>
+                            <li> .d-none <small> # all 숨김 </small> </li>
+                            <li> .d-sm-block  <small> # xs이상에서 숨김 </small> </li>
+                            <li> .d-md-block  <small> # sm이상에서 숨김 </small> </li>
+                            <li> .d-lg-block  <small> # md이상에서 숨김 </small> </li>
+                            <li> .d-xl-block  <small> # lg이상에서 숨김 </small> </li>
+                            <li> .d-xxl-block <small> # xl이상에서 숨김 </small> </li>
+
+                            <h2 className='h2'> 📌 display only hidden </h2>
+                            <li> .d-none <small> # all에서만 숨김 </small> </li>
+                            <li> .d-none .d-sm-block     <small> # xs에서만 숨김 </small> </li>
+                            <li> .d-sm-none .d-md-block  <small> # sm에서만 숨김 </small> </li>
+                            <li> .d-md-none .d-lg-block  <small> # md에서만 숨김 </small> </li>
+                            <li> .d-lg-none .d-xl-block  <small> # lg에서만 숨김 </small> </li>
+                            <li> .d-xl-none .d-xxl-block <small> # xl에서만 숨김 </small> </li>
+                            <li> .d-xxl-none <small> # xxl에서 숨김 </small> </li>
+
+                            <h2 className='h2'> 📌 display only visible </h2>
+                            <li> .d-block <small> # all 보임 </small> </li>
+                            <li> .d-block .d-sm-none <small> # xs에서만 보임 </small> </li>
+                            <li> .d-none .d-sm-block .d-md-none <small> # sm에서만 보임 </small> </li>
+                            <li> .d-none .d-md-block .d-lg-none <small> # md에서만 보임 </small> </li>
+                            <li> .d-none .d-lg-block .d-xl-none <small> # lg에서만 보임 </small> </li>
+                            <li> .d-none .d-xl-block .d-xxl-none <small> # xl에서만 보임 </small> </li>
+                            <li> .d-none .d-xxl-block <small> # xxl에서만 보임 </small> </li>
+
+                            <h2 className='h2'> 📌  </h2>
+                            <li>  </li>
+
+                            <h2 className='h2'> 📌  </h2>
+                            <li>  </li>
 
                             <h2 className='h2'> ✔ 예시 </h2>
                             <li> 소제목
