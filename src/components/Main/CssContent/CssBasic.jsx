@@ -8,36 +8,29 @@ const CssBasic = (props) => {
 
                 <div className='block1'>
                     <details>
-                        <summary> width(너비) </summary>
+                        <summary> width(너비), height(높이) </summary>
                         <div className='block2'>
-                            <h2 className='h2'> 📌 설명 </h2>
-                            <li> inlinecss 스타일에는 적용이 되지 않는다. </li>
+                            <h2 className='h2'> 📌 width(너비) 설명 </h2>
+                            <li> inline css 스타일에는 적용이 되지 않는다. </li>
 
-                            <h2 className='h2'> 📌 css 스타일 </h2>
+                            <h2 className='h2'> 📌 width(너비) css 스타일 </h2>
+                            // TODO: min-width 나중에 한번 알아볼 것 <br />
+                            <li> min-width를 사용할 때 1px정도의 여백?이 발생하는 일이 있다 </li>
                             <li> min-width: 500px; <small> #박스의 최소 길이 설정  </small>  </li>
                             <li> max-width: 500px; <small> #박스의 최대 길이 설정  </small>  </li>
                             <li> min-width: 100%;  <small> #박스의 최소 길이 설정 , 부모요소를 기준 </small>  </li>
                             <li> max-width: 100%;  <small> #박스의 최대 길이 설정 , 부모요소를 기준 </small>  </li>
                             <li> width: 100px, 100% <small> # 너비 크기 설정 </small> </li>
-                        </div>
-                    </details>
-                </div>
 
-                <div className='block1'>
-                    <details>
-                        <summary> height(높이 </summary>
-                        <div className='block2'>
-
-                            <h2 className='h2'> 📌 설명 </h2>
+                            <h2 className='h2'> 📌 height(높이) 설명 </h2>
                             <li> inlinecss 스타일에는 적용이 되지 않는다. </li>
 
-                            <h2 className='h2'> 📌 css 스타일 </h2>
+                            <h2 className='h2'> 📌 height(높이) css 스타일 </h2>
                             <li> min-height: 500px; <small> #박스의 최소 길이 설정  </small>  </li>
                             <li> max-height: 500px; <small> #박스의 최대 길이 설정  </small>  </li>
                             <li> min-height: 100%;  <small> #박스의 최소 길이 설정 , 부모요소를 기준 </small>  </li>
                             <li> max-height: 100%;  <small> #박스의 최대 길이 설정 , 부모요소를 기준 </small>  </li>
                             <li> height: 100px, 100% <small> # 높이 길이 설정 </small> </li>
-
                         </div>
                     </details>
                 </div>
@@ -72,32 +65,23 @@ const CssBasic = (props) => {
 
                 <div className='block1'>
                     <details>
-                        <summary> margin(외부 간격) </summary>
+                        <summary> margin(외부 간격), padding(내부 간격) </summary>
                         <div className='block2'>
 
-                            <h2 className='h2'> 📌 설명 </h2>
+                            <h2 className='h2'> 📌 margin(외부 간격) 설명 </h2>
                             <li> block요소에만 사용가능 </li>
 
-                            <h2 className='h2'> 📌 css 스타일 </h2>
+                            <h2 className='h2'> 📌 padding(내부 간격) css 스타일 </h2>
                             <li> margin: 5px; <small> # [상하좌우], [ 세로 | 가로 ] , [ 위 | 가로 | 아래 ] , [ 위 | 우측 | 아래 | 좌측 ] </small> </li>
                             <li> margin-left: 5px; </li>
                             <li> margin-right: 5px; </li>
                             <li> margin-top: 5px; </li>
                             <li> margin-bottom: 5px; </li>
 
-                        </div>
-                    </details>
-                </div>
-
-                <div className='block1'>
-                    <details>
-                        <summary> padding(내부 간격) </summary>
-                        <div className='block2'>
-
-                            <h2 className='h2'> 📌 설명 </h2>
+                            <h2 className='h2'> 📌 padding(내부 간격) 설명 </h2>
                             <li> block요소에만 사용가능 </li>
 
-                            <h2 className='h2'> 📌 css 스타일 </h2>
+                            <h2 className='h2'> 📌 padding(내부 간격) css 스타일 </h2>
                             <li> padding: 5px; <small> # [상하좌우], [ 세로 | 가로 ] , [ 위 | 가로 | 아래 ] , [ 위 | 우측 | 아래 | 좌측 ] </small> </li>
                             <li> padding-left: 5px; </li>
                             <li> padding-right: 5px; </li>
@@ -332,11 +316,20 @@ const CssBasic = (props) => {
 
                 <div className='block1'>
                     <details>
-                        <summary> font(폰트 </summary>
+                        <summary> font(폰트) </summary>
                         <div className='block2'>
 
-                            <h2 className='h2'> 📌 설명 </h2>
-                            <li> 1 </li>
+                            <h2 className='h2'> 📌 폰트 url 불러오기 </h2>
+                            <li>  </li>
+                            <li>  </li>
+
+                            <h2 className='h2'> 📌 폰트 파일 </h2>
+                            <li> @font-face {'{'}
+                                <li> font-family: "CUSTOM_NAME"; </li>
+                                <li> src: url("../파일경로.확장자명") format("truetype") </li>
+                            </li>
+                            <li> {'}'} </li> <br />
+                            <li> tag {'{ font-family: "CUSTOM_NAME" }'} </li>
 
                             <h2 className='h2'> 📌 css 스타일 </h2>
                             <li> color: red, #ffffff , rgba(255,255,255); #폰트의 색깔 설정 </li>

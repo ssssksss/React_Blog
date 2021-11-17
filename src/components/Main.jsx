@@ -383,6 +383,9 @@ const Main = (props) => {
                 <Route path="/program_recdev" component={ProgramRecDev}></Route>
                 <Route path="/program_recwin" component={ProgramRecWin}></Route>
 
+                {/* 피그마 */}
+                <Route path="/figma_basic" component={FigmaBasic}></Route>
+
             </Switch>
         </div>
     );
