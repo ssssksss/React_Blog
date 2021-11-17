@@ -50,6 +50,7 @@ const NavMenu = (props) => {
                 <button className="col_b_r" onClick={() => { send("blockchain") }}>  블록체인 </button>
                 <button className="col_b_r" onClick={() => { send("codingtest") }}>  코딩테스트 </button>
                 <button className="col_b_r" onClick={() => { send("program") }}>  추천 프로그램 </button>
+                <button className="col_b_r" onClick={() => { send("figma") }}>  Figma </button>
             </div>
         </div>
     );

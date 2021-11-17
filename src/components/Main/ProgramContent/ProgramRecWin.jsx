@@ -17,8 +17,8 @@ const ProgramRecWin = (props) => {
                                 <div className='mblock'>
                                     <li> <a href="http://qttabbar.wikidot.com/" target="_blank" rel="noopener noreferrer">
                                         QTTabBar 사이트 </a> </li>
-                                    <li> <a href={process.env.PUBLIC_URL + '/Download/QTTabBar_1043.exe'}
-                                        download="QTTabBar_1043.exe"> QTTabBar.exe </a> </li>
+                                    <li> <a href={process.env.PUBLIC_URL + '/Download/QTTabBar_1043.zip'}
+                                        download="QTTabBar_1043.zip"> QTTabBar.exe </a> </li>
                                     <li> QTT 설치후 폴더 열고 - 보기 - 옵션 - QTTabBar 클릭 </li>
                                     <li> 폴더 상단에 탭 공간 비어있는 곳에 우측클릭 QTTabBar Options </li>
                                     <li> Download update now.. 클릭 - 한국어 더블클릭 - 원하는 위치에저장  </li>

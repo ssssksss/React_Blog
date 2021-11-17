@@ -189,6 +189,9 @@ import CTBaekJoon from './Main/CodingTestContent/CTBaekJoon';
 import ProgramRecDev from './Main/ProgramContent/ProgramRecDev';
 import ProgramRecWin from './Main/ProgramContent/ProgramRecWin';
 
+// Figma
+import FigmaBasic from './Main/FigmaContent/FigmaBasic';
+
 const Main = (props) => {
     return (
         <div className="main">

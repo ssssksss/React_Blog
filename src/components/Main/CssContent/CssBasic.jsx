@@ -318,6 +318,7 @@ const CssBasic = (props) => {
 
                             <h2 className='h2'> 📌 설명 </h2>
                             <li> 부모 요소를 기준으로 위치를 잡음, block요소에 적용이 가능하고 정렬되는 것은 block요소안에 inline요소에적용이 가능하다. </li>
+                            <li> block요소나 표에서 사용 </li>
 
                             <h2 className='h2'> 📌 css 스타일 </h2>
                             <li> text-align: left(default) </li>
@@ -346,13 +347,17 @@ const CssBasic = (props) => {
                     </details>
                 </div>
 
+
                 <div className='block1'>
                     <details>
                         <summary> box-shadow(그림자) ( 내용 추가 필요 ) </summary>
                         <div className='block2'>
 
                             <h2 className='h2'> 📌 설명 </h2>
-                            <li> 1 </li>
+                            <li> box-shadow: x-position y-position blur spread color | inset  </li>
+                            <li> blur : 값이 클수록 흐려짐 </li>
+                            <li> spread : +(그림자확장), -(그림자축소) </li>
+                            <li> inset : 요소 안에 그림자 생성 </li>
 
                             <h2 className='h2'> 📌 css 스타일 </h2>
                             <li> 3 </li>
@@ -447,30 +452,6 @@ const CssBasic = (props) => {
                             <li> list-style-image: url('../img/.png'); </li>
                             <li> list-style-position: inside; </li>
                             <li> list-style-position: outside; #우측에 배치 되는데 어떻게 사용할지는... </li>
-
-                        </div>
-                    </details>
-                </div>
-
-                <div className='block1'>
-                    <details>
-                        <summary> text-align(가로정렬) </summary>
-                        <div className='block2'>
-
-                            <h2 className='h2'> 📌 설명 </h2>
-                            <li> block요소나 표에서 사용 </li>
-
-                            <h2 className='h2'> 📌 css 스타일 </h2>
-                            <li> text-align: left; </li>
-                            <li> text-align: right; </li>
-                            <li> text-align: center; </li>
-                            <li> text-align: justify; </li>
-                            <li> text-align: justify-all; </li>
-                            <li> text-align: start; </li>
-                            <li> text-align: end; </li>
-                            <li> text-align: match-parent; </li>
-                            <li> text-align: "."; </li>
-                            <li> text-align: "." center; </li>
 
                         </div>
                     </details>
