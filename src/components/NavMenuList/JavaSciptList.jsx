@@ -19,6 +19,8 @@ const JavaScriptList = () => {
                 <Link to="/javascript_ajax">  Ajax </Link>
             </div>
             <div className="menu menu2">
+                <Link to="/javascript_table"> JavaScript Table </Link>
+                <Link to="/javascript_scroll"> JavaScript Scroll </Link>
             </div>
         </div>
     );

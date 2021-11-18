@@ -75,6 +75,9 @@ import JavaScriptAttribute from './Main/JavaScriptContent/JavaScriptAttribute';
 import JavaScriptLocation from './Main/JavaScriptContent/JavaScriptLocation';
 import JavaScriptStyle from './Main/JavaScriptContent/JavaScriptStyle';
 
+import JavaScriptTable from './Main/JavaScriptContent/JavaScriptTable';
+import JavaScriptScroll from './Main/JavaScriptContent/JavaScriptScroll';
+
 // 리액트
 import ReactBasic from './Main/ReactContent/ReactBasic';
 import ReactJavaScript from './Main/ReactContent/ReactJavaScript';
@@ -268,6 +271,9 @@ const Main = (props) => {
                 <Route path="/javascript_attribute" component={JavaScriptAttribute}></Route>
                 <Route path="/javascript_location" component={JavaScriptLocation}></Route>
                 <Route path="/javascript_style" component={JavaScriptStyle}></Route>
+
+                <Route path="/javascript_table" component={JavaScriptTable}></Route>
+                <Route path="/javascript_scroll" component={JavaScriptScroll}></Route>
 
                 {/* 리액트 */}
                 <Route path="/react_basic" component={ReactBasic}></Route>

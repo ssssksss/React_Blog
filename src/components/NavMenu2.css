@@ -55,6 +55,10 @@
     border: none;
     box-shadow: 1px 1px 1px 1px gray;
 }
+.nav-menu2 .nav-menu2__inner-box {
+    overflow:scroll;
+    max-height: 300px;
+}
 /* Link태그에 속성을 넣는것 */
 .nav-menu2 .nav-menu2__inner-box .menu a:hover{
     background-color: white;
