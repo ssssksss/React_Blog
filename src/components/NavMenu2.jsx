@@ -1,5 +1,6 @@
 import HtmlList from './NavMenuList/HtmlList.jsx';
 import CssList from './NavMenuList/CssList.jsx';
+import BootstrapList from './NavMenuList/BootstrapList.jsx';
 import JavaSciptList from './NavMenuList/JavaSciptList.jsx';
 import ReactList from './NavMenuList/ReactList.jsx';
 import JavaList from './NavMenuList/JavaList.jsx';
@@ -50,6 +51,9 @@ const NavMenu2 = (props) => {
         }
         else if (props.page === 'css') {
             return <CssList onChangePage={(page2) => { send(page2) }}> </CssList>;
+        }
+        else if (props.page === 'bootstrap') {
+            return <BootstrapList onChangePage={(page2) => { send(page2) }}> </BootstrapList>;
         }
         else if (props.page === 'javascript') {
             return <JavaSciptList onChangePage={(page2) => { send(page2) }}> </JavaSciptList>;

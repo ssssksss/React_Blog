@@ -57,10 +57,13 @@ import HtmlTest from './Main/HtmlContent/HtmlTest';
 // CSS
 import CssBasic from './Main/CssContent/CssBasic';
 import CssBasic2 from './Main/CssContent/CssBasic2';
-import CssBootStrap from './Main/CssContent/CssBootStrap';
 import CssScss from './Main/CssContent/CssScss';
 import CssBlurBusinessCard from './Main/CssContent/CssBlurBusinessCard';
 import CssTextAndVideo from './Main/CssContent/CssTextAndVideo';
+
+// 부트스트랩
+import BootstrapBasic from './Main/BootstrapContent/BootstrapBasic';
+import BootstrapTable from './Main/BootstrapContent/BootstrapTable';
 
 // 타입스크립트
 
@@ -254,10 +257,13 @@ const Main = (props) => {
                 {/* CSS */}
                 <Route path="/css_basic" component={CssBasic}></Route>
                 <Route path="/css_basic2" component={CssBasic2}></Route>
-                <Route path="/css_bootstrap" component={CssBootStrap}></Route>
                 <Route path="/css_scss" component={CssScss}></Route>
                 <Route path="/css_blur business card" component={CssBlurBusinessCard}></Route>
                 <Route path="/css_text and video" component={CssTextAndVideo}></Route>
+
+                {/* Bootstrap */}
+                <Route path="/bootstrap_basic" component={BootstrapBasic}></Route>
+                <Route path="/bootstrap_table" component={BootstrapTable}></Route>
 
                 {/* 타입스크립트 */}
 

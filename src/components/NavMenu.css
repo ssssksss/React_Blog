@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+
 .nav-menu {
     width: 100%;
     margin-top: 10px;
@@ -7,27 +9,18 @@
     background-color: #b085f5;
     border-radius: 10px;
     box-shadow: 2px 2px 2px 2px black;
-}
-.nav-menu > .nav-menu__container1 {
     width: 25%;
     max-width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: flex-start;
+    font-family: 'Black Han Sans', sans-serif;
 }
-.nav-menu > .nav-menu__container2 {
-    width: 25%;
-    max-width: 400px;
-}
-.nav-menu > .nav-menu__container3 {
-    width: 25%;
-    max-width: 400px;
-}
-.nav-menu > .nav-menu__container4 {
-    width: 25%;
-    max-width: 400px;
-}
-
 .nav-menu > .menu > p {
+    width: 100%;
     text-align: center;
-    font-size: 1em;
+    font-size: 20px;
     background-color: #7e57c2;
     color: white;
     padding: 3px 0px;
@@ -35,16 +28,13 @@
     border-radius: 6px 6px 0px 0px;
 }
 .nav-menu > .menu > button {
-    float:left;
-    padding: 5px 0px;
     min-width: 100px;
+    max-height: 40px;
     margin: 5px;
     box-sizing: border-box;
     background: transparent;
+    font-size: 100%;
     color: white;
-    font-weight: 700;
-    font-size: 1em;
-    line-height: 1em;
     text-align: center;
     border-radius: 4px;
     border: none;
@@ -56,7 +46,6 @@
 .nav-menu > .menu > button > img {
     max-width: 14px;
     max-height: 14px;
-    vertical-align: top;
 }
 .nav-menu > .menu > button > span {
     font-size: 0.8em;
