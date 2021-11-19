@@ -133,6 +133,31 @@ const CssBasic = (props) => {
 
                 <div className='block1'>
                     <details>
+                        <summary> text-overflow </summary>
+                        <div className='block2'>
+
+                            <h2 className='h2'> 📌 설명 </h2>
+                            <li> overflow 속성과 white-space 속성을 같이 사용해야 된다. </li>
+                            <li> text-overflow: ellipsis <small> # ...으로 처리한다. </small> </li>
+                            <li> text-overflow: clip <small> # 잘라서 처리한다. </small> </li>
+
+                            <h2 className='h2'> ✔ 예시 </h2>
+                            <li> 소제목
+                                <div className='block3'>
+                                    <h3 className='h3'> 🎈 </h3>
+                                    <div className='block4'>
+                                        <li> white-space: nowrap; </li>
+                                        <li> overflow: hidden; </li>
+                                        <li> text-overflow:ellipsis; </li>
+                                    </div>
+                                </div>
+                            </li>
+                        </div>
+                    </details>
+                </div>
+
+                <div className='block1'>
+                    <details>
                         <summary> background(배경) </summary>
                         <div className='block2'>
 
