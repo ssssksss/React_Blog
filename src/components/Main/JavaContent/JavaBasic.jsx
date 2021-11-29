@@ -6,25 +6,39 @@ const JavaBasic = (props) => {
         <>
             <div className="common_style">
 
-                <div className="block1">
+                <div className='block1'>
                     <details>
-                        <summary> 123 </summary>
-                        <div className='sblock'>
-                            <h2> <b> 설명 </b> </h2>
-                            <div className='block2'>
-                                <li> 123 </li>
-                                <li> 123 </li>
-                            </div>
-                            <h2> <b> 예시 </b> </h2>
-                            <div className='block2'>
-                                <li>  </li>
-                                <li>  </li>
-                            </div>
+                        <summary> JVM, JRE JDK </summary>
+                        <div className='block2'>
+
+                            <h2 className='h2'> 📌 JAVA </h2>
+                            <li> JDK {'>'} JRE {'>'} JVM </li>
+
+                            <h2 className='h2'> 📌 JVM </h2>
+                            <li> Java Virtual Machine  </li>
+                            <li> 프로그램을 실행하는 자바 플랫폼 구성요소 </li>
+                            <li> 자바 소스코드로 만들어지는 자바 바이너리 파일을 실행할 수 있다 </li>
+                            <li> 바이너리 파일을 읽고, 검증하고, 실행한다. </li>
+                            <li> 실행환경(런타임, 라이브러리 등)을 제공한다. </li>
+                            <li> 어떤 기기나 운영체제에서도 운영을 할 수 있게 해준다. </li>
+                            <li> 메모리를 효율적으로 관리,최적화 해준다. + Garbage Collection </li>
+
+                            <h2 className='h2'> 📌 JRE </h2>
+                            <li> Java Runtime Environment </li>
+                            <li> 자바 코드를 실행하기 위한 도구들로 구성된 패키지 </li>
+                            <li> 라이브러리와 기타 파일들을 가지고 있다. </li>
+                            <li> Java Class Loader : 자바코드와 라이브러리를 결합하여 JVM에 넘긴다. </li>
+                            <li> 자바 코드를 작성하는 것이아닌 자바프로그램만 실행시키려면 JRE만 설치해도 가능하다. </li>
+
+                            <h2 className='h2'> 📌 JDK </h2>
+                            <li> Java Development Kit </li>
+                            <li> 자바 애플리케이션을 구축하기 위한 핵심 플랫폼 구성요소 </li>
+                            <li> 자바 기반 소프트웨어를 개발하기 위한 도구들로 이루어진 패키지 </li>
+                            <li>  </li>
+
                         </div>
                     </details>
                 </div>
-
-
 
                 <div className="lblock">
                     <div className="mtitle"> <a name="자바 문법"> 자바 문법 </a> </div>

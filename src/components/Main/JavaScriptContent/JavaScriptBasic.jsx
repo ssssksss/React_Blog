@@ -6,8 +6,6 @@ const JavaScriptBasic = (props) => {
         <>
             <div className="common_style">
 
-
-
                 <div className='block1'>
                     <details>
                         <summary> 자바스크립트란 </summary>
@@ -17,34 +15,29 @@ const JavaScriptBasic = (props) => {
                             <li> 호이스팅 : JS에서는 변수나 함수를 호출하는 코드보다 아래에 변수나 함수의 정의를
                                 적어놓아도 JS엔진이 평가 단계에서 선언된 값을 찾아준다. </li>
                             <li> 스코프 체인 : 외부에서는 내부함수의 값에 접근 할 수 없다.(당연한 말이다.) </li>
-                            <li> 3 </li>
+                            <li> 메소드는 blocking 싱글 쓰레드로 작동이된다. </li>
+                            <li> 변수나 메소드에 값을 아무것도 넣지 않으면 자바스크립트에서는
+                                undefined가 default값으로 들어간다. </li>
+                            <li> stack방식(선입후출)으로 함수를 호출한다. </li>
 
                             <h2 className='h2'> 📌 자바스크립트 엔진 </h2>
-                            <li> 평가 </li>
-                            <li> 2 </li>
-                            <li> 3 </li>
+                            <li> Event Loop : Call Stack과 Task Queue가 비어있는지 여부를 확인하는 역할 </li>
+                            <li> Call Stack : 실행된 코드들이 있는 공간, 함수를 호출하면 Stack에 저장된다. </li>
+                            <li> Heap : 메모리가 할당이 되는 공간 </li>
+                            <li> Web API : Ajax, Request HTTP 등 브라우저에서 사용할 수 있는 API </li>
+                            <li> Task Queue : 비동기로 처리된 함수들의 Callback 함수들이 잠시 보관되는 공간 </li>
 
-                            <h2 className='h2'> 📌 설명 </h2>
+
+                            <h2 className='h2'> 📌 자바스크립트가 비동기로 작동되는 과정 </h2>
+                            <li> - 동기 함수는 Execution Context를 생성해서 Stack에 Push한다. </li>
+                            <li> 1. Execution Context를 생성 </li>
+                            <li> 2. Stack에 함수가 모두 사용되면 Execution Context를 Pop시킨다. 이때를 Stack이 완전히 비어있다고 판단한다. </li>
+                            <li> 3. setTimeout(), 이벤트 핸들러, Ajax, Request HTTP 등 Web API를 요청하면 Callback 함수를 같이 보낸다.  </li>
+                            <li> 4. Web API가 완료가 되면 Task Queue에 Callback 함수를 Task Queue공간에 넣는다. </li>
+                            <li> 5. JS Engine에 Event Loop가 Stack이 완전히 비어있는지 확인을 하고 비어있다면 Task Queue공간에 Callback함수가 있는지 판단을 하고
+                                있다면 Stack공간으로 이동시킨다. </li>
                             <li>  </li>
-                            <li> 2 </li>
-                            <li> 3 </li>
 
-                        </div>
-                    </details>
-                </div>
-
-                <div className='block1'>
-                    <details>
-                        <summary> 선언 및 정의 </summary>
-                        <div className='block2'>
-
-                            <h2 className='h2'> 📌 설명 </h2>
-                            <li> 선언 : 자바스크립트 엔진에 변수나메소드 등을 사용하겠다고 알려줌 </li>
-                            <li> 정의 : 변수나 메소드에 값을 넣어서 만드는 것(아무것도 넣지 않으면 자바스크립트에서는
-                                undefined가 default값으로 들어간다. ) </li>
-                            <div className="block4">
-                                <li> var x = 10; </li>
-                            </div>
 
                         </div>
                     </details>
@@ -220,8 +213,8 @@ const JavaScriptBasic = (props) => {
                                 <li> true+true; <small> # 2 </small> </li>
                             </div>
                             <li> 비교연산자 : {'> < >= <= == === != !=='}  </li>
-                            <li> 대입연산자 : =   </li>
-                            <li> 증감연산자 : ++변수 변수++ --변수 변수--   </li>
+                            <li> 대입연산자 : =</li>
+                            <li> 증감연산자 : ++변수 변수++ --변수 변수--</li>
                             <li> 논리연산자 : and({'&&'}) or({'||'}) not(!)  </li>
                             <li> 비트연산자 : {' & | ^ << >> '}  </li>
                             <li> 삼항연산자 : 변수 = 조건식 ? 참일때 리턴값 : 거짓일때 리턴값  </li>
@@ -242,7 +235,7 @@ const JavaScriptBasic = (props) => {
 
                             <h2 className='h2'> 📌 설명 </h2>
                             <li> 조건문 : if() , else if() , else </li>
-                            <li> 조건문 : swithc(변수)( case 변수값1: 실행문장; break; .... default: 실행문장;   ) </li>
+                            <li> 조건문 : swithc(변수)( case 변수값1: 실행문장; break; .... default: 실행문장;) </li>
                             <li> 반복문 : while(조건) </li>
                             <li> 반복문 : for(초기값; 조건식; 증감식) </li>
                             <li> 반복문 : continue; #반복문 횟수는 완료되고 반복문의 조건으로 다시 실행  </li>
@@ -279,27 +272,77 @@ const JavaScriptBasic = (props) => {
 
                 <div className='block1'>
                     <details>
-                        <summary> 함수 </summary>
+                        <summary> Function </summary>
                         <div className='block2'>
                             <h2 className='h2'> 📌 설명 </h2>
                             <li> function 사용자정의함수명(매개변수) {'{  }'} #함수 정의(함수 선언식) , 함수 선언식으로 만들면 호이스팅(위치에 상관없이 함수가 에러발생하지 않음)됨 </li>
                             <li> const 함수명 = function(매개변수) {'{ }'} {'{  }'} #함수 정의 및 선언(함수 표현식) ,
                                 함수표현식으로 작성하면 호이스팅이 되지 않음, 상단에 미리 선언 필요 </li>
                             <li> 함수명(); #함수 사용 </li>
-                            <h4 className="h4"> 함수 예시 </h4>
-                            <div className="block4">
-                                <li> function f1(var, array, map) {'{'}
-                                    <li> console.log(var); <small> # 일반변수 </small> </li>
-                                    <li> console.log(array[0]); <small> # 배열 </small> </li>
-                                    <li> console.log(map.key); <small> # Map객체 </small> </li>
-                                </li>
-                                <li> {'}'} </li> <br />
 
-                                <li> var add_value = function add(num1,num2) {'{ return num1+num2; }'} </li> <br />
-                            </div>
+                            <h2 className='h2'> 📌 속성 </h2>
+                            <li> arguments : 매개변수의 배열 </li>
+
+                            <h2 className='h2'> 📌 FUNCTION.call(OBJECT,매개변수) </h2>
+                            <li> OBJECT1.FUNCTION.call(OBJECT2)은 OBJECT2.FUNCTION()와 같다. </li>
+                            <li> OBJECT2.FUNCTION()을 실행한다.  </li>
+
+                            <h2 className='h2'> 📌 FUNCTION.apply(OBJECT,매개변수배열) </h2>
+                            <li> OBJECT1.FUNCTION.apply(OBJECT2,매개변수배열)은 OBJECT2.FUNCTION(매개변수배열)와 같다. </li>
+                            <li> OBJECT2.FUNCTION(매개변수배열)을 실행한다.  </li>
+                            <li> .call()과 유사하만 매개변수를 유사배열로 만든다. </li>
+                            <li> 배열이 아니므로 배열 메소드를 사용하면 에러가 발생한다. </li>
+
+                            <h2 className='h2'> 📌 FUNCTION.bind(OBJECT,매개변수1...) </h2>
+                            <li> let bind_object = OBJECT1.FUNCTION.bind(OBJECT2); <small> = OBJECT2.FUNCTION()를 반환 </small> </li>
+                            <li> bind는 this가 가리키는 것을 바꾼다. </li>
+
+                            <h2 className='h2'> ✔ 예시 </h2>
+                            <li> 소제목
+                                <div className='block3'>
+                                    <h3 className='h3'> 🎈 일반 함수 예시 </h3>
+                                    <div className='block4'>
+                                        <li> function f1(var, array, map) {'{'}
+                                            <li> console.log(var); <small> # 일반변수 </small> </li>
+                                            <li> console.log(array[0]); <small> # 배열 </small> </li>
+                                            <li> console.log(map.key); <small> # Map객체 </small> </li>
+                                        </li>
+                                        <li> {'}'} </li> <br />
+
+                                        <li> var add_value = function add(num1,num2) {'{ return num1+num2; }'} </li> <br />
+                                    </div>
+                                    <h3 className='h3'> 🎈 call, apply, bind 예시 </h3>
+                                    <div className='block4'>
+                                        <li> var obj1 = {'{'}
+                                            <li> value: "123", </li>
+                                            <li> name: "obj1", </li>
+                                            <li> method1: function (x) {'{'}
+                                                <li> console.log(this.value); </li>
+                                                <li> console.log(this.name); </li>
+                                                <li> console.log(x); </li>
+                                            </li>
+                                            <li>{'}'} </li>
+                                        </li>
+                                        <li>  {'}'}; </li>
+                                        <li> var obj2 = {'{'}
+                                            <li> value: "456", </li>
+                                            <li> name: "obj2", </li>
+                                        </li>
+                                        <li>  {'}'}; </li>
+                                        <li>  var obj_test = obj1.method1.bind(obj2, "2"); </li>
+                                    </div>
+                                    <div className="block4">
+                                        <li> {' { obj1.method1.call(obj2) }; '} <small> # </small> </li>
+                                        <li> {' { obj1.method1.apply(obj2, [1, 2, 3, 4, 5, 6, 7, 8]) }; '} </li>
+                                        <li> {' { obj_test() } '} </li>
+                                    </div>
+                                </div>
+                            </li>
+
                         </div>
                     </details>
                 </div>
+
 
                 <div className='block1'>
                     <details>
@@ -324,6 +367,44 @@ const JavaScriptBasic = (props) => {
                                 <li> {' console.log(f3(1)); '} <small> # 2*2+2 </small>  </li>
 
                             </div>
+
+                        </div>
+                    </details>
+                </div>
+
+                <div className='block1'>
+                    <details>
+                        <summary> Map </summary>
+                        <div className='block2'>
+
+                            <h2 className='h2'> 📌 설명 </h2>
+                            <li> ARRAY.map(callbackFunction(currentValue, currentIndex, array), thisArg); </li>
+                            <li> 모든 배열에 함수를 실행하는 메소드 </li>
+                            <li> 3 </li>
+
+                            <h2 className='h2'> 📌 사용 방법 </h2>
+                            <li>  </li>
+                            <li>  </li>
+                            <li> 1. const Var = ARRAY.map((data) {"=>"} "{'${data}'}"); </li>
+                            <li> 2. const Var = ARRAY.map((data,index) {"=>"} "{'${data}'}"); </li>
+                            <li> 3. const Var = ARRAY.map(function(data) {'{'}
+                                <li> return data; </li>
+                            </li>
+                            <li> {'}'}); </li>
+                            <li> 4. const Var = ARRAY.map(FUNCTION); </li>
+                            <li> 5. const Var = ARRAY.map((data) {"=>"} "{'${data.id}'}"); <small> # Array가 일반 배열이 아닌
+                                Object객체일때 사용 </small> </li>
+                            <li> 6. const Var = ARRAY.map((data) {"=>"} "{'${data}'}").reverse();  </li>
+
+                            <h2 className='h2'> ✔ 예시 </h2>
+                            <li> 소제목
+                                <div className='block3'>
+                                    <h3 className='h3'> 🎈 </h3>
+                                    <div className='block4'>
+                                        <li>  </li>
+                                    </div>
+                                </div>
+                            </li>
 
                         </div>
                     </details>
@@ -425,85 +506,6 @@ const JavaScriptBasic = (props) => {
                     </details>
                 </div>
 
-                <div className='block1'>
-                    <details>
-                        <summary> location 객체</summary>
-                        <div className='block2'>
-
-                            <h2 className='h2'> 📌 설명 </h2>
-                            <li> href : </li>
-                            <li> protocol :  </li>
-                            <li> hostname : </li>
-                            <li> pathname : </li>
-
-                        </div>
-                    </details>
-                </div>
-
-
-
-                <div className='block1'>
-                    <details>
-                        <summary> HTML DOM Element </summary>
-                        <div className='block2'>
-
-                            <h2 className='h2'> 📌 설명 </h2>
-                            <li> document.createElement("TAG") <small> # 태그 요소를 생성 </small> </li>
-                            <li> document.createTextNode() <small> # 텍스트 노드를 생성 </small> </li>
-                            <li> document.write() <small> #  </small> </li>
-                            <li> document.요소.onclick = function() {'{}'} <small> # 요소를 클릭했을 때 함수를 실행시킴 </small> </li>
-                            <li> document.요소.appendChild(노드) <small> # 요소의 자식 노드의 마지막에 삽입 </small> </li>
-                            <li> document.요소.prepend(노드) <small> # 요소의 자식 노드의 제일 앞에 삽입 </small> </li>
-                            <li> document.요소.insertBefore(노드1,자식노드1) <small> # 요소의 자식노드1 앞에 노드1을 배치함 </small> </li>
-                            <div className="block4">
-                                <li> var crebtn = document.createElement('button'); </li>
-                                <li> var btntext = document.createTextNode("BUTTON"); </li>
-                                <li> crebtn.appendChild(btntext); </li>
-                                <li> document.body.appendChild(crebtn); </li>
-                            </div>
-
-                            <h2 className='h2'> ✔ 예시 </h2>
-                            <li> 소제목
-                                <div className='block3'>
-                                    <h3 className='h3'> 🎈 </h3>
-                                    <div className='block4'>
-                                        <li> {' <body> '}
-                                            <li> {' 	<div class="div1">1 '}
-                                                <li> {' 		<div class="div1-1"> 1-1 </div> '} </li>
-                                                <li> {' 		<div class="div1-2"> 1-2 </div> '} </li>
-                                            </li>
-                                            <li> {' 	</div> '} </li>
-                                            <li> {' 	<div class="div2">2</div> '} </li>
-                                            <li> {' 	<div class="div3">3</div> '} </li>
-                                            <li> {' 	<div class="div4">4</div> '} </li>
-                                            <li> {' 	<div class="div5">5</div> '} </li>
-                                            <li> {' </body> '} </li>
-                                        </li>
-                                        <li> {' <script> '}
-                                            <li> {' 	var crebtn = document.createElement("button"); '} </li>
-                                            <li> {' 	var btntext = document.createTextNode("BUTTON"); '} </li>
-                                            <li> {' 	var btntext1 = document.create '} </li>
-                                            <li> {' 	crebtn.appendChild(btntext); '} </li>
-                                            <li> {' 	document.body.appendChild(crebtn); '} </li>
-                                            <li> {' 	var div1 = document.getElementsByClassName("div1")[0]; '} </li>
-                                            <li> {' 	var div1_1 = document.getElementsByClassName("div1-1")[0]; '} </li>
-                                            <li> {' 	var div1_2 = document.getElementsByClassName("div1-2")[0]; '} </li>
-                                            <li> {' 	var div3 = document.getElementsByClassName("div3")[0]; '}  </li>
-                                            <li> {' 	div1.appendChild(div3); '} <small> # div1 내부태그의 마지막에 배치 </small> </li>
-                                            <li> {' 	var div4 = document.getElementsByClassName("div4")[0]; '}  </li>
-                                            <li> {' 	div1.prepend(div4) '} <small> # div1 내부태그의 제일 앞에 배치 </small> </li>
-                                            <li> {' 	var div5 = document.getElementsByClassName("div5")[0]; '} </li>
-                                            <li> {' 	div1.insertBefore(div5, div1_2); '} <small> # div1.div1-2 태그 앞쪽에 배치 </small> </li>
-                                            <li> {' 	crebtn.onclick = function () { alert("버튼!!!") }; '} </li>
-                                        </li>
-                                        <li> {' </script> '} </li>
-                                    </div>
-                                </div>
-                            </li>
-
-                        </div>
-                    </details>
-                </div>
 
                 <div className='block1'>
                     <details>

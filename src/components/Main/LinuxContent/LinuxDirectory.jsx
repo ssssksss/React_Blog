@@ -4,6 +4,35 @@ const LinuxDirectory = (props) => {
   return (
     <>
       <div className="common_style">
+        <div className='block1'>
+          <details>
+            <summary> etc </summary>
+            <div className='block2'>
+
+              <h2 className='h2'> 📌 yum.repos.d </h2>
+              <li> yum저장소 </li>
+
+              <h2 className='h2'> 📌 /etc/login.defs </h2>
+              <div className="block4">
+                <li> UID,GID가 1000~60000번으로 자동으로 생성되는 범위 설정 </li>
+                <li> 패스워드의 최소길이,경고만료일,최소~최대 만료일을 설정 가능 </li>
+              </div>
+
+              <h2 className='h2'> 📌 /etc/group </h2>
+              <div className="block4">
+                <li> 그룹들에 대한 정보 </li>
+              </div>
+
+              <h2 className='h2'> 📌 /etc/passwd </h2>
+              <div className="block4">
+                <li> 사용자들에 대한 정보 </li>
+              </div>
+
+            </div>
+          </details>
+        </div>
+
+
         <span className="lblock">
           {/*  */}
           <span className="mblock">

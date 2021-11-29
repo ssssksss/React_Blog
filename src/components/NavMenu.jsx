@@ -25,7 +25,7 @@ const NavMenu = (props) => {
                 <button onClick={() => { send("bootstrap") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Bootstrap_icon.svg'} /> <span> Bootstrap </span> </button>
                 {/*<button className="col_b_r" onClick={() => { send("typescript") }}> TypeScript </button>*/}
                 <button onClick={() => { send("javascript") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Javascript_icon.svg'} /> <span> JavaScript</span> </button>
-                <button className="col_b_r" onClick={() => { send("react") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/React_icon.svg'} /> React </button>
+                <button onClick={() => { send("react") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/React_icon.svg'} /> React </button>
                 <button className="col_b_r" onClick={() => { send("frontend") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Frontenddvl_icon.svg'} /> <span> 프론트 개발자 </span> </button>
             </div>
             <div className="nav-menu__container3 menu">
@@ -51,7 +51,8 @@ const NavMenu = (props) => {
                 <button className="col_b_r" onClick={() => { send("blockchain") }}>  블록체인 </button>
                 <button className="col_b_r" onClick={() => { send("codingtest") }}>  코딩테스트 </button>
                 <button className="col_b_r" onClick={() => { send("program") }}>  추천 프로그램 </button>
-                <button className="col_b_r" onClick={() => { send("figma") }}>  Figma </button>
+                <button onClick={() => { send("figma") }}>  Figma </button>
+                <button className="col_b_r" onClick={() => { send("refactoring") }}>  Refactoring </button>
             </div>
         </div>
     );

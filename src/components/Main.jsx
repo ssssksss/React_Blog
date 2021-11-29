@@ -85,6 +85,9 @@ import JavaScriptScroll from './Main/JavaScriptContent/JavaScriptScroll';
 // 리액트
 import ReactBasic from './Main/ReactContent/ReactBasic';
 import ReactJavaScript from './Main/ReactContent/ReactJavaScript';
+import ReactHooks from './Main/ReactContent/ReactHooks';
+import ReactClass from './Main/ReactContent/ReactClass';
+import ReactAnimation from './Main/ReactContent/ReactAnimation';
 import ReactVscode from './Main/ReactContent/ReactVscode';
 
 // 프론트 개발자
@@ -161,6 +164,8 @@ import LinuxShell from './Main/LinuxContent/LinuxShell';
 import LinuxShellScript from './Main/LinuxContent/LinuxShellScript';
 import LinuxServer from './Main/LinuxContent/LinuxServer';
 import LinuxProgramInstall from './Main/LinuxContent/LinuxProgramInstall';
+import LinuxNetwork from './Main/LinuxContent/LinuxNetwork';
+import LinuxAccountCommand from './Main/LinuxContent/LinuxAccountCommand';
 
 // 용어
 import Term from './Main/TermContent/Term';
@@ -286,6 +291,9 @@ const Main = (props) => {
                 {/* 리액트 */}
                 <Route path="/react_basic" component={ReactBasic}></Route>
                 <Route path="/react_javascript" component={ReactJavaScript}></Route>
+                <Route path="/react_hooks" component={ReactHooks}></Route>
+                <Route path="/react_class" component={ReactClass}></Route>
+                <Route path="/react_animation" component={ReactAnimation}></Route>
                 <Route path="/react_vscode" component={ReactVscode}></Route>
 
                 {/* 프론트 개발자 */}
@@ -362,6 +370,8 @@ const Main = (props) => {
                 <Route path="/linux_shellscript" component={LinuxShellScript}></Route>
                 <Route path="/linux_server" component={LinuxServer}></Route>
                 <Route path="/linux_programinstall" component={LinuxProgramInstall}></Route>
+                <Route path="/linux_network" component={LinuxNetwork}></Route>
+                <Route path="/linux_account_command" component={LinuxAccountCommand}></Route>
 
                 {/* 용어 */}
                 <Route path="/term" component={Term}></Route>

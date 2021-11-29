@@ -133,7 +133,6 @@
     color: green;
 }
 .common_style .h2 {
-    color: #B3713C;
     margin: 20px 0px 10px 10px;
     padding: 5px 5px;
     display: inline-block;
@@ -184,6 +183,7 @@
     margin: 10px 2px 2px 2px;
     padding: 2px;
     border: solid #B3713C 4px;
+    list-style: none;
 }
 /* 사이즈 크기3 small */
 .common_style .block3 {
@@ -192,9 +192,6 @@
     margin: 2px 12px 10px 2px;
     padding: 10px 0px;
     background-color: #efefea;
-}
-.common_style .block3 li {
-    list-style: none;
 }
 .common_style .block4 {
     font-size: 1em;
@@ -241,4 +238,7 @@
 }
 .common_style .col_red {
     color: red;
+}
+.common_style .col_blue {
+    color: blue;
 }

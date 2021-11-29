@@ -28,6 +28,7 @@ import CodingTestList from './NavMenuList/CodingTestList.jsx';
 import ProgramList from './NavMenuList/ProgramList.jsx';
 import CloudList from './NavMenuList/CloudList.jsx';
 import FigmaList from './NavMenuList/FigmaList.jsx';
+import RefactoringList from './NavMenuList/RefactoringList.jsx';
 
 import './NavMenu2.css';
 import './NavMenuListStyle.css';
@@ -137,6 +138,9 @@ const NavMenu2 = (props) => {
         }
         else if (props.page === 'figma') {
             return <FigmaList onChangePage={(page2) => { send(page2) }}> </FigmaList>;
+        }
+        else if (props.page === 'refactoring') {
+            return <RefactoringList onChangePage={(page2) => { send(page2) }}> </RefactoringList>;
         }
         else {
             return <div> </div>;
