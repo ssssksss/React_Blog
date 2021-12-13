@@ -28,6 +28,10 @@ const JavaScriptEvent = (props) => {
 								<li> {' ELEMENT.addEventListener(EVENT,FUNCTION) '} </li>
 							</div>
 
+							<h2 className='h2'> 📌 JS 이벤트 전달단계 </h2>
+							<li> 조상요소에서 Capturing가 시작되어 target요소(이벤트발생요소)까지 갔다가 그때 부터
+								bubbling이 발생하여 조상요소까지 도달한다. </li>
+
 							<h2 className='h2'> 📌 JS 이벤트를 차단하는 방법 4가지 </h2>
 							<li> event.preventDefault() : 현재 이벤트의 기본 동작 중지  </li>
 							<li> event.stopPropagation() : 현재 이벤트가 상위로 전파되지 못하도록 막음 </li>

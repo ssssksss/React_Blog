@@ -244,6 +244,37 @@ const LinuxCommand = (props) => {
         </details>
       </div>
 
+      <div className='block1'>
+        <details>
+          <summary> 압축 풀기,해제 <small> //TODO: 좀더 나중에 알아볼것 </small> </summary>
+          <div className='block2'>
+
+            <h2 className="h2"> 📌 tar 옵션 </h2>
+            <li> -c : tar로 압축 </li>
+            <li> -p : 파일 권한 저장 </li>
+            <li> -v : 파일 압축이나 해제할 때 화면에 출력 </li>
+            <li> -f : 파일이름을 지정 </li>
+            <li> -C : 경로를 지정 </li>
+            <li> -x : tar 압축해제 </li>
+            <li> -z : gzip 압축하거나 해제 </li>
+
+            <h2 className='h2'> 📌 명령어 </h2>
+            <li> 팁 : tar 압축으로 하나의 파일로 만들고 그다음 gz로 압축하면 좋음 </li>
+            <li> tar -cvf [파일명.tar] [폴더] <small> # 폴더를 파일명.tar로 tar 압축 </small> </li>
+            <li> tar -xvf [파일명.tar] <small> # 파일명.tar 압축해제 </small> </li>
+            <li> tar -zcvf [파일명.tar.gz] [폴더] <small> # 폴더를 파일명.tar.gz로 tar.gz 압축 </small> </li>
+            <li> tar -zxvf [파일명.tar.gz] <small> # 폴더를 파일명.tar.gz 압축해제 </small> </li>
+            <li> zip [파일명.zip] [폴더] <small> #  </small> </li>
+            <li> unzip [파일명.zip] <small> # zip 압축해제 </small> </li>
+            <li> unzip [파일명.zip] -d [디렉토리] <small> # 특정 폴더에 zip 압축해제 </small> </li>
+            <li> bzip2 -k [폴더명]  <small> # -k는 원본파일을 유지하면서 압축  </small> </li>
+            <li> bzip2 -d [압축파일명.bz2]  <small> # 원본파일 제거하면서 압축해제 </small> </li>
+            <li> gzip -k [파일명]  <small> # 압축 </small> </li>
+            <li> gzip -d [압축파일명]  <small> # 압축해제 </small> </li>
+
+          </div>
+        </details>
+      </div>
 
       {/*///////////////////////////////////////////////////////////////////////////*/}
       <span className="lblock">
@@ -1149,27 +1180,6 @@ const LinuxCommand = (props) => {
           </details>
         </span>
         {/*  */}
-        <span className="mblock">
-          <details>
-            <summary className="stitle"> ▶ 파일 압축 명령어 <small> 파일을 압축 </small>
-              <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
-            <span className="sblock">
-              <span className="sstitle">  </span>
-              <span className="mblock">
-                <li> tar -cvf 파일명.tar . # 현재 폴더를 압축 </li>
-                <li> tar -xvf 압축파일명.tar # 압축을 해제 </li>
-                <li> bzip2 -k 폴더명 # -k는 원본파일을 유지하면서 압축 </li>
-                <li> bzip2 -d 압축파일명.bz2 # 원본파일 제거하면서 압축해제 </li>
-                <li> gzip -k 파일명 # 압축 </li>
-                <li> gzip -d 압축파일명.gz # 압축해제 </li>
-                <li> 팁 : tar 압축으로 하나의 파일로 만들고 그다음 gz로 압축하면 좋음 </li>
-                <li> tar cvfz 파일명.tar.gz . # 현재폴더를 tar.gz 압축방법으로 해줌  </li>
-                <li>  </li>
-                <li>  </li>
-              </span>
-            </span>
-          </details>
-        </span>
         {/*  */}
         <span className="mblock">
           <details>

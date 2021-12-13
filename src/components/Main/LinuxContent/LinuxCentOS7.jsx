@@ -7,13 +7,42 @@ const LinuxCentOS7 = (props) => {
 
       <div className='block1'>
         <details>
+          <summary> NGINX 서버 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <li> yum list installed ngnix <small> # nginx yum 설치 여부 </small> </li>
+            <li> yum remove [설치된패키지이름] <small> # nginx 패키지 삭제 </small> </li>
+            <li> 2 </li>
+            <li> 3 </li>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
           <summary> Apache Tomcat 설치하기 </summary>
           <div className='block2'>
 
             <h2 className='h2'> 📌 설명 </h2>
             <li> 아파치는 웹서버 </li>
             <li> 톰캣(아파치톰캣)은 아파치 재단 하위에 있는 웹서버+어플리케이션서버 </li>
-            <li>  </li>
+
+            <h2 className='h2'> 📌 설정 파일 </h2>
+            <li> app이라는 폴더는 스스로 만든 폴더이므로 참고  </li>
+            <li> /app/server/tomcat/conf/server.xml <small> #  </small>
+              <li>  </li>
+            </li>
+            <li> /app/server/tomcat/webapps <small> # html코드 등이 들어있는 공간 </small> </li>
+            <li> /app/server/tomcat/bin <small> # tomcat을 실행하고 중단할 수 있는 쉘 스크립트가 있는 공간 </small> </li>
+
+            <h2 className='h2'> 📌 명령어 </h2>
+            <li> systemctl enable tomcat.service </li>
+            <li> systemctl start tomcat.service </li>
+            <li> systemctl stop tomcat.service </li>
+            <li> systemctl disable tomcat.service </li>
+            <li> systemctl status tomcat.service </li>
 
             <h2 className='h2'> 📌 아파치 톰캣 v8.5.70 설치 과정 </h2>
             <div className="block4">
@@ -311,7 +340,7 @@ const LinuxCentOS7 = (props) => {
 
       <div className='block1'>
         <details>
-          <summary> telnet 서버 설치하는 방법 </summary>ㅈㅈㅈㅈㅈㅈㅈㅈㅈㅈㅈㅈ
+          <summary> telnet 서버 설치하는 방법 </summary>
           <div className='block2'>
 
             <h2 className='h2'> 📌 설명 </h2>
@@ -342,24 +371,6 @@ const LinuxCentOS7 = (props) => {
         <details>
           <summary> dhcp 서버 설치하는 방법 </summary>
           <div className='block2'>
-
-            <h2 className='h2'> 📌 dhcp 서버란? </h2>
-            <li> Dynamic Host Configuration Protocol </li>
-            <li> 자신의 네트워크 안에 클라이언트 컴퓨터가 부팅될 때 자동으로 IP주소, 서브넷마스크, 게이트웨이 주소, DNS 서버 주소를
-              할당해주는 것 </li>
-            <li> 일반 사용자는 IP에 관련된 어려운 정보를 알지 못해도 사용을 하는데 문제가 없음 </li>
-            <li> dhcp 서버는 관리가 편하고 이용자도 편함 </li>
-            <li> 한정된 IP주소를 가지고 더많은 IP주소가 있는 것처럼 사용하여 여러명의 사용자가 사용할 수 있게 함 </li>
-            <li>  </li>
-
-            <h2 className='h2'> 📌 dhcp 서버 작동원리 </h2>
-            <li> 1. dhcp클라이언트 컴퓨터 부팅 </li>
-            <li> 2. 자동으로 IP 주소를 dhcp서버로 요청 </li>
-            <li> 3. dhcp서버에 있는 할당 되지 않은 IP를 선택하고 할당됨으로 변경 </li>
-            <li> 4. IP주소를 dhcp클라이언트에게 할당 </li>
-            <li> 5. dhcp클라이언트는 dhcp서버에게 받은 IP로 인터넷을 이용  </li>
-            <li> 6. dhcp클라이언트가 접속을 종료하게 되면 dhcp서버에 IP주소를 반납 </li>
-            <li> 7. dhcp서버에 있는 IP주소 목록에서 반납된 IP주소를 다시 할당해제를 시켜준다. </li>
 
             <h2 className='h2'> 📌 dhcp 서버 설치 </h2>
             <li> yum install dhcp  </li>

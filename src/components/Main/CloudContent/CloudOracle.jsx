@@ -18,6 +18,27 @@ const CloudOracle = (props) => {
                 </details>
             </div>
 
+            <div className='block1'>
+                <details>
+                    <summary> 오라클 클라우드로 웹서버 tomcat 만들고 React 배포하기 </summary>
+                    <div className='block2'>
+
+                        <h2 className='h2'> 📌 설명 </h2>
+                        <li>  </li>
+                        <li>  </li>
+                        <li>  </li>
+                        <li>  </li>
+                        <li> React를 실행시키고 npm run build 명령어를 입력 </li>
+                        <li> 입력하면 폴더에 build 폴더가 생성 </li>
+                        <li> build 폴더에 index.html 등 모든 파일을 리눅스에 웹서버가 실행되는 폴더에 옮겨 넣으면 된다. </li>
+                        <li> <small> # httpd.conf 파일에 가면 build파일을 참조하는 곳을 바꿀 수 있는 것 같다. </small> </li>
+                        <li>  </li>
+                        <li>  </li>
+
+                    </div>
+                </details>
+            </div>
+
             <ul>
                 <span className="lblock">
                     <div className='mblock'>

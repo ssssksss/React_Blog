@@ -69,6 +69,7 @@ import BootstrapTable from './Main/BootstrapContent/BootstrapTable';
 
 // 자바스크립트
 import JavaScriptBasic from './Main/JavaScriptContent/JavaScriptBasic';
+import JavaScriptBasic2 from './Main/JavaScriptContent/JavaScriptBasic2';
 import JavaScriptDocument from './Main/JavaScriptContent/JavaScriptDocument';
 import JavaScriptElement from './Main/JavaScriptContent/JavaScriptElement';
 import JavaScriptEvent from './Main/JavaScriptContent/JavaScriptEvent';
@@ -275,6 +276,7 @@ const Main = (props) => {
 
                 {/* 자바스크립트  */}
                 <Route path="/javascript_basic" component={JavaScriptBasic}></Route>
+                <Route path="/javascript_basic2" component={JavaScriptBasic2}></Route>
                 <Route path="/javascript_document" component={JavaScriptDocument}></Route>
                 <Route path="/javascript_element" component={JavaScriptElement}></Route>
                 <Route path="/javascript_event" component={JavaScriptEvent}></Route>

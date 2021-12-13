@@ -32,7 +32,6 @@ import RefactoringList from './NavMenuList/RefactoringList.jsx';
 
 import './NavMenu2.css';
 import './NavMenuListStyle.css';
-import { Link } from 'react-router-dom';
 
 const NavMenu2 = (props) => {
 

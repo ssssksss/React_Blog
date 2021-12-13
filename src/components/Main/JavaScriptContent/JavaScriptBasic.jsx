@@ -45,6 +45,34 @@ const JavaScriptBasic = (props) => {
 
                 <div className='block1'>
                     <details>
+                        <summary> 모듈 </summary>
+                        <div className='block2'>
+
+                            <h2 className='h2'> 📌 설명 </h2>
+                            <li>  </li>
+                            <li> import <small> # 우선적으로 파싱이 된다. </small> </li>
+                            <li> require() <small> # 런타임 중에 필요할때 로드된다. </small> </li>
+
+                            <h2 className='h2'> 📌 장점, 단점 </h2>
+                            <li> 장점 : </li>
+                            <li> 단점 : </li>
+
+                            <h2 className='h2'> ✔ 예시 </h2>
+                            <li> 소제목
+                                <div className='block3'>
+                                    <h3 className='h3'> 🎈 </h3>
+                                    <div className='block4'>
+                                        <li>  </li>
+                                    </div>
+                                </div>
+                            </li>
+
+                        </div>
+                    </details>
+                </div>
+
+                <div className='block1'>
+                    <details>
                         <summary> 주석 </summary>
                         <div className='block2'>
 
@@ -78,6 +106,10 @@ const JavaScriptBasic = (props) => {
                                 <small> null,undefined일 경우 ?? 사용 , 매개변수로 받는 default연산자는 null에서는 null값을 출력하는 차이가 있음 </small>
                             </div>
 
+                            <h2 className='h2'> 📌 추가 상식 </h2>
+                            <li> var로 선언한 변수는 호이스팅 되어 변수 공간이 생성, 단 값이 들어가지 않으면 undefined </li>
+                            <li> let로 선언한 변수는 호이스팅이 되지 않아 let변수를 사용하게 호출하게 되면 ReferenceError 발생 </li>
+
                         </div>
                     </details>
                 </div>
@@ -94,7 +126,7 @@ const JavaScriptBasic = (props) => {
                             <li> 전역 스코프 : 전역 범위 </li>
                             <li> 지역 스코프 : 지역 범위 </li>
                             <li> 함수 스코프 : 함수안에서만 작동되는 범위 </li>
-                            <li> 블럭 스코프 : </li>
+                            <li> 블럭 스코프 : const, let , {'{}괄호 안에 있으면 {}괄호가 스코프'} </li>
 
 
                             <h3 className="h3"> 잘못된 예시 </h3>
@@ -126,11 +158,19 @@ const JavaScriptBasic = (props) => {
                         <div className='block2'>
 
                             <h2 className='h2'> 📌 원시타입 </h2>
-                            <li> Call By Value </li>
-                            <li> 숫자, 문자, 문자열, Boolean, null, undefined, Symbol, NaN 등 </li>
-                            <div className="block4">
-                                <li> x = 1; y=x; </li>
-                            </div>
+                            <li> string, number, boolean, null, undefined, symbol, NaN 등 </li>
+
+                            <h2 className='h2'> 📌 symbol </h2>
+                            <li> 다른 값과 중복되지 않는 고유한 값 </li>
+                            <li> symbol타입은 열거를 할 때 나열할 수 없다. </li>
+                            <li> symbol타입으로 만들면 Unique해져서 ===연산자를 사용하여 똑같은 Symbol을 비교하여도 false </li>
+                            <li> Symbol("test")===Symbol("test") <small> # false </small> </li>
+                            <li> Symbol() 함수를 이용해서 생성 </li>
+                            <li> 심볼 값은 문자열,숫자로는 변환되지 않고, boolean타입으로는 가능하다 </li>
+                            <li> Symbol('내용').description <small> # 내용 출력 </small> </li>
+                            <li> Symbol('내용').toString() <small> # Symbol('내용') 출력 </small> </li>
+                            <li> Symbol.for('내용') <small> # 내용에 해당하는 symbol을 찾는다. </small> </li>
+                            <li> Symbol.keyFor(Symbol.for('내용')) <small> # 내용을 출력 </small> </li>
 
                             <h2 className='h2'> 📌 객체타입 </h2>
                             <li> Call By Reference , 값을 heap 공간에 저장하고 그 주소를 참조하는 값을 갖는다. </li>
@@ -171,7 +211,7 @@ const JavaScriptBasic = (props) => {
                         <div className='block2'>
 
                             <h2 className='h2'> 📌 설명 </h2>
-                            <li> Number() : 문자를 숫자로 변환</li>
+                            <li> Number() : 문자를 숫자로 변환, 숫자가 아닌 객체타입!!! </li>
                             <div className="block4">
                                 <li> Number("10" + "5") <small> # 105 </small> </li>
                                 <li> Number(10 * "55") <small> # 550 </small> </li>
@@ -220,9 +260,11 @@ const JavaScriptBasic = (props) => {
                             <li> 삼항연산자 : 변수 = 조건식 ? 참일때 리턴값 : 거짓일때 리턴값  </li>
                             <li> null병합연산자 : const 변수1 = 변수2 ?? 값(변수2의 값이 null,undefined일경우) </li>
                             <li> null병합연산자 : 변수나메소드 ?? 변수2 ?? 변수3 ?? "비어있음"  </li>
+                            <li> delete연산자 : boolean값 반환, var,const,let은 지울수 없음 </li>
 
-                            <h2 className='h2'> 📌 설명 </h2>
-                            <li>  </li>
+                            <h2 className='h2'> 📌 추가 상식 </h2>
+                            <li> == : 값만 같으면 된다. </li>
+                            <li> === : 값과 타입까지 같아야 한다. </li>
 
                         </div>
                     </details>
@@ -239,6 +281,8 @@ const JavaScriptBasic = (props) => {
                             <li> 반복문 : while(조건) </li>
                             <li> 반복문 : for(초기값; 조건식; 증감식) </li>
                             <li> 반복문 : continue; #반복문 횟수는 완료되고 반복문의 조건으로 다시 실행  </li>
+                            <li> for(let 임시변수 in 배열) : 배열의 키나 인덱스를 출력 </li>
+                            <li> for(let 임시변수 of 배열) : 배열의 값을 출력 </li>
 
                         </div>
                     </details>
@@ -256,15 +300,31 @@ const JavaScriptBasic = (props) => {
                             <li> let 배열명; 배열[0] = 1; 배열[3] =2; #이와 같이 하여도 배열이 생성이 되고 나머지는 값이 빈 배열 만들어짐 </li>
                             <li> 배열[인덱스값] #배열 인덱싱 </li>
                             <li> 배열.length #배열 길이 </li>
-                            <li> 배열.push(값) #배열 마지막에 요소 추가 </li>
+                            <li> 배열.push(값) #원본 배열에 마지막에 요소 추가, 리턴값으로 배열의 길이를 출력한다. </li>
                             <li> 배열.shift() #배열에 첫번째값을 제거</li>
                             <li> 배열.pop() #배열 뒤쪽에 값을 제거</li>
                             <li> 배열1.concat(배열2) #2개의 배열을 합침 </li>
                             <li> 배열.join("요소사이에삽입할 문자열") #배열 요소 사이에 원하는 문자를 삽입해서 문자열?로 리턴 </li>
                             <li> 배열.reverse() #배열을 역순으로 배치 </li>
                             <li> 배열.sort() #배열을 오름차순으로 정렬 </li>
+                            <li> //TODO: 아래 내용 추가적으로 공부하기 </li>
+                            <li> 배열.reduce((누산기?,y) {'=>'} console.log(x,y)); <small> # 리턴값을 주어야 누산기에 누적이 되고 값이 없으면 배열의 첫번째 요소가 누산기값이 된다. </small> </li>
                             <li> 배열반복문 : for(let i in 배열) #배열의 수만큼 반복을 한다. , i는 배열의 인덱스를 가리키는 값이라고 생각 </li>
                             <li> 배열반복문 : 배열.foreach(function(item, index, arr)) {'{ }'} #배열 요소의 갯수 만큼 반복 , item은 배열값 , arr은 자기자신의배열을 가져옴 </li>
+
+                        </div>
+                    </details>
+                </div>
+
+                <div className='block1'>
+                    <details>
+                        <summary> 문자열 </summary>
+                        <div className='block2'>
+
+                            <h2 className='h2'> 📌 메소드 </h2>
+                            <li> 문자열객체.padStart(NUM) <small> # 전달된배열길이보다 NUM이 클때만 사용되고 왼쪽공간에 패딩이 (NUM-길이)만큼 생성된다.  </small> </li>
+                            <li>  </li>
+                            <li>  </li>
 
                         </div>
                     </details>
@@ -279,9 +339,29 @@ const JavaScriptBasic = (props) => {
                             <li> const 함수명 = function(매개변수) {'{ }'} {'{  }'} #함수 정의 및 선언(함수 표현식) ,
                                 함수표현식으로 작성하면 호이스팅이 되지 않음, 상단에 미리 선언 필요 </li>
                             <li> 함수명(); #함수 사용 </li>
+                            <li> 자바스크립트에서는 함수도 객체여서 속성을 가질수 있다. FUNCTION.prop="123"; 함수여도
+                                문제가 없다는 소리이다. </li>
 
                             <h2 className='h2'> 📌 속성 </h2>
                             <li> arguments : 매개변수의 배열 </li>
+
+                            <h2 className='h2'> 📌 메모라이제이션 함수 </h2>
+                            <li> 로컬 캐쉬 기술 중 하나, 메모리에 특정정보를 기록하고 가져오는 방법 </li>
+                            <li> 로컬캐쉬를 개선하는 것이 목적 </li>
+                            <li> 불필요한 반복적인 계산을 피하려는 함수 </li>
+
+                            <h2 className='h2'> 📌 제네레이터 함수 </h2>
+                            <li> function* 함수명() {'{'}
+                                <li> const abc = yield "abc"; <small> # yield로 추가 </small> </li>
+                            </li>
+                            <li> {'}'} </li> <br />
+                            <li> const aaa = 함수명(); </li>
+                            <li> aaa.next().value <small> # 순서대로 출력 </small> </li>
+
+                            <h2 className='h2'> 📌 화살표 함수, 람다식 </h2>
+                            <li> {' function [함수명]([매개변수]) => { //코드작성 } '} </li>
+                            <li> 주의할 점 : 람다식에서 this를 사용하게 되면 window를 가리키게 된다. 이럴때는 .bind()를 사용해서
+                                this가 window가 아닌 본인을 가리킨다는 것을 알려주어야 한다. </li>
 
                             <h2 className='h2'> 📌 FUNCTION.call(OBJECT,매개변수) </h2>
                             <li> OBJECT1.FUNCTION.call(OBJECT2)은 OBJECT2.FUNCTION()와 같다. </li>
@@ -343,30 +423,45 @@ const JavaScriptBasic = (props) => {
                     </details>
                 </div>
 
-
                 <div className='block1'>
                     <details>
-                        <summary> Closure </summary>
+                        <summary> CLASS </summary>
                         <div className='block2'>
 
                             <h2 className='h2'> 📌 설명 </h2>
-                            <li> JS에서는 함수를 함수에 대입할 수 있다. var f1 = function f2 {' { return function f3() { retrun 1; } } '} <small> var f1 = {' function f3() { retrun 1; } '} </small> </li>
-                            <li> JS에서 함수1을 함수2에 대입했을 때 그때 당시의 함수1에 들어있는 지역변수 등의 환경을 기억해서 가지고 있는 함수2를 클로저라 한다. </li>
-                            <h4 className="h4"> 클로저 예시 </h4>
-                            <div className="block4">
-                                <li> {' function f1(x,y) { '}
-                                    <li> {' 	return function(z) { '}
-                                        <li> {' 		return x*y+z; '} </li>
-                                    </li>
-                                    <li> {' 	}; '} </li>
-                                </li>
-                                <li> {' } '} </li> <br />
-                                <li> {' var f2 = f1(1,1); '} <small> # 클로저 , f2 = function(z) {' { return 1*1+z } '}; </small> </li>
-                                <li> {' var f3 = f1(2,2); '} <small> # 클로저 , f3 = function(z) {' { return 2*2+z } '}; </small> </li>
-                                <li> {' console.log(f2(1)); '} <small> # 1*1+1 </small>  </li>
-                                <li> {' console.log(f3(1)); '} <small> # 2*2+2 </small>  </li>
+                            <li> 클래스에 static으로 메소드를 선언하면 정적 메소드가 되어서 자식들은 상속받을수
+                                없고 내부에서만 클래스 내부에서만? 사용가능
+                            </li>
+                            <li> 클래스의 인스턴스를 이용해서 메소드를 호출하면 TypeError가 발생한다. 그러므로
+                                CLASS.prototype.METHOD 와 같이 클래스 프로토타입을 사용하여야 한다. </li>
+                            <li> 부모클래스에 상속받은 파생클래스에서 this를 사용하기 위해서는 super() 메소드를 사용하여야 가능하다. </li>
 
-                            </div>
+
+                            <h2 className='h2'> 📌 래퍼클래스 </h2>
+                            <li> String.raw`그대로출력되는코드` </li>
+                            <li>  </li>
+
+
+                            <h2 className='h2'> ✔ 예시 </h2>
+                            <li> 소제목
+                                <div className='block3'>
+                                    <h3 className='h3'> 🎈 </h3>
+                                    <div className='block4'>
+                                        <li> class CLASS {'{'}
+                                            <li> static METHOD(매개변수) {'{'}
+                                                <li> //코드 작성  </li>
+                                                <li> return 리턴값; </li>
+                                            </li>
+                                            <li> {'}'} </li>
+                                            <li> constructor({'{'}매개변수='디폴트값'{'}'} = {'{}'}) {'{'}
+                                                <li> this.멤버변수 = 매개변수; </li>
+                                            </li>
+                                            <li> {'}'} </li>
+                                        </li>
+                                        <li> {'}'} </li>
+                                    </div>
+                                </div>
+                            </li>
 
                         </div>
                     </details>
@@ -426,6 +521,36 @@ const JavaScriptBasic = (props) => {
                             <li> 프로토타입객체.필드명 = 값; #자동으로 프로토타입객체에 필드와 값이 추가가 된다. </li>
                             <li> 프로토타입.prototype.필드명 = 값 #프로토타입에 필드를 추가하는 방법 </li>
                             <li> 프로토타입.prototype.메소드명 = function() {'{ 메소드내용 } '} #프로토 타입에 메소드 추가 생성 </li>
+
+                        </div>
+                    </details>
+                </div>
+
+                <div className='block1'>
+                    <details>
+                        <summary> 기본 객체 </summary>
+                        <div className='block2'>
+
+                            <h2 className='h2'> 📌 기본 객체 </h2>
+                            <li> 1. 사용자가 만든 객체 </li>
+                            <li> 2. new키워드를 사용하며 만든 객체 </li>
+                            <li> 기본객체는 프로토타입을 가지지 않고 이외의 객체는 모두 프로토타입을 가진다. 그러므로
+                                클래스 인스턴스를 만들어서 사용할 때 prototype속성을 이용하여 접근이 가능한것 같다. </li>
+
+                            <h2 className='h2'> 📌 Object 객체 </h2>
+                            <li> Object.defineProperty(객체명,"KEY",{'{value: 값}'}) <small> # 기존 객체에 있는 속성을 추가로 정의하거나 수정 가능 </small> </li>
+                            <li> Object.keys(객체명) <small> # 객체가 가진 Key값들을 반환 </small> </li>
+                            <li> Object.freeze(객체명); <small> # 객체에 속성을 추가,수정,삭제를 못하게 막는다. </small> </li>
+                            <li> Object.isFrozen(객체명); <small> # 객체의 동결여부 </small> </li>
+                            <li> Object.entries(객체명); <small> # 객체의 속성의 각각의 키와값들을 각각 배열로 만든다 </small> </li>
+                            <li> Object. <small> #  </small> </li>
+                            <li> Object. <small> #  </small> </li>
+
+                            <h2 className='h2'> 📌  </h2>
+                            <li>  </li>
+
+                            <h2 className='h2'> 📌  </h2>
+                            <li>  </li>
 
                         </div>
                     </details>
@@ -498,9 +623,14 @@ const JavaScriptBasic = (props) => {
                         <div className='block2'>
 
                             <h2 className='h2'> 📌 설명 </h2>
-                            <li> 객체 = window.setTimeout(메소드명,ms); #ms시간 뒤에 메소드 실행 </li>
+                            <li> 객체 = window.setTimeout(메소드명,ms); <small> # ms시간 뒤에 메소드 실행 </small> </li>
                             <li> clearTimeout(객체); #setTimeout 메소드를 취소시킴 </li>
                             <li> 객체 = window.setInterval(메소드명,ms); #ms시간 마다 메소드 실행 </li>
+
+                            <h2 className='h2'> 📌 추가 상식 </h2>
+                            <li> setTimeout의 콜백함수는 루프가 실행된 후에 호출된다. 그래서 반복문에 var변수를 사용하게 되면
+                                마지막 반복문값만 호출이 된다. , let으로 반복문을 돌리면 문제가 없다. </li>
+                            <li>  </li>
 
                         </div>
                     </details>
@@ -520,6 +650,38 @@ const JavaScriptBasic = (props) => {
                             <li> alert() 또는 window.alert() : 사용자에게 메세지를 보여주고, 확인을 기다립니다. </li>
                             <li> confirm() 또는 window.confirm() : 사용자에게 메세지를 보여주고, 확인이나 취소를 누르면 그 결과를 불리언값으로 리턴합니다. </li>
                             <li> prompt() 또는 window.prompt() : 사용자에게 메세지를 보여주고, 사용자가 입력한 문자열을 리턴합니다. </li>
+                        </div>
+                    </details>
+                </div>
+
+                <div className='block1'>
+                    <details>
+                        <summary> JSON </summary>
+                        <div className='block2'>
+
+                            <h2 className='h2'> 📌 설명 </h2>
+                            <li> jSON.stringify(json형태의 객체,REPLACER); <small> # </small>
+                                <li> REPLACER = 함수, 배열, 배열의 일부 키값
+                                    <li>  </li>
+                                    <li>  </li>
+                                </li>
+                            </li>
+                            <li> 3 </li>
+
+                            <h2 className='h2'> 📌 장점, 단점 </h2>
+                            <li> 장점 : </li>
+                            <li> 단점 : </li>
+
+                            <h2 className='h2'> ✔ 예시 </h2>
+                            <li> 소제목
+                                <div className='block3'>
+                                    <h3 className='h3'> 🎈 </h3>
+                                    <div className='block4'>
+                                        <li>  </li>
+                                    </div>
+                                </div>
+                            </li>
+
                         </div>
                     </details>
                 </div>
