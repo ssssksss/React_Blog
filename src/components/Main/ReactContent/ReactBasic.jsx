@@ -33,6 +33,27 @@ const ReactBasic = (props) => {
 
       <div className='block1'>
         <details>
+          <summary> react port 변경 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <li> 1. PORT=[포트] npm start <small> # 실행 한번만 변경 </small> </li>
+            <li> 2. pakage.json
+              <li> "scripts": {'{'}
+                <li> "start": "set PORT=[포트] && react-scripts start" <small> # 추가 </small> </li>
+              </li>
+              <li> {'}'} </li>
+            </li>
+            <li> 3. .env파일을 만들어서 <small> # 환경변수 처리해주는 파일 </small>
+              <li> PORT=[포트] </li>
+            </li>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
           <summary> 리액트 기초 설명 </summary>
           <div className='block2'>
 

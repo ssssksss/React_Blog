@@ -83,7 +83,7 @@ const SpringYml = (props) => {
                                         <li> <h3 className="h3"> JPA (확인 필요한 부분 존재) </h3>
                                             <li> spring:
                                                 <li>  jpa:
-                                                    <li> database-platform: org.hibernate.dialect.MySQL5InnoDBDialect <small> MySQL Dialect 설정 </small> </li>
+                                                    <li> database-platform: org.hibernate.dialect.MySQL5InnoDBDialect <small> # MySQL Dialect 설정 </small> </li>
                                                     <li> database-platform: org.hibernate.dialect.Oracle10gDialect <small> Oracle Dialect 설정 </small> </li>
                                                     <li> show-sql: true  <small> # 콘솔에 JPA 실행 쿼리를 보여줌 </small>  </li>
                                                     <li> generate-ddl: true <small># hibernate에서 @Entity가 붙은 클래스를 자동으로 ddl을 실행해서 table설정들을 자동으로 수행</small> </li>

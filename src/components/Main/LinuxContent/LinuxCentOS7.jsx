@@ -22,6 +22,37 @@ const LinuxCentOS7 = (props) => {
 
       <div className='block1'>
         <details>
+          <summary> MYSQL 설치하기 </summary>
+          <div className='block2'>
+            <h2 className='h2'> 📌 설명 </h2>
+            {/*<li> yum install wget <small> # 웹서버에서 컨텐츠를 가져올 수 있는 프로그램 </small> </li>*/}
+            <li> <a href="https://dev.mysql.com/downloads/repo/yum/" target="_blank" rel="noopener noreferrer"> mysql yum 다운로드 저장소 </a> </li>
+            <li> sudo yum localinstall https://dev.mysql.com/get/mysql80-community-release-el7-4.noarch.rpm </li>
+            <li> sudo yum install mysql-community-server <small> # 용량 500MB </small> </li>
+            <li> sudo systemctl enable mysqld </li>
+            <li> sudo systemctl start mysqld <small> # 5초이상 걸림 </small> </li>
+            <li> sudo systemctl status mysqld <small> # 상태확인 </small> </li>
+            <li> sudo grep 'temporary password' /var/log/mysqld.log <small> # 끝에 이러한 비번(dn0eRWYvj,eZ) 복사해놓기 바로사용 </small> </li>
+            <li> sudo mysql_secure_installation <small> # mysql 보안 설정 </small>
+              <li> 1. 초기계정비번 <small> # 이러한 비번(dn0eRWYvj,eZ) 넣기 </small> </li>
+              <li> 2. root 계정 비번/비번확인 , Y <small> # 대소문자, 특수문자 포함인듯 싶다 </small> </li>
+              <li> 3. 익명 계정 제거 : y </li>
+              <li> 4. 원격 root 계정 로그인 차단 여부 : n </li>
+              <li> 5. 테스트DB지우고 접속 불가여부 : Y </li>
+              <li> 6. 위에 설정 적용 여부 : y </li>
+            </li>
+            <li> vi /etc/my.cnf <small> # mysql 설정 </small>
+              <li> port=[포트] <small> # 원하는 포트로 변경 </small> </li>
+            </li>
+            <li> mysql -u root -p <small> # mysql 접속 </small> </li>
+            <li> 외부에서 접속하려면 IP권한을 열어주어야 하는 등의 설정이 필요하다. </li>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
           <summary> Apache Tomcat 설치하기 </summary>
           <div className='block2'>
 

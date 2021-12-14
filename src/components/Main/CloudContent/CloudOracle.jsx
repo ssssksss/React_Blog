@@ -39,6 +39,30 @@ const CloudOracle = (props) => {
                 </details>
             </div>
 
+            <div className='block1'>
+                <details>
+                    <summary> 클라우드로 만든 리눅스 centos7에 mysql 만들고 mysql workbench와 연결하기 </summary>
+                    <div className='block2'>
+
+                        <h2 className='h2'> 📌 설명 </h2>
+                        <li> mysql을 리눅스에 설치했다고 가정하에 진행 </li>
+                        <li> 방화벽 22포트 열어주고 </li>
+                        <li> mysql 사용자 localhost 권한이 있어야 한다. </li>
+                        <li> mysql workbench에 들어가서 +버튼 누르고 </li>
+                        <li> Connection Method를 Standard TCP/IP over SSH로 변경 </li>
+                        <li> SSH Hostname: 클라우드IP주소:22  </li>
+                        <li> SSH Username : 클라우드인스턴스사용자명(오라클은 opc) </li>
+                        <li> SSH Password - Store in Vault ... : 본인이 각자 알아서 입력 </li>
+                        <li> SSH Key File : pkk 파일을 경로 지정하기(만약 설정했다면 사용) </li>
+                        <li> mysql hostname : 원격접속한리눅스이후부터의 IP경로 이므로 127.0.0.1 </li>
+                        <li> mysql server port : 3306 </li>
+                        <li> username : root(원하는 사용자) </li>
+                        <li> password - Store in Vault ... : mysql사용자 비밀번호 </li>
+
+                    </div>
+                </details>
+            </div>
+
             <ul>
                 <span className="lblock">
                     <div className='mblock'>
