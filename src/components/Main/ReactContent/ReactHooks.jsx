@@ -201,8 +201,11 @@ const ReactHooks = (props) => {
                     <div className='block2'>
 
                         <h2 className='h2'> 📌 설명 </h2>
-                        <li> 상태값이 변할 때 렌더링 </li>
                         <li> 랜더링이 될 때마다 실행이 된다. </li>
+                        <li> react가 화면을 다 보여주고 나서 실행(에러 발생이 덜 날듯) </li>
+                        <li> return을 반환해서 종료도 가능하다. </li>
+                        <li> useEffect 내부에 addEventListener를 넣고 setState로 렌더링을 발생시키고 return으로 이벤트를 삭제해주면
+                            초기의 useEffect로 다시 만들수 있음 </li>
                         <li> useEffect [상태값 등]배열에 값이 변할 때 마다 렌더링을 하게 해준다. 만약에 비워두면
                             처음에 렌더링 될 때만 실행되고 이후에는 실행되지 않는다.  </li>
 
@@ -286,6 +289,20 @@ const ReactHooks = (props) => {
                                 </div>
                             </div>
                         </li>
+
+                    </div>
+                </details>
+            </div>
+
+            <div className='block1'>
+                <details>
+                    <summary> React Hooks Event </summary>
+                    <div className='block2'>
+
+                        <h2 className='h2'> 📌 설명 </h2>
+                        <li> 1 </li>
+                        <li> 2 </li>
+                        <li> 3 </li>
 
                     </div>
                 </details>

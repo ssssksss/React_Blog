@@ -19,6 +19,7 @@ import RefBlogList from './NavMenuList/RefBlogList.jsx';
 import PythonList from './NavMenuList/PythonList.jsx';
 import AIList from './NavMenuList/AIList.jsx';
 import AlgorithmList from './NavMenuList/AlgorithmList.jsx';
+import ApiList from './NavMenuList/ApiList.jsx';
 import FrontendList from './NavMenuList/FrontendList.jsx';
 import BackendList from './NavMenuList/BackendList.jsx';
 import SecurityList from './NavMenuList/SecurityList.jsx';
@@ -116,6 +117,9 @@ const NavMenu2 = (props) => {
         }
         else if (props.page === 'algorithm') {
             return <AlgorithmList onChangePage={(page2) => { send(page2) }}> </AlgorithmList>;
+        }
+        else if (props.page === 'api') {
+            return <ApiList onChangePage={(page2) => { send(page2) }}> </ApiList>;
         }
         else if (props.page === 'security') {
             return <SecurityList onChangePage={(page2) => { send(page2) }}> </SecurityList>;

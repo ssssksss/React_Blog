@@ -179,6 +179,30 @@ const SpringYml = (props) => {
                     </details>
                 </div>
 
+                <div className='block1'>
+                    <details>
+                        <summary> Spring boot jpa 초기설정 </summary>
+                        <div className='block2'>
+
+                            <h2 className='h2'> 📌 mysql yml </h2>
+                            <li> spring:
+                                <li>   datasource:
+                                    <li>     driver-class-name: com.mysql.jdbc.Driver # 6.x 버전 이하 mysql </li>
+                                    <li>     driver-class-name: com.mysql.cj.jdbc.Driver # 6.x 버전 이상 mysql </li>
+                                    <li>     url: jdbc:mysql://[url주소]:[포트번호]/[mysql 데이터베이스이름]?characterEncoding=UTF-8&serverTimezone=Asia/Seoul # mysql db 드라이버 </li>
+                                    <li>     username: [mysql유저] <small> # root나 mysql 데이터베이스 사용자이름 </small> </li>
+                                    <li>     password: [비번] </li>
+                                </li>
+                                <li>   jpa:
+                                    <li>     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect # MySQL Dialect 설정 </li>
+                                </li>
+                            </li>
+
+
+                        </div>
+                    </details>
+                </div>
+
             </div>
         </>
     );

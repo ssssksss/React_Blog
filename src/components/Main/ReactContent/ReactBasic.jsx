@@ -489,6 +489,21 @@ const ReactBasic = (props) => {
           </div>
         </details>
       </div>
+
+      <div className='block1'>
+        <details>
+          <summary> React CORs </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 해결방법 </h2>
+            <li> 1번 해결방법 : pakage.json에 "proxy": "http://localhost:8080" 이와 같이 추가한다.
+              <li> 스프링에서 api를 받으려면 스프링에서도 cors정책을 해결해주어야 한다. </li>
+            </li>
+            <li> 3 </li>
+
+          </div>
+        </details>
+      </div>
     </div>
   );
 }

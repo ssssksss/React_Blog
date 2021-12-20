@@ -32,6 +32,40 @@ const GithubBasic = (props) => {
                 </details>
             </div>
 
+            <div className='block1'>
+                <details>
+                    <summary> 깃허브 협업 </summary>
+                    <div className='block2'>
+
+                        <h2 className='h2'> 📌 설명 </h2>
+                        <li> 깃허브1의 코드를 클릭해서 url을 복사하기 <small> https://github.com/ssssksss/review_site.git </small> </li>
+                        <li> 깃허브1 - setting - manage access - add people - 추가할 사용자 입력 </li>
+                        <li> 깃허브2의 사용자가 가입한 메일로 이동 - 승인 - 그러면 push가 가능해진다. </li>
+                        <li>  </li>
+
+                    </div>
+                </details>
+            </div>
+
+            <div className='block1'>
+                <details>
+                    <summary> 깃허브 pull request 설정 </summary>
+                    <div className='block2'>
+
+                        <h2 className='h2'> 📌 설명 </h2>
+                        <li> 다른 사람이 push를 해도 구성원이 모두 허용하지 않는다면 push가 되지 않는다. </li>
+                        <li> 깃허브1 - Branches - Branch protection rules - Branch name pattern에 "master"
+                            - Require a pull request before merging - Require approvals(허용사람수 선택) -
+                            include administrators(소유주도 똑같은 정책 허용) - create  </li>
+                        <li> 깃허브2의 브런치 생성- commit - push - create pull request - 내용적고,create pull request버튼을 누르면 된다,
+                            - 우측에 reviewers  </li>
+                        <li> 깃허브1에 상단에 pull requests - file change - review changes클릭 - 내용하고 승인 - master branch에 merge해주기
+                        </li>
+
+                    </div>
+                </details>
+            </div>
+
             <ul>
                 <div className="lblock">
                     <div className="mtitle"> 깃허브 공부 </div>

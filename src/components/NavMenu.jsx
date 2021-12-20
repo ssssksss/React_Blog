@@ -37,6 +37,7 @@ const NavMenu = (props) => {
                 <button className="col_b_r" onClick={() => { send("python") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Python_icon.svg'} /> Python </button>
                 <button className="col_b_r" onClick={() => { send("ai") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Ai_icon.svg'} /> 인공지능 </button>
                 <button className="col_b_r" onClick={() => { send("algorithm") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Algorithm_icon.svg'} /> 알고리즘 </button>
+                <button onClick={() => { send("api") }}>  API </button>
             </div>
             <div className="nav-menu__container3 menu">
                 <p> 기타2 </p>

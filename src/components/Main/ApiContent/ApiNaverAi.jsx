@@ -1,7 +1,6 @@
 import React from 'react';
 
-const Blank = (props) => {
-
+const ApiNaverAi = (props) => {
     return (
         <div className="common_style">
             <div className='block1'>
@@ -35,4 +34,4 @@ const Blank = (props) => {
     );
 }
 
-export default Blank;
+export default ApiNaverAi;
