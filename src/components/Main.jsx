@@ -92,6 +92,7 @@ import ReactClass from './Main/ReactContent/ReactClass';
 import ReactAnimation from './Main/ReactContent/ReactAnimation';
 import ReactVscode from './Main/ReactContent/ReactVscode';
 import ReactAPI from './Main/ReactContent/ReactAPI';
+import ReactRouter from './Main/ReactContent/ReactRouter';
 
 // 프론트 개발자
 import FrontendBasic from './Main/FrontendContent/FrontendBasic';
@@ -304,6 +305,7 @@ const Main = (props) => {
                 <Route path="/react_animation" component={ReactAnimation}></Route>
                 <Route path="/react_vscode" component={ReactVscode}></Route>
                 <Route path="/react_api" component={ReactAPI}></Route>
+                <Route path="/react_router" component={ReactRouter}></Route>
 
                 {/* 프론트 개발자 */}
                 <Route path="/frontend_basic" component={FrontendBasic}></Route>
