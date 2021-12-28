@@ -59,6 +59,7 @@ import HtmlTest from './Main/HtmlContent/HtmlTest';
 import CssBasic from './Main/CssContent/CssBasic';
 import CssBasic2 from './Main/CssContent/CssBasic2';
 import CssScss from './Main/CssContent/CssScss';
+import CssUse from './Main/CssContent/CssUse';
 import CssBlurBusinessCard from './Main/CssContent/CssBlurBusinessCard';
 import CssTextAndVideo from './Main/CssContent/CssTextAndVideo';
 
@@ -93,6 +94,8 @@ import ReactAnimation from './Main/ReactContent/ReactAnimation';
 import ReactVscode from './Main/ReactContent/ReactVscode';
 import ReactAPI from './Main/ReactContent/ReactAPI';
 import ReactRouter from './Main/ReactContent/ReactRouter';
+import ReactModal from './Main/ReactContent/ReactModal';
+import ReactStyledComponent from './Main/ReactContent/ReactStyledComponent';
 
 // 프론트 개발자
 import FrontendBasic from './Main/FrontendContent/FrontendBasic';
@@ -147,8 +150,9 @@ import Algorithm_Sort from './Main/AlgorithmContent/Algorithm_Sort';
 import Algorithm_Basic from './Main/AlgorithmContent/Algorithm_Basic';
 
 // API
-import ApiNaverAi from './Main/ApiContent/ApiNaverAi';
-import ApiNaverApplicationService from './Main/ApiContent/ApiNaverApplicationService';
+import ApiNaver from './Main/ApiContent/ApiNaver';
+import ApiGoogle from './Main/ApiContent/ApiGoogle';
+import ApiKakao from './Main/ApiContent/ApiKakao';
 
 // 자료구조
 
@@ -272,6 +276,7 @@ const Main = (props) => {
                 <Route path="/css_basic" component={CssBasic}></Route>
                 <Route path="/css_basic2" component={CssBasic2}></Route>
                 <Route path="/css_scss" component={CssScss}></Route>
+                <Route path="/css_use" component={CssUse}></Route>
                 <Route path="/css_blur business card" component={CssBlurBusinessCard}></Route>
                 <Route path="/css_text and video" component={CssTextAndVideo}></Route>
 
@@ -306,6 +311,8 @@ const Main = (props) => {
                 <Route path="/react_vscode" component={ReactVscode}></Route>
                 <Route path="/react_api" component={ReactAPI}></Route>
                 <Route path="/react_router" component={ReactRouter}></Route>
+                <Route path="/react_modal" component={ReactModal}></Route>
+                <Route path="/react_stylecomponent" component={ReactStyledComponent}></Route>
 
                 {/* 프론트 개발자 */}
                 <Route path="/frontend_basic" component={FrontendBasic}></Route>
@@ -361,8 +368,9 @@ const Main = (props) => {
                 <Route path="/algorithm_basic" component={Algorithm_Basic}></Route>
 
                 {/* 자료구조 */}
-                <Route path="/api_naverai" component={ApiNaverAi}></Route>
-                <Route path="/api_naverapplicationservice" component={ApiNaverApplicationService}></Route>
+                <Route path="/api_naver" component={ApiNaver}></Route>
+                <Route path="/api_kakao" component={ApiKakao}></Route>
+                <Route path="/api_google" component={ApiGoogle}></Route>
 
                 {/* 자료구조 */}
 

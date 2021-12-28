@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ApiNaverApplicationService = (props) => {
+const ApiNaver = (props) => {
     return (
         <div className="common_style">
             <div className='block1'>
@@ -37,4 +37,4 @@ const ApiNaverApplicationService = (props) => {
     );
 }
 
-export default ApiNaverApplicationService;
+export default ApiNaver;

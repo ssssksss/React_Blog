@@ -7,6 +7,56 @@ const Term = (props) => {
 
       <div className='block1'>
         <details>
+          <summary> 디자인 패턴 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <li> 1 </li>
+            <li> 2 </li>
+            <li> 3 </li>
+
+            <h2 className='h2'> 📌 생성 패턴(5가지) </h2>
+            <li> 싱글톤 패턴(Singleton) </li>
+            <div className="block4">
+              <li> 사용 예시 : 설정파일, 다크모드,  </li>
+              <li> 인스턴스를 오직 1개만 생성(불필요한 자원의 낭비를 줄일수 있음) </li>
+              <li> 멀티쓰레드 환경에서는 잘 생성할 필요가 있음 </li>
+              <li> Synchronized, eagar initialization, DCL, Enum </li>
+            </div>
+            <li> 빌더 패턴(Builder) </li>
+            <li> 프로토타입(Prototype) </li>
+            <li> 추상 팩토리(Abstract Factory) </li>
+            <li> 팩토리 메소드(Factory Method) </li>
+
+            <h2 className='h2'> 📌 구조 패턴(7가지) </h2>
+            <li> 어댑터 패턴(Adapter) </li>
+            <li> 브리지 패턴(Bridege) </li>
+            <li> 컴포지트 패턴(Composite) </li>
+            <li> 데코레이터 패턴(Decorator) </li>
+            <li> 파사드 패턴(Facade) </li>
+            <li> 플라이웨이트 패턴(Flyweight) </li>
+            <li> 프록시 패턴(Proxy) </li>
+
+            <h2 className='h2'> 📌 행동 패턴(10가지) </h2>
+            <li> 책임 연쇄 패턴(Chain or Responsibility) </li>
+            <li> 커맨드 패턴(Command) </li>
+            <li> 이터레이터 패턴(Iterator) </li>
+            <li> 중재자 패턴(Mediator) </li>
+            <li> 메멘토 패턴(Memento) </li>
+            <li> 옵저버 패턴(Observer) </li>
+            <li> 상태 패턴(State) </li>
+            <li> 전략 패턴(Strategy) </li>
+            <li> 템플릿 메소드 패턴(Template Methods) </li>
+            <li> 방문자 패턴(Visitor) </li>
+
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+
+        <details>
           <summary> 캐시, 쿠키, 세션, 토큰 </summary>
           <div className='block2'>
 

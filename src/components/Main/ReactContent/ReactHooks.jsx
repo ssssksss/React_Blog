@@ -4,66 +4,6 @@ const ReactHooks = (props) => {
 
     return (
         <div className="common_style">
-            <div className='block1'>
-                <details>
-                    <summary> useState </summary>
-                    <div className='block2'>
-
-                        <h2 className='h2'> 📌 설명 </h2>
-                        <li> 1 </li>
-                        <li> 2 </li>
-                        <li> 3 </li>
-
-                        <h2 className='h2'> 📌 장점, 단점 </h2>
-                        <li> 장점 : </li>
-                        <li> 단점 : </li>
-
-                        <h2 className='h2'> ✔ 예시 </h2>
-                        <li> 소제목
-                            <div className='block3'>
-                                <h3 className='h3'> 🎈 </h3>
-                                <div className='block4'>
-                                    <li>  </li>
-                                </div>
-                            </div>
-                        </li>
-
-                    </div>
-                </details>
-            </div>
-
-
-            <div className='block1'>
-                <details>
-                    <summary> React Hooks - functional Component </summary>
-                    <div className='block2'>
-
-                        <h2 className='h2'> 📌 설명 </h2>
-                        <li> 1 </li>
-                        <li> 2 </li>
-                        <li> 3 </li>
-
-                        <h2 className='h2'> ✔ 예시 </h2>
-                        <li> 소제목
-                            <div className='block3'>
-                                <h3 className='h3'> 🎈 </h3>
-                                <div className='block4'>
-                                    <li> {' import React from "react"; '} </li> <br />
-                                    <li> const App = () {'=> {'}
-                                        <li> return(
-                                            <li> {' <div> </div>'} </li>
-                                        </li>
-                                        <li> ); </li>
-                                    </li>
-                                    <li> {'}'} </li>
-                                    <li> export default App; </li>
-                                </div>
-                            </div>
-                        </li>
-
-                    </div>
-                </details>
-            </div>
 
             <div className='block1'>
                 <details>
@@ -82,14 +22,10 @@ const ReactHooks = (props) => {
                             <li>  set상태값({'prev상태값 => prev상태값 + 1'}) </li>
                         </li>
 
-                        <h2 className='h2'> 📌 장점, 단점 </h2>
-                        <li> 장점 : </li>
-                        <li> 단점 : </li>
-
                         <h2 className='h2'> ✔ 예시 </h2>
-                        <li> 소제목
+                        <li>
                             <div className='block3'>
-                                <h3 className='h3'> 🎈 </h3>
+                                <h3 className='h3'> 🎈 1. 버튼을 누르면 값이 증가하는 상황 </h3>
                                 <div className='block4'>
                                     <li> {' import React from "react"; '} </li> <br />
                                     <li> const App = () {'=> {'}
@@ -106,7 +42,7 @@ const ReactHooks = (props) => {
                                     <li> {'}'} </li>
                                     <li> export default App; </li>
                                 </div>
-                                <h3 className='h3'> 🎈 </h3>
+                                <h3 className='h3'> 🎈 2. 배열로 받아와서 값을 덮어쓰기하는것 같은데.. </h3>
                                 <div className="block4">
                                     <li> {' import React from "react"; '} </li> <br />
                                     <li> const App = () {'=> {'}
@@ -115,7 +51,7 @@ const ReactHooks = (props) => {
                                             <li> input2: ''  </li>
                                         </li>
                                         <li> {' }); '} </li> <br />
-                                        <li> {' const {input1, input2} = inputs; '} <small> inputs 상태값을 변수로 만듬 </small> </li> <br />
+                                        <li> {' const {input1, input2} = inputs; '} <small> # inputs 상태값을 변수로 만듬 </small> </li> <br />
                                         <li> {' const onChange = (e) => { '}
                                             <li> {' const { name , value } = e.target; '}
                                             </li>
@@ -158,6 +94,86 @@ const ReactHooks = (props) => {
 
             <div className='block1'>
                 <details>
+                    <summary> React Hooks - useEffect </summary>
+                    <div className='block2'>
+
+                        <h2 className='h2'> 📌 설명 </h2>
+                        <li> 랜더링이 될 때마다 실행이 된다. 단, []안에 들어가는 의존성 값에 따라 달라진다. </li>
+                        <li> react가 화면을 다 보여주고 나서 실행(에러 발생이 덜 날듯) </li>
+                        <li> return을 반환해서 종료도 가능하다. </li>
+                        <li> useEffect 내부에 addEventListener를 넣고 setState로 렌더링을 발생시키고 return으로 이벤트를 삭제해주면
+                            초기의 useEffect로 다시 만들수 있음 </li>
+                        <li> useEffect [상태값 등]배열에 값이 변할 때 마다 렌더링을 하게 해준다. 만약에 비워두면
+                            처음에 렌더링 될 때만 실행되고 이후에는 실행되지 않는다.  </li>
+
+                        <h2 className='h2'> ✔ 예시 </h2>
+                        <li>
+                            <div className='block3'>
+                                <h3 className='h3'> 🎈 useEffect(함수,렌더링 의존할 값) </h3>
+                                <div className='block4'>
+                                    <li> {'import React, { useState, useEffect } from "react"; '} </li> <br />
+                                    <li> {'const [num,setNum] = useState(0); '} </li>
+                                    <li> </li> <br />
+                                    <li> {' useEffect(()=>{ '}
+                                        <li> {' console.log("test useeffct"); '} </li>
+                                        <li> {' return() => { '} </li>
+                                        <li> {'   console.log("test end useeffct"); '} </li>
+                                        <li> {' }; '} </li>
+                                    </li>
+                                    <li> {'},[num]);'} </li>
+                                    <li> </li> <br />
+                                    <li> const App = () {'=> {'}
+                                        <li>  </li>
+                                        <li> return(
+                                            <li> {'<> '}
+                                                <li> {' <p> 숫자 : {num} </p> '} </li>
+                                                <li> {' <button onClick={()=>{setNum(prevNum => prevNum + 1)}}> 1 </button> '} </li>
+                                            </li>
+                                            <li> {'</> '} </li>
+                                        </li>
+                                        <li> ); </li>
+                                    </li>
+                                    <li> {'}'} </li>
+                                    <li> export default App; </li>
+                                </div>
+                            </div>
+                        </li>
+
+                    </div>
+                </details>
+            </div>
+
+            <div className='block1'>
+                <details>
+                    <summary> Functional Component </summary>
+                    <div className='block2'>
+
+                        <h2 className='h2'> ✔ 예시 </h2>
+                        <li> 소제목
+                            <div className='block3'>
+                                <h3 className='h3'> 🎈 </h3>
+                                <div className='block4'>
+                                    <li> {' import React from "react"; '} </li> <br />
+                                    <li> function App() {'{'}
+                                        <li> return(
+                                            <li> {' <div> </div>'} </li>
+                                        </li>
+                                        <li> ); </li>
+                                    </li>
+                                    <li> {'}'} </li>
+                                    <li> export default App; </li>
+                                </div>
+                            </div>
+                        </li>
+
+                    </div>
+                </details>
+            </div>
+
+
+
+            <div className='block1'>
+                <details>
                     <summary> React Hooks -  useRef </summary>
                     <div className='block2'>
 
@@ -195,54 +211,7 @@ const ReactHooks = (props) => {
                 </details>
             </div>
 
-            <div className='block1'>
-                <details>
-                    <summary> React Hooks - useEffect </summary>
-                    <div className='block2'>
 
-                        <h2 className='h2'> 📌 설명 </h2>
-                        <li> 랜더링이 될 때마다 실행이 된다. </li>
-                        <li> react가 화면을 다 보여주고 나서 실행(에러 발생이 덜 날듯) </li>
-                        <li> return을 반환해서 종료도 가능하다. </li>
-                        <li> useEffect 내부에 addEventListener를 넣고 setState로 렌더링을 발생시키고 return으로 이벤트를 삭제해주면
-                            초기의 useEffect로 다시 만들수 있음 </li>
-                        <li> useEffect [상태값 등]배열에 값이 변할 때 마다 렌더링을 하게 해준다. 만약에 비워두면
-                            처음에 렌더링 될 때만 실행되고 이후에는 실행되지 않는다.  </li>
-
-                        <h2 className='h2'> ✔ 예시 </h2>
-                        <li> 소제목
-                            <div className='block3'>
-                                <h3 className='h3'> 🎈 </h3>
-                                <div className='block4'>
-                                    <li> {'import React, { useState, useEffect } from "react"; '} </li> <br />
-                                    <li> {'const [num,setNum] = useState(0); '} </li>
-                                    <li> {' useEffect(()=>{ '}
-                                        <li> {' console.log("test useeffct"); '} </li>
-                                        <li> {' return() => { '} </li>
-                                        <li> {'   console.log("test end useeffct"); '} </li>
-                                        <li> {' }; '} </li>
-                                    </li>
-                                    <li> {'},[num]);'} </li>
-                                    <li> const App = () {'=> {'}
-                                        <li>  </li>
-                                        <li> return(
-                                            <li> {'<> '}
-                                                <li> {' <p> 숫자 : {num} </p> '} </li>
-                                                <li> {' <button onClick={()=>{setNum(prevNum => prevNum + 1)}}> 1 </button> '} </li>
-                                            </li>
-                                            <li> {'</> '} </li>
-                                        </li>
-                                        <li> ); </li>
-                                    </li>
-                                    <li> {'}'} </li>
-                                    <li> export default App; </li>
-                                </div>
-                            </div>
-                        </li>
-
-                    </div>
-                </details>
-            </div>
 
             <div className='block1'>
                 <details>

@@ -4,48 +4,133 @@ const GithubBasic = (props) => {
 
     return (
         <div className="common_style">
-            <div className='block1'>
-                <details>
-                    <summary> 제목 </summary>
-                    <div className='block2'>
-
-                        <h2 className='h2'> 📌 DVCS </h2>
-                        <li> 분산 버전 관리 시스템(Distributed Version Control Systems) </li>
-                        <li> 2 </li>
-                        <li> 3 </li>
-
-                        <h2 className='h2'> 📌 장점, 단점 </h2>
-                        <li> 장점 : </li>
-                        <li> 단점 : </li>
-
-                        <h2 className='h2'> ✔ 예시 </h2>
-                        <li> 소제목
-                            <div className='block3'>
-                                <h3 className='h3'> 🎈  </h3>
-                                <div className='block4'>
-                                    <li>  </li>
-                                </div>
-                            </div>
-                        </li>
-
-                    </div>
-                </details>
-            </div>
 
             <div className='block1'>
                 <details>
-                    <summary> 깃허브 협업 </summary>
+                    <summary> 깃허브 저장소 만들기 </summary>
                     <div className='block2'>
 
                         <h2 className='h2'> 📌 설명 </h2>
-                        <li> 깃허브1의 코드를 클릭해서 url을 복사하기 <small> https://github.com/ssssksss/review_site.git </small> </li>
-                        <li> 깃허브1 - setting - manage access - add people - 추가할 사용자 입력 </li>
-                        <li> 깃허브2의 사용자가 가입한 메일로 이동 - 승인 - 그러면 push가 가능해진다. </li>
-                        <li>  </li>
+                        <li> Repositories 클릭 </li>
+                        <li> New </li>
+                        <li> Repository name에 저장소명(프로젝트명) 입력 </li>
+                        <li> Public / Private 에서 이왕이면 Public </li>
+                        <li> Add a README file을 체크안해도 상관은 없음 </li>
+                        <li> 나머지는 체크 안하고 Create repository 클릭 </li>
+                        <li> 완료 </li>
 
                     </div>
                 </details>
             </div>
+
+            <div className='block1'>
+                <details>
+                    <summary> 깃허브 저장소 삭제하기  </summary>
+                    <div className='block2'>
+
+                        <h2 className='h2'> 📌 설명 </h2>
+                        <li> Settings - Options - 스크롤 제일 밑에 - Delete this repository 클릭 </li>
+                        <li> Please type 이부분복사붙여넣기 to confirm </li>
+                        <li> 완료 </li>
+
+                    </div>
+                </details>
+            </div>
+
+            <div className='block1'>
+                <details>
+                    <summary> 깃허브 프로젝트 인원 추가하기 </summary>
+                    <div className='block2'>
+
+                        <h2 className='h2'> 📌 원작자 </h2>
+                        <li> Settings - Manage access Add people </li>
+
+                        <h2 className='h2'> 📌 참가자 </h2>
+                        <li> 원작자의 프로젝트로 이동 </li>
+                        <li> View invitation 클릭 </li>
+                        <li> Accept invitation </li>
+                        <li> 상단에 you now have push access to the 원작자/저장소명 repository. 보이면 초대완료 </li>
+
+                    </div>
+                </details>
+            </div>
+
+            <div className='block1'>
+                <details>
+                    <summary> 다른 사람 저장소 같이 사용하기(Clone) </summary>
+                    <div className='block2'>
+
+                        <h2 className='h2'> 📌 VScode에서 하는 방법 </h2>
+                        <li> 다른 사람 깃허브 저장소 가기 </li>
+                        <li> 초록색 Code 버튼 클릭 - HTTPS에 있는 코드 복사 </li>
+                        <li> 새로운 파일 열고 Ctrl + Shift + P </li>
+                        <li> Git: clone 입력 </li>
+                        <li> 위에서 복사한 코드 붙여넣기 </li>
+                        <li> 컴퓨터에 저장할 로컬 저장소 선택하기  </li>
+                        <li> 우측 하단에 open클릭하고 체크박스 체크하고 all authors trust한다고 선택 </li>
+                        <li> 완료 </li>
+
+                        <h2 className='h2'> 📌 터미널에 코드 입력하기 </h2>
+                        <li> git clone [다른 사람 저장소에 초록색 Code눌렀을 때 나오는 HTTPS 코드 붙여넣기] [로컬저장소의 경로넣기, 넣지 않으면 현재 터미널에서 가리키는 위치에 폴더 생성] </li>
+                    </div>
+                </details>
+            </div>
+
+            <div className='block1'>
+                <details>
+                    <summary> 로컬 저장소에서 원격저장소 위치 확인하기 </summary>
+                    <div className='block2'>
+
+                        <h2 className='h2'> 📌 설명 </h2>
+                        <li> 터미널 창에 cd [로컬저장소폴더경로] 입력 </li>
+                        <li> git remote -v </li>
+
+                    </div>
+                </details>
+            </div>
+
+            <div className='block1'>
+                <details>
+                    <summary> 원격저장소에서 특정 브런치만 가져오기 </summary>
+                    <div className='block2'>
+
+                        <h2 className='h2'> 📌 설명 </h2>
+                        <li> git clone --branch [TAG] [REPO_URL] </li>
+
+                    </div>
+                </details>
+            </div>
+
+            <div className='block1'>
+                <details>
+                    <summary> 저장소의 모든 내용을 탐색하지 않고 최근 변경 코드만 가져오기(얕은 클론) </summary>
+                    <div className='block2'>
+
+                        <h2 className='h2'> 📌 설명 </h2>
+                        <li> git clone --depth=1 [REPO_URL] </li>
+
+                    </div>
+                </details>
+            </div>
+
+            <div className='block1'>
+                <details>
+                    <summary> 깃허브 원격 저장소에 현재 작업한 내용 올리기(push) </summary>
+                    <div className='block2'>
+
+                        <h2 className='h2'> 📌 설명 </h2>
+                        <li> git init </li>
+                        <li> git add . </li>
+                        <li> git commit -m "커밋내용" </li>
+                        <li> git remote add [원격저장소별칭,origin] [https://github.com/깃허브계정/깃허브저장소.git] <small> # 처음에만 추가하고 이후에는 코드 입력x </small> </li>
+                        <li> git push -u [원격저장소별칭,origin] [브랜치명,master] <small> # 이후에는 git psuh만 사용 </small> </li>
+                        <li> </li> <br />
+                        <li> git pull <small> # 원격저장소에 있는 내용을 전부 받아오는 것이다. </small></li>
+
+                    </div>
+                </details>
+            </div>
+
 
             <div className='block1'>
                 <details>
@@ -61,6 +146,19 @@ const GithubBasic = (props) => {
                             - 우측에 reviewers  </li>
                         <li> 깃허브1에 상단에 pull requests - file change - review changes클릭 - 내용하고 승인 - master branch에 merge해주기
                         </li>
+
+                    </div>
+                </details>
+            </div>
+
+            <div className='block1'>
+                <details>
+                    <summary> git에서 중요하거나 큰 파일 등 제외시키기 (미완성) </summary>
+                    <div className='block2'>
+
+                        <h2 className='h2'> 📌 설명 </h2>
+                        <li> .gitgnore 파일 생성 </li>
+                        <li>  </li>
 
                     </div>
                 </details>

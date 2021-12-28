@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ApiNaverAi = (props) => {
+const ApiGoogle = (props) => {
     return (
         <div className="common_style">
             <div className='block1'>
@@ -34,4 +34,4 @@ const ApiNaverAi = (props) => {
     );
 }
 
-export default ApiNaverAi;
+export default ApiGoogle;

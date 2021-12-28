@@ -8,6 +8,18 @@ const KeyMapVscode = (props) => {
 
         <div className='block1'>
           <details>
+            <summary> VScode 터미널 코드 </summary>
+            <div className='block2'>
+
+              <h2 className='h2'> 📌 터미널 코드로 파일 열기 </h2>
+              <li> cd [폴더경로] </li>
+              <li> code [파일이나폴더1] [파일이나폴더2] [.] [파일명.확장자] <small> # WorkSpace에 여러개의 폴더를 한번에 열 수 있음 </small> </li>
+            </div>
+          </details>
+        </div>
+
+        <div className='block1'>
+          <details>
             <summary> Extension - 자동완성 및 유용한 기능 </summary>
             <div className='block2'>
 

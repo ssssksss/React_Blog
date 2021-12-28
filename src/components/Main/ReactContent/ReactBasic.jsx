@@ -33,6 +33,42 @@ const ReactBasic = (props) => {
 
       <div className='block1'>
         <details>
+          <summary> 리액트 깃허브 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 리액트 파일을 깃허브에 올리기 </h2>
+            <div className="block3">
+              <li> github에 가서 저장소를 하나 만들기 (read.me 파일없이만들기)</li>
+              <li> 만든 상태로 창을 가만히 놔두기( 복붙할 내용이 존재함)</li>
+              <li> 리액트로 돌아와서 npm install gh-pages --save-dev 입력 </li>
+              <li> 리액트 폴더에 pakage.json 파일을 열어서 아래와 같이 넣어주기</li>
+              <li> 위쪽에 name위에 "homepage": "http://깃허브유저명.github.io/저장소이름"</li>
+              <li> "scripts: 부분 안에 "predeploy": "npm run build",  "deploy": "gh-pages -d build",</li>
+              <li className="col_r"> 터미널 창에 git init 입력 (깃폴더 생성됨)</li>
+              <li> 깃허브 창에서 git remote ~ 부분을 복붙해서 붙여넣기 </li>
+              <li className="col_r"> npm run deploy <small> build 하는 과정 </small> </li>
+              <li className="col_r">  git add . <small> 깃허브에 올릴 깃을 만드는 과정? </small> </li>
+              <li className="col_r">  git commit -m "커밋내용" <small>커밋</small> </li>
+              <li className="col_r">  git push -u origin master <small> 깃허브에 master 브랜치에 push </small> </li>
+              <li> 다음부터는 7,9~12 번만 반복하여서 사용</li>
+            </div>
+
+            <h2 className='h2'> 📌 리액트 깃허브 에러 </h2>
+            <div className="block3">
+              <li> LF will be replaced by CRLF in.gitignore. The file will have its original line endings in your working directory </li>
+              <li> 해석: LF가 CRLF도 대체 될거다.파일은 당신의 작업 디렉토리 끝에 줄에 있다.</li>
+              <li>LF(Line-Feed) Mac,Linux \n, CR(Carriage-Return) Mac \r, CRLF(Carriage-Return+Line-Feed) Windows,DOS \r\n  </li>
+              <li> 경고가 발생한 이유: Git이 OS마다 줄바꿈 문자열이 달라서 뭘 사용할지 몰라서 </li>
+              <li> 해결방안: Window, DOS에서는 git config--global core.autocrlf true </li>
+              <li> 해결방안: Linux, MAC에서는 git config--global core.autocrlf input </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
           <summary> react port 변경 </summary>
           <div className='block2'>
 
@@ -74,6 +110,15 @@ const ReactBasic = (props) => {
               <li> 11. JSX 코드는 무조건 태그로 감싼 컨테이너 형태로 작동이 된다.  </li>
             </div>
 
+            <h2 className='h2'> 📌 Module </h2>
+            <div className="block4">
+              <li> import React from 'react'; <small> #  jsx문법 사용 모듈 </small></li>
+              <li> import ReactDOM from 'react-dom'; <small> #  브라우저, 서버사이드용 렌더링 메소드 지원,
+                React앱 진입점에서 최초 렌더링 하기 위해서 사용 </small></li>
+              <li> import COMPONENT from './경로'; <small> #  컴포넌트를 가져오는 방법</small> </li>
+              <li> import reportWebVitals from './reportWebVitals'; <small> # React 성능을 측정하기 위한 것 </small> </li>
+            </div>
+
             <h2 className='h2'> 📌 Babel </h2>
             <li> 자바스크립트 컴파일러 </li>
             <li> ES6 {'->'} ES5로 변환시켜준다. </li>
@@ -84,16 +129,90 @@ const ReactBasic = (props) => {
 
       <div className='block1'>
         <details>
-          <summary> JSX </summary>
+          <summary> React props </summary>
           <div className='block2'>
 
-            <h2 className='h2'> 📌 Module </h2>
-            <li> import React from 'react'; <small> #  jsx문법 사용 모듈 </small></li>
-            <li> import ReactDOM from 'react-dom'; <small> #  브라우저, 서버사이드용 렌더링 메소드 지원,
-              React앱 진입점에서 최초 렌더링 하기 위해서 사용 </small></li>
-            <li> import COMPONENT from './경로'; <small> #  컴포넌트를 가져오는 방법</small> </li>
-            <li> import reportWebVitals from './reportWebVitals'; <small> # React 성능을 측정하기 위한 것 </small> </li>
-            <li>  </li>
+            <h2 className='h2'> 📌 설명 </h2>
+            <li> 컴포넌트에 속성을 추가해서 파라미터를 주고 받는 방법 </li>
+
+            <h2 className='h2'> ✔ 예시 </h2>
+            <li>
+              <div className='block3'>
+                <h3 className='h3'> 🎈 함수형 컴포넌트 </h3>
+                <div className='block4'>
+                  <li> function 컴포넌트명({"{파라미터}"} 혹은 props) {"{"}
+                    <li> {"{파라미터}"} <small> # 조회 </small> </li>
+                    <li> </li> <br />
+                    <li> props </li>
+                    <li> props.파라미터 </li>
+                  </li>
+                  <li> {"}"} </li>
+                  <li>  </li> <br />
+                  <li> 컴포넌트명.defaultProps= {"{"}
+                    <li> 파라미터: "초기값" </li>
+                  </li>
+                  <li> {"};"} </li>
+                </div>
+                <h3 className='h3'> 🎈 </h3>
+                <div className='block4'>
+                  <li>  </li>
+                </div>
+              </div>
+            </li>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> React Maps </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <li> 배열에서 1개씩 조회하는 방법 </li>
+
+            <h2 className='h2'> ✔ 예시 </h2>
+            <li>
+              <div className='block3'>
+                <h3 className='h3'> 🎈 </h3>
+                <div className='block4'>
+                  <li> const 배열 = [
+                    <li> {"{"}
+                      <li> 키: 값, </li>
+                      <li> 키: 값, </li>
+                    </li>
+                    <li> {"}"}, </li>
+                    <li> {"{"}
+                      <li> 키: 값, </li>
+                      <li> 키: 값, </li>
+                    </li>
+                    <li> {"}"}, </li>
+                  </li>
+                  <li> ] </li>
+                  <li>  </li> <br />
+                  <li> {" {배열.map( (사용할매개변수명) => ( "}
+                    <li> {" <컴포넌트 속성={사용할매개변수명} /> "} </li>
+                  </li>
+                  <li> {" ))} "} </li>
+                  <li>  </li>
+                </div>
+              </div>
+            </li>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> React useRef </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <li> 1 </li>
+            <li> 2 </li>
+            <li> 3 </li>
 
             <h2 className='h2'> 📌 장점, 단점 </h2>
             <li> 장점 : </li>
@@ -115,11 +234,42 @@ const ReactBasic = (props) => {
 
       <div className='block1'>
         <details>
-          <summary> React Native(공부 보류) </summary>
+          <summary> React CORs </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 해결방법 </h2>
+            <li> 1번 해결방법 : pakage.json에 "proxy": "http://localhost:8080" 이와 같이 추가한다.
+              <li> 스프링에서 api를 받으려면 스프링에서도 cors정책을 해결해주어야 한다. </li>
+            </li>
+            <li> 3 </li>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> ================  아래에는 싹다 정리 안한거 ======================= </summary>
           <div className='block2'>
 
             <h2 className='h2'> 📌 설명 </h2>
-            <li> 1. 모바일 앱을 React로 만들 수 있게 도와주는 프레임 워크 </li>
+            <li> 1 </li>
+            <li> 2 </li>
+            <li> 3 </li>
+
+            <h2 className='h2'> 📌 장점, 단점 </h2>
+            <li> 장점 : </li>
+            <li> 단점 : </li>
+
+            <h2 className='h2'> ✔ 예시 </h2>
+            <li> 소제목
+              <div className='block3'>
+                <h3 className='h3'> 🎈 </h3>
+                <div className='block4'>
+                  <li>  </li>
+                </div>
+              </div>
+            </li>
 
           </div>
         </details>
@@ -151,41 +301,7 @@ const ReactBasic = (props) => {
         </details>
       </div>
 
-      <div className='block1'>
-        <details>
-          <summary> 리액트 깃허브 </summary>
-          <div className='block2'>
 
-            <h2 className='h2'> 📌 리액트 파일을 깃허브에 올리기 </h2>
-            <div className="block3">
-              <li> github에 가서 저장소를 하나 만들기 (read.me 파일없이만들기)</li>
-              <li> 만든 상태로 창을 가만히 놔두기( 복붙할 내용이 존재함)</li>
-              <li> 리액트로 돌아와서 npm install gh-pages --save-dev 입력 </li>
-              <li> 리액트 폴더에 pakage.json 파일을 열어서 아래와 같이 넣어주기</li>
-              <li> 위쪽에 name위에 "homepage": "http://깃허브유저명.github.io/저장소이름"</li>
-              <li> "scripts: 부분 안에 "predeploy": "npm run build",  "deploy": "gh-pages -d build",</li>
-              <li className="col_r"> 터미널 창에 git init 입력 (깃폴더 생성됨)</li>
-              <li> 깃허브 창에서 git remote ~ 부분을 복붙해서 붙여넣기 </li>
-              <li className="col_r"> npm run deploy <small> build 하는 과정 </small> </li>
-              <li className="col_r">  git add . <small> 깃허브에 올릴 깃을 만드는 과정? </small> </li>
-              <li className="col_r">  git commit -m "커밋내용" <small>커밋</small> </li>
-              <li className="col_r">  git push -u origin master <small> 깃허브에 master 브랜치에 push </small> </li>
-              <li> 다음부터는 7,9~12 번만 반복하여서 사용</li>
-            </div>
-
-            <h2 className='h2'> 📌 리액트 깃허브 에러 </h2>
-            <div className="block3">
-              <li> LF will be replaced by CRLF in.gitignore. The file will have its original line endings in your working directory </li>
-              <li> 해석: LF가 CRLF도 대체 될거다.파일은 당신의 작업 디렉토리 끝에 줄에 있다.</li>
-              <li>LF(Line-Feed) Mac,Linux \n, CR(Carriage-Return) Mac \r, CRLF(Carriage-Return+Line-Feed) Windows,DOS \r\n  </li>
-              <li> 경고가 발생한 이유: Git이 OS마다 줄바꿈 문자열이 달라서 뭘 사용할지 몰라서 </li>
-              <li> 해결방안: Window, DOS에서는 git config--global core.autocrlf true </li>
-              <li> 해결방안: Linux, MAC에서는 git config--global core.autocrlf input </li>
-            </div>
-
-          </div>
-        </details>
-      </div>
 
 
       <div className='block1'>
@@ -429,81 +545,8 @@ const ReactBasic = (props) => {
         </details>
       </div>
 
-      <div className='block1'>
-        <details>
-          <summary> styled-components - React library </summary>
-          <div className='block2'>
 
-            <h2 className='h2'> 📌 설치 </h2>
-            <li> npm i styled-components </li>
 
-            <h2 className='h2'> 📌 styled-components 설명 </h2>
-            <li> css 파일을 이용하지 않고 jsx파일에서 태그나 컴포넌트에 스타일을 주는 방법 </li>
-            <li> Css in Js </li>
-            <li> ` (Back quoto) 기호 사용 </li>
-
-            <h2 className='h2'> ✔ 예시 </h2>
-            <li> 소제목
-              <div className='block3'>
-                <h3 className='h3'> 🎈 </h3>
-                <div className='block4'>
-                  <li> {' import React from "react"; '} </li>
-                  <li> {' import styled from "styled-components"; '} </li>
-                  <li> {' import 컴포넌트 from "./경로"; '} </li> <br />
-                  <li> const App = (props) {'=> {'}
-                    <li> return(
-                      <li> {'<> '}
-                        <li>  {' <컴포넌트> </컴포넌트> '} </li>
-                      </li>
-                      <li> {'</> '} </li>
-                    </li>
-                    <li> ); </li>
-                  </li>
-                  <li> {'}'} </li> <br />
-                  <li> const 컴포넌트 = styled.태그`
-                    <li> width: 100%; </li>
-                    <li> height: 100%; </li>
-                    <li> color: {'${(props) => props.color || "red" }; '} </li>
-                    <small> props로 color값을 받아오면 받아온 색을 아니면 정해놓은 색을 사용 </small> <br />
-                    <li> {' ${(props) => props.color && css` '}
-                      <li> color: white; </li>
-                      <li> background: white; </li>
-                    </li>
-                    <li> {' `}`; '} </li>
-                  </li>
-                  <li> `; </li>
-                  <li> const 컴포넌트 = styled(컴포넌트)`
-                    <li> width: 100%; </li>
-                    <li> height: 100%; </li>
-                  </li>
-                  <li> `; </li>
-                  <li> styled.태그명`
-                    <li> width: 100%; </li>
-                    <li> height: 100%; </li>
-                  </li>
-                  <li> `; </li>
-                  <li> export default App; </li>
-                </div>
-              </div>
-            </li>
-          </div>
-        </details>
-      </div>
-
-      <div className='block1'>
-        <details>
-          <summary> React CORs </summary>
-          <div className='block2'>
-
-            <h2 className='h2'> 📌 해결방법 </h2>
-            <li> 1번 해결방법 : pakage.json에 "proxy": "http://localhost:8080" 이와 같이 추가한다.
-              <li> 스프링에서 api를 받으려면 스프링에서도 cors정책을 해결해주어야 한다. </li>
-            </li>
-            <li> 3 </li>
-
-          </div>
-        </details>
-      </div>
     </div>
   );
 }

@@ -34,7 +34,7 @@ const CssBasic2 = (props) => {
 
                             <h2 className='h2'> 📌 flex-flow(flex-wrap + flex-direction) </h2>
                             <div className="block4">
-                                <li> flex-flex : [ wrap | nowrap | wrap-reverse ] [ column | row | column-reverse | row-reverse ]; </li>
+                                <li> flex-flow : [ wrap | nowrap | wrap-reverse ] [ column | row | column-reverse | row-reverse ]; </li>
                             </div>
 
                             <h2 className='h2'> 📌 align-content (줄 끼리의 간격) </h2>

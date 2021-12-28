@@ -27,7 +27,7 @@ const ReactRouter = (props) => {
 
                         <h2 className='h2'> 📌 설명 </h2>
                         <li> Link는 a태그의 속성을 가지고 있다. (css에서 a태그로 인식) </li>
-                        <li>  </li>
+                        <li> Route 컴포넌트를 이용하면 props 속성으로 match,location,history 3개를 같이 보내준다. </li>
 
                         <h2 className='h2'> ✔ react-router-dom version 6 </h2>
                         <li>

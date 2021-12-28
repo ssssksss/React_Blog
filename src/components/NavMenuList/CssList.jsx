@@ -8,6 +8,7 @@ const CssList = () => {
             <div className="menu menu1">
                 <Link to="/css_basic"> CSS 기본 문법 </Link>
                 <Link to="/css_basic2"> CSS 기본 문법2 </Link>
+                <Link to="/css_use"> CSS 응용 </Link>
                 <Link to="/css_scss"> SCSS </Link>
             </div>
             <div className="menu menu2">
