@@ -92,10 +92,13 @@ import ReactHooks from './Main/ReactContent/ReactHooks';
 import ReactClass from './Main/ReactContent/ReactClass';
 import ReactAnimation from './Main/ReactContent/ReactAnimation';
 import ReactVscode from './Main/ReactContent/ReactVscode';
-import ReactAPI from './Main/ReactContent/ReactAPI';
 import ReactRouter from './Main/ReactContent/ReactRouter';
+import ReactRedux from './Main/ReactContent/ReactRedux';
 import ReactModal from './Main/ReactContent/ReactModal';
 import ReactStyledComponent from './Main/ReactContent/ReactStyledComponent';
+import ReactFetchAPI from './Main/ReactContent/ReactFetchAPI';
+import ReactAxios from './Main/ReactContent/ReactAxios';
+import ReactAjax from './Main/ReactContent/ReactAjax';
 
 // 프론트 개발자
 import FrontendBasic from './Main/FrontendContent/FrontendBasic';
@@ -309,10 +312,13 @@ const Main = (props) => {
                 <Route path="/react_class" component={ReactClass}></Route>
                 <Route path="/react_animation" component={ReactAnimation}></Route>
                 <Route path="/react_vscode" component={ReactVscode}></Route>
-                <Route path="/react_api" component={ReactAPI}></Route>
                 <Route path="/react_router" component={ReactRouter}></Route>
                 <Route path="/react_modal" component={ReactModal}></Route>
+                <Route path="/react_redux" component={ReactRedux}></Route>
                 <Route path="/react_stylecomponent" component={ReactStyledComponent}></Route>
+                <Route path="/react_fetchapi" component={ReactFetchAPI}></Route>
+                <Route path="/react_ajax" component={ReactAjax}></Route>
+                <Route path="/react_axios" component={ReactAxios}></Route>
 
                 {/* 프론트 개발자 */}
                 <Route path="/frontend_basic" component={FrontendBasic}></Route>

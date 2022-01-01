@@ -237,11 +237,28 @@ const ReactBasic = (props) => {
           <summary> React CORs </summary>
           <div className='block2'>
 
-            <h2 className='h2'> 📌 해결방법 </h2>
-            <li> 1번 해결방법 : pakage.json에 "proxy": "http://localhost:8080" 이와 같이 추가한다.
+            <h2 className='h2'> 📌 1번 해결방법 </h2>
+            <li> pakage.json에 "proxy": "http://localhost:8080" 이와 같이 추가한다.
               <li> 스프링에서 api를 받으려면 스프링에서도 cors정책을 해결해주어야 한다. </li>
             </li>
-            <li> 3 </li>
+            <h2 className='h2'> 📌 2번 해결방법 </h2>
+            <li> npm i http-proxy-middleware </li>
+            <li> src/setupProxy.js 만들기 </li>
+            <div className="block4">
+              <li> {" const { createProxyMiddleware } = require('http-proxy-middleware'); "} </li>
+              <li> {"  "} </li> <br />
+              <li> {" module.exports = function (app) { "}
+                <li> {" app.use( "}
+                  <li> {" createProxyMiddleware('/v1', { "}
+                    <li> {" target: 'https://openapi.naver.com', "} </li>
+                    <li> {" changeOrigin: true "} </li>
+                  </li>
+                  <li> {" }) "} </li>
+                </li>
+                <li> {" ) "} </li>
+              </li>
+              <li> {" }; "} </li>
+            </div>
 
           </div>
         </details>
@@ -366,32 +383,55 @@ const ReactBasic = (props) => {
 
       <div className='block1'>
         <details>
-          <summary> React Class - React Context </summary>
+          <summary> React Class - React Context (미완성) </summary>
           <div className='block2'>
 
             <h2 className='h2'> 📌 설명 </h2>
             <li> 하위 컴포넌트에 state값을 props를 이용하지 않고 주기 </li>
 
+            <h2 className='h2'> 📌 설명 </h2>
+            <div className="block4">
+              <li> {' <컨텍스트명.Provider value=""> '}
+                <li>  </li>
+              </li>
+              <li> {' <컨텍스트명.Provider> '} </li>
+              <li>  </li> <br />
+              <li>  </li>
+              <li>  </li>
+            </div>
+
             <h2 className='h2'> ✔ 예시 </h2>
-            <li> 소제목
-              <div className='block3'>
-                <h3 className='h3'> 🎈 </h3>
-                <div className='block4'>
-                  <li> {' import React, {Component} from "react"; '} </li> <br />
-                  <li> class App extends React,Component {'{'}
-                    <li> render() {'{'}
-                      <li> return(
-                        <li> {' <div> </div>'} </li>
+            <div className="block3">
+              <h3 className='h3'> 🎈 class App </h3>
+              <div className="block4">
+                <li> const 컨텍스트명 = React.createContext(''); </li>
+                <li> class App extends React.Component {'{'}
+                  <li> render() {'{'}
+                    <li> return (
+                      <li> {' <컨텍스트명.Provider value=""> '}
+                        <li> {' <컴포넌트/> '} </li>
                       </li>
-                      <li> ); </li>
+                      <li> {' <컨텍스트명.Provider> '} </li>
                     </li>
-                    <li> {'}'} </li>
+                    <li> ); </li>
                   </li>
                   <li> {'}'} </li>
-                  <li> export default App; </li>
-                </div>
+                </li>
+                <li> {'}'} </li>
               </div>
-            </li>
+              <li>  </li> <br />
+              <h3 className='h3'> 🎈 컴포넌트 </h3>
+              <div className="block4">
+                <li> class 컴포넌트명 extends React.Component {'{'}
+                  <li> static contextType = 컨텍스트명; </li>
+                  <li> render() {'{'}
+                    <li> return {' <컴포넌트1 theme={this.context} />; '} </li>
+                  </li>
+                  <li> {'}'} </li>
+                </li>
+                <li> {'}'} </li>
+              </div>
+            </div>
           </div>
         </details>
       </div>

@@ -3,9 +3,7 @@ import React from 'react';
 const JavaScriptEvent = (props) => {
 	return (
 		<>
-
 			<div className="common_style" >
-
 
 				<div className='block1'>
 					<details>
@@ -26,13 +24,14 @@ const JavaScriptEvent = (props) => {
 							<div className="block4">
 								<li> {' ELEMENT.addEventListener(EVENT,()=>{alert("hi")}) '} </li>
 								<li> {' ELEMENT.addEventListener(EVENT,FUNCTION) '} </li>
+								<li> {' ELEMENT.addEventListener(EVENT,FUNCTION,true) '} <small> # 이벤트 캡처링 </small> </li>
 							</div>
 
 							<h2 className='h2'> 📌 JS 이벤트 전달단계 </h2>
 							<li> 조상요소에서 Capturing가 시작되어 target요소(이벤트발생요소)까지 갔다가 그때 부터
 								bubbling이 발생하여 조상요소까지 도달한다. </li>
 
-							<h2 className='h2'> 📌 JS 이벤트를 차단하는 방법 4가지 </h2>
+							<h2 className='h2'> 📌 이벤트 전파를 차단하는 방법 4가지(사용 비추천, 페이지에서 사용자 행동패턴 분석가능) </h2>
 							<li> event.preventDefault() : 현재 이벤트의 기본 동작 중지  </li>
 							<li> event.stopPropagation() : 현재 이벤트가 상위로 전파되지 못하도록 막음 </li>
 							<li> event.stopImmediatePropagation() : 현재 이벤트가 상위로 전파되지 못하도록 막음 {'&'} 현재 다른 이벤트도 모두 중지 </li>
@@ -46,6 +45,66 @@ const JavaScriptEvent = (props) => {
 							<li> view :  </li>
 							<li> document.createEvent("EVENT_TYPE") : 이벤트 개체를 생성, 딱히 사용할 필요가 있는지 몰라서 일단 넘어간다...  </li>
 							<li>  </li>
+
+							<h2 className='h2'> 📌 Event Bubbling </h2>
+							<li> 하위 태그에서 상위 태그로 이벤트를 발생시키는 것 </li>
+							<li> 자바스크립트는 이벤트가 발생한 요소부터 상위 요소들로 거슬러 올라가 이벤트를 전파시킨다. </li>
+
+							<h2 className='h2'> 📌 Event Capture </h2>
+							<li> 하위 태그에서 상위 태그로 이벤트를 발생시키는 것 </li>
+							<li> 자바스크립트는 이벤트가 발생한 요소부터 상위 요소들로 거슬러 올라가 이벤트를 전파시킨다. </li>
+
+							<h2 className='h2'> ✔ 예시(예시 나중에 수정할 것) </h2>
+							<li> 소제목
+								<div className='block3'>
+									<h3 className='h3'> 🎈 </h3>
+									<div className='block4'>
+										<li> {' <body> '}
+											<li> {' 	<h2> 이벤트 버블링 </h2> '} </li>
+											<li> {' 	<span class="span1"> span1 '}
+												<li> {' 		<span class="span2"> span2 '}
+													<li> {' 			<span class="span3"> span3 </span> '} </li>
+												</li>
+												<li> {' 		</span> '} </li>
+											</li>
+											<li> {' 	</span> '} </li>
+											<li> {'  '} </li>
+											<li> {' 	<h2> 이벤트 캡처 </h2> '} </li>
+											<li> {' 	<div class="div1"> div1 '}
+												<li> {' 		<div class="div2"> div2 '}
+													<li> {' 			<div class="div3"> div3 </div> '} </li>
+												</li>
+												<li> {' 		</div> '} </li>
+											</li>
+											<li> {' 	</div> '} </li>
+											<li> {'  '} </li>
+										</li>
+										<li> {' </body> '} </li>
+										<li> {' <script> '}
+											<li> {' 	var elements1 = document.querySelectorAll("span"); '} </li>
+											<li> {' 	elements1.forEach((x) => { '}
+												<li> {' 		x.addEventListener("click", () => { alert(x.className); }) '} </li>
+											</li>
+											<li> {' 	}) '} </li>
+											<li> {'  '} </li>
+											<li> {' 	var divs = document.querySelectorAll("div"); '} </li>
+											<li> {' 	divs.forEach(function (div) { '}
+												<li> {' 		div.addEventListener("click", logEvent, { '}
+													<li> {' 			capture: true // default 값은 false입니다. '} </li>
+												</li>
+												<li> {' 		}); '} </li>
+											</li>
+											<li> {' 	}); '} </li>
+											<li> {'  '} </li>
+											<li> {' 	function logEvent(event) { '}
+												<li> {' 		alert(event.currentTarget.className); '} </li>
+											</li>
+											<li> {' 	} '} </li>
+										</li>
+										<li> {' </script> '} </li>
+									</div>
+								</div>
+							</li>
 
 						</div>
 					</details>
@@ -568,80 +627,6 @@ const JavaScriptEvent = (props) => {
 									<h3 className='h3'> 🎈 </h3>
 									<div className='block4'>
 										<li>  </li>
-									</div>
-								</div>
-							</li>
-
-						</div>
-					</details>
-				</div>
-
-				<div className='block1'>
-					<details>
-						<summary> Event Bubbling, Event Capture </summary>
-						<div className='block2'>
-
-							<h2 className='h2'> 📌 Event Bubbling </h2>
-							<li> 하위 태그에서 상위 태그로 이벤트를 발생시키는 것 </li>
-							<li> 자바스크립트는 이벤트가 발생한 요소부터 상위 요소들로 거슬러 올라가 이벤트를 전파시킨다. </li>
-
-							<h2 className='h2'> 📌 Event Capture </h2>
-							<li> 하위 태그에서 상위 태그로 이벤트를 발생시키는 것 </li>
-							<li> 자바스크립트는 이벤트가 발생한 요소부터 상위 요소들로 거슬러 올라가 이벤트를 전파시킨다. </li>
-
-							<h2 className='h2'> 📌 설명 </h2>
-							<li> 1 </li>
-							<li> 2 </li>
-							<li> 3 </li>
-
-							<h2 className='h2'> ✔ 예시(예시 나중에 수정할 것) </h2>
-							<li> 소제목
-								<div className='block3'>
-									<h3 className='h3'> 🎈 </h3>
-									<div className='block4'>
-										<li> {' <body> '}
-											<li> {' 	<h2> 이벤트 버블링 </h2> '} </li>
-											<li> {' 	<span class="span1"> span1 '}
-												<li> {' 		<span class="span2"> span2 '}
-													<li> {' 			<span class="span3"> span3 </span> '} </li>
-												</li>
-												<li> {' 		</span> '} </li>
-											</li>
-											<li> {' 	</span> '} </li>
-											<li> {'  '} </li>
-											<li> {' 	<h2> 이벤트 캡처 </h2> '} </li>
-											<li> {' 	<div class="div1"> div1 '}
-												<li> {' 		<div class="div2"> div2 '}
-													<li> {' 			<div class="div3"> div3 </div> '} </li>
-												</li>
-												<li> {' 		</div> '} </li>
-											</li>
-											<li> {' 	</div> '} </li>
-											<li> {'  '} </li>
-										</li>
-										<li> {' </body> '} </li>
-										<li> {' <script> '}
-											<li> {' 	var elements1 = document.querySelectorAll("span"); '} </li>
-											<li> {' 	elements1.forEach((x) => { '}
-												<li> {' 		x.addEventListener("click", () => { alert(x.className); }) '} </li>
-											</li>
-											<li> {' 	}) '} </li>
-											<li> {'  '} </li>
-											<li> {' 	var divs = document.querySelectorAll("div"); '} </li>
-											<li> {' 	divs.forEach(function (div) { '}
-												<li> {' 		div.addEventListener("click", logEvent, { '}
-													<li> {' 			capture: true // default 값은 false입니다. '} </li>
-												</li>
-												<li> {' 		}); '} </li>
-											</li>
-											<li> {' 	}); '} </li>
-											<li> {'  '} </li>
-											<li> {' 	function logEvent(event) { '}
-												<li> {' 		alert(event.currentTarget.className); '} </li>
-											</li>
-											<li> {' 	} '} </li>
-										</li>
-										<li> {' </script> '} </li>
 									</div>
 								</div>
 							</li>

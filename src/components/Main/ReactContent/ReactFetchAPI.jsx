@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ReactAPI = (props) => {
+const ReactFetchAPI = (props) => {
 
     return (
         <div className="common_style">
@@ -40,4 +40,4 @@ const ReactAPI = (props) => {
     );
 }
 
-export default ReactAPI;
+export default ReactFetchAPI;

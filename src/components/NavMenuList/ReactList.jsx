@@ -14,9 +14,11 @@ const ReactList = () => {
                 <Link to="/react_recoil"> React Recoil </Link>
                 <Link to="/react_router"> React Router </Link>
                 <Link to="/react_animation"> React Animation </Link>
-                <Link to="/react_api"> React API </Link>
                 <Link to="/react_modal"> React Modal </Link>
                 <Link to="/react_stylecomponent"> React StyledComponent </Link>
+                <Link to="/react_ajax"> React Ajax </Link>
+                <Link to="/react_fetchapi"> React FetchAPI </Link>
+                <Link to="/react_axios"> React Axios </Link>
             </div>
             <div className="menu menu2">
                 <Link to="/react_vscode"> 리액트 Vscode 익스텐션 </Link>
