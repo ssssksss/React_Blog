@@ -46,195 +46,166 @@ const HtmlTest = (props) => {
           </details>
         </div>
 
-
         <div className='block1'>
           <details>
-            <summary> Spring Security 설정 클래스 </summary>
+            <summary> WebSecurityConfig </summary>
             <div className='block2'>
 
-              <h2 className="h2"> 📌 설명 </h2>
-              <li> security관련 설정을 하는 곳 </li>
-              <li> 2 </li>
-              <li> 3 </li>
+              <h2 className='h2'> 📌 설명 </h2>
+              <li> security관련 설정을 하는 곳  </li>
 
-              <h2 className="h2"> ✔ 설정코드설명 {'&'} 예시 </h2>
-              <li> 소제목
-                <div className="block3">
-                  <li> <h3 className="h3">  </h3>
-                    <li> WebSecurityConfig [Custom] </li>
-                    <li> @Configuration </li>
-                    <li> @EnableWebSecurity  <small> # springSecurityFilterChain에 등록 , 스프링 시큐리티 활성화 </small> </li>
-                    <li> @EnableGlobalMethodSecurity(prePostEnabled = true) <small> # Controller에서 @PreAuthorize 를 사용해서 특정 페이지에 권한 설정을 할 수 있음 </small>  </li>
+              <h2 className='h2'> ✔ 예시 </h2>
+              <li>
+                <div className='block3'>
+                  <h3 className='h3'> 🎈 </h3>
+                  <div className='block4'>
                     <li> public class WebSecurityConfig extends WebSecurityConfigurerAdapter {'{'}
-
                       <li> </li> <br />
-                      <h3 className="h3"> 🎈 시큐리티 필터 체인 관련 설정, 리소스 접근 제외할 경로 설정 </h3>
-                      <div className="block4">
-                        <li> @Override </li>
-                        <li> public void configure(WebSecurity web) throws Exception {'{'}
-                          <li> web.ignoring().antMatchers("/.css/**","/.js/**","/.img/**","/.lib/**");  </li>
-                        </li>
-                        <li> {'}'} </li>
-                      </div>
-
+                      <li> <h5> // 🎈 시큐리티 필터 체인 관련 설정, 리소스 접근 제외할 경로 설정  </h5></li>
+                      <li> @Override </li>
+                      <li> public void configure(WebSecurity web) throws Exception {'{'}
+                        <li> web.ignoring().antMatchers("/.css/**","/.js/**","/.img/**","/.lib/**");  </li>
+                      </li>
+                      <li> {'}'} </li>
                       <li> </li> <br />
-                      <h3 className="h3"> 🎈 인증, 로그인, 로그아웃 등 설정 , securityconfig 파일에 대부분 설정을 여기에서 한다. </h3>
-                      <div className="block4">
-
-
-                        <li> protected void configure(HttpSecurity http) throws Exception {'{'}
-
-                          <li> </li> <br />
-                          <li> http.csrf().disable() <small> # csrf(보안) 비활성화 </small> </li>
-
-                          <li> </li> <br />
-                          <li> <h4> 🔍 세션 관련 (좀더 알아 볼것) </h4> </li>
-                          <li> http.sessionManagement() <small> # 세션 관리 </small>
-                            <li> .maximumSessions(1) <small> # 최대 세션 갯수 </small> </li>
-                            <li> .maxSessionsPreventsLogin(true) </li>
-                            <li> .expiredUrl("/경로") <small> # 세션이 만료되었을 경우 </small> </li>
-                            <li> .sessionRegistry(sessionRegistry) </li>
-                            <li> .sessionFixation().changeSessionId() </li>
-                            <li>.invalidSessionUrl("/경로")</li>
-                            <li>  </li>
-                          </li> <br />
-
-                          <li> <h4> 🔍 요청한 경로에 대해서 인증과 접근 권한이 있는지 설정하는 곳 </h4> </li>
-                          <li> http.authorizeRequests() <small> # 요청에 대한 권한 설정 </small>
-                            <li> .antMatchers("/경로").authenticated() <small> # 인증된 사용자만 접근가능 </small> </li>
-                            <li> .antMatchers("/**").permitAll() <small> # 모든 경로 인증없이 허용 </small> </li>
-                            <li> .antMatchers(HttpMethod.POST,"/**").permitAll() <small> # POST방식으로 접근할 때 모든 경로 인증없이 허용 </small> </li>
-                            <li> .antMatchers("/경로").hasRole("[GUEST,USER,MEMER,ADMIN]") <small> # 권한이 있어야 경로로 접속가능 </small> </li>
-                            <li> .antMatchers("/경로").hasAnyRole("[GUEST,USER,MEMER,ADMIN]") <small> # 권한 중 1개를 가지고있어야 접속가능 </small> </li>
-                            <li> .antMatchers("/경로").hasAuthority("ROLE_[GUEST,USER,MEMER,ADMIN]") <small> # 권한이 있어야 경로로 접속가능 </small> </li>
-                            <li> .antMatchers("/경로").hasAnyAuthority("ROLE_[GUEST,USER,MEMER,ADMIN]") <small> # 권한 중 1개를 가지고있어야 접속가능 </small> </li>
-                            <li> .antMatchers("/경로").access("hasRole('ADMIN')") <small> # SpEL 표현식 결과에 따라 접근 </small> </li>
-                            <li> .antMatchers("/경로").hasIpAddress() <small> # 특정 IP 주소를 가지는 사용자만 접근 할 수 있다. </small> </li>
-                            <li> .antMatcher("/경로").denyAll <small> # 모두 접근 불가 </small> </li>
-                            <li> .antMatcher("/경로").anonymous() <small> # 인증이 없는 사용자 접근 가능 </small> </li>
-                            <li> .antMatcher("/경로").isRememberMe() <small> # Remember-me기능으로 로그인한 사용자 접근 가능 </small> </li>
-                            <li> .antMatcher("/경로").isAuthenticated() <small> # 인증된 사용자만 접근 가능 </small> </li>
-                            <li> .antMatcher("/경로").isFullyAuthenticated() <small> # 익명의 사용자가 아니고 Remember-me로 로그인하지 않은 사용자 접근 가능 </small> </li>
-                            <li> .anyRequest().authenticated(); <small> # 이외에 다른 요청들은 모두 인증이 필요 </small> </li>
-                          </li>
-                          <li>  </li> <br />
-
-                          <li> <h4> 🔍 spring security login관련 보안 설정이다. (완벽하게 어떤 과정을 거치는지는 공부를 더 해보아야 한다.) </h4> </li>
-                          <li> http.formLogin() <smll> # 로그인 설정 </smll>
-                            <li> .loginPage("/경로")  <small> # 커스텀 로그인 페이지 경로와 로그인 인증 경로 등록, default=/login</small> </li>
-                            <li> .loginProcessingUrl("/do경로") <small> # 로그인 처리할 경로, default=/login</small>   </li>
-                            <li> .defaultSuccessUrl("/경로") <small> # 로그인이 성공할 경우 리다이렉트 주소, default=/ </small>  </li>
-                            <li> .usernameParameter("파라미터명") <small> # 유저의 이름 파라미터 , default=username </small> </li>
-                            <li> .passwordParameter("파라미터명") <small> # 유저의 비번 파라미터 , default=password </small> </li>
-                            <li> .successHandler(new SuccessHandler() {'{'} <small> # 로그인 성공시 내부 클래스를 이용해서 처리 메소드를 작성, 따로 클래스를 만들고 상속 후 메소드를 처리해도 된다. </small>
-                              <li> .failureUrl() <small> # default=/login?error  </small> </li>
-                              <li> @Override </li>
-                              <li> public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {'{'}
-                                <li> response.sendRedirect("/"); </li>
-                              </li>
-                              <li> {'}'} </li>
-                            </li>
-                            <li> {'})'} </li>
-                            <li> .failureHandler(new failureHandler() {'{'} <small> # 로그인 실패시 내부 클래스를 이용해서 처리 메소드를 작성, 따로 클래스를 만들고 상속 후 메소드를 처리해도 된다. </small>
-                              <li> @Override </li>
-                              <li> public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {'{'}
-                                <li> response.sendRedirect("/"); </li>
-                              </li>
-                              <li> {'}'} </li>
-                            </li>
-                            <li> {'})'} </li>
-                            <li> .permitAll(); <small> # 꼭 있어도 되는것은 아닌것으로 기억 </small> </li>
-                          </li>
-                          <li>  </li> <br />
-
-                          <li> <h4> 🔍 spring security logout관련 보안 설정이다. </h4> </li>
-                          <li> http.logout() <small> # </small> 로그아웃 설정
-                            <li> .logoutUrl("/do경로") <small> # 로그아웃을 요청할 경로  ,기본값은 ("/logout")</small>   </li>
-                            <li> .logoutRequestMatcher(new AntPathRequestMatcher("/logout")) <small> # 로그아웃 경로를 지정합니다. </small>  </li>
-                            <li> .logoutSuccessUrl("/경로") <small> # 로그아웃이 성공할 경우 이동할 경로 , 기본값은 ("/login?logout")? </small>  </li>
-                            <li> .invalidateHttpSession(true) <small> # 로그아웃 성공 시 세션을 제거 </small>  </li>
-                            <li> .deleteCookies("JSESSIONID","SOME","OTHER","COOKIES") <small> # 로그아웃시 쿠키 제거 </small> </li>
-                          </li>
-                          <li>  </li> <br />
-
-                          <li> <h4> 🔍 아래는 나중에 정리 </h4> </li>
-                          <li> http.exceptionHandling() <small> # </small>
-                            <li> .accessDeniedPage("/경로" 혹은 커스텀메소드) <small> # 권한이 없는 사용자가 접근하면 이동할 경로 지정 </small>  </li>
-                            <li> .authenticationEntryPoint(커스텀메소드) <small> # </small> </li>
-                          </li>
-                          <li> .and() </li>
-                          <li> .addFilter(커스텀필터메소드) <small> # 필터 구현체를 등록하여 필터 처리 </small>  </li>
-                          <li> .and() </li>
-                          <li> .oauth2Login() <small> # Oauth 로그인 설정 </small>
-                            <li> .loginPage("/loginForm") <small> # </small> </li>
-                            <li> .userInfoEndpoint() <small> # </small> </li>
-                            <li> .userService(customOAuth2UserService); <small> # Oauth 로그인 커스텀 서비스 처리 설정 </small> </li>
-                          </li> <br />
-
-                          <li> <h4> 🔍 rememberme 사용 ( 방법은 좀더 알아보기 ) </h4> </li>
-                          <li> http.rememberMe().tokenValiditySeconds(60 * 60 * 24); <small> # rememberMe 사용 ,html form에 remember-me라는 담아서 필드를 보내면된다. , default=2주 </small> </li>
-                        </li>
-                      </div>
-
-
-                      <li> </li> <br />
-                      <h3 className="h3"> 아래는 security 인증을 처리하는 방식을 설정하는 2가지 방법이다. (~~방식 인증이라고 말한것은 대략 지어놓은 말이다.) </h3>
-                      <div className="block4">
-
-                        <h3 className="h3"> 🎈 1. InMemory 방식 인증 <small> # 안 써봐서 잘 모르지만 내부에 저장을 해놓고서 인증을 처리하는 방식으로 기억 </small> </h3>
-                        <li>  @Bean </li>
-                        <li> 	@Override </li>
-                        <li> 	public UserDetailsService userDetailsService() {'{'}
-                          <li> 	UserDetails user = </li>
-                          <li> 	User.withDefaultPasswordEncoder()
-                            <li>  .username("user") </li>
-                            <li>  .password("password") </li>
-                            <li>  .roles("USER") </li>
-                            <li>  .build(); </li>
-                          </li>
-                          <li>  </li>
-                          <li> 		return new InMemoryUserDetailsManager(user); </li>
-                        </li>
-                        <li> 	{'}'} </li> <br />
-
+                      <li> <h5> // 🎈 인증, 로그인, 로그아웃 등 설정 , securityconfig 파일에 대부분 설정을 여기에서 한다. </h5> </li>
+                      <li> protected void configure(HttpSecurity http) throws Exception {'{'}
                         <li> </li> <br />
-                        <h3 className="h3"> 🎈 2. jdbcAuthentication() 방식 인증 <small> # security로 인증을 처리하는 방법 </small> </h3>
-                        <li> @Autowired </li>
-                        <li> DataSource dataSource; </li> <br />
-                        <li> @Bean </li>
-                        <li> public BCryptPasswordEncoder bCryptPasswordEncoder() {'{'} return new BCryptPasswordEncoder(); {'}'} </li> <br />
-                        <li> public PasswordEncoder passEncoder() {'{'} return PasswordEncoderFactories.createDelegatingPasswordEncoder() {'}'}
-                          <small> # BCryptPasswordEncoder하고 다른점은 정보에 어떤 암호문을 사용헀는지가 추가된다. , 사용을 안해봐서 언제 사용하는지는 잘 모르겠다. </small>  </li>
-                        <br />
-                        <li> @Override </li>
-                        <li> protected void configure(AuthenticationManagerBuilder auth) throws Exception {'{'}
-                          <li> auth.jdbcAuthentication()
-                            <li> {' .dataSource(dataSource) '} </li>
-                            <li> {' .passwordEncoder(bCryptPasswordEncoder()) '} </li>
-                            <li> {' .usersByUsernameQuery("select username,password,enabled " '}
-                              <li> {' + "from client where username=?") '} </li>
+                        <li> http.csrf().disable() <small> # csrf(보안) 비활성화 </small> </li>
+                        <li> <h5> // 🔍 세션 관련 (좀더 알아 볼것) </h5> </li>
+                        <li> http.sessionManagement() <small> # 세션 관리 </small>
+                          <li> .maximumSessions(1) <small> # 최대 세션 갯수 </small> </li>
+                          <li> .maxSessionsPreventsLogin(true) </li>
+                          <li> .expiredUrl("/경로") <small> # 세션이 만료되었을 경우 </small> </li>
+                          <li> .sessionRegistry(sessionRegistry) </li>
+                          <li> .sessionFixation().changeSessionId() </li>
+                          <li>.invalidSessionUrl("/경로")</li>
+                          <li>  </li>
+                        </li> <br />
+
+                        <li> <h5> // 🔍 요청한 경로에 대해서 인증과 접근 권한이 있는지 설정하는 곳 </h5> </li>
+                        <li> http.authorizeRequests() <small> # 요청에 대한 권한 설정 </small>
+                          <li> .antMatchers("/경로").authenticated() <small> # 인증된 사용자만 접근가능 </small> </li>
+                          <li> .antMatchers("/**").permitAll() <small> # 모든 경로 인증없이 허용 </small> </li>
+                          <li> .antMatchers(HttpMethod.POST,"/**").permitAll() <small> # POST방식으로 접근할 때 모든 경로 인증없이 허용 </small> </li>
+                          <li> .antMatchers("/경로").hasRole("[GUEST,USER,MEMER,ADMIN]") <small> # 권한이 있어야 경로로 접속가능 </small> </li>
+                          <li> .antMatchers("/경로").hasAnyRole("[GUEST,USER,MEMER,ADMIN]") <small> # 권한 중 1개를 가지고있어야 접속가능 </small> </li>
+                          <li> .antMatchers("/경로").hasAuthority("ROLE_[GUEST,USER,MEMER,ADMIN]") <small> # 권한이 있어야 경로로 접속가능 </small> </li>
+                          <li> .antMatchers("/경로").hasAnyAuthority("ROLE_[GUEST,USER,MEMER,ADMIN]") <small> # 권한 중 1개를 가지고있어야 접속가능 </small> </li>
+                          <li> .antMatchers("/경로").access("hasRole('ADMIN')") <small> # SpEL 표현식 결과에 따라 접근 </small> </li>
+                          <li> .antMatchers("/경로").hasIpAddress() <small> # 특정 IP 주소를 가지는 사용자만 접근 할 수 있다. </small> </li>
+                          <li> .antMatcher("/경로").denyAll <small> # 모두 접근 불가 </small> </li>
+                          <li> .antMatcher("/경로").anonymous() <small> # 인증이 없는 사용자 접근 가능 </small> </li>
+                          <li> .antMatcher("/경로").isRememberMe() <small> # Remember-me기능으로 로그인한 사용자 접근 가능 </small> </li>
+                          <li> .antMatcher("/경로").isAuthenticated() <small> # 인증된 사용자만 접근 가능 </small> </li>
+                          <li> .antMatcher("/경로").isFullyAuthenticated() <small> # 익명의 사용자가 아니고 Remember-me로 로그인하지 않은 사용자 접근 가능 </small> </li>
+                          <li> .anyRequest().authenticated(); <small> # 이외에 다른 요청들은 모두 인증이 필요 </small> </li>
+                        </li>
+                        <li>  </li> <br />
+
+                        <li> <h5> // 🔍 spring security login관련 보안 설정이다. (완벽하게 어떤 과정을 거치는지는 공부를 더 해보아야 한다.) </h5> </li>
+                        <li> http.formLogin() <smll> # 로그인 설정 </smll>
+                          <li> .loginPage("/경로")  <small> # 커스텀 로그인 페이지 경로와 로그인 인증 경로 등록, default=/login</small> </li>
+                          <li> .loginProcessingUrl("/do경로") <small> # 로그인 처리할 경로, default=/login</small>   </li>
+                          <li> .defaultSuccessUrl("/경로") <small> # 로그인이 성공할 경우 리다이렉트 주소, default=/ </small>  </li>
+                          <li> .usernameParameter("파라미터명") <small> # 유저의 이름 파라미터 , default=username </small> </li>
+                          <li> .passwordParameter("파라미터명") <small> # 유저의 비번 파라미터 , default=password </small> </li>
+                          <li> .successHandler(new SuccessHandler() {'{'} <small> # 로그인 성공시 내부 클래스를 이용해서 처리 메소드를 작성, 따로 클래스를 만들고 상속 후 메소드를 처리해도 된다. </small>
+                            <li> .failureUrl() <small> # default=/login?error  </small> </li>
+                            <li> @Override </li>
+                            <li> public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {'{'}
+                              <li> response.sendRedirect("/"); </li>
                             </li>
-                            <li> {' .authoritiesByUsernameQuery("select c.username, r.name " '}
-                              <li> {' + "from client_role cr inner join client c on cr.client_id = c.id " '} </li>
-                              <li> {' + "inner join role r on cr.role_id = r.id " '} </li>
-                              <li> {' + "where c.username = ?"); '} </li>
+                            <li> {'}'} </li>
+                          </li>
+                          <li> {'})'} </li>
+                          <li> .failureHandler(new failureHandler() {'{'} <small> # 로그인 실패시 내부 클래스를 이용해서 처리 메소드를 작성, 따로 클래스를 만들고 상속 후 메소드를 처리해도 된다. </small>
+                            <li> @Override </li>
+                            <li> public void onAuthenticationSuccess(HttpServletRequest httpServletRequest, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {'{'}
+                              <li> response.sendRedirect("/"); </li>
                             </li>
+                            <li> {'}'} </li>
+                          </li>
+                          <li> {'})'} </li>
+                          <li> .permitAll(); <small> # 꼭 있어도 되는것은 아닌것으로 기억 </small> </li>
+                        </li>
+                        <li>  </li> <br />
+                        <li> <h5> // 🔍 spring security logout관련 보안 설정이다. </h5> </li>
+                        <li> http.logout() <small> # </small> 로그아웃 설정
+                          <li> .logoutUrl("/do경로") <small> # 로그아웃을 요청할 경로  ,기본값은 ("/logout")</small>   </li>
+                          <li> .logoutRequestMatcher(new AntPathRequestMatcher("/logout")) <small> # 로그아웃 경로를 지정합니다. </small>  </li>
+                          <li> .logoutSuccessUrl("/경로") <small> # 로그아웃이 성공할 경우 이동할 경로 , 기본값은 ("/login?logout")? </small>  </li>
+                          <li> .invalidateHttpSession(true) <small> # 로그아웃 성공 시 세션을 제거 </small>  </li>
+                          <li> .deleteCookies("JSESSIONID","SOME","OTHER","COOKIES") <small> # 로그아웃시 쿠키 제거 </small> </li>
+                        </li>
+                        <li>  </li> <br />
+                        <li> <h5> // 🔍 아래는 나중에 정리 </h5> </li>
+                        <li> http.exceptionHandling() <small> # </small>
+                          <li> .accessDeniedPage("/경로" 혹은 커스텀메소드) <small> # 권한이 없는 사용자가 접근하면 이동할 경로 지정 </small>  </li>
+                          <li> .authenticationEntryPoint(커스텀메소드) <small> # </small> </li>
+                        </li>
+                        <li> .and() </li>
+                        <li> .addFilter(커스텀필터메소드) <small> # 필터 구현체를 등록하여 필터 처리 </small>  </li>
+                        <li> .and() </li>
+                        <li> .oauth2Login() <small> # Oauth 로그인 설정 </small>
+                          <li> .loginPage("/loginForm") <small> # </small> </li>
+                          <li> .userInfoEndpoint() <small> # </small> </li>
+                          <li> .userService(customOAuth2UserService); <small> # Oauth 로그인 커스텀 서비스 처리 설정 </small> </li>
+                        </li> <br />
+                        <li> // 🔍 rememberme 사용 ( 방법은 좀더 알아보기 ) </li>
+                        <li> http.rememberMe().tokenValiditySeconds(60 * 60 * 24); <small> # rememberMe 사용 ,html form에 remember-me라는 담아서 필드를 보내면된다. , default=2주 </small> </li>
+                      </li>
+                      <li> </li> <br />
+
+                      <li> // 아래는 security 인증을 처리하는 방식을 설정하는 2가지 방법이다. (~~방식 인증이라고 말한것은 대략 지어놓은 말이다.) </li>
+                      <li> <h5> 🎈 1. InMemory 방식 <small> # 안 써봐서 잘 모르지만 내부에 저장을 해놓고서 인증을 처리하는 방식으로 기억 </small> </h5> </li>
+                      <li>  @Bean </li>
+                      <li> 	@Override </li>
+                      <li> 	public UserDetailsService userDetailsService() {'{'}
+                        <li> 	UserDetails user = </li>
+                        <li> 	User.withDefaultPasswordEncoder()
+                          <li>  .username("user") </li>
+                          <li>  .password("password") </li>
+                          <li>  .roles("USER") </li>
+                          <li>  .build(); </li>
+                        </li>
+                        <li>  </li>
+                        <li> 		return new InMemoryUserDetailsManager(user); </li>
+                      </li>
+                      <li> 	{'}'} </li> <br />
+
+                      <li> </li> <br />
+                      <li> <h5> 🎈 2. jdbcAuthentication() 방식 인증 <small> # security로 인증을 처리하는 방법 </small> </h5> </li>
+                      <li> @Autowired </li>
+                      <li> DataSource dataSource; </li> <br />
+                      <li> @Bean </li>
+                      <li> public BCryptPasswordEncoder bCryptPasswordEncoder() {'{'} return new BCryptPasswordEncoder(); {'}'} </li> <br />
+                      <li> public PasswordEncoder passEncoder() {'{'} return PasswordEncoderFactories.createDelegatingPasswordEncoder() {'}'}
+                        <small> # BCryptPasswordEncoder하고 다른점은 정보에 어떤 암호문을 사용헀는지가 추가된다. , 사용을 안해봐서 언제 사용하는지는 잘 모르겠다. </small>  </li>
+                      <br />
+                      <li> @Override </li>
+                      <li> protected void configure(AuthenticationManagerBuilder auth) throws Exception {'{'}
+                        <li> auth.jdbcAuthentication()
+                          <li> {' .dataSource(dataSource) '} </li>
+                          <li> {' .passwordEncoder(bCryptPasswordEncoder()) '} </li>
+                          <li> {' .usersByUsernameQuery("select username,password,enabled " '}
+                            <li> {' + "from client where username=?") '} </li>
+                          </li>
+                          <li> {' .authoritiesByUsernameQuery("select c.username, r.name " '}
+                            <li> {' + "from client_role cr inner join client c on cr.client_id = c.id " '} </li>
+                            <li> {' + "inner join role r on cr.role_id = r.id " '} </li>
+                            <li> {' + "where c.username = ?"); '} </li>
                           </li>
                         </li>
-                        <li> 	{'}'} </li>
-
-                      </div>
+                      </li>
+                      <li> 	{'}'} </li>
                     </li>
-                    <li> {'}'} </li>
-                  </li> <br />
-
+                  </div>
                 </div>
               </li>
-
             </div>
           </details>
         </div>
-
 
         <div className='block1'>
           <details>

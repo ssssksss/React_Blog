@@ -136,84 +136,11 @@ const SpringLombok = (props) => {
                     </details>
                 </div>
 
-                <div className='block1'>
-                    <details>
-                        <summary> @NonNull @Nullable @NotNull @NotEmpty @NotBlank @Size @Min @Max @Length </summary>
-                        <div className='block2'>
-
-                            <h2 className="h2"> 📌 @NonNull  </h2>
-                            <li> 변수 위에 선언 </li>
-                            <li> Null을 허용하지 않음 </li>
-                            <li> Null이면 NullPointerException발생 </li>
-
-                            <h2 className="h2"> 📌 @Nullable </h2>
-                            <li> 변수 위에 선언 </li>
-                            <li> null을 허용 </li>
-
-                            <h2 className="h2"> 📌 @NotNull </h2>
-                            <li> 변수 위에 선언 </li>
-                            <li> Null만 허용하지 않음 </li>
-                            <li> Null이면 NullPointerException발생 </li>
-
-                            <h2 className="h2"> 📌 @NotEmpty </h2>
-                            <li> 변수 위에 선언 </li>
-                            <li> Null, 빈문자열("") 불가능 , " " 은 가능 </li>
-                            <li> String과 Collection 타입에만 적용이 가능하다고 한다. (boolean에는 @NotNull) </li>
-
-                            <h2 className="h2"> 📌 @NotBlank </h2>
-                            <li> 변수 위에 선언 </li>
-                            <li> Null, 빈문자열("") , " " 모두 불가능 </li>
-
-
-                            <h2 className="h2"> 📌 @Size </h2>
-                            <li> 변수 위에 선언 </li>
-                            <li> 최소 최대 지정 </li>
-                            <li> 문자열, 배열등의 크기 판단 </li>
-                            <li> Bean Validation annotation </li>
-                            <div className="block4">
-                                <li> @Size(min=1, max=20, message="null에러") </li>
-                                <li> private String name; </li>
-                            </div>
-
-                            <h2 className="h2"> 📌 @Min @Max </h2>
-                            <li> 변수 위에 선언 </li>
-                            <li> 최소 최대 지정 </li>
-                            <div className="block4">
-                                <li> @Min(1) </li>
-                                <li> @Max(20) </li>
-                                <li> private String name; </li>
-                            </div>
-
-                            <h2 className="h2"> 📌 @Length </h2>
-                            <li> 변수 위에 선언 </li>
-                            <li> 문자열의 길이 판단 </li>
-                            <li> Hibernate-specific annotation </li>
-                            <div className="block4">
-                                <li> @Length(min=5,max=10,message="") </li>
-                                <li> private String name; </li>
-                            </div>
-
-                            <h2 className="h2"> 📌 설명 </h2>
-                            <li> 1 </li>
-
-
-                            <h2 className="h2"> ✔ 예시 </h2>
-                            <li> 소제목
-                                <div className='block3'>
-                                    <h3 className="h3"> 🎈 </h3>
-                                    <div className='block4'>
-                                        <li>  </li>
-                                    </div>
-                                </div>
-                            </li>
-
-                        </div>
-                    </details>
-                </div>
+    
 
                 <div className='block1'>
                     <details>
-                        <summary> @Entity @Table @Id @GenerateValue @Column </summary>
+                        <summary> @Entity @Table @GenerateValue </summary>
                         <div className='block2'>
 
                             <h2 className="h2"> 📌 @Entity </h2>
@@ -224,10 +151,6 @@ const SpringLombok = (props) => {
                             <li> 클래스 위에 선언 </li>
                             <li> DB의 테이블과 매핑되는 테이블이름을 지정할 수 있음 </li>
                             <li> @Table(name="테이블이름지정")</li>
-
-                            <h2 className="h2"> 📌 @Id </h2>
-                            <li> 변수 위에 선언 </li>
-                            <li> 엔티티 식별자로 사용, DB테이블의 PK로도 사용이 된다. </li>
 
                             <h2 className="h2"> 📌 @GenerateValue </h2>
                             <li> 변수위에 선언 </li>
@@ -241,22 +164,6 @@ const SpringLombok = (props) => {
                                         <li> @SequenceGenrator(name="시퀸스생성자이름", sequenceName=""(매핑할 DB시퀸스 이름),
                                             initialValue=1(시작값), allocationSize=1(증가값) ) </li>
                                     </p>
-                                </div>
-                            </li>
-
-                            <h2 className="h2"> 📌 @Column </h2>
-                            <li> 변수 위에 선언 </li>
-                            <li> @Column(name="DB필드명", unique=true, nullable=false,
-                                length=10, columnDefinition="데이터타입 제약조건 '제약조건값'" ) : DB에 매핑되는 필드명 </li>
-
-
-                            <h2 className="h2"> ✔ 예시 </h2>
-                            <li> 소제목
-                                <div className='block3'>
-                                    <h3 className="h3"> 🎈 </h3>
-                                    <div className='block4'>
-                                        <li>  </li>
-                                    </div>
                                 </div>
                             </li>
 
@@ -350,7 +257,7 @@ const SpringLombok = (props) => {
 
                 <div className='block1'>
                     <details>
-                        <summary> @Configuration @Service @Repository @Controller @RestController @Entity @Component </summary>
+                        <summary> @Configuration @Service @Repository@Entity @Component </summary>
                         <div className='block2'>
 
                             <h2 className="h2"> 📌 @Configuration </h2>
@@ -367,9 +274,6 @@ const SpringLombok = (props) => {
                             <h2 className="h2"> 📌 @Controller </h2>
                             <li> Model 객체를 이용하여 데이터를 담고 view를 찾아 이동하는 역할 </li>
 
-                            <h2 className="h2"> 📌 @RestController </h2>
-                            <li> @Controller + @ResponseBody </li>
-                            <li>  객체로 반환하고 JSON이나 XML형식으로 http에 담아서 응답 </li>
 
                             <h2 className="h2"> 📌 @Entity </h2>
                             <li> 1 </li>

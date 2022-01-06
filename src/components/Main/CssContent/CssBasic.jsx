@@ -627,65 +627,7 @@ const CssBasic = (props) => {
                     </details>
                 </div>
 
-                <div className='block1'>
-                    <details>
-                        <summary> 애니메이션 효과 </summary>
-                        <div className='block2'>
 
-                            <h2 className='h2'> 📌 설명 </h2>
-                            <li> 1 </li>
-
-                            <h2 className='h2'> 📌 css 스타일 </h2>
-                            <li> animation-fill-mode <small> # 애니메이션이 끝난뒤에 처리 설정 </small> </li>
-                            <div className="block4" style={{ listStyle: "none" }}>
-                                <li> backwards : 기본설정, 애니메이션이 작동하기전으로 돌아감 </li>
-                                <li> forwards : 키프레임이 100%가 되었을 때 마지막 유지 </li>
-                            </div>
-
-                            <li> animation-direction <small> # 애니메이션의 진행 방향 설정 </small> </li>
-                            <div className="block4" style={{ listStyle: "none" }}>
-                                <li> normal : 기본값, 정해진 순서로 진행 </li>
-                                <li> reverse : 반대 순서로 진행 </li>
-                                <li> alternate : 정해진 순서로 진행 후 반대순서로 진행 </li>
-                                <li> alternate-reverse : 반대 순서로 진행 후, 정해진 순서로 진행 </li>
-                            </div>
-
-                            <li> animation-iteration-count <small> # 애니메이션의 횟수를 정함 </small> </li>
-                            <div className="block4" style={{ listStyle: "none" }}>
-                                <li> 숫자 : 반복횟수 </li>
-                                <li> infinite : 무한반복 </li>
-                            </div>
-
-                            <li> animation-duration <small> # 애니메이션이 일어나는 시간 </small> </li>
-                            <div className="block4" style={{ listStyle: "none" }}>
-
-                            </div>
-
-                            <li> @Keyframes <small> # 애니메이션을 나누어서 처리하는 과정 </small> </li>
-                            <li> animation-name : 애니메이션 이름 <small> #css스타일 안에다가 선언 </small> </li>
-                            <div className="block4" style={{ listStyle: "none" }}>
-                                <li> @Keyframes 애니메이션이름 {'{'}
-                                    <li> from {'{'}
-                                        <li> 스타일 지정 </li>
-                                    </li>
-                                    <li> {'}'} </li>
-                                    <li> 30% {'{'}
-                                        <li> 스타일 지정 </li>
-                                    </li>
-                                    <li> 60% {'{'}
-                                        <li> 스타일 지정 </li>
-                                    </li>
-                                    <li> {'}'} </li>
-                                    <li> to {'{'}
-                                        <li> 스타일 지정 </li>
-                                    </li>
-                                    <li> {'}'} </li>
-                                </li>
-                                <li> {'}'} </li>
-                            </div>
-                        </div>
-                    </details>
-                </div>
 
                 <div className='block1'>
                     <details>

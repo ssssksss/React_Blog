@@ -206,34 +206,6 @@ const ReactBasic = (props) => {
 
       <div className='block1'>
         <details>
-          <summary> React useRef </summary>
-          <div className='block2'>
-
-            <h2 className='h2'> 📌 설명 </h2>
-            <li> 1 </li>
-            <li> 2 </li>
-            <li> 3 </li>
-
-            <h2 className='h2'> 📌 장점, 단점 </h2>
-            <li> 장점 : </li>
-            <li> 단점 : </li>
-
-            <h2 className='h2'> ✔ 예시 </h2>
-            <li> 소제목
-              <div className='block3'>
-                <h3 className='h3'> 🎈 </h3>
-                <div className='block4'>
-                  <li>  </li>
-                </div>
-              </div>
-            </li>
-
-          </div>
-        </details>
-      </div>
-
-      <div className='block1'>
-        <details>
           <summary> React CORs </summary>
           <div className='block2'>
 
@@ -259,6 +231,83 @@ const ReactBasic = (props) => {
               </li>
               <li> {" }; "} </li>
             </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> React Spring과 연동 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설명(아래 상단 npm 3개는 확인이 필요) </h2>
+            <li> 폴더명은 frontend로 만들어 줍니다. </li>
+            <li> CRA를 하고 npm start를 합니다.(테스트) </li>
+            <li> npm install </li>
+            <li> npm run-script build </li>
+            <li> npm run eject </li>
+            <li> 스프링 build.gradle에 아래 코드 붙여넣기
+              <div className="block4">
+                <li> {" def frontendDir = '$projectDir/frontend' "} </li>
+                <li> {"  "} </li> <br />
+                <li> {" sourceSets { "}
+                  <li> {" 	main { "}
+                    <li> {" 		resources { "}
+                      <li> {" 			srcDirs = ['$projectDir/src/main/resources'] "} </li>
+                    </li>
+                    <li> {" 		} "} </li>
+                  </li>
+                  <li> {" 	} "} </li>
+                </li>
+                <li> {" } "} </li>
+                <li> {"  "} </li>
+                <li> {" processResources { "}
+                  <li> {" 	dependsOn 'copyReactBuildFiles' "} </li>
+                </li>
+                <li> {" } "} </li>
+                <li> {"  "} </li>
+                <li> {" task installReact(type: Exec) { "}
+                  <li> {" 	workingDir '$frontendDir' "} </li>
+                  <li> {" 	inputs.dir '$frontendDir' "} </li>
+                  <li> {" 	group = BasePlugin.BUILD_GROUP "} </li>
+                  <li> {" 	if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) "} </li>
+                  <li> {" 	{ "}
+                    <li> {" 		commandLine 'npm.cmd', 'audit', 'fix' "} </li>
+                    <li> {" 		commandLine 'npm.cmd', 'install' "} </li>
+                  </li>
+                  <li> {" 	} else { "}
+                    <li> {" 		commandLine 'npm', 'audit', 'fix' "} </li>
+                    <li> {" 		commandLine 'npm', 'install' "} </li>
+                  </li>
+                  <li> {" 	} "} </li>
+                </li>
+                <li> {" } "} </li>
+                <li> {"  "} </li> <br />
+                <li> {" task buildReact(type: Exec) { "}
+                  <li> {" 	dependsOn 'installReact' "} </li>
+                  <li> {" 	workingDir '$frontendDir' "} </li>
+                  <li> {" 	inputs.dir '$frontendDir' "} </li>
+                  <li> {" 	group = BasePlugin.BUILD_GROUP "} </li>
+                  <li> {" 	if (System.getProperty('os.name').toLowerCase(Locale.ROOT).contains('windows')) { "}
+                    <li> {" 		commandLine 'npm.cmd', 'run-script', 'build' "} </li>
+                  </li>
+                  <li> {" 	} else { "}
+                    <li> {" 		commandLine 'npm', 'run-script', 'build' "} </li>
+                  </li>
+                  <li> {" 	} "} </li>
+                </li>
+                <li> {" } "} </li>
+                <li> {"  "} </li>
+                <li> {" task copyReactBuildFiles(type: Copy) { "}
+                  <li> {" 	dependsOn 'buildReact' "} </li>
+                  <li> {" 	from '$frontendDir/build' "} </li>
+                  <li> {" 	into '$projectDir/src/main/resources/static' "} </li>
+                </li>
+                <li> {" } "} </li>
+              </div>
+            </li>
+            <li>  </li>
 
           </div>
         </details>

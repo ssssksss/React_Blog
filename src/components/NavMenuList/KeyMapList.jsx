@@ -6,8 +6,8 @@ const KeyMapList = () => {
     return (
         <div className="nav-menu2__inner-box">
             <div className="menu menu1">
-                <Link to="/keymap_intellij"> Intellij 단축키, 설정, 익스텐션 </Link>
-                <Link to="/keymap_vscode"> VScode 단축키, 설정, 익스텐션 </Link>
+                <Link to="/keymap_intellij"> Intellij 단축키, 설정 </Link>
+                <Link to="/keymap_vscode"> VScode 단축키, 설정 </Link>
                 <Link to="/keymap_eclipse"> Eclipse 단축키 및 설정 </Link>
                 <Link to="/keymap_sublimetext"> SublimeText 단축키 및 설정 </Link>
             </div>

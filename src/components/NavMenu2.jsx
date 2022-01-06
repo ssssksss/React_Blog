@@ -1,7 +1,8 @@
 import HtmlList from './NavMenuList/HtmlList.jsx';
 import CssList from './NavMenuList/CssList.jsx';
 import BootstrapList from './NavMenuList/BootstrapList.jsx';
-import JavaSciptList from './NavMenuList/JavaSciptList.jsx';
+import JavaScriptList from './NavMenuList/JavaScriptList.jsx';
+import TypeScriptList from './NavMenuList/TypeScriptList.jsx';
 import ReactList from './NavMenuList/ReactList.jsx';
 import JavaList from './NavMenuList/JavaList.jsx';
 import PhpList from './NavMenuList/PhpList.jsx';
@@ -14,7 +15,7 @@ import LinuxList from './NavMenuList/LinuxList.jsx';
 import NetworkList from './NavMenuList/NetworkList.jsx';
 import TermList from './NavMenuList/TermList.jsx';
 import KeyMapList from './NavMenuList/KeyMapList.jsx';
-import GithubList from './NavMenuList/GithubList.jsx';
+import CollaborationToolList from './NavMenuList/CollaborationToolList.jsx';
 import RefBlogList from './NavMenuList/RefBlogList.jsx';
 import PythonList from './NavMenuList/PythonList.jsx';
 import AIList from './NavMenuList/AIList.jsx';
@@ -32,7 +33,6 @@ import FigmaList from './NavMenuList/FigmaList.jsx';
 import RefactoringList from './NavMenuList/RefactoringList.jsx';
 
 import './NavMenu2.css';
-import './NavMenuListStyle.css';
 
 const NavMenu2 = (props) => {
 
@@ -57,7 +57,10 @@ const NavMenu2 = (props) => {
             return <BootstrapList onChangePage={(page2) => { send(page2) }}> </BootstrapList>;
         }
         else if (props.page === 'javascript') {
-            return <JavaSciptList onChangePage={(page2) => { send(page2) }}> </JavaSciptList>;
+            return <JavaScriptList onChangePage={(page2) => { send(page2) }}> </JavaScriptList>;
+        }
+        else if (props.page === 'typescript') {
+            return <TypeScriptList onChangePage={(page2) => { send(page2) }}> </TypeScriptList>;
         }
         else if (props.page === 'react') {
             return <ReactList onChangePage={(page2) => { send(page2) }}> </ReactList>;
@@ -104,7 +107,7 @@ const NavMenu2 = (props) => {
             return <KeyMapList onChangePage={(page2) => { send(page2) }}> </KeyMapList>;
         }
         else if (props.page === 'github') {
-            return <GithubList onChangePage={(page2) => { send(page2) }}> </GithubList>;
+            return <CollaborationToolList onChangePage={(page2) => { send(page2) }}> </CollaborationToolList>;
         }
         else if (props.page === 'refblog') {
             return <RefBlogList onChangePage={(page2) => { send(page2) }}> </RefBlogList>;

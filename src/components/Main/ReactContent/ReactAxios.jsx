@@ -21,6 +21,53 @@ const ReactAxios = (props) => {
 
             <div className='block1'>
                 <details>
+                    <summary> Axios Create </summary>
+                    <div className='block2'>
+
+                        <h2 className='h2'> 📌 설명 </h2>
+                        <li> 액시오스 인스턴스? 를 만드는 방법이다 </li>
+
+                        <h2 className='h2'> ✔ 예시 </h2>
+                        <li>
+                            <div className='block3'>
+                                <h3 className='h3'> 🎈 Axios Crate 선언 </h3>
+                                <div className='block4'>
+                                    <li> import axios from "axios" </li>
+                                    <li>  </li> <br />
+                                    <li> const API = axios.create({"{"}
+                                        <li> baseURL: "http://localhost:8080", </li>
+                                        <li> headers: {"{"}
+                                            <li> "Content-Type": "application/json", </li>
+                                        </li>
+                                        <li> {"},"} </li>
+                                        <li> withCredentials: true, </li>
+                                    </li>
+                                    <li> {"});"} </li>
+                                    <li> export default API; </li>
+                                </div>
+                                <h3 className='h3'> 🎈 Axios Crate 사용 </h3>
+                                <div className='block4'>
+                                    <li> import API from "경로" </li>
+                                    <li>  </li> <br />
+                                    <li> const login = async(code) {"=> {"}
+                                        <li> const {"{data}"} = await API.post(
+                                            <li> "/경로", </li>
+                                            <li> JSON.stringify(code) </li>
+                                        </li>
+                                        <li> ); </li>
+                                        <li> return data; </li>
+                                    </li>
+                                    <li> {"};"} </li>
+                                </div>
+                            </div>
+                        </li>
+
+                    </div>
+                </details>
+            </div>
+
+            <div className='block1'>
+                <details>
                     <summary> Axios Get </summary>
                     <div className='block2'>
 
@@ -48,15 +95,15 @@ const ReactAxios = (props) => {
                                     </li>
                                     <li> {' }) '} </li>
                                 </div>
-                                <h3 className='h3'> 🎈 예시3 - naver search api 일부, cors적용 </h3>
+                                <h3 className='h3'> 🎈 예시3 </h3>
                                 <div className='block4'>
                                     <li> import axios from 'axios'; </li>
                                     <li></li> <br />
                                     <li> {" const response = await axios.get('/v1/search/local.json'"}
                                         <li> {" , { "}
-                                            <li> {" params: { "}
-                                                <li> {" query: word, "} </li>
-                                                <li> {" display: 1 "} </li>
+                                            <li> {" params 혹은 data: { "}
+                                                <li> query: word, </li>
+                                                <li> display: 1 </li>
                                             </li>
                                             <li> {" }, "} </li>
                                             <li> {" headers: { "}
@@ -69,6 +116,34 @@ const ReactAxios = (props) => {
                                     <li> {" }); "} </li>
                                     <li> {" const res = { response }; "} </li>
                                     <li> {" console.log(res); "} </li>
+                                </div>
+                                <h3 className='h3'> 🎈 예시4 - 스프링 RestController에 보내는 예제(테스트확인) </h3>
+                                <div className='block4'>
+                                    <li> import axios from 'axios'; </li>
+                                    <li></li> <br />
+                                    <li> {" const testAxios2 = async () => { "}
+                                        <li> {" await axios( "}
+                                            <li> {" { "}
+                                                <li> {" url: '/api/get2', "} </li>
+                                                <li> {" method: 'GET', "} </li>
+                                                <li> {" data: { "}
+                                                    <li> {" id: 1, name: 'aaa222' "} </li>
+                                                </li>
+                                                <li> {" }, "} </li>
+                                                <li> {" baseURL: 'http://localhost:8080', "} </li>
+                                                <li> {" withCredentials: true, "} </li>
+                                            </li>
+                                            <li> {" } "} </li>
+                                        </li>
+                                        <li> {" ).then(function (response) { "}
+                                            <li> {" console.log('응답 왔음'); "} </li>
+                                        </li>
+                                        <li> {" }).catch(function (error) { "}
+                                            <li> {" console.log(error); "} </li>
+                                        </li>
+                                        <li> {" }); "} </li>
+                                    </li>
+                                    <li> {" } "} </li>
                                 </div>
                             </div>
                         </li>
@@ -111,6 +186,34 @@ const ReactAxios = (props) => {
                                         <li> console.log(Error); </li>
                                     </li>
                                     <li> {' }) '} </li>
+                                </div>
+                                <h3 className='h3'> 🎈 예시2 - form 데이터 전송 </h3>
+                                <div className='block4'>
+                                    <li> import axios from 'axios'; </li>
+                                    <li> </li> <br />
+                                    <li>{" const testAxios4 = async () => { "}
+                                        <li>{" const frm = new FormData(); "}  </li>
+                                        <li>{" frm.append('data', '123'); "}  </li>
+                                        <li>{" frm.append( "}
+                                            <li>{" 'data1', ['123', '456', '789'] "}  </li>
+                                        </li>
+                                        <li> frm.append('id', 1);  </li>
+                                        <li> frm.append('name', "name");  </li>
+                                        <li>{" ); "}  </li>
+                                        <li>{" await axios.post(`http://localhost:8080/api/post2`, frm) "}
+                                            <li>{" .then(response => { "}
+                                                <li>{" console.log('data', JSON.stringify(response, null, 2)); "}  </li>
+                                            </li>
+                                            <li>{" }).catch(error => { "}
+                                                <li>{" console.log(error); "}  </li>
+                                            </li>
+                                            <li>{" }); "}  </li>
+                                        </li>
+                                    </li>
+                                    <li>{" } "}  </li>
+                                    <li>  </li> <br />
+                                    <li> 스프링에선 매개변수로(String data1)으로 했을 때 데이터 받아짐 </li>
+                                    <li> 스프링에서 매개변수로(User user)이고 user.id,user.name일 때 id,name으로 보내면 받아짐 </li>
                                 </div>
                             </div>
                         </li>

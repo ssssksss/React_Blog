@@ -603,12 +603,14 @@ const JavaScriptBasic = (props) => {
 
                             <h2 className='h2'> 📌 설명 </h2>
                             <small> 객체이므로 new Data()로 사용 </small>
+                            <li> new Date() , Thu Oct MM YYYY HH:MM:SS GMT+0000  </li>
                             <li> Date(21,7,16) #1921년 8월 16일 </li>
                             <li> Date(2021,7,16) #2021년 8월 16일 </li>
                             <li> Date([1900년도 기준],[0~11],일,시,분,초,밀리초)  </li>
                             <li> Data객체.getFullYear() : 년</li>
                             <li> Data객체.getMonth() : 월</li>
                             <li> Data객체.getDate() : 일</li>
+                            <li> Data객체.getDay() : 요일, 0(일요일) ~ 6(토요일)</li>
                             <li> Data객체.getHours() : 시</li>
                             <li> Data객체.getMinutes() : 분</li>
                             <li> Data객체.getSeconds() : 초</li>

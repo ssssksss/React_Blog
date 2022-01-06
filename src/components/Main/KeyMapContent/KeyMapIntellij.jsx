@@ -73,6 +73,7 @@ const KeyMapIntellij = (props) => {
 											<li> Help - Edit Custom VM Options </li>
 											<li> 제일 아래에 -Dfile.encoding=UTF-8 코드 추가 </li>
 										</li>
+										<li> [3] 1,2을 하고서 인텔리제이 종료하고 재실행해보기 </li>
 									</div>
 								</div>
 							</details>

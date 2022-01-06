@@ -1,17 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const GithubList = () => {
+const TypeScriptList = () => {
 
     return (
         <div className="nav-menu2__inner-box">
             <div className="menu menu1">
-                <Link to="/github_basic"> 깃허브 공부 </Link>
+                <Link to="/typescript_basic"> 타입스크립트 기본 문법 </Link>
             </div>
             <div className="menu menu2">
+                {/*<Link to="/">  </Link>*/}
             </div>
         </div>
     );
 }
 
-export default GithubList;
+export default TypeScriptList;

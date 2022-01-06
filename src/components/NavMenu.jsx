@@ -12,8 +12,8 @@ const NavMenu = (props) => {
             <div className="nav-menu__container1 menu">
                 <p> 백엔드 </p>
                 <button className="col_b_r" onClick={() => { send("java") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Java_icon.png'} /> JAVA </button>
-                <button className="col_b_r" onClick={() => { send("php") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Php_icon.svg'} /> PHP </button>
-                <button className="col_b_r" onClick={() => { send("nodejs") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Nodejs_icon.png'} /> Node.js </button>
+                {/*<button className="col_b_r" onClick={() => { send("php") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Php_icon.svg'} /> PHP </button>*/}
+                {/*<button className="col_b_r" onClick={() => { send("nodejs") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Nodejs_icon.png'} /> Node.js </button>*/}
                 <button onClick={() => { send("spring") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Spring_icon.svg'} /> Spring </button>
                 <button className="col_b_r" onClick={() => { send("jspservlet") }}> JSP&amp;servlet </button>
                 <button className="col_b_r" onClick={() => { send("backend") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Backenddvl_icon.svg'} /> <span> 백엔드 개발자 </span> </button>
@@ -25,18 +25,19 @@ const NavMenu = (props) => {
                 <button onClick={() => { send("bootstrap") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Bootstrap_icon.svg'} /> <span> Bootstrap </span> </button>
                 {/*<button className="col_b_r" onClick={() => { send("typescript") }}> TypeScript </button>*/}
                 <button onClick={() => { send("javascript") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Javascript_icon.svg'} /> <span> JavaScript</span> </button>
+                <button onClick={() => { send("typescript") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Typescript_icon.svg'} /> <span> TypeScript</span> </button>
                 <button onClick={() => { send("react") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/React_icon.svg'} /> React </button>
                 <button className="col_b_r" onClick={() => { send("frontend") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Frontenddvl_icon.svg'} /> <span> 프론트 개발자 </span> </button>
             </div>
             <div className="nav-menu__container3 menu">
                 <p> 기타1 </p>
-                <button className="col_b_r" onClick={() => { send("database") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Database_icon.svg'} /> DataBase </button>
+                <button className="col_b_r" onClick={() => { send("database") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Database_icon.svg'} /> DB </button>
                 <button className="col_b_r" onClick={() => { send("cloud") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Cloud_icon.svg'} /> 클라우드 </button>
                 <button className="col_b_r" onClick={() => { send("linux") }}>   <img src={process.env.PUBLIC_URL + '/img/NavMenu/Linux_icon.svg'} /> Linux </button>
-                <button className="col_b_r" onClick={() => { send("github") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Github_icon.svg'} /> 깃허브 </button>
-                <button className="col_b_r" onClick={() => { send("python") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Python_icon.svg'} /> Python </button>
-                <button className="col_b_r" onClick={() => { send("ai") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Ai_icon.svg'} /> 인공지능 </button>
-                <button className="col_b_r" onClick={() => { send("algorithm") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Algorithm_icon.svg'} /> 알고리즘 </button>
+                <button onClick={() => { send("github") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Github_icon.svg'} /> 협업도구 </button>
+                {/*<button className="col_b_r" onClick={() => { send("python") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Python_icon.svg'} /> Python </button>*/}
+                {/*<button className="col_b_r" onClick={() => { send("ai") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Ai_icon.svg'} /> 인공지능 </button>*/}
+                {/*<button className="col_b_r" onClick={() => { send("algorithm") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Algorithm_icon.svg'} /> 알고리즘 </button>*/}
                 <button onClick={() => { send("api") }}>  API </button>
             </div>
             <div className="nav-menu__container3 menu">
@@ -49,7 +50,7 @@ const NavMenu = (props) => {
                 <button className="col_b_r" onClick={() => { send("term") }}> 용어 </button>
                 <button className="col_b_r" onClick={() => { send("keymap") }}> 단축키&amp;설정 </button>
                 <button className="col_b_r" onClick={() => { send("refblog") }}> 참고 블로그 </button>
-                <button className="col_b_r" onClick={() => { send("blockchain") }}>  블록체인 </button>
+                {/*<button className="col_b_r" onClick={() => { send("blockchain") }}>  블록체인 </button>*/}
                 <button className="col_b_r" onClick={() => { send("codingtest") }}>  코딩테스트 </button>
                 <button className="col_b_r" onClick={() => { send("program") }}>  추천 프로그램 </button>
                 <button onClick={() => { send("figma") }}>  Figma </button>

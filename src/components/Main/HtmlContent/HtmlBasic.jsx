@@ -329,9 +329,23 @@ const HtmlBasic = (props) => {
                             <li> {' <input type="checkbox" name="hooby" value="sport"/> 운동 '} <small> # </small> </li>
                             <li> {' <input type="checkbox" name="hooby" value="game"/> 게임'} <small> # </small> </li>
                             <li> {' <input type="text" name="text" placeholder="텍스트를 입력하세요" /> '} <small> # 텍스트를 입력할 때 </small> </li>
-                            <li> {' <input type=""/> '} <small> # </small> </li>
-                            <li> {' <input type=""/> '} <small> # </small> </li>
-                            <li>  </li>
+                            <li> {' <input type="email"/> '} <small> # 이메일 형식 자동 검사 </small> </li>
+                            <li> {' <input type="url"/> '} <small> # 유효한 url 주소인지 검사 </small> </li>
+                            <li> {' <input type="tel"/> '} <small> # 전화번호 입력 </small> </li>
+                            <li> {' <input type="search"/> '} <small> # 검색 </small> </li>
+                            <li> {' <input type="range" min="1" max="2" /> '} <small> # 범위 </small> </li>
+                            <li> {' <input type="color" value="#ffffff"/> '} <small> #  </small> </li>
+                            <li> {' <input type="keygen"/> '} <small> # 암호화하여 서버로 전송(사용방법찾아보기) </small> </li>
+                            <li> {' <input type="output"/> '} <small> # 스크립트로 실행된 결과를 바로 보여줌 </small> </li>
+                            <li> {' <input type=""/> '} <small> #  </small> </li>
+                            <li> {' <input type=""/> '} <small> #  </small> </li>
+                            <li> {' <input type="date"/> '} <small> # 년월일 </small> </li>
+                            <li> {' <input type="time"/> '} <small> # [오전,오후] 24:60 </small> </li>
+                            <li> {' <input type="datetime-local"/> '} <small> # 년-월-일 [오전,오후] 24:60  </small> </li>
+                            <li> {' <input type="month"/> '} <small> # 년월 </small> </li>
+                            <li> {' <input type="week"/> '} <small> # 년, 몇번째 주 </small> </li>
+                            <li> value(초깃값) , readonly(읽기전용), disabled(아무것도안됨,전송도안됨) </li>
+                            <li> maxlenght(최대길이), size(input요소 크기 지정) </li>
 
                             <h2 className='h2'> 📌 form태그 설명 </h2>
                             <li> 프론트엔드에서 사용자가 입력을 하고 백엔드 서버에 데이터를 보낼 때 사용  </li>

@@ -9,7 +9,8 @@ const CssList = () => {
                 <Link to="/css_basic"> CSS 기본 문법 </Link>
                 <Link to="/css_basic2"> CSS 기본 문법2 </Link>
                 <Link to="/css_use"> CSS 응용 </Link>
-                <Link to="/css_scss"> SCSS </Link>
+                <Link to="/css_scss"> CSS Scss </Link>
+                <Link to="/css_animation"> CSS Animation </Link>
             </div>
             <div className="menu menu2">
                 <Link to="/css_blur business card"> 명함 불러 만들기</Link>

@@ -17,45 +17,36 @@
     border-radius: 10px 10px 0px 0px;
 }
 
-.nav-menu2 button {
-    float: left;
-    padding: 5px 0px;
-    min-width: 220px;
-    max-width: 220px;
-    min-height: 28px;
-    margin: 5px;
-    box-sizing: border-box;
-    background: transparent;
-    color: white;
-    font-weight: 700;
-    font-size: 1em;
-    line-height: 1em;
-    text-align: center;
-    border-radius: 4px;
-    border: none;
-    box-shadow: 1px 1px 1px 1px gray;
-}
-
 /* Link태그에 속성을 넣는것 */
 .nav-menu2 a {
     float: left;
     padding: 5px 0px;
-    min-width: 220px;
-    max-width: 220px;
-    min-height: 28px;
+    width: 176px;
+    height: 30px;
     margin: 5px;
     box-sizing: border-box;
     background: transparent;
     color: white;
     font-weight: 700;
-    font-size: 1em;
+    font-size: 0.9em;
     line-height: 1em;
     text-align: center;
     border-radius: 4px;
     border: none;
     box-shadow: 1px 1px 1px 1px gray;
+    text-decoration: none;
+    display: flex;
+    /* 아래 2줄은 navmenu2의 텍스트 정가운데로 보내는 용도 */
+    justify-content: center;
+    align-items: center;
+}
+.nav-menu2__inner-box > .menu > a > img {
+    max-width: 14px;
+    max-height: 14px;
+    vertical-align: top;
 }
 .nav-menu2 .nav-menu2__inner-box {
+    display: flex;
     overflow:scroll;
     max-height: 300px;
 }
@@ -63,4 +54,8 @@
 .nav-menu2 .nav-menu2__inner-box .menu a:hover{
     background-color: white;
     color: #3366FF;
+}
+.nav-menu2__inner-box .menu {
+    width: 50vw;
+    display: block;
 }

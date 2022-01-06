@@ -5,6 +5,7 @@ import { Route, Switch } from 'react-router-dom';
 // ========== 백엔드 ==========
 // 자바
 import JavaBasic from './Main/JavaContent/JavaBasic';
+import JavaBasic2 from './Main/JavaContent/JavaBasic2';
 import JavaSerializable from './Main/JavaContent/JavaSerializable';
 import JavaModifier from './Main/JavaContent/JavaModifier';
 import JavaAnnotation from './Main/JavaContent/JavaAnnotation';
@@ -29,6 +30,9 @@ import SpringController from './Main/SpringContent/SpringController';
 import SpringSecurity from './Main/SpringContent/SpringSecurity';
 import SpringValidator from './Main/SpringContent/SpringValidator';
 import SpringCors from './Main/SpringContent/SpringCors';
+import SpringAop from './Main/SpringContent/SpringAop';
+import SpringService from './Main/SpringContent/SpringService';
+import SpringJackson from './Main/SpringContent/SpringJackson';
 import SpringSecurityExCode1 from './Main/SpringContent/SpringSecurityExCode1';
 import SpringSecurityExCode2 from './Main/SpringContent/SpringSecurityExCode2';
 import SpringSecurityExCode3 from './Main/SpringContent/SpringSecurityExCode3';
@@ -59,6 +63,7 @@ import HtmlTest from './Main/HtmlContent/HtmlTest';
 import CssBasic from './Main/CssContent/CssBasic';
 import CssBasic2 from './Main/CssContent/CssBasic2';
 import CssScss from './Main/CssContent/CssScss';
+import CssAnimation from './Main/CssContent/CssAnimation';
 import CssUse from './Main/CssContent/CssUse';
 import CssBlurBusinessCard from './Main/CssContent/CssBlurBusinessCard';
 import CssTextAndVideo from './Main/CssContent/CssTextAndVideo';
@@ -68,6 +73,7 @@ import BootstrapBasic from './Main/BootstrapContent/BootstrapBasic';
 import BootstrapTable from './Main/BootstrapContent/BootstrapTable';
 
 // 타입스크립트
+import TypeScriptBasic from './Main/TypeScriptContent/TypeScriptBasic';
 
 // 자바스크립트
 import JavaScriptBasic from './Main/JavaScriptContent/JavaScriptBasic';
@@ -81,7 +87,6 @@ import JavaScriptAttribute from './Main/JavaScriptContent/JavaScriptAttribute';
 import JavaScriptLocation from './Main/JavaScriptContent/JavaScriptLocation';
 import JavaScriptStyle from './Main/JavaScriptContent/JavaScriptStyle';
 import JavaScriptWindow from './Main/JavaScriptContent/JavaScriptWindow';
-
 import JavaScriptTable from './Main/JavaScriptContent/JavaScriptTable';
 import JavaScriptScroll from './Main/JavaScriptContent/JavaScriptScroll';
 
@@ -120,6 +125,7 @@ import DBErd from './Main/DatabaseContent/DBErd';
 import DPMvc2 from './Main/DesignPatternContent/DPMvc2';
 import DPMvp from './Main/DesignPatternContent/DPMvp';
 import DPMvvm from './Main/DesignPatternContent/DPMvvm';
+import DPGof from './Main/DesignPatternContent/DPGof';
 
 // 보안
 import SecurityBasic from './Main/SecurityContent/SecurityBasic';
@@ -192,8 +198,10 @@ import KeyMapWindow from './Main/KeyMapContent/KeyMapWindow';
 import KeyMapBrowser from './Main/KeyMapContent/KeyMapBrowser';
 import KeyMapSublimeText from './Main/KeyMapContent/KeyMapSublimeText';
 
-// 깃허브
-import GithubBasic from './Main/GithubContent/GithubBasic';
+// 협업도구
+import CollaborationTool_Github from './Main/CollaborationToolContent/CollaborationTool_Github';
+import CollaborationTool_Slack from './Main/CollaborationToolContent/CollaborationTool_Slack';
+import CollaborationTool_Diagram from './Main/CollaborationToolContent/CollaborationTool_Diagram';
 
 //  참고사이트
 import RefBlog from './Main/RefBlogContent/RefBlog';
@@ -225,6 +233,7 @@ const Main = (props) => {
                 {/*========== 백엔드 ========== */}
                 {/* 자바 */}
                 <Route path="/java_basic" component={JavaBasic}></Route>
+                <Route path="/java_basic2" component={JavaBasic2}></Route>
                 <Route path="/java_serializable" component={JavaSerializable}></Route>
                 <Route path="/java_modifier" component={JavaModifier}></Route>
                 <Route path="/java_annotation" component={JavaAnnotation}></Route>
@@ -248,6 +257,9 @@ const Main = (props) => {
                 <Route path="/spring_controller" component={SpringController}></Route>
                 <Route path="/spring_validator" component={SpringValidator}></Route>
                 <Route path="/spring_cors" component={SpringCors}></Route>
+                <Route path="/spring_aop" component={SpringAop}></Route>
+                <Route path="/spring_service" component={SpringService}></Route>
+                <Route path="/spring_jackson" component={SpringJackson}></Route>
                 <Route path="/spring_securityexcode1" component={SpringSecurityExCode1}></Route>
                 <Route path="/spring_securityexcode2" component={SpringSecurityExCode2}></Route>
                 <Route path="/spring_securityexcode3" component={SpringSecurityExCode3}></Route>
@@ -280,6 +292,7 @@ const Main = (props) => {
                 <Route path="/css_basic2" component={CssBasic2}></Route>
                 <Route path="/css_scss" component={CssScss}></Route>
                 <Route path="/css_use" component={CssUse}></Route>
+                <Route path="/css_animation" component={CssAnimation}></Route>
                 <Route path="/css_blur business card" component={CssBlurBusinessCard}></Route>
                 <Route path="/css_text and video" component={CssTextAndVideo}></Route>
 
@@ -288,6 +301,7 @@ const Main = (props) => {
                 <Route path="/bootstrap_table" component={BootstrapTable}></Route>
 
                 {/* 타입스크립트 */}
+                <Route path="/typescript_basic" component={TypeScriptBasic}></Route>
 
                 {/* 자바스크립트  */}
                 <Route path="/javascript_basic" component={JavaScriptBasic}></Route>
@@ -338,6 +352,7 @@ const Main = (props) => {
                 <Route path="/db_erd" component={DBErd}></Route>
 
                 {/* 디자인 패턴 */}
+                <Route path="/dp_gof" component={DPGof}></Route>
                 <Route path="/dp_mvc2" component={DPMvc2}></Route>
                 <Route path="/dp_mvp" component={DPMvp}></Route>
                 <Route path="/dp_mvvm" component={DPMvvm}></Route>
@@ -413,8 +428,10 @@ const Main = (props) => {
                 <Route path="/keymap_browser" component={KeyMapBrowser}></Route>
                 <Route path="/keymap_sublimetext" component={KeyMapSublimeText}></Route>
 
-                {/* 깃허브 */}
-                <Route path="/github_basic" component={GithubBasic}></Route>
+                {/* 협업 도구 */}
+                <Route path="/collaboration_github" component={CollaborationTool_Github}></Route>
+                <Route path="/collaboration_slack" component={CollaborationTool_Slack}></Route>
+                <Route path="/collaboration_diagram" component={CollaborationTool_Diagram}></Route>
 
                 {/* 참고 사이트 */}
                 <Route path="/ref_blog" component={RefBlog}></Route>

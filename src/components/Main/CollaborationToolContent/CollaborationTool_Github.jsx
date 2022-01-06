@@ -1,6 +1,6 @@
 import React from 'react';
 
-const GithubBasic = (props) => {
+const CollaborationTool_Github = (props) => {
 
     return (
         <div className="common_style">
@@ -278,5 +278,5 @@ const GithubBasic = (props) => {
         </div>
     );
 }
-export default GithubBasic;
+export default CollaborationTool_Github;
 

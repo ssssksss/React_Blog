@@ -96,6 +96,49 @@ const FrontendBasic = (props) => {
                     </details>
                 </div>
 
+                <div className='block1'>
+                    <details>
+                        <summary> Cors </summary>
+                        <div className='block2'>
+
+                            <h2 className='h2'> 📌 Cors의 종류 </h2>
+                            <li> Simple Request </li>
+                            <li> Preflight Request </li>
+                            <li> Credential Request </li>
+                            <li> Non-Credential Request </li>
+
+                            <h2 className='h2'> 📌 1. Simple Request </h2>
+                            <li> GET,HEAD,POST 중 하나 </li>
+                            <li> POST일 때는 application/x-www-form-urlencoded, multipart
+                                /form-data, text/plain 중 하나 </li>
+                            <li> 커스텀 헤더 전송x </li>
+
+                            <h2 className='h2'> 📌 2. Preflight Request </h2>
+                            <li> 예비로 먼저 보내보고 그다음 통신하는 방법 </li>
+                            <li> Simple Request의 조건 외에서 가능 </li>
+
+                            <h2 className='h2'> 📌 3. Credential Request </h2>
+                            <li> HTTP Cookie와 HTTP Authentication을 알 수 있음 </li>
+                            <li> @.withCredentials = true <small> # 이와 같이 요청전에 지정 필요 </small> </li>
+                            <li>  </li>
+
+                            <h2 className='h2'> 📌 4. Non-Credential Request </h2>
+                            <li> @.withCredentials = false , 원래 디폴트 값 </li>
+
+                            <h2 className='h2'> ✔ 예시 </h2>
+                            <li> 소제목
+                                <div className='block3'>
+                                    <h3 className='h3'> 🎈 </h3>
+                                    <div className='block4'>
+                                        <li>  </li>
+                                    </div>
+                                </div>
+                            </li>
+
+                        </div>
+                    </details>
+                </div>
+
 
                 <div className="lblock">
                     {/*  */}
