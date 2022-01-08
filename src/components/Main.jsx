@@ -33,6 +33,8 @@ import SpringCors from './Main/SpringContent/SpringCors';
 import SpringAop from './Main/SpringContent/SpringAop';
 import SpringService from './Main/SpringContent/SpringService';
 import SpringJackson from './Main/SpringContent/SpringJackson';
+import SpringCommunication from './Main/SpringContent/SpringCommunication';
+import SpringConverter from './Main/SpringContent/SpringConverter';
 import SpringSecurityExCode1 from './Main/SpringContent/SpringSecurityExCode1';
 import SpringSecurityExCode2 from './Main/SpringContent/SpringSecurityExCode2';
 import SpringSecurityExCode3 from './Main/SpringContent/SpringSecurityExCode3';
@@ -115,7 +117,7 @@ import FrontendBuildName from './Main/FrontendContent/FrontendBuildName';
 // 데이터 베이스
 import DBOracleBasic from './Main/DatabaseContent/DBOracleBasic';
 import DBMySQLBasic from './Main/DatabaseContent/DBMySQLBasic';
-import DBVariableName from './Main/DatabaseContent/DBVariableName';
+import DBNamingConvention from './Main/DatabaseContent/DBNamingConvention';
 import DBMariaBasic from './Main/DatabaseContent/DBMariaBasic';
 import DBError from './Main/DatabaseContent/DBError';
 import DBTable from './Main/DatabaseContent/DBTable';
@@ -162,6 +164,7 @@ import Algorithm_Basic from './Main/AlgorithmContent/Algorithm_Basic';
 import ApiNaver from './Main/ApiContent/ApiNaver';
 import ApiGoogle from './Main/ApiContent/ApiGoogle';
 import ApiKakao from './Main/ApiContent/ApiKakao';
+import ApiFacebook from './Main/ApiContent/ApiFacebook';
 
 // 자료구조
 
@@ -260,6 +263,8 @@ const Main = (props) => {
                 <Route path="/spring_aop" component={SpringAop}></Route>
                 <Route path="/spring_service" component={SpringService}></Route>
                 <Route path="/spring_jackson" component={SpringJackson}></Route>
+                <Route path="/spring_communication" component={SpringCommunication}></Route>
+                <Route path="/spring_converter" component={SpringConverter}></Route>
                 <Route path="/spring_securityexcode1" component={SpringSecurityExCode1}></Route>
                 <Route path="/spring_securityexcode2" component={SpringSecurityExCode2}></Route>
                 <Route path="/spring_securityexcode3" component={SpringSecurityExCode3}></Route>
@@ -345,7 +350,7 @@ const Main = (props) => {
                 {/* 데이터 베이스 */}
                 <Route path="/db_oraclebasic" component={DBOracleBasic}></Route>
                 <Route path="/db_mysqlbasic" component={DBMySQLBasic}></Route>
-                <Route path="/db_variablename" component={DBVariableName}></Route>
+                <Route path="/db_namingconvention" component={DBNamingConvention}></Route>
                 <Route path="/db_mariabasic" component={DBMariaBasic}></Route>
                 <Route path="/db_error" component={DBError}></Route>
                 <Route path="/db_table" component={DBTable}></Route>
@@ -392,6 +397,7 @@ const Main = (props) => {
                 <Route path="/api_naver" component={ApiNaver}></Route>
                 <Route path="/api_kakao" component={ApiKakao}></Route>
                 <Route path="/api_google" component={ApiGoogle}></Route>
+                <Route path="/api_facebook" component={ApiFacebook}></Route>
 
                 {/* 자료구조 */}
 

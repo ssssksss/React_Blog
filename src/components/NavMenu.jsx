@@ -34,7 +34,7 @@ const NavMenu = (props) => {
                 <button className="col_b_r" onClick={() => { send("database") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Database_icon.svg'} /> DB </button>
                 <button className="col_b_r" onClick={() => { send("cloud") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Cloud_icon.svg'} /> 클라우드 </button>
                 <button className="col_b_r" onClick={() => { send("linux") }}>   <img src={process.env.PUBLIC_URL + '/img/NavMenu/Linux_icon.svg'} /> Linux </button>
-                <button onClick={() => { send("github") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Github_icon.svg'} /> 협업도구 </button>
+                <button onClick={() => { send("collaborationtool") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Github_icon.svg'} /> 협업도구 </button>
                 {/*<button className="col_b_r" onClick={() => { send("python") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Python_icon.svg'} /> Python </button>*/}
                 {/*<button className="col_b_r" onClick={() => { send("ai") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Ai_icon.svg'} /> 인공지능 </button>*/}
                 {/*<button className="col_b_r" onClick={() => { send("algorithm") }}> <img src={process.env.PUBLIC_URL + '/img/NavMenu/Algorithm_icon.svg'} /> 알고리즘 </button>*/}

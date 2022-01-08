@@ -106,7 +106,7 @@ const NavMenu2 = (props) => {
         else if (props.page === 'keymap') {
             return <KeyMapList onChangePage={(page2) => { send(page2) }}> </KeyMapList>;
         }
-        else if (props.page === 'github') {
+        else if (props.page === 'collaborationtool') {
             return <CollaborationToolList onChangePage={(page2) => { send(page2) }}> </CollaborationToolList>;
         }
         else if (props.page === 'refblog') {

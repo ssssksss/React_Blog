@@ -2,7 +2,7 @@ import React from 'react';
 
 const CollaborationTool_Diagram = (props) => {
   return (
-    <div className="common_style">\
+    <div className="common_style">
 
       <div className='block1'>
         <details>

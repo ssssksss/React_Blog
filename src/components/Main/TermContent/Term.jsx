@@ -5,7 +5,24 @@ const Term = (props) => {
   return (
     <div className="common_style">
 
+      <div className='block1'>
+        <details>
+          <summary> 글쓰기 방법 </summary>
+          <div className='block2'>
 
+            <h2 className='h2'> 📌 설명 </h2>
+            <li> 1. 무엇에 대해서 쓰고, 어떻게 쓸지에 대해 생각하기(주제나 개요잡기) </li>
+            <li> 2. 그래서, 그러니까, 하지만 등등 최대한 줄이기 </li>
+            <li> 3. 반복되는 내용은 없게하기 </li>
+            <li> 4. 문장은 1~2줄로 만들기 </li>
+            <li> 5. 본인의 개성을 담아서 쓰기 </li>
+            <li> 6. 짧게라도 여러번 쓰기 </li>
+            <li> 7. 어떤 내용을 쓰기 위해서는 많은 생각이나 경험들이 필요 </li>
+            <li>  </li>
+
+          </div>
+        </details>
+      </div>
       <div className='block1'>
 
         <details>

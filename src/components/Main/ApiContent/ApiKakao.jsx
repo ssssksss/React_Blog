@@ -5,7 +5,7 @@ const ApiKakao = (props) => {
         <div className="common_style">
             <div className='block1'>
                 <details>
-                    <summary> Kakao Login API </summary>
+                    <summary> 카카오 로그인 API </summary>
                     <div className='block2'>
 
                         <h2 className='h2'> 📌 Kakao Login API - React </h2>

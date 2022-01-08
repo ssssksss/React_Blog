@@ -20,6 +20,8 @@ const SpringList = () => {
                 <Link to="/spring_aop"> 스프링 AOP </Link>
                 <Link to="/spring_jackson"> 스프링 Jackson </Link>
                 <Link to="/spring_service"> 스프링 Service </Link>
+                <Link to="/spring_communication"> 스프링 통신 </Link>
+                <Link to="/spring_converter"> 스프링 Converter </Link>
             </div>
             <div className="menu menu2">
                 <Link to="/spring_securityexcode1"> 스프링 로그인폼 테스트 </Link>

@@ -13,7 +13,8 @@ const SpringController = (props) => {
                         <h2 className='h2'> 📌 설명 </h2>
                         <li> Spring 2.5에서 추가 </li>
                         <li> @Componenet 주석이 달려있음 </li>
-                        <li>Model 객체를 이용하여 데이터를 담고 view를 찾아 이동하는 역할</li>
+                        <li> Model 객체를 이용하여 데이터를 담고 view를 찾아 이동하는 역할</li>
+                        <li> Controller는 반환값이 text/html이다 </li>
                         <li>  </li>
 
                     </div>

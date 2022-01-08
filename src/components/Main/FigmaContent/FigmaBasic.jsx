@@ -3,7 +3,6 @@ import React from 'react';
 const FigmaBasic = (props) => {
     return (
         <>
-
             <div className="common_style">
                 <div className='block1'>
                     <details>
