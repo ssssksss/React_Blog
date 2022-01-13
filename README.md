@@ -1,70 +1,702 @@
-# Getting Started with Create React App
+## API Specification
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Table of Contents
 
-## Available Scripts
+#### Auth
+1. [회원 가입](#회원가입)
+2. [로그인](#로그인)
+3. [이메일 중복 체크](#이메일-중복-체크)
+3. [닉네임 중복 체크](#닉네임-중복-체크)
+4. [비밀번호 변경하기](#비밀번호-변경하기)
+5. [access 토큰 재발급 (회원 재접속/새로고침 시)](#access-토큰-재발급)
+#### User
+1. [회원 상세 조회](#회원-상세-조회)
+2. [회원 정보 수정](#회원-정보-수정)
+3. [회원 탈퇴](#회원-탈퇴)
+#### Store
+1. [맛집 리스트 조회](#맛집-리스트-조회)
+2. [맛집 상세 조회](#맛집-상세-조회)
+3. [맛집 추가](#맛집-추가)
+4. [맛집 정보 수정](#맛집-정보-수정)
+5. [맛집 삭제](#맛집-삭제)
+#### Upload
+사진 업로드 - 파라미터에 type> user, store
 
-In the project directory, you can run:
 
-### `yarn start`
+### Auth
+#### 회원가입
+|Method|Endpoint|
+|:---:|:---:|
+**<span style="color:orange">POST</span>**|`/auth/signup`|
+<br>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+**Request Header**
+|Header|Required|description|
+|:---:|:---:|:---:|
+|Content-Type| ✅ |application/json|
+<br>
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+**Request Body**
+|Field|Required|Type|Description|
+|:---:|:---:|:---:|:---|
+|nickname|✅|String|소셜로그인한 계정일 경우 랜덤값으로 [root]@[임의의 해쉬값] 생성|
+|email|✅|String|id@domain으로 이루어졌는지 확인한다|
+|password|✅|String|8자 이상|
+<br>
 
-### `yarn test`
+**Response Body**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+**1. `200` OK**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|statusCode|number|200|
+|msg|string|Sign up Success|
 
-### `yarn build`
+- Parameter 이상?
+- validation 추가 -> 400대로 추가
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**2. `500` Internal Server Error**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|statusCode|number|500|
+|successFlag|boolean|성공이면 TRUE, 실패면 FALSE|
+|msg|string|Internal Server Error|
+<br>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+[Top](#table-of-contents)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### 로그인
+|Method|Endpoint|
+|:---:|:---:|
+**<span style="color:orange">POST</span>**|`/auth/signin`|
+<br>
 
-### `yarn eject`
+**Headers**
+|Header|Required|description|
+|:---:|:---:|:---:|
+|Content-Type| ✅ |application/json|
+<br>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+**Request Body**
+|Field|Required|Type|Description|
+|:---:|:---:|:---:|:---|
+|email|✅|String||
+|password|✅ |String||
+|location|✅|String|null이면 최초 로그인으로 인식 |
+<br>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Response Body**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+**1. `200` OK**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|statusCode|number|200|
+|msg|string|Sign In Success|
+|data|object|하단 참조|
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+**Data**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|accessToken|string|jwt 형식을 따름|
+|refreshToken|string|jwt 형식을 따름|
 
-## Learn More
+**2. `400` Bad Request**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|statusCode|number|400|
+|msg|string|Please type required contents|
+|error|object|하단 참조|
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**Error**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|fieldName|string|에러의 원인이 되는 필드|
+|errorMessage|string|에러 메시지에 대한 설명|
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**3. `401` Unauthorized**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|statusCode|number|401|
+|msg|string|Please check email or password|
 
-### Code Splitting
+**4. `403` Forbidden**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|statusCode|number|403|
+|msg|string|Forbidden|
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+**5. `500` Internal Server Error**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|statusCode|number|500|
+|msg|string|Internal Server Error|
+<br>
 
-### Analyzing the Bundle Size
+[Top](#table-of-contents)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#### 이메일 중복 체크
+|Method|Endpoint|
+|:---:|:---:|
+**<span style="color:green">GET</span>**|`/auth/email/duplication`|
+<br>
 
-### Making a Progressive Web App
+**Headers**
+|Header|Required|description|
+|:---:|:---:|:---:|
+|Authorization| ✅ |bearer token|
+|Content-Type| ✅ |application/json|
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+**Request Parameters**
+|Field|Required|Type|Description|
+|:---:|:---:|:---:|:---|
+|email|✅|String||
+<br>
 
-### Advanced Configuration
+**Response Body**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+**1. `200` OK**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|statusCode|number|200|
+|msg|string|Email Success|
 
-### Deployment
+**2. `401` Unauthorized**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|statusCode|number|401|
+|msg|string|Please check email or password|
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+**3. `409` Conflict**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|statusCode|number|409|
+|msg|string|Already existed email|
 
-### `yarn build` fails to minify
+**4. `500` Internal Server Error**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|statusCode|number|500|
+|msg|string|Internal Server Error|
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[Top](#table-of-contents)
+
+#### 닉네임 중복 체크
+|Method|Endpoint|
+|:---:|:---:|
+**<span style="color:green">GET</span>**|`/auth/nickname/duplication`|
+
+
+<br>
+
+[Top](#table-of-contents)
+
+
+#### 비밀번호 변경하기
+|Method|Endpoint|
+|:---:|:---:|
+**<span style="color:skyblue">PUT</span>**|`/auth/password`|
+<br>
+
+**Headers**
+|Header|Required|description|
+|:---:|:---:|:---:|
+|Authorization| ✅ |bearer token|
+|Content-Type| ✅ |application/json|
+<br>
+
+**Request Body**
+|Field|Required|Type|Description|
+|:---:|:---:|:---:|:---|
+|password|✅|String||
+|newPassword|✅|String||
+<br>
+
+**Response Body**
+
+**1. `200` OK**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|statusCode|number|200|
+|msg|string| Password Success|
+
+**2. `409` Conflict**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|statusCode|number|409|
+|msg|string|Same password used before|
+
+**3. `401` Unauthorized**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|statusCode|number|401|
+|msg|string|Wrong input for existed password |
+
+**4. `500` Internal Server Error**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|statusCode|number|500|
+|msg|string|Internal Server Error|
+<br>
+
+[Top](#table-of-contents)
+
+#### access 토큰 재발급
+|Method|Endpoint|description|
+|:---:|:---:|:---:|
+**<span style="color:orange">POST</span>**|`/auth/token/validation`||
+
+**Headers**
+|Header|Required|description|
+|:---:|:---:|:---:|
+|Authorization| ✅ |bearer token|
+|Content-Type| ✅ |application/json|
+|refreshToken| ✅ |bearer token|
+<br>
+
+**Request Body**
+|Field|Required|Type|Length|Description|
+|:---:|:---:|:---:|:---:|:---|
+<br>
+
+**Response Body**
+
+**1. `200` OK**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|statusCode|number|200|
+|msg|string| Provide Access Token Success|
+|data|object| 하단 참조|
+
+**Data**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|accessToken|string|jwt 형식을 따름|
+|refreshToken|string|jwt 형식을 따름|
+
+
+**2. `401` Unauthorized**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|statusCode|number|401|
+|msg|string| Invalid access Token |
+
+**3. `500` Internal Server Error**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|statusCode|number|500|
+|msg|string|Internal Server Error|
+<br>
+
+[Top](#table-of-contents)
+
+### User
+#### 회원 상세 조회
+|Method|Endpoint|
+|:---:|:---:|
+**<span style="color:green">GET</span>**|`/user`|
+<br>
+
+**Headers**
+|Header|Required|description|
+|:---:|:---:|:---:|
+|Authorization| ✅ |bearer token|
+|Content-Type| ✅ |application/json|
+<br>
+
+**Request Parameters**
+|Field|Required|Type|Length|Description|
+|:---:|:---:|:---:|:---:|:---|
+<br>
+
+**Response Body**
+
+**1. `200` OK**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|statusCode|number|200|
+|msg|string| Get User Info Detail Success|
+|data|object| 하단 참조|
+
+**Data**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|address|string||
+* 이름, 게시물 개수, ... 등의 확장성 고려
+
+**2. `401` Unauthorized**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|statusCode|number|401|
+|msg|string| Invalid access Token |
+
+**3. `500` Internal Server Error**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|statusCode|number|500|
+|msg|string|Internal Server Error|
+<br>
+
+[Top](#table-of-contents)
+
+#### 회원 정보 수정
+|Method|Endpoint|
+|:---:|:---:|
+**<span style="color:skyblue">PATCH</span>**|`/user`|
+<br>
+
+**Headers**
+|Header|Required|description|
+|:---:|:---:|:---:|
+|Authorization| ✅ |bearer token|
+|Content-Type| ✅ |application/json|
+<br>
+
+**Request Body**
+|Field|Required|Type|Description|
+|:---:|:---:|:---:|:---|
+|imageUrl|✅|string|프로필 이미지 path 정보|
+|nickname|✅|string|닉네임|
+|address|✅|string|장소 정보 |
+* 남겨놓기, 수정된 정보 응답
+<br>
+
+**Response Body**
+
+**1. `200` OK**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|statusCode|number|200|
+|msg|string| Modify User Info Detail Success|
+|data|object| 하단 참조|
+
+**Data**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|email|string||
+|nickname|string||
+|address|string||
+
+**2. `401` Unauthorized**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|statusCode|number|401|
+|msg|string| Invalid access Token |
+
+**3. `500` Internal Server Error**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|statusCode|number|500|
+|msg|string|Internal Server Error|
+<br>
+
+[Top](#table-of-contents)
+
+#### 회원 탈퇴
+|Method|Endpoint|
+|:---:|:---:|
+**<span style="color:red">DELETE</span>**|`/user`|
+<br>
+
+**Headers**
+|Header|Required|description|
+|:---:|:---:|:---:|
+|Authorization| ✅ |bearer token|
+|Content-Type| ✅ |application/json|
+<br>
+
+**Request Parameters**
+|Field|Required|Type|Description|
+|:---:|:---:|:---:|:---|
+|Password|✅|String|check 위한.. |
+
+<br>
+
+**Response Body**
+
+**1. `200` OK**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|statusCode|number|200|
+|msg|string| Delete User Success|
+
+**2. `401` Unauthorized**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|statusCode|number|401|
+|msg|string| Invalid access Token |
+
+**3. `500` Internal Server Error**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|statusCode|number|500|
+|msg|string|Internal Server Error|
+<br>
+
+[Top](#table-of-contents)
+
+### Store
+#### 맛집 리스트 조회
+|Method|Endpoint|
+|:---:|:---:|
+**<span style="color:green">GET</span>**|`/store`|
+<br>
+
+**Headers**
+|Header|Required|description|
+|:---:|:---:|:---:|
+|Authorization| ✅ |bearer token|
+|Content-Type| ✅ |application/json|
+<br>
+
+**Request Parameters**
+|Field|Required|Type|Description|
+|:---:|:---:|:---:|:---|
+|List[Name]||string|이름으로 검색, 기본 API 방식은 access Token에 있는 userId로 검색하기|
+<br>
+
+**Response Body**
+
+**1. `200` OK**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|statusCode|number|200|
+|msg|string| Get store Info Success|
+|data|List[StoreVM]| 하단 참조|
+
+**StoreVM**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|storeId|number|
+|category|number|
+|name|string||
+|longitude|number|not required?|
+|latitude|number|not required?|
+|address|string||
+|profile_url|string||
+|vibe|string||
+
+**2. `401` Unauthorized**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|statusCode|number|401|
+|msg|string| Invalid access Token |
+
+**3. `500` Internal Server Error**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|statusCode|number|500|
+|msg|string|Internal Server Error|
+<br>
+
+[Top](#table-of-contents)
+
+#### 맛집 상세 조회
+|Method|Endpoint|
+|:---:|:---:|
+**<span style="color:green">GET</span>**|`/store/{storeId}`|
+<br>
+
+**Headers**
+|Header|Required|description|
+|:---:|:---:|:---:|
+|Authorization| ✅ |bearer token|
+|Content-Type| ✅ |application/json|
+<br>
+
+**Request Parameters**
+|Field|Required|Type|Length|Description|
+|:---:|:---:|:---:|:---:|:---|
+<br>
+
+**Response Body**
+
+**1. `200` OK**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|statusCode|number|200|
+|msg|string| Get store Info Success|
+|data|StoreVM| 하단 참조|
+
+**StoreVM**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|storeId|number|
+|category|number|
+|name|string||
+|longitude|number|
+|latitude|number|
+|address|string||
+|vibe|string||
+|rate|number|||
+|profileUrl|string| |
+
+**2. `401` Unauthorized**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|statusCode|number|401|
+|msg|string| Invalid access Token |
+
+**3. `500` Internal Server Error**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|statusCode|number|500|
+|msg|string|Internal Server Error|
+<br>
+
+[Top](#table-of-contents)
+
+#### (개인)맛집 추가
+|Method|Endpoint|
+|:---:|:---:|
+**<span style="color:orange">POST</span>**|`/store`|
+<br>
+
+**Headers**
+|Header|Required|description|
+|:---:|:---:|:---:|
+|Authorization| ✅ |bearer token|
+|Content-Type| ✅ |application/json|
+<br>
+
+**Request Body**
+|Field|Required|Type|Length|Description|
+|:---:|:---:|:---:|:---:|:---|
+|category|✅|number|||
+|name|✅|string|||
+|longitude|✅|number|||
+|latitude|✅|number|||
+|address|✅|string||||
+|vibe||string||합의 필요|
+|rate||number|| |
+
+<br>
+
+**Response Body**
+
+**1. `200` OK**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|statusCode|number|200|
+|msg|string| Add User Info Detail Success|
+|data|object| 하단 참조|
+
+**2. `401` Unauthorized**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|statusCode|number|401|
+|msg|string| Invalid access Token |
+
+**3. `500` Internal Server Error**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|statusCode|number|500|
+|msg|string|Internal Server Error|
+<br>
+
+[Top](#table-of-contents)
+
+#### 맛집 정보 수정
+|Method|Endpoint|
+|:---:|:---:|
+**<span style="color:skyblue">PUT</span>**|`/store/{storeId}`|
+<br>
+
+**Headers**
+|Header|Required|description|
+|:---:|:---:|:---:|
+|Authorization| ✅ |bearer token|
+|Content-Type| ✅ |application/json|
+<br>
+
+**Request Body**
+|Field|Required|Type|Length|Description|
+|:---:|:---:|:---:|:---:|:---|
+|storeId|✅|number|||
+|category|✅|number|||
+|name|✅|string|||
+|longitude|✅|number|||
+|latitude|✅|number|||
+|address|✅|string||||
+|vibe||string|||
+|rate||number|| |
+|description||string|||
+
+<br>
+
+**Response Body**
+
+**1. `200` OK**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|statusCode|number|200|
+|msg|string| Modify User Info Detail Success|
+|data|StoreVM| 하단 참조|
+
+**StoreVM**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|storeId|number|
+|category|number|
+|name|string||
+|longitude|number|
+|latitude|number|
+|address|string||
+|vibe|string|합의 필요|
+
+**2. `401` Unauthorized**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|statusCode|number|401|
+|msg|string| Invalid access Token |
+
+**3. `500` Internal Server Error**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|statusCode|number|500|
+|msg|string|Internal Server Error|
+<br>
+
+[Top](#table-of-contents)
+
+#### 맛집 삭제
+|Method|Endpoint|
+|:---:|:---:|
+**<span style="color:RED">DELETE</span>**|`/store/{storeId}`|
+<br>
+
+**Headers**
+|Header|Required|description|
+|:---:|:---:|:---:|
+|Authorization| ✅ |bearer token|
+|Content-Type| ✅ |application/json|
+<br>
+
+**Request Parameters**
+|Field|Required|Type|Length|Description|
+|:---:|:---:|:---:|:---:|:---|
+<br>
+
+**Response Body**
+
+**1. `200` OK**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|statusCode|number|200|
+|msg|string| Delete store Info Success|
+
+**2. `401` Unauthorized**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|statusCode|number|401|
+|msg|string| Invalid access Token |
+
+**3. `500` Internal Server Error**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|statusCode|number|500|
+|msg|string|Internal Server Error|
+<br>
+
+[Top](#table-of-contents)

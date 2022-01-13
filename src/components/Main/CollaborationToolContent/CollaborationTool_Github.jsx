@@ -275,6 +275,18 @@ const CollaborationTool_Github = (props) => {
                 </details>
             </div>
 
+            <div className='block1'>
+                <details>
+                    <summary> 깃허브 터미널로 설정하기 </summary>
+                    <div className='block2'>
+
+                        <h2 className='h2'> 📌 git 환경설정 파일 열기 </h2>
+                        <li> git config --global -e </li>
+
+                    </div>
+                </details>
+            </div>
+
         </div>
     );
 }

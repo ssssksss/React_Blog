@@ -378,7 +378,11 @@ const CssBasic = (props) => {
                             <li> inset : 요소 안에 그림자 생성 </li>
 
                             <h2 className='h2'> 📌 css 스타일 </h2>
-                            <li> 3 </li>
+                            <li> box-shadow: x만큼이동 | y만큼이동 | color; </li>
+                            <li> box-shadow: x만큼이동 | y만큼이동 | blur-radius | color; </li>
+                            <li> box-shadow: x만큼이동 | y만큼이동 | blur-radius | spread-radius | color; </li>
+                            <li> box-shadow: inset | x만큼이동 | y만큼이동 | color; </li>
+                            <li> box-shadow: 그림자1, 그림자2, ... </li>
 
                         </div>
                     </details>
@@ -787,6 +791,8 @@ const CssBasic = (props) => {
                             <li> visibility: [visible, hidden, collapse] #레이아웃을 변경하지 않고 요소를 보이거나 숨김 </li>
                             <li> pointer-events: [none, auto, inherit] #이벤트 요소를 제어 </li>
                             <li> order : 플렉스 요소들의 순서를 설정 </li>
+                            <li> :empty : 비어있는지 확인 </li>
+                            <li> disabled : 사용못하게 막음 </li>
 
                             <h2 className='h2'> 📌 css 스타일 </h2>
                             <li> 3 </li>

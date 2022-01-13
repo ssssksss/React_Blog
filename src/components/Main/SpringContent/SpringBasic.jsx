@@ -52,13 +52,27 @@ const SpringBasic = (props) => {
 
 			<div className='block1'>
 				<details>
+					<summary> @Bean이란 </summary>
+					<div className='block2'>
+
+						<h2 className='h2'> 📌 설명 </h2>
+						<li> 스프링 IoC 컨테이너가 관리하는 객체 </li>
+						<li> ApplicationContext, BeanFactory는 IoC 컨테이너 </li>
+						<li> ApplicationContext는 BeanFactory를 상속을 받는다. </li>
+						<li>  </li>
+					</div>
+				</details>
+			</div>
+
+			<div className='block1'>
+				<details>
 					<summary> 의존성 주입(Dependency Injection) </summary>
 					<div className='block2'>
 
 						<h2 className="h2"> 📌 설명 </h2>
 						<li> 객체를 직접 만들지 않고 주입받아 사용하는 방법 </li>
-						<li> 2 </li>
-						<li> 3 </li>
+						<li> private Dependency dependency = new Dependency(); <small> // 직접 만드는 방법 </small> </li>
+						<li> this.dependency = dependency; <small> // 매개 변수로 외부에서 주입받는 방법 </small> </li>
 
 						<h2 className="h2"> 📌 1. 생성자(Constructor) 주입(스프링 팀에서 추천하는 방식) </h2>
 						<li> 1. 생성자로 객체를 생성하는 시점에 인자에 있는 Bean을 호출 </li>
@@ -73,16 +87,6 @@ const SpringBasic = (props) => {
 						<h2 className="h2"> 📌 3. 필드(Field) 주입(어노테이션 사용) </h2>
 						<li> 1. 빈 객체를 생성  </li>
 						<li> 2. 빈 객체를 찾아서 주입하는 방법  </li>
-
-						<h2 className="h2"> ✔ 예시 </h2>
-						<li> 소제목
-							<div className='block3'>
-								<h3 className="h3"> 🎈 </h3>
-								<div className='block4'>
-									<li>  </li>
-								</div>
-							</div>
-						</li>
 
 					</div>
 				</details>
@@ -108,16 +112,6 @@ const SpringBasic = (props) => {
 						<li> 로우레벨은 분리하면서 필요한 로직을 작성할 수 있다. </li>
 						<li> 테스트 작업 환경에 좋다. </li>
 						<li> EJB의 서비스와 기술은 그대로 사용하면서 자바 객체지향도 사용을 할 수 있어 좋다. </li>
-
-						<h2 className="h2"> ✔ 예시 </h2>
-						<li> 소제목
-							<div className='block3'>
-								<h3 className="h3"> 🎈 </h3>
-								<div className='block4'>
-									<li>  </li>
-								</div>
-							</div>
-						</li>
 
 					</div>
 				</details>

@@ -7,6 +7,36 @@ const JavaBasic = (props) => {
 
             <div className='block1'>
                 <details>
+                    <summary> Map </summary>
+                    <div className='block2'>
+
+                        <h2 className='h2'> 📌 Map </h2>
+                        <li> Key와 Value를 가진 집합, 집합이므로 중복 허용x </li>
+
+                        <li> 인터페이스 </li>
+
+                        <h2 className='h2'> 📌 HashMap </h2>
+                        <li> Map 인터페이스를 상속한 클래스 </li>
+                        <li> key나 value 값으로 null을 허용한다. </li>
+                        <li> 해쉬 테이블 사용 </li>
+                        <li> 해시값을 버킷이라는 곳에 저장해서 사용 </li>
+                        <li> 자바 1.2부터, thread-safe(x) </li>
+
+                        <h2 className='h2'> 📌 TreeMap </h2>
+                        <li> Key값들에 대해서 정렬이 이루어진다. </li>
+                        <li> 이진 트리 기반 </li>
+
+                        <h2 className='h2'> 📌 HashTableMap </h2>
+                        <li> key나 value 값이 null을 허용하지 않는다. </li>
+                        <li> 해시값을 버킷이라는 곳에 저장해서 사용 </li>
+                        <li> thread-safe , 자바 1.0부터 </li>
+
+                    </div>
+                </details>
+            </div>
+
+            <div className='block1'>
+                <details>
                     <summary> JVM, JRE JDK </summary>
                     <div className='block2'>
 

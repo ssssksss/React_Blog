@@ -46,6 +46,60 @@ const SpringAop = (props) => {
 
             <div className='block1'>
                 <details>
+                    <summary> AOP 예시 </summary>
+                    <div className='block2'>
+
+                        <h2 className='h2'> ✔ 예시 </h2>
+                        <li>
+                            <div className='block3'>
+                                <h3 className='h3'> 🎈 일반 메소드 </h3>
+                                <div className='block4'>
+                                    <li> @커스텀어노테이션 </li>
+                                    <li> public 메소드() {"{"}
+                                        <li> 메소드 내부 코드 작성 </li>
+                                    </li>
+                                    <li> {"}"} </li>
+                                </div>
+                                <h3 className='h3'> 🎈 @커스텀어노테이션 </h3>
+                                <div className='block4'>
+                                    <li> @Target (ElementType.METHOD) </li>
+                                    <li> @Retention(RetentionPolicy.RUNTIME) </li>
+                                    <li> public @Interface 커스텀어노테이션 {"{"}
+                                        <li>  </li>
+                                    </li>
+                                    <li> {"}"} </li>
+                                </div>
+                                <h3 className='h3'> 🎈 Aspect 생성(스프링 AOP) </h3>
+                                <div className='block4'>
+                                    <li> @Component<small> // 빈으로 등록</small> </li>
+                                    <li> @Aspect </li>
+                                    <li> public class 클래스명 {"{"}
+                                        <li> Logger logger = LoggerFactory.getLogger(LogAspect.class); </li>
+                                        <li> public Object 메소드명(ProceedingJoinPoint joinPoint) throw Throwable {"{"}
+                                            <li> StoepWatch stopWatch = new StopWatch(); </li>
+                                            <li> stopWatch.start(); </li>
+                                            <li> Object proceed = joinPotin.proceed(); </li>
+                                            <li> stopWatch.stop(); </li>
+                                            <li> logger.info(stopWatch.prettyPrint()); </li>
+                                            <li> return proceed; </li>
+                                        </li>
+                                        <li> {"}"} </li>
+                                    </li>
+                                    <li> {"}"} </li>
+                                </div>
+                                <h3 className='h3'> 🎈 </h3>
+                                <div className='block4'>
+                                    <li>  </li>
+                                </div>
+                            </div>
+                        </li>
+
+                    </div>
+                </details>
+            </div>
+
+            <div className='block1'>
+                <details>
                     <summary> Spring AOP , AspectJ </summary>
                     <div className='block2'>
 

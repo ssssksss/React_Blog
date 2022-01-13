@@ -64,6 +64,35 @@ const TypeScriptBasic = (props) => {
                     </div>
                 </details>
             </div>
+            <div className='block1'>
+                <details>
+                    <summary> 타입스크립트 React.FC 와 function 방식 </summary>
+                    <div className='block2'>
+
+                        <h2 className='h2'> 📌 설명 </h2>
+                        <li> props 타입을 제너릭으로 넣어서 사용가능 </li>
+                        <li> defaultProps에 기본값을 넣어도 작동이 안됨, {"{변수,mark='!'를 넣어주어야 한다.}"} </li>
+
+                        <h2 className='h2'> ✔ 예시 </h2>
+                        <li>
+                            <h3 className='h3'> 🎈 React.FC </h3>
+                            <div className='block4'>
+                                <li> interface 컴포넌트Props {"{ param: 타입 }"} </li>
+                                <li> const 컴포넌트: React.FC{"<컴포넌트Props> = ({param}) => { return }"} </li>
+                                <li>  </li>
+                            </div>
+                            <h3 className='h3'> 🎈 React.FC 말고 function방식 </h3>
+                            <div className='block4'>
+                                <li> interface 컴포넌트Props {"{ param: 타입 }"} </li>
+                                <li> function 컴포넌트{"{param}:컴포넌트Props"} {"{return}"} </li>
+                                <li> 컴포넌트.defaultProps = {"{param: '!', }; "} </li>
+                            </div>
+                        </li>
+
+                    </div>
+                </details>
+            </div>
+            {/* 끝 */}
         </div>
     );
 }

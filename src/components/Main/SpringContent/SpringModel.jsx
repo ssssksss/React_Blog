@@ -25,6 +25,91 @@ const SpringModel = (props) => {
 
             <div className='block1'>
                 <details>
+                    <summary> @NoArgsConstructor </summary>
+                    <div className='block2'>
+
+                        <h2 className='h2'> 📌 기본 생성자의 접근제어자 설정 </h2>
+                        <li> public으로 해놓으면 좋지않음 </li>
+                        <li> @NoArgsConstructor(force=true) <small> 초기값이 필요한 final 변수에 null,0 등 기본값을 초기화해준다. </small> </li>
+                        <li> @NoArgsConstructor는 @NonNull을 무시 </li>
+                        <li> @NoArgsConstructor(AccessLevel.PROTECTED) </li>
+                        <li> @NoArgsConstructor(AccessLevel.PUBLIC) </li>
+                        <li> @NoArgsConstructor(AccessLevel.PRIVATE) </li>
+                        <li> 기본 생성자가 만들어지고 빌더 패턴이 작동 </li>
+                        <li> @Builder를 사용하게 되면 기본생성자외에 다른 생성자가 없어서 에러가 발생한다. </li>
+                        <div className="block4">
+                            <li> 1. @AllArgsConstructor을 같이 사용한다. </li>
+                            <li> 2. @Builder를 생성자에 설정한다. </li>
+                            <div className="block4">
+                                <li> @Builder </li>
+                                <li> public 메소드(데이터타입 매개변수명) {"{"}
+                                    <li> this.필드명 = 값; </li>
+                                </li>
+                                <li> {"}"} </li>
+                            </div>
+                            <li>  </li>
+                        </div>
+
+                    </div>
+                </details>
+            </div>
+
+            <div className='block1'>
+                <details>
+                    <summary> @AllArgsConstructor </summary>
+                    <div className='block2'>
+
+                        <h2 className='h2'> 📌 설명 </h2>
+                        <li> 모든 필드에 파라미터로 값을 넣는 생성자를 만들어준다. </li>
+                        <li> public class User {'{'}
+                            <li> private final String id; #생성자 필드에 포함</li> <br />
+                            <li> @Nonnull private String id; #생성자 필드에 포함</li>
+                            <li> private String id; #생성자 필드에 포함되지 않음</li>
+                        </li>
+                        <li> {'}'} </li> <br />
+
+                    </div>
+                </details>
+            </div>
+
+            <div className='block1'>
+                <details>
+                    <summary> @RequiredArgsConstructor </summary>
+                    <div className='block2'>
+
+                        <h2 className='h2'> 📌 설명 </h2>
+                        <li> final 이나 @NonNull 필드만 파라미터로 받는 생성자 선언 </li>
+
+                    </div>
+                </details>
+            </div>
+
+            <div className='block1'>
+                <details>
+                    <summary> serialVersionUID </summary>
+                    <div className='block2'>
+
+                        <h2 className='h2'> 📌 설명 </h2>
+                        <li> private static final long serialVersionUID = 1L; </li>
+                        <li> Version을 일치시켜주어 Serialize와 Deserialize를 맞춰준다. </li>
+                        <li> 컴파일러가 계산한 값을 부여하는데 Serializable Class , Outer Class가 변경되면
+                            serialVersionUID값이 변하게 된다. 값이 다르게 되면 InvalidClassExceptions가 발생한다 </li>
+                        <li>  </li>
+
+                    </div>
+                </details>
+            </div>
+
+            <div className='block1'>
+                <details>
+                    <summary> ----------------------------------------------------- </summary>
+                    <div className='block2'>
+                    </div>
+                </details>
+            </div>
+
+            <div className='block1'>
+                <details>
                     <summary> @Id, @Column </summary>
                     <div className='block2'>
 
@@ -51,73 +136,6 @@ const SpringModel = (props) => {
                                 <li> private String id; </li>
                             </div>
                         </li>
-
-                    </div>
-                </details>
-            </div>
-
-            <div className='block1'>
-                <details>
-                    <summary> @NonNull @Nullable @NotNull @NotEmpty @NotBlank @Size @Min @Max @Length (미완성)  </summary>
-                    <div className='block2'>
-
-                        <h2 className="h2"> 📌 @NonNull  </h2>
-                        <li> 변수 위에 선언 </li>
-                        <li> Null을 허용하지 않음 </li>
-                        <li> Null이면 NullPointerException발생 </li>
-
-                        <h2 className="h2"> 📌 @Nullable </h2>
-                        <li> 변수 위에 선언 </li>
-                        <li> null을 허용 </li>
-
-                        <h2 className="h2"> 📌 @NotNull </h2>
-                        <li> 변수 위에 선언 </li>
-                        <li> Null만 허용하지 않음 </li>
-                        <li> Null이면 NullPointerException발생 </li>
-                        <li> DB에 SQL쿼리를 보내기전에 엔티티에 값이 잘못 들어가면 ConstraintViolationException예외 발생  </li>
-                        <li> SQL쿼리에는 not null 생성 </li>
-
-                        <h2 className="h2"> 📌 @NotEmpty </h2>
-                        <li> 변수 위에 선언 </li>
-                        <li> Null, 빈문자열("") 불가능 , " " 은 가능 </li>
-                        <li> 문자열 검증 용도 </li>
-                        <li> String과 Collection 타입에만 적용이 가능하다고 한다. (boolean에는 @NotNull) </li>
-                        <li> SQL쿼리에는 not null을 붙여주지 않음 </li>
-
-                        <h2 className="h2"> 📌 @NotBlank </h2>
-                        <li> 변수 위에 선언 </li>
-                        <li> 문자열 검증 용도 </li>
-                        <li> Null, 빈문자열("") , " " 모두 불가능 </li>
-                        <li> SQL쿼리에는 not null을 붙여주지 않음 </li>
-
-
-                        <h2 className="h2"> 📌 @Size </h2>
-                        <li> 변수 위에 선언 </li>
-                        <li> 최소 최대 지정 </li>
-                        <li> 문자열, 배열등의 크기 판단 </li>
-                        <li> Bean Validation annotation </li>
-                        <div className="block4">
-                            <li> @Size(min=1, max=20, message="null에러") </li>
-                            <li> private String name; </li>
-                        </div>
-
-                        <h2 className="h2"> 📌 @Min @Max </h2>
-                        <li> 변수 위에 선언 </li>
-                        <li> 최소 최대 지정 </li>
-                        <div className="block4">
-                            <li> @Min(1) </li>
-                            <li> @Max(20) </li>
-                            <li> private String name; </li>
-                        </div>
-
-                        <h2 className="h2"> 📌 @Length </h2>
-                        <li> 변수 위에 선언 </li>
-                        <li> 문자열의 길이 판단 </li>
-                        <li> Hibernate-specific annotation </li>
-                        <div className="block4">
-                            <li> @Length(min=5,max=10,message="") </li>
-                            <li> private String name; </li>
-                        </div>
 
                     </div>
                 </details>

@@ -555,19 +555,30 @@ const ReactBasic = (props) => {
             <li> onMouseOver </li>
             <li> onMouseUp </li>
 
-            <h2 className='h2'> 📌 장점, 단점 </h2>
-            <li> 장점 : </li>
-            <li> 단점 : </li>
+            <h2 className='h2'> 📌  </h2>
+            <li> onFocus </li>
+            <li> onBlur </li>
+            <li> onChange </li>
+            <li> onInput </li>
+            <li> onInvalid </li>
+            <li> onRest </li>
+            <li> onSubmit </li>
+            <li> onError </li>
+            <li> onLoad </li>
+            <li>  </li>
 
-            <h2 className='h2'> ✔ 예시 </h2>
-            <li> 소제목
-              <div className='block3'>
-                <h3 className='h3'> 🎈 </h3>
-                <div className='block4'>
-                  <li>  </li>
-                </div>
-              </div>
+
+            <h2 className='h2'> 📌 포인터 이벤트 </h2>
+            <li> onPointerDown onPointerMove onPointerUp onPointerCancel onGotPointerCapture
+              onLostPointerCapture onPointerEnter onPointerLeave onPointerOver onPointerOut </li>
+
+            <h2 className='h2'> 📌  </h2>
+            <li> onSelect onTouchCancel onTouchEnd onTouchMove onTouchStart onScroll onWheel onAbort onCanPlay onCanPlayThrough onDurationChange onEmptied onEncrypted
+              onEnded onError onLoadedData onLoadedMetadata onLoadStart onPause onPlay
+              onPlaying onProgress onRateChange onSeeked onSeeking onStalled onSuspend
+              onTimeUpdate onVolumeChange onWaiting onLoad onError onAnimationStart onAnimationEnd onAnimationIteration onTransitionEnd onToggle
             </li>
+            <li>  </li>
 
           </div>
         </details>

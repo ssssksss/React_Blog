@@ -58,6 +58,59 @@ const JavaBasic2 = (props) => {
                     </div>
                 </details>
             </div>
+
+            <div className='block1'>
+                <details>
+                    <summary> 직렬화(Serialization) </summary>
+                    <div className='block2'>
+
+                        <h2 className='h2'> 📌 설명 </h2>
+                        <li> private static final long serialVersionUID = 1L; </li>
+                        <li> 자바 객체를 바이트 배열로 변환하고 파일,메모리,데이터베이스 등으로 저장하는 방법 </li>
+                        <li> 위의 과정을 반대로 하는 것을 Deserialization(역직렬화)라고 한다. </li>
+                        <li> 자바 객체가 바이트배열로 변환될 때 serialVersionUID도 같이 저장된다. </li>
+                        <li> 자바 객체를 다시 생성할 때 serialVersionUID를 체크한다. 다르면 예외발생 </li>
+
+                        <h2 className='h2'> 📌 직렬화 예시 </h2>
+                        <div className="block4">
+                            <li> private static String serialize() {"{"}
+                                <li>  Member member = new Member("홍길동","활빈당",20); </li>
+                                <li>  byte[] serializedMember; </li>
+                                <li>  String serializedMemberStr = ""; </li>
+                                <li>  try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {"{"}
+                                    <li>  try (ObjectOutputStream oos = new ObjectOutputStream(baos)) {"{"}
+                                        <li> oos.writeObject(member); </li>
+                                        <li> serializedMember = baos.toByteArray(); </li>
+                                        <li> serializedMemberStr = Base64.getEncoder().encodeToString(serializedMember); </li>
+                                    </li>
+                                    <li> {"}"} </li>
+                                </li>
+                                <li> {"}"} </li>
+                            </li>
+                            <li> return serializedMemberStr; </li>
+                            <li> {"}"} </li>
+                        </div>
+                        <li>  </li> <br />
+                        <h2 className='h2'> 📌 역직렬화 예시 </h2>
+                        <div className="block4">
+                            <li> private static void deserialize(byte[] serializedMember) {"{"}
+                                <li> try (ByteArrayInputStream bais = new ByteArrayInputStream(serializedMember)) {"{"}
+                                    <li> try (ObjectInputStream ois = new ObjectInputStream(bais)) {"{"}
+                                        <li> Object o = ois.readObject(); </li>
+                                        <li> Member o1 = (Member) o; </li>
+                                        <li> System.out.println(o1); </li>
+                                    </li>
+                                    <li> {"}"} </li>
+                                </li>
+                                <li> {"}"} </li>
+                            </li>
+                            <li> {"}"} </li>
+                        </div>
+
+                    </div>
+                </details>
+            </div>
+            {/* 끝 */}
         </div>
     );
 }

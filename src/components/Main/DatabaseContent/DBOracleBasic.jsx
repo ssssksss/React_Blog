@@ -5,6 +5,266 @@ const DBOracleBasic = (props) => {
     return (
         <>
             <div className="common_style">
+
+                <div className='block1'>
+                    <details>
+                        <summary> 양식 </summary>
+                        <div className='block2'>
+
+
+                            <h2 className='h2'> 📌 Create </h2>
+                            <li>  </li>
+                            <li> </li>
+
+                            <h2 className='h2'> 📌 Read </h2>
+                            <li> </li>
+                            <li> </li>
+
+                            <h2 className='h2'> 📌 Update </h2>
+                            <li> </li>
+                            <li> </li>
+
+                            <h2 className='h2'> 📌 Delete </h2>
+                            <li> </li>
+                            <li> </li>
+
+
+                            <h2 className='h2'> 📌 authority Create </h2>
+                            <li>  </li>
+                            <li> </li>
+
+                            <h2 className='h2'> 📌 authority Read </h2>
+                            <li> </li>
+                            <li> </li>
+
+                            <h2 className='h2'> 📌 authority Update </h2>
+                            <li> </li>
+                            <li> </li>
+
+                            <h2 className='h2'> 📌 authority Delete </h2>
+                            <li> </li>
+                            <li> </li>
+
+                        </div>
+                    </details>
+                </div>
+
+                <div className='block1'>
+                    <details>
+                        <summary> 양식 </summary>
+                        <div className='block2'>
+
+
+                            <h2 className='h2'> 📌 Create </h2>
+                            <li>  </li>
+                            <li> </li>
+
+                            <h2 className='h2'> 📌 Read </h2>
+                            <li> </li>
+                            <li> </li>
+
+                            <h2 className='h2'> 📌 Update </h2>
+                            <li> </li>
+                            <li> </li>
+
+                            <h2 className='h2'> 📌 Delete </h2>
+                            <li> </li>
+                            <li> </li>
+
+
+                            <h2 className='h2'> 📌 authority Create </h2>
+                            <li>  </li>
+                            <li> </li>
+
+                            <h2 className='h2'> 📌 authority Read </h2>
+                            <li> </li>
+                            <li> </li>
+
+                            <h2 className='h2'> 📌 authority Update </h2>
+                            <li> </li>
+                            <li> </li>
+
+                            <h2 className='h2'> 📌 authority Delete </h2>
+                            <li> </li>
+                            <li> </li>
+
+                        </div>
+                    </details>
+                </div>
+
+                <div className='block1'>
+                    <details>
+                        <summary> 양식 </summary>
+                        <div className='block2'>
+
+
+                            <h2 className='h2'> 📌 Create </h2>
+                            <li>  </li>
+                            <li> </li>
+
+                            <h2 className='h2'> 📌 Read </h2>
+                            <li> </li>
+                            <li> </li>
+
+                            <h2 className='h2'> 📌 Update </h2>
+                            <li> </li>
+                            <li> </li>
+
+                            <h2 className='h2'> 📌 Delete </h2>
+                            <li> </li>
+                            <li> </li>
+
+
+                            <h2 className='h2'> 📌 authority Create </h2>
+                            <li>  </li>
+                            <li> </li>
+
+                            <h2 className='h2'> 📌 authority Read </h2>
+                            <li> </li>
+                            <li> </li>
+
+                            <h2 className='h2'> 📌 authority Update </h2>
+                            <li> </li>
+                            <li> </li>
+
+                            <h2 className='h2'> 📌 authority Delete </h2>
+                            <li> </li>
+                            <li> </li>
+
+                        </div>
+                    </details>
+                </div>
+
+                <div className='block1'>
+                    <details>
+                        <summary> 양식 </summary>
+                        <div className='block2'>
+
+
+                            <h2 className='h2'> 📌 Create </h2>
+                            <li>  </li>
+                            <li> </li>
+
+                            <h2 className='h2'> 📌 Read </h2>
+                            <li> </li>
+                            <li> </li>
+
+                            <h2 className='h2'> 📌 Update </h2>
+                            <li> </li>
+                            <li> </li>
+
+                            <h2 className='h2'> 📌 Delete </h2>
+                            <li> </li>
+                            <li> </li>
+
+
+                            <h2 className='h2'> 📌 authority Create </h2>
+                            <li>  </li>
+                            <li> </li>
+
+                            <h2 className='h2'> 📌 authority Read </h2>
+                            <li> </li>
+                            <li> </li>
+
+                            <h2 className='h2'> 📌 authority Update </h2>
+                            <li> </li>
+                            <li> </li>
+
+                            <h2 className='h2'> 📌 authority Delete </h2>
+                            <li> </li>
+                            <li> </li>
+
+                        </div>
+                    </details>
+                </div>
+
+                <div className='block1'>
+                    <details>
+                        <summary> 양식 </summary>
+                        <div className='block2'>
+
+
+                            <h2 className='h2'> 📌 Create </h2>
+                            <li>  </li>
+                            <li> </li>
+
+                            <h2 className='h2'> 📌 Read </h2>
+                            <li> </li>
+                            <li> </li>
+
+                            <h2 className='h2'> 📌 Update </h2>
+                            <li> </li>
+                            <li> </li>
+
+                            <h2 className='h2'> 📌 Delete </h2>
+                            <li> </li>
+                            <li> </li>
+
+
+                            <h2 className='h2'> 📌 authority Create </h2>
+                            <li>  </li>
+                            <li> </li>
+
+                            <h2 className='h2'> 📌 authority Read </h2>
+                            <li> </li>
+                            <li> </li>
+
+                            <h2 className='h2'> 📌 authority Update </h2>
+                            <li> </li>
+                            <li> </li>
+
+                            <h2 className='h2'> 📌 authority Delete </h2>
+                            <li> </li>
+                            <li> </li>
+
+                        </div>
+                    </details>
+                </div>
+
+                <div className='block1'>
+                    <details>
+                        <summary> 양식 </summary>
+                        <div className='block2'>
+
+
+                            <h2 className='h2'> 📌 Create </h2>
+                            <li>  </li>
+                            <li> </li>
+
+                            <h2 className='h2'> 📌 Read </h2>
+                            <li> </li>
+                            <li> </li>
+
+                            <h2 className='h2'> 📌 Update </h2>
+                            <li> </li>
+                            <li> </li>
+
+                            <h2 className='h2'> 📌 Delete </h2>
+                            <li> </li>
+                            <li> </li>
+
+
+                            <h2 className='h2'> 📌 authority Create </h2>
+                            <li>  </li>
+                            <li> </li>
+
+                            <h2 className='h2'> 📌 authority Read </h2>
+                            <li> </li>
+                            <li> </li>
+
+                            <h2 className='h2'> 📌 authority Update </h2>
+                            <li> </li>
+                            <li> </li>
+
+                            <h2 className='h2'> 📌 authority Delete </h2>
+                            <li> </li>
+                            <li> </li>
+
+                        </div>
+                    </details>
+                </div>
+
+
                 <span className="lblock">
                     <span className="mtitle"> <a name="OracleDB Study">  OracleDB Study  </a> </span>
                     <div className='mblock'>

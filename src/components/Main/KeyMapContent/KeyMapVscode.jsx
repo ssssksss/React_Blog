@@ -341,6 +341,7 @@ const KeyMapVscode = (props) => {
               <li> 🚩 명령어 검색하는 창 열기 <span className="col_keymap"> Ctrl + Shift + P, F1 </span> </li>
               <li> 🚩 VScode 설정 창 이동 <span className="col_keymap"> Ctrl + , </span> </li>
               <li> 🚩 VScode Keymap창 이동 <span className="col_keymap"> Ctrl + K , Ctrl + S  </span> </li>
+              <li> 🚩 드래그 한 라인 양쪽에 태그 달기(htmltagwrap 익스텐션) <span className="col_keymap"> Alt + W  </span> </li>
               <li> 🚩  <span className="col_keymap">  </span> </li>
 
             </div>

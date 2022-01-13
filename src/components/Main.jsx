@@ -6,7 +6,6 @@ import { Route, Switch } from 'react-router-dom';
 // 자바
 import JavaBasic from './Main/JavaContent/JavaBasic';
 import JavaBasic2 from './Main/JavaContent/JavaBasic2';
-import JavaSerializable from './Main/JavaContent/JavaSerializable';
 import JavaModifier from './Main/JavaContent/JavaModifier';
 import JavaAnnotation from './Main/JavaContent/JavaAnnotation';
 
@@ -205,6 +204,7 @@ import KeyMapSublimeText from './Main/KeyMapContent/KeyMapSublimeText';
 import CollaborationTool_Github from './Main/CollaborationToolContent/CollaborationTool_Github';
 import CollaborationTool_Slack from './Main/CollaborationToolContent/CollaborationTool_Slack';
 import CollaborationTool_Diagram from './Main/CollaborationToolContent/CollaborationTool_Diagram';
+import CollaborationTool_Markdown from './Main/CollaborationToolContent/CollaborationTool_Markdown';
 
 //  참고사이트
 import RefBlog from './Main/RefBlogContent/RefBlog';
@@ -237,7 +237,6 @@ const Main = (props) => {
                 {/* 자바 */}
                 <Route path="/java_basic" component={JavaBasic}></Route>
                 <Route path="/java_basic2" component={JavaBasic2}></Route>
-                <Route path="/java_serializable" component={JavaSerializable}></Route>
                 <Route path="/java_modifier" component={JavaModifier}></Route>
                 <Route path="/java_annotation" component={JavaAnnotation}></Route>
 
@@ -438,6 +437,7 @@ const Main = (props) => {
                 <Route path="/collaboration_github" component={CollaborationTool_Github}></Route>
                 <Route path="/collaboration_slack" component={CollaborationTool_Slack}></Route>
                 <Route path="/collaboration_diagram" component={CollaborationTool_Diagram}></Route>
+                <Route path="/collaboration_markdown" component={CollaborationTool_Markdown}></Route>
 
                 {/* 참고 사이트 */}
                 <Route path="/ref_blog" component={RefBlog}></Route>

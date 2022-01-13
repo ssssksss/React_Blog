@@ -1,0 +1,147 @@
+import React, { ReactElement } from 'react'
+import { TemplateFull } from '../templates/TemplateFull';
+import styled, { css } from 'styled-components';
+
+const Logo = styled.div`
+	margin: auto;
+`;
+const InputDiv = styled.div`
+	display: block;
+	padding: 5px;
+`;
+
+const Container = styled.div`
+	border: solid black 1px;
+	margin-top: 100px;
+	padding: 20px;
+	width: 400px;
+	height: 600px;
+	border-radius: 5px;
+	border: 0px;
+	box-shadow: 2px 2px 5px 3px #60a9f2, 1px 1px 1px 1px #60a9f2;
+	`;
+
+const InputTitlePtag = styled.p`
+	padding-bottom: 5px;
+	font-size: 14px;
+	`;
+// input태그의 스타일과 gender에 div태그의 스타일을 일치시키기 위해 작성된 스타일 컴포넌트
+const commonStyle = css`
+width: 100%;
+height: 30px;
+border-radius: 5px;
+padding-left: 10px;
+border: 0px;
+box-shadow: inset 2px 2px 3px 1px #60a9f2, 2px 2px 3px 1px #60a9f2;
+
+&:focus , &:hover {
+	background-color: #60a9f2;
+	color: white;
+}
+`;
+const Input = styled.input`
+	outline: 0px;
+	${commonStyle}
+	`;
+//input 스타일에 맞추기 위해서 사용
+const GenderStyleDiv = styled.div`
+	display: flex;
+	flex-flow: nowrap row;
+	align-items: center;
+	${commonStyle}
+`;
+// 유효하지 않은 값 알려주기
+const InputAlert = styled.div`
+	height: 8px;
+	font-size: 8px;
+	padding: 5px 0px 0px 5px;
+	color: red;
+	visibility: hidden;
+`
+const GenderLabel = styled.label`
+	padding: 0px 5px;
+`;
+const Button = styled.button`
+  ${commonStyle}
+	width: 40%;
+	height: 40px;
+	border: 0px;
+	margin: 10px 5% 0px;
+	background-color: white;
+`;
+interface Props {
+
+}
+
+function SignupPage({ }: Props): ReactElement {
+	return (
+		<TemplateFull>
+			{/*<p>경로는 /user/signup</p>
+			<p>id : 중복검사, 유효성검사, 자릿수검사</p>
+			<p>영문,숫자,_ 5~12자</p>
+			<p>password : 유효성검사, 자릿수 검사, 정규표현식, 비번처리</p>
+			<p>name : 이거는 자릿수 검사</p>
+			<p>nickname : 유효성검사</p>
+			<p>birthDate : 기간 검사 - 애초에 세팅</p>
+			<p>gender : 남 혹은 녀로 라디오버튼</p>
+			<p>phone : 유효성검사</p>*/}
+			<Container>
+				<Logo>
+					여기모아
+				</Logo>
+				<InputDiv>
+					<InputTitlePtag> 아이디 : </InputTitlePtag>
+					<Input type="text" name="id" placeholder="아이디를 입력하세요" />
+					<InputAlert className="id">  </InputAlert>
+				</InputDiv>
+				<InputDiv>
+					<InputTitlePtag> 비밀번호 :  </InputTitlePtag>
+					<Input type="password" name="password" placeholder="비밀번호를 입력하세요" />
+					<InputAlert className="password">  </InputAlert>
+				</InputDiv>
+				<InputDiv>
+					<InputTitlePtag> 이름 :  </InputTitlePtag>
+					<Input type="text" name="name" placeholder="사용자 이름" />
+					<InputAlert className="name">  </InputAlert>
+				</InputDiv>
+				<InputDiv>
+					<InputTitlePtag> 닉네임 :  </InputTitlePtag>
+					<Input type="text" name="nickname" placeholder="사용자 닉네임" />
+					<InputAlert className="nickname">  </InputAlert>
+				</InputDiv>
+				<InputDiv>
+					<InputTitlePtag> 생년월일 :  </InputTitlePtag>
+					<Input type="text" name="birthDate" placeholder="ex)20200807" />
+					<InputAlert className="birthDate">  </InputAlert>
+				</InputDiv>
+				<InputDiv>
+					<InputTitlePtag> 성별 :  </InputTitlePtag>
+					<GenderStyleDiv>
+						<GenderLabel htmlFor="men"> 남성 </GenderLabel> <input id="men" type="radio" name="gender" value="M" />
+						<GenderLabel htmlFor="women"> 여성 </GenderLabel> <input id="women" type="radio" name="gender" value="W" />
+					</GenderStyleDiv>
+					<InputAlert className="gender">  </InputAlert>
+				</InputDiv>
+				<InputDiv>
+					<InputTitlePtag> 휴대폰 번호 :  </InputTitlePtag>
+					<Input type="text" name="phone" placeholder=" '-' 는 빼고서 입력해주세요" />
+					<InputAlert className="phone">  </InputAlert>
+				</InputDiv>
+				<InputDiv>
+					<Button> 회원가입 </Button>
+					<Button> 취소 </Button>
+				</InputDiv>
+			</Container>
+		</TemplateFull>
+	)
+}
+
+export default SignupPage
+
+
+//////////////////////////////////////////////////////
+
+주요 컬러
+#258FFF 파랑
+#ff792a 주황
+#EFB0FF 보라
