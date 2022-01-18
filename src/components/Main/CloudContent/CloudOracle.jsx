@@ -63,6 +63,40 @@ const CloudOracle = (props) => {
                 </details>
             </div>
 
+            <div className='block1'>
+                <details>
+                    <summary> 리눅스에 스프링 배포하는 방법 </summary>
+                    <div className='block2'>
+
+                        <h2 className='h2'> 📌 설명 </h2>
+                        <li> git에 대한 사용법은 아직 모르니 일단 패스 </li>
+                        <li> jdk 설치 </li>
+                        <li> git clone github저장소 </li>
+                        <li> sudo chmod 777 ./gradlew </li>
+                        <li> .gradlew build </li>
+                        <li> sudo chmod 664 ./gradlew </li>
+                        <li> build/libs 폴더에 java -jar jar파일 실행(plain 말고) </li>
+                        <li> (포트설정은 조사해보기) </li>
+                        <li>  </li>
+
+                        <h2 className='h2'> 📌 장점, 단점 </h2>
+                        <li> 장점 : </li>
+                        <li> 단점 : </li>
+
+                        <h2 className='h2'> ✔ 예시 </h2>
+                        <li>
+                            <div className='block3'>
+                                <h3 className='h3'> 🎈 </h3>
+                                <div className='block4'>
+                                    <li>  </li>
+                                </div>
+                            </div>
+                        </li>
+
+                    </div>
+                </details>
+            </div>
+
             <ul>
                 <span className="lblock">
                     <div className='mblock'>

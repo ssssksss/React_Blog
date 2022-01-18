@@ -65,18 +65,27 @@ const CodingConvention = (props) => {
                             <li> 기능을 잘게 쪼개서 사용하는 것이 좋다. </li>
                             <li> 이름은 동사에 어떠한 기능이 있는지 잘 알수 있는 단어이어야 한다. </li>
 
-                            <h2 className='h2'> 📌 예시 </h2>
-                            <li> 무엇인가를 전환할 때
-                                <div className="block4">
-                                    <li> convertTo@ </li>
-                                    <li>  </li>
-                                </div>
-                            </li>
-                            <li>
-                                <div className="block4">
+                            <h2 className='h2'> 📌 컨트롤러 메소드 </h2>
+                            <li> 접미사를 사용 </li>
+                            <li> userAdd() </li>
+                            <li> userDetails() </li>
+                            <li> userList() </li>
+                            <li> userModify() </li>
+                            <li> userRemove() </li>
+                            <li> userDuplicateCheck() </li>
 
-                                </div>
-                            </li>
+                            <h2 className='h2'> 📌 서비스 메소드 </h2>
+                            <li> 접두사 사용 </li>
+                            <li> findUser() </li>
+                            <li> addUser() </li>
+                            <li> modifyUser() </li>
+                            <li> removeUser() </li>
+                            <li> saveUser() </li>
+                            <li>  </li>
+
+                            <h2 className='h2'> 📌 서비스 메소드 </h2>
+                            <li>  </li>
+                            <li>  </li>
 
                         </div>
                     </details>
@@ -147,7 +156,7 @@ const CodingConvention = (props) => {
                             <li> 6. 중복되는 변수나 중복되는 함수들은 하나로 만들어서 사용을 한다.  </li>
                             <li> 7. 모든 기능을 잘게 쪼개서 사용을하고 보관해야 한다.  </li>
                             <li> 8. 하나의 클래스,함수,변수 등에 여러개의 기능이나 의미를 가지고 있지 않아야 한다. </li>
-                            <li> 9.   </li>
+                            <li> 9. 컨트롤러에서는 서비스 호출과 예외처리만 한다.  </li>
                             <li> 3  </li>
 
                         </div>

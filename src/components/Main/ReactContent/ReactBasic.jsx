@@ -210,10 +210,18 @@ const ReactBasic = (props) => {
           <div className='block2'>
 
             <h2 className='h2'> 📌 1번 해결방법 </h2>
-            <li> pakage.json에 "proxy": "http://localhost:8080" 이와 같이 추가한다.
-              <li> 스프링에서 api를 받으려면 스프링에서도 cors정책을 해결해주어야 한다. </li>
-            </li>
-            <h2 className='h2'> 📌 2번 해결방법 </h2>
+            <div className="block">
+              <li> pakage.json에 "proxy": "http://localhost:8080" 이와 같이 추가한다. </li>
+              <li> 위와 같이 설정하면 다른 곳에서는 어떻게 받아오지? (의문해결아직안됨) </li>
+              {/*<li> 스프링에서 api를 받으려면 스프링에서도 cors정책을 해결해주어야 한다. </li>*/}
+            </div>
+            <h2 className='h2'> 📌 3번 해결방법 </h2>
+            <div className="block4">
+              <li>  </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+            <h2 className='h2'> 📌 3번 해결방법 </h2>
             <li> npm i http-proxy-middleware </li>
             <li> src/setupProxy.js 만들기 </li>
             <div className="block4">

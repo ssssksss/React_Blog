@@ -6,6 +6,97 @@ const LinuxServer = (props) => {
 
       <div className='block1'>
         <details>
+          <summary> 서버 실행전에 확인할 것들 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <li> 1. 방화벽 </li>
+            <li> 2. selinux 같은것(centos에서 사용되는거) </li>
+            <li> 3. 서비스가 enable인지 </li>
+            <li> 4. 서비스가 실행되고 있는지 </li>
+            <li> 5. 클라우드에서 포트가 열려있는지 </li>
+            <li>  </li>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> nginx 서버 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 nginx 설명 </h2>
+            <li> HTTP 프록시와 웹 서버 기능 </li>
+            <li> 정적 파일과 인덱스 파일 표현, 자동 인덱싱 기능. </li>
+            <li> 캐싱을 통한 리버스 프록시 </li>
+            <li> 로드 밸런싱 </li>
+            <li> 고장 진단 </li>
+            <li> SSL 지원 </li>
+            <li> 캐싱을 통한 FastCGI 지원 </li>
+            <li> Name-, IP-기반 가상서버 </li>
+            <li> FLV 스트리밍 </li>
+            <li> MP4 스트리밍 모듈을 이용한 MP4 스트리밍 </li>
+            <li> 웹페이지 접근 인증 </li>
+            <li> gzip 압축 </li>
+            <li> 10000개의 동시 접속을 처리할 수 있는 능력 </li>
+            <li> URL 다시쓰기 (URL rewriting) </li>
+            <li> 맞춤 로깅 </li>
+            <li> 서버 사이드 기능 포함 </li>
+            <li> WebDAV </li>
+            <li> SMTP, POP3, IMAP 프록시 </li>
+            <li> STARTTLS 지원 </li>
+            <li> SSL 지원 </li>
+
+            <h2 className='h2'> 📌 centos7 </h2>
+            <li> 서버 설치 <span className='command'> dnf install nginx  </span> </li>
+            <li> 프로세스 확인  <span className='command'> ps -ef | grep nginx </span>  </li>
+            <li> 서버 가동  <span className='command'> (sudo) nginx </span> </li>
+            <li> 서버 시작  <span className='command'> systemctl start nginx  </span> </li>
+            <li> 서비스 상태 확인 <span className='command'> sudo systemctl status nginx </span> </li>
+            <li> 서비스 중지 <span className='command'>  systemctl stop nginx </span> </li>
+            <li> 서비스 재시작 <span className='command'>  systemctl restart nginx </span> </li>
+            <li> 설정 반영 <span className='command'>  systemctl reload nginx </span> </li>
+            <li> 서비스 재로드1  <span className='command'> sudo systemctl reload nginx </span> </li>
+            <li> 서비스 재로드2  <span className='command'> sudo service nginx reload  </span> </li>
+            <li> 버전 확인 <span className='command'> sudo nginx -v </span> </li>
+            <li> 버전 + 구성 옵션 확인 <span className='command'> sudo nginx -V </span> </li>
+            <li> 구성 테스트(구성 파일 변경하거나 서비스 재로드하기전에 테스트) <span className='command'> sudo nginx -t</span> </li>
+            <li>  <span className='command'>   </span> </li>
+            <li>  <span className='command'>   </span> </li>
+            <li>  <span className='command'>   </span> </li>
+            <li>  <span className='command'>   </span> </li>
+
+
+
+            <h2 className='h2'> 📌 conf 같은 설정 </h2>
+            <li> <a href="https://architectophile.tistory.com/12" target="_blank" rel="noopener noreferrer"> 참고 </a> </li>
+            <li>  </li>
+            <li> /etc/nginx/conf.d/커스텀파일.d
+              <div className="block4">
+                <li> server {"{"}
+                  <li> listen 포트; </li>
+                  <li> listen [::]:포트; </li>
+                  <li> server_name www.example.com; <small> 이주소를 입력하면 www.example.com:포트에 대해서 모두 받아들임 </small> </li>
+                  <li> location / {"{"}
+                    <li> return 301 http://example.com;$request_uri; <small> 보내버림 </small> </li>
+                    <li> return 301 https://$host$request_uri; <small> 보내버림 </small> </li>
+                    <li> proxy_pass http://example:포트/경로; <small> 이동시켜줌 </small> </li>
+                  </li>
+                  <li> {"}"} </li>
+                </li>
+                <li> {"}"} </li>
+              </div>
+            </li>
+
+
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
           <summary> dhcp 서버란? </summary>
           <div className='block2'>
 

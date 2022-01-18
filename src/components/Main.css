@@ -4,3 +4,12 @@
     border-radius: 20px;
     display: flex;
 }
+
+.command {
+    background: linear-gradient(135deg, #833ab4 33%, #fd1d1d 66%, #fcb045 100%);
+    color:white;
+    padding: 3px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 600;
+}

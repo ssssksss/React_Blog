@@ -187,7 +187,7 @@ const ReactAxios = (props) => {
                                     </li>
                                     <li> {' }) '} </li>
                                 </div>
-                                <h3 className='h3'> 🎈 예시2 - form 데이터 전송 </h3>
+                                <h3 className='h3'> 🎈 예시3 - form 데이터 전송(Content-Type: multipart/form-data) </h3>
                                 <div className='block4'>
                                     <li> import axios from 'axios'; </li>
                                     <li> </li> <br />
@@ -214,6 +214,27 @@ const ReactAxios = (props) => {
                                     <li>  </li> <br />
                                     <li> 스프링에선 매개변수로(String data1)으로 했을 때 데이터 받아짐 </li>
                                     <li> 스프링에서 매개변수로(User user)이고 user.id,user.name일 때 id,name으로 보내면 받아짐 </li>
+                                </div>
+                                <h3 className='h3'> 🎈 예시4 - Content-Type: application/json(검증완료) </h3>
+                                <div className='block4'>
+                                    <li> {" axios({ "}
+                                        <li> {" url: '/auth/signup', "} </li>
+                                        <li> {" method: 'POST', "} </li>
+                                        <li> {" data: { "}
+                                            <li> {" nickname: '12345678', "} </li>
+                                            <li> {" email: 'example@test.com', "} </li>
+                                            <li> {" password: '12345678' "} </li>
+                                            <li> {" } "} </li>
+                                        </li>
+                                        <li> {" }) "} </li>
+                                    </li>
+                                    <li> {" .then(response => { "}
+                                        <li> {" console.log(response.data); "} </li>
+                                    </li>
+                                    <li> {" }).catch(error => { "}
+                                        <li> {" console.log(error); "} </li>
+                                    </li>
+                                    <li> {" }); "} </li>
                                 </div>
                             </div>
                         </li>

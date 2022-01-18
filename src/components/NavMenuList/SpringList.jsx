@@ -22,6 +22,8 @@ const SpringList = () => {
                 <Link to="/spring_service"> 스프링 Service </Link>
                 <Link to="/spring_communication"> 스프링 통신 </Link>
                 <Link to="/spring_converter"> 스프링 Converter </Link>
+                <Link to="/spring_jpa"> 스프링 JPA </Link>
+                <Link to="/spring_exception"> 스프링 Exception </Link>
             </div>
             <div className="menu menu2">
                 <Link to="/spring_securityexcode1"> 스프링 로그인폼 테스트 </Link>

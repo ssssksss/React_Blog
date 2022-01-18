@@ -18,6 +18,7 @@ import NodejsBasic from './Main/NodejsContent/NodejsBasic';
 
 // 스프링
 import SpringError from './Main/SpringContent/SpringError';
+import SpringJpa from './Main/SpringContent/SpringJpa';
 import SpringBasic from './Main/SpringContent/SpringBasic';
 import SpringThymeleaf from './Main/SpringContent/SpringThymeleaf';
 import SpringLombok from './Main/SpringContent/SpringLombok';
@@ -34,6 +35,7 @@ import SpringService from './Main/SpringContent/SpringService';
 import SpringJackson from './Main/SpringContent/SpringJackson';
 import SpringCommunication from './Main/SpringContent/SpringCommunication';
 import SpringConverter from './Main/SpringContent/SpringConverter';
+import SpringException from './Main/SpringContent/SpringException';
 import SpringSecurityExCode1 from './Main/SpringContent/SpringSecurityExCode1';
 import SpringSecurityExCode2 from './Main/SpringContent/SpringSecurityExCode2';
 import SpringSecurityExCode3 from './Main/SpringContent/SpringSecurityExCode3';
@@ -111,6 +113,7 @@ import FrontendBasic from './Main/FrontendContent/FrontendBasic';
 import FrontendBrowserDevTool from './Main/FrontendContent/FrontendBrowserDevTool';
 import FrontendRegex from './Main/FrontendContent/FrontendRegex';
 import FrontendBuildName from './Main/FrontendContent/FrontendBuildName';
+import FrontendHttp from './Main/FrontendContent/FrontendHttp';
 
 // ========== 기타 ==========
 // 데이터 베이스
@@ -248,6 +251,7 @@ const Main = (props) => {
 
                 {/* 스프링 */}
                 <Route path="/spring_error" component={SpringError}></Route>
+                <Route path="/spring_jpa" component={SpringJpa}></Route>
                 <Route path="/spring_basic" component={SpringBasic}></Route>
                 <Route path="/spring_thymeleaf" component={SpringThymeleaf}></Route>
                 <Route path="/spring_model" component={SpringModel}></Route>
@@ -264,6 +268,7 @@ const Main = (props) => {
                 <Route path="/spring_jackson" component={SpringJackson}></Route>
                 <Route path="/spring_communication" component={SpringCommunication}></Route>
                 <Route path="/spring_converter" component={SpringConverter}></Route>
+                <Route path="/spring_exception" component={SpringException}></Route>
                 <Route path="/spring_securityexcode1" component={SpringSecurityExCode1}></Route>
                 <Route path="/spring_securityexcode2" component={SpringSecurityExCode2}></Route>
                 <Route path="/spring_securityexcode3" component={SpringSecurityExCode3}></Route>
@@ -343,6 +348,7 @@ const Main = (props) => {
                 <Route path="/frontend_browserdevtool" component={FrontendBrowserDevTool}></Route>
                 <Route path="/frontend_regex" component={FrontendRegex}></Route>
                 <Route path="/frontend_buildname" component={FrontendBuildName}></Route>
+                <Route path="/frontend_http" component={FrontendHttp}></Route>
 
                 {/*========== 기타 ==========*/}
 

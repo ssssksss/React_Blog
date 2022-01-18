@@ -638,8 +638,9 @@ const CssBasic = (props) => {
                         <summary> gradient (2개 이상의 색을 배치하는 방법) </summary>
                         <div className='block2'>
 
-                            <h2 className='h2'> 📌 설명 </h2>
-                            <li> 1 </li>
+                            <h2 className='h2'> 📌 예제 </h2>
+                            <li> background: linear-gradient(90deg, #833ab4 33%, #fd1d1d 66%, #fcb045 100%); </li>
+                            <li>  </li>
 
                             <h2 className='h2'> 📌 css 스타일 </h2>
                             <li> linear-gradient(각도, color 10%, color 90% ...);

@@ -13,18 +13,18 @@
 1. [회원 상세 조회](#회원-상세-조회)
 2. [회원 정보 수정](#회원-정보-수정)
 3. [회원 탈퇴](#회원-탈퇴)
-#### Store
+#### Place
 1. [맛집 리스트 조회](#맛집-리스트-조회)
 2. [맛집 상세 조회](#맛집-상세-조회)
 3. [맛집 추가](#맛집-추가)
 4. [맛집 정보 수정](#맛집-정보-수정)
 5. [맛집 삭제](#맛집-삭제)
 #### Upload
-사진 업로드 - 파라미터에 type> user, store
+사진 업로드 - 파라미터에 type> user, place
 
 
 ### Auth
-#### 회원가입
+#### [1]회원가입
 |Method|Endpoint|
 |:---:|:---:|
 **<span style="color:orange">POST</span>**|`/auth/signup`|
@@ -52,10 +52,20 @@
 |statusCode|number|200|
 |msg|string|Sign up Success|
 
-- Parameter 이상?
-- validation 추가 -> 400대로 추가
+**2. `400` Bad Request**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|statusCode|number|400|
+|msg|string|Please type required contents|
+|error|object|하단 참조|
 
-**2. `500` Internal Server Error**
+**Error**
+|Field|Type|Description|
+|:---:|:---:|:---|
+|fieldName|string|에러의 원인이 되는 필드|
+|errorMessage|string|에러 메시지에 대한 설명|
+
+**3. `500` Internal Server Error**
 |Field|Type|Description|
 |:---:|:---:|:---|
 |statusCode|number|500|
@@ -65,7 +75,7 @@
 
 [Top](#table-of-contents)
 
-#### 로그인
+#### [2]로그인
 |Method|Endpoint|
 |:---:|:---:|
 **<span style="color:orange">POST</span>**|`/auth/signin`|
@@ -117,9 +127,9 @@
 |Field|Type|Description|
 |:---:|:---:|:---|
 |statusCode|number|401|
-|msg|string|Please check email or password|
+|msg|string|Please check email and password|
 
-**4. `403` Forbidden**
+**4. `403` Forbidden 권한 때문에 거절??? **
 |Field|Type|Description|
 |:---:|:---:|:---|
 |statusCode|number|403|
@@ -134,7 +144,7 @@
 
 [Top](#table-of-contents)
 
-#### 이메일 중복 체크
+#### [3]이메일 중복 체크
 |Method|Endpoint|
 |:---:|:---:|
 **<span style="color:green">GET</span>**|`/auth/email/duplication`|
@@ -143,7 +153,6 @@
 **Headers**
 |Header|Required|description|
 |:---:|:---:|:---:|
-|Authorization| ✅ |bearer token|
 |Content-Type| ✅ |application/json|
 <br>
 
@@ -161,19 +170,13 @@
 |statusCode|number|200|
 |msg|string|Email Success|
 
-**2. `401` Unauthorized**
-|Field|Type|Description|
-|:---:|:---:|:---|
-|statusCode|number|401|
-|msg|string|Please check email or password|
-
-**3. `409` Conflict**
+**2. `409` Conflict**
 |Field|Type|Description|
 |:---:|:---:|:---|
 |statusCode|number|409|
 |msg|string|Already existed email|
 
-**4. `500` Internal Server Error**
+**3. `500` Internal Server Error**
 |Field|Type|Description|
 |:---:|:---:|:---|
 |statusCode|number|500|
@@ -182,7 +185,7 @@
 
 [Top](#table-of-contents)
 
-#### 닉네임 중복 체크
+#### [4]닉네임 중복 체크
 |Method|Endpoint|
 |:---:|:---:|
 **<span style="color:green">GET</span>**|`/auth/nickname/duplication`|
@@ -193,7 +196,7 @@
 [Top](#table-of-contents)
 
 
-#### 비밀번호 변경하기
+#### [5]비밀번호 변경하기
 |Method|Endpoint|
 |:---:|:---:|
 **<span style="color:skyblue">PUT</span>**|`/auth/password`|
@@ -242,7 +245,7 @@
 
 [Top](#table-of-contents)
 
-#### access 토큰 재발급
+#### [6]access 토큰 재발급
 |Method|Endpoint|description|
 |:---:|:---:|:---:|
 **<span style="color:orange">POST</span>**|`/auth/token/validation`||
@@ -292,7 +295,7 @@
 [Top](#table-of-contents)
 
 ### User
-#### 회원 상세 조회
+#### [7]회원 상세 조회
 |Method|Endpoint|
 |:---:|:---:|
 **<span style="color:green">GET</span>**|`/user`|
@@ -340,7 +343,7 @@
 
 [Top](#table-of-contents)
 
-#### 회원 정보 수정
+#### [8]회원 정보 수정
 |Method|Endpoint|
 |:---:|:---:|
 **<span style="color:skyblue">PATCH</span>**|`/user`|
@@ -393,7 +396,7 @@
 
 [Top](#table-of-contents)
 
-#### 회원 탈퇴
+#### [9]회원 탈퇴
 |Method|Endpoint|
 |:---:|:---:|
 **<span style="color:red">DELETE</span>**|`/user`|
@@ -436,11 +439,11 @@
 
 [Top](#table-of-contents)
 
-### Store
-#### 맛집 리스트 조회
+### Place
+#### [10]맛집 리스트 조회
 |Method|Endpoint|
 |:---:|:---:|
-**<span style="color:green">GET</span>**|`/store`|
+**<span style="color:green">GET</span>**|`/place`|
 <br>
 
 **Headers**
@@ -462,13 +465,13 @@
 |Field|Type|Description|
 |:---:|:---:|:---|
 |statusCode|number|200|
-|msg|string| Get store Info Success|
-|data|List[StoreVM]| 하단 참조|
+|msg|string| Get place Info Success|
+|data|List[PlaceVM]| 하단 참조|
 
-**StoreVM**
+**PlaceVM**
 |Field|Type|Description|
 |:---:|:---:|:---|
-|storeId|number|
+|placeId|number|
 |category|number|
 |name|string||
 |longitude|number|not required?|
@@ -492,10 +495,10 @@
 
 [Top](#table-of-contents)
 
-#### 맛집 상세 조회
+#### [11]맛집 상세 조회
 |Method|Endpoint|
 |:---:|:---:|
-**<span style="color:green">GET</span>**|`/store/{storeId}`|
+**<span style="color:green">GET</span>**|`/place/{placeId}`|
 <br>
 
 **Headers**
@@ -516,13 +519,13 @@
 |Field|Type|Description|
 |:---:|:---:|:---|
 |statusCode|number|200|
-|msg|string| Get store Info Success|
-|data|StoreVM| 하단 참조|
+|msg|string| Get place Info Success|
+|data|PlaceVM| 하단 참조|
 
-**StoreVM**
+**PlaceVM**
 |Field|Type|Description|
 |:---:|:---:|:---|
-|storeId|number|
+|placeId|number|
 |category|number|
 |name|string||
 |longitude|number|
@@ -547,10 +550,10 @@
 
 [Top](#table-of-contents)
 
-#### (개인)맛집 추가
+#### [12](개인)맛집 추가
 |Method|Endpoint|
 |:---:|:---:|
-**<span style="color:orange">POST</span>**|`/store`|
+**<span style="color:orange">POST</span>**|`/place`|
 <br>
 
 **Headers**
@@ -597,10 +600,10 @@
 
 [Top](#table-of-contents)
 
-#### 맛집 정보 수정
+#### [13]맛집 정보 수정
 |Method|Endpoint|
 |:---:|:---:|
-**<span style="color:skyblue">PUT</span>**|`/store/{storeId}`|
+**<span style="color:skyblue">PUT</span>**|`/place/{placeId}`|
 <br>
 
 **Headers**
@@ -613,7 +616,7 @@
 **Request Body**
 |Field|Required|Type|Length|Description|
 |:---:|:---:|:---:|:---:|:---|
-|storeId|✅|number|||
+|placeId|✅|number|||
 |category|✅|number|||
 |name|✅|string|||
 |longitude|✅|number|||
@@ -632,12 +635,12 @@
 |:---:|:---:|:---|
 |statusCode|number|200|
 |msg|string| Modify User Info Detail Success|
-|data|StoreVM| 하단 참조|
+|data|PlaceVM| 하단 참조|
 
-**StoreVM**
+**PlaceVM**
 |Field|Type|Description|
 |:---:|:---:|:---|
-|storeId|number|
+|placeId|number|
 |category|number|
 |name|string||
 |longitude|number|
@@ -660,10 +663,10 @@
 
 [Top](#table-of-contents)
 
-#### 맛집 삭제
+#### [14]맛집 삭제
 |Method|Endpoint|
 |:---:|:---:|
-**<span style="color:RED">DELETE</span>**|`/store/{storeId}`|
+**<span style="color:RED">DELETE</span>**|`/place/{placeId}`|
 <br>
 
 **Headers**
@@ -684,7 +687,7 @@
 |Field|Type|Description|
 |:---:|:---:|:---|
 |statusCode|number|200|
-|msg|string| Delete store Info Success|
+|msg|string| Delete place Info Success|
 
 **2. `401` Unauthorized**
 |Field|Type|Description|

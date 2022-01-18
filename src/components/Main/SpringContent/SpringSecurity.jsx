@@ -8,6 +8,54 @@ const HtmlTest = (props) => {
 
       <div className='block1'>
         <details>
+          <summary> JWT Token </summary>
+          <div className='block2'>
+
+            <h2 className="h2"> 📌 예외 </h2>
+            <li> UnsupportedJwtException : 형식이 틀릴때 </li>
+            <li> MalformedJwtException : JWT 구성이 틀릴때 </li>
+            <li> ExpiredJwtException : 토큰 유효기간 초과 </li>
+            <li> SignatureException : JWT의 서명을 확인 못했을 때 </li>
+            <li> IllegalArgumentException </li>
+
+            <h2 className='h2'> ✔ 예시 </h2>
+            <li>
+              <h3 className='h3'> 🎈 </h3>
+              <div className='block4'>
+                <li> public class JwtToken {"{"}
+                  <li> @Autowired  </li>
+                  <li> BCryptPasswordEncoder bCryptPasswordEncoder;  </li>
+                  <li>   </li>
+                  <li> public String createAccessToken() {"{"}
+                    <li> String jwtToken = Jwts.builder()  </li>
+                    <li> .setHeaderParam("typ","JWT") <small> //토큰의 종류 </small>  </li>
+                    <li> .setIssuer("") <small> // 발급자이름 </small>  </li>
+                    <li> .setSubject("") <small> //토큰 제목 </small>  </li>
+                    <li> .setAudience("") <small> // 토큰 대상자 </small>  </li>
+                    <li> //.setExpiration(new Date(new Date().getTime() + Duration.ofMinutes(30).toMillis())) <small> // 토큰 만료 시간 </small>  </li>
+                    <li> //.setNotBefore() <small> // 토큰 활설 날짜 </small>  </li>
+                    <li> //.setIssuedAt(new Date()) <small> // 토큰 발급 시간 </small>  </li>
+                    <li> .setId("1") <small> //토큰 식별자 ID </small>  </li>
+                    <li> //.claim("키","값") <small> //미등록 클레임 </small>  </li>
+                    <li> //.addClaims() <small> // 아직 모르겠음 </small>  </li>
+                    <li> //.setClaims() <small> // 아직 모르겠음 </small>  </li>
+                    <li> <small> // 해싱알고리즘, 시크릿키 설정 </small>  </li>
+                    <li> .signWith(SignatureAlgorithm.HS512, bCryptPasswordEncoder.encode("F00shlist@@"))  </li>
+                    <li> .compact(); // 설정끝  </li>
+                    <li> return jwtToken;  </li>
+                  </li>
+                  <li>   {"}"}  </li>
+                </li>
+                <li> {"}"}  </li>
+              </div>
+            </li>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
           <summary> WebSecurityConfig 초기 보안 해제 </summary>
           <div className='block2'>
 

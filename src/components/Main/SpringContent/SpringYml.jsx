@@ -22,14 +22,19 @@ const SpringYml = (props) => {
                             <li> 장점 : yml로 작성하면 개발자가 보기에 편하다. </li>
                             <li> 단점 : </li>
 
-                            <h2 className="h2"> ✔ 예시 </h2>
-                            <li> 소제목
-                                <div className='block3'>
-                                    <li> 1 </li>
-                                    <li> 2 </li>
-                                    <li> 3 </li>
-                                </div>
-                            </li>
+                        </div>
+                    </details>
+                </div>
+
+                <div className='block1'>
+                    <details>
+                        <summary> yml 데이터 암호화 하기 </summary>
+                        <div className='block2'>
+
+                            <h2 className='h2'> 📌 설명 </h2>
+                            <li> jasypt 라이브러리 사용하기 </li>
+                            <li>  </li>
+                            <li>  </li>
 
                         </div>
                     </details>
@@ -83,7 +88,9 @@ const SpringYml = (props) => {
                                         <li> <h3 className="h3"> JPA (확인 필요한 부분 존재) </h3>
                                             <li> spring:
                                                 <li>  jpa:
-                                                    <li> database-platform: org.hibernate.dialect.MySQL5InnoDBDialect <small> # MySQL Dialect 설정 </small> </li>
+                                                    <li> database-platform: org.hibernate.dialect.MySQL5InnoDBDialect <small> # MySQL 5.5 - Dialect 설정 </small> </li>
+                                                    <li> database-platform: org.hibernate.dialect.MySQL57InnoDBDialect <small> # MySQL 5.7 - Dialect 설정 </small> </li>
+                                                    <li> database-platform: org.hibernate.dialect.MySQL8InnoDBDialect <small> # MySQL 8 - Dialect 설정 </small> </li>
                                                     <li> database-platform: org.hibernate.dialect.Oracle10gDialect <small> Oracle Dialect 설정 </small> </li>
                                                     <li> show-sql: true  <small> # 콘솔에 JPA 실행 쿼리를 보여줌 </small>  </li>
                                                     <li> generate-ddl: true <small># hibernate에서 @Entity가 붙은 클래스를 자동으로 ddl을 실행해서 table설정들을 자동으로 수행</small> </li>

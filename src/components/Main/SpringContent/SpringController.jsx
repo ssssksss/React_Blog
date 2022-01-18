@@ -7,6 +7,41 @@ const SpringController = (props) => {
 
             <div className='block1'>
                 <details>
+                    <summary> 파라미터 받기 </summary>
+                    <div className='block2'>
+
+                        <h2 className='h2'> 📌 GET </h2>
+                        <li> 파라미터와 1:1 매칭해서 받을수 있다.
+                            <div className="block4">
+                                <li> 클라이언트에서 nickname 파라미터 전송 </li>
+                                <li> public ResponseEntity nicknameDuplicateCheck(String nickname) </li>
+                            </div>
+                            <div className="block4">
+                                <li> 클라이언트에서 nickname,email 파라미터 전송 </li>
+                                <li> nickname, email 멤버변수를 가진 DTO객체를 넣어주기 </li>
+                                <li> public ResponseEntity nicknameDuplicateCheck(DTO dto) </li>
+                            </div>
+                            <div className="block4">
+                                <li> 클라이언트에서 nickname 파라미터 전송 </li>
+                                <li> public 리턴타입 메소드(@RequestParam("nickname") String nickname) </li>
+                            </div>
+                        </li>
+                        <li> 여러개의 파라미터 처리방법
+                            <div className="block4">
+                                <li> public 리턴타입 메소드(@RequestParam HashMap{"<String,String>"} paramMap) </li>
+                                <li> paramMap.get("키") </li>
+                                <li>  </li>
+                            </div>
+                        </li>
+                        <li> 2 </li>
+                        <li> 3 </li>
+
+                    </div>
+                </details>
+            </div>
+
+            <div className='block1'>
+                <details>
                     <summary> @Controller(미완성) </summary>
                     <div className='block2'>
 
@@ -110,13 +145,45 @@ const SpringController = (props) => {
 
             <div className='block1'>
                 <details>
+                    <summary> @ResponseBody </summary>
+                    <div className='block2'>
+
+                        <h2 className='h2'> 📌 설명 </h2>
+                        <li> @ResponseBody로 String password로 받아왔는데 객체로 받아지는것 같다.. </li>
+                        <li>  </li>
+
+                        <h2 className='h2'> 📌 설명 </h2>
+                        <li></li>
+
+                        <h2 className='h2'> 📌 설명 </h2>
+                        <li></li>
+
+                        <h2 className='h2'> 📌 설명 </h2>
+                        <li></li>
+
+                    </div>
+                </details>
+            </div>
+
+            <div className='block1'>
+                <details>
                     <summary> @RequestParam </summary>
                     <div className='block2'>
 
                         <h2 className='h2'> 📌 설명 </h2>
-                        <li> @RestController에서는 사용이 안되는 느낌? </li>
-                        <li> 2 </li>
-                        <li> 3 </li>
+                        <li> url로 들어온 파라미터를 1:1로 매칭(Get에서만 사용) </li>
+                        <li> 들어온 url에 파라미터가 없으면 에러가 발생, 아래 해결방법
+                            <div className="block4">
+                                <li> @RequestParam("파라미터명",required=false,defaultValue="파라미터가없으면들어가는값") 타입 매개변수 </li>
+                            </div>
+                        </li>
+                        <li> 여러개의 파라미터 처리방법
+                            <div className="block4">
+                                <li> @RequestParam HashMap{"<String,String>"} paramMap </li>
+                                <li> paramMap.get("키") </li>
+                                <li>  </li>
+                            </div>
+                        </li>
 
                         <h2 className='h2'> ✔ 예시 </h2>
                         <li>
@@ -137,10 +204,92 @@ const SpringController = (props) => {
                 </details>
             </div>
 
+            <div className='block1'>
+                <details>
+                    <summary> @PathVariable </summary>
+                    <div className='block2'>
+
+                        <h2 className='h2'> 📌 설명 </h2>
+                        <li> url에 있는 값을 변수로 사용하기 </li>
+                        <li> @PostMapping("api/user/{"{number}"}") </li>
+                        <li> public void 메소드명(@PathVariable("number") 타입 파라미터명) </li>
+                        <li> WAS에서는 URL에 특수문자(, , ` , .)가 들어가 있으면 인식을 하지 못한다..? </li>
+                        <li>  </li>
+
+                    </div>
+                </details>
+            </div>
 
             <div className='block1'>
                 <details>
-                    <summary> 잠시 보류 </summary>
+                    <summary> RequestEntity, ResponseEntity </summary>
+                    <div className='block2'>
+
+                        <h2 className='h2'> 📌 설명 </h2>
+                        <li> HttpEntity를 상속받은 클래스 </li>
+                        <li>  </li>
+
+                        <h2 className='h2'> 📌 설명 </h2>
+                        <li> <a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes" target="_blank" rel="noopener noreferrer"> 위키피디아 상태코드 </a> </li>
+                        <li> return new ResponseEntity(HttpStatus.상태코드(OK)); </li>
+                        <li> return new ResponseEntity(바디객체,헤더,HttpStatus.상태코드(OK)); </li>
+                        <li>  </li> <br />
+                        <li> 빌더패턴
+                            <div className="block4">
+                                <li> return ResponseEntity.상태코드() </li>
+                                <li> .headers(헤더객체) </li>
+                                <li> .body(바디객체) </li>
+                            </div>
+                        </li>
+
+                    </div>
+                </details>
+            </div>
+
+            <div className='block1'>
+                <details>
+                    <summary> HttpEntity </summary>
+                    <div className='block2'>
+
+                        <h2 className='h2'> 📌 설명 </h2>
+                        <li> 스프링에서 제공하는 클래스 </li>
+                        <li> HttpHeader와 HttpBody 포함하는 클래스 </li>
+                        <li>  </li>
+
+                    </div>
+                </details>
+            </div>
+
+            <div className='block1'>
+                <details>
+                    <summary> @DateTimeFormat(찾아보기) </summary>
+                    <div className='block2'>
+
+                        <h2 className='h2'> 📌 설명 </h2>
+                        <li> @DateTimeFormat(pattern = "yyyy-MM-dd") </li>
+                        <li> 2 </li>
+                        <li> 3 </li>
+
+                    </div>
+                </details>
+            </div>
+
+            <div className='block1'>
+                <details>
+                    <summary> @JsonFormat찾아보기 </summary>
+                    <div className='block2'>
+
+                        <h2 className='h2'> 📌 설명 </h2>
+                        <li> @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd", timezone = "Asia/Seoul") </li>
+
+                    </div>
+                </details>
+            </div>
+
+
+            <div className='block1'>
+                <details>
+                    <summary> 잠시 보류-------------------------------------- </summary>
                     <div className='block2'>
 
                         <h2 className='h2'> 📌 설명 </h2>

@@ -152,6 +152,20 @@ const FrontendHttp = (props) => {
                     </div>
                 </details>
             </div>
+            <div className='block1'>
+                <details>
+                    <summary> http상태코드(미정리) </summary>
+                    <div className='block2'>
+
+                        <h2 className='h2'> 📌 설명 </h2>
+                        <li> <a href="https://www.whatap.io/ko/blog/40/" target="_blank" rel="noopener noreferrer"> http 상태 코드 </a> </li>
+                        <li> 2 </li>
+                        <li> 3 </li>
+
+                    </div>
+                </details>
+            </div>
+            {/* 끝 */}
         </div>
     );
 }

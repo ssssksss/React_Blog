@@ -13,6 +13,9 @@ const JavaBasic2 = (props) => {
                         <li>  java.util.Calendar </li>
                         <li>  java.time(org.joda.time) , 자바 버전 8이상에서 사용가능 </li>
 
+                        <h2 className='h2'> 📌 Date ,  </h2>
+                        <li>  </li>
+
                         <h2 className='h2'> 📌 LocalDate , 날짜 </h2>
                         <li> LocalDate d = LocalDate.of(YYYY,MM,DD); , 2020-01-06  </li>
                         <li> LocalDate d = LocalDate.now() , 2020-01-06 </li>
