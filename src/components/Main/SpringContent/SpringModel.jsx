@@ -14,11 +14,19 @@ const SpringModel = (props) => {
                         <li> 자바스크립트 Axios 👉 스프링  </li>
                         <li> new Date() 👉 String <small> "Thu Jan 06 2022 02:54:07 GMT+0900 (한국 표준시)" </small>  </li>
                         <li> new Date() 👉 LocalDate ❌ </li>
+                        <li> new Date() 👉 LocalTime ❌ </li>
                         <li> "11.11.11" 👉 LocalDate ❌ </li>
                         <li> "[11.11.11]" 👉 LocalDate ❌ </li>
-                        <li> new Date() 👉 LocalTime ❌ </li>
                         <li> "11:11:11" 👉 LocalTime ❌ </li>
                         <li> String 👉 String ✅ , String으로 주면 알아서 변환하기, 빌더패턴 이용해서 스프링에서 바꾸어줘도 된다.(테스트완료) </li>
+                        <li> "2020-11-11 12:12:12" 👉 @DateTimeFormat(pattern="yyyy-MM-dd'T'HH:mm:ss") ❌ </li>
+                        <li> "2020-11-11 12:12:12" 👉 @DateTimeFormat(pattern="yyyy-MM-ddTHH:mm:ss") ❌ </li>
+                        <li> "2020-11-11 12:12:12" 👉 @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss") ✅
+                            <small> 주의: 생성자,빌더,set으로 받아오는 매개변수에 선언해야한다. , @RequestBody에서 사용 </small> </li>
+                        <li> "2020-11-11 12:12:12" 👉  </li>
+                        <li> "2020-11-11 12:12:12" 👉  </li>
+                        <li>  </li>
+                        <li>  </li>
                     </div>
                 </details>
             </div>

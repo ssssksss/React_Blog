@@ -128,7 +128,8 @@ const SpringController = (props) => {
 
                         <h2 className='h2'> 📌 설명 </h2>
                         <li> @RestController에서는 이미 포함됨 </li>
-                        <li></li>
+                        <li> "2020-11-11 12:12:12" 👉 @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss") 처럼 날짜는 처리 </li>
+                        <li>  </li>
 
                         <h2 className='h2'> 📌 설명 </h2>
                         <li></li>
@@ -145,11 +146,49 @@ const SpringController = (props) => {
 
             <div className='block1'>
                 <details>
+                    <summary> @RequestHeader </summary>
+                    <div className='block2'>
+
+                        <h2 className='h2'> 📌 설명 </h2>
+                        <li> 헤더로 들어온 값을 받는다. </li>
+                        <li> 헤더로 들어온값이 없으면 에러가 발생한다. 그래서 required=false를 사용 </li>
+                        <li>  </li>
+
+                        <h2 className='h2'> ✔ 예시 </h2>
+                        <li>
+                            <div className='block3'>
+                                <h3 className='h3'> 🎈 </h3>
+                                <div className='block4'>
+                                    <div className="block4">
+                                        <li> @GetMapping(path = "/", headers = "HEADER") </li>
+                                        <li> @RequestHeader HttpHeaders header </li>
+                                        <li> @RequestHeader("HEADER") String header </li>
+                                    </div>
+                                    <div className="block4">
+                                        <li> @RequestHeader(value="accessToken",required = false,defaultValue = "null") String header </li>
+                                    </div>
+                                    <li>  </li>
+                                </div>
+                            </div>
+                        </li>
+
+                    </div>
+                </details>
+            </div>
+
+            <div className='block1'>
+                <details>
                     <summary> @ResponseBody </summary>
                     <div className='block2'>
 
                         <h2 className='h2'> 📌 설명 </h2>
                         <li> @ResponseBody로 String password로 받아왔는데 객체로 받아지는것 같다.. </li>
+                        <li> @RequestBody와는 다르게 아래 둘다 사용가능
+                            <div className="block">
+                                <li> @DateTimeFormat(pattern="yyyy-MM-dd'T'HH:mm:ss") @DateTimeFormat(pattern="yyyy-MM-ddTHH:mm:ss"), 둘중에 확인 안됨</li>
+                                <li> @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss") </li>
+                            </div>
+                        </li>
                         <li>  </li>
 
                         <h2 className='h2'> 📌 설명 </h2>

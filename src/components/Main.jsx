@@ -102,6 +102,7 @@ import ReactAnimation from './Main/ReactContent/ReactAnimation';
 import ReactVscode from './Main/ReactContent/ReactVscode';
 import ReactRouter from './Main/ReactContent/ReactRouter';
 import ReactRedux from './Main/ReactContent/ReactRedux';
+import ReactReduxSaga from './Main/ReactContent/ReactReduxSaga';
 import ReactModal from './Main/ReactContent/ReactModal';
 import ReactStyledComponent from './Main/ReactContent/ReactStyledComponent';
 import ReactFetchAPI from './Main/ReactContent/ReactFetchAPI';
@@ -338,6 +339,7 @@ const Main = (props) => {
                 <Route path="/react_router" component={ReactRouter}></Route>
                 <Route path="/react_modal" component={ReactModal}></Route>
                 <Route path="/react_redux" component={ReactRedux}></Route>
+                <Route path="/react_redux_saga" component={ReactReduxSaga}></Route>
                 <Route path="/react_stylecomponent" component={ReactStyledComponent}></Route>
                 <Route path="/react_fetchapi" component={ReactFetchAPI}></Route>
                 <Route path="/react_ajax" component={ReactAjax}></Route>

@@ -94,6 +94,54 @@ const ReactHooks = (props) => {
 
             <div className='block1'>
                 <details>
+                    <summary> React Hooks - useContext </summary>
+                    <div className='block2'>
+
+                        <h2 className='h2'> 📌 설명 </h2>
+                        <li> props를 전역적으로 사용가능하게 해준다. </li>
+                        <li>  </li>
+
+                        <h2 className='h2'> ✔ 예시 </h2>
+                        <li>
+                            <div className='block3'>
+                                <h3 className='h3'> 🎈 기본 컴포넌트 </h3>
+                                <div className='block4'>
+                                    <h4 className='h4'> 🎈 1. Context 컴포넌트를 만든다. </h4>
+                                    <li> export const ABContext = createContext {" ({ "}
+                                        <li> a: "", </li>
+                                        <li> {" b: ()=>{}, "} </li>
+                                    </li>
+                                    <li> {"});"} </li>
+                                    <h4 className='h4'> 🎈 2. 컴포넌트로 감싼다. </h4>
+                                    <li> const 컴포넌트 = (){"=> {"}
+                                        <li> {" const value = useMemo(()=> ({a,b}),[a,b]); "} <small> 안해주면 이 데이터를 사용하는
+                                            컴포넌트가 모두 렌더링이 된다고 한다. </small> </li>
+                                        <li> {" <ABContext.Provider value={{a,b}}> "}
+                                            <li> 컴포넌트 작성~~ </li>
+                                        </li>
+                                        <li> {" </ABContext.Provider> "} </li>
+                                    </li>
+                                    <li> {" } "} </li>
+                                    <li> export default 컴포넌트; </li>
+                                </div>
+                                <h3 className='h3'> 🎈 3. 불러온다 (다른파일)  </h3>
+                                <div className='block4'>
+                                    <li> {" import { ABContext } from './'; "} </li>
+                                    <li> const 컴포넌트 = (){"=> {"}
+                                        <li> {" const { a,b } = useContext(ABContext); "} </li>
+                                    </li>
+                                    <li> {" } "} </li>
+                                    <li> export default 컴포넌트; </li>
+                                </div>
+                            </div>
+                        </li>
+
+                    </div>
+                </details>
+            </div>
+
+            <div className='block1'>
+                <details>
                     <summary> React Hooks - useEffect </summary>
                     <div className='block2'>
 
@@ -211,50 +259,25 @@ const ReactHooks = (props) => {
                 </details>
             </div>
 
-
-
             <div className='block1'>
                 <details>
-                    <summary> React Router - React library </summary>
+                    <summary> useCallback(정리 필요) </summary>
                     <div className='block2'>
 
-                        <h2 className='h2'> 📌 React Router 설치 </h2>
-                        <li> npm install react-router-dom </li>
-                        <li> yarn add react-router-dom </li>
+                        <h2 className='h2'> 📌 설명 </h2>
+                        <li> 함수를 재사용가능하게 해준다. </li>
+                        <li>  </li>
+                        <li>  </li>
 
-                        <h2 className='h2'> 📌 장점, 단점 </h2>
-                        <li> 장점 : </li>
-                        <li> 단점 : </li>
-
-                        <h2 className='h2'> ✔ React Router 예시 </h2>
-                        <li> 소제목
+                        <h2 className='h2'> ✔ 예시 </h2>
+                        <li>
                             <div className='block3'>
                                 <h3 className='h3'> 🎈 </h3>
                                 <div className='block4'>
-                                    <li> import React, {'{ Component }'} from 'react'; </li>
-                                    <li> import {'{ BrowserRouter, Route, Switch, Link }'} from 'react-router-dom'; </li>
-                                    <li> import Home from './inc/home.js' </li>
-                                    <li> import Home1 from './inc/Home1.js' </li> <br />
-                                    <li> const App = () {'=> {'}
-                                        <li> return(
-                                            <li> {' <div className="App">'}
-                                                <li> {' <BrowserRouter> '}
-                                                    <li> {'<p> <Link to="/">Home</Link> </p>'} </li>
-                                                    <li> {'<p> <Link to="/home1">Home1</Link> </p>'} </li>
-                                                    <li> {' <Switch> '}
-                                                        <li> {' <Route path="/" exact component={Home}></Route> '} </li>
-                                                        <li> {' <Route path="/home1" component={Home1}></Route> '} </li>
-                                                    </li>
-                                                    <li> {' </Switch> '} </li>
-                                                </li>
-                                                <li> {' </BrowserRouter> '} </li>
-                                            </li>
-                                            <li> {'     </div> '} </li>
-                                        </li>
-                                        <li> ); </li>
+                                    <li> const 함수 = userCallback({"()=>{"}
+                                        <li>  </li>
                                     </li>
-                                    <li> {'}'} </li>
-                                    <li> export default App; </li>
+                                    <li> {"},[상태]);"} </li>
                                 </div>
                             </div>
                         </li>
@@ -276,6 +299,7 @@ const ReactHooks = (props) => {
                     </div>
                 </details>
             </div>
+            {/* 끝 */}
         </div>
     );
 }

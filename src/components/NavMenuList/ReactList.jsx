@@ -11,6 +11,7 @@ const ReactList = () => {
                 <Link to="/react_class"> React Class </Link>
                 <Link to="/react_hooks"> React Hooks </Link>
                 <Link to="/react_redux"> React Redux </Link>
+                <Link to="/react_redux_saga"> React ReduxSaga </Link>
                 <Link to="/react_recoil"> React Recoil </Link>
                 <Link to="/react_router"> React Router </Link>
                 <Link to="/react_animation"> React Animation </Link>
