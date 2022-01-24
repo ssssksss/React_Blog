@@ -59,3 +59,11 @@
     width: 50vw;
     display: block;
 }
+.nav-menu2__inner-box .menu75vw {
+    width: 75vw;
+    display: block;
+}
+.nav-menu2__inner-box .menu25vw {
+    width: 25vw;
+    display: block;
+}

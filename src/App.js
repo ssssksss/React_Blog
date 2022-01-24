@@ -1,48 +1,63 @@
 import React, { useState } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import BlogContainer from './blogContainer/BlogContainer'
 import './App.css';
-import Main from './components/Main.jsx';
-import NavMenu from './components/NavMenu';
-import NavMenu2 from './components/NavMenu2';
-import FootterMenu from './components/FootterMenu';
+import styled from 'styled-components';
+
+const HomeButton = styled.button`
+  position: fixed;
+  right: 0px;
+  top: 240px;
+  opacity: 0.8;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #aeaeae;
+  z-index: 10;
+`;
+const MenuContainer = styled.div`
+  display: flex;
+  width: 200px;
+  margin: 200px auto;
+  background-color: white;
+  flex-flow: wrap row;
+  justify-content: center;
+
+`;
+const MenuButton = styled.button`
+  width: 100px;
+  height: 100px;  
+`;
 
 const App = () => {
-  const [whatPage, setWhatPage] = useState('main');
-  const [whatPage2, setWhatPage2] = useState('main');
 
-  const changePage = (page, e) => {
-    setWhatPage(page);
+  const [num, setNum] = useState(0);
+
+  const componentChange = (number) => {
+    setNum(number);
   }
-
-  const changePage2 = (page2, e) => {
-    setWhatPage2(page2);
-  }
-
-
   return (
 
     <div className="app">
-
-      <BrowserRouter>
-
-        <div className="menu1_container">
-          <NavMenu onChangePage={(page) => { { changePage(page) } }}> </NavMenu>
-          <NavMenu2 page={whatPage} onChangePage={(page2) => { { changePage2(page2) } }}> </NavMenu2>
-        </div>
-
-        <div className="menu2_container">
-          <Main page2={whatPage2}> </Main>
-        </div>
-
-        <div className="menu3_container">
-          <FootterMenu FootterMenu> </FootterMenu>
-        </div>
-
-      </BrowserRouter>
+      {num === 0 &&
+        <MenuContainer>
+          <MenuButton onClick={() => { { componentChange(1) } }}  > 1번 </MenuButton>
+          <MenuButton onClick={() => { { componentChange(2) } }}  > 2번 </MenuButton>
+          <MenuButton onClick={() => { { componentChange(3) } }}  > 3번 </MenuButton>
+          <MenuButton onClick={() => { { componentChange(4) } }}  > 블로그 창고 </MenuButton>
+        </MenuContainer>
+      }
+      {
+        num !== 0 &&
+        <HomeButton onClick={() => { { componentChange(0) } }}  > 홈 </HomeButton>
+      }
+      {num === 4 &&
+        <BlogContainer />
+      }
 
       <button className="btn_top"> <a href="#">
         <img src={process.env.PUBLIC_URL + '/img/NavMenu/UpArrow_icon.svg'} />  </a>
       </button>
+
     </div>
 
   );

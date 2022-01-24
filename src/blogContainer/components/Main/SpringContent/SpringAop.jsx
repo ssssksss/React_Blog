@@ -75,6 +75,7 @@ const SpringAop = (props) => {
                                     <li> @Aspect </li>
                                     <li> public class 클래스명 {"{"}
                                         <li> Logger logger = LoggerFactory.getLogger(LogAspect.class); </li>
+                                        <li> @Around("execution(* 패키지명..*(..))") <small> //타겟팅 지정 </small> </li>
                                         <li> public Object 메소드명(ProceedingJoinPoint joinPoint) throw Throwable {"{"}
                                             <li> StoepWatch stopWatch = new StopWatch(); </li>
                                             <li> stopWatch.start(); </li>
