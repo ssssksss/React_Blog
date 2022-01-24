@@ -275,7 +275,6 @@ const LinuxCommand = (props) => {
           </div>
         </details>
       </div>
-
       {/*///////////////////////////////////////////////////////////////////////////*/}
       <span className="lblock">
         <span className="mblock">
@@ -287,7 +286,8 @@ const LinuxCommand = (props) => {
                 <li className="sstitle"> mv [옵션s] [파일명]  </li>
                 <li> -f : 강제로 이동 </li>
                 <li> [파일명1] [파일명1] : 파일명1을 파일명2로 이름을 바꾸기 </li>
-                <li> [디렉토리1] [디렉토리2] : 로 이름을 바꾸기 </li>
+                <li> mv 원본폴더 변경할이름폴더 <small> 폴더 이름 변경하기 </small> </li>
+                <li> mv 원본폴더 목적지폴더 <small> 폴더이동 </small> </li>
                 <li> -t : 전체 원본 파일을 대상 디렉토리로 이동 </li>
                 <li> -n : 존재하는 파일을 덮어쓰지 않음 </li>
                 <li> -v : 이동이나 이름바꾸는 정보를 출력 </li>

@@ -155,6 +155,16 @@ const LinuxCentOS7 = (props) => {
             </div>
 
             <li> 10. systemctl stop firewalld | setenforce  </li>
+            <li> 만약에 안된다면 httpd -v <small> httpd가 설치되었는지 확인 </small> </li>
+
+            <h2 className='h2'> 📌 톰캣 삭제 </h2>
+            <div className="block4">
+              <li> rpm -qa httpd</li>
+              <li> rpm -qa | grep http </li>
+              <li> yum remove -y httpd </li>
+              <li> rpm -qa httpd </li>
+              <li>  </li>
+            </div>
           </div>
         </details>
       </div>

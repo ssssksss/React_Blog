@@ -121,7 +121,57 @@ const LinuxServer = (props) => {
           </div>
         </details>
       </div>
+      <div className='block1'>
+        <details>
+          <summary> git 서버 구축 </summary>
+          <div className='block2'>
 
+            <h2 className='h2'> 📌 설명 </h2>
+            <li> git --version <small> 깃 버전 확인 </small> </li>
+            <li> yum install http://opensource.wandisco.com/centos/7/git/x86_64/wandisco-git-release-7-1.noarch.rpm </li>
+            <li> yum remove git </li>
+            <li> yum install git </li>
+            <li> git --version <small> 깃 버전 확인 </small> </li>
+            <li> mkdir -p /opt/git/project.git </li>
+            <li> git init --bare /opt/git/project.git/ </li>
+            <li> useradd git </li>
+            <li> echo 'git:비밀번호입력' | chpasswd </li>
+            <li> chown -R git:git /opt/git/ </li>
+            <li> cd /home/git/ </li>
+            <li> ll ~/.ssh/id_rsa* <small> ssh키 있는지 확인 </small> </li>
+            <li> ssh-keygen , 엔터 누르다보면 키가 나온다. </li>
+            <li> sshpass -p "위에서입력한비밀번호" ssh-copy-id git@ssssksss </li>
+            <li> yum --enablerepo=epel -y install sshpass <small> sshpass 설치 </small> </li>
+            <li> 서버에서 git 사용자가 서버 쉘에 접근하는것을 막는방법(일단은 적용하지 않음)
+              <div className="block4">
+                <li> which git-shell </li>
+                <li> chsh git -s /usr/bin/git-shell </li>
+                <li> cat /etc/passwd | grep git </li>
+                <li> (클라이언트키 추가 등록하는 방법) chsh git -s /bin/bash <small> 입력하고 나서 위에 3개를 다시 반복해야한다. </small> </li>
+              </div>
+            </li>
+            <li> git clone 깃주소 <small> 불러올 폴더에다가 하기 </small> </li>
+            <li>  </li> <br />
+            <li> PROJECT=프로젝트명 </li>
+            <li> mkdir -p /opt/git/$PROJECT.git </li>
+            <li> git init --bare /opt/git/$PROJECT.git </li>
+            <li> rm -rf /opt/git/프로젝트명.git </li>
+            <li>  </li>
+
+            <h2 className='h2'> ✔ 예시 </h2>
+            <li>
+              <div className='block3'>
+                <h3 className='h3'> 🎈 </h3>
+                <div className='block4'>
+                  <li>  </li>
+                </div>
+              </div>
+            </li>
+
+          </div>
+        </details>
+      </div>
+      {/* 끝 */}
 
       <span className="lblock">
         {/*  */}
