@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/static/css/main.e861d37e.chunk.css",
-    "main.js": "/static/js/main.dbab7f0a.chunk.js",
-    "main.js.map": "/static/js/main.dbab7f0a.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.1b3c24d5.js",
-    "runtime-main.js.map": "/static/js/runtime-main.1b3c24d5.js.map",
-    "static/css/2.ef9168ec.chunk.css": "/static/css/2.ef9168ec.chunk.css",
-    "static/js/2.aef2e830.chunk.js": "/static/js/2.aef2e830.chunk.js",
-    "static/js/2.aef2e830.chunk.js.map": "/static/js/2.aef2e830.chunk.js.map",
-    "static/js/3.7cdaca48.chunk.js": "/static/js/3.7cdaca48.chunk.js",
-    "static/js/3.7cdaca48.chunk.js.map": "/static/js/3.7cdaca48.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/2.ef9168ec.chunk.css.map": "/static/css/2.ef9168ec.chunk.css.map",
-    "static/css/main.e861d37e.chunk.css.map": "/static/css/main.e861d37e.chunk.css.map",
-    "static/js/2.aef2e830.chunk.js.LICENSE.txt": "/static/js/2.aef2e830.chunk.js.LICENSE.txt",
-    "static/media/index.css": "/static/media/background.f3becaae.jpg"
+    "main.css": "/React_Blog/static/css/main.ba0db3d3.chunk.css",
+    "main.js": "/React_Blog/static/js/main.45d53c7a.chunk.js",
+    "main.js.map": "/React_Blog/static/js/main.45d53c7a.chunk.js.map",
+    "runtime-main.js": "/React_Blog/static/js/runtime-main.c842d2d3.js",
+    "runtime-main.js.map": "/React_Blog/static/js/runtime-main.c842d2d3.js.map",
+    "static/css/2.ef9168ec.chunk.css": "/React_Blog/static/css/2.ef9168ec.chunk.css",
+    "static/js/2.6c22360a.chunk.js": "/React_Blog/static/js/2.6c22360a.chunk.js",
+    "static/js/2.6c22360a.chunk.js.map": "/React_Blog/static/js/2.6c22360a.chunk.js.map",
+    "static/js/3.7cdaca48.chunk.js": "/React_Blog/static/js/3.7cdaca48.chunk.js",
+    "static/js/3.7cdaca48.chunk.js.map": "/React_Blog/static/js/3.7cdaca48.chunk.js.map",
+    "index.html": "/React_Blog/index.html",
+    "static/css/2.ef9168ec.chunk.css.map": "/React_Blog/static/css/2.ef9168ec.chunk.css.map",
+    "static/css/main.ba0db3d3.chunk.css.map": "/React_Blog/static/css/main.ba0db3d3.chunk.css.map",
+    "static/js/2.6c22360a.chunk.js.LICENSE.txt": "/React_Blog/static/js/2.6c22360a.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/React_Blog/static/media/background.f3becaae.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.1b3c24d5.js",
+    "static/js/runtime-main.c842d2d3.js",
     "static/css/2.ef9168ec.chunk.css",
-    "static/js/2.aef2e830.chunk.js",
-    "static/css/main.e861d37e.chunk.css",
-    "static/js/main.dbab7f0a.chunk.js"
+    "static/js/2.6c22360a.chunk.js",
+    "static/css/main.ba0db3d3.chunk.css",
+    "static/js/main.45d53c7a.chunk.js"
   ]
 }
