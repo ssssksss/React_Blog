@@ -40,7 +40,7 @@ const App = () => {
     <div className="app">
       {num === 0 &&
         <MenuContainer>
-          <MenuButton onClick={() => { { componentChange(1) } }}  > 1번 </MenuButton>
+          <MenuButton onClick={() => { { componentChange(1) } }}  > 블로그(제작예정) </MenuButton>
           <MenuButton onClick={() => { { componentChange(2) } }}  > 2번 </MenuButton>
           <MenuButton onClick={() => { { componentChange(3) } }}  > 3번 </MenuButton>
           <MenuButton onClick={() => { { componentChange(4) } }}  > 블로그 창고 </MenuButton>
@@ -50,8 +50,10 @@ const App = () => {
         num !== 0 &&
         <HomeButton onClick={() => { { componentChange(0) } }}  > 홈 </HomeButton>
       }
-      {num === 4 &&
-        <BlogContainer />
+      {
+        {
+          "4": <BlogContainer />,
+        }[num]
       }
 
       <button className="btn_top"> <a href="#">
