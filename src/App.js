@@ -16,16 +16,15 @@ const HomeButton = styled.button`
 `;
 const MenuContainer = styled.div`
   display: flex;
-  width: 200px;
   margin: 200px auto;
-  background-color: white;
+  background-color: none;
   flex-flow: wrap row;
   justify-content: center;
 
 `;
 const MenuButton = styled.button`
-  width: 100px;
-  height: 100px;  
+  width: 300px;
+  height: 150px;  
 `;
 
 const App = () => {
@@ -41,9 +40,11 @@ const App = () => {
       {num === 0 &&
         <MenuContainer>
           <MenuButton onClick={() => { { componentChange(1) } }}  > 블로그(제작예정) </MenuButton>
-          <MenuButton onClick={() => { { componentChange(2) } }}  > 2번 </MenuButton>
-          <MenuButton onClick={() => { { componentChange(3) } }}  > 3번 </MenuButton>
-          <MenuButton onClick={() => { { componentChange(4) } }}  > 블로그 창고 </MenuButton>
+          <MenuButton onClick={() => { { componentChange(2) } }}  > API 작성 프로그램(제작예정) </MenuButton>
+          <MenuButton onClick={() => { { componentChange(3) } }}  > 블로그 창고 </MenuButton>
+          <MenuButton onClick={() => { { componentChange(4) } }}  > 일정(제작예정) </MenuButton>
+          <MenuButton onClick={() => { { componentChange(5) } }}  > 포트폴리오(제작예정) </MenuButton>
+          <MenuButton onClick={() => { { componentChange(6) } }}  > 프로젝트소개(제작예정) </MenuButton>
         </MenuContainer>
       }
       {
@@ -52,7 +53,7 @@ const App = () => {
       }
       {
         {
-          "4": <BlogContainer />,
+          "3": <BlogContainer />,
         }[num]
       }
 

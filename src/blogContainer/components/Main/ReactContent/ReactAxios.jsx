@@ -407,14 +407,16 @@ const ReactAxios = (props) => {
           <div className='block2'>
 
             <h2 className='h2'> 📌 설명 </h2>
-            <li> axios.defaults.baseURL = 'https://www.example.com'; </li>
-            <li> axios.defaults.headers.common['Authorization'] = 토큰; <small> 기본으로 설정 </small> </li>
-            <li> axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'; <small> post의 컨텐트 타입을 설정 </small> </li>
-            <li> 커스텀axios객체.defaults.headers.common['Authorization'] = AUTH_TOKEN; </li>
-            <li> 커스텀axios객체.defaults.timeout = ms단위; <small> 처리하는데 시간이 ms만큼 걸리면 아웃 </small> </li>
-            <li>  </li>
-            <li>  </li>
-            <li>  </li>
+            <div className="block4">
+              <li> axios.defaults.baseURL = 'https://www.example.com'; </li>
+              <li> axios.defaults.headers.common['Authorization'] = 토큰; <small> 기본으로 설정 </small> </li>
+              <li> axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'; <small> post의 컨텐트 타입을 설정 </small> </li>
+              <li> 커스텀axios객체.defaults.headers.common['Authorization'] = AUTH_TOKEN; </li>
+              <li> 커스텀axios객체.defaults.timeout = ms단위; <small> 처리하는데 시간이 ms만큼 걸리면 아웃 </small> </li>
+              <li>  </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
 
           </div>
         </details>
