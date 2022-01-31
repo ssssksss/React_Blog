@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const ReactList = () => {
 
   return (
-    <div className="nav-menu2__inner-box">
+    <div className="navMenuContainer2">
       <div className="menu menu75vw">
         <Link to="/react_basic"> React Basic </Link>
         <Link to="/react_javascript"> React Javascript </Link>
@@ -16,7 +16,7 @@ const ReactList = () => {
         <Link to="/react_router"> React Router </Link>
         <Link to="/react_animation"> React Animation </Link>
         <Link to="/react_modal"> React Modal </Link>
-        <Link to="/react_stylecomponent"> React StyledComponent </Link>
+        <Link to="/react_styledcomponent"> React StyledComponent </Link>
         <Link to="/react_ajax"> React Ajax </Link>
         <Link to="/react_fetchapi"> React FetchAPI </Link>
         <Link to="/react_axios"> React Axios </Link>

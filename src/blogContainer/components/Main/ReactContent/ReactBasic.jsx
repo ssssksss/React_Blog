@@ -246,6 +246,35 @@ const ReactBasic = (props) => {
 
       <div className='block1'>
         <details>
+          <summary> Immer </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <li> 문제는 처리량이 많을수록 느려진다는 단점이 존재 </li>
+            <li> npm i immer </li>
+            <li>  </li>
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <li> import produce from 'immer'; </li>
+            <li> produce(수정할고싶은state,처리할함수) </li>
+            <li>  </li>
+
+            <h2 className='h2'> ✔ 예시 </h2>
+            <li>
+              <div className='block3'>
+                <h3 className='h3'> 🎈 </h3>
+                <div className='block4'>
+                  <li>  </li>
+                </div>
+              </div>
+            </li>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
           <summary> React Spring과 연동 </summary>
           <div className='block2'>
 

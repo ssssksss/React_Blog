@@ -1,23 +1,19 @@
-/* body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background: url(./mountain_and_sea.jpg);
-  background-repeat: repeat-y;
-  background-position-x: center;
-  
-}
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */
-
 body {
-  background: url(./background.jpg);
-  background-attachment: fixed;
-  background-repeat: repeat-y;
-  background-size: cover;
+  /*background: url(./background.jpg);*/
+  /*background: url(./static/img/큐브가\ 떨어지면서\ 조각남.gif);*/
+  /*background-attachment: fixed;*/
+  /*background-repeat: repeat-x;*/
+  /*background-size: cover;*/
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+li,
+ol {
+  margin-left: 15px;
+}
+html {
+  font-size: 10px;
 }

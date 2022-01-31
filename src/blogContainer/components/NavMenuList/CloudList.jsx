@@ -3,16 +3,16 @@ import { Link } from 'react-router-dom';
 
 const CloudList = () => {
 
-    return (
-        <div className="nav-menu2__inner-box">
-            <div className="menu menu1">
-                <Link to="/cloud_oracle"> 클라우드 오라클 </Link>
-            </div>
-            <div className="menu menu2">
-                <Link to="/">  </Link>
-            </div>
-        </div>
-    );
+  return (
+    <div className="navMenuContainer2">
+      <div className="menu menu1">
+        <Link to="/cloud_oracle"> 클라우드 오라클 </Link>
+      </div>
+      <div className="menu menu2">
+        <Link to="/">  </Link>
+      </div>
+    </div>
+  );
 }
 
 export default CloudList;

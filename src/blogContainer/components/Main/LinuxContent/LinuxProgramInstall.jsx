@@ -11,7 +11,7 @@ const LinuxProgramInstall = (props) => {
             <span className="mblock">
               <details>
                 <summary className="stitle"> ▶ php 설치
-                  <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+                </summary>
                 <span className="sblock">
                   <span className="sstitle"> 설치 </span>
                   <span className="mblock">
@@ -56,7 +56,7 @@ const LinuxProgramInstall = (props) => {
             <span className="mblock">
               <details>
                 <summary className="stitle"> ▶ 워드프레스 설치
-                  <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+                </summary>
                 <span className="sblock">
                   <span className="sstitle"> 워드프레스 설치 </span>
                   <span className="mblock">
@@ -128,7 +128,7 @@ const LinuxProgramInstall = (props) => {
             <span className="mblock">
               <details>
                 <summary className="stitle"> ▶ unzip 설치 <small>  </small>
-                  <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+                </summary>
                 <span className="sblock">
                   <span className="sstitle"> 설치 </span>
                   <span className="mblock">
@@ -144,7 +144,7 @@ const LinuxProgramInstall = (props) => {
             <span className="mblock">
               <details>
                 <summary className="stitle"> ▶ mariaDB 설치 <small>  </small>
-                  <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+                </summary>
                 <span className="sblock">
                   <span className="sstitle">  </span>
                   <span className="mblock">
@@ -173,7 +173,7 @@ const LinuxProgramInstall = (props) => {
             {/*  */}
             <span className="mblock">
               <details>
-                <summary className="stitle"> ▶ xpressengine 설치 <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+                <summary className="stitle"> ▶ xpressengine 설치  </summary>
                 <span className="sblock">
                   <span className="sstitle"> xpressengine 설치 </span>
                   <span className="mblock">
@@ -215,7 +215,7 @@ const LinuxProgramInstall = (props) => {
             {/*  */}
             <span className="mblock">
               <details>
-                <summary className="stitle"> ▶ C언어 설치 <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+                <summary className="stitle"> ▶ C언어 설치  </summary>
                 <span className="sblock">
                   <span className="sstitle"> 설치 </span>
                   <span className="mblock">
@@ -235,7 +235,7 @@ const LinuxProgramInstall = (props) => {
             <span className="mblock">
               <details>
                 <summary className="stitle"> ▶ 파이썬 설치
-                  <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+                </summary>
                 <span className="sblock">
                   <span className="sstitle">  </span>
                   <span className="mblock">
@@ -319,7 +319,7 @@ const LinuxProgramInstall = (props) => {
             {/*  */}
             <span className="mblock">
               <details>
-                <summary className="stitle"> ▶ <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
+                <summary className="stitle"> ▶  </summary>
                 <span className="sblock">
                   <span className="sstitle">  </span>
                   <span className="mblock">

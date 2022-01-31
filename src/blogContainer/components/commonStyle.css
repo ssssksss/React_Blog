@@ -1,247 +1,258 @@
-    .col_r{ color: red; }
-    .col_g{ color: green; }
-    .col_p{ color: purple;}
-    .col_w{ color: white; }
-    .col_bk{ color: black; }
-    .col_be{ color: blue; }
-    .tab_4 { 
-        margin-left: 40px;
-        list-style-type: circle;
-    }
-    .main {
-        position: relative;
-    }
-    .common_style  .mtitle {
-        font-size: 25px;
-        background: white;
-        border-radius: 10px;
-        box-sizing: border-box;
-        display: block;
-        text-align: center;
-        margin: 0px 0px 10px 0px;
-    }
-    .common_style  .stitle {
-        color: black;
-        font-size: 16px;
-        font-weight: 800;
-        border-radius: 2px;
-        box-sizing: border-box;
-        display: inline-block;
-        border-radius: 10px;
-        padding: 5px 0px 5px 5px;
-        min-width: 90%;
-        min-height: 16px;
-    }
-    .common_style  .sstitle {
-        font-size: 14px;
-        font-weight: 800;
-        box-sizing: border-box;
-        display: inline-block;
-        border-radius: 2px;
-        padding: 5px;
-        margin: 10px 0px;
-    }
-    .common_style .title4 {
-        font-size: 20px;
-        font-weight: 500;
-        box-sizing: border-box;
-        display: inline-block;
-        border-radius: 5px;
-        padding: 10px;
-        margin: 15px 0px 10px 0px;
-    }
-    .common_style  .lblock {
-        border: black solid 3px;
-        width: 100%;
-        box-sizing: border-box;
-        display: inline-block;
-        border-radius: 15px;
-        font-size: 1em;
-    }
-
-    .common_style .lblock > .mblock {
-        margin: 8px 0px 8px 0px;
-        padding: 5px 5px 5px 5px;
-    }
-
-    .common_style  .mblock {
-        width: 100%;
-        box-sizing: border-box;
-        display: block;
-        margin: 2px 0px;
-        border-radius: 10px;
-        min-height: 20px;
-        padding: 10px;
-        border: black solid 1px;
-    }
-
-    .common_style  .sblock {
-        width: 100%;
-        box-sizing: border-box;
-        display: block;
-        border-radius: 10px;
-        padding: 10px;
-        margin: 5px 0px 5px 0px;
-        min-height: 20px;
-    }
-    .common_style img {
-        transition: all 0.3s ease-in-out;
-        cursor: pointer;
-        max-width: 100%;
-    }
-    
-    .common_style i {
-        color:#ff3d00;
-        font-weight: 800;
-        font: caption;
-        font-size: 15px;
-        word-break: break-all;
-        
-    }
-    
-
-@media screen and (min-width: 1024px)
-{
-    .common_style {
-        display: inline-block;
-        width: 100%;
-    }
+.col_r {
+  color: red;
+}
+.col_g {
+  color: green;
+}
+.col_p {
+  color: purple;
+}
+.col_w {
+  color: white;
+}
+.col_bk {
+  color: black;
+}
+.col_be {
+  color: blue;
+}
+.tab_4 {
+  margin-left: 40px;
+  list-style-type: circle;
+}
+.main {
+  position: relative;
+  background-color: #aeaeae;
+  min-height: 50vh;
+}
+.common_style .mtitle {
+  font-size: 25px;
+  background: white;
+  border-radius: 10px;
+  box-sizing: border-box;
+  display: block;
+  text-align: center;
+  margin: 0px 0px 10px 0px;
+}
+.common_style .stitle {
+  color: black;
+  font-size: 16px;
+  font-weight: 800;
+  border-radius: 2px;
+  box-sizing: border-box;
+  display: inline-block;
+  border-radius: 10px;
+  padding: 5px 0px 5px 5px;
+  min-width: 90%;
+  min-height: 16px;
+}
+.common_style .sstitle {
+  font-size: 14px;
+  font-weight: 800;
+  box-sizing: border-box;
+  display: inline-block;
+  border-radius: 2px;
+  padding: 5px;
+  margin: 10px 0px;
+}
+.common_style .title4 {
+  font-size: 20px;
+  font-weight: 500;
+  box-sizing: border-box;
+  display: inline-block;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 15px 0px 10px 0px;
+}
+.common_style .lblock {
+  border: black solid 3px;
+  width: 100%;
+  box-sizing: border-box;
+  display: inline-block;
+  border-radius: 15px;
+  font-size: 1em;
 }
 
-@media screen and (max-width: 1024px)
-{
-   
-    .common_style {
-        display: inline-block;
-        width: 100%;
-    }
+.common_style .lblock > .mblock {
+  margin: 8px 0px 8px 0px;
+  padding: 5px 5px 5px 5px;
+}
 
+.common_style .mblock {
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
+  margin: 2px 0px;
+  border-radius: 10px;
+  min-height: 20px;
+  padding: 10px;
+  border: black solid 1px;
+}
+
+.common_style .sblock {
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 5px 0px 5px 0px;
+  min-height: 20px;
+}
+.common_style img {
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  max-width: 100%;
+}
+
+.common_style i {
+  color: #ff3d00;
+  font-weight: 800;
+  font: caption;
+  font-size: 15px;
+  word-break: break-all;
+}
+
+@media screen and (min-width: 1024px) {
+  .common_style {
+    display: inline-block;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .common_style {
+    display: inline-block;
+    width: 100%;
+  }
 }
 /* 아래부터가 사용할 css */
 
 .common_style {
-    width: 100%;
-    display: inline-block;
+  width: 100%;
+  display: inline-block;
 }
 .common_style img {
-    text-align: center;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 .common_style small {
-    color: white;
-    background-color: green;
-    padding: 2px;
-    border-radius: 5px;
+  color: white;
+  background-color: green;
+  padding: 2px;
+  border-radius: 5px;
 }
 .common_style .h2 {
-    margin: 20px 0px 10px 10px;
-    padding: 5px 5px;
-    display: inline-block;
-    font-size: 18px;
-    font-weight: 800;
-    background-color: orange;
+  margin: 20px 0px 10px 10px;
+  padding: 5px 5px;
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 800;
+  background-color: orange;
 }
 .common_style .h3 {
-    color:#3366FF;
-    margin-left: 15px;
+  color: #3366ff;
+  margin-left: 15px;
 }
 .common_style .h4 {
-    color:#FF33CC;
+  color: #ff33cc;
 }
 .common_style .h5 {
 }
-.common_style details::before{
-    content: "🌝";
+.common_style details::before {
+  content: "🌝";
 }
-.common_style details[open]::before{
-    content: "🌚";
-    display: inline-block
+.common_style details[open]::before {
+  content: "🌚";
+  display: inline-block;
 }
 .common_style summary {
-    display: inline-block;
-    width: 90%;
-    padding-left: 10px;
+  display: inline-block;
+  width: 90%;
+  padding-left: 10px;
 }
 .common_style summary:hover {
-    color: red;
+  color: red;
 }
 
 /* 사이즈 크기1 big */
 .common_style .block1 {
-    width: 100%;
-    display: inline-block;
-    font-size: 20px;
-    /*border: solid black 4px;*/
-    background-color: rgba(255,255,255,0.8);
-    margin-bottom: 5px;
-    word-wrap: break-word;
-
+  width: 100%;
+  display: inline-block;
+  font-size: 20px;
+  /*border: solid black 4px;*/
+  background-color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 5px;
+  word-wrap: break-word;
 }
 /* 사이즈 크기2 mid */
 .common_style .block2 {
-    font-size: 0.8em;
-    display: block;
-    margin: 10px 2px 2px 2px;
-    padding: 2px;
-    border: solid #B3713C 4px;
-    list-style: none;
+  font-size: 0.8em;
+  display: block;
+  margin: 10px 2px 2px 2px;
+  padding: 2px;
+  border: solid #b3713c 4px;
+  list-style: none;
 }
 /* 사이즈 크기3 small */
 .common_style .block3 {
-    font-size: 0.8em;
-    border: solid #3366FF 4px;
-    margin: 2px 12px 10px 2px;
-    padding: 10px 0px;
-    background-color: #efefea;
+  font-size: 0.8em;
+  border: solid #3366ff 4px;
+  margin: 2px 12px 10px 2px;
+  padding: 10px 0px;
+  background-color: #efefea;
 }
 .common_style .block4 {
-    font-size: 1em;
-    border: solid #FF33CC 2px;
-    margin: 2px 12px 10px 12px;
-    padding: 10px 0px;
-    background-color: #f8fafe;
-    list-style: none;
+  font-size: 1em;
+  border: solid #ff33cc 2px;
+  margin: 2px 12px 10px 12px;
+  padding: 10px 0px;
+  background-color: #f8fafe;
+  list-style: none;
 }
 .common_style .block4 p {
-    margin-left: 15px;
+  margin-left: 15px;
 }
 .common_style .block5 {
-    font-size: 1em;
-    border: solid #5d00ff 2px;
-    margin: 2px 12px 10px 2px;
-    padding: 10px 0px;
-    background-color: #f8fafe;
-    list-style: none;
+  font-size: 1em;
+  border: solid #5d00ff 2px;
+  margin: 2px 12px 10px 2px;
+  padding: 10px 0px;
+  background-color: #f8fafe;
+  list-style: none;
 }
 .common_style .block5 {
-    font-size: 12px;
+  font-size: 12px;
 }
 .common_style .block6 {
-    font-size: 10px;
+  font-size: 10px;
 }
 .common_style .col_keymap {
-    background: linear-gradient(90deg, rgba(222,98,98,1) 0%, rgba(255,184,140,1) 100%);
-    color: white;
-    padding: 0px 5px;
-    border-radius: 5px;
-    font-weight: 600;
+  background: linear-gradient(
+    90deg,
+    rgba(222, 98, 98, 1) 0%,
+    rgba(255, 184, 140, 1) 100%
+  );
+  color: white;
+  padding: 0px 5px;
+  border-radius: 5px;
+  font-weight: 600;
 }
 .common_style .col_word {
-    background: linear-gradient(90deg, #D1913C 0%, #FFD194 100%);
-    color: black;
-    padding: 0px 5px;
-    border-radius: 5px;
-    font-weight: 600;
-    font-size: 20px;
+  background: linear-gradient(90deg, #d1913c 0%, #ffd194 100%);
+  color: black;
+  padding: 0px 5px;
+  border-radius: 5px;
+  font-weight: 600;
+  font-size: 20px;
 }
 .common_style .col_green {
-    color: green;
+  color: green;
 }
 .common_style .col_red {
-    color: red;
+  color: red;
 }
 .common_style .col_blue {
-    color: blue;
+  color: blue;
 }

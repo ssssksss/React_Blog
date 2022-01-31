@@ -144,25 +144,17 @@ const SpringBasic = (props) => {
           </div>
         </details>
       </div>
+
       <div className='block1'>
         <details>
-          <summary> 테스트 코드 작성 </summary>
+          <summary> 윈도우에 빌드하는 방법(조사 더 필요) </summary>
           <div className='block2'>
 
             <h2 className='h2'> 📌 설명 </h2>
-            <li> 테스트코드에서는 순서를 보장하지 않아서 Clear를 해줘야 한다.
-              <div className="block4">
-                <li> @AfterEach </li>
-                <li> public void afterEach() {"{"}
-                  <li> 이곳에 객체들이 저장되었으면 값을 비워주거나 하는 코드를 작성을 해야한다. </li>
-                </li>
-                <li> {"}"} </li>
-              </div>
-            </li>
-            <li> 메소드 위에 @Test를 붙인다. </li>
-            <li> Assertions.assertEquals(A,B) <small> A,B가 같으면 검증완료 </small> </li>
-            <li> Assertions.assertThat(A).isEqualTo(B) <small> A,B가 같으면 검증완료 </small> </li>
-            <li>  </li>
+            <li> gradlew.bat?? build  </li>
+            <li> cd bulid</li>
+            <li> cd libs </li>
+            <li> ls -arlth </li>
 
             <h2 className='h2'> ✔ 예시 </h2>
             <li>
@@ -180,14 +172,19 @@ const SpringBasic = (props) => {
 
       <div className='block1'>
         <details>
-          <summary> 윈도우에 빌드하는 방법 </summary>
+          <summary> 암호화(나중에 알아보기) </summary>
           <div className='block2'>
 
-            <h2 className='h2'> 📌 설명 </h2>
-            <li> gradlew.bat?? build  </li>
-            <li> cd bulid</li>
-            <li> cd libs </li>
-            <li> ls -arlth </li>
+            <h2 className='h2'> 📌 Bcrypt </h2>
+            <li> npm install bcrypt --save </li>
+            <li> <a href="https://velog.io/@jy777hi/Bcrypt-%EB%B9%84%EB%B0%80%EB%B2%88%ED%98%B8-%EC%95%94%ED%98%B8%ED%99%94"
+              target="_blank" rel="noopener noreferrer"> 참고 </a> </li>
+            <li> 3 </li>
+
+            <h2 className='h2'> 📌 sha256 </h2>
+            <li> npm install js-sha256 </li>
+            <li>  </li>
+            <li>  </li>
 
             <h2 className='h2'> ✔ 예시 </h2>
             <li>

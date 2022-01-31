@@ -1,40 +1,39 @@
-*{
-    margin: 0px;
-    padding: 0px;
-}
-li,ol{
-    margin-left: 15px;
-}
-
 .app {
-    min-width: 440px;
-    max-width: 1640px;
-    width: 100%;
-    margin: auto;
-    box-sizing: border-box;
-    padding: 0px 20px;
-}
-
-.menu1_container {
-    position: relative;
-    width: 100%;
-}
-.menu2_container {
-    position: relative;
-    width: 100%;
-    min-height: 300px;
-}
-.menu3_container {
-    width: 100%;
+  min-height: 400px;
+  width: 100vw;
+  margin: auto;
+  box-sizing: border-box;
+  background: url(./static/img/background.jpg);
+  background-attachment: fixed;
+  background-repeat: space;
+  background-size: cover;
+  background-color: transparent;
+  padding-bottom: 10px;
 }
 
 .btn_top {
-    position: fixed;
-    right: 0px;
-    top: 200px;
-    opacity: 0.8;
-    width: 40px;
-    height: 40px;
-    border-radius: 5px;
-    background-color: #aeaeae;
+  position: fixed;
+  right: 0px;
+  top: 200px;
+  opacity: 0.8;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  background-color: #aeaeae;
+}
+
+/* 폰트 */
+@font-face {
+  font-family: "GangwonEduPowerExtraBoldA";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Cafe24Ssurround";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
 }

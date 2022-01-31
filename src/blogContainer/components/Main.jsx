@@ -36,6 +36,7 @@ import SpringJackson from './Main/SpringContent/SpringJackson';
 import SpringCommunication from './Main/SpringContent/SpringCommunication';
 import SpringConverter from './Main/SpringContent/SpringConverter';
 import SpringException from './Main/SpringContent/SpringException';
+import SpringTestCode from './Main/SpringContent/SpringTestCode';
 import SpringSecurityExCode1 from './Main/SpringContent/SpringSecurityExCode1';
 import SpringSecurityExCode2 from './Main/SpringContent/SpringSecurityExCode2';
 import SpringSecurityExCode3 from './Main/SpringContent/SpringSecurityExCode3';
@@ -270,6 +271,7 @@ const Main = (props) => {
         <Route path="/spring_communication" element={<SpringCommunication />} />
         <Route path="/spring_converter" element={<SpringConverter />} />
         <Route path="/spring_exception" element={<SpringException />} />
+        <Route path="/spring_testcode" element={<SpringTestCode />} />
         <Route path="/spring_securityexcode1" element={<SpringSecurityExCode1 />} />
         <Route path="/spring_securityexcode2" element={<SpringSecurityExCode2 />} />
         <Route path="/spring_securityexcode3" element={<SpringSecurityExCode3 />} />

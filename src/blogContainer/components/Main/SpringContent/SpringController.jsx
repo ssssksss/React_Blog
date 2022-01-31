@@ -166,8 +166,11 @@ const SpringController = (props) => {
                   </div>
                   <div className="block4">
                     <li> @RequestHeader(value="accessToken",required = false,defaultValue = "null") String header </li>
+                    <li> @RequestHeader HttpHeaders header </li>
+                    <li> @RequestHeader("키") String head</li>
+                    <li> {" @RequestHeader Map<String,String> head "} <small> head.get("카"); </small> </li>
+                    <li>  </li>
                   </div>
-                  <li>  </li>
                 </div>
               </div>
             </li>
