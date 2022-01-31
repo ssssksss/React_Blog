@@ -46,12 +46,10 @@
 }
 .nav-menu2 .navMenuContainer2 .menu1 {
   width: 50vw;
-  display: flex;
   flex-flow: wrap row;
 }
 .nav-menu2 .navMenuContainer2 .menu2 {
   width: 50vw;
-  display: flex;
   flex-flow: wrap row;
 }
 /* Link태그에 속성을 넣는것 */
