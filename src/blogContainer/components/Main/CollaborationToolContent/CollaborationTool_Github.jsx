@@ -34,6 +34,49 @@ const CollaborationTool_Github = (props) => {
 
       <div className='block1'>
         <details>
+          <summary> 깃허브 에러 모음 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 pull이나 push할때 발생하는 경고 </h2>
+            <li> fatal: refusing to merge unrelated histories
+              <div className="block4">
+                <li> 로컬과 원격저장소의 내용이 많이 차이나서 오류가 날것을 경고 </li>
+                <li> git pull origin 브런치명 --allow-unrelated-histories <small> 해결방법 </small> </li>
+                <li>  </li>
+              </div>
+            </li>
+            <li>
+              <div className="block4">
+                <li>  </li>
+              </div>
+            </li>
+            <li>
+              <div className="block4">
+                <li>  </li>
+              </div>
+            </li>
+            <li>
+              <div className="block4">
+                <li>  </li>
+              </div>
+            </li>
+
+            <h2 className='h2'> ✔ 예시 </h2>
+            <li>
+              <div className='block3'>
+                <h3 className='h3'> 🎈 </h3>
+                <div className='block4'>
+                  <li>  </li>
+                </div>
+              </div>
+            </li>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
           <summary> *********************************** </summary>
         </details>
       </div>
