@@ -43,6 +43,7 @@ const CicdCircleCI = (props) => {
 
             <h2 className='h2'> 📌 설명 </h2>
             <div className='block4'>
+              <li> <a href="https://circleci.com/" target="_blank" rel="noopener noreferrer"> circleci 홈페이지 </a> </li>
               <li>  </li>
               <li>  </li>
               <li>  </li>

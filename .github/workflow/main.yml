@@ -1,0 +1,22 @@
+name: build # 워크플로우 이름(커스텀)
+on: # push 이벤트가 발생했을때 작동
+  push:
+    branches: [master]
+  #pull_request:
+  #branches: [master]
+
+jobs:
+  build:
+    runs-on: centOS-7 # 가상환경 인스턴스 맞는지 모르겠다.
+    steps: actions/checkout@deploy # 체크아웃 설정이라는데 아직..
+    with:
+      host: ${{ secrets.HOST }}
+      username: ${{ secrets.USERNAME }}
+      key: ${{ secrets.KEY }}
+      port: ${{ secrets.PORT }}
+      script: | #접속해서 사용할 명령어 보여줌
+        mkdir /app/test
+
+#  cd 배포대상 디렉토리명
+#  git pull https://깃토큰값@github.com/깃허브아이디/프로젝트명.git
+

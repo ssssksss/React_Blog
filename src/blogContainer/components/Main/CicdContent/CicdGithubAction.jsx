@@ -41,7 +41,6 @@ const CicdGithubAction = (props) => {
 
             <h2 className='h2'> 📌 설명 </h2>
             <div className='block4'>
-              <li> sudo yum install ruby </li>
               <li>  </li>
               <li> 가정 </li>
               <li> 깃허브 - Actions - New workflow - set up a workflow yourself 클릭 </li>
@@ -57,10 +56,24 @@ const CicdGithubAction = (props) => {
               <li>  </li>
             </div>
 
-            <h2 className='h2'> 📌 장점, 단점 </h2>
+            <h2 className='h2'> 📌 Secret 레포지토리 설정 </h2>
             <div className='block4'>
-              <li> 장점 : </li>
-              <li> 단점 : </li>
+              <li> Settings - Secrets - New repository Secret </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 git 토큰 설정하기 </h2>
+            <div className='block4'>
+              <li> Settings - Developer settings - personal access tokens에서 토큰 생성 </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 yml 파일 설정하기 </h2>
+            <div className='block4'>
+              <li> {" .github > workflow > main.yml "} 로 프로젝트에 폴더 만들기  </li>
+              <li>  </li>
+              <li>  </li>
             </div>
 
             <h2 className='h2'> ✔ 예시 </h2>
