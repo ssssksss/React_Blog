@@ -334,64 +334,6 @@ const JavaBasic = (props) => {
         {/*  */}
 
         <div className="block1">
-          <details>
-            <summary className='stitle'> Optional
-              <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
-            <div className='sblock'>
-              <div className='sstitle'> 설명 </div>
-              <div className='block2'>
-                <li> T타입의 객체를 포장해주는 래퍼 클래스 </li>
-                <li> Null을 예외처리하지 않고 처리가 가능하다는 장점이 있다. </li>
-              </div>
-              <div className='sstitle'> 설명 </div>
-              <div className='block2'>
-                <li> opt.isEmpty() <small> # 값이 존재하는지 boolean값 리턴  </small> </li>
-                <li> opt.orElseGet() <small> # 저장된 값이 존재하면 값을 반환 값이 없으면 인수로 전달된
-                  람다 표현식 결과값 반환 </small> </li>
-              </div>
-              <div className='sstitle'>  시작 처리 : 옵셔널 객체 생성 메소드 </div>
-              <div className='block2'>
-                <li> Optional.of() <small> # 저장된 값이 존재하면 입력된 값을 반환 없으면 인수로 전달된 예외를 발생 </small>
-                  <li> Optional{'<String>'} opt = Optional.of("result"); </li>
-                </li> <br />
-                <li> Optional.ofNullable() <small> # value가 null인 경우 Optional 반환 </small>
-                  <li> {' Optional<String> opt = Optional.ofNullable(객체); '} </li>
-                  <li> 객체가 존재하지 않으면 return Optional.empty + 에러발생 </li>
-                  <li> 객체가 존재하면 return Optional객체 </li>
-                </li> <br />
-                <li> Optional.empty() <small> # 비어있는 Optional 객체 생성, Optional을 null로 초기화하기도 함 </small>
-                  <li> {' Optional<String> opt = Optional.empty(); '} </li>
-                </li> <br />
-              </div>
-              <div className='sstitle'> 중간 처리 , 옵셔널 객체가 생성된 후 사용가능, 아래 메서드는 옵셔널 객체를 반환 </div>
-              <div className='block2'>
-                <li> {' opt.ifPresent() : '} <small> # </small> </li>
-                <li> {' Optional.of("객체").ifPresent((value) -> { } ); '} <small> # </small> </li>
-                <li> {' Optional.ofNullable(null).ifPresent((value) -> { } ); '} <small> # </small> </li>
-              </div>
-              <div className='sstitle'> 종단 처리 , 옵셔널 객체의 체이닝을 끝냄 </div>
-              <div className='block2'>
-                <li> opt.isPresent()  <small> # 객체가 존재하는지 여부 판단, 있으면 true </small> </li>
-                <li> Optional.ofNullable(객체).isPresent();  <small> # 객체가 존재하는지 여부 판단, 있으면 true </small> </li> <br />
-                <li> opt.get()  <small> # 객체를 꺼냄, 비어있는 옵셔널 객체면 예외 발생</small>
-                  <li> Optional.ofNullable(null).get(); </li>
-                </li> <br />
-                <li> opt.orElse()  <small> # 옵셔널 객체가 null이든 아니든 실행 기본값으로 제공할 객체를 지정 </small>
-                  <li> Optional.ofNullable(객체).orElse(객체,문자열); <small> # 객체값이 Null일때 사용할 문자열이나 객체를 지정  </small> </li>
-                </li> <br />
-                <li> opt.orElseGet()  <small> # 옵셔널 객체가 null일 때만 실행 , 기본값으로 제공할 공급자함수 지정 </small>
-                  <li>  {' Optional.ofNullable(username).orElseGet(() -> "" ); '}  </li>
-                </li> <br />
-                <li> opt.orElseThrow()  <small> # 옵셔널 객체가 비어있으면 , 예외 공급자함수를 통해 예외 발생 </small> </li>
-                <li> {' opt.ifPresent() : '}  <small> # </small> </li>
-                <li> {' Optional.of("객체").ifPresent((value) -> { } ); '}  <small> # </small> </li>
-                <li> {' Optional.ofNullable(null).ifPresent((value) -> { } ); '}  <small> # </small> </li>
-              </div>
-            </div>
-          </details>
-        </div>
-
-        <div className="block1">
           <details> <summary className="stitle"> <a name="함수의 종류">  함수의 종류</a> </summary>
             <div className="sblock">
 

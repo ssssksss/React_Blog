@@ -3,7 +3,6 @@ import Main from './components/Main.jsx';
 import NavMenu from './components/NavMenu';
 import NavMenu2 from './components/NavMenu2';
 import FootterMenu from './components/FootterMenu';
-import { BrowserRouter } from 'react-router-dom';
 import styled from 'styled-components';
 
 const BlogContainer = () => {
@@ -36,18 +35,16 @@ const BlogContainer = () => {
 
   return (
     <div>
-      <BrowserRouter>
-        <Container1>
-          <NavMenu onChangePage={(page) => { { changePage(page) } }}> </NavMenu>
-          <NavMenu2 page={whatPage} onChangePage={(page2) => { { changePage2(page2) } }}> </NavMenu2>
-        </Container1>
-        <Container2>
-          <Main page2={whatPage2}> </Main>
-        </Container2>
-        <Container3>
-          <FootterMenu FootterMenu> </FootterMenu>
-        </Container3>
-      </BrowserRouter>
+      <Container1>
+        <NavMenu onChangePage={(page) => { { changePage(page) } }}> </NavMenu>
+        <NavMenu2 page={whatPage} onChangePage={(page2) => { { changePage2(page2) } }}> </NavMenu2>
+      </Container1>
+      <Container2>
+        <Main page2={whatPage2}> </Main>
+      </Container2>
+      <Container3>
+        <FootterMenu FootterMenu> </FootterMenu>
+      </Container3>
     </div>
   );
 };

@@ -1,32 +1,42 @@
 import React from 'react';
 
 const Term2 = (props) => {
-    return (
-        <>
+  return (
+    <div className="common_style">
+      <div className='block1'>
+        <details>
+          <summary> 제목 </summary>
+          <div className='block2'>
 
-            <div className="common_style">
-                <ul>
-                    <span className="lblock">
-                        {/*  */}
-                        <div className='mblock'>
-                            <details>
-                                <summary className='stitle'>
-                                    <a name='' style={{ visibility: 'hidden' }}>  </a> </summary>
-                                <div className='sblock'>
-                                    <div className='sstitle'>  </div>
-                                    <div className='mblock'>
-                                        <li>  </li>
-                                        <li>  </li>
-                                    </div>
-                                </div>
-                            </details>
-                        </div>
-                        {/*  */}
-                    </span>
-                </ul>
+            <h2 className='h2'> 📌 설명 </h2>
+            <div className='block4'>
+              <li>  </li>
+              <li>  </li>
+              <li>  </li>
             </div>
-        </>
-    );
+
+            <h2 className='h2'> 📌 장점, 단점 </h2>
+            <div className='block4'>
+              <li> 장점 : </li>
+              <li> 단점 : </li>
+            </div>
+
+            <h2 className='h2'> ✔ 예시 </h2>
+            <li>
+              <div className='block3'>
+                <h3 className='h3'> 🎈 </h3>
+                <div className='block4'>
+                  <li>  </li>
+                </div>
+              </div>
+            </li>
+
+          </div>
+        </details>
+      </div>
+
+    </div>
+  );
 }
 
 export default Term2;

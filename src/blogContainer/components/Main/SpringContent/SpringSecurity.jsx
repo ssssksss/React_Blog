@@ -8,6 +8,202 @@ const HtmlTest = (props) => {
 
       <div className='block1'>
         <details>
+          <summary> [0] Spring Security 설명 </summary>
+          <div className='block2'>
+
+            <h2 className="h2"> 📌 설명 </h2>
+            <li> 서버가 시작되면 Spring Security 초기화 및 보안 설정 발생 </li>
+            <li> 모든 요청이 인증이 되어야 자원에 접근이 가능 </li>
+            <li> form로그인 방식과 httpbasic로그인 방식을 제공한다. </li>
+            <li> 기본적인 로그인 페이지를 제공한다. </li>
+            <li> 기본 계정 user와 비번 제공 </li>
+            <li> application.properties에 설정이 가능하다. </li>
+            <li> 계정추가, 권한추가, DB연동등 하지 않으면 사용을 할 수 없게 만듬 </li>
+            <li> 사용자의 인증,권한,보안 처리를 간단하게 구현 </li>
+            <li> 인증방식 : credential방식(사용자명,비번) , 이중인증(개인정보인증+추가인증(OTP) , ) </li>
+            <li> 1. 스프링 시큐리티에서 인증이 된 객체인지 일단 확인한다. </li>
+            <li> 2. 인증이 된 객체라면 그 다음 어떤 경로에 접근 권한이 있는 객체인지를 확인한다. </li>
+            <li> 3. 권한이 있다면 동작을 할 수 있게 하고, 없다면 동작을 할 수 없게 막는다. </li>
+            <li> 필터 방식으로 작동 </li>
+            <h2 className="h2"> 📌 관련 용어 </h2>
+            <li> Principal(접근주체): 보호된 대상에 접근하는 대상 </li>
+            <li> Credential(비밀번호): Resource에 접근하는 대상의 비밀번호 </li>
+            <li> Authentication(인증): 현재 유저가 누구인지 확인, 작업을 수행할 수 있는지 여부를 판단 </li>
+            <li> Authorize(인가): 현재 유저가 어떤 서비스,페이지에 접근할 수 있는 권한이 있는지 검사 </li>
+            <li> Authority(권한): 특정 작어에 수행 권한이 있는지 판단 (GUEST,USER,MEMBER,ADMIN)
+              <li> 웹 권한, 메소드호출, 도메인 인스턴스 </li>
+            </li>
+
+            <h2 className="h2"> 📌 스프링 부트 시큐리티 추가 </h2>
+            <li> gradle
+              <li> implementation 'org.springframework.boot:spring-boot-starter-security' </li>
+              <li> implementation 'org.springframework.security:spring-security-test' </li>
+            </li>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [1] WebSecurityConfig 초기 보안 해제 예제 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> ✔ 예시 </h2>
+            <li>
+              <div className='block3'>
+                <h3 className='h3'> 🎈 초기 보안 설정 끄기 </h3>
+                <div className='block4'>
+                  <li> @Configuration </li>
+                  <li> @EnableWebSecurity </li>
+                  <li> public class WebSecurityConfig extends WebSecurityConfigurerAdapter {"{"}
+                    <li>  </li>
+                    <li> @Override </li>
+                    <li> protected void configure (HttpSecurity http) throws Exception {"{"}
+                      <li> http.cors().disable()
+                        <li> .csrf().disable()</li>
+                        <li> .formLogin().disable() </li>
+                        <li> .headers().frameOptions().sameOrigin();  </li>
+                      </li>
+                    </li>
+                    <li>  {"}"} </li>
+                  </li>
+                  <li> {"}"} </li>
+                </div>
+              </div>
+            </li>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [2] WebMvcConfig - Cors문제  </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 추가 설명 </h2>
+            <li> 디폴트 값 </li>
+            <li> allow all origins </li>
+            <li> allow "simple" methods GET,HEAD and POST </li>
+            <li> allow all headers </li>
+            <li> set max age to 1800 seconds </li>
+
+            <h2 className='h2'> 📌 메소드 위에 어노테이션을 선언 </h2>
+            <div className="block4">
+              <li> 컨트롤러나 컨트롤러 메소드에 사용 </li>
+              <li> @CrossOrigin("*") <small> # 모든 경로 허용</small> </li>
+              <li> @CrossOrigin(origins="*", allowedHeaders="*") <small> # 모든 경로 허용 </small> </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 클래스를 생성하여 처리() </h2>
+            <div className="block4">
+              <li> @Configuration </li>
+              <li> public class WebConfig implements WebMvcConfigurer {'{'}
+                <li> @Override </li>
+                <li> public void addCorsMappings(CorsRegistry registry) {'{'}
+                  <li> registry.addMapping("/**").allowCredentials(true)
+                    <li> .allowedOrigins("http://127.0.0.1:3000"); <small> # 안된다면 localhost로 변경 </small></li>
+                  </li>
+                </li>
+                <li> {'}'} </li>
+              </li>
+              <li> {'}'} </li>
+            </div>
+            <h2 className='h2'> 📌 모든 설정 예시 </h2>
+            <div className="block4">
+              <li> @Configuration </li>
+              <li> public class WebConfig implements WebMvcConfigurer {'{'}
+                <li> private final long MAX_AGE_SECS = 3600; </li>
+                <li> @Override </li>
+                <li> public void addCorsMappings(CorsRegistry registry) {'{'}
+                  <li> registry.addMapping("/**").allowCredentials(true)
+                    <li> .allowedOrigins("*") //모두 허용 </li>
+                    <li> .allowedOrigins("http://localhost:3000","http://localshot:3002);//여러개 적용가능 </li>
+                    <li> .allowedMethods("GET","POST","PUT","PATCH","DELETE","OPTIONS") //메소드 제한 가능 </li>
+                    <li> .allowedHeaders("*") </li>
+                    <li> .allowCredentials(true) </li>
+                    <li> .allowedOriginPatterns("*") // .allowCredentials(true) + .allowedOrigins("*")  </li>
+                    <li> .maxAge(MAX_AGE_SECS); pre-flight Request 요청을 보관하는 시간 </li>
+                  </li>
+                </li>
+                <li> {'}'} </li>
+              </li>
+              <li> {'}'} </li>
+            </div>
+
+          </div>
+          <div className='block2'>
+            <h2 className='h2'> 📌 설명 </h2>
+            <div className='block4'>
+              <li> @Configuration </li>
+              <li> public class WebMvcConfig implements WebMvcConfigurer {"{"}
+                <li> @Override </li>
+                <li> public void addCorsMappings(CorsRegistry registry) {"{"}
+                  <li> registry.addMapping("/**").allowCredentials(true) </li>
+                  <li> .allowedOrigins("http://localhost:3000/"); </li>
+                </li>
+                <li> {"}"} </li>
+                {/*  */}
+                <li> @Override </li>
+                <li> public void addInterceptors(InterceptorRegistry registry) {"{"}
+                  <li>  registry.addInterceptor(new TestInterceptor())
+                    <li> .addPathPatterns("/*") </li>
+                    <li> .excludePathPatterns("/test/**/") </li>
+                    <li> .excludePathPatterns("/users/login"); //로그인 쪽은 예외처리를 한다. </li>
+                  </li>
+                </li>
+                <li> {"}"} </li>
+              </li>
+              <li> {"}"} </li>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> BCryptPasswordEncoder </summary>
+          <div className='block2'>
+
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <div className='block4'>
+              <li> BCryptPasswordEncoder는 솔트값이 랜덤으로 들어가서 매번 값이 달라 == 이나 equals를 사용하면 안된다. </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 메소드 </h2>
+            <div className='block4'>
+              <li> BCryptPasswordEncoder객체.encode() <small> 인코딩 </small> </li>
+              <li> BCryptPasswordEncoder객체.matches(암호화되지않은비번,암호화된비번) <small> 인코딩 </small> </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌  </h2>
+            <div className='block4'>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> ✔ 예시 </h2>
+            <li>
+              <div className='block3'>
+                <h3 className='h3'> 🎈 </h3>
+                <div className='block4'>
+                  <li>  </li>
+                </div>
+              </div>
+            </li>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
           <summary> JWT Token </summary>
           <div className='block2'>
 
@@ -48,77 +244,6 @@ const HtmlTest = (props) => {
                 </li>
                 <li> {"}"}  </li>
               </div>
-            </li>
-
-          </div>
-        </details>
-      </div>
-
-      <div className='block1'>
-        <details>
-          <summary> WebSecurityConfig 초기 보안 해제 </summary>
-          <div className='block2'>
-
-            <h2 className='h2'> ✔ 예시 </h2>
-            <li>
-              <div className='block3'>
-                <h3 className='h3'> 🎈 초기 보안 설정 끄기 </h3>
-                <div className='block4'>
-                  <li> @Configuration </li>
-                  <li> @EnableWebSecurity </li>
-                  <li> public class WebSecurityConfig extends WebSecurityConfigurerAdapter {"{"}
-                    <li>  </li>
-                    <li> @Override </li>
-                    <li> protected void configure (HttpSecurity http) throws Exception {"{"}
-                      <li> http.cors().disable()
-                        <li> .csrf().disable()</li>
-                        <li> .formLogin().disable() </li>
-                        <li> .headers().frameOptions().sameOrigin();  </li>
-                      </li>
-                    </li>
-                    <li>  {"}"} </li>
-                  </li>
-                  <li> {"}"} </li>
-                </div>
-              </div>
-            </li>
-
-          </div>
-        </details>
-      </div>
-
-      <div className='block1'>
-        <details>
-          <summary> Spring Security 설명 </summary>
-          <div className='block2'>
-
-            <h2 className="h2"> 📌 설명 </h2>
-            <li> 서버가 시작되면 Spring Security 초기화 및 보안 설정 발생 </li>
-            <li> 모든 요청이 인증이 되어야 자원에 접근이 가능 </li>
-            <li> form로그인 방식과 httpbasic로그인 방식을 제공한다. </li>
-            <li> 기본적인 로그인 페이지를 제공한다. </li>
-            <li> 기본 계정 user와 비번 제공 </li>
-            <li> application.properties에 설정이 가능하다. </li>
-            <li> 계정추가, 권한추가, DB연동등 하지 않으면 사용을 할 수 없게 만듬 </li>
-            <li> 사용자의 인증,권한,보안 처리를 간단하게 구현 </li>
-            <li> 인증방식 : credential방식(사용자명,비번) , 이중인증(개인정보인증+추가인증(OTP) , ) </li>
-            <li> 1. 스프링 시큐리티에서 인증이 된 객체인지 일단 확인한다. </li>
-            <li> 2. 인증이 된 객체라면 그 다음 어떤 경로에 접근 권한이 있는 객체인지를 확인한다. </li>
-            <li> 3. 권한이 있다면 동작을 할 수 있게 하고, 없다면 동작을 할 수 없게 막는다. </li>
-            <li> 필터 방식으로 작동 </li>
-            <h2 className="h2"> 📌 관련 용어 </h2>
-            <li> Principal(접근주체): 보호된 대상에 접근하는 대상 </li>
-            <li> Credential(비밀번호): Resource에 접근하는 대상의 비밀번호 </li>
-            <li> Authentication(인증): 현재 유저가 누구인지 확인, 작업을 수행할 수 있는지 여부를 판단 </li>
-            <li> Authorize(인가): 현재 유저가 어떤 서비스,페이지에 접근할 수 있는 권한이 있는지 검사 </li>
-            <li> Authority(권한): 특정 작어에 수행 권한이 있는지 판단 (GUEST,USER,MEMBER,ADMIN)
-              <li> 웹 권한, 메소드호출, 도메인 인스턴스 </li>
-            </li>
-
-            <h2 className="h2"> 📌 스프링 부트 시큐리티 추가 </h2>
-            <li> gradle
-              <li> implementation 'org.springframework.boot:spring-boot-starter-security' </li>
-              <li> implementation 'org.springframework.security:spring-security-test' </li>
             </li>
 
           </div>

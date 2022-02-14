@@ -63,6 +63,122 @@ const ReactRedux = (props) => {
 
       <div className='block1'>
         <details>
+          <summary> redux 기본 테스트 예시 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> ✔ 예시 </h2>
+            <li>
+              <div className='block3'>
+                <h3 className='h3'> 🎈 store/index.js </h3>
+                <div className='block4'>
+                  <li> {" import { createStore } from 'redux'; "} </li>
+                  <li> {" import rootReducer from './reducer'; "} </li>
+                  <li> {" const store = createStore(rootReducer); "} </li>
+                  <li> {" export default store; "} </li>
+                </div>
+              </div>
+              <div className='block3'>
+                <h3 className='h3'> 🎈 store/reducer.js </h3>
+                <div className='block4'>
+                  <li> {" import { combineReducers } from 'redux'; "} </li>
+                  <li> {" import reducerName from './auth/reducers'; "} </li>
+                  <li> {" const rootReducer = combineReducers({ "}
+                    <li> {"auth: authReducer "} </li>
+                  </li>
+                  <li> {" }); "} </li>
+                  <li> {" export default rootReducer; "} </li>
+                </div>
+              </div>
+              <div className='block3'>
+                <h3 className='h3'> 🎈 store/auth/index.js </h3>
+                <div className='block4'>
+                  <li> export * from "./actions" </li>
+                  <li> export * from "./reducers" </li>
+                  <li> export * from "./types" </li>
+                </div>
+              </div>
+              <div className='block3'>
+                <h3 className='h3'> 🎈 store/auth/action.js </h3>
+                <div className='block4'>
+                  <li> {" import { IS_LOGIN } from './types'; "} </li>
+                  <li> {" export const isLogin = (payload) => { "}
+                    <li> {"return { "}
+                      <li> {"  type: IS_LOGIN, "} </li>
+                      <li> {"  payload: payload "} </li>
+                    </li>
+                    <li> {"} "} </li>
+                  </li>
+                  <li> {" }; "} </li>
+                </div>
+              </div>
+              <div className='block3'>
+                <h3 className='h3'> 🎈 store/auth/reducer.js </h3>
+                <div className='block4'>
+                  <li> {" import { IS_LOGIN } from './types'; "} </li>
+                  <li> {" const initialState = { "}
+                    <li> {"isLogin: false "} </li>
+                  </li>
+                  <li> {" }; "} </li>
+                  <li> {" const authReducer = (state = initialState, action) => { "}
+                    <li> {"switch (action.type) { "}
+                      <li> {"  case IS_LOGIN: "} </li>
+                      <li> {" return { "}
+                        <li> {"...state, "} </li>
+                        <li> {"isLogin: action.payload "} </li>
+                      </li>
+                      <li> {" } "} </li>
+                      <li> {"  default: "}
+                        <li> {" return state; "} </li>
+                      </li>
+                    </li>
+                    <li> {"} "} </li>
+                  </li>
+                  <li> {" }; "} </li>
+                  <li> {" export default authReducer; "} </li>
+                </div>
+              </div>
+              <div className='block3'>
+                <h3 className='h3'> 🎈 store/auth/type.js </h3>
+                <div className='block4'>
+                  <li> export const Action_Type = "Action_Type"; </li>
+                </div>
+              </div>
+              <div className='block3'>
+                <h3 className='h3'> 🎈 index.js </h3>
+                <div className='block4'>
+                  <li> {" import { BrowserRouter } from 'react-router-dom'; "} </li>
+                  <li> {" import { Provider } from 'react-redux'; "} </li>
+                  <li> {" import store from './store/index'; "} </li>
+                  <li> {" import history from './util/history'; "} </li>
+                  <li> {" <Provider store={store}> "}
+                    <li> {"<BrowserRouter history={history}> "}
+                      <li> {"  <App /> "} </li>
+                    </li>
+                    <li> {"</BrowserRouter> "} </li>
+                  </li>
+                  <li> {" </Provider> "} </li>
+                </div>
+              </div>
+              <div className='block3'>
+                <h3 className='h3'> 🎈 적용할.js </h3>
+                <div className='block4'>
+                  <li> {" import { isLogin } from '../store/auth/actions'; "} </li>
+                  <li> {" import { useDispatch } from 'react-redux'; "} </li>
+                  <li> const dispatch = useDispatch();</li>
+                  <li> dispatch(isLogin(true)); <small> import로 액션함수 불러오기 </small> </li>
+                  <li> {/* //dispatch({ type: "IS_LOGIN", payload: true }); */} <small> 이렇게도 가능 </small> </li>
+                  <li>  </li>
+                  <li>  </li>
+                </div>
+              </div>
+            </li>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
           <summary> redux 예시 </summary>
           <div className='block2'>
 
@@ -118,6 +234,35 @@ const ReactRedux = (props) => {
 
       <div className='block1'>
         <details>
+          <summary> 리덕스 함수 - useSelector </summary>
+          <div className='block2'>
+            <h2 className='h2'> 📌 useSelector </h2>
+            <div className='block4'>
+              <li> 리액트에서 리덕스 상태를 조회할때 사용 </li>
+              <li> 상태를 조회해서 상태가 변하지 않으면 리렌더링을 하지 않음 </li>
+              <li> useSelector의 2번째 인자는 equalityFn으로 이전값과 같으면 true, 다른면 false(리렌더링) </li>
+              <li> 2번째 인자로 shallowEqual을 사용하면 객체 내부에 제일 첫번째로 겉에 있는 값들만 검사한다. </li>
+            </div>
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <div className="block4">
+              <li> const test = useSelector(state {"=>"} state.test); </li>
+              <li> {" const {test1,test2} = useSelector(state => ({ test1: state.test1, test2: state.test2 })); "}
+                <small> 이와 같은 방법을 사용하면 배먼 새로운 객체를 만들어서 무조건 리렌더링이 된다. </small>
+                <div className="block4">
+                  <li> 해결방법1 </li>
+                  <li> {" const {test1,test2} = useSelector(state => ({ test1: state.test1, test2: state.test2 }),shallowEqual); "}  </li>
+                  <li> 해결방법2 </li>
+                  <li> useSelector를 여러번 사용한다. </li>
+                </div>
+              </li>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
           <summary> 3. 액션 </summary>
           <div className='block2'>
 
@@ -132,8 +277,8 @@ const ReactRedux = (props) => {
             <li> {" import {createAction } from 'redux-actions';"} </li>
             <div className="block4">
               <li> {" export const increment = (index: string) => ({ "}
-                <li> {"     type: INCREMENT, "} </li>
-                <li> {"     value: index "} </li>
+                <li> {"  type: INCREMENT, "} </li>
+                <li> {"  value: index "} </li>
               </li>
               <li> {" }); "} </li>
               <li> increment(3); </li>
@@ -232,8 +377,8 @@ const ReactRedux = (props) => {
               <li> {" import {리듀서1} from './경로'; "} </li>
               <li> {" import {리듀서2} from './경로'; "} </li>
               <li> {" const rootReducer = combineReducers({ "}
-                <li> {"   별칭: 리듀서1, "} </li>
-                <li> {"   별칭: 리듀서2, "} </li>
+                <li> {"별칭: 리듀서1, "} </li>
+                <li> {"별칭: 리듀서2, "} </li>
               </li>
               <li> {" }); "} </li>
               <li> {" export default rootReducer; "} </li>
@@ -269,19 +414,19 @@ const ReactRedux = (props) => {
             <h2 className='h2'> 📌 미들웨어 구조 </h2>
             <div className="block4">
               <li> {" const middleware1 = store = next = action =>{ "}
-                <li> {"   return next(action); "} </li>
+                <li> {"return next(action); "} </li>
               </li>
               <li> {" } "} </li>
             </div>
             <div className="block4">
               <li> {" const middleware1 = store =>{ "}
-                <li> {"   return next=>{ "}
+                <li> {"return next=>{ "}
                   <li> {" return action=>{ "}
-                    <li> {"   return next(action); "} </li>
+                    <li> {"return next(action); "} </li>
                   </li>
                   <li> {" } "} </li>
                 </li>
-                <li> {"   } "} </li>
+                <li> {"} "} </li>
               </li>
               <li> {" } "} </li>
             </div>
@@ -340,10 +485,10 @@ const ReactRedux = (props) => {
 
             <h2 className='h2'> 📌 디스패치 구성 </h2>
             <li> {" () => { "}
-              <li> {"   return { "}
+              <li> {"return { "}
                 <li> {"  type: “액션명”; "} </li>
               </li>
-              <li> {"   } "} </li>
+              <li> {"} "} </li>
             </li>
             <li> {" } "} </li>
 
@@ -536,27 +681,21 @@ const ReactRedux = (props) => {
 
       <div className='block1'>
         <details>
-          <summary> Redux - useSelector </summary>
+          <summary> Redux+Persist (좀 더 알아보기) </summary>
           <div className='block2'>
 
             <h2 className='h2'> 📌 설명 </h2>
-            <li> 리액트에서 리덕스 상태를 조회할때 사용 </li>
-            <li> 상태를 조회해서 상태가 변하지 않으면 리렌더링을 하지 않음 </li>
-            <li> useSelector의 2번째 인자는 equalityFn으로 이전값과 같으면 true, 다른면 false(리렌더링) </li>
-            <li> 2번째 인자로 shallowEqual을 사용하면 객체 내부에 제일 첫번째로 겉에 있는 값들만 검사한다. </li>
-            <li>  </li>
-            <h2 className='h2'> 📌 설명 </h2>
-            <li> const test = useSelector(state {"=>"} state.test); </li>
-            <li> {" const {test1,test2} = useSelector(state => ({ test1: state.test1, test2: state.test2 })); "}
-              <small> 이와 같은 방법을 사용하면 배먼 새로운 객체를 만들어서 무조건 리렌더링이 된다. </small>
-              <div className="block4">
-                <li> 해결방법1 </li>
-                <li> {" const {test1,test2} = useSelector(state => ({ test1: state.test1, test2: state.test2 }),shallowEqual); "}  </li>
-                <li> 해결방법2 </li>
-                <li> useSelector를 여러번 사용한다. </li>
-              </div>
-            </li>
-            <li>  </li>
+            <div className='block4'>
+              <li>  </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 장점, 단점 </h2>
+            <div className='block4'>
+              <li> 장점 : 캐시를 이용하여 상태를 유지하기 쉬워진다. </li>
+              <li> 단점 : 캐시에 모든 상태값들이 저장되므로 불필요한 메모리들이 낭비가 된다. </li>
+            </div>
 
             <h2 className='h2'> ✔ 예시 </h2>
             <li>
@@ -572,31 +711,6 @@ const ReactRedux = (props) => {
         </details>
       </div>
 
-
-
-      <div className='block1'>
-        <details>
-          <summary> 제목 </summary>
-          <div className='block2'>
-
-            <h2 className='h2'> 📌 설명 </h2>
-            <li> 1 </li>
-            <li> 2 </li>
-            <li> 3 </li>
-
-            <h2 className='h2'> ✔ 예시 </h2>
-            <li>
-              <div className='block3'>
-                <h3 className='h3'> 🎈 </h3>
-                <div className='block4'>
-                  <li>  </li>
-                </div>
-              </div>
-            </li>
-
-          </div>
-        </details>
-      </div>
       {/* 끝 */}
     </div>
   );

@@ -160,18 +160,23 @@
 }
 .common_style .h5 {
 }
-.common_style details::before {
-  content: "🌝";
-}
-.common_style details[open]::before {
-  content: "🌚";
-  display: inline-block;
-}
-.common_style summary {
-  display: inline-block;
-  width: 90%;
+details {
   padding-left: 10px;
 }
+summary > * {
+  display: inline;
+}
+summary {
+  cursor: pointer;
+}
+/*.common_style details::before {
+  content: "🌝";
+}
+
+.common_style details[open]::before {
+  content: "🌚";
+}*/
+
 .common_style summary:hover {
   color: red;
 }

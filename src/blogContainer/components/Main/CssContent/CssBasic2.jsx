@@ -99,15 +99,20 @@ const CssBasic2 = (props) => {
 
               <h2 className='h2'> 📌 설명 </h2>
               <li> <a href="http://cssgridgarden.com/#ko" target="_blank" rel="noopener noreferrer"> grid코딩 게임 </a> </li>
-              <li> 2 </li>
-              <li> 3 </li>
+
+              <h2 className='h2'> 📌 grid 사용 </h2>
+              <li> display: grid; </li>
 
               <h2 className='h2'> 📌 grid 공간 나누기 </h2>
               <li> grid-template: rows / columns <small> # [row,columns] ,    </small>  </li>
               <li> grid-template-columns: 20% 20% 20% 20% 20%; </li>
+              <li> grid-template-columns: repeat(4, 1fr); <small> (반복횟수,간격) </small> </li>
+              <li> grid-template-columns: repeat(4, 1fr 5fr 10fr); </li>
               <li> grid-template-rows: 20% 20% 20% 20% 20%; </li>
               <li> grid-template-rows: 1fr 5fr; <small> # 공간 1칸을 1/6,5/6으로 쪼갠다 </small> </li>
-              <li> grid-template-rows: 100px repeat(2(반복횟수), 1fr 2fr) 100px; <small> # 100px 1fr 2fr 1fr 2fr 100px</small> </li>
+              <li> grid-template-rows: 100px repeat(2, 1fr 2fr) 100px; <small> # 100px 1fr 2fr 1fr 2fr 100px</small> </li>
+              <li> grid-auto-rows: 100px; </li>
+              <li> grid-auto-rows: minmax(50px, auto) <small> (최소크기, 최대크기) </small> </li>
 
               <h2 className='h2'> 📌 grid 요소 위치 </h2>
               <li> grid-column,grid-row 2개만 사용해도 충분하다.  </li>
@@ -122,15 +127,59 @@ const CssBasic2 = (props) => {
               <li> grid-row-start: n; grid-row-end: span m; <small> # 요소가 위치할 곳이 n번째 행부터 m너비 </small> </li>
 
 
+              <h2 className='h2'> 📌 grid 간격 </h2>
+              <li> grid-gap: 5px; </li>
+              <li> grid-column: 1/3 <small> 자식요소, 가로  </small> </li>
+              <li> grid-row: 1/3 <small> 자식요소, 세로  </small> </li>
+              <li> grid-area 2/2/3/4 <small> 자식요소, rowStart/columnStart/rowEnd/columnEnd  </small> </li>
+              <li> grid-area: 명칭; <small> 자식요소 </small> </li>
+              <li> grid-template-areas: <small> 점으로 공간차지 있는것을 표시, t대신에 grid-area요소 명칭 넣기 </small>
+                <li> ". t t ." </li>
+                <li> "t t t t" </li>
+                <li> "t t t t" </li>
+                <li> ". t t ." </li>
+              </li>
+
               <h2 className='h2'> 📌 grid 요소 순위 </h2>
               <li> order: 0 <small> # default=0 </small> </li>
               <li>  </li>
 
               <h2 className='h2'> ✔ 예시 </h2>
-              <li> 소제목
+              <li>
                 <div className='block3'>
                   <h3 className='h3'> 🎈 </h3>
                   <div className='block4'>
+                    <li> display: grid; </li>
+                    <li> grid-template-columns: 1fr 1fr 1fr 1fr; </li>
+                    <li> grid-template-rows: 50px 50px; </li>
+                  </div>
+                  <div className='block4'>
+                    <li> display: grid; </li>
+                    <li> grid-template-columns: repeat(12, 1fr) </li>
+                  </div>
+                  <div className='block4'>
+                    <li> display: grid; </li>
+                    <li> grid-template-columns: repeat(4, 1fr 5fr 10fr); </li>
+                  </div>
+                  <div className='block4'>
+                    <li> display: grid; </li>
+                    <li> grid: '. . .'; </li>
+                    <li> gap: 16px; </li>
+                    <li> column-gap: 20%; </li>
+                  </div>
+                  <div className='block4'>
+                    <li> display: inline-grid; </li>
+                    <li>  </li>
+                  </div>
+                  <div className='block4'>
+                    <li> display: grid; </li>
+                    <li> grid-template-columns: repeat(4, 1fr); </li>
+                    <li> grid-auto-rows: 100px; </li>
+                  </div>
+                  <div className='block4'>
+                    <li>  </li>
+                    <li>  </li>
+                    <li>  </li>
                     <li>  </li>
                   </div>
                 </div>

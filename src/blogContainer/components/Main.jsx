@@ -22,14 +22,13 @@ import SpringJpa from './Main/SpringContent/SpringJpa';
 import SpringBasic from './Main/SpringContent/SpringBasic';
 import SpringThymeleaf from './Main/SpringContent/SpringThymeleaf';
 import SpringLombok from './Main/SpringContent/SpringLombok';
-import SpringModel from './Main/SpringContent/SpringModel';
+import SpringDaoDto from './Main/SpringContent/SpringDaoDto';
 import SpringYml from './Main/SpringContent/SpringYml';
 import SpringAPI from './Main/SpringContent/SpringAPI';
 import SpringOAuth2 from './Main/SpringContent/SpringOAuth2';
 import SpringController from './Main/SpringContent/SpringController';
 import SpringSecurity from './Main/SpringContent/SpringSecurity';
 import SpringValidator from './Main/SpringContent/SpringValidator';
-import SpringCors from './Main/SpringContent/SpringCors';
 import SpringAop from './Main/SpringContent/SpringAop';
 import SpringService from './Main/SpringContent/SpringService';
 import SpringJackson from './Main/SpringContent/SpringJackson';
@@ -40,7 +39,7 @@ import SpringTestCode from './Main/SpringContent/SpringTestCode';
 import SpringSecurityExCode1 from './Main/SpringContent/SpringSecurityExCode1';
 import SpringSecurityExCode2 from './Main/SpringContent/SpringSecurityExCode2';
 import SpringSecurityExCode3 from './Main/SpringContent/SpringSecurityExCode3';
-import SpringSecurityExCode4 from './Main/SpringContent/SpringSecurityExCode4';
+import SpringBasicEx1 from './Main/SpringContent/SpringBasicEx1';
 
 // JSP, Servlet
 import JspServletBasic from './Main/JspServletContent/JspServletBasic';
@@ -100,7 +99,6 @@ import ReactJavaScript from './Main/ReactContent/ReactJavaScript';
 import ReactHooks from './Main/ReactContent/ReactHooks';
 import ReactClass from './Main/ReactContent/ReactClass';
 import ReactAnimation from './Main/ReactContent/ReactAnimation';
-import ReactVscode from './Main/ReactContent/ReactVscode';
 import ReactRouter from './Main/ReactContent/ReactRouter';
 import ReactRedux from './Main/ReactContent/ReactRedux';
 import ReactReduxSaga from './Main/ReactContent/ReactReduxSaga';
@@ -175,6 +173,13 @@ import ApiFacebook from './Main/ApiContent/ApiFacebook';
 // 클라우드
 import CloudOracle from './Main/CloudContent/CloudOracle';
 
+// 도커
+import DockerBasic from './Main/DockerContent/DockerBasic';
+
+// CI/CD
+import CicdJenkins from './Main/CicdContent/CicdJenkins';
+import CicdGithubAction from './Main/CicdContent/CicdGithubAction';
+
 // 윈도우
 import WindowCommand from './Main/WindowContent/WindowCommand';
 import WindowSystem from './Main/WindowContent/WindowSystem';
@@ -190,7 +195,6 @@ import LinuxCentOS7 from './Main/LinuxContent/LinuxCentOS7';
 import LinuxShell from './Main/LinuxContent/LinuxShell';
 import LinuxShellScript from './Main/LinuxContent/LinuxShellScript';
 import LinuxServer from './Main/LinuxContent/LinuxServer';
-import LinuxProgramInstall from './Main/LinuxContent/LinuxProgramInstall';
 import LinuxNetwork from './Main/LinuxContent/LinuxNetwork';
 import LinuxAccountCommand from './Main/LinuxContent/LinuxAccountCommand';
 
@@ -256,7 +260,7 @@ const Main = (props) => {
         <Route path="/spring_jpa" element={<SpringJpa />} />
         <Route path="/spring_basic" element={<SpringBasic />} />
         <Route path="/spring_thymeleaf" element={<SpringThymeleaf />} />
-        <Route path="/spring_model" element={<SpringModel />} />
+        <Route path="/spring_dao_dto" element={<SpringDaoDto />} />
         <Route path="/spring_lombok" element={<SpringLombok />} />
         <Route path="/spring_yml" element={<SpringYml />} />
         <Route path="/spring_api" element={<SpringAPI />} />
@@ -264,7 +268,6 @@ const Main = (props) => {
         <Route path="/spring_security" element={<SpringSecurity />} />
         <Route path="/spring_controller" element={<SpringController />} />
         <Route path="/spring_validator" element={<SpringValidator />} />
-        <Route path="/spring_cors" element={<SpringCors />} />
         <Route path="/spring_aop" element={<SpringAop />} />
         <Route path="/spring_service" element={<SpringService />} />
         <Route path="/spring_jackson" element={<SpringJackson />} />
@@ -275,7 +278,7 @@ const Main = (props) => {
         <Route path="/spring_securityexcode1" element={<SpringSecurityExCode1 />} />
         <Route path="/spring_securityexcode2" element={<SpringSecurityExCode2 />} />
         <Route path="/spring_securityexcode3" element={<SpringSecurityExCode3 />} />
-        <Route path="/spring_securityexcode4" element={<SpringSecurityExCode4 />} />
+        <Route path="/spring_basic_ex1" element={<SpringBasicEx1 />} />
 
         {/* JSP , Servlet */}
         <Route path="/jspservlet_information" element={<JspServletInformation />} />
@@ -337,7 +340,6 @@ const Main = (props) => {
         <Route path="/react_hooks" element={<ReactHooks />} />
         <Route path="/react_class" element={<ReactClass />} />
         <Route path="/react_animation" element={<ReactAnimation />} />
-        <Route path="/react_vscode" element={<ReactVscode />} />
         <Route path="/react_router" element={<ReactRouter />} />
         <Route path="/react_modal" element={<ReactModal />} />
         <Route path="/react_redux" element={<ReactRedux />} />
@@ -413,6 +415,13 @@ const Main = (props) => {
         {/* 클라우드 */}
         <Route path="/cloud_oracle" element={<CloudOracle />} />
 
+        {/* 도커 */}
+        <Route path="/docker_basic" element={<DockerBasic />} />
+
+        {/* CI/CD */}
+        <Route path="/cicd_jenkins" element={<CicdJenkins />} />
+        <Route path="/cicd_github_action" element={<CicdGithubAction />} />
+
         {/* 윈도우 */}
         <Route path="/window_command" element={<WindowCommand />} />
         <Route path="/window_system" element={<WindowSystem />} />
@@ -428,7 +437,6 @@ const Main = (props) => {
         <Route path="/linux_shell" element={<LinuxShell />} />
         <Route path="/linux_shellscript" element={<LinuxShellScript />} />
         <Route path="/linux_server" element={<LinuxServer />} />
-        <Route path="/linux_programinstall" element={<LinuxProgramInstall />} />
         <Route path="/linux_network" element={<LinuxNetwork />} />
         <Route path="/linux_account_command" element={<LinuxAccountCommand />} />
 

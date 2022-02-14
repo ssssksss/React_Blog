@@ -456,6 +456,122 @@ const ReactAxios = (props) => {
           </div>
         </details>
       </div>
+
+      <div className='block1'>
+        <details>
+          <summary> Axios에서 토큰 값 처리하기 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <div className='block4'>
+              <li> npm i jsonwebtoken </li>
+              <li> npm install jwt-simple <small> 아직 잘 모름으로 설치x </small> </li>
+            </div>
+
+            <h2 className='h2'> ✔ 예시 </h2>
+            <li>
+              <div className='block3'>
+                <h3 className='h3'> 🎈 axios response </h3>
+                <div className='block4'>
+                  <li> console.log(jwt.decode(res.data.accessToken)); </li>
+                  <li> const jwtExp = jwt.decode(res.data.accessToken).exp; </li>
+                  <li> console.log(Unix_timestamp(jwtExp)); </li>
+                </div>
+                <h3 className='h3'> 🎈 function Unix_timestamp </h3>
+                <div className='block4'>
+                  <li> {' function Unix_timestamp(t) { '}
+                    <li> {'   var date = new Date(t * 1000); '} </li>
+                    <li> {'   var year = date.getFullYear(); '} </li>
+                    <li> {'   var month = "0" + (date.getMonth() + 1); '} </li>
+                    <li> {'   var day = "0" + date.getDate(); '} </li>
+                    <li> {'   var hour = "0" + date.getHours(); '} </li>
+                    <li> {'   var minute = "0" + date.getMinutes(); '} </li>
+                    <li> {'   var second = "0" + date.getSeconds(); '} </li>
+                    <li> {'   return year + "-" + month.substr(-2) + "-" + day.substr(-2) + " " + hour.substr(-2) + ":" + minute.substr(-2) + ":" + second.substr(-2); '} </li>
+                  </li>
+                  <li> {' } '} </li>
+                </div>
+                <h3 className='h3'> 🎈 아래도 방법 </h3>
+                <div className='block4'>
+                  <li> console.log(JSON.parse(window.atob(res.data.accessToken.split(".")[1])).exp); </li>
+                </div>
+              </div>
+            </li>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> Axios Interceptor </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <div className='block4'>
+              <li>  </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> ✔ 예시 </h2>
+            <li>
+              <div className='block3'>
+                <h3 className='h3'> 🎈 </h3>
+                <div className='block4'>
+                  <li> import axios from 'axios'; </li>
+                  <li> {' const AxiosInstance = axios.create({ '}
+                    <li> {'   baseURL: "http://localhost:8080", '} </li>
+                    <li> {'   //timeout: 1000, '} </li>
+                    <li> {'   headers: { '}
+                      <li> {'     "Content-Type": "application/json", '} </li>
+                      <li> {'     "Access-Control-Allow-Origin": "*" '} </li>
+                    </li>
+                    <li> {'   }, '} </li>
+                    <li> {'   //withCredentials: true, '} </li>
+                  </li>
+                  <li> {' }); '} </li>
+                  <li>  </li> <br />
+                  <li> {" // 요청 인터셉터 추가 "} </li>
+                  <li> {" AxiosInstance.interceptors.request.use( "}
+                    <li> {"   function (config) { "}
+                      <li> {"     // 요청을 보내기 전에 수행할 일 "} </li>
+                      <li> {"     // ... "} </li>
+                      <li> {"     return config; "} </li>
+                    </li>
+                    <li> {"   }, "} </li>
+                    <li> {"   function (error) { "}
+                      <li> {"     // 오류 요청을 보내기전 수행할 일 "} </li>
+                      <li> {"     // ... "} </li>
+                      <li> {"     return Promise.reject(error); "} </li>
+                    </li>
+                  </li>
+                  <li> {"   }); "} </li>
+                  <li>  </li> <br />
+                  <li> {" // 응답 인터셉터 추가 "} </li>
+                  <li> {" AxiosInstance.interceptors.response.use( "}
+                    <li> {"   function (response) { "}
+                      <li> {"     // 응답 데이터를 가공 "} </li>
+                      <li> {"     // ... "} </li>
+                      <li> {"     return response; "} </li>
+                    </li>
+                    <li> {"   }, "} </li>
+                    <li> {"   function (error) { "}
+                      <li> {"     // 오류 응답을 처리 "} </li>
+                      <li> {"     // ... "} </li>
+                      <li> {"     return Promise.reject(error); "} </li>
+                    </li>
+                  </li>
+                  <li> {"   }); "} </li>
+                  <li> // 인터셉터 제거하는 방법 </li>
+                  <li> AxiosInstance.interceptors.request.eject(myInterceptor); </li>
+                </div>
+              </div>
+            </li>
+
+          </div>
+        </details>
+      </div>
       {/* 끝 */}
     </div>
   );

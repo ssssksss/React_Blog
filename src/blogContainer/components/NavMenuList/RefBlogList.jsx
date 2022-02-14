@@ -6,7 +6,7 @@ const RefBlogList = () => {
   return (
     <div className="navMenuContainer2">
       <div className="menu menu1">
-        <Link to="/ref_blog"> 참고 블로그 </Link>
+        <Link to="ref_blog"> 참고 블로그 </Link>
       </div>
       <div className="menu menu2">
 

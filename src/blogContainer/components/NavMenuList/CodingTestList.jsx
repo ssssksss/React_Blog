@@ -6,10 +6,10 @@ const CodingTestList = () => {
   return (
     <div className="navMenuContainer2">
       <div className="menu menu1">
-        <Link to="/codingtest_baekjoon"> 백준 알고리즘 </Link>
+        <Link to="codingtest_baekjoon"> 백준 알고리즘 </Link>
       </div>
       <div className="menu menu2">
-        <Link to="/">  </Link>
+        <Link to="">  </Link>
       </div>
     </div>
   );

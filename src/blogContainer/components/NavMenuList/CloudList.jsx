@@ -6,10 +6,10 @@ const CloudList = () => {
   return (
     <div className="navMenuContainer2">
       <div className="menu menu1">
-        <Link to="/cloud_oracle"> 클라우드 오라클 </Link>
+        <Link to="cloud_oracle"> 클라우드 오라클 </Link>
       </div>
       <div className="menu menu2">
-        <Link to="/">  </Link>
+        <Link to="">  </Link>
       </div>
     </div>
   );

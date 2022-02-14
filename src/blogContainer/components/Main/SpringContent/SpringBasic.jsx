@@ -5,6 +5,22 @@ const SpringBasic = (props) => {
   return (
     <div className="common_style">
 
+      <div className='block1'>
+        <details>
+          <summary> 스프링 기초 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <div className='block4'>
+              <li> 스프링 버전 확인 :  <span className='command'> ./gradlew --version </span> </li>
+              <li> 스프링과 스프링 시큐리티 버전은 맞추어서 사용해야 한다. </li>
+              <li>  </li>
+            </div>
+
+
+          </div>
+        </details>
+      </div>
 
       <div className='block1'>
         <details>
@@ -47,7 +63,7 @@ const SpringBasic = (props) => {
             </div>
             <li> 생성자가 1개일 때 스프링에서 지원하는 방식, 위의 예시와 같다. </li>
             <div className="block4">
-              <li> <small> @Autowire를 안붙여도 스프링 4.3부터 생성자가 1개이면 알아서 지원을 해준다. </small> </li>
+              <li> <small> @Autowire를 안붙여도 스프링 4.3부터 생성자가 1개이면 알아서 지원을 해준다. @RequiredArgsConstructor 필요 </small> </li>
               <li> private final Obj obj; </li>
             </div>
 

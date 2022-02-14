@@ -55,6 +55,19 @@ const JavaBasic2 = (props) => {
             <li> LocalDateTime.ofInstant(new Date().toInstant(), ZoneId.systemDefault()); , java.util.Date을 LocalDateTime로 변환 </li>
             <li>  </li>
 
+            <h2 className='h2'> 📌 날짜로 요일 구하기 </h2>
+            <li> (자바8 이후)  </li>
+            <div className="block4">
+              <li> LocalDate date = LocalDate.of(1111,11,11); </li>
+              <li> DayOfWeek dayOfWeek = date.getDayOfWeek(); </li>
+              <li> (참고) dayOfWeek.getDisplayName(TextStyle.[FULL,NARROW,SHORT], [Locale.US, Locale.KOREAN]); <small> Monday, M, Mon </small> </li>
+              <li> 요일 = dayOfWeek.getValue(); <small> 1~7 </small> </li>
+            </div>
+            <li> (자바8 이전) </li>
+            <div className="block4">
+              <li> <a href="https://hianna.tistory.com/610" target="_blank" rel="noopener noreferrer"> 참고 </a> </li>
+            </div>
+
             <h2 className='h2'> 📌 설명 </h2>
             <li>  </li>
 
@@ -139,6 +152,56 @@ const JavaBasic2 = (props) => {
 
             <h2 className='h2'> 📌  </h2>
             <li>  </li>
+
+            <h2 className='h2'> ✔ 예시 </h2>
+            <li>
+              <div className='block3'>
+                <h3 className='h3'> 🎈 </h3>
+                <div className='block4'>
+                  <li>  </li>
+                </div>
+              </div>
+            </li>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> Optional </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <div className='block4'>
+              <li> T타입의 객체를 포장해주는 래퍼 클래스 </li>
+              <li> Null을 예외처리하지 않고 처리가 가능하다는 장점이 있다. </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 메소드 </h2>
+            <div className='block4'>
+              <li> opt.isEmpty() <small> 값이 존재하는지 boolean값 리턴  </small> </li>
+              <li> opt.orElseGet() <small> 저장된 값이 존재하면 값을 반환 값이 없으면 인수로 전달된
+                람다 표현식 결과값 반환 </small> </li>
+              <li> Optional.of() <small> # 저장된 값이 존재하면 입력된 값을 반환 없으면 인수로 전달된 예외를 발생 </small> </li>
+              <div className="block3">
+                <li> Optional{'<String>'} opt = Optional.of("result"); </li>
+              </div>
+              <li> Optional.ofNullable() <small> # value가 null인 경우 Optional 반환 </small> </li>
+              <div className="block3">
+                <li> {' Optional<String> opt = Optional.ofNullable(객체); '} </li>
+                <li> 객체가 존재하지 않으면 return Optional.empty + 에러발생 </li>
+                <li> 객체가 존재하면 return Optional객체 </li>
+              </div>
+              <li> Optional.empty() </li>
+              <li> opt.isPresent()  <small> 객체가 존재하는지 여부 판단, 있으면 true </small> </li>
+              <li> Optional.ofNullable(객체).isPresent();  <small>  객체가 존재하는지 여부 판단, 있으면 true </small> </li>
+              <li> opt.orElse()  <small> 옵셔널 객체가 null이든 아니든 실행 기본값으로 제공할 객체를 지정 </small> </li>
+              <li> Optional.ofNullable(객체).orElse(객체,문자열); <small>  객체값이 Null일때 사용할 문자열이나 객체를 지정  </small> </li>
+              <li> opt.orElseGet()  <small>  옵셔널 객체가 null일 때만 실행 , 기본값으로 제공할 공급자함수 지정 </small> </li>
+              <li> opt.orElseThrow()  <small>  옵셔널 객체가 비어있으면 , 예외 공급자함수를 통해 예외 발생 </small> </li>
+            </div>
 
             <h2 className='h2'> ✔ 예시 </h2>
             <li>

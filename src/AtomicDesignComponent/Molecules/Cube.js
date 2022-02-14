@@ -18,7 +18,6 @@ const Container = styled.div`
   animation: ${rotation} 10s linear infinite;
   left: 0px;
   top: 0px;
-  z-index: 1;
 
   &:hover {
     animation-play-state: paused

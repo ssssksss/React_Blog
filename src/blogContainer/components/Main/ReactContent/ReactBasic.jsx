@@ -90,6 +90,66 @@ const ReactBasic = (props) => {
 
       <div className='block1'>
         <details>
+          <summary> Class, Function, Hooks </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 Class </h2>
+            <div className="block4">
+              <li> 상태, 라이프 사이클 기능 사용 가능 </li>
+              <li> 메서드를 정의 할 수 있다. </li>
+              <li> 상태는 객체형식, 초기값 선언하고 setState함수 사용가능 </li>
+              <li>  </li>
+            </div>
+            <div className='block4'>
+              <li> 클래스 컴포넌트 기본 형식
+                <div className="block3">
+                  <li> {" import React, {Component} from 'react'; "} </li>
+                  <li> Class App extends Component {"{"}
+                    <li> render() {"{"}
+                      <li> const test=1; </li>
+                      <li> {" return <> </> "} </li>
+                    </li>
+                    <li> {"}"} </li>
+                  </li>
+                  <li> {"}"} </li>
+                  <li> export default App; </li>
+                </div>
+              </li>
+            </div>
+
+            <h2 className='h2'> 📌 Function </h2>
+            <div className='block4'>
+              <li> 함수형 컴포넌트 기본 형식
+                <div className="block3">
+                  <li> import React from 'react';  </li>
+                  <li> function App() {"{"}
+                    <li> const test=1; </li>
+                    <li> {" return <> </> "} </li>
+                  </li>
+                  <li> {"}"} </li>
+                  <li> export default App; </li>
+                </div>
+              </li>
+              <li> 상태와 라이프 사이클을 사용 못함(훅으로 해결가능) </li>
+              <li> useState를 이용하여 상태값 재정의 가능 </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 Hooks </h2>
+            <div className='block4'>
+              <li> react 16.8버전에 추가되었다고 한다. </li>
+              <li> 클래스 컴포넌트에서 사용할 수 있는 기술을 사용할 수 있게 해준다. </li>
+              <li> 생명주기, 상태값관리 등을 함수형 컴포넌트에서 사용하게 해준다. </li>
+              <li>  </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
           <summary> 리액트 기초 설명 </summary>
           <div className='block2'>
 
@@ -197,6 +257,22 @@ const ReactBasic = (props) => {
                   <li> {" ))} "} </li>
                   <li>  </li>
                 </div>
+              </div>
+            </li>
+
+            <h2 className='h2'> ✔ 예시 </h2>
+            <li>
+              <h3 className='h3'> 🎈 정적인 배열 사용방법 </h3>
+              <div className='block4'>
+                <li> {" let [list, setList] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]); "} </li>
+                <li> {" const mapTest = list.map((i) => <TodoItem> {i} </TodoItem>); "} </li>
+              </div>
+            </li>
+            <li>
+              <h3 className='h3'> 🎈 동적인 배열 사용방법 </h3>
+              <div className='block4'>
+                <li>  </li>
+                <li>  </li>
               </div>
             </li>
 

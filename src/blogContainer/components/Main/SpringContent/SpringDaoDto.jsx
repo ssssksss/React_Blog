@@ -1,4 +1,8 @@
 import React, { useEffect, useRef } from 'react';
+import GridTableCountNRow100px from '../../Templates/Grid/GridTableCountNRow100px';
+import GridColumn from '../../Templates/Grid/GridColumn';
+import GridRow from '../../Templates/Grid/GridRow';
+import GridField from '../../Templates/Grid/GridField';
 
 const SpringModel = (props) => {
 
@@ -7,42 +11,145 @@ const SpringModel = (props) => {
 
       <div className='block1'>
         <details>
-          <summary> 자바스크립트와 스프링 데이터 비교 </summary>
+          <summary> Dao 설명 </summary>
           <div className='block2'>
 
             <h2 className='h2'> 📌 설명 </h2>
-            <li> 자바스크립트 Axios 👉 스프링  </li>
-            <li> new Date() 👉 String <small> "Thu Jan 06 2022 02:54:07 GMT+0900 (한국 표준시)" </small>  </li>
-            <li> new Date() 👉 LocalDate ❌ </li>
-            <li> new Date() 👉 LocalTime ❌ </li>
-            <li> "11.11.11" 👉 LocalDate ❌ </li>
-            <li> "[11.11.11]" 👉 LocalDate ❌ </li>
-            <li> "11:11:11" 👉 LocalTime ❌ </li>
-            <li> String 👉 String ✅ , String으로 주면 알아서 변환하기, 빌더패턴 이용해서 스프링에서 바꾸어줘도 된다.(테스트완료) </li>
-            <li> "2020-11-11 12:12:12" 👉 @DateTimeFormat(pattern="yyyy-MM-dd'T'HH:mm:ss") ❌ </li>
-            <li> "2020-11-11 12:12:12" 👉 @DateTimeFormat(pattern="yyyy-MM-ddTHH:mm:ss") ❌ </li>
-            <li> "2020-11-11 12:12:12" 👉 @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss") ✅
-              <small> 주의: 생성자,빌더,set으로 받아오는 매개변수에 선언해야한다. , @RequestBody에서 사용 </small> </li>
-            <li> "2020-11-11 12:12:12" 👉  </li>
-            <li> "2020-11-11 12:12:12" 👉  </li>
-            <li>  </li>
-            <li>  </li>
+            <div className='block4'>
+              <li>  </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
           </div>
         </details>
       </div>
 
       <div className='block1'>
         <details>
-          <summary> mysql과 스프링 데이터 비교 </summary>
+          <summary> Dao 예시 </summary>
           <div className='block2'>
 
+            {/*<h2 className='h2'> 📌 설명 </h2>
+            <div className='block4'>
+              <li>  </li>
+              <li>  </li>
+              <li>  </li>
+            </div>*/}
+
+            <h2 className='h2'> ✔ 예시 </h2>
+            <li>
+              <div className='block3'>
+                <h3 className='h3'> 🎈  </h3>
+                <div className='block4'>
+                  <li> @Getter </li>
+                  <li> @Builder </li>
+                  <li> @Entity </li>
+                  <li> @Table(name="User") <small> 데이터베이스 이름 명시 </small> </li>
+                  <li> public class UserDao {"{"}
+                    <li> @Id </li>
+                    <li> @GeneratedValue(strategy = GenerationType.IDENTITY) </li>
+                    <li> private Long id; </li>
+                    <li>  </li>
+                    <li>  </li>
+                  </li>
+                  <li> {"}"} </li>
+                </div>
+              </div>
+            </li>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> @Id @Column @GeneratedValue </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 @Id </h2>
+            <div className="block4">
+              <li> 식별자로 사용할 변수 위에 선언 </li>
+              <li> 엔티티 식별자로 사용, DB테이블의 PK로도 사용이 된다. </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 @Column </h2>
+            <div className="block4">
+              <li> nullable = false 를 사용하면 엔티티 필드에는 들어감 (@Notnull 추천)   </li>
+              <h2 className='h2'> 📌 속성 </h2>
+              <li> @Column(name="이름") </li>
+              <li> @Column(nullable = false) , false(null비허용), true(null허용,기본값) </li>
+              <li> @Column(unique=true) , unique 속성 설정 </li>
+              <li> @Column(length=10) , 길이 10글자까지 </li>
+              <li> @Column(columnDefinition="데이터타입 제약조건 '제약조건값'") </li>
+            </div>
+
+            <h2 className='h2'> 📌 @GeneratedValue </h2>
+            <li> PK값을 가진 변수위에 선언, PK의 값을 자동 생성하는 방법 </li>
+            <div className='block4'>
+              <li> @GenerateValue(strategy = GenerationType.[IDENTITY] : DB의 identity 컬럼을 이용 <small> mysql에서 사용, auto increment </small> </li>
+              <div className="block3">
+                <li> transaction.commit()이 아니라 entityManager.persist() 사용할 때 insert 호출   </li>
+                <li> insert를 호출하고 바로 Id값을 받고 영속성 컨텍스트에 저장한다. </li>
+              </div>
+            </div>
+            <div className="block4">
+              <li> @GenerateValue(strategy = GenerationType.[ATUO] : (persistence provider)가 특정 DB에 맞게 자동 선택(오라클은 sequence, mysql은 auto_increment) </li>
+            </div>
+            <div className="block4">
+              <li> @GenerateValue(strategy = GenerationType.[TABLE] : 유일성이 보장된 데이터베이스 테이블을 이용 , @TableGenerator와 같이 사용 </li>
+              <div className="block3">
+                <li> TableGenerator 필요 </li>
+                <li> 키를 생성하는 테이블을 만들어서 사용하여 모든 DB에 적용을 할 수 있다. </li>
+                <li> @TableGenerator(name="TEM_SEQ_GENERATOR",table="TEAM_SEQUENCES",pkColumnValue="TEAM_SEQ",allocationSize=1) </li>
+              </div>
+            </div>
+            <div className="block4">
+              <li> @GenerateValue(strategy = GenerationType.[SEQUENCE] : DB의 시퀸스 컬럼을 이용, 여러개의 데이터를 수정하거나 삽입하는 경우 사용 , Oracle에서 사용 </li>
+              <div className="block3">
+                <li> @SequenceGenrator(name="TEAM_SEQ_GENERATOR", sequenceName="TEAM_SEQ"(매핑할 DB시퀸스 이름),
+                  initialValue=1(시작값), allocationSize=1(증가값))를 클래스에 선언 </li>
+              </div>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> 유효성 관련 어노테이션 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 gradle 설정 </h2>
+            <div className='block4'>
+              <li> implementation 'org.springframework.boot:spring-boot-starter-validation' </li>
+            </div>
+
             <h2 className='h2'> 📌 설명 </h2>
-            <li> 스프링 👉 mysql </li>
-            <li> String 👉 varchar(255) </li>
-            <li> LocalDate 👉 date </li>
-            <li> Boolean 👉 bit(1) </li>
-            <li> 👉 </li>
-            <li> 👉 </li>
+            <div className='block4'>
+              <li> @Builder.Default </li>
+              <li> @Positive @PositiveOrZero @Negative @NegativeOrZero </li>
+              <li> @Size(min=1,max=2) @Min(1) @Max(2) </li>
+              <li> @Null </li>
+              <li> @NotNull # Null 불가능 </li>
+              <li> @NotEmpty # Null, 빈문자열("") 불가능 , " " 은 가능 </li>
+              <li> @NotBlank # Null, 빈문자열("") , " " 모두 불가능</li>
+              <li> @Pattern(regex="이곳에 정규표현식 작성") </li>
+              <li> @Future @FutureOrPresent @Past @PastOrPresent </li>
+              <li> @Email </li>
+              <li> @AssertTrue @AssertFalse # 값이 항상 true거나 false </li>
+              <li> @Digits(integer= 최대허용되는정수자릿수 , fraction = 최대허용되는소수자릿수 ) </li>
+              <li> @DecimalMax(value=) @DecimalMin(value=) </li>
+              <li> 어노테이션에 추가 속성 : message="에러 날 경우 메시지 표현" </li>
+              <li> @Getter: getter 메소드 </li>
+              <li> @Setter: setter 메소드, 일반적으로 사용을 하지 않음 </li>
+              <li> @org.hibernate.annotations.DynamicUpdate : 엔티티에 선언하며 레코드를 전체 업데이트 하지않고
+                일부만 업데이트를 하게 해준다.  </li>
+              <li> @NamedQuery(name="ENTITY.Repository메소드명",query="사용자정의쿼리작성") </li>
+              <li> @Temporal(TemporalType.TIMESTAMP) # 자바의 날짜 타입 사용 </li>
+            </div>
 
           </div>
         </details>
@@ -111,6 +218,135 @@ const SpringModel = (props) => {
 
       <div className='block1'>
         <details>
+          <summary> (spring, mysql, oracle, js) 데이터 비교 </summary>
+          <div className='block2'>
+            <div className="block4">
+              <GridTableCountNRow100px count="5">
+                <div> </div>
+                <GridColumn> 스프링 </GridColumn>
+                <GridColumn> mysql </GridColumn>
+                <GridColumn> oracle </GridColumn>
+                <GridColumn> 자바스크립트 </GridColumn>
+
+                <GridRow> 문자열 </GridRow>
+                <GridField> String </GridField>
+                <GridField> varchar(255) </GridField>
+                <GridField>  </GridField>
+                <GridField> String </GridField>
+
+                <GridRow> 문자 </GridRow>
+                <GridField>  </GridField>
+                <GridField>  </GridField>
+                <GridField>  </GridField>
+                <GridField>  </GridField>
+
+                <GridRow> 날짜 </GridRow>
+                <GridField> LocalDate </GridField>
+                <GridField> date </GridField>
+                <GridField>  </GridField>
+                <GridField>  </GridField>
+
+                <GridRow> 날짜 </GridRow>
+                <GridField> LocalDateTime </GridField>
+                <GridField>  </GridField>
+                <GridField>  </GridField>
+                <GridField>  </GridField>
+
+                <GridRow> 큰 정수 </GridRow>
+                <GridField> Long </GridField>
+                <GridField> bigint </GridField>
+                <GridField>  </GridField>
+                <GridField>  </GridField>
+
+                <GridRow> 정수 </GridRow>
+                <GridField> Integer </GridField>
+                <GridField>  </GridField>
+                <GridField>  </GridField>
+                <GridField>  </GridField>
+
+                <GridRow> 참,거짓일때 </GridRow>
+                <GridField> Boolean </GridField>
+                <GridField> bit(1) </GridField>
+                <GridField>  </GridField>
+                <GridField>  </GridField>
+
+                <GridRow>  </GridRow>
+                <GridField>  </GridField>
+                <GridField>  </GridField>
+                <GridField>  </GridField>
+                <GridField>  </GridField>
+
+              </GridTableCountNRow100px>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> @CreationTimestamp @UpdateTimestamp  </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <li> hibernate 어노테이션 </li>
+
+            <h2 className='h2'> 📌 @CreationTimestamp </h2>
+            <li> INSERT 쿼리가 발생할 때 현재의 시간을 넣어준다. </li>
+
+            <h2 className='h2'> 📌 @UpdateTimestamp </h2>
+            <li> UPDATE 쿼리가 발생할 때 현재의 시간을 넣어준다. </li>
+
+            <h2 className='h2'> ✔ 예시 </h2>
+            <li>
+              <div className='block3'>
+                <h3 className='h3'> 🎈 </h3>
+                <div className='block4'>
+                  <li>     @CreationTimestamp </li>
+                  <li>     @Column(name = "created_at") </li>
+                  <li>     private LocalDateTime createdAt; </li>
+                  <li>  </li>
+                  <li>     @Column(name = "updated_at") </li>
+                  <li>     @UpdateTimestamp </li>
+                  <li>     private LocalDateTime updatedAt; </li>
+                </div>
+              </div>
+            </li>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <br />
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> 자바스크립트와 스프링 데이터 비교 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <li> 자바스크립트 Axios 👉 스프링  </li>
+            <li> new Date() 👉 String <small> "Thu Jan 06 2022 02:54:07 GMT+0900 (한국 표준시)" </small>  </li>
+            <li> new Date() 👉 LocalDate ❌ </li>
+            <li> new Date() 👉 LocalTime ❌ </li>
+            <li> "11.11.11" 👉 LocalDate ❌ </li>
+            <li> "[11.11.11]" 👉 LocalDate ❌ </li>
+            <li> "11:11:11" 👉 LocalTime ❌ </li>
+            <li> "2020-11-11 12:12:12" 👉 @DateTimeFormat(pattern="yyyy-MM-dd'T'HH:mm:ss") ❌ </li>
+            <li> "2020-11-11 12:12:12" 👉 @DateTimeFormat(pattern="yyyy-MM-ddTHH:mm:ss") ❌ </li>
+            <li> "2020-11-11 12:12:12" 👉 @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss") ✅
+              <small> 주의: 생성자,빌더,set으로 받아오는 매개변수에 선언해야한다. , @RequestBody에서 사용 </small> </li>
+            <li> "2020-11-11 12:12:12" 👉  </li>
+            <li> "2020-11-11 12:12:12" 👉  </li>
+            <li>  </li>
+            <li>  </li>
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
           <summary> serialVersionUID </summary>
           <div className='block2'>
 
@@ -156,177 +392,9 @@ const SpringModel = (props) => {
 
       <div className='block1'>
         <details>
-          <summary> @CreationTimestamp @UpdateTimestamp  </summary>
-          <div className='block2'>
-
-            <h2 className='h2'> 📌 설명 </h2>
-            <li> hibernate 어노테이션 </li>
-
-            <h2 className='h2'> 📌 @CreationTimestamp </h2>
-            <li> INSERT 쿼리가 발생할 때 현재의 시간을 넣어준다. </li>
-
-            <h2 className='h2'> 📌 @UpdateTimestamp </h2>
-            <li> UPDATE 쿼리가 발생할 때 현재의 시간을 넣어준다. </li>
-
-            <h2 className='h2'> ✔ 예시 </h2>
-            <li>
-              <div className='block3'>
-                <h3 className='h3'> 🎈 </h3>
-                <div className='block4'>
-                  <li>     @CreationTimestamp </li>
-                  <li>     @Column(name = "created_at") </li>
-                  <li>     private LocalDateTime createdAt; </li>
-                  <li>  </li>
-                  <li>     @Column(name = "updated_at") </li>
-                  <li>     @UpdateTimestamp </li>
-                  <li>     private LocalDateTime updatedAt; </li>
-                </div>
-              </div>
-            </li>
-
-          </div>
-        </details>
-      </div>
-
-      <div className='block1'>
-        <details>
           <summary> ----------------------------------------------------- </summary>
-          <div className='block2'>
-          </div>
         </details>
       </div>
-
-      <div className='block1'>
-        <details>
-          <summary> @Id, @Column </summary>
-          <div className='block2'>
-
-            <h2 className='h2'> 📌 @Id 설명 </h2>
-            <li> 식별자로 사용할 변수 위에 선언 </li>
-            <li> 엔티티 식별자로 사용, DB테이블의 PK로도 사용이 된다. </li>
-
-            <h2 className='h2'> 📌 @Column 설명 </h2>
-            <li> nullable = false 를 사용하면 엔티티 필드에는 들어감 (@Notnull 추천)   </li>
-
-            <h2 className='h2'> 📌 속성 </h2>
-            <li> @Column(name="이름") </li>
-            <li> @Column(nullable = false) , false(null비허용), true(null허용,기본값) </li>
-            <li> @Column(unique=true) , unique 속성 설정 </li>
-            <li> @Column(length=10) , 길이 10글자까지 </li>
-            <li> @Column(columnDefinition="데이터타입 제약조건 '제약조건값'") </li>
-
-            <h2 className='h2'> ✔ 예시 </h2>
-            <li>
-              <h3 className='h3'> 🎈 </h3>
-              <div className='block4'>
-                <li> @Id </li>
-                <li> @Column(name="DB필드명", unique=true, nullable=false, length=10, columnDefinition="데이터타입 제약조건 '제약조건값'" )</li>
-                <li> private String id; </li>
-              </div>
-            </li>
-
-          </div>
-        </details>
-      </div>
-
-      <div className='block1'>
-        <details>
-          <summary> Entity (정리할 필요 있음) </summary>
-          <div className='block2'>
-
-            <h2 className="h2"> 📌 설명 </h2>
-            <li> 관계형 데이터베이스에서 테이블을 만들듯이 JPA가 참조할 테이블을 만들어 둔것 </li>
-            <li> DB와 매핑되는 클래스 객체 </li>
-            <li> DB테이블에 들어간 컬럼들을 작성 </li>
-            <li> DB테이블하고 매핑이 되므로 변경이 되지 않게 해야한다. </li>
-            <li> Setter 메소드를 사용하지 말고 Builder로 생성자를 만들어서 사용한다. </li>
-            <li>  </li>
-
-            <h2 className="h2"> 📌 Entity 관련 어노테이션 </h2>
-            <li> @Entity(name="") <small> # Entity를 명시 </small> </li>
-            <li> @Table(name="") <small> # Table 이름 명시 </small> </li>
-            <li> @Id <small> # JPA가 식별자로 사용, PK를 뜻하는 필드를 지정, @GeneratedValue 하고 주로 같이 사용 </small> </li>
-            <li> @GeneratedValue(strategy = GenerationType.IDENTITY) <small># MYSQL Auto_Increment</small></li>
-            <li> @GeneratedValue(strategy = GenerationType.SEQUENCE) <small># Oracle, @SequenceGenerator 필요</small> </li>
-            <li> @GeneratedValue(strategy = GenerationType.TABLE) <small># TABLE, @TableGenerator 필요</small> </li>
-            <li> @GeneratedValue(strategy = GenerationType.AUTO)<small># 선택한 dialect에 따라 자동 선택(default) </small>  </li>
-            <li> @Column(name="DB 필드명", length = 10, nullable = false, unique=false,
-              columnDefinition = "DB필드타입 제약조건 '제약조건값'", )
-              <small> # 필수로 사용할 필요는 없고 DB테이블의 필드명과 일치하면 자동으로 매핑이 된다.만약에 일치하지 않으면
-                name="" 속성에 적어서 맞추어 줄수 있고 DB에서 사용하는 제약조건 등을 지정할 수도 있다.</small></li>
-            <li> implementation 'org.springframework.boot:spring-boot-starter-validation' </li>
-            <li> @Positive @PositiveOrZero @Negative @NegativeOrZero </li>
-            <li> @Size(min=1,max=2) @Min(1) @Max(2) </li>
-            <li> @Null </li>
-            <li> @NotNull # Null 불가능 </li>
-            <li> @NotEmpty # Null, 빈문자열("") 불가능 , " " 은 가능 </li>
-            <li> @NotBlank # Null, 빈문자열("") , " " 모두 불가능</li>
-            <li> @Pattern(regex="이곳에 정규표현식 작성") </li>
-            <li> @Future @FutureOrPresent @Past @PastOrPresent </li>
-            <li> @Email </li>
-            <li> @AssertTrue @AssertFalse # 값이 항상 true거나 false </li>
-            <li> @Digits(integer= 최대허용되는정수자릿수 , fraction = 최대허용되는소수자릿수 ) </li>
-            <li> @DecimalMax(value=) @DecimalMin(value=) </li>
-            <li> 어노테이션에 추가 속성 : message="에러 날 경우 메시지 표현" </li>
-            <li> @Getter: getter 메소드 </li>
-            <li> @Setter: setter 메소드, 일반적으로 사용을 하지 않음 </li>
-            <li> @NoArgsConstructor: 기본 생성자</li>
-            <li> @AllArgsConstructor: </li>
-            <li> @Entity: Entity 클래스라고 선언, DB테이블과 매칭되는 클래스, DB테이블이(aa_bb_cc)이면
-              Entity이름은 AaBbCc와 같이 첫글자는 대문자이고 _문자를 없애고 그 뒤에 글자를 대문자로 치환한다.</li>
-            <li> @Id: 식별자를 지정, @GeneratedValue 하고 주로 같이 사용 </li>
-            <div className="block4">
-              <li> @GeneratedValue(strategy = GenerationType.IDENTITY) <small># MYSQL Auto_Increment</small></li>
-              <li> @GeneratedValue(strategy = GenerationType.SEQUENCE) <small># Oracle, @SequenceGenerator 필요</small> </li>
-              <li> @GeneratedValue(strategy = GenerationType.TABLE) <small># TABLE, @TableGenerator 필요</small> </li>
-              <li> @GeneratedValue(strategy = GenerationType.AUTO)<small># 선택한 dialect에 따라 자동 선택(default) </small>  </li> <br />
-            </div>
-            <li> @Table(name="") DB의 테이블명과 매핑을 시켜주는 어노테이션 </li>
-            <li> @Column(name="DB 필드명", length = 10, nullable = false, unique=false,
-              columnDefinition = "DB필드타입 제약조건 '제약조건값'", )
-              필수로 사용할 필요는 없고 DB테이블의 필드명과 일치하면 자동으로 매핑이 된다.만약에 일치하지 않으면
-              name="" 속성에 적어서 맞추어 줄수 있고 DB에서 사용하는 제약조건 등을 지정할 수도 있다.</li>
-            <li> @Builder: </li>
-            <li> @org.hibernate.annotations.DynamicUpdate : 엔티티에 선언하며 레코드를 전체 업데이트 하지않고
-              일부만 업데이트를 하게 해준다.  </li>
-            <li> @NamedQuery(name="ENTITY.Repository메소드명",query="사용자정의쿼리작성") </li>
-            <li> @Temporal(TemporalType.TIMESTAMP) # 자바의 날짜 타입 사용 </li>
-
-            <h2 className="h2"> ✔ 예시 </h2>
-            <li> 소제목
-              <div className='block3'>
-                <li> <h3 className="h3"> 🎈 Entity 클래스 </h3>
-                  <div className="block4">
-                    <li> @Entity <small> # entity를 명시 </small> </li>
-                    <li> @Getter<small>  </small></li>
-                    <li> @Setter<small>  </small></li>
-                    <li> @AllArgsConstructor<small>  </small> </li>
-                    <li> @NoArgsConstructor <small>  </small></li>
-                    <li> @ToString <small>  </small></li>
-                    <li> public class BoardEntity {'{'}
-                      <li> </li> <br />
-                      <li> @Id <small> # 식별 지정자 </small> </li>
-                      <li> @GeneratedValue(strategy = GenerationType.AUTO) </li>
-                      <li> @Column(name="board_no") </li>
-                      <li> private Long boardNo; </li> <br />
-
-                      <li> @Column(name="board_title") </li>
-                      <li> private String boardTitle; </li> <br />
-
-                      <li> @Column(name="board_content") </li>
-                      <li> private String boardContent; </li>
-                    </li>
-                    <li> {'}'} </li>
-                  </div>
-                </li> <br />
-              </div>
-            </li>
-
-          </div>
-        </details>
-      </div>
-
-
 
       <div className='block1'>
         <details>
@@ -354,10 +422,6 @@ const SpringModel = (props) => {
 
           </div>
         </details>
-      </div>
-
-      <div className='block1'>
-        <br />
       </div>
 
       <div className='block1'>
@@ -425,7 +489,7 @@ const SpringModel = (props) => {
             <li> 논리적인 개념에 가까움</li>
             <li> Persistence Context에 EntityManager가 접근하여 Entity를 관리한다.  </li>
             <div className="block4">
-              <img alt="" style={{ width: "60%" }} src={process.env.PUBLIC_URL + '/img/SpringModel/EntityManager.svg'} alt="" />
+              <img alt="" style={{ width: "60%" }} src={process.env.PUBLIC_URL + '/img/SpringModel/EntityManager.svg'} />
               <li> em.persist(ENTITY_INSTANCE) <small> # 영속성 상태로 만듬 </small> </li>
               <li> em.detach(ENTITY_INSTANCE) <small> # 영속상태를 준영속상태로 만듬 </small> </li>
               <li> em.clear() <small> # Persistence Context 초기화 </small> </li>

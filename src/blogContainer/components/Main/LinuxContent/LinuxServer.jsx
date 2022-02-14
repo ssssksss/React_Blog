@@ -177,45 +177,6 @@ const LinuxServer = (props) => {
         {/*  */}
         <span className="mblock">
           <details>
-            <summary className="stitle">  네트워크 연결 <small> </small>
-              <a name="" style={{ visibility: "hidden" }}>  </a> </summary>
-            <span className="sblock">
-              <span className="sstitle"> 초기 연결 </span>
-              <span className="mblock">
-                <li> <h3> CentOS7 </h3>
-                  <li> ping 8.8.8.8 #연결이 되었는지 확인 </li>
-                  <li> vi /etc/sysconfig/network-scripts/ifcfg-ens33 에서 코드를 변경하거나 추가
-                    <li> BOOTPROTO="dhcp"에서 BOOTPROTO="static" 으로 변경 # ip주소를 고정해주겠다. </li>
-                    <li> IPADDR=고정IP주소 (ex 192.168.10.80)  </li>
-                    <li> PREFIX=24 #24까지가 네트워크 대역이다라고 알려주는것 </li>
-                    <li> GATEWAY=192.168.10.2 (ex 게이트 웨이 주소) </li>
-                    <li> DNS1=8.8.8.8 (ex DNS서버 주소 , default값 168.126.63.1)  </li>
-                  </li>
-                  <li> <h4> 방화벽 설정 </h4>
-                    <li> firewall-cmd --list-all  # 방화벽 리스트 확인 </li>
-                    <li> firewall-cmd --permanent --add-port=포트번호/tcp  # 방화벽 포트 허용 </li>
-                    <li> firewall-cmd --reload  # 방화벽 재시작 </li>
-                  </li>
-                  <li> systemctl restart network </li>
-                  <li>  </li>
-                </li>
-                <li> <h3> Ubuntu </h3>
-                  <li>  </li>
-                </li>
-                <li>  </li>
-              </span>
-              {/*  */}
-              <span className="sstitle">  </span>
-              <span className="mblock">
-                <li>  </li>
-              </span>
-              {/*  */}
-            </span>
-          </details>
-        </span>
-        {/*  */}
-        <span className="mblock">
-          <details>
             <summary className="stitle">  httpd 서버 <small> </small>
               <a name="httpd 서버" style={{ visibility: "hidden" }}> httpd 서버 </a> </summary>
             <span className="sblock">

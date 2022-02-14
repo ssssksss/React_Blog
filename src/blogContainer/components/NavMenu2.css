@@ -20,7 +20,6 @@
 .nav-menu2 a {
   width: 25vw;
   height: 30px;
-  box-sizing: border-box;
   background: transparent;
   color: white;
   font-weight: 700;
@@ -35,8 +34,8 @@
   align-items: center;
 }
 .navMenuContainer2 > .menu > a > img {
-  max-width: 14px;
-  max-height: 14px;
+  width: 14px;
+  height: 14px;
   vertical-align: top;
 }
 .nav-menu2 .navMenuContainer2 {
@@ -46,26 +45,30 @@
 }
 .nav-menu2 .navMenuContainer2 .menu1 {
   width: 50vw;
+  display: flex;
   flex-flow: wrap row;
+  align-content: flex-start;
 }
 .nav-menu2 .navMenuContainer2 .menu2 {
   width: 50vw;
+  display: flex;
   flex-flow: wrap row;
+  align-content: flex-start;
 }
 /* Link태그에 속성을 넣는것 */
 .nav-menu2 .navMenuContainer2 .menu a:hover {
   background-color: white;
   color: #3366ff;
 }
-.navMenuContainer2 .menu {
-  display: flex;
-  flex-flow: wrap row;
-}
 .navMenuContainer2 .menu75vw {
   width: 75vw;
+  display: flex;
   flex-flow: wrap row;
+  align-content: flex-start;
 }
 .navMenuContainer2 .menu25vw {
   width: 25vw;
+  display: flex;
   flex-flow: wrap row;
+  align-content: flex-start;
 }

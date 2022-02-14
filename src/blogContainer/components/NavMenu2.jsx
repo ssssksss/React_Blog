@@ -31,16 +31,14 @@ import ProgramList from './NavMenuList/ProgramList.jsx';
 import CloudList from './NavMenuList/CloudList.jsx';
 import FigmaList from './NavMenuList/FigmaList.jsx';
 import RefactoringList from './NavMenuList/RefactoringList.jsx';
-
+import DockerList from './NavMenuList/DockerList.jsx';
+import CicdList from './NavMenuList/CicdList.jsx';
 import './NavMenu2.css';
 
 const NavMenu2 = (props) => {
 
   function send(page) {
     props.onChangePage(page)
-  }
-  function send(page2) {
-    props.onChangePage(page2)
   }
 
   // NavMenu.jsx에서 선택한 목록을 보여주고 NavMenuList.jsx에서 클릭한 목록을 Main.jsx에 보여준다.
@@ -86,6 +84,10 @@ const NavMenu2 = (props) => {
     }
     else if (props.page === 'backend') {
       return <BackendList onChangePage={(page2) => { send(page2) }}> </BackendList>;
+    }
+    //서버, DB
+    else if (props.page === 'cicd') {
+      return <CicdList onChangePage={(page2) => { send(page2) }}> </CicdList>;
     }
     //기타 메뉴
     else if (props.page === 'database') {
@@ -141,6 +143,9 @@ const NavMenu2 = (props) => {
     }
     else if (props.page === 'cloud') {
       return <CloudList onChangePage={(page2) => { send(page2) }}> </CloudList>;
+    }
+    else if (props.page === 'docker') {
+      return <DockerList onChangePage={(page2) => { send(page2) }}> </DockerList>;
     }
     else if (props.page === 'figma') {
       return <FigmaList onChangePage={(page2) => { send(page2) }}> </FigmaList>;

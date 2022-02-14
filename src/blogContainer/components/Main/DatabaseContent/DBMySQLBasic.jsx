@@ -28,6 +28,73 @@ const DBMySQLBasic = (props) => {
             <li>  </li>
             <li>  </li>
 
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> 기본 세팅 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <div className='block4'>
+              <li> create database DB명; </li>
+              <li> show variables like 'validate_password%';</li>
+              <li> set global validate_password.policy=LOW; </li>
+              <li> create user '사용자명'@'%' identified by '유저비밀번호'; </li>
+              <li> grant all privileges on *.* to '사용자명'@'%'; </li>
+              <li> flush privileges; </li>
+              <li>  </li>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> 에러 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <div className='block4'>
+              <li>  </li>
+              <li> 1819 (HY000): Your password does not satisfy the current policy requirements
+                <div className="block3">
+                  <li> 현재 비밀번호 권한 정책에 맞지 않음, 낮추거나 비번을 바꾸거나 </li>
+                  <li> show variables like 'validate_password%'; <small> 현재 패스워드 설정 보기 </small> </li>
+                  <li> LOW : Length </li>
+                  <li> MEDIUM : Length, 숫자, 대문자, 소문자, 특수문자 </li>
+                  <li> STRONG : dictionary file 이용 </li>
+                  <li> set global validate_password.policy=[LOW MEDIUM STRONG]; <small> 버전에 따라서 _ _이거나 _ .차이가 발생하는듯 싶다. </small> </li>
+                </div>
+              </li>
+              <li> 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+                <div className="block3">
+                  <li> 비번이 틀리거나 원격접속 설정을 막았을때 발생 </li>
+                  <li> mysql -u root -p 입력 </li>
+                  <li> (실패) 엔터 </li>
+                  <li> (실패) cat /var/log/mysqld.log | grep 'temporary password' </li>
+                  <li>  </li>
+                </div>
+              </li>
+              <li>
+                <div className="block3">
+                  <li>  </li>
+                </div>
+              </li>
+              <li>
+                <div className="block3">
+                  <li>  </li>
+                </div>
+              </li>
+              <li>
+                <div className="block3">
+                  <li>  </li>
+                </div>
+              </li>
+              <li>  </li>
+            </div>
 
           </div>
         </details>
@@ -185,12 +252,24 @@ const DBMySQLBasic = (props) => {
             <li>  </li>
 
             <h2 className='h2'> 📌 Update </h2>
-            <li> 🎈 사용자 비밀번호 변경
-              <li> use mysql; </li>
-              <li> update user set password=PASSWORD('변경할새로운비밀번호') where user='사용자명' </li>
-              <li> flush privileges; </li>
-            </li>
-            <li> </li>
+            <div className="block4">
+              <li> 🎈 사용자 비밀번호 변경 </li>
+              <div className="block4">
+                <li> use mysql; </li>
+                <li> (mysql 5.x) update user set password=PASSWORD('변경할새로운비밀번호') where user='사용자명' </li>
+                <li> (mysql 8.x) alter user '유저명'@'%' identified with mysql_native_password by '변경할비번'; </li>
+                <li> flush privileges; </li>
+              </div>
+              <li> 🎈 root 비밀번호 변경 </li>
+              <div className="block4">
+                <li> update mysql.user set authentication_string=null where User='root'; </li>
+                <li> flush privileges; </li>
+                <li> exit; </li>
+                <li> mysql -u root </li>
+                <li> alter user 'root'@'localhost' identified with caching_sha2_password by '새로운비밀번호입력'; </li>
+                <li> flush privileges; </li>
+              </div>
+            </div>
 
             <h2 className='h2'> 📌 Delete </h2>
             <li> 🎈 사용자 삭제1

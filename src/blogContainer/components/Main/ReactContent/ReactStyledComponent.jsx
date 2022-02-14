@@ -234,6 +234,32 @@ const ReactStyledComponent = (props) => {
 
       <div className='block1'>
         <details>
+          <summary> styled-components html태그 속성 이용하기 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> ✔ 예시 </h2>
+            <li>
+              <div className='block3'>
+                <h3 className='h3'> 🎈 </h3>
+                <div className='block4'>
+                  <li> {" const InputText = styled.input.attrs({ "}
+                    <li> {"   type: 'text', "} </li>
+                    <li> {"   placeholder: props => props.placeholder || 'Please fill', "} </li>
+                  </li>
+                  <li> {" })` "}
+                    <li> {"   padding: 6px 12px;  "} </li>
+                  </li>
+                  <li> {" `; "} </li>
+                </div>
+              </div>
+            </li>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
           <summary> styled-components animation </summary>
           <div className='block2'>
 
@@ -272,6 +298,21 @@ const ReactStyledComponent = (props) => {
                 </div>
               </div>
             </li>
+
+          </div>
+        </details>
+      </div>
+      <div className='block1'>
+        <details>
+          <summary> React Router Dom의 Link태그에 스타일 주기 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <div className="block4">
+              <li> const LinkStyle = styled(Link)` </li>
+              <li> 스타일 작성 </li>
+              <li> `; </li>
+            </div>
 
           </div>
         </details>
