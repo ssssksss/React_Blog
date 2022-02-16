@@ -136,6 +136,39 @@ const CollaborationTool_Github = (props) => {
 
       <div className='block1'>
         <details>
+          <summary> [2] 깃허브 브랜치 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 default 브랜치 변경하기 </h2>
+            <div className='block4'>
+              <li> 깃허브 저장소 - 설정 - 브랜치 - Default branch로 변경하면된다. </li> <br />
+
+              {/*<li> git config --global init.defaultBranch master </li> */}
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 장점, 단점 </h2>
+            <div className='block4'>
+              <li> 장점 : </li>
+              <li> 단점 : </li>
+            </div>
+
+            <h2 className='h2'> ✔ 예시 </h2>
+            <li>
+              <div className='block3'>
+                <h3 className='h3'> 🎈 </h3>
+                <div className='block4'>
+                  <li>  </li>
+                </div>
+              </div>
+            </li>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
           <summary> =================================== </summary>
         </details>
       </div>
