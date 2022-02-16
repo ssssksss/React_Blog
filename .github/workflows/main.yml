@@ -17,7 +17,19 @@ jobs:
 
       - name: Build 확인
         run: |
+          ls /
+
+      - name: Build 확인1
+        run: |
+          ls .
+
+      - name: Build 확인2
+        run: |
           ls ..
+
+      - name: Build 확인3
+        run: |
+          ls ../..
 
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@master
