@@ -12,10 +12,12 @@ jobs:
         run: npm install
 
       - name: Build
-        run: CI=false npm run build
+        #run: CI=false npm run build
+        run: npm run build
 
       - name: Build 확인
         run: ls .
+          ls ..
 
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@master
