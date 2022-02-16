@@ -16,7 +16,8 @@ jobs:
         run: npm run build
 
       - name: Build 확인
-        run: ls .
+        run: |
+          ls .
           ls ..
 
       - name: executing remote ssh commands using password
