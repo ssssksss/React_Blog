@@ -7,6 +7,141 @@ const CollaborationTool_Github = (props) => {
 
       <div className='block1'>
         <details>
+          <summary> [0] git bash 계정 설정, 조회, 삭제 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 생성 </h2>
+            <div className='block4'>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 조회 </h2>
+            <div className='block4'>
+              <li> git config user.name </li>
+              <li> git config user.email </li>
+            </div>
+
+            <h2 className='h2'> 📌 변경 </h2>
+            <div className='block4'>
+              <li> git config --global user.name 변경하려는계정명 </li>
+              <li> git config --global user.email 변경하려는이메일명 </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 삭제 </h2>
+            <div className='block4'>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 에러 관련 </h2>
+            <div className='block4'>
+              <li> push할때 에러가 발생하게 되면 Window 자격증명 제거 필요 </li>
+              <li> 제어판 - 사용자계정 - 자격 증명 관리 - Windows 자격 증명 - github항목 삭제 후 수정 </li>
+              <li>  </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [1] 깃허브 리드미 작성방법 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 (1) 제목(머리글) 작성 </h2>
+            <div className='block4'>
+              <li> # <small> h1 태그 </small> </li>
+              <li> ## <small> h2 태그 </small> </li>
+              <li> ### <small> h3 태그 </small> </li>
+              <li> #### <small> h4 태그 </small> </li>
+              <li> ##### <small> h5 태그 </small> </li>
+              <li> ###### <small> h6 태그 </small> </li>
+            </div>
+
+            <h2 className='h2'> 📌 (2) 리스트 작성 </h2>
+            <div className='block4'>
+              <div className="h3"> 번호없는 리스트 </div>
+              <li> * 리스트1 </li>
+              <li> - 리스트2 </li>
+              <li> + 리스트3 </li>
+              <div className="h3"> 순서있는 리스트 </div>
+              <li> 1. 리스트1 </li>
+              <li> 2. 리스트2 </li>
+              <li> 3. 리스트3 </li>
+            </div>
+
+            <h2 className='h2'> 📌 (3) 글씨 모양 </h2>
+            <div className='block4'>
+              <li> *기울어진글씨* , _기울어진글씨_ </li>
+              <li> **굵은글씨** , __굵은글씨__ </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 (4) 인용문 사용 방법 </h2>
+            <div className='block4'>
+              <li> {">"} 설명1 </li>
+              <li> {"> >"} 설명2 </li>
+              <li> {"> > >"} 설명3 </li>
+            </div>
+
+            <h2 className='h2'> 📌 (5) 수평 밑줄 넣기 </h2>
+            <div className='block4'>
+              <li> *** </li>
+              <li> --- </li>
+              <li> ___ </li>
+            </div>
+
+            <h2 className='h2'> 📌 (6) 링크 </h2>
+            <div className='block4'>
+              <li> [링크텍스트](#링크주소) </li>
+              <li> #이 붙은 것들은 링크주소로 인식 </li>
+              <li>  </li> <br />
+              <li> [링크텍스트][참조명] </li>
+              <li> [참조명]: 링크주소 </li>
+            </div>
+
+            <h2 className='h2'> 📌 (7) 코드 넣기  </h2>
+            <div className='block4'>
+              <li> ``` 와 ``` 사이에 코드를 작성해서 넣는다. </li>
+              <li> 안에서는 띄워쓰기와 줄바꿈이 자동으로 된다. </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 (8) 표 만들기 </h2>
+            <div className='block4'>
+              <li> |:---|:---:|---:| </li>
+              <li> |좌측|중간|우측| </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 (9) 체크박스 </h2>
+            <div className='block4'>
+              <li> * [x] 체크박스 x표시 </li>
+              <li> * [ ] 체크박스 표시 </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌  </h2>
+            <div className='block4'>
+              <li>  </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> =================================== </summary>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
           <summary> git pull </summary>
           <div className='block2'>
 

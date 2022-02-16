@@ -217,12 +217,21 @@ const LinuxCentOS7 = (props) => {
             <h2 className='h2'> 📌 명령어 </h2>
             <div className='block4'>
               <li> java -version <small> 자바 버전 확인, 없으면 안나옴 </small> </li>
+              <li> which javac <small> 자바 위치 </small> </li>
               <li> yum list installed | grep java <small> 설치된 자바 버전 확인 </small> </li>
               <li> 설치할 폴더로 이동(/usr/lib나 /usr/local/lib나 폴더를 만들어서 이용) </li>
               <li> 자바에서 리눅스 jdk 설치파일 경로를 가져온다.(서버에서는 jre로 가능하지만 그냥 jdk) </li>
               <li> 버전에 맞는 파일 경로 복사하기 (32,64 버전 확인은 getconf LONG_BIT 명령어를 사용하면된다.) </li>
               <li> yum remove -y java-1.8.0-openjdk.x86_64 <small> 자바 설치 제거 </small> </li>
               <li> yum remove -y java-1.8.0-openjdk-headless.x86_64 <small> 자바 설치 제거 </small> </li>
+            </div>
+
+            <h2 className='h2'> 📌 yum으로 자바 1.8 설치 </h2>
+            <div className='block4'>
+              <li>  </li>
+              <li>  </li>
+              <li>  </li>
+              <li>  </li>
             </div>
 
             <h2 className='h2'> 📌 yum으로 자바 11 설치 </h2>
@@ -286,6 +295,34 @@ const LinuxCentOS7 = (props) => {
               <li> /etc/nginx/conf.d/default.conf <small> 초기 설정 </small> </li>
               <li> /usr/share/nginx/html <small> html 파일 경로가 있는곳 </small> </li>
               <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 배포 설정 </h2>
+            <div className='block4'>
+              <li> vi /etc/nginx/conf.d/default.conf 내부 전부 주석처리하고 아래 2줄 넣어주기 </li>
+              <div className="block3">
+                <li> include /etc/nginx/conf.d/*.conf; </li>
+                <li> include /etc/nginx/sites-enabled/*.conf; </li>
+              </div>
+              <li> mkdir /etc/nginx/sites-available </li>
+              <li> mkdir /etc/nginx/sites-enabled </li>
+              <li> vi /etc/nginx/sites-available/앱이름.conf </li>
+              <div className="block3">
+                <li> server {"{"}
+                  <li> listen 80; </li>
+                  <li> location / {"{"}
+                    <li> root /app/ssssksss-server-react/build; </li>
+                    <li> index index.html index.htm; </li>
+                    <li> try_files $uri $uri/ /index.html; </li>
+                  </li>
+                  <li> {"}"} </li>
+                </li>
+                <li> {"}"} </li>
+              </div>
+              <li> ln -s /etc/nginx/sites-available/앱이름.conf /etc/nginx/sites-enabled/앱이름.conf </li>
+              <li> nginx -t <small> ok 나 successful이 나오면된다. </small> </li>
+              <li> systemctl stop nginx </li>
+              <li> systemctl start nginx </li>
             </div>
 
           </div>
@@ -411,6 +448,119 @@ const LinuxCentOS7 = (props) => {
               <li> find / -name 'mysql*rpm' </li>
               <li> rm -rf 위에서나온것들붙여넣기 <small> find / -name 'mysql*rpm' 에서 나오는 내용 복사 붙여넣기 </small> </li>
             </div>
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [10] Gradle 설치 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <div className='block4'>
+              <li>  </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 설치 </h2>
+            <div className='block4'>
+              <li> <a href="https://services.gradle.org/distributions" target="_blank" rel="noopener noreferrer">
+                gradle 다운 페이지 </a> </li>
+              <li> wget https://services.gradle.org/distributions/gradle-7.0.2-bin.zip </li>
+              <li> mkdir /opt/gradle </li>
+              <li> unzip -d /opt/gradle gradle-7.0.2-bin.zip </li>
+              <li> vi /etc/profile.d/gradle.sh </li>
+              <div className="block3">
+                <li> {" export GRADLE_HOME=/opt/gradle/gradle-7.0.2 "} </li>
+                <li> {" export PATH=${GRADLE_HOME}/bin:${PATH} "} </li>
+              </div>
+              <li> chmod +x /etc/profile.d/gradle.sh </li>
+              <li> source /etc/profile.d/gradle.sh </li>
+              <li> gradle -v </li>
+              <li>  </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [11] Jenkins 설치 </summary>
+          <div className="block2">
+
+            <div className="h2"> 설명 </div>
+            <div className="block4">
+              <li>  </li>
+            </div>
+
+            <div className="h2"> 설치 </div>
+            <div className="block4">
+              <li> <a href="https://jenkins.io/download/" target="_blank" rel="noopener noreferrer"> 젠킨스 다운로드 홈페이지 </a> </li>
+              <li> wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo </li>
+              <li> rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key </li>
+              <li> yum install jenkins </li>
+              <li> vi /etc/sysconfig/jenkins <small> 기본포트 8080이라서 변경필요 </small> </li>
+              <div className="block3">
+                <li> JENKINS_PORT="9090" 58번째줄에 변경 </li>
+              </div>
+              <li> service jenkins start <small> 젠킨스 시작 </small> </li>
+              <li> service enable jenkins <small> 젠킨스 재시작시 자동 시작 </small> </li>
+              <li> service jenkins stop <small> 젠킨스 중단 </small> </li>
+              <li> service jenkins restart <small> 젠킨스 재시작 </small> </li>
+              <li> vi /var/lib/jenkins/secrets/initialAdminPassword <small> 젠킨스 초기 비번 </small> </li>
+              <li> IP주소:9090 으로 접속 </li>
+              <li> 비번 입력 - Install Suggested Plugins </li>
+              <li> Jenkins 관리 - Global Tool Configuration - JDK - Add JDK - Install automatically </li>
+              <li> echo $JAVA_HOME 에서 나오는 빈폴더 이전 경로까지 넣기, 만약에 틀리면 경고메시지가 보임 </li>
+              <li> Git - Path to Git executable에 which git 명령어에 나오는 코드 넣기 </li>
+              <li> /opt/gradle/gradle-7.0.2/bin <small> echo $GRADLE_HOME에서 나오는 경로에 /bin 추가 </small> </li>
+              <li> Save 클릭 </li>
+              <li> Jenkins 관리 - 시스템 설정  </li>
+              <div className="block3">
+
+                <li> Jenkins URL : 공인 IP 넣기 </li>
+                <li> Github_Server </li>
+                <li> - Name :  </li>
+                <li> - API URL : https://api.github.com </li>
+                <li> - Credentials : add 클릭하고 아래 정보 입력후 none에서 jenkins로 변경
+                  <div className="block3">
+                    <li> Domain : Global credentials (unrestricted) </li>
+                    <li> Kind : Secret text </li>
+                    <li> Scope : Global (Jenkins, nodes, items, all ....) </li>
+                    <li> Secret : 깃허브 토큰 값 </li>
+                    <div className="block3">
+                      <li> github - settings - Developer settings - Personal access tokens - Generate new token </li>
+                      <li> Note에 Jenkins 입력 </li>
+                      <li> repo 클릭, admin:repo_hook 클릭, 토큰 생성 클릭 </li>
+                      <li> Personal access tokens 값 저장해놓기(다시 확인 불가)  </li>
+                      <li>  </li>
+                    </div>
+                    <li> ID : 커스텀 식별자 넣기 <small> github_cred_id </small> </li>
+                    <li> Description : jenkins </li>
+                  </div>
+                </li>
+              </div>
+              <li> Test connection 클릭 , Credentials verified for user ~ 와 같이 나오면 성공 </li>
+              <li> Manage hooks 체크박스 클릭 <small> 이거는 잘 모르겠음 </small> </li>
+              <li> apply 하고 저장 </li>
+              <div className="h3"> 젠킨스 프로젝트 생성 </div>
+              <li> 새로운 Item - jenkins_test 입력 - Freestyle project - 대시보드 - jenkins_test 클릭 - 구성
+                GitHub project 클릭 - Project url에 깃허브 프로젝트 URL 넣기 - 아래쪽에 Git 클릭 - Repository URL에
+                깃허브저장소.git 경로 복사해서 넣기 - Credentials에 깃허브 계정정보를 담아서 생성(깃허브 계정 아이디와
+                패스워드를 넣어준다) </li>
+              <li> GitHub hook trigger for GITScm polling 체크 </li>
+              <li> Add build step 클릭 - Invoke Gradle script클릭 - Use Gradle Wrapper 클릭 - Make gradlew executable 클릭
+                -  Tasks에 build 입력 - apply - 저장 </li>
+              <li> Build Now -  </li>
+              <li> /var/lib/jenkins/workspace/jenkins_test/build/libs에 뭐가 있다는데 없다..  </li>
+              <li> <a href="https://galid1.tistory.com/466?category=772172" target="_blank" rel="noopener noreferrer">
+                무엇인가가 잘못되었다. 다시 찾아보기 </a> </li>
+              <li>  </li>
+            </div>
+
           </div>
         </details>
       </div>
