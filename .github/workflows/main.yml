@@ -13,7 +13,7 @@ jobs:
 
       - name: Build
         #run: CI=false npm run build
-        run: npm run build
+        run: CI=false npm run build
 
       - name: Build 확인
         run: |
