@@ -100,10 +100,11 @@ const CicdGithubAction = (props) => {
 
       <div className='block1'>
         <details>
-          <summary> [2] 깃허브 액션 인스턴스에 폴더 생성해보기 </summary>
+          <summary> [2] 깃허브 액션 클라우드 인스턴스에 폴더 생성해보기 </summary>
           <div className='block2'>
 
             <h2 className='h2'> 📌 yml 설정 </h2>
+            <li> 아래 파일은 프로젝트에 .github/workflows/main.yml로 만든다. </li>
             <div className='block4'>
               <li> {" name: remote ssh command "} </li>
               <li> {" on: [push] "} </li>
