@@ -15,22 +15,6 @@ jobs:
         #run: CI=false npm run build
         run: CI=false npm run build
 
-      - name: Build 확인
-        run: |
-          ls /
-
-      - name: Build 확인1
-        run: |
-          ls .
-
-      - name: Build 확인2
-        run: |
-          ls ..
-
-      - name: Build 확인3
-        run: |
-          ls ../..
-
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@master
         with:
@@ -39,4 +23,3 @@ jobs:
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
           script: |
-            ls .

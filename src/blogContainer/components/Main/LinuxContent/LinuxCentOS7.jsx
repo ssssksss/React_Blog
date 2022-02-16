@@ -488,7 +488,7 @@ const LinuxCentOS7 = (props) => {
 
       <div className='block1'>
         <details>
-          <summary> [11] Jenkins 설치 </summary>
+          <summary> [11] Jenkins 설치(보류) </summary>
           <div className="block2">
 
             <div className="h2"> 설명 </div>
@@ -558,6 +558,22 @@ const LinuxCentOS7 = (props) => {
               <li> /var/lib/jenkins/workspace/jenkins_test/build/libs에 뭐가 있다는데 없다..  </li>
               <li> <a href="https://galid1.tistory.com/466?category=772172" target="_blank" rel="noopener noreferrer">
                 무엇인가가 잘못되었다. 다시 찾아보기 </a> </li>
+              <li>  </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [12] npm 설치 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <div className='block4'>
+              <li> 빌드용도로 npm을 설치하였다. </li>
+              <li> yum install npm </li>
               <li>  </li>
             </div>
 
