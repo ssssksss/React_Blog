@@ -297,7 +297,7 @@ const LinuxCentOS7 = (props) => {
               <li>  </li>
             </div>
 
-            <h2 className='h2'> 📌 배포 설정 </h2>
+            <h2 className='h2'> 📌 React 배포 설정 </h2>
             <div className='block4'>
               <li> vi /etc/nginx/conf.d/default.conf 내부 전부 주석처리하고 아래 2줄 넣어주기 </li>
               <div className="block3">
@@ -323,6 +323,7 @@ const LinuxCentOS7 = (props) => {
               <li> nginx -t <small> ok 나 successful이 나오면된다. </small> </li>
               <li> systemctl stop nginx </li>
               <li> systemctl start nginx </li>
+              <li> 프로젝트 폴더에 npm install한후 npm run build 가능 </li>
             </div>
 
           </div>
@@ -574,8 +575,71 @@ const LinuxCentOS7 = (props) => {
             <div className='block4'>
               <li> 빌드용도로 npm을 설치하였다. </li>
               <li> yum install npm </li>
+              <li> npm install <small> React 같은 파일들을 npm run build할때는 이렇게 프로젝트 폴더에 설치 </small> </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [13] nodejs 설치 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설치 </h2>
+            <div className='block4'>
+              <li> npm cache clean -f <small> 클라우드에서 보호되어 있는 것 같다. </small> </li>
+              <li> yum remove -y nodejs npm </li>
+              <li> <a href="https://github.com/nodesource/distributions/blob/master/README.md" target="_blank" rel="noopener noreferrer"> nodejs 버전 보기 </a> </li>
+              <li> 16버전 </li>
+              <li> curl -sL https://rpm.nodesource.com/setup_16.x | sudo -E bash - </li>
+              {/*<li> apt-get install -y nodejs </li>*/}
+              <li> yum install -y nodejs </li>
+              <li> node -v </li>
+              <li> yum install npm </li>
+              <li> npm -v </li>
               <li>  </li>
             </div>
+
+            <h2 className='h2'> ✔ 예시 </h2>
+            <li>
+              <div className='block3'>
+                <h3 className='h3'> 🎈 </h3>
+                <div className='block4'>
+                  <li>  </li>
+                </div>
+              </div>
+            </li>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [] 리눅스 관련 설정 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <div className='block4'>
+              <li> /etc/ssh/sshd_config </li>
+              <div className="block3">
+                <li> PermitRootLogin <small> root 원격 접속 제한(no : 막아버림) </small> </li>
+                <li> systemctl restart sshd.service </li>
+                <li>  </li>
+              </div>
+            </div>
+
+            <h2 className='h2'> ✔ 예시 </h2>
+            <li>
+              <div className='block3'>
+                <h3 className='h3'> 🎈 </h3>
+                <div className='block4'>
+                  <li>  </li>
+                </div>
+              </div>
+            </li>
 
           </div>
         </details>
