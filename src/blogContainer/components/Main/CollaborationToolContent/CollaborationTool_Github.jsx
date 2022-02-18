@@ -139,29 +139,84 @@ const CollaborationTool_Github = (props) => {
           <summary> [2] 깃허브 브랜치 </summary>
           <div className='block2'>
 
-            <h2 className='h2'> 📌 default 브랜치 변경하기 </h2>
-            <div className='block4'>
-              <li> 깃허브 저장소 - 설정 - 브랜치 - Default branch로 변경하면된다. </li> <br />
 
-              {/*<li> git config --global init.defaultBranch master </li> */}
+            <h2 className='h2'> 📌 git branch 생성 </h2>
+            <div className='block4'>
+              <li> git branch 새로운branch명 <small> 새로운 브랜치 생성 </small> </li>
+              <li> git branch 분리할branch명(master1) 기존branch명(master) <small> 기존 branch에서 브랜치 생성 </small> </li>
+              <li> git switch -t origin/원격브랜치명 <small> 원격 브랜치와 동일 이름으로 생성하고 변경 </small> </li>
               <li>  </li>
             </div>
 
-            <h2 className='h2'> 📌 장점, 단점 </h2>
+            <h2 className='h2'> 📌 default 브랜치 변경, 이동하기 </h2>
             <div className='block4'>
-              <li> 장점 : </li>
-              <li> 단점 : </li>
+              <li> 깃허브 저장소 - 설정 - 브랜치 - Default branch로 변경하면된다. </li> <br />
+              {/*<li> git config --global init.defaultBranch master </li> */}
+              <li> git checkout(co) 브랜치명 <small> 현재 사용하는 브랜치 변경 </small> </li>
+              {/*<li> git switch 브랜치명 </li> <small> 브랜치 생성? </small> */}
+              {/*<li> git switch -c 브랜치명 </li> <small> 브랜치 생성하면서 변경 </small> */}
+              <li>  </li>
+              <li>  </li>
             </div>
 
-            <h2 className='h2'> ✔ 예시 </h2>
-            <li>
-              <div className='block3'>
-                <h3 className='h3'> 🎈 </h3>
-                <div className='block4'>
-                  <li>  </li>
-                </div>
-              </div>
-            </li>
+            <h2 className='h2'> 📌 현재 등록된 깃허브 브랜치 조회 </h2>
+            <div className='block4'>
+              <li> git branch </li>
+              <li> git branch -v <small> 상세조회 </small> </li>
+              <li> git branch -r <small> 원격 저장소의 브랜치 조회 </small> </li>
+              <li> git branch -a <small> 원격 저장소, 로컬 저장소의 브랜치 조회 </small> </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 git branch 최신화 하기 </h2>
+            <div className='block4'>
+              <li> git remote update <small> git 저장소에 branch가 추가되었을 때 최신화하기 </small> </li>
+              <li> git branch -d 브랜치명 </li>
+              <li> git branch -D 브랜치명 <small> 브랜치 강제 삭제 </small> </li>
+              <li> git push origin --delete 브랜치명 <small> 원격 브랜치 삭제 </small> </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 git branch 삭제 </h2>
+            <div className='block4'>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 git clone 특정 브랜치 </h2>
+            <div className='block4'>
+              <li> git clone -b 브랜치명 원격저장소URL.git </li>
+              <li>  </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+
+      <div className='block1'>
+        <details>
+          <summary> [3] git pull </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <div className="block4">
+              <li> git pull </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 git pull 강제로 받기 </h2>
+            <div className="block4">
+              <li> git fetch --all </li>
+              <li> git reset --hard origin/master </li>
+              <li> git pull origin master </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 에러 </h2>
+            <div className="block4">
+              <li> refusing to merge unrelated histories <small> git pull origin 브런치명 --allow-unrelated-histories </small> </li>
+              <li>  </li>
+            </div>
 
           </div>
         </details>
@@ -170,33 +225,6 @@ const CollaborationTool_Github = (props) => {
       <div className='block1'>
         <details>
           <summary> =================================== </summary>
-        </details>
-      </div>
-
-      <div className='block1'>
-        <details>
-          <summary> git pull </summary>
-          <div className='block2'>
-
-            <h2 className='h2'> 📌 설명 </h2>
-            <li>  </li>
-            <li>  </li>
-
-            <h2 className='h2'> 📌 에러 </h2>
-            <li> refusing to merge unrelated histories <small> git pull origin 브런치명 --allow-unrelated-histories </small> </li>
-            <li>  </li>
-
-            <h2 className='h2'> ✔ 예시 </h2>
-            <li>
-              <div className='block3'>
-                <h3 className='h3'> 🎈 </h3>
-                <div className='block4'>
-                  <li>  </li>
-                </div>
-              </div>
-            </li>
-
-          </div>
         </details>
       </div>
 

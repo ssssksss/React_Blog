@@ -323,7 +323,6 @@ const LinuxCentOS7 = (props) => {
               <li> nginx -t <small> ok 나 successful이 나오면된다. </small> </li>
               <li> systemctl stop nginx </li>
               <li> systemctl start nginx </li>
-              <li> 프로젝트 폴더에 npm install한후 npm run build 가능 </li>
             </div>
 
           </div>
