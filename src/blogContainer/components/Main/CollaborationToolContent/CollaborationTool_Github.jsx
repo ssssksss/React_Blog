@@ -136,9 +136,8 @@ const CollaborationTool_Github = (props) => {
 
       <div className='block1'>
         <details>
-          <summary> [2] 깃허브 브랜치 </summary>
+          <summary> [2] git branch </summary>
           <div className='block2'>
-
 
             <h2 className='h2'> 📌 git branch 생성 </h2>
             <div className='block4'>
@@ -201,6 +200,7 @@ const CollaborationTool_Github = (props) => {
             <h2 className='h2'> 📌 설명 </h2>
             <div className="block4">
               <li> git pull </li>
+              <li> git pull origin master(브랜치명) </li>
               <li>  </li>
             </div>
 
@@ -215,6 +215,61 @@ const CollaborationTool_Github = (props) => {
             <h2 className='h2'> 📌 에러 </h2>
             <div className="block4">
               <li> refusing to merge unrelated histories <small> git pull origin 브런치명 --allow-unrelated-histories </small> </li>
+              <li>  </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [4] git remote (깃허브 원격 저장소 관련) </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 조회 </h2>
+            <div className='block4'>
+              <li> 터미널 창에 cd [로컬저장소폴더경로] 입력 </li>
+              <li> git remote -v </li>
+            </div>
+
+            <h2 className='h2'> 📌 연결 </h2>
+            <div className='block4'>
+              <li> git remote add origin [깃허브저장소주소.git] </li>
+              <li> git remote -v </li>
+            </div>
+
+            <h2 className='h2'> 📌 삭제 </h2>
+            <div className='block4'>
+              <li> git remote -v </li>
+              <li> git remote remove [위명령어에서나온제일앞에단어] </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [5] git push </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 옵션 </h2>
+            <div className='block4'>
+              <li> git push <small> 이미 설정된 원격저장소에 push </small> </li>
+              <li> git push origin 브랜치명 <small> 정해진 브랜치에 push하기 </small> </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 에러 </h2>
+            <div className='block4'>
+              <li> fatal: The current branch master has no upstream branch </li>
+              <li> To push the current branch and set the remote as upstream, use </li>
+              <div className="block3">
+                <li> git push --set-upstream origin master </li>
+              </div>
+              <li>  </li>
               <li>  </li>
             </div>
 
@@ -347,28 +402,6 @@ const CollaborationTool_Github = (props) => {
           </div>
         </details>
       </div>
-
-      <div className='block1'>
-        <details>
-          <summary> 로컬 저장소에서 원격저장소 위치 조회하기, 삭제하기, 연결하기 </summary>
-          <div className='block2'>
-
-            <h2 className='h2'> 📌 조회하기 </h2>
-            <li> 터미널 창에 cd [로컬저장소폴더경로] 입력 </li>
-            <li> git remote -v </li>
-
-            <h2 className='h2'> 📌 삭제하기 </h2>
-            <li> git remote -v </li>
-            <li> git remote remove [위명령어에서나온제일앞에단어] </li>
-
-            <h2 className='h2'> 📌 연결하기 </h2>
-            <li> git remote add origin [깃허브저장소주소.git] </li>
-            <li> git remote -v </li>
-
-          </div>
-        </details>
-      </div>
-
 
       <div className='block1'>
         <details>

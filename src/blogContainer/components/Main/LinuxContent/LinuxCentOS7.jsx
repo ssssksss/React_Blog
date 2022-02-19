@@ -391,6 +391,22 @@ const LinuxCentOS7 = (props) => {
               </li>
             </div>
 
+            <h2 className='h2'> 📌 명령어 </h2>
+            <div className="block4">
+              <li> systemctl enable tomcat.service </li>
+              <li> systemctl start tomcat.service </li>
+              <li> systemctl stop tomcat.service </li>
+              <li> systemctl disable tomcat.service </li>
+              <li> systemctl status tomcat.service </li>
+            </div>
+
+            <h2 className='h2'> 📌 경로 </h2>
+            <div className="block4">
+              <li> /usr/share/tomcat/webapps <small> 배포파일 경로 </small> </li>
+              <li> /usr/local/tomcat8/conf/server.xml <small> 설정파일 </small> </li>
+              <li>  </li>
+            </div>
+
           </div>
         </details>
       </div>
@@ -510,55 +526,7 @@ const LinuxCentOS7 = (props) => {
               <li> service enable jenkins <small> 젠킨스 재시작시 자동 시작 </small> </li>
               <li> service jenkins stop <small> 젠킨스 중단 </small> </li>
               <li> service jenkins restart <small> 젠킨스 재시작 </small> </li>
-              <li> vi /var/lib/jenkins/secrets/initialAdminPassword <small> 젠킨스 초기 비번 </small> </li>
-              <li> IP주소:9090 으로 접속 </li>
-              <li> 비번 입력 - Install Suggested Plugins </li>
-              <li> Jenkins 관리 - Global Tool Configuration - JDK - Add JDK - Install automatically </li>
-              <li> echo $JAVA_HOME 에서 나오는 빈폴더 이전 경로까지 넣기, 만약에 틀리면 경고메시지가 보임 </li>
-              <li> Git - Path to Git executable에 which git 명령어에 나오는 코드 넣기 </li>
-              <li> /opt/gradle/gradle-7.0.2/bin <small> echo $GRADLE_HOME에서 나오는 경로에 /bin 추가 </small> </li>
-              <li> Save 클릭 </li>
-              <li> Jenkins 관리 - 시스템 설정  </li>
-              <div className="block3">
 
-                <li> Jenkins URL : 공인 IP 넣기 </li>
-                <li> Github_Server </li>
-                <li> - Name :  </li>
-                <li> - API URL : https://api.github.com </li>
-                <li> - Credentials : add 클릭하고 아래 정보 입력후 none에서 jenkins로 변경
-                  <div className="block3">
-                    <li> Domain : Global credentials (unrestricted) </li>
-                    <li> Kind : Secret text </li>
-                    <li> Scope : Global (Jenkins, nodes, items, all ....) </li>
-                    <li> Secret : 깃허브 토큰 값 </li>
-                    <div className="block3">
-                      <li> github - settings - Developer settings - Personal access tokens - Generate new token </li>
-                      <li> Note에 Jenkins 입력 </li>
-                      <li> repo 클릭, admin:repo_hook 클릭, 토큰 생성 클릭 </li>
-                      <li> Personal access tokens 값 저장해놓기(다시 확인 불가)  </li>
-                      <li>  </li>
-                    </div>
-                    <li> ID : 커스텀 식별자 넣기 <small> github_cred_id </small> </li>
-                    <li> Description : jenkins </li>
-                  </div>
-                </li>
-              </div>
-              <li> Test connection 클릭 , Credentials verified for user ~ 와 같이 나오면 성공 </li>
-              <li> Manage hooks 체크박스 클릭 <small> 이거는 잘 모르겠음 </small> </li>
-              <li> apply 하고 저장 </li>
-              <div className="h3"> 젠킨스 프로젝트 생성 </div>
-              <li> 새로운 Item - jenkins_test 입력 - Freestyle project - 대시보드 - jenkins_test 클릭 - 구성
-                GitHub project 클릭 - Project url에 깃허브 프로젝트 URL 넣기 - 아래쪽에 Git 클릭 - Repository URL에
-                깃허브저장소.git 경로 복사해서 넣기 - Credentials에 깃허브 계정정보를 담아서 생성(깃허브 계정 아이디와
-                패스워드를 넣어준다) </li>
-              <li> GitHub hook trigger for GITScm polling 체크 </li>
-              <li> Add build step 클릭 - Invoke Gradle script클릭 - Use Gradle Wrapper 클릭 - Make gradlew executable 클릭
-                -  Tasks에 build 입력 - apply - 저장 </li>
-              <li> Build Now -  </li>
-              <li> /var/lib/jenkins/workspace/jenkins_test/build/libs에 뭐가 있다는데 없다..  </li>
-              <li> <a href="https://galid1.tistory.com/466?category=772172" target="_blank" rel="noopener noreferrer">
-                무엇인가가 잘못되었다. 다시 찾아보기 </a> </li>
-              <li>  </li>
             </div>
 
           </div>
@@ -699,22 +667,11 @@ const LinuxCentOS7 = (props) => {
           <summary> Apache Tomcat 설치하기 </summary>
           <div className='block2'>
 
-            <h2 className='h2'> 📌 설명 </h2>
-            <li> 아파치는 웹서버 </li>
-            <li> 톰캣(아파치톰캣)은 아파치 재단 하위에 있는 웹서버+어플리케이션서버 </li>
-
             <h2 className='h2'> 📌 설정 파일 </h2>
             <li> app이라는 폴더는 스스로 만든 폴더이므로 참고  </li>
             <li> /app/server/tomcat/conf/server.xml </li>
             <li> /app/server/tomcat/webapps <small> # html코드 등이 들어있는 공간 </small> </li>
             <li> /app/server/tomcat/bin <small> # tomcat을 실행하고 중단할 수 있는 쉘 스크립트가 있는 공간 </small> </li>
-
-            <h2 className='h2'> 📌 명령어 </h2>
-            <li> systemctl enable tomcat.service </li>
-            <li> systemctl start tomcat.service </li>
-            <li> systemctl stop tomcat.service </li>
-            <li> systemctl disable tomcat.service </li>
-            <li> systemctl status tomcat.service </li>
 
             <h2 className='h2'> 📌 아파치 톰캣 v8.5.70 설치 과정 </h2>
             <div className="block4">
