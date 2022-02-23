@@ -52,6 +52,27 @@ const ReactStyledComponent = (props) => {
 
       <div className='block1'>
         <details>
+          <summary> styled-components 미디어 쿼리 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <div className='block4'>
+              <li> const 스타일 = styled.div`
+                <li>  </li>
+                <li> @media only screen and (max-width: 768px) {"{"}
+                  <li>  </li>
+                </li>
+                <li> {"}"} </li>
+              </li>
+              <li> ``; </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
           <summary> styled-components 전역 스타일 설정하기 </summary>
           <div className='block2'>
 

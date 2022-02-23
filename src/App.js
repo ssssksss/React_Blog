@@ -177,14 +177,14 @@ const App = () => {
             </AppButton>
             <AppButton >
               <Link to="/todo">
-                <Cube> </Cube> <AbsText> 할일 <br /> (제작예정) </AbsText>
+                <Cube> </Cube> <AbsText> 할일 <br /> </AbsText>
               </Link>
             </AppButton>
           </AppContainerRow>
           <AppContainerRow>
-            <AppButton disabled>
+            <AppButton>
               <Link to="portfolio">
-                <Cube> </Cube> <AbsText isAvailable> 포트폴리오 <br /> (제작예정) </AbsText>
+                <Cube> </Cube> <AbsText> 포트폴리오 <br /> </AbsText>
               </Link>
             </AppButton>
             <AppButton disabled>
