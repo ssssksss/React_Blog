@@ -7,7 +7,7 @@ const CssBasic2 = (props) => {
       <div className="common_style">
         <div className='block1'>
           <details>
-            <summary> FLEX </summary>
+            <summary> [1] FLEX </summary>
             <div className='block2'>
 
               <h2 className='h2'> 📌 설명 </h2>
@@ -94,7 +94,7 @@ const CssBasic2 = (props) => {
 
         <div className='block1'>
           <details>
-            <summary> GRID </summary>
+            <summary> [2] GRID </summary>
             <div className='block2'>
 
               <h2 className='h2'> 📌 설명 </h2>
@@ -188,6 +188,59 @@ const CssBasic2 = (props) => {
             </div>
           </details>
         </div>
+
+        <div className='block1'>
+          <details>
+            <summary> [3] Font </summary>
+            <div className='block2'>
+
+              <h2 className='h2'> 📌 폰트 사용 </h2>
+              <div className='block4'>
+                <li> App.css 처럼 최상단 파일에 아래와 같이 입력 </li>
+                <li> 사용하려는 css에 font-family: '폰트패밀리명'; 과 같이 입력해서 폰트 사용 </li>
+              </div>
+
+              <h2 className='h2'> 📌 폰트 속성 </h2>
+              <div className='block4'>
+                <li> font-weight: 10; <small> 폰트굵기 설정 </small> </li>
+                <li> font-size: 10px, 1em, 1rem, 10%; <small> 폰트크기 설정 </small>  </li>
+                <li> color: red, #ffffff , rgba(255,255,255); <small> 폰트색깔 설정 </small> </li>
+                <li>  </li>
+              </div>
+
+              <h2 className='h2'> 📌 폰트 확장자 </h2>
+              <div className='block4'>
+                <li>  </li>
+                <li>  </li>
+                <li>  </li>
+              </div>
+
+              <h2 className='h2'> 📌 URL </h2>
+              <div className='block4'>
+                <li> @font-face {"{"}
+                  <li> font-family: "Cafe24Ssurround"; </li>
+                  <li> src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff") format("woff");</li>
+                  <li> font-weight: normal; </li>
+                  <li> font-style: normal; </li>
+                </li>
+                <li> {"}"} </li>
+              </div>
+
+              <h2 className='h2'> 📌 로컬 </h2>
+              <div className='block4'>
+                <li> @font-face {"{"}
+                  <li> font-family: "Cafe24Ssurround"; </li>
+                  <li> src: url("../src/static/font/Cafe24Ssurround.woff") format("woff"); </li>
+                  <li> font-weight: normal; </li>
+                  <li> font-style: normal; </li>
+                </li>
+                <li> {"}"} </li>
+              </div>
+
+            </div>
+          </details>
+        </div>
+        {/* 끝 */}
       </div>
     </>
   );

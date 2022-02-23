@@ -341,44 +341,6 @@ const CssBasic = (props) => {
 
         <div className='block1'>
           <details>
-            <summary> font(폰트) </summary>
-            <div className='block2'>
-
-              <h2 className='h2'> 📌 폰트 ttf 다운받아 사용하기 </h2>
-              <li> <a href="https://noonnu.cc/" target="_blank" rel="noopener noreferrer"> 눈누 폰트 사이트 </a> </li>
-              <li> tff파일을 폴더에 저장하기 </li>
-              <li> 최상단 css에 정의하기
-                <div className="block4">
-                  <li> @font-face {"{"}
-                    <li> font-family: ""; </li>
-                    <li> font-weight: 10; <small> 공백가능 </small> </li>
-                    <li> src: url("./폰트경로.ttf");  </li>
-                  </li>
-                  <li> {"}"} </li>
-                </div>
-              </li>
-              <li> css에서 font-family: ""; 로 사용  </li>
-
-              <h2 className='h2'> 📌 폰트 파일 </h2>
-              <li> @font-face {'{'}
-                <li> font-family: "CUSTOM_NAME"; </li>
-                <li> src: url("../파일경로.확장자명") format("truetype") </li>
-              </li>
-              <li> {'}'} </li> <br />
-              <li> tag {'{ font-family: "CUSTOM_NAME" }'} </li>
-
-              <h2 className='h2'> 📌 css 스타일 </h2>
-              <li> color: red, #ffffff , rgba(255,255,255); #폰트의 색깔 설정 </li>
-              <li> font-size: 10px, 1em, 1rem, 10%; #폰트의 크기 지정 </li>
-              <li> font-weight: 900; #폰트의 굵기 설정 </li>
-
-            </div>
-          </details>
-        </div>
-
-
-        <div className='block1'>
-          <details>
             <summary> box-shadow(그림자) ( 내용 추가 필요 ) </summary>
             <div className='block2'>
 

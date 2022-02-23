@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import BlogContainer from './blogContainer/BlogContainer';
 import TodoContainer from './todoContainer/TodoContainer';
+import PortfolioContainer from './portfolioContainer/PortfolioContainer';
 import './App.css';
 import styled from 'styled-components';
 import Cube from './AtomicDesignComponent/Molecules/Cube.js';
@@ -64,8 +65,8 @@ const AbsText = styled.span`
   left: 50%;
   top: 50%;
   transform: translateX(-50%) translateY(-50%);
-  font-weight: 800px;
   font-family: 'GangwonEduPowerExtraBoldA';
+  font-weight: 800;
   word-break: keep-all;
   padding: 10px;
   border-radius: 10px;
@@ -79,6 +80,7 @@ const StyleDiv = styled.div`
   padding: 5px;
   background: ${enumGradientColor[8]};
   margin: 5px;
+  font-size: 1.4rem;
 `;
 const Nav = styled.div`
   font-size: 2rem;
@@ -181,7 +183,7 @@ const App = () => {
           </AppContainerRow>
           <AppContainerRow>
             <AppButton disabled>
-              <Link to="/blog">
+              <Link to="portfolio">
                 <Cube> </Cube> <AbsText isAvailable> 포트폴리오 <br /> (제작예정) </AbsText>
               </Link>
             </AppButton>
@@ -197,6 +199,7 @@ const App = () => {
         <Routes>
           <Route path="/blog_container/*" element={<BlogContainer />} />
           <Route path="/todo/*" element={<TodoContainer />} />
+          <Route path="/portfolio/*" element={<PortfolioContainer />} />
         </Routes>
       }
       <HomeButton onClick={() => { Home(true) }}> 홈 </HomeButton>

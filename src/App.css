@@ -11,22 +11,19 @@
 /* 폰트 */
 @font-face {
   font-family: "GangwonEduPowerExtraBoldA";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff")
-    format("woff");
+  src: url("../src/static/font/GangwonEduPowerExtraBoldA.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "Cafe24Ssurround";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2105_2@1.0/Cafe24Ssurround.woff")
-    format("woff");
+  src: url("../src/static/font/Cafe24Ssurround.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
   font-family: "SF_IceLemon";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/SF_IceLemon.woff")
-    format("woff");
+  src: url("../src/static/font/SF_IceLemon.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
