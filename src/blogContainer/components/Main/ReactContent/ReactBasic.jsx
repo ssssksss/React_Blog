@@ -151,6 +151,65 @@ const ReactBasic = (props) => {
 
       <div className='block1'>
         <details>
+          <summary> [4] CORS </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 에러 </h2>
+            <div className="block4">
+              <li> (1) The request client is not a secure context and the resource is in more-private address space `local </li>
+              <div className="block3">
+                <li> origin 보다 더 낮은 수준의 네트워크로 보낼경우 발생, 클라우드 서버에서 로컬 스프링으로 보내서 발생하였음 </li>
+                <li> 해결방법(크롬,네이버웨일) : chrome://flags/#block-insecure-private-network-requests 가서 disable <small> 작동은 확인 </small> </li>
+                <li>  </li>
+              </div>
+              <li> (2) </li>
+              <div className="block3">
+                <li>  </li>
+                <li>  </li>
+              </div>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 1번 해결방법 </h2>
+            <div className="block4">
+              <li> pakage.json에 "proxy": "http://localhost:8080" 이와 같이 추가한다. </li>
+              <li> 위와 같이 설정하면 다른 곳에서는 어떻게 받아오지? (의문해결아직안됨) </li>
+              {/*<li> 스프링에서 api를 받으려면 스프링에서도 cors정책을 해결해주어야 한다. </li>*/}
+            </div>
+
+            <h2 className='h2'> 📌 3번 해결방법 </h2>
+            <div className="block4">
+              <li>  </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+            <h2 className='h2'> 📌 3번 해결방법 </h2>
+            <li> npm i http-proxy-middleware </li>
+            <li> src/setupProxy.js 만들기 </li>
+            <div className="block4">
+              <li> {" const { createProxyMiddleware } = require('http-proxy-middleware'); "} </li>
+              <li> {"  "} </li> <br />
+              <li> {" module.exports = function (app) { "}
+                <li> {" app.use( "}
+                  <li> {" createProxyMiddleware('/v1', { "}
+                    <li> {" target: 'https://openapi.naver.com', "} </li>
+                    <li> {" changeOrigin: true "} </li>
+                  </li>
+                  <li> {" }) "} </li>
+                </li>
+                <li> {" ) "} </li>
+              </li>
+              <li> {" }; "} </li>
+            </div>
+
+
+          </div>
+        </details>
+      </div>
+
+
+      <div className='block1'>
+        <details>
           <summary> 리액트 깃허브 </summary>
           <div className='block2'>
 
@@ -398,45 +457,6 @@ const ReactBasic = (props) => {
         </details>
       </div>
 
-      <div className='block1'>
-        <details>
-          <summary> React CORs </summary>
-          <div className='block2'>
-
-            <h2 className='h2'> 📌 1번 해결방법 </h2>
-            <div className="block">
-              <li> pakage.json에 "proxy": "http://localhost:8080" 이와 같이 추가한다. </li>
-              <li> 위와 같이 설정하면 다른 곳에서는 어떻게 받아오지? (의문해결아직안됨) </li>
-              {/*<li> 스프링에서 api를 받으려면 스프링에서도 cors정책을 해결해주어야 한다. </li>*/}
-            </div>
-            <h2 className='h2'> 📌 3번 해결방법 </h2>
-            <div className="block4">
-              <li>  </li>
-              <li>  </li>
-              <li>  </li>
-            </div>
-            <h2 className='h2'> 📌 3번 해결방법 </h2>
-            <li> npm i http-proxy-middleware </li>
-            <li> src/setupProxy.js 만들기 </li>
-            <div className="block4">
-              <li> {" const { createProxyMiddleware } = require('http-proxy-middleware'); "} </li>
-              <li> {"  "} </li> <br />
-              <li> {" module.exports = function (app) { "}
-                <li> {" app.use( "}
-                  <li> {" createProxyMiddleware('/v1', { "}
-                    <li> {" target: 'https://openapi.naver.com', "} </li>
-                    <li> {" changeOrigin: true "} </li>
-                  </li>
-                  <li> {" }) "} </li>
-                </li>
-                <li> {" ) "} </li>
-              </li>
-              <li> {" }; "} </li>
-            </div>
-
-          </div>
-        </details>
-      </div>
 
       <div className='block1'>
         <details>
