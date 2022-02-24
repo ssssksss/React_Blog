@@ -6,6 +6,7 @@ const FrontendList = () => {
   return (
     <div className="navMenuContainer2">
       <div className="menu menu1">
+        <Link to="frontend_prettier"> prettier </Link>
         <Link to="frontend_basic"> 프론트 개발 </Link>
         <Link to="frontend_regex"> 프론트 정규표현식 </Link>
         <Link to="frontend_buildname"> 프론트 이름 짓기  </Link>

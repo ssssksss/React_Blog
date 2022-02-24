@@ -59,11 +59,12 @@ const TitleIcon = styled.img`
 `;
 const Introduction = styled.div`
   background: white;
-  height: 560px;
+  height: 480px;
   display: grid;
   grid-template-rows: 100px 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 20px;
-  padding: 10px;
+  padding: 10px 20px;
+  margin-bottom: 20px;
 `;
 const IntroductionTitle = styled.span`
   height: 100px;
@@ -98,6 +99,7 @@ const Stack = styled.div`
   padding: 0px 20px 20px 20px;
   height: 800px;
   overflow: scroll;
+  font-family: "Cafe24Ssurround";
 `;
 const StackTitle = styled.div`
   height: 60px;

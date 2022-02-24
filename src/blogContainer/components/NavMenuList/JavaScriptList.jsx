@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 const JavaScriptList = () => {
 
-
   return (
     <div className="navMenuContainer2">
       <div className="menu menu1">

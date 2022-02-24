@@ -20,6 +20,7 @@ const ReactList = () => {
         <Link to="react_ajax"> Ajax </Link>
         <Link to="react_fetchapi"> FetchAPI </Link>
         <Link to="react_axios"> Axios </Link>
+        <Link to="react_babel"> Babel </Link>
       </div>
       <div className="menu menu25vw">
       </div>

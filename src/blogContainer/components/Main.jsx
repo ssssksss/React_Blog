@@ -107,6 +107,7 @@ import ReactStyledComponent from './Main/ReactContent/ReactStyledComponent';
 import ReactFetchAPI from './Main/ReactContent/ReactFetchAPI';
 import ReactAxios from './Main/ReactContent/ReactAxios';
 import ReactAjax from './Main/ReactContent/ReactAjax';
+import ReactBabel from './Main/ReactContent/ReactBabel';
 
 // 프론트 개발자
 import FrontendBasic from './Main/FrontendContent/FrontendBasic';
@@ -114,6 +115,8 @@ import FrontendBrowserDevTool from './Main/FrontendContent/FrontendBrowserDevToo
 import FrontendRegex from './Main/FrontendContent/FrontendRegex';
 import FrontendBuildName from './Main/FrontendContent/FrontendBuildName';
 import FrontendHttp from './Main/FrontendContent/FrontendHttp';
+import FrontendPrettier from './Main/FrontendContent/FrontendPrettier';
+
 
 // ========== 기타 ==========
 // 데이터 베이스
@@ -348,6 +351,7 @@ const Main = (props) => {
         <Route path="/react_fetchapi" element={<ReactFetchAPI />} />
         <Route path="/react_ajax" element={<ReactAjax />} />
         <Route path="/react_axios" element={<ReactAxios />} />
+        <Route path="/react_babel" element={<ReactBabel />} />
 
         {/* 프론트 개발자 */}
         <Route path="/frontend_basic" element={<FrontendBasic />} />
@@ -355,6 +359,7 @@ const Main = (props) => {
         <Route path="/frontend_regex" element={<FrontendRegex />} />
         <Route path="/frontend_buildname" element={<FrontendBuildName />} />
         <Route path="/frontend_http" element={<FrontendHttp />} />
+        <Route path="/frontend_prettier" element={<FrontendPrettier />} />
 
         {/*========== 기타 ==========*/}
 

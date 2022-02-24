@@ -7,24 +7,48 @@ const ReactStyledComponent = (props) => {
 
       <div className='block1'>
         <details>
-          <summary> styled-components 설치 및 설정 </summary>
+          <summary> [0] styled-components 설치 </summary>
           <div className='block2'>
 
-            <h2 className='h2'> 📌 설명 </h2>
-            <div className="block4">
-              <li> css 파일을 이용하지 않고 jsx파일에서 태그나 컴포넌트에 스타일을 주는 방법 </li>
-              <li> Css in Js </li>
-              <li> ` (Back quoto) 기호 사용 </li>
+            <li> cd 설치할폴더경로 </li>
+            <li> npm create react-app 프로젝트명 --template typescript </li>
+            <li> cd 프로젝트명 </li>
+            <li> npm run start <small> 시작이 되는지 테스트 해보기 </small> </li>
+            <li> npm i --save-dev install -g typescript </li>
+            <li> npm install -D gh-pages </li>
+            <li> npm install --save-dev styled-components @types/styled-components babel-plugin-styled-components cross-env</li>
+            <div className="block3">
+              <li> styled-components <small> 스타일컴포넌트 설치 </small> </li>
+              <li> @types/styled-components <small> 타입스크립트를 사용하기 위한 설정 </small> </li>
+              <li> babel-plugin-styled-components <small> 디버그 할 때 랜덤 해쉬값이 생성되는데 접두사를 설정할 수 있음 </small> </li>
+              <li> 바벨 플러그인에 추가 <small> "plugins": ["babel-plugin-styled-components"] </small> </li>
+              <li> cross-env <small> 윈도우와 맥에서 동일한 명령어로 환경 변수를 설정하기 위해 사용 </small> </li>
             </div>
-
-            <h2 className='h2'> 📌 설치 </h2>
-            <li> npm i styled-components </li>
-
-            <h2 className='h2'> 📌 설명 </h2>
-            <div className="block4">
-              <li> import styled from 'styled-components'; <small> # vscode 스니펫 명령어 imsc </small> </li>
-              <li>  </li>
-              <li>  </li>
+            <div className="block3">
+              <li> <h3> package.json </h3> </li>
+              <li> "scripts": {"{"}
+                <li>   "start": "cross-env NODE_ENV=development webpack-dev-server --open", </li>
+                <li>   "prebuild": "rimraf dist", </li>
+                <li>   "build": "cross-env NODE_ENV=production webpack --progress" </li>
+              </li>
+              <li> {"}"}, </li>
+            </div>
+            <li> <h3> webpack.config.js </h3> </li>
+            <div className="block3">
+              <li> module.exports = {"{"}
+                <li> mode: process.env.NODE_ENV, </li>
+              </li>
+              <li> {"};"} </li>
+            </div>
+            <li> <h3> .babelrc </h3> </li>
+            <div className="block3">
+              <li> "env":{"{"}
+                <li> "development": {"{"} <small> 환경변수를 development에서 production으로 바꾸면 사람이 알아보기 어려워짐 </small>
+                  <li> "plugins": ["babel-plugin-styled-components"] </li>
+                </li>
+                <li> {"}"} </li>
+              </li>
+              <li> {"}"} </li>
             </div>
 
           </div>

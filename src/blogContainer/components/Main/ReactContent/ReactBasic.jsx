@@ -8,25 +8,143 @@ const ReactBasic = (props) => {
 
       <div className='block1'>
         <details>
-          <summary> React 설치방법 </summary>
+          <summary> [0] React 초기시작 </summary>
           <div className='block2'>
-            <h2 className='h2'> 📌 설명 </h2>
+            <h2 className='h2'> 📌 자바스크립트 </h2>
             <div className="block4">
-              <li> Node.js 설치를하고 cmd에서 설치되었는지 확인, node -v , npm -v </li>
-              <li> Vscode 설치 </li>
-              <li> Vscode 터미널에서 cd React시작할폴더명(\Users\sk\Desktop\git_ssssksss\CODE) , # 이와같이 입력 </li>
-              <li> yarn create react-app 리액트폴더 혹은 npm create react-app 리액트폴더명 (폴더생성됨,폴더의이름은 모두 소문자)</li>
-              <li> 만약에 yarn이 설치되지 않는다면 npm install -g yarn </li>
+              {/*<li> Node.js 설치를하고 cmd에서 설치되었는지 확인, node -v , npm -v </li>*/}
+              <li> cd 프로젝트설치할폴더경로 </li>
+              <li> npm create react-app 프로젝트명 <small> 폴더의이름은 모두 소문자할것!! </small> </li>
               <li> cd 리액트폴더명 </li>
+              <li> npm start <small> 잘 작동되면 성공 </small> </li>
             </div>
-            <li>  npm start  입력하여서 잘 작동되나 확인 </li>
+
+            <h2 className='h2'> 📌 타입스크립트 </h2>
+            <div className="block4">
+              <li> cd 프로젝트설치할폴더경로 </li>
+              <li> npm i --save-dev install -g typescript </li>
+              <li> npm create react-app 프로젝트명 --template typescript </li>
+              <li> cd 리액트폴더명 </li>
+              <li> npm start <small> 잘 작동되면 성공 </small> </li>
+              <li>  </li>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [1] Babel 설정 </summary>
+          <div className='block2'>
 
             <h2 className='h2'> 📌 설명 </h2>
-            <div className="block4">
+            <div className='block4'>
+              <li> 자바스크립트 트랜스파일러 </li>
+              <li> 다양한 버전과 환경에서 실행되는 자바스크립트를 예전 버전의 문법으로 사용할 수 있게 바꾸어준다. </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 자바스크립트 </h2>
+            <div className='block4'>
               <li>  </li>
               <li>  </li>
               <li>  </li>
             </div>
+
+
+            <h2 className='h2'> 📌 타입스크립트 바벨 패키지 </h2>
+            <div className='block4'>
+              <li> @babel/preset-env : ECMA 2015로 변환할 떄 사용 </li>
+              <li> @babel/preset-react, @babel/preset-typescript : 리액트,타입스크립트 문법을 자바스크립트로 변경해주는 플러그인 </li>
+              <li> @babel/cli : 커맨드 명령어로 babel을 사용할 때 필요  </li>
+              <li> @babel/core : babel을 사용할 때 항상 필요 </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 타입스크립트 </h2>
+            <div className='block4'>
+              <li> npm i babel-loader @babel/preset-env @babel/preset-react @babel/preset-typescript </li>
+              <li> npm i --save-dev @babel/core @babel/cli </li>
+              <li> <h3> .babelrc 파일 생성 </h3> </li>
+              <div className="block3">
+                <li> {"{"}
+                  <li> "presets": [
+                    <li> "@babel/preset-typescript", </li>
+                    <li> "@babel/preset-react", </li>
+                    <li> "@babel/preset-env" </li>
+                  </li>
+                  <li> ] </li>
+                </li>
+                <li> {"}"} </li>
+              </div>
+              <li>  </li>
+            </div>
+            <li> <h3> tsconfig.json 파일 생성 </h3> </li>
+            <div className="block3">
+              <li>  </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [2] webpack </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 자바스크립트 </h2>
+            <div className='block4'>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 자바스크립트 </h2>
+            <div className='block4'>
+              <li> npm install --save-dev webpack webpack-dev-server webpack-cli@3  </li>
+              <li> <h3> webpack.config.js </h3> </li>
+              <div className="block3">
+                <li>  </li>
+                <li>  </li>
+              </div>
+              <li>  </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [3] 환경변수 관리 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설치 </h2>
+            <div className='block4'>
+              <li> npm install cross-env </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 package.json </h2>
+            <div className='block4'>
+              <li> 아래와 같이 수정 </li>
+              <li> "start": "cross-env PHASE=local webpack-dev-server --config ./configs/webpack.config.js --mode development", </li>
+              <li> "debug": "cross-env PHASE=debug webpack-dev-server --config ./configs/webpack.config.js" </li>
+            </div>
+
+            <h2 className='h2'> ✔ 예시 </h2>
+            <li>
+              <div className='block3'>
+                <h3 className='h3'> 🎈 </h3>
+                <div className='block4'>
+                  <li>  </li>
+                </div>
+              </div>
+            </li>
+
           </div>
         </details>
       </div>
