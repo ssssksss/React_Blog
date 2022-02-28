@@ -92,6 +92,7 @@ import JavaScriptStyle from './Main/JavaScriptContent/JavaScriptStyle';
 import JavaScriptWindow from './Main/JavaScriptContent/JavaScriptWindow';
 import JavaScriptTable from './Main/JavaScriptContent/JavaScriptTable';
 import JavaScriptScroll from './Main/JavaScriptContent/JavaScriptScroll';
+import JavaScriptDrag from './Main/JavaScriptContent/JavaScriptDrag';
 
 // 리액트
 import ReactBasic from './Main/ReactContent/ReactBasic';
@@ -333,9 +334,9 @@ const Main = (props) => {
         <Route path="/javascript_location" element={<JavaScriptLocation />} />
         <Route path="/javascript_style" element={<JavaScriptStyle />} />
         <Route path="/javascript_window" element={<JavaScriptWindow />} />
-
         <Route path="/javascript_table" element={<JavaScriptTable />} />
         <Route path="/javascript_scroll" element={<JavaScriptScroll />} />
+        <Route path="/javascript_drag" element={<JavaScriptDrag />} />
 
         {/* 리액트 */}
         <Route path="/react_basic" element={<ReactBasic />} />

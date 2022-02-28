@@ -8,11 +8,11 @@ import TodoCalender from './component/Pages/TodoCalender';
 //import TodoList from './component/Pages/TodoList';
 import Private from '../AuthContainer/Private';
 
-// 440, 960, 1440
+// 360, 960, 1440
 const Container = styled.div`
-  min-width: 460px;
+  min-width: 360px;
   background-clip: content-box;
-  width: 100vw;
+  width: 100%;
   min-height: 500px;
   height: 100%;
   padding: 10px;

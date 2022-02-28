@@ -84,16 +84,39 @@ const Month = () => {
 
     setDayList([]);
 
+    const content = [
+      {
+        "name": "나와라",
+        "cont": "내용"
+      },
+      {
+        "name": "나와라1",
+        "cont": "내용"
+      }
+    ]
+
+    const dateString = (year, month, day) => {
+      if (month === 13) {
+        year = year + 1;
+        month = 1;
+      }
+      else if (month === 0) {
+        year = year - 1;
+        month = 12;
+      }
+      return year.toString() + ("0" + (month)).slice(-2) + ("0" + (day)).slice(-2);
+    }
+
     //[1]시작일이 일요일일 경우
     if (nowStartDayW === 0) {
       //이번달
       for (let i = 1; i <= nowEndDay; i++) {
-        setDayList(array => [...array, { "day": i, "dayW": (i - 1) % 7 }]);
+        setDayList(array => [...array, { "key": dateString(year, month + 1, i), "day": i, "dayW": (i - 1) % 7, "content": content }]);
       }
       //다음달
       if (nextStartDayW !== 0) {
         for (let i = 1; i <= 7 - nextStartDayW; i++) {
-          setDayList(array => [...array, { "day": i, "dayW": nextStartDayW + i - 1, "opacity": true }]);
+          setDayList(array => [...array, { "key": dateString(year, month + 2, i), "day": i, "dayW": nextStartDayW + i - 1, "opacity": "true" }]);
         }
       }
     }
@@ -101,16 +124,16 @@ const Month = () => {
     else {
       //저번달
       for (let i = prevEndDay - prevEndDayW, j = 0; i <= prevEndDay; i++, j++) {
-        setDayList(array => [...array, { "day": i, "dayW": j, "opacity": true }]);
+        setDayList(array => [...array, { "key": dateString(year, month, i), "day": i, "dayW": j, "opacity": "true" }]);
       }
       //이번달
       for (let i = 1; i <= nowEndDay; i++) {
-        setDayList(array => [...array, { "day": i, "dayW": (i - 1 + nowStartDayW) % 7 }]);
+        setDayList(array => [...array, { "key": dateString(year, month + 1, i), "day": i, "dayW": (i - 1 + nowStartDayW) % 7, "content": content }]);
       }
       //다음달
       if (nextStartDayW !== 0) {
         for (let i = 1; i <= 7 - nextStartDayW; i++) {
-          setDayList(array => [...array, { "day": i, "dayW": nextStartDayW + i - 1, "opacity": true }]);
+          setDayList(array => [...array, { "key": dateString(year, month + 2, i), "day": i, "dayW": nextStartDayW + i - 1, "opacity": "true" }]);
         }
       }
     }
@@ -137,28 +160,28 @@ const Month = () => {
             if (i.opacity) {
 
               if (i.dayW === 6) {
-                return <Day color="blue" day={i.day} opacity={i.opacity}> </Day>
+                return <Day id={i.key} key={i.key} color="blue" day={i.day} opacity={i.opacity} content={i.content}> </Day>
               }
               else if (i.dayW === 0) {
-                return <Day color="red" day={i.day} opacity={i.opacity}> </Day>
+                return <Day id={i.key} key={i.key} color="red" day={i.day} opacity={i.opacity} content={i.content}> </Day>
               }
               else {
                 return (
-                  <Day day={i.day} opacity={i.opacity}> </Day>
+                  <Day id={i.key} key={i.key} day={i.day} opacity={i.opacity} content={i.content}>  </Day>
                 )
               }
             }
             else {
 
               if (i.dayW === 6) {
-                return <Day color="blue" day={i.day}> </Day>
+                return <Day id={i.key} key={i.key} color="blue" day={i.day} content={i.content}> </Day>
               }
               else if (i.dayW === 0) {
-                return <Day color="red" day={i.day}> </Day>
+                return <Day id={i.key} key={i.key} color="red" day={i.day} content={i.content}> </Day>
               }
               else {
                 return (
-                  <Day day={i.day}> </Day>
+                  <Day id={i.key} key={i.key} day={i.day} content={i.content}> </Day>
                 )
               }
             }

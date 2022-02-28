@@ -45,13 +45,13 @@ const AppContainer = styled.div`
 
   `;
 const AppContainerRow = styled.div`
-  width: 100vw;  
+  width: 100%;  
   display: flex;
   justify-content: space-evenly;
 `
 const AppButton = styled.button`
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   border: 0px;
   border-radius: 15px;
   position: relative;

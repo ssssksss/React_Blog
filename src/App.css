@@ -1,6 +1,8 @@
 .app {
   min-width: 440px;
   width: 100vw;
+  max-width: 1440px;
+  min-height: 100vh;
   margin: auto;
   box-sizing: border-box;
   background: url(./static/img/background.jpg);

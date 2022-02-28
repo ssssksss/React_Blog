@@ -17,6 +17,7 @@ const JavaScriptList = () => {
         <Link to="javascript_location"> JavaScript Location </Link>
         <Link to="javascript_style"> JavaScript Style </Link>
         <Link to="javascript_ajax">  Ajax </Link>
+        <Link to="javascript_drag">  JavaScript Drag </Link>
       </div>
       <div className="menu menu2">
         <Link to="javascript_table"> JavaScript Table </Link>
