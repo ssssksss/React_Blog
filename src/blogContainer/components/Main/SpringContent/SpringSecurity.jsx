@@ -82,12 +82,23 @@ const HtmlTest = (props) => {
           <summary> [2] WebMvcConfig - Cors문제  </summary>
           <div className='block2'>
 
-            <h2 className='h2'> 📌 추가 설명 </h2>
-            <li> 디폴트 값 </li>
-            <li> allow all origins </li>
-            <li> allow "simple" methods GET,HEAD and POST </li>
-            <li> allow all headers </li>
-            <li> set max age to 1800 seconds </li>
+            <h2 className='h2'> 📌 디폴트 값 </h2>
+            <div className="block4">
+              <li> allow all origins </li>
+              <li> allow "simple" methods GET,HEAD and POST </li>
+              <li> allow all headers </li>
+              <li> set max age to 1800 seconds </li>
+            </div>
+
+            <h2 className='h2'> 📌 cors 관련 명령 </h2>
+            <div className="block4">
+              <li> Access-Control-Allow-Origin : 요청하는 페이지의 출처 </li>
+              <li> Access-Control-Allow-Methods : 요청허용하는 메소드(default: get,post,head) </li>
+              <li> Access-Control-Max-Age : prefilght를 요청결과를 저장하는 시간 </li>
+              <li> Access-Control-Allow-Headers : 요청허용 하는 헤더 </li>
+              <li>  </li>
+            </div>
+
 
             <h2 className='h2'> 📌 메소드 위에 어노테이션을 선언 </h2>
             <div className="block4">

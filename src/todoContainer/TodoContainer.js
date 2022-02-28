@@ -1,10 +1,11 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { Route, Routes, Link } from 'react-router-dom';
-import TodoMain from '../todoContainer/components/TodoMain';
-import TodoList from '../todoContainer/components/TodoList';
-import TodoStudy from '../todoContainer/components/TodoStudy';
-import TodoStatistics from '../todoContainer/components/TodoStatistics';
+import TodoMain from './component/Pages/TodoMain';
+import TodoCalender from './component/Pages/TodoCalender';
+//import TodoStudy from './component/Pages/TodoStudy';
+//import TodoStatistics from './component/Pages/TodoStatistics';
+//import TodoList from './component/Pages/TodoList';
 import Private from '../AuthContainer/Private';
 
 // 440, 960, 1440
@@ -12,7 +13,8 @@ const Container = styled.div`
   min-width: 460px;
   background-clip: content-box;
   width: 100vw;
-  height: 100vh;
+  min-height: 500px;
+  height: 100%;
   padding: 10px;
   border-radius: 10px;
 
@@ -55,14 +57,6 @@ const SideContainer = styled.div`
   overflow: scroll;
   
 `;
-const rotation = keyframes`
-  50% {
-    transform: rotate3d(0, 1, 0, -90deg);
-  }
-  100% {
-    transform: rotate3d(0, 1, 0, 0deg);
-  }
-`;
 const LinkStyle = styled(Link)`
   display: block;
   width: 40px;
@@ -72,9 +66,10 @@ const LinkStyle = styled(Link)`
   margin-bottom: 10px;
   line-height: 40px;
   text-align: center;
+  
   &:hover {
-    animation: ${rotation} 1s linear infinite;
-    width: 40px;
+    color: #C0B4FA;
+    background: black;
   }
 `;
 
@@ -87,16 +82,17 @@ const TodoContainer = () => {
           <Private>
             <SideContainer>
               <LinkStyle to="main"> 메인 </LinkStyle>
+              <LinkStyle to="calender" > 달력 </LinkStyle>
               <LinkStyle to="list"> 목록 </LinkStyle>
               <LinkStyle to="study"> 공부 </LinkStyle>
               <LinkStyle to="statistics" > 통계 </LinkStyle>
             </SideContainer>
             <Routes>
-              <Route path={"/"} element={<TodoMain />} />
               <Route path={"/main"} element={<TodoMain />} />
-              <Route path={"/list"} element={<TodoList />} />
+              <Route path={"/calender"} element={<TodoCalender />} />
+              {/*<Route path={"/list"} element={<TodoList />} />
               <Route path={"/study"} element={<TodoStudy />} />
-              <Route path={"/statistics"} element={<TodoStatistics />} />
+              <Route path={"/statistics"} element={<TodoStatistics />} />*/}
             </Routes>
           </Private>
         </Container2>

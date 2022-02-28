@@ -8,6 +8,22 @@ const LinuxBasic = (props) => {
 
       <div className='block1'>
         <details>
+          <summary> 리눅스 한국시간으로 변경하기 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <div className='block4'>
+              <li> ls /usr/share/zoneinfo/Asia | grep Seoul <small> 설정하려는 나라의 시간이 있는지 확인 </small> </li>
+              <li> sudo ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime </li>
+              <li> date <small> 한국시간 확인 </small> </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
           <summary> 리눅스를 시작하기 전에 알아야 할것 </summary>
           <div className='block2'>
 

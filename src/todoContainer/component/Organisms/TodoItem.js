@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import CustomModal from '../../util/CustomModal';
-import TodoInput from './TodoInput';
+import CustomModal from '../../../util/CustomModal';
+import TodoInput from '../TodoInput';
 
 const Container = styled.div`
   width: 100%;

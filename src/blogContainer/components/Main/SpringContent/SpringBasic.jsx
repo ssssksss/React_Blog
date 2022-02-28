@@ -23,49 +23,6 @@ const SpringBasic = (props) => {
 
       <div className='block1'>
         <details>
-          <summary> [1] war 파일 만들기 </summary>
-          <div className='block2'>
-
-            <h2 className='h2'> 📌 인텔리제이에서 만들기 </h2>
-            <div className='block4'>
-              <li> build.gradle에 아래와 같이 추가 작성 </li>
-              <div className="block3">
-                <li> plugins {"{"} <small> 추가 작성 </small>
-                  <li> id 'war' </li>
-                </li>
-                <li> {"}"} </li>
-              </div>
-              <div className="block3">
-                <li> apply plugin:'war' <small> 새로 작성 </small> </li>
-                <li> bootWar {"{"}
-                  <li> 	archiveBaseName='파일명' </li>
-                  <li> 	archiveFileName='파일명.war' </li>
-                  <li> 	archiveVersion="0.0.0" </li>
-                </li>
-                <li> {"}"} </li>
-              </div>
-              <div className="block3">
-                <li> dependencies {"{"} <small> 추가 작성 </small>
-                  <li> implementation 'org.springframework.boot:spring-boot-starter-tomcat:2.6.0' </li>
-                </li>
-                <li> {"}"} </li>
-              </div>
-            </div>
-
-            <h2 className='h2'> 📌 war 파일 생성하기 </h2>
-            <div className='block4'>
-              <li> 우측 상단에 gradle 클릭 </li>
-              <li> bootWar과 war이 있는지 확인 </li>
-              <li> bootWar을 클릭하면 war파일 생성 </li>
-              <li> 프로젝트폴더/build/libs/.war 파일 확인 </li>
-            </div>
-
-          </div>
-        </details>
-      </div>
-
-      <div className='block1'>
-        <details>
           <summary> --------------------------- </summary>
           <div className='block2'>
 

@@ -99,7 +99,6 @@ const App = () => {
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth);
   let todayDate = new Date();
-  //let todayFullYear = todayDate.getFullYear;
   let todayFullYear = todayDate.getFullYear();
   let todayMonth = todayDate.getMonth() + 1;
   let todayDay = todayDate.getDate();
@@ -176,7 +175,7 @@ const App = () => {
               </Link>
             </AppButton>
             <AppButton >
-              <Link to="/todo">
+              <Link to="/todo/main">
                 <Cube> </Cube> <AbsText> 할일 <br /> </AbsText>
               </Link>
             </AppButton>

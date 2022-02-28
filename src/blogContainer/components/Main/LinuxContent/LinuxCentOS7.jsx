@@ -389,22 +389,66 @@ const LinuxCentOS7 = (props) => {
                   <li> WantedBy=multi-user.target </li>
                 </div>
               </li>
+              <li> vi /usr/local/tomcat8/conf/tomcat-users.xml </li>
+              <div className="block3">
+                <li> {"<tomcat-user>"}
+                  <li> {' <role rolename="admin-gui"/> '} </li>
+                  <li> {' <role rolename="manager-gui"/> '} </li>
+                  <li> {' <role rolename="manager-script"/> '} </li>
+                  <li> {' <role rolename="manager-status"/> '} </li>
+                  <li> {' <role rolename="manager-jmx"/> '} </li>
+                  <li> {' <user username="tomcat" password="tomcat" roles="adming-gui,manager-gui,manager-script,manager-status,manager-jmx"/> '}
+                    <small> jenkins나 다른 사용자가 접근 가능하게 추가 </small> </li>
+                </li>
+                <li> {"</tomcat-user>"} </li>
+              </div>
             </div>
 
             <h2 className='h2'> 📌 명령어 </h2>
             <div className="block4">
-              <li> systemctl enable tomcat.service </li>
-              <li> systemctl start tomcat.service </li>
-              <li> systemctl stop tomcat.service </li>
-              <li> systemctl disable tomcat.service </li>
-              <li> systemctl status tomcat.service </li>
+              <li> systemctl enable tomcat8.service </li>
+              <li> systemctl start tomcat8.service </li>
+              <li> systemctl stop tomcat8.service </li>
+              <li> systemctl disable tomcat8.service </li>
+              <li> systemctl status tomcat8.service </li>
             </div>
 
             <h2 className='h2'> 📌 경로 </h2>
             <div className="block4">
-              <li> /usr/share/tomcat/webapps <small> 배포파일 경로 </small> </li>
+              <li> /usr/local/tomcat8/webapps <small> 배포파일 경로 </small> </li>
               <li> /usr/local/tomcat8/conf/server.xml <small> 설정파일 </small> </li>
+              <li> /etc/systemd/system <small> 서비스 되고 있는 파일 경로 </small> </li>
               <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 배포1 - root.war 명으로 사용할 때 </h2>
+            <div className="block4">
+              <li> cd /usr/local/tomcat8/webapps <small> 배포파일 경로 </small> </li>
+              <li> ROOT.war 파일을 넣어준다. </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 배포2 - 커스텀.war 명으로 사용할 때 </h2>
+            <div className="block4">
+              <li> cd /usr/local/tomcat8/webapps <small> 배포파일 경로 </small> </li>
+              <li> 커스텀명.war 파일을 넣어준다. </li>
+              <li> vi /usr/local/tomcat8/conf/server.xml </li>
+              <li> 아래쪽에 {"<Host> </Host> 태그 내부에 아래와 같이 선언 "} </li>
+              <div className="block3">
+                <li> {' <Context path="/" docBase="커스텀명" reloadable="false" > </Context> '} </li>
+              </div>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 톰캣 서비스 종료 </h2>
+            <div className="block4">
+              <li> cd /usr/lib/systemd/system </li>
+              <li> systemctl list-units --type service </li>
+              <li> service tomcat stop </li>
+              <li> systemctl stop tomcat.service </li>
+              <li> systemctl list-units --type service | grep tomcat </li>
+              <li> systemctl disable tomcat.service </li>
+              <li> systemctl reset-failed </li>
             </div>
 
           </div>
