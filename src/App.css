@@ -9,30 +9,41 @@
   background-attachment: fixed;
   background-size: cover;
   background-color: transparent;
+  padding: 0px 10px;
 }
-/* 폰트 */
-@font-face {
-  font-family: "GangwonEduPowerExtraBoldA";
-  src: url("../src/static/font/GangwonEduPowerExtraBoldA.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
+/* 
+  font-family: "Cafe24Ssurround";
+  font-family: "SF_IceLemon";
+  font-family: "SANGJUGyeongcheonIsland";
+*/
+
+/* 약간 흐물한데 굵은 글자 */
 @font-face {
   font-family: "Cafe24Ssurround";
   src: url("../src/static/font/Cafe24Ssurround.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
+/* 내부가 비어있는 글자 */
 @font-face {
   font-family: "SF_IceLemon";
   src: url("../src/static/font/SF_IceLemon.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
+/* 높이 라인이 맞지 않고 흐름도 뒤죽박죽, 굵은 글씨 */
 @font-face {
   font-family: "SANGJUGyeongcheonIsland";
-  src: url("../src/static/font/SANGJU Gyeongcheon Island.ttf")
+  src: url("../src/static/font/SANGJU Gyeongcheon Island.ttf") SB어그로B
     format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+/* 굵은 글씨 커서 보기 좋음 */
+/* https://noonnu.cc/font_page/738 */
+@font-face {
+  font-family: "SBAggroB";
+  src: url("../src/static/font/SB어그로B.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }

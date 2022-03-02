@@ -1,50 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Main from './components/Main.jsx';
-import NavMenu from './components/NavMenu';
-import NavMenu2 from './components/NavMenu2';
+import BlogCategory1Links from './components/BlogCategory1Links';
+import BlogCategory2Links from './components/BlogCategory2Links';
 import FootterMenu from './components/FootterMenu';
 import styled from 'styled-components';
 
 const BlogContainer = () => {
-
-  const [whatPage, setWhatPage] = useState('main');
-  const [whatPage2, setWhatPage2] = useState('main');
-
-  const changePage = (page, e) => {
-    setWhatPage(page);
-  }
-
-  const changePage2 = (page2, e) => {
-    setWhatPage2(page2);
-  }
-
-  const Container1 = styled.div`
-    position: relative;
-    width: 100%;
-  `;
-
-  const Container2 = styled.div`
-    position: relative;
-    width: 100%;
-    min-height: 300px;
-  `;
-
   const Container3 = styled.div`
-    width: 100%;
+  margin: 6px 0px;
+  width: 100%;
+  min-height: 200px;
+  background: #e3ffd3;
+  border-radius: 10px;
   `;
 
   return (
     <div>
-      <Container1>
-        <NavMenu onChangePage={(page) => { { changePage(page) } }}> </NavMenu>
-        <NavMenu2 page={whatPage} onChangePage={(page2) => { { changePage2(page2) } }}> </NavMenu2>
-      </Container1>
-      <Container2>
-        <Main page2={whatPage2}> </Main>
-      </Container2>
+      <BlogCategory1Links />
+      <BlogCategory2Links />
+      <Main />
       <Container3>
-        <FootterMenu FootterMenu> </FootterMenu>
       </Container3>
+      <FootterMenu />
     </div>
   );
 };

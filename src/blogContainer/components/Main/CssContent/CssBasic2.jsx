@@ -126,6 +126,14 @@ const CssBasic2 = (props) => {
               <li> grid-row-start: n; grid-row-end: m; <small> # 요소가 위치할 곳이 (n ~ m-1)번째 행 </small> </li>
               <li> grid-row-start: n; grid-row-end: span m; <small> # 요소가 위치할 곳이 n번째 행부터 m너비 </small> </li>
 
+              <h2 className='h2'> 📌 자식 요소 늘려주기 </h2>
+              <div className='block4'>
+                <li> 자식 요소에 선언해서 사용, start는 1부터 시작해서 끝은 4fr(4등분)이면 5가 끝을 표시 </li>
+                <li> grid-column-start: 1; </li>
+                <li> grid-column-end: 5; </li>
+              </div>
+
+
 
               <h2 className='h2'> 📌 grid 간격 </h2>
               <li> grid-gap: 5px; </li>
@@ -139,6 +147,20 @@ const CssBasic2 = (props) => {
                 <li> "t t t t" </li>
                 <li> ". t t ." </li>
               </li>
+
+              <h2 className='h2'> 📌 minmax() </h2>
+              <div className='block4'>
+                <li> 최솟값, 최대값을 지정해서 사용가능 </li>
+                <li>   grid-template-columns: repeat(auto-fit, minmax(200px, 4fr)); </li>
+                <li>   grid-template-rows: repeat(auo-fit, minmax(200px, 4fr)); </li>
+              </div>
+
+              <h2 className='h2'> 📌 place-content </h2>
+              <div className='block4'>
+                <li>  place-content: end center; </li>
+              </div>
+
+
 
               <h2 className='h2'> 📌 grid 요소 순위 </h2>
               <li> order: 0 <small> # default=0 </small> </li>

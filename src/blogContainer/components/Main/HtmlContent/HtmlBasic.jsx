@@ -298,7 +298,7 @@ const HtmlBasic = (props) => {
               <li> 소제목
                 <div className='block3'>
                   <h3 className='h3'> 🎈 이미지 예시 </h3>
-                  <img alt="" src={process.env.PUBLIC_URL + '/img/mountain_and_sea.jpg'} alt="산과바다" width="100px" />
+                  <img src={process.env.PUBLIC_URL + '/img/mountain_and_sea.jpg'} alt="산과바다" width="100px" />
                 </div>
               </li>
 
@@ -730,55 +730,6 @@ const HtmlBasic = (props) => {
             </div>
           </details>
         </div>
-
-        <div className='block1'>
-          <details>
-            <summary> html 요소 Width, Height (나중에 좀 더 알아볼 것)  </summary>
-            <div className='block2'>
-
-              <h2 className='h2'> 📌 Width </h2>
-              <li> ELEMENT.offsetWidth : element.width + padding + border + scrollbar (margin 제외) </li>
-              <li> ELEMENT.clientWidth : element.width + padding - scrollbar (margin, border 제외)  </li>
-              <li> ELEMENT.scrollWidth : element.width + padding - scrollbar, scrollbar로 감싸진 공간(margin, border 제외)  </li>
-              <li> ELEMENT.getBoundingClientRect() 속성 : (margin 제외) , 랜더링 크기에 비례해서 스케일을 키우면 갑이 변한다.
-                <div className="block4">
-                  <li> x : 좌측 상단 x위치 </li>
-                  <li> y : 좌측 상단 y위치</li>
-                  <li> top : (margin-top) y위치 </li>
-                  <li> bottom : (margin-top + border + padding + element.height) y위치 </li>
-                  <li> left : (margin-left) x위치 </li>
-                  <li> right : (margin-left + border + padding + element.width) x위치</li>
-                  <li> width : border + padding + element.width </li>
-                  <li> height : border + padding + element.height </li>
-                </div>
-              </li>
-              <li> 1 </li>
-
-              <h2 className='h2'> 📌 Height </h2>
-              <li> ELEMENT.offsetHeight : element.height + padding + border + scrollbar (margin 제외) </li>
-              <li> ELEMENT.clientHeight : element.height + padding - scrollbar (margin, border 제외)  </li>
-              <li> ELEMENT.scrollHeight : element.height + padding - scrollbar, scrollbar로 감싸진 공간(margin, border 제외) </li>
-
-              <h2 className='h2'> 📌 설명 </h2>
-              <li> 1 </li>
-
-
-
-              <h2 className='h2'> ✔ 예시 </h2>
-              <li> 소제목
-                <div className='block3'>
-                  <h3 className='h3'> 🎈 </h3>
-                  <div className='block4'>
-                    <li>  </li>
-                  </div>
-                </div>
-              </li>
-
-            </div>
-          </details>
-        </div>
-
-
 
       </div>
     </>

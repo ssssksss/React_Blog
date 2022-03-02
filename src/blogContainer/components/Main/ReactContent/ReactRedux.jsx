@@ -4,6 +4,159 @@ const ReactRedux = (props) => {
 
   return (
     <div className="common_style">
+
+      <div className='block1'>
+        <details>
+          <summary> [0] redux 설치 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <div className='block4'>
+              <li> npm i redux react-redux redux-logger </li>
+              <li> npm i -D redux-devtools <small> # (개발단계에서사용)크롬 익스텐션과 연동하려고 설치, 크롬 확장 프로그램 redux dev tools에서 redux추적 가능  </small> </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+
+      <div className='block1'>
+        <details>
+          <summary> [1] redux 기본 테스트 예시 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> ✔ 예시 </h2>
+            <li>
+              <div className='block3'>
+                <h2 className='h2'> 📌 npm 설치  </h2>
+                <div className='block4'>
+                  <li> npm i redux react-redux redux-logger </li>
+                  <li> npm install react-router-dom --save </li>
+                  {/*<li> npm install --save history </li>*/}
+                </div>
+              </div>
+              <div className='block3'>
+                <h2 className='h2'> 📌 store/index.js </h2>
+                <div className='block4'>
+                  <li> {" import { createStore } from 'redux'; "} </li>
+                  <li> {" import rootReducer from './reducer'; "} </li>
+                  <li> {" const store = createStore(rootReducer); "} </li>
+                  <li> {" export default store; "} </li>
+                </div>
+              </div>
+              <div className='block3'>
+                <h2 className='h2'> 📌 store/reducer.js </h2>
+                <div className='block4'>
+                  <li> {" import { combineReducers } from 'redux'; "} </li>
+                  <li> {" import authReducer from './auth/reducer'; "} </li>
+                  <li> {" const rootReducer = combineReducers({ "}
+                    <li> {"auth: authReducer "} </li>
+                  </li>
+                  <li> {" }); "} </li>
+                  <li> {" export default rootReducer; "} </li>
+                </div>
+              </div>
+              <div className='block3'>
+                <h2 className='h2'> 📌 store/auth/index.js </h2>
+                <div className='block4'>
+                  <li> export * from "./actions" </li>
+                  <li> export * from "./reducer" </li>
+                  <li> export * from "./type" </li>
+                </div>
+              </div>
+              <div className='block3'>
+                <h2 className='h2'> 📌 store/auth/action.js </h2>
+                <div className='block4'>
+                  <li> {" import { IS_LOGIN } from './type'; "} </li>
+                  <li> {" export const isLogin = (payload) => { "}
+                    <li> {"return { "}
+                      <li> {"  type: IS_LOGIN, "} </li>
+                      <li> {"  payload: payload "} </li>
+                    </li>
+                    <li> {"} "} </li>
+                  </li>
+                  <li> {" }; "} </li>
+                </div>
+              </div>
+              <div className='block3'>
+                <h2 className='h2'> 📌 store/auth/reducer.js </h2>
+                <div className='block4'>
+                  <li> {" import { IS_LOGIN } from './types'; "} </li>
+                  <li> {" const initialState = { "}
+                    <li> {"isLogin: false "} </li>
+                  </li>
+                  <li> {" }; "} </li>
+                  <li> {" const authReducer = (state = initialState, action) => { "}
+                    <li> {"switch (action.type) { "}
+                      <li> {"  case IS_LOGIN: "} </li>
+                      <li> {" return { "}
+                        <li> {"...state, "} </li>
+                        <li> {"isLogin: action.payload "} </li>
+                      </li>
+                      <li> {" } "} </li>
+                      <li> {"  default: "}
+                        <li> {" return state; "} </li>
+                      </li>
+                    </li>
+                    <li> {"} "} </li>
+                  </li>
+                  <li> {" }; "} </li>
+                  <li> {" export default authReducer; "} </li>
+                </div>
+              </div>
+              <div className='block3'>
+                <h2 className='h2'> 📌 store/auth/type.js </h2>
+                <div className='block4'>
+                  <li> export const IS_LOGIN = "IS_LOGIN"; </li>
+                </div>
+              </div>
+              <div className='block3'>
+                <h2 className='h2'> 📌 index.js </h2>
+                <div className='block4'>
+                  <li> {" import { BrowserRouter } from 'react-router-dom'; "} </li>
+                  <li> {" import { Provider } from 'react-redux'; "} </li>
+                  <li> {" import store from './store/index'; "} </li>
+                  <li> {" import history from './util/history'; "} </li>
+                  <li> {" <Provider store={store}> "}
+                    <li> {"<BrowserRouter history={history}> "}
+                      <li> {"  <App /> "} </li>
+                    </li>
+                    <li> {"</BrowserRouter> "} </li>
+                  </li>
+                  <li> {" </Provider> "} </li>
+                </div>
+              </div>
+              <div className="block3">
+                <h2 className='h2'> 📌 util/history.js </h2>
+                <div className='block4'>
+                  <li> {" import { createBrowserHistory } from 'history' "} </li>
+                  <li> {" const history = createBrowserHistory(); "} </li>
+                  <li> {" export default history "} </li>
+                </div>
+              </div>
+              <div className='block3'>
+                <h2 className='h2'> 📌 적용할.js </h2>
+                <div className='block4'>
+                  <li> {" import { isLogin } from '../store/auth/action'; "} </li>
+                  <li> {" import { useDispatch, useSelector } from 'react-redux'; "} </li>
+                  <li> <small> 아래 3줄은 메소드 내에 선언하면 안된다. </small> </li>
+                  <li> const dispatch = useDispatch(); </li>
+                  <li> dispatch(isLogin(true)); <small> import로 액션함수 불러오기 </small> </li>
+                  <li> {" const isLogin = useSelector((state) => state.auth); "} </li>
+                  <li> <small> auth는 store/reducer.js에 auth: authReducer, 즉 authReducer를 뜻하는 것이고 </small> </li>
+                  <li> <small> isLogin는 store/auth/reducer.js에서 state인 isLogin을 뜻한다. </small> </li>
+                  <li> console.log(auth.isLogin); <small> = authReducer.isLogin </small> </li>
+                  <li> {/* //dispatch({ type: "IS_LOGIN", payload: true }); */} <small> 이렇게도 가능 </small> </li>
+                  <li>  </li>
+                </div>
+              </div>
+            </li>
+
+          </div>
+        </details>
+      </div>
+
       <div className='block1'>
         <details>
           <summary> Redux란 </summary>
@@ -41,137 +194,6 @@ const ReactRedux = (props) => {
             <li> action이 reducer를 작동 </li>
             <li> reducer가 액션에 맞는 값을 store에 저장 </li>
             <li> store에 저장된 값을 컴포넌트에 반영 </li>
-
-          </div>
-        </details>
-      </div>
-
-      <div className='block1'>
-        <details>
-          <summary> redux 설치 </summary>
-          <div className='block2'>
-
-            <h2 className='h2'> 📌 설명 </h2>
-            <li> npm i redux react-redux redux-logger </li>
-            <li> npm i -D redux-devtools <small> # (개발단계에서사용)크롬 익스텐션과 연동하려고 설치  </small> </li>
-
-            <h2 className='h2'> 📌 추가 설치 </h2>
-            <li> redux-devtools-extension으로 크롬 확장 프로그램 redux dev tools에서 redux추적 가능 </li>
-          </div>
-        </details>
-      </div>
-
-      <div className='block1'>
-        <details>
-          <summary> redux 기본 테스트 예시 </summary>
-          <div className='block2'>
-
-            <h2 className='h2'> ✔ 예시 </h2>
-            <li>
-              <div className='block3'>
-                <h3 className='h3'> 🎈 store/index.js </h3>
-                <div className='block4'>
-                  <li> {" import { createStore } from 'redux'; "} </li>
-                  <li> {" import rootReducer from './reducer'; "} </li>
-                  <li> {" const store = createStore(rootReducer); "} </li>
-                  <li> {" export default store; "} </li>
-                </div>
-              </div>
-              <div className='block3'>
-                <h3 className='h3'> 🎈 store/reducer.js </h3>
-                <div className='block4'>
-                  <li> {" import { combineReducers } from 'redux'; "} </li>
-                  <li> {" import reducerName from './auth/reducers'; "} </li>
-                  <li> {" const rootReducer = combineReducers({ "}
-                    <li> {"auth: authReducer "} </li>
-                  </li>
-                  <li> {" }); "} </li>
-                  <li> {" export default rootReducer; "} </li>
-                </div>
-              </div>
-              <div className='block3'>
-                <h3 className='h3'> 🎈 store/auth/index.js </h3>
-                <div className='block4'>
-                  <li> export * from "./actions" </li>
-                  <li> export * from "./reducers" </li>
-                  <li> export * from "./types" </li>
-                </div>
-              </div>
-              <div className='block3'>
-                <h3 className='h3'> 🎈 store/auth/action.js </h3>
-                <div className='block4'>
-                  <li> {" import { IS_LOGIN } from './types'; "} </li>
-                  <li> {" export const isLogin = (payload) => { "}
-                    <li> {"return { "}
-                      <li> {"  type: IS_LOGIN, "} </li>
-                      <li> {"  payload: payload "} </li>
-                    </li>
-                    <li> {"} "} </li>
-                  </li>
-                  <li> {" }; "} </li>
-                </div>
-              </div>
-              <div className='block3'>
-                <h3 className='h3'> 🎈 store/auth/reducer.js </h3>
-                <div className='block4'>
-                  <li> {" import { IS_LOGIN } from './types'; "} </li>
-                  <li> {" const initialState = { "}
-                    <li> {"isLogin: false "} </li>
-                  </li>
-                  <li> {" }; "} </li>
-                  <li> {" const authReducer = (state = initialState, action) => { "}
-                    <li> {"switch (action.type) { "}
-                      <li> {"  case IS_LOGIN: "} </li>
-                      <li> {" return { "}
-                        <li> {"...state, "} </li>
-                        <li> {"isLogin: action.payload "} </li>
-                      </li>
-                      <li> {" } "} </li>
-                      <li> {"  default: "}
-                        <li> {" return state; "} </li>
-                      </li>
-                    </li>
-                    <li> {"} "} </li>
-                  </li>
-                  <li> {" }; "} </li>
-                  <li> {" export default authReducer; "} </li>
-                </div>
-              </div>
-              <div className='block3'>
-                <h3 className='h3'> 🎈 store/auth/type.js </h3>
-                <div className='block4'>
-                  <li> export const Action_Type = "Action_Type"; </li>
-                </div>
-              </div>
-              <div className='block3'>
-                <h3 className='h3'> 🎈 index.js </h3>
-                <div className='block4'>
-                  <li> {" import { BrowserRouter } from 'react-router-dom'; "} </li>
-                  <li> {" import { Provider } from 'react-redux'; "} </li>
-                  <li> {" import store from './store/index'; "} </li>
-                  <li> {" import history from './util/history'; "} </li>
-                  <li> {" <Provider store={store}> "}
-                    <li> {"<BrowserRouter history={history}> "}
-                      <li> {"  <App /> "} </li>
-                    </li>
-                    <li> {"</BrowserRouter> "} </li>
-                  </li>
-                  <li> {" </Provider> "} </li>
-                </div>
-              </div>
-              <div className='block3'>
-                <h3 className='h3'> 🎈 적용할.js </h3>
-                <div className='block4'>
-                  <li> {" import { isLogin } from '../store/auth/actions'; "} </li>
-                  <li> {" import { useDispatch } from 'react-redux'; "} </li>
-                  <li> const dispatch = useDispatch();</li>
-                  <li> dispatch(isLogin(true)); <small> import로 액션함수 불러오기 </small> </li>
-                  <li> {/* //dispatch({ type: "IS_LOGIN", payload: true }); */} <small> 이렇게도 가능 </small> </li>
-                  <li>  </li>
-                  <li>  </li>
-                </div>
-              </div>
-            </li>
 
           </div>
         </details>

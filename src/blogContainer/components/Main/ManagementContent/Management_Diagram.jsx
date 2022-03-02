@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CollaborationTool_Diagram = (props) => {
+const Management_Diagram = (props) => {
   return (
     <div className="common_style">
 
@@ -118,4 +118,4 @@ const CollaborationTool_Diagram = (props) => {
   );
 }
 
-export default CollaborationTool_Diagram;
+export default Management_Diagram;

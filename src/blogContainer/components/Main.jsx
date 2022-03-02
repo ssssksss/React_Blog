@@ -109,6 +109,8 @@ import ReactFetchAPI from './Main/ReactContent/ReactFetchAPI';
 import ReactAxios from './Main/ReactContent/ReactAxios';
 import ReactAjax from './Main/ReactContent/ReactAjax';
 import ReactBabel from './Main/ReactContent/ReactBabel';
+import ReactDrag from './Main/ReactContent/ReactDrag';
+
 
 // 프론트 개발자
 import FrontendBasic from './Main/FrontendContent/FrontendBasic';
@@ -214,10 +216,10 @@ import KeyMapBrowser from './Main/KeyMapContent/KeyMapBrowser';
 import KeyMapSublimeText from './Main/KeyMapContent/KeyMapSublimeText';
 
 // 협업도구
-import CollaborationTool_Github from './Main/CollaborationToolContent/CollaborationTool_Github';
-import CollaborationTool_Slack from './Main/CollaborationToolContent/CollaborationTool_Slack';
-import CollaborationTool_Diagram from './Main/CollaborationToolContent/CollaborationTool_Diagram';
-import CollaborationTool_Markdown from './Main/CollaborationToolContent/CollaborationTool_Markdown';
+import ManagementContent_Github from './Main/ManagementContent/Management_Github';
+import ManagementContent_Slack from './Main/ManagementContent/Management_Slack';
+import ManagementContent_Diagram from './Main/ManagementContent/Management_Diagram';
+import ManagementContent_Markdown from './Main/ManagementContent/Management_Markdown';
 
 //  참고사이트
 import RefBlog from './Main/RefBlogContent/RefBlog';
@@ -248,243 +250,244 @@ const Main = (props) => {
       <Routes>
         {/*========== 백엔드 ========== */}
         {/* 자바 */}
-        <Route path="/java_basic" element={<JavaBasic />} />
-        <Route path="/java_basic2" element={<JavaBasic2 />} />
-        <Route path="/java_modifier" element={<JavaModifier />} />
-        <Route path="/java_annotation" element={<JavaAnnotation />} />
+        <Route path="/java/java_basic" element={<JavaBasic />} />
+        <Route path="/java/java_basic2" element={<JavaBasic2 />} />
+        <Route path="/java/java_modifier" element={<JavaModifier />} />
+        <Route path="/java/java_annotation" element={<JavaAnnotation />} />
 
         {/* PHP */}
-        <Route path="/php_basic" element={<PhpBasic />} />
+        <Route path="/php/php_basic" element={<PhpBasic />} />
 
         {/* 노드JS */}
-        <Route path="/nodejs_basic" element={<NodejsBasic />} />
+        <Route path="/nodejs/nodejs_basic" element={<NodejsBasic />} />
 
         {/* 스프링 */}
-        <Route path="/spring_error" element={<SpringError />} />
-        <Route path="/spring_jpa" element={<SpringJpa />} />
-        <Route path="/spring_basic" element={<SpringBasic />} />
-        <Route path="/spring_thymeleaf" element={<SpringThymeleaf />} />
-        <Route path="/spring_dao_dto" element={<SpringDaoDto />} />
-        <Route path="/spring_lombok" element={<SpringLombok />} />
-        <Route path="/spring_yml" element={<SpringYml />} />
-        <Route path="/spring_api" element={<SpringAPI />} />
-        <Route path="/spring_oauth2" element={<SpringOAuth2 />} />
-        <Route path="/spring_security" element={<SpringSecurity />} />
-        <Route path="/spring_controller" element={<SpringController />} />
-        <Route path="/spring_validator" element={<SpringValidator />} />
-        <Route path="/spring_aop" element={<SpringAop />} />
-        <Route path="/spring_service" element={<SpringService />} />
-        <Route path="/spring_jackson" element={<SpringJackson />} />
-        <Route path="/spring_communication" element={<SpringCommunication />} />
-        <Route path="/spring_converter" element={<SpringConverter />} />
-        <Route path="/spring_exception" element={<SpringException />} />
-        <Route path="/spring_testcode" element={<SpringTestCode />} />
-        <Route path="/spring_securityexcode1" element={<SpringSecurityExCode1 />} />
-        <Route path="/spring_securityexcode2" element={<SpringSecurityExCode2 />} />
-        <Route path="/spring_securityexcode3" element={<SpringSecurityExCode3 />} />
-        <Route path="/spring_basic_ex1" element={<SpringBasicEx1 />} />
+        <Route path="/spring/spring_error" element={<SpringError />} />
+        <Route path="/spring/spring_jpa" element={<SpringJpa />} />
+        <Route path="/spring/spring_basic" element={<SpringBasic />} />
+        <Route path="/spring/spring_thymeleaf" element={<SpringThymeleaf />} />
+        <Route path="/spring/spring_dao_dto" element={<SpringDaoDto />} />
+        <Route path="/spring/spring_lombok" element={<SpringLombok />} />
+        <Route path="/spring/spring_yml" element={<SpringYml />} />
+        <Route path="/spring/spring_api" element={<SpringAPI />} />
+        <Route path="/spring/spring_oauth2" element={<SpringOAuth2 />} />
+        <Route path="/spring/spring_security" element={<SpringSecurity />} />
+        <Route path="/spring/spring_controller" element={<SpringController />} />
+        <Route path="/spring/spring_validator" element={<SpringValidator />} />
+        <Route path="/spring/spring_aop" element={<SpringAop />} />
+        <Route path="/spring/spring_service" element={<SpringService />} />
+        <Route path="/spring/spring_jackson" element={<SpringJackson />} />
+        <Route path="/spring/spring_communication" element={<SpringCommunication />} />
+        <Route path="/spring/spring_converter" element={<SpringConverter />} />
+        <Route path="/spring/spring_exception" element={<SpringException />} />
+        <Route path="/spring/spring_testcode" element={<SpringTestCode />} />
+        <Route path="/spring/spring_securityexcode1" element={<SpringSecurityExCode1 />} />
+        <Route path="/spring/spring_securityexcode2" element={<SpringSecurityExCode2 />} />
+        <Route path="/spring/spring_securityexcode3" element={<SpringSecurityExCode3 />} />
+        <Route path="/spring/spring_basic_ex1" element={<SpringBasicEx1 />} />
 
         {/* JSP , Servlet */}
-        <Route path="/jspservlet_information" element={<JspServletInformation />} />
-        <Route path="/jspservlet_basic" element={<JspServletBasic />} />
-        <Route path="/jspservlet_bulletinboard" element={<JspServletBulletinBoard />} />
-        <Route path="/jspservlet_jstl" element={<JspServletJstl />} />
-        <Route path="/jspservlet_el" element={<JspServletEl />} />
-        <Route path="/jspservlet_jdbc" element={<JspServletJdbc />} />
+        <Route path="/jspservlet/jspservlet_information" element={<JspServletInformation />} />
+        <Route path="/jspservlet/jspservlet_basic" element={<JspServletBasic />} />
+        <Route path="/jspservlet/jspservlet_bulletinboard" element={<JspServletBulletinBoard />} />
+        <Route path="/jspservlet/jspservlet_jstl" element={<JspServletJstl />} />
+        <Route path="/jspservlet/jspservlet_el" element={<JspServletEl />} />
+        <Route path="/jspservlet/jspservlet_jdbc" element={<JspServletJdbc />} />
 
         {/* 백엔드 개발자 */}
-        <Route path="/backend_basic" element={<BackendBasic />} />
-        <Route path="/backend_solid" element={<BackendSolid />} />
-        <Route path="/backend_sctcache" element={<BackendSCTCache />} />
-        <Route path="/backend_browserdevtool" element={<BackendBrowserDevTool />} />
-        <Route path="/backend_compiler_interpreter" element={<BackendCompilerInterpreter />} />
-        <Route path="/backend_codingconvention" element={<BackendCodingConvention />} />
+        <Route path="/backend/backend_basic" element={<BackendBasic />} />
+        <Route path="/backend/backend_solid" element={<BackendSolid />} />
+        <Route path="/backend/backend_sctcache" element={<BackendSCTCache />} />
+        <Route path="/backend/backend_browserdevtool" element={<BackendBrowserDevTool />} />
+        <Route path="/backend/backend_compiler_interpreter" element={<BackendCompilerInterpreter />} />
+        <Route path="/backend/backend_codingconvention" element={<BackendCodingConvention />} />
 
         {/*========== 프론트엔드 ==========*/}
 
         {/* HTML */}
-        <Route path="/html_basic" element={<HtmlBasic />} />
-        <Route path="/html_test" element={<HtmlTest />} />
+        <Route path="/html/html_basic" element={<HtmlBasic />} />
+        <Route path="/html/html_test" element={<HtmlTest />} />
 
         {/* CSS */}
-        <Route path="/css_basic" element={<CssBasic />} />
-        <Route path="/css_basic2" element={<CssBasic2 />} />
-        <Route path="/css_scss" element={<CssScss />} />
-        <Route path="/css_use" element={<CssUse />} />
-        <Route path="/css_animation" element={<CssAnimation />} />
-        <Route path="/css_blur business card" element={<CssBlurBusinessCard />} />
-        <Route path="/css_text and video" element={<CssTextAndVideo />} />
+        <Route path="/css/css_basic" element={<CssBasic />} />
+        <Route path="/css/css_basic2" element={<CssBasic2 />} />
+        <Route path="/css/css_scss" element={<CssScss />} />
+        <Route path="/css/css_use" element={<CssUse />} />
+        <Route path="/css/css_animation" element={<CssAnimation />} />
+        <Route path="/css/css_blur business card" element={<CssBlurBusinessCard />} />
+        <Route path="/css/css_text and video" element={<CssTextAndVideo />} />
 
         {/* Bootstrap */}
-        <Route path="/bootstrap_basic" element={<BootstrapBasic />} />
-        <Route path="/bootstrap_table" element={<BootstrapTable />} />
+        <Route path="/bootstrap/bootstrap_basic" element={<BootstrapBasic />} />
+        <Route path="/bootstrap/bootstrap_table" element={<BootstrapTable />} />
 
         {/* 타입스크립트 */}
-        <Route path="/typescript_basic" element={<TypeScriptBasic />} />
+        <Route path="/typescript/typescript_basic" element={<TypeScriptBasic />} />
 
         {/* 자바스크립트  */}
-        <Route path="/javascript_basic" element={<JavaScriptBasic />} />
-        <Route path="/javascript_basic2" element={<JavaScriptBasic2 />} />
-        <Route path="/javascript_document" element={<JavaScriptDocument />} />
-        <Route path="/javascript_element" element={<JavaScriptElement />} />
-        <Route path="/javascript_event" element={<JavaScriptEvent />} />
-        <Route path="/javascript_event_object" element={<JavaScriptEventObject />} />
-        <Route path="/javascript_ajax" element={<JavaScriptAjax />} />
-        <Route path="/javascript_attribute" element={<JavaScriptAttribute />} />
-        <Route path="/javascript_location" element={<JavaScriptLocation />} />
-        <Route path="/javascript_style" element={<JavaScriptStyle />} />
-        <Route path="/javascript_window" element={<JavaScriptWindow />} />
-        <Route path="/javascript_table" element={<JavaScriptTable />} />
-        <Route path="/javascript_scroll" element={<JavaScriptScroll />} />
-        <Route path="/javascript_drag" element={<JavaScriptDrag />} />
+        <Route path="/javascript/javascript_basic" element={<JavaScriptBasic />} />
+        <Route path="/javascript/javascript_basic2" element={<JavaScriptBasic2 />} />
+        <Route path="/javascript/javascript_document" element={<JavaScriptDocument />} />
+        <Route path="/javascript/javascript_element" element={<JavaScriptElement />} />
+        <Route path="/javascript/javascript_event" element={<JavaScriptEvent />} />
+        <Route path="/javascript/javascript_event_object" element={<JavaScriptEventObject />} />
+        <Route path="/javascript/javascript_ajax" element={<JavaScriptAjax />} />
+        <Route path="/javascript/javascript_attribute" element={<JavaScriptAttribute />} />
+        <Route path="/javascript/javascript_location" element={<JavaScriptLocation />} />
+        <Route path="/javascript/javascript_style" element={<JavaScriptStyle />} />
+        <Route path="/javascript/javascript_window" element={<JavaScriptWindow />} />
+        <Route path="/javascript/javascript_table" element={<JavaScriptTable />} />
+        <Route path="/javascript/javascript_scroll" element={<JavaScriptScroll />} />
+        <Route path="/javascript/javascript_drag" element={<JavaScriptDrag />} />
 
         {/* 리액트 */}
-        <Route path="/react_basic" element={<ReactBasic />} />
-        <Route path="/react_javascript" element={<ReactJavaScript />} />
-        <Route path="/react_hooks" element={<ReactHooks />} />
-        <Route path="/react_class" element={<ReactClass />} />
-        <Route path="/react_animation" element={<ReactAnimation />} />
-        <Route path="/react_router" element={<ReactRouter />} />
-        <Route path="/react_modal" element={<ReactModal />} />
-        <Route path="/react_redux" element={<ReactRedux />} />
-        <Route path="/react_redux_saga" element={<ReactReduxSaga />} />
-        <Route path="/react_styledcomponent" element={<ReactStyledComponent />} />
-        <Route path="/react_fetchapi" element={<ReactFetchAPI />} />
-        <Route path="/react_ajax" element={<ReactAjax />} />
-        <Route path="/react_axios" element={<ReactAxios />} />
-        <Route path="/react_babel" element={<ReactBabel />} />
+        <Route path="/react/react_basic" element={<ReactBasic />} />
+        <Route path="/react/react_javascript" element={<ReactJavaScript />} />
+        <Route path="/react/react_hooks" element={<ReactHooks />} />
+        <Route path="/react/react_class" element={<ReactClass />} />
+        <Route path="/react/react_animation" element={<ReactAnimation />} />
+        <Route path="/react/react_router" element={<ReactRouter />} />
+        <Route path="/react/react_modal" element={<ReactModal />} />
+        <Route path="/react/react_redux" element={<ReactRedux />} />
+        <Route path="/react/react_redux_saga" element={<ReactReduxSaga />} />
+        <Route path="/react/react_styledcomponent" element={<ReactStyledComponent />} />
+        <Route path="/react/react_fetchapi" element={<ReactFetchAPI />} />
+        <Route path="/react/react_ajax" element={<ReactAjax />} />
+        <Route path="/react/react_axios" element={<ReactAxios />} />
+        <Route path="/react/react_babel" element={<ReactBabel />} />
+        <Route path="/react/react_drag" element={<ReactDrag />} />
 
         {/* 프론트 개발자 */}
-        <Route path="/frontend_basic" element={<FrontendBasic />} />
-        <Route path="/frontend_browserdevtool" element={<FrontendBrowserDevTool />} />
-        <Route path="/frontend_regex" element={<FrontendRegex />} />
-        <Route path="/frontend_buildname" element={<FrontendBuildName />} />
-        <Route path="/frontend_http" element={<FrontendHttp />} />
-        <Route path="/frontend_prettier" element={<FrontendPrettier />} />
+        <Route path="/frontend/frontend_basic" element={<FrontendBasic />} />
+        <Route path="/frontend/frontend_browserdevtool" element={<FrontendBrowserDevTool />} />
+        <Route path="/frontend/frontend_regex" element={<FrontendRegex />} />
+        <Route path="/frontend/frontend_buildname" element={<FrontendBuildName />} />
+        <Route path="/frontend/frontend_http" element={<FrontendHttp />} />
+        <Route path="/frontend/frontend_prettier" element={<FrontendPrettier />} />
 
         {/*========== 기타 ==========*/}
 
         {/* 데이터 베이스 */}
-        <Route path="/db_oraclebasic" element={<DBOracleBasic />} />
-        <Route path="/db_mysqlbasic" element={<DBMySQLBasic />} />
-        <Route path="/db_namingconvention" element={<DBNamingConvention />} />
-        <Route path="/db_mariabasic" element={<DBMariaBasic />} />
-        <Route path="/db_error" element={<DBError />} />
-        <Route path="/db_table" element={<DBTable />} />
-        <Route path="/db_erd" element={<DBErd />} />
+        <Route path="/database/db_oraclebasic" element={<DBOracleBasic />} />
+        <Route path="/database/db_mysqlbasic" element={<DBMySQLBasic />} />
+        <Route path="/database/db_namingconvention" element={<DBNamingConvention />} />
+        <Route path="/database/db_mariabasic" element={<DBMariaBasic />} />
+        <Route path="/database/db_error" element={<DBError />} />
+        <Route path="/database/db_table" element={<DBTable />} />
+        <Route path="/database/db_erd" element={<DBErd />} />
 
         {/* 디자인 패턴 */}
-        <Route path="/dp_gof" element={<DPGof />} />
-        <Route path="/dp_mvc2" element={<DPMvc2 />} />
-        <Route path="/dp_mvp" element={<DPMvp />} />
-        <Route path="/dp_mvvm" element={<DPMvvm />} />
+        <Route path="/designpattern/dp_gof" element={<DPGof />} />
+        <Route path="/designpattern/dp_mvc2" element={<DPMvc2 />} />
+        <Route path="/designpattern/dp_mvp" element={<DPMvp />} />
+        <Route path="/designpattern/dp_mvvm" element={<DPMvvm />} />
 
         {/* 보안 */}
-        <Route path="/security_basic" element={<SecurityBasic />} />
-        <Route path="/security_jwt" element={<SecurityJwt />} />
-        <Route path="/security_hmac" element={<SecurityHmac />} />
-        <Route path="/security_hash" element={<SecurityHash />} />
-        <Route path="/security_encryption" element={<SecurityEncryption />} />
-        <Route path="/security_hackingattack" element={<SecurityHackingAttack />} />
-        <Route path="/security_ipspoofing" element={<SecurityIpSpoofing />} />
+        <Route path="/security/security_basic" element={<SecurityBasic />} />
+        <Route path="/security/security_jwt" element={<SecurityJwt />} />
+        <Route path="/security/security_hmac" element={<SecurityHmac />} />
+        <Route path="/security/security_hash" element={<SecurityHash />} />
+        <Route path="/security/security_encryption" element={<SecurityEncryption />} />
+        <Route path="/security/security_hackingattack" element={<SecurityHackingAttack />} />
+        <Route path="/security/security_ipspoofing" element={<SecurityIpSpoofing />} />
 
         {/* 네트워크 */}
-        <Route path="/network_basic" element={<NetworkBasic />} />
-        <Route path="/network_command" element={<NetworkCommand />} />
-        <Route path="/network_arpprotocol" element={<NetworkArpprotocol />} />
-        <Route path="/network_osi7layer" element={<NetworkOSI7Layer />} />
-        <Route path="/network_threewayhandshake" element={<NetworkThreeWayHandshake />} />
-        <Route path="/network_device" element={<NetworkDevice />} />
-        <Route path="/network_wireshark" element={<NetworkWireshark />} />
-        <Route path="/network_protocol" element={<NetworkProtocol />} />
+        <Route path="/networ/network_basic" element={<NetworkBasic />} />
+        <Route path="/networ/network_command" element={<NetworkCommand />} />
+        <Route path="/networ/network_arpprotocol" element={<NetworkArpprotocol />} />
+        <Route path="/networ/network_osi7layer" element={<NetworkOSI7Layer />} />
+        <Route path="/networ/network_threewayhandshake" element={<NetworkThreeWayHandshake />} />
+        <Route path="/networ/network_device" element={<NetworkDevice />} />
+        <Route path="/networ/network_wireshark" element={<NetworkWireshark />} />
+        <Route path="/networ/network_protocol" element={<NetworkProtocol />} />
 
         {/* 알고리즘 */}
-        <Route path="/algorithm_backtracking" element={<Algorithm_Backtracking />} />
-        <Route path="/algorithm_divide_conquer" element={<Algorithm_Divide_Conquer />} />
-        <Route path="/algorithm_dynamic" element={<Algorithm_Dynamic />} />
-        <Route path="/algorithm_graph" element={<Algorithm_Graph />} />
-        <Route path="/algorithm_greedy" element={<Algorithm_Greedy />} />
-        <Route path="/algorithm_hash" element={<Algorithm_Hash />} />
-        <Route path="/algorithm_recursive" element={<Algorithm_Recursive />} />
-        <Route path="/algorithm_search" element={<Algorithm_Search />} />
-        <Route path="/algorithm_sort" element={<Algorithm_Sort />} />
-        <Route path="/algorithm_basic" element={<Algorithm_Basic />} />
+        <Route path="/algorithm/algorithm_backtracking" element={<Algorithm_Backtracking />} />
+        <Route path="/algorithm/algorithm_divide_conquer" element={<Algorithm_Divide_Conquer />} />
+        <Route path="/algorithm/algorithm_dynamic" element={<Algorithm_Dynamic />} />
+        <Route path="/algorithm/algorithm_graph" element={<Algorithm_Graph />} />
+        <Route path="/algorithm/algorithm_greedy" element={<Algorithm_Greedy />} />
+        <Route path="/algorithm/algorithm_hash" element={<Algorithm_Hash />} />
+        <Route path="/algorithm/algorithm_recursive" element={<Algorithm_Recursive />} />
+        <Route path="/algorithm/algorithm_search" element={<Algorithm_Search />} />
+        <Route path="/algorithm/algorithm_sort" element={<Algorithm_Sort />} />
+        <Route path="/algorithm/algorithm_basic" element={<Algorithm_Basic />} />
 
-        {/* 자료구조 */}
-        <Route path="/api_naver" element={<ApiNaver />} />
-        <Route path="/api_kakao" element={<ApiKakao />} />
-        <Route path="/api_google" element={<ApiGoogle />} />
-        <Route path="/api_facebook" element={<ApiFacebook />} />
+        {/* api */}
+        <Route path="/api/api_naver" element={<ApiNaver />} />
+        <Route path="/api/api_kakao" element={<ApiKakao />} />
+        <Route path="/api/api_google" element={<ApiGoogle />} />
+        <Route path="/api/api_facebook" element={<ApiFacebook />} />
 
         {/* 자료구조 */}
 
         {/* 클라우드 */}
-        <Route path="/cloud_oracle" element={<CloudOracle />} />
+        <Route path="/cloud/cloud_oracle" element={<CloudOracle />} />
 
         {/* 도커 */}
-        <Route path="/docker_basic" element={<DockerBasic />} />
+        <Route path="/docker/docker_basic" element={<DockerBasic />} />
 
         {/* CI/CD */}
-        <Route path="/cicd_jenkins" element={<CicdJenkins />} />
-        <Route path="/cicd_github_action" element={<CicdGithubAction />} />
+        <Route path="/cicd/cicd_jenkins" element={<CicdJenkins />} />
+        <Route path="/cicd/cicd_github_action" element={<CicdGithubAction />} />
 
         {/* 윈도우 */}
-        <Route path="/window_command" element={<WindowCommand />} />
-        <Route path="/window_system" element={<WindowSystem />} />
+        <Route path="/window/window_command" element={<WindowCommand />} />
+        <Route path="/window/window_system" element={<WindowSystem />} />
 
         {/* 리눅스 */}
-        <Route path="/linux_basic" element={<LinuxBasic />} />
-        <Route path="/linux_command" element={<LinuxCommand />} />
-        <Route path="/linux_mobaxterm" element={<LinuxMobaXterm />} />
-        <Route path="/linux_vimeditor" element={<LinuxVimEditor />} />
-        <Route path="/linux_directory" element={<LinuxDirectory />} />
-        <Route path="/linux_ubuntu" element={<LinuxUbuntu />} />
-        <Route path="/linux_centos7" element={<LinuxCentOS7 />} />
-        <Route path="/linux_shell" element={<LinuxShell />} />
-        <Route path="/linux_shellscript" element={<LinuxShellScript />} />
-        <Route path="/linux_server" element={<LinuxServer />} />
-        <Route path="/linux_network" element={<LinuxNetwork />} />
-        <Route path="/linux_account_command" element={<LinuxAccountCommand />} />
+        <Route path="/linux/linux_basic" element={<LinuxBasic />} />
+        <Route path="/linux/linux_command" element={<LinuxCommand />} />
+        <Route path="/linux/linux_mobaxterm" element={<LinuxMobaXterm />} />
+        <Route path="/linux/linux_vimeditor" element={<LinuxVimEditor />} />
+        <Route path="/linux/linux_directory" element={<LinuxDirectory />} />
+        <Route path="/linux/linux_ubuntu" element={<LinuxUbuntu />} />
+        <Route path="/linux/linux_centos7" element={<LinuxCentOS7 />} />
+        <Route path="/linux/linux_shell" element={<LinuxShell />} />
+        <Route path="/linux/linux_shellscript" element={<LinuxShellScript />} />
+        <Route path="/linux/linux_server" element={<LinuxServer />} />
+        <Route path="/linux/linux_network" element={<LinuxNetwork />} />
+        <Route path="/linux/linux_account_command" element={<LinuxAccountCommand />} />
 
         {/* 용어 */}
-        <Route path="/term" element={<Term />} />
+        <Route path="/term/term" element={<Term />} />
 
         {/* 단축키,설정 */}
-        <Route path="/keymap_intellij" element={<KeyMapIntellij />} />
-        <Route path="/keymap_vscode" element={<KeyMapVscode />} />
-        <Route path="/keymap_eclipse" element={<KeyMapEclipse />} />
-        <Route path="/keymap_window" element={<KeyMapWindow />} />
-        <Route path="/keymap_browser" element={<KeyMapBrowser />} />
-        <Route path="/keymap_sublimetext" element={<KeyMapSublimeText />} />
+        <Route path="/keymap/keymap_intellij" element={<KeyMapIntellij />} />
+        <Route path="/keymap/keymap_vscode" element={<KeyMapVscode />} />
+        <Route path="/keymap/keymap_eclipse" element={<KeyMapEclipse />} />
+        <Route path="/keymap/keymap_window" element={<KeyMapWindow />} />
+        <Route path="/keymap/keymap_browser" element={<KeyMapBrowser />} />
+        <Route path="/keymap/keymap_sublimetext" element={<KeyMapSublimeText />} />
 
         {/* 협업 도구 */}
-        <Route path="/collaboration_github" element={<CollaborationTool_Github />} />
-        <Route path="/collaboration_slack" element={<CollaborationTool_Slack />} />
-        <Route path="/collaboration_diagram" element={<CollaborationTool_Diagram />} />
-        <Route path="/collaboration_markdown" element={<CollaborationTool_Markdown />} />
+        <Route path="/management/management_github" element={<ManagementContent_Github />} />
+        <Route path="/management/management_slack" element={<ManagementContent_Slack />} />
+        <Route path="/management/management_diagram" element={<ManagementContent_Diagram />} />
+        <Route path="/management/management_markdown" element={<ManagementContent_Markdown />} />
 
         {/* 참고 사이트 */}
-        <Route path="/ref_blog" element={<RefBlog />} />
+        <Route path="/refblog/ref_blog" element={<RefBlog />} />
 
         {/* 파이썬 */}
-        <Route path="/python_basic" element={<PythonBasic />} />
-        <Route path="/python_regex" element={<PythonRegex />} />
+        <Route path="/python/python_basic" element={<PythonBasic />} />
+        <Route path="/python/python_regex" element={<PythonRegex />} />
 
         {/* 인공지능 */}
-        <Route path="/ai_basic" element={<AiBasic />} />
+        <Route path="/ai/ai_basic" element={<AiBasic />} />
 
         {/* 블록체인 */}
-        <Route path="/blockchain_pow" element={<BlockChainPow />} />
+        <Route path="/blockchain/blockchain_pow" element={<BlockChainPow />} />
 
         {/* 코딩테스트 */}
-        <Route path="/codingtest_baekjoon" element={<CTBaekJoon />} />
+        <Route path="/codingtest/codingtest_baekjoon" element={<CTBaekJoon />} />
 
         {/* 추천 프로그램 */}
-        <Route path="/program_recdev" element={<ProgramRecDev />} />
-        <Route path="/program_recwin" element={<ProgramRecWin />} />
+        <Route path="/program/program_recdev" element={<ProgramRecDev />} />
+        <Route path="/program/program_recwin" element={<ProgramRecWin />} />
 
         {/* 피그마 */}
-        <Route path="/figma_basic" element={<FigmaBasic />} />
+        <Route path="/figma/figma_basic" element={<FigmaBasic />} />
 
       </Routes>
     </div>

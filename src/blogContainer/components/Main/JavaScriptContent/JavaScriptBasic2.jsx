@@ -74,6 +74,89 @@ const JavaScriptBasic2 = (props) => {
 
       <div className='block1'>
         <details>
+          <summary> [1] 자주 사용하는 함수(slice,splice) </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 splice </h2>
+            <div className='block4'>
+              <li> 요소를 제거할 경우는 반환 원본 배열의 값은 변경이 된다. </li>
+              <li> splice의 2가지 역할은 배열에서 중간에 끼워 넣거나 중간에 있는 요소를 빼는 것이다.  </li>
+              <li> 배열.splice(인덱스,0,넣을값1,넣을값2,...); <small> 배열[인덱스] 에 추가하고 나머지요소는 뒤로 밀려난다. </small> </li>
+              <li> 배열.splice(인덱스,제거할요소의개수); <small> 배열[인덱스] 에 있는 요소 제거 </small> </li>
+              <li> 배열.splice(인덱스,제거할요소의개수,넣을값1,...); <small> 배열[인덱스] 에 있는 요소 제거하고 추가하기 </small> </li>
+              <li> ex{")"} array = [0,1,2,3,4] </li>
+              <li> array.splice(1,0,5)의 결과는 [0,5,1,2,3,4] </li>
+              <li> array.splice(1,0,5,6)의 결과는 [0,5,6,1,2,3,4] </li>
+              <li> array.splice(1,1)의 결과는 [0,2,3,4] </li>
+              <li> array.splice(1,2)의 결과는 [0,3,4] </li>
+              <li> array.splice(1,2,5,6)의 결과는 [0,5,6,3,4] </li>
+              <li> let removeArr = array.splice(1,2,5,6)의 결과는 [1,2]반환 </li>
+            </div>
+
+            <h2 className='h2'> 📌 slice </h2>
+            <div className='block4'>
+              <li> 배열의 일부를 잘라서 반환, 그리고 원본 배열은 변경이 되지 않는다. </li>
+              <li> slice에도 2가지 기능이 존재한다. 앞에서부터 자른 나머지 반환, 뒤에서 자른것을 반환  </li>
+              <li> 배열.slice(양수인덱스) <small> 인덱스만큼 자르고 나머지 반환 </small> </li>
+              <li> 배열.slice(음수인덱스) <small> 뒤에서 인덱스만큼 자른것을 반환 </small> </li>
+              <li> ex{")"} array = [0,1,2,3,4] </li>
+              <li> array.slice(2)의 결과는 [2,3,4] 반환, 원본배열은 그대로 </li>
+              <li> array.slice(-2)의 결과는 [3,4] 반환, 원본배열은 그대로 </li>
+              <li> 시간, 날짜 등에서 0을 붙이는 방법 </li>
+              <li> ("0"+month).slice(-2) <small> 이와 같이 하면 한자리이면 0이 붙어서 반환 </small> </li>
+            </div>
+
+            <h2 className='h2'> 📌  </h2>
+            <div className='block4'>
+              <li>  </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [2] 사용자 정의 태그 속성 사용하기 (data-*) </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 data-* </h2>
+            <div className='block4'>
+              <li> html에서 정해진 태그 속성 외에 사용자가 원하는 속성을 지정하는 방법 </li>
+              <li> getAttribute등 사용가능 </li>
+              <li> data-사용자정의속성명="값" <small> 사용자정의속성명은 소문자로만 사용해야 한다. </small> </li>
+              <li> ex{")"} 예시 </li>
+              <li> {' <div data-index-number="1"> 사용자정의 속성 </div>  '} </li>
+              <li> dataset으로 불러올 경우 앞에 data를 뺀 카멜표기법사용 <small> 타겟.dataset.사용자정의속성명 </small> </li>
+              <li> ex{")"} 예시 </li>
+              <li> this.dataset.indexNumber </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [3] 지정한 태그의 속성 등을 가져오는 방법 (dataset) </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <div className='block4'>
+              <li>  </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
           <summary> Closure - <small> # 조금더 공부가 필요한 부분 </small> </summary>
           <div className='block2'>
 

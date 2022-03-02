@@ -36,6 +36,20 @@ const TopButton = styled.button`
   border-radius: 5px;
   background: ${enumGradientColor[2]};
 `;
+const BottomButton = styled.button`
+  position: fixed;
+  right: 0px;
+  top: 280px;
+  opacity: 0.8;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  background: ${enumGradientColor[2]};
+
+  &:img {
+    transform : rotate(0.5turn);
+  }
+`;
 const AppContainer = styled.div`
   height: 100vh;
   width: 100vw;
@@ -203,8 +217,11 @@ const App = () => {
       }
       <HomeButton onClick={() => { Home(true) }}> 홈 </HomeButton>
       <TopButton onClick={() => { (document.documentElement.scrollTop = 0); }}>
-        <img alt="" src={process.env.PUBLIC_URL + '/img/NavMenu/UpArrow_icon.svg'} />
+        <img alt="" src={process.env.PUBLIC_URL + '/img/BlogCategory1Links/UpArrow_icon.svg'} />
       </TopButton>
+      <BottomButton onClick={() => { (document.documentElement.scrollTop = document.documentElement.scrollHeight); }}>
+        <img alt="" src={process.env.PUBLIC_URL + '/img/BlogCategory1Links/UpArrow_icon.svg'} />
+      </BottomButton>
     </div >
   );
 }

@@ -36,22 +36,19 @@ const LinkStyle = styled(Link)`
     background: white;
   }
 `;
-const BackendList = () => {
-
+const ManagementList = () => {
 
   return (
     <div>
-      <Title> 백엔드 개발자 </Title>
+      <Title> 형상관리, 협업 </Title>
       <BlogCategoryLinkList>
-        <LinkStyle to="backend_basic"> 백엔드 개발 </LinkStyle>
-        <LinkStyle to="backend_solid"> Solid 5대 원칙 </LinkStyle>
-        <LinkStyle to="backend_sctcache"> 세션 쿠키 토큰 캐시 </LinkStyle>
-        <LinkStyle to="backend_browserdevtool"> 브라우저 개발자 도구 </LinkStyle>
-        <LinkStyle to="backend_compiler_interpreter"> 컴파일러 와 인터프리터 </LinkStyle>
-        <LinkStyle to="backend_codingconvention"> 코딩 컨벤션 </LinkStyle>
+        <LinkStyle to="management_github"> 깃허브 공부 </LinkStyle>
+        <LinkStyle to="management_slack"> 슬랙 </LinkStyle>
+        <LinkStyle to="management_diagram"> 다이어그램 </LinkStyle>
+        <LinkStyle to="management_markdown"> 마크다운 </LinkStyle>
       </BlogCategoryLinkList>
-    </div >
+    </div>
   );
 }
 
-export default BackendList;
+export default ManagementList;

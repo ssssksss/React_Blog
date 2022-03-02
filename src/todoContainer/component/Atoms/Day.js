@@ -9,12 +9,19 @@ const Container = styled.div`
   font-family: 'Cafe24Ssurround';
   color: ${(props) => (props.color || "black")};
   opacity: ${(props) => (props.opacity && "0.6")};
+  display: grid;
+  grid-gap: 2px;
 `;
-const TodoTask = styled.div`
+const TodoTask = styled.button`
   width:100%;
   height: 20px;
   line-height: 20px;
   background: #aeaeae;
+  text-align: left;
+
+  &:hover {
+    background: white;
+  }
 `;
 
 const Day = (props) => {
@@ -26,8 +33,8 @@ const Day = (props) => {
       {props.day} <br />
       {
         props.content !== undefined &&
-        props.content.map((i) => {
-          return <TodoTask key={i.key + "" + keyCount++}> {i.name} </TodoTask>
+        props.content.map((i, index) => {
+          return <TodoTask key={i.key + "" + index} data-index={index} > {index} </TodoTask>
         })
       }
     </Container>

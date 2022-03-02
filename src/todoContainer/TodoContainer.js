@@ -79,22 +79,22 @@ const TodoContainer = () => {
       <Container1>
         <Container2>
           <TitleContainer> <Title> 투두 메인 화면 </Title>  </TitleContainer>
-          <Private>
-            <SideContainer>
-              <LinkStyle to="main"> 메인 </LinkStyle>
-              <LinkStyle to="calender" > 달력 </LinkStyle>
-              <LinkStyle to="list"> 목록 </LinkStyle>
-              <LinkStyle to="study"> 공부 </LinkStyle>
-              <LinkStyle to="statistics" > 통계 </LinkStyle>
-            </SideContainer>
-            <Routes>
-              <Route path={"/main"} element={<TodoMain />} />
-              <Route path={"/calender"} element={<TodoCalender />} />
-              {/*<Route path={"/list"} element={<TodoList />} />
+          {/*<Private>*/}
+          <SideContainer>
+            <LinkStyle to="main"> 메인 </LinkStyle>
+            <LinkStyle to="calender" > 달력 </LinkStyle>
+            <LinkStyle to="list"> 목록 </LinkStyle>
+            <LinkStyle to="study"> 공부 </LinkStyle>
+            <LinkStyle to="statistics" > 통계 </LinkStyle>
+          </SideContainer>
+          <Routes>
+            <Route path={"/main"} element={<TodoMain />} />
+            <Route path={"/calender"} element={<TodoCalender />} />
+            {/*<Route path={"/list"} element={<TodoList />} />
               <Route path={"/study"} element={<TodoStudy />} />
               <Route path={"/statistics"} element={<TodoStatistics />} />*/}
-            </Routes>
-          </Private>
+          </Routes>
+          {/*</Private>*/}
         </Container2>
       </Container1>
     </Container>

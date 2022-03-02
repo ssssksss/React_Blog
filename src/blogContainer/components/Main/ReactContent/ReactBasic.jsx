@@ -222,7 +222,7 @@ const ReactBasic = (props) => {
               <li> 위쪽에 name위에 "homepage": "http://깃허브유저명.github.io/저장소이름"</li>
               <li> "scripts: 부분 안에 "predeploy": "npm run build",  "deploy": "gh-pages -d build",</li>
               <li className="col_r"> 터미널 창에 git init 입력 (깃폴더 생성됨)</li>
-              <li> 깃허브 창에서 git remote ~ 부분을 복붙해서 붙여넣기 </li>
+              <li> 깃허브 창에서 git remote add origin https://github.com/깃허브유저명/저장소이름.git 부분을 복붙해서 붙여넣기 </li>
               <li className="col_r"> npm run deploy <small> build 하는 과정 </small> </li>
               <li className="col_r">  git add . <small> 깃허브에 올릴 깃을 만드는 과정? </small> </li>
               <li className="col_r">  git commit -m "커밋내용" <small>커밋</small> </li>
