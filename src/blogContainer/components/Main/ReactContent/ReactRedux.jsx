@@ -16,6 +16,12 @@ const ReactRedux = (props) => {
               <li> npm i -D redux-devtools <small> # (개발단계에서사용)크롬 익스텐션과 연동하려고 설치, 크롬 확장 프로그램 redux dev tools에서 redux추적 가능  </small> </li>
             </div>
 
+            <h2 className='h2'> 📌 문서나 설명 참고 </h2>
+            <div className='block4'>
+              <a href="https://ko.redux.js.org/" target="_blank" rel="noopener noreferrer"> 리덕스 공식 문서 </a>
+              <a href="https://lunit.gitbook.io/redux-in-korean/" target="_blank" rel="noopener noreferrer"> 한국사람을 위한 리덕스 공식 문서 설명? </a>
+            </div>
+
           </div>
         </details>
       </div>
@@ -23,7 +29,7 @@ const ReactRedux = (props) => {
 
       <div className='block1'>
         <details>
-          <summary> [1] redux 기본 테스트 예시 </summary>
+          <summary> [] redux 기본 테스트 예시 </summary>
           <div className='block2'>
 
             <h2 className='h2'> ✔ 예시 </h2>
@@ -152,6 +158,280 @@ const ReactRedux = (props) => {
                 </div>
               </div>
             </li>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [] redux store </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 리액트+자바스크립트 </h2>
+            <div className='block4'>
+              <li> <small> 프로젝트에 오직 단 1개만 존재해야한다. </small> </li>
+              <li> {' import {createStore} from "redux" '} </li>
+              <li> import rootReducer from './reducer'; <small> 리듀서 생성 필요 </small> </li>
+              <li> const 스토어 = createStore(rootReducer); </li>
+              <li> export default store; </li>
+            </div>
+
+            <h2 className='h2'> 📌 store 메소드 </h2>
+            <div className='block4'>
+              <li> store.getState() <small> store의 상태값을 가져옴 </small> </li>
+              <li> store.subscribe(함수?) </li>
+              <li> store.dispatch(액션함수()) </li>
+              <li> store.replaceReducer <small> 사용중인 리듀서를 교체하는 메소드? </small> </li>
+              <li>  </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [] redux action </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 리액트+자바스크립트 </h2>
+            <div className='block4'>
+              <li>  </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [] redux reducer </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 리액트+자바스크립트 </h2>
+            <div className='block4'>
+              <li>  </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [] redux dispatch </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 리액트+자바스크립트 </h2>
+            <div className='block4'>
+              <li>  </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [] redux useSelector </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 리액트+자바스크립트 </h2>
+            <div className='block4'>
+              <li>  </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [] redux middleware </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 리액트+자바스크립트 </h2>
+            <div className='block4'>
+              <li>  </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [] redux subscribe </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 리액트+자바스크립트 </h2>
+            <div className='block4'>
+              <li>  </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [] redux persist </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 리액트+자바스크립트 </h2>
+            <div className='block4'>
+              <li>  </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [] Redux Toolkit </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설치 </h2>
+            <div className='block4'>
+              <li> npm install @reduxjs/toolkit </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <div className='block4'>
+              <li>  </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [] Redux Toolkit configureStore </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <div className='block4'>
+              <li>  </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [] Redux Toolkit createReducer </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <div className='block4'>
+              <li>  </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [] Redux Toolkit createAction </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <div className='block4'>
+              <li>  </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [] Redux Toolkit createSlice </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <div className='block4'>
+              <li>  </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [] Redux Toolkit createAsyncThunk </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <div className='block4'>
+              <li>  </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [] Redux Toolkit createEntityAdapter </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <div className='block4'>
+              <li>  </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [] Redux Toolkit createSelector  </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <div className='block4'>
+              <li>  </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
 
           </div>
         </details>
@@ -453,43 +733,10 @@ const ReactRedux = (props) => {
               <li> {" } "} </li>
             </div>
 
-
             <h2 className='h2'> 📌 applyMiddleware </h2>
             <li>  </li>
             <li>  </li>
             <li>  </li>
-
-          </div>
-        </details>
-      </div>
-
-      <div className='block1'>
-        <details>
-          <summary> 5. 스토어 </summary>
-          <div className='block2'>
-
-            <h2 className='h2'> 📌 설명 </h2>
-            <li> 1개의 어플리케이션에 1개의 스토어를 만든다. </li>
-            <li> 스토어에는 현재 앱의 상태와, 리듀서 그리고 내장함수가 있다. </li>
-            <li>  </li>
-            <h2 className='h2'> 📌 스토어 구성 </h2>
-            <li>  </li>
-            <h2 className='h2'> 📌  </h2>
-            <li>  </li>
-            <li>  </li>
-
-            <h2 className='h2'> ✔ 예시 </h2>
-            <li>
-              <div className='block3'>
-                <h3 className='h3'> 🎈 </h3>
-                <div className='block4'>
-                  <li> {" import {createStore} from 'redux' "} </li>
-                  <li> const 스토어 = createStore(리듀서) </li>
-                  <li> const state = 스토어.getState(); </li>
-                  <li>  </li>
-                </div>
-              </div>
-            </li>
 
           </div>
         </details>

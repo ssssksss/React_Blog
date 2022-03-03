@@ -28,6 +28,17 @@ const ReactBasic = (props) => {
               <li> npm start <small> 잘 작동되면 성공 </small> </li>
               <li>  </li>
             </div>
+
+            <h2 className='h2'> 📌 폴더 디렉토리 참고 </h2>
+            <div className='block4'>
+              <li> src/assets <small> 이미지 관리 </small> </li>
+              <li> src/components  <small> view 컴포넌트 </small> </li>
+              <li> src/context  <small> context 관리 </small> </li>
+              <li> util/context  <small> context 관리 </small> </li>
+              <li> src/style  <small>  </small> </li>
+              <li> src/theme  <small>  </small> </li>
+            </div>
+
           </div>
         </details>
       </div>

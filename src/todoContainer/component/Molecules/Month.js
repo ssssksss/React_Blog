@@ -74,12 +74,10 @@ const Month = () => {
     let prevEndDayW = prevDate.getDay(); //0-6
 
     let nowDate = new Date(date.getFullYear(), date.getMonth(), 1);
-    let nowStartDay = nowDate.getDate(); //1
     let nowStartDayW = nowDate.getDay(); //0-6
     let nowEndDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate(); //28-31
 
     let nextDate = new Date(date.getFullYear(), date.getMonth() + 1, 1);
-    let nextStartDay = nextDate.getDate(); //1
     let nextStartDayW = nextDate.getDay(); //0-6
 
     setDayList([]);

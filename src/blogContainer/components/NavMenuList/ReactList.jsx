@@ -58,6 +58,7 @@ const ReactList = () => {
         <LinkStyle to="react_fetchapi"> FetchAPI </LinkStyle>
         <LinkStyle to="react_axios"> Axios </LinkStyle>
         <LinkStyle to="react_babel"> Babel </LinkStyle>
+        <LinkStyle to="react_nextjs"> Nextjs </LinkStyle>
       </BlogCategoryLinkList>
     </div>
   );

@@ -11,13 +11,12 @@ body {
   padding: 0px;
   border: 0px;
 }
+li {
+  margin-left: 15px;
+}
 button,
 input {
   background-color: transparent;
-}
-li,
-ol {
-  margin-left: 15px;
 }
 html {
   font-size: 10px;

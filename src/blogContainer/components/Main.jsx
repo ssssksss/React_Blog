@@ -1,5 +1,4 @@
 import React from 'react';
-import './Main.css';
 import './commonStyle.css';
 import { Route, Routes } from 'react-router-dom';
 // ========== 백엔드 ==========
@@ -8,7 +7,6 @@ import JavaBasic from './Main/JavaContent/JavaBasic';
 import JavaBasic2 from './Main/JavaContent/JavaBasic2';
 import JavaModifier from './Main/JavaContent/JavaModifier';
 import JavaAnnotation from './Main/JavaContent/JavaAnnotation';
-
 
 // PHP
 import PhpBasic from './Main/PhpContent/PhpBasic';
@@ -77,6 +75,7 @@ import BootstrapTable from './Main/BootstrapContent/BootstrapTable';
 
 // 타입스크립트
 import TypeScriptBasic from './Main/TypeScriptContent/TypeScriptBasic';
+import TypeScriptConfig from './Main/TypeScriptContent/TypeScriptConfig';
 
 // 자바스크립트
 import JavaScriptBasic from './Main/JavaScriptContent/JavaScriptBasic';
@@ -110,7 +109,7 @@ import ReactAxios from './Main/ReactContent/ReactAxios';
 import ReactAjax from './Main/ReactContent/ReactAjax';
 import ReactBabel from './Main/ReactContent/ReactBabel';
 import ReactDrag from './Main/ReactContent/ReactDrag';
-
+import ReactNextjs from './Main/ReactContent/ReactNextjs';
 
 // 프론트 개발자
 import FrontendBasic from './Main/FrontendContent/FrontendBasic';
@@ -119,7 +118,6 @@ import FrontendRegex from './Main/FrontendContent/FrontendRegex';
 import FrontendBuildName from './Main/FrontendContent/FrontendBuildName';
 import FrontendHttp from './Main/FrontendContent/FrontendHttp';
 import FrontendPrettier from './Main/FrontendContent/FrontendPrettier';
-
 
 // ========== 기타 ==========
 // 데이터 베이스
@@ -323,6 +321,7 @@ const Main = (props) => {
 
         {/* 타입스크립트 */}
         <Route path="/typescript/typescript_basic" element={<TypeScriptBasic />} />
+        <Route path="/typescript/typescript_config" element={<TypeScriptConfig />} />
 
         {/* 자바스크립트  */}
         <Route path="/javascript/javascript_basic" element={<JavaScriptBasic />} />
@@ -356,6 +355,7 @@ const Main = (props) => {
         <Route path="/react/react_axios" element={<ReactAxios />} />
         <Route path="/react/react_babel" element={<ReactBabel />} />
         <Route path="/react/react_drag" element={<ReactDrag />} />
+        <Route path="/react/react_nextjs" element={<ReactNextjs />} />
 
         {/* 프론트 개발자 */}
         <Route path="/frontend/frontend_basic" element={<FrontendBasic />} />

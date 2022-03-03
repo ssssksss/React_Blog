@@ -42,7 +42,8 @@ const TypeScriptList = () => {
     <div>
       <Title> 타입스크립트 </Title>
       <BlogCategoryLinkList>
-        <LinkStyle to="typescript_basic"> 타입스크립트 기본 문법 </LinkStyle>
+        <LinkStyle to="typescript_basic"> basic </LinkStyle>
+        <LinkStyle to="typescript_config"> tsconfig.json </LinkStyle>
       </BlogCategoryLinkList>
     </div>
   );

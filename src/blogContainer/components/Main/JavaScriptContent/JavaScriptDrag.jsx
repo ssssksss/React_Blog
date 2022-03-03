@@ -2,18 +2,6 @@ import React from 'react';
 
 const JavaScriptDrag = (props) => {
 
-  const test = [
-    {
-      id: 1
-    },
-    {
-      id: 2
-    },
-    {
-      id: 3
-    }
-  ]
-
   return (
     <div className="common_style" >
       <div className='block1'>
@@ -119,14 +107,6 @@ const JavaScriptDrag = (props) => {
               <li> "move" : 아이템을 새로운 위치로 이동 가능 </li>
               <li> "all" : 모든 작업 허용 </li>
               <li> "uninitialized" : 설정이 되지 않으면 기본값은 동일  </li>
-              <li>  </li>
-              <div>
-                {
-                  test.map((i) => {
-                    return <p> {i.id} </p>
-                  })
-                }
-              </div>
             </div>
 
             <h2 className='h2'> 📌  </h2>

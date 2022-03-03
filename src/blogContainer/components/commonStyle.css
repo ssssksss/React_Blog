@@ -21,9 +21,21 @@
   list-style-type: circle;
 }
 .main {
-  position: relative;
-  background-color: #aeaeae;
+  box-sizing: border-box;
+  margin-top: 5px;
+  border-radius: 10px;
+  display: flex;
+  background-color: #fff3e3;
   min-height: 50vh;
+  padding: 10px;
+}
+.command {
+  background: linear-gradient(135deg, #833ab4 33%, #fd1d1d 66%, #fcb045 100%);
+  color: white;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 0px 5px;
 }
 .common_style .mtitle {
   font-size: 25px;
@@ -72,12 +84,10 @@
   border-radius: 15px;
   font-size: 1em;
 }
-
 .common_style .lblock > .mblock {
   margin: 8px 0px 8px 0px;
   padding: 5px 5px 5px 5px;
 }
-
 .common_style .mblock {
   width: 100%;
   box-sizing: border-box;
@@ -88,7 +98,6 @@
   padding: 10px;
   border: black solid 1px;
 }
-
 .common_style .sblock {
   width: 100%;
   box-sizing: border-box;
@@ -103,7 +112,6 @@
   cursor: pointer;
   max-width: 100%;
 }
-
 .common_style i {
   color: #ff3d00;
   font-weight: 800;
@@ -111,14 +119,12 @@
   font-size: 15px;
   word-break: break-all;
 }
-
 @media screen and (min-width: 1024px) {
   .common_style {
     display: inline-block;
     width: 100%;
   }
 }
-
 @media screen and (max-width: 1024px) {
   .common_style {
     display: inline-block;
@@ -126,7 +132,6 @@
   }
 }
 /* 아래부터가 사용할 css */
-
 .common_style {
   width: 100%;
   display: inline-block;
@@ -166,24 +171,15 @@
 .common_style .h5 {
 }
 details {
-  padding-left: 10px;
+  padding: 4px;
+  border: solid 3px black;
+  border-radius: 10px;
 }
-summary > * {
-  display: inline;
+details[open] {
+  border: solid 3px red;
 }
 summary {
   cursor: pointer;
-}
-/*.common_style details::before {
-  content: "🌝";
-}
-
-.common_style details[open]::before {
-  content: "🌚";
-}*/
-
-.common_style summary:hover {
-  color: red;
 }
 
 /* 사이즈 크기1 big */
