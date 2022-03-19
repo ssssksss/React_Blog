@@ -10,11 +10,20 @@ const ReactRedux = (props) => {
           <summary> [0] redux 설치 </summary>
           <div className='block2'>
 
-            <h2 className='h2'> 📌 설명 </h2>
+            <h2 className='h2'> 📌 자바스크립트 설치 </h2>
             <div className='block4'>
               <li> npm i redux react-redux redux-logger </li>
               <li> npm i -D redux-devtools <small> # (개발단계에서사용)크롬 익스텐션과 연동하려고 설치, 크롬 확장 프로그램 redux dev tools에서 redux추적 가능  </small> </li>
+              <li> npm i --save redux-actions </li>
             </div>
+
+            <h2 className='h2'> 📌 타입스크립트 </h2>
+            <div className='block4'>
+              <li>  </li>
+              <li>  </li>
+              <li> npm i --save-dev @types/redux-actions </li>
+            </div>
+
 
             <h2 className='h2'> 📌 문서나 설명 참고 </h2>
             <div className='block4'>
@@ -29,7 +38,7 @@ const ReactRedux = (props) => {
 
       <div className='block1'>
         <details>
-          <summary> [] redux 기본 테스트 예시 </summary>
+          <summary> [1] redux + 자바스크립트 기본 예시 </summary>
           <div className='block2'>
 
             <h2 className='h2'> ✔ 예시 </h2>
@@ -38,8 +47,7 @@ const ReactRedux = (props) => {
                 <h2 className='h2'> 📌 npm 설치  </h2>
                 <div className='block4'>
                   <li> npm i redux react-redux redux-logger </li>
-                  <li> npm install react-router-dom --save </li>
-                  {/*<li> npm install --save history </li>*/}
+                  <li> npm i react-router-dom --save </li>
                 </div>
               </div>
               <div className='block3'>
@@ -165,15 +173,201 @@ const ReactRedux = (props) => {
 
       <div className='block1'>
         <details>
+          <summary> [2] redux + 타입스크립트 기본 예시(좀 더 개선 필요) </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 store/index.ts </h2>
+            <div className='block4'>
+              <li> {' import { createStore } from "redux"; '} </li>
+              <li> {' import rootReducer from "./reducers"; '} </li>
+              <li> {' export const store = createStore(rootReducer); '} </li>
+            </div>
+
+            <h2 className='h2'> 📌 store/reducers.ts </h2>
+            <div className='block4'>
+              <li> {' import { combineReducers } from "redux"; '} </li>
+              <li> {' import { authReducer } from "./auth"; '} </li>
+              <li> {' const rootReducer = combineReducers({ '}
+                <li> {'   auth: authReducer, '} </li>
+              </li>
+              <li> {' }); '} </li>
+              <li> {' export default rootReducer; '} </li>
+              <li> {' export type RootState = ReturnType<typeof rootReducer>; '} </li>
+            </div>
+
+            <h2 className='h2'> 📌 store/auth/index.ts </h2>
+            <div className='block4'>
+              <li> export * from "./actions" </li>
+              <li> export * from "./reducers" </li>
+              <li> export * from "./types" </li>
+            </div>
+
+            <h2 className='h2'> 📌 store/auth/actions.ts </h2>
+            <div className='block4'>
+              <li> {' import { TYPE_NAME } from "./types"; '} </li>
+              <li> {' type ACTION_PAYLOAD = { '}
+                <li> {'   auth1: string; '} </li>
+              </li>
+              <li> {' }; '} </li>
+              <li> {' export const ACTION_FUNC = (payload: ACTION_PAYLOAD) => { '}
+                <li> {'   return { '}
+                  <li> {'     type: TYPE_NAME, '} </li>
+                  <li> {'     payload: payload.auth1, '} </li>
+                </li>
+                <li> {'   }; '} </li>
+              </li>
+              <li> {' }; '} </li>
+              <li> {' export type ACTION_INSTANCE = ReturnType<typeof ACTION_FUNC>; '} </li>
+            </div>
+
+            <h2 className='h2'> 📌 store/auth/reducers.ts </h2>
+            <div className='block4'>
+              <li> {' import * as actions from "./actions"; '} </li>
+              <li> {' const initialState = { '}
+                <li> {'   auth1: "user", '} </li>
+              </li>
+              <li> {' }; '} </li>
+              <li> {' export const authReducer = ( '}
+                <li> {'   state = initialState, '} </li>
+                <li> {'   action: actions.ACTION_INSTANCE '} </li>
+                <li> {' ) => { '}
+                  <li> {'   switch (action.type) { '}
+                    <li> {'     case "auth/TYPE_NAME": '}
+                      <li> {'       return { ...state, auth1: action.payload }; '} </li>
+                    </li>
+                    <li> {'     default: '}
+                      <li> {'       return state; '} </li>
+                    </li>
+                  </li>
+                </li>
+                <li> {'   } '} </li>
+              </li>
+              <li> {' }; '} </li>
+            </div>
+
+            <h2 className='h2'> 📌 store/auth/types.ts </h2>
+            <div className='block4'>
+              <li> export const TYPE_NAME = "auth/TYPE_NAME"; </li>
+            </div>
+
+            <h2 className='h2'> 📌 _app.ts  </h2>
+            <div className='block4'>
+              <li> {' import { Provider } from "react-redux"; '} </li>
+              <li> {' import { store } from "store/index"; '} </li>
+              <li> {' <Provider store={store}> '}
+                <li> {' <GlobalStyle /> '} </li>
+                <li> {' <App /> '} </li>
+              </li>
+              <li> {' </Provider> '} </li>
+            </div>
+
+            <h2 className='h2'> 📌 /Private1.ts  </h2>
+            <div className='block4'>
+              <li> {' import { ACTION_FUNC } from "@/store/auth/actions"; '} </li>
+              <li> {' import * as React from "react"; '} </li>
+              <li> {' import { useDispatch, useSelector } from "react-redux"; '} </li>
+              <li> {' import { RootState } from "store/reducers"; '} </li>
+              <li> {' interface IPrivate1Props {} '} </li>
+              <li> {' const Private1: React.FunctionComponent<IPrivate1Props> = () => { '}
+                <li> {'   const dispatch = useDispatch(); '} </li>
+                <li> {'   let test = useSelector((state: RootState) => state.auth.auth1); '} </li>
+                <li> {'   const TestHandler = () => { '}
+                  <li> {'     dispatch(ACTION_FUNC({ auth1: "admin" })); '} </li>
+                </li>
+                <li> {'   }; '} </li>
+                <li> {'   return ( '}
+                  <li> {'     <> '}
+                    <li> {'       <button onClick={() => TestHandler()}> 버튼 </button> '} </li>
+                    <li> {'       {test} '} </li>
+                  </li>
+                  <li> {'     </> '} </li>
+                </li>
+                <li> {'   ); '} </li>
+              </li>
+              <li> {' }; '} </li>
+              <li> {' export default Private1; '} </li>
+            </div>
+
+            <h2 className='h2'> 📌 tsconfig.json </h2>
+            <div className='block4'>
+              <li> {' { '}
+                <li> {'  "target": "es5", '} </li>
+                <li> {'  "baseUrl": ".", '} </li>
+                <li> {'  "paths": { '}
+                  <li> {' "@/store/*": ["store/*"] '} </li>
+                </li>
+                <li> {' }, '} </li>
+              </li>
+              <li> {' } '} </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [3] redux-persist (나중에 다시 알아보기) </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설치 </h2>
+            <div className='block4'>
+              <li> npm install --save redux-persist </li>
+              <li> npm install --save @types/redux-persist </li>
+            </div>
+
+            <h2 className='h2'> 📌 store/reducers.tsx </h2>
+            <div className='block4'>
+              <li>  </li>
+              <li> {' import { persistReducer } from "redux-persist"; '} </li>
+              <li> import storage from "redux-persist/lib/storage" <small> 로컬스토리지 </small> </li>
+              <li> import storageSession from "redux-persist/lib/storage/session" <small> 세션스토리지 </small> </li>
+              <li> {' const persistConfig = { '}
+                <li> {'   key: "root", '} </li>
+                <li> {'   storage, '} </li>
+                <li> {'   whitelist: ["리듀서"] '} <small> 선택한 리듀서만 스토리지에 저장 </small> </li>
+                <li> {'   blacklist: ["리듀서"] '} <small> 선택한 리듀서만 스토리지에 제외하고 저장 </small> </li>
+              </li>
+              <li> {' }; '} </li>
+              <li> {' const rootReducer = combineReducers({ '}
+                <li> {'   category: categoryReducer, '} </li>
+              </li>
+              <li> {' }); '} </li>
+              <li> {' export default persistReducer(persistConfig, rootReducer); '} </li>
+              <li> {' export type RootState = ReturnType<typeof persistReducer>; '} </li>
+            </div>
+
+            <h2 className='h2'> 📌 _app.tsx </h2>
+            <div className='block4'>
+              <li> {' import { persistStore } from "redux-persist"; '} </li>
+              <li> {' import { PersistGate } from "redux-persist/integration/react"; '} </li>
+              <li> {' const persistor = persistStore(store); '} </li>
+              <li> return (
+                <li> {' <PersistGate loading={null} persistor={persistor}> '}
+                  <li> {'<App/> '} </li>
+                </li>
+                <li> {' </PersistGate> '} </li>
+              </li>
+              <li> ); </li>
+            </div>
+
+
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
           <summary> [] redux store </summary>
           <div className='block2'>
 
-            <h2 className='h2'> 📌 리액트+자바스크립트 </h2>
+            <h2 className='h2'> 📌 리액트+자바스크립트(/store/index.js) </h2>
             <div className='block4'>
               <li> <small> 프로젝트에 오직 단 1개만 존재해야한다. </small> </li>
               <li> {' import {createStore} from "redux" '} </li>
               <li> import rootReducer from './reducer'; <small> 리듀서 생성 필요 </small> </li>
-              <li> const 스토어 = createStore(rootReducer); </li>
+              <li> const store = createStore(rootReducer); </li>
               <li> export default store; </li>
             </div>
 
@@ -195,12 +389,34 @@ const ReactRedux = (props) => {
           <summary> [] redux action </summary>
           <div className='block2'>
 
-            <h2 className='h2'> 📌 리액트+자바스크립트 </h2>
+            <h2 className='h2'> 📌 설명 </h2>
             <div className='block4'>
-              <li>  </li>
-              <li>  </li>
-              <li>  </li>
+              <li> 원하는 액션에 따라 상태값을 원하는 대로 변경가능하게 해준다. </li>
+              <li> type을 무조건 선언을 해주어야한다. </li>
             </div>
+
+            <h2 className='h2'> 📌 리액트+자바스크립트(기본), store/temp/action.js </h2>
+            <div className='block4'>
+              <li> {' import { 액션타입명 } from "./type"; '} <small> 타입을 상단에 선언 및 정의 </small> </li>
+              <li> export const 액션메소드명 = (payload) {' => { '}
+                <li> return {' { '}
+                  <li> type: 액션타입명, </li>
+                  <li> payload: payload </li>
+                </li>
+                <li> {' } '} </li>
+              </li>
+              <li> {' }; '} </li>
+            </div>
+
+            <h2 className='h2'> 📌 리액트+자바스크립트(redux-actions) </h2>
+            <div className='block4'>
+              <li> {' import { createAction } from "redux-actions"; '} </li>
+              <li> {' const 액션타입명 = "/temp/액션타입명" '} <small> user는 폴더 경로였나? </small> </li>
+              <li> {' export const 액션메소드명 = createAction(액션타입명); '} </li>
+              <li> {' export const 액션메소드명 = createAction(액션타입명, 액션데이터 => 액션데이터값 ); '} <small> 1개일 때 </small> </li>
+              <li> {' export const customActionName = createAction(액션타입명, {액션데이터1,액션데이터2,액션데이터3})=>({액션데이터1값,액션데이터2값,액션데이터3값})); '} <small> 여러개일 때 </small> </li>
+            </div>
+
 
           </div>
         </details>
@@ -211,11 +427,63 @@ const ReactRedux = (props) => {
           <summary> [] redux reducer </summary>
           <div className='block2'>
 
-            <h2 className='h2'> 📌 리액트+자바스크립트 </h2>
+            <h2 className='h2'> 📌 리액트+자바스크립트(루트리듀서), /store/reducer.js </h2>
             <div className='block4'>
+              <li> {' import { combineReducers } from "redux"; '} </li>
+              <li> {' import {리듀서명} from "./경로"; '} </li>
+              <li> {' const rootReducer = combineReducers({ '}
+                <li> {' 리듀서별칭: 리듀서명, '} </li>
+                <li> {' 리듀서명, '} </li>
+              </li>
+              <li> {' }); '} </li>
+              <li> export default rootReducer; </li>
               <li>  </li>
-              <li>  </li>
-              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 리액트+자바스크립트(기본), /store/temp/reducer.js </h2>
+            <div className='block4'>
+              <li> {" import { 액션타입 } from './types'; "} </li>
+              <li> {" const initialState = { "}
+                <li> {" 상태명: 상태값 "} </li>
+              </li>
+              <li> {" }; "} </li>
+              <li> {" const 리듀서명 = (state = initialState, action) => { "}
+                <li> {"switch (action.type) { "}
+                  <li> {"  case 액션타입: "} </li>
+                  <li> {" return { "}
+                    <li> {" ...state, "} </li>
+                    <li> {" 상태명: action.액션데이터 "} </li>
+                  </li>
+                  <li> {" } "} </li>
+                  <li> {"  default: "}
+                    <li> {" return state; "} </li>
+                  </li>
+                </li>
+                <li> {"} "} </li>
+              </li>
+              <li> {" }; "} </li>
+              <li> {" export default 리듀서명; "} </li>
+            </div>
+
+            <h2 className='h2'> 📌 리액트+자바스크립트(redux-action), 나중에 다시 찾아보기 </h2>
+            <div className='block4'>
+              <li> {' import { handleActions } from "redux-actions"; '} </li>
+              <li> {' const reducer = handleActions({ '}
+                <li> {' 액션타입명: (state,action) => {{...state, user=action.payload }} '} </li>
+              </li>
+              <li> {' }); '} </li>
+            </div>
+
+            <h2 className='h2'> 📌 리액트+타입스크립트(루트리듀서), /store/reducer.ts </h2>
+            <div className='block4'>
+              <li> {' import { combineReducers } from "redux"; '} </li>
+              <li> {' import {리듀서} from "./경로"; '} </li>
+              <li> {' const rootReducer = combineReducers({ '}
+                <li> {' 리듀서별칭: 리듀서, '} </li>
+              </li>
+              <li> {' }); '} </li>
+              <li> export default rootReducer; </li>
+              <li> {' export type RootState = ReturnType<typeof rootReducer>; '} </li>
             </div>
 
           </div>
@@ -229,8 +497,9 @@ const ReactRedux = (props) => {
 
             <h2 className='h2'> 📌 리액트+자바스크립트 </h2>
             <div className='block4'>
-              <li>  </li>
-              <li>  </li>
+              <li> {' import { useDispatch } from "react-redux"; '} </li>
+              <li> const dispatch = useDispatch(); </li>
+              <li> dispatch(액션메소드명(인자값));  </li>
               <li>  </li>
             </div>
 
@@ -243,11 +512,27 @@ const ReactRedux = (props) => {
           <summary> [] redux useSelector </summary>
           <div className='block2'>
 
-            <h2 className='h2'> 📌 리액트+자바스크립트 </h2>
+            <h2 className='h2'> 📌 설명 </h2>
             <div className='block4'>
-              <li>  </li>
-              <li>  </li>
-              <li>  </li>
+              <li> 리액트에서 리덕스 상태를 조회할때 사용 </li>
+              <li> 상태를 조회해서 상태가 변하지 않으면 리렌더링을 하지 않음 </li>
+              <li> useSelector의 2번째 인자는 equalityFn으로 이전값과 같으면 true, 다른면 false(리렌더링) </li>
+              <li> 2번째 인자로 shallowEqual을 사용하면 객체 내부에 제일 첫번째로 겉에 있는 값들만 검사한다. </li>
+            </div>
+
+
+            <h2 className='h2'> 📌 리액트+자바스크립트 </h2>
+            <div className="block4">
+              <li> let 변수명 = useSelector(state {"=>"} state.리듀서명); </li>
+              <li> {" const {var1,var2} = useSelector(state => ({ var1: state.리듀서명.상태명, var2: state.리듀서명.상태명 })); "}
+                <small> 이와 같은 방법을 사용하면 배먼 새로운 객체를 만들어서 무조건 리렌더링이 된다. </small>
+                <div className="block4">
+                  <li> 해결방법1 </li>
+                  <li> {" const {var1,var2} = useSelector(state => ({ var1: state.리듀서명.상태명, var2: state.리듀서명.상태명 }),shallowEqual); "}  </li>
+                  <li> 해결방법2 </li>
+                  <li> useSelector를 여러번 사용한다. </li>
+                </div>
+              </li>
             </div>
 
           </div>
@@ -289,6 +574,22 @@ const ReactRedux = (props) => {
       <div className='block1'>
         <details>
           <summary> [] redux persist </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 리액트+자바스크립트 </h2>
+            <div className='block4'>
+              <li>  </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [] redux connect </summary>
           <div className='block2'>
 
             <h2 className='h2'> 📌 리액트+자바스크립트 </h2>
@@ -481,230 +782,6 @@ const ReactRedux = (props) => {
 
       <div className='block1'>
         <details>
-          <summary> redux 예시 </summary>
-          <div className='block2'>
-
-            <h2 className='h2'> ✔ 예시 </h2>
-            <li>
-              <div className='block3'>
-                <h3 className='h3'> 🎈 index.js </h3>
-                <div className='block4'>
-                  <li> const redux = require('redux'); </li>
-                  <li> const createStore = redux.crateStore; </li>
-                  <li> const ADD_TYPE = "ADD_TYPE"; </li>
-                  <li> // action은 타입을 가진 Object를 반환 </li>
-                  <li> const addAction = () {"=> {"}
-                    <li> return {"{"}
-                      <li> type : ADD_TYPE </li>
-                    </li>
-                    <li> {"}"} </li>
-                  </li>
-                  <li> {"}"} </li> <br />
-                  <li> const initialState = {"{"}
-                    <li> defaultState = 300 </li>
-                  </li>
-                  <li> {"}"} </li>
-                  <li> const reducer = (state=initialState, action) {"=> {"}
-                    <li> switch(action.type) {"{"}
-                      <li> case ADD_TYPE:
-                        <li> return {"{"}
-                          <li> ...state, </li>
-                          <li> defaultState = state.defaultState + 1 </li>
-                        </li>
-                        <li> {"}"} </li>
-                        <li> default: return state; </li>
-                      </li>
-                    </li>
-                    <li> {"}"} </li>
-                  </li>
-                  <li> {"}"} </li>
-                  <li>  </li> <br />
-                  <li> const store = createStore(reducer); </li>
-                  <li> store.dispatch(addAction()); </li>
-                  <li> store.subscribe((){"=>{"})
-                    <li> console.log(store.getState()); </li>
-                  </li>
-                  <li> {"}"} </li>
-                  <li> store.dispatch(addAction()); </li>
-                </div>
-              </div>
-            </li>
-
-          </div>
-        </details>
-      </div>
-
-      <div className='block1'>
-        <details>
-          <summary> 리덕스 함수 - useSelector </summary>
-          <div className='block2'>
-            <h2 className='h2'> 📌 useSelector </h2>
-            <div className='block4'>
-              <li> 리액트에서 리덕스 상태를 조회할때 사용 </li>
-              <li> 상태를 조회해서 상태가 변하지 않으면 리렌더링을 하지 않음 </li>
-              <li> useSelector의 2번째 인자는 equalityFn으로 이전값과 같으면 true, 다른면 false(리렌더링) </li>
-              <li> 2번째 인자로 shallowEqual을 사용하면 객체 내부에 제일 첫번째로 겉에 있는 값들만 검사한다. </li>
-            </div>
-
-            <h2 className='h2'> 📌 설명 </h2>
-            <div className="block4">
-              <li> const test = useSelector(state {"=>"} state.test); </li>
-              <li> {" const {test1,test2} = useSelector(state => ({ test1: state.test1, test2: state.test2 })); "}
-                <small> 이와 같은 방법을 사용하면 배먼 새로운 객체를 만들어서 무조건 리렌더링이 된다. </small>
-                <div className="block4">
-                  <li> 해결방법1 </li>
-                  <li> {" const {test1,test2} = useSelector(state => ({ test1: state.test1, test2: state.test2 }),shallowEqual); "}  </li>
-                  <li> 해결방법2 </li>
-                  <li> useSelector를 여러번 사용한다. </li>
-                </div>
-              </li>
-            </div>
-          </div>
-        </details>
-      </div>
-
-      <div className='block1'>
-        <details>
-          <summary> 3. 액션 </summary>
-          <div className='block2'>
-
-            <h2 className='h2'> 📌 설명 </h2>
-            <li> 상태값이 어떤 상황에 따라 값이 변하게 하는 방식 </li>
-            <li> type은 필수로 1개 있어야 한다. </li>
-            <li> 액션을 함수로 만들어서 다른 파일에 보관하고 불러와서 사용하나. </li>
-            <li>  </li>
-
-            <h2 className='h2'> 📌 createAction </h2>
-            <li> 액션을 간단하게 만들어준다. </li>
-            <li> {" import {createAction } from 'redux-actions';"} </li>
-            <div className="block4">
-              <li> {" export const increment = (index: string) => ({ "}
-                <li> {"  type: INCREMENT, "} </li>
-                <li> {"  value: index "} </li>
-              </li>
-              <li> {" }); "} </li>
-              <li> increment(3); </li>
-            </div>
-            <div className="block4">
-              <li> export const setAction = createAction(SET_ACTION,{"({index,index1,index2})=>({index,index1,index2})"}); <small> 여러개 넣는 방법 </small> </li>
-              <li> setAction({"{index:5,index1:5,index2:5}"}); <small> 여러개 넣는 방법 </small> </li>
-              <li> setAction(); </li>
-            </div>
-            <li>  </li>
-            <li>  </li>
-            <h2 className='h2'> 📌 handleActions </h2>
-            <li> {" import { handleActions } from 'redux-actions';"} </li>
-            <li> const reducer = handleAction({"{"}
-              <li> {" INCREMENT: (state, action) => ({ "}
-                <li> counter: state.counter + action.payload </li>
-              </li>
-              <li> {"  }), "} </li>
-            </li>
-            <li> {"}, {counter: 0});"} </li>
-            <h2 className='h2'> 📌 액션 구성 </h2>
-            <div className="block4">
-              <li> type: "액션명" </li>
-              <li> data: {"{"}
-                <li> 키 : 값, </li>
-                <li> 키 : 값, </li>
-              </li>
-              <li> {"}"} </li>
-            </div>
-            <h2 className='h2'> 📌 액션을 함수로 만들기 </h2>
-            <div className="block4">
-              <li> export function Action(data) {"{"}
-                <li> return {"{"}
-                  <li> type: "액션명" </li>
-                  <li> data: {"{"}
-                    <li> 키 : 값, </li>
-                    <li> data </li>
-                  </li>
-                  <li> {"}"} </li>
-                </li>
-                <li> {"};"} </li>
-              </li>
-              <li> {"}"} </li>
-            </div>
-            <h2 className='h2'> ✔ 예시 </h2>
-            <li>
-              <h3 className='h3'> 🎈 </h3>
-              <div className='block4'>
-                <li> const CHANGE_INPUT_EXAM = "CHANGE_INPUT_EXAM"; </li>
-                <li> {" export const setInputExam = (input: string) => ({ "}
-                  <li> {" 	type: CHANGE_INPUT_EXAM, "} </li>
-                  <li> {" 	payload: input "} </li>
-                </li>
-                <li> {" }); "} </li>
-                <li>  </li>
-              </div>
-            </li>
-
-          </div>
-        </details>
-      </div>
-
-      <div className='block1'>
-        <details>
-          <summary> 4. 리듀서 </summary>
-          <div className='block2'>
-
-            <h2 className='h2'> 📌 설명 </h2>
-            <li> 액션값을 받아서 이전 상태값과 액션을 발생시키는 함수 </li>
-            <li> 마지막 default: 에는 에러 처리 구문을 넣는다고 한다. </li>
-            <li> 여러개의 리듀서를 하나로 합친 루트 리듀서가 있다.  </li>
-            <h2 className='h2'> 📌 리듀서 구성 </h2>
-            <div className="block4">
-              <li> type 커스텀액션타입명 = | {" ReturnType<typeof 액션함수명> | ReturnType<typeof 액션함수명>; "} </li>
-              <li> interface StateInterface {" { 상태: 타입; 상태: 타입; } "} </li>
-              <li> const initialState: StateInterface = {" {상태: '타입에맞는초기값', 상태: '타입에맞는초기값'}; "} </li>
-              <li> function reducer(state: StateInterface =initialState, action: 커스텀액션타입명) {"{"}
-                <li> switch(action.type) {"{"}
-                  <li> case 'TYPE명1':
-                    <li> return {" { ...state, 상태: action.액션함수내의키명(출력은 상태와 같아야한다?) }; "}; </li>
-                  </li>
-                  <li> case 'TYPE명2':
-                    <li> return {" { ...state, abc: action.output(abc) }; "}; <small> 액션함수 내부에 output: abc </small>  </li>
-                  </li>
-                  <li> default:
-                    <li> return 상태값반환; </li>
-                  </li>
-                </li>
-                <li> {"}"} </li>
-              </li>
-              <li> {"}"} </li>
-            </div>
-            <h2 className='h2'> 📌 루트 리듀서  </h2>
-            <div className="block4">
-              <li> {" import { combineReducers } from 'redux'; "} </li>
-              <li> {" import {리듀서1} from './경로'; "} </li>
-              <li> {" import {리듀서2} from './경로'; "} </li>
-              <li> {" const rootReducer = combineReducers({ "}
-                <li> {"별칭: 리듀서1, "} </li>
-                <li> {"별칭: 리듀서2, "} </li>
-              </li>
-              <li> {" }); "} </li>
-              <li> {" export default rootReducer; "} </li>
-              <li> {" export type RootState = ReturnType<typeof rootReducer>; "}
-                <small> 이 타입은 추후 우리가 컨테이너 컴포넌트를 만들게 될 때 스토어에서
-                  관리하고 있는 상태를 조회하기 위해서
-                  useSelector를 사용 할 때 필요로 합니다. (타입스크립트에서 필요) </small> </li>
-            </div>
-            <h2 className='h2'> ✔ 예시 </h2>
-            <li>
-              <div className='block3'>
-                <h3 className='h3'> 🎈 </h3>
-                <div className='block4'>
-                  <li>  </li>
-                </div>
-              </div>
-            </li>
-
-          </div>
-        </details>
-      </div>
-
-      <div className='block1'>
-        <details>
           <summary> 미들 웨어 </summary>
           <div className='block2'>
 
@@ -737,85 +814,6 @@ const ReactRedux = (props) => {
             <li>  </li>
             <li>  </li>
             <li>  </li>
-
-          </div>
-        </details>
-      </div>
-
-      <div className='block1'>
-        <details>
-          <summary> 2. 디스패치 그리고 사용 </summary>
-          <div className='block2'>
-
-            <h2 className='h2'> 📌 설명 </h2>
-            <li> 스토어의 내장함수 중 하나 </li>
-            <li> 디스패치가 상태 이벤트를 감지하는 역할을 한다고 보면된다. </li>
-            <li> </li>
-
-            <h2 className='h2'> 📌 디스패치 구성 </h2>
-            <li> {" () => { "}
-              <li> {"return { "}
-                <li> {"  type: “액션명”; "} </li>
-              </li>
-              <li> {"} "} </li>
-            </li>
-            <li> {" } "} </li>
-
-            <h2 className='h2'> 📌 디스패치 구조 </h2>
-            <li> store.dispatch(액션함수() </li>
-            <li>  </li>
-
-            <h2 className='h2'> ✔ 예시 </h2>
-            <li>
-              <div className='block3'>
-                <h3 className='h3'> 🎈 </h3>
-                <div className='block4'>
-                  <li> {" import { useDispatch, useSelector } from 'react-redux'; "} </li>
-                  <li> {" import { 액션함수, RootState } from '../../store'; "} </li>
-                  <li> {" interface I컴포넌트Props { "} </li>
-                  <li> {" } "} </li>
-                  <li> {" const 컴포넌트명: React.FunctionComponent<I컴포넌트Props> = ()  => {"}
-                    <li> const dispatch = useDispatch(); </li>
-                    <li> {" const 이벤트핸들러메소드 = (e: any) => dispatch(액션함수(e.target.value)); "} </li>
-                    <li>  </li> <br />
-                    <li> {" const { 상태 } = useSelector((state: RootState)) => ({ "} <small> {" export type RootState = ReturnType<typeof rootReducer>; "} </small>
-                      <li> {" 상태: state.루트리듀서내부의리듀스.상태 "} </li>
-                    </li>
-                    <li> {"}));"} </li>
-                  </li>
-                  <li> {"};"} </li>
-                  <li> export default 컴포넌트명 </li>
-                </div>
-              </div>
-            </li>
-
-          </div>
-        </details>
-      </div>
-
-      <div className='block1'>
-        <details>
-          <summary> 구독 </summary>
-          <div className='block2'>
-
-            <h2 className='h2'> 📌 설명 </h2>
-            <li> 스토어의 내장 함수중 하나 </li>
-            <li> 함수 형태의 값을 파라미터로 받아옴 </li>
-            <li> 구독 함수에 특정 함수를 전달해주면, 액션이 디스패치 될때 전달해준 함수가 호출되게 한다. </li>
-            <li> store.dispatch(액션함수()); 를 호출할 때마다 스토어에서 만든 함수가 호출된다. </li>
-
-            <h2 className='h2'> ✔ 예시 </h2>
-            <li>
-              <div className='block3'>
-                <h3 className='h3'> 🎈 </h3>
-                <div className='block4'>
-                  <li> const unsubscribe = store.subscribe(스토어에서 만든 함수){"=>{"}
-                    <li> console.log(store.getState()); </li>
-                  </li>
-                  <li> {"}"} </li>
-                </div>
-              </div>
-            </li>
 
           </div>
         </details>
@@ -948,37 +946,7 @@ const ReactRedux = (props) => {
         </details>
       </div>
 
-      <div className='block1'>
-        <details>
-          <summary> Redux+Persist (좀 더 알아보기) </summary>
-          <div className='block2'>
 
-            <h2 className='h2'> 📌 설명 </h2>
-            <div className='block4'>
-              <li>  </li>
-              <li>  </li>
-              <li>  </li>
-            </div>
-
-            <h2 className='h2'> 📌 장점, 단점 </h2>
-            <div className='block4'>
-              <li> 장점 : 캐시를 이용하여 상태를 유지하기 쉬워진다. </li>
-              <li> 단점 : 캐시에 모든 상태값들이 저장되므로 불필요한 메모리들이 낭비가 된다. </li>
-            </div>
-
-            <h2 className='h2'> ✔ 예시 </h2>
-            <li>
-              <div className='block3'>
-                <h3 className='h3'> 🎈 </h3>
-                <div className='block4'>
-                  <li>  </li>
-                </div>
-              </div>
-            </li>
-
-          </div>
-        </details>
-      </div>
 
       {/* 끝 */}
     </div>

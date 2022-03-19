@@ -7,7 +7,7 @@ const Container = styled.div`
 `;
 const PopupClose = styled.button`
   position: absolute;
-  top: 0px;
+  top: 0;
   right: 10px;
   font-size: 2rem;
 `;

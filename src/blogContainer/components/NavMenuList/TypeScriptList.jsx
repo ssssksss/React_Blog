@@ -7,6 +7,9 @@ const BlogCategoryLinkList = styled.div`
   grid-template-columns: repeat(4,1fr);
   grid-gap: 5px;
   padding: 10px;
+  @media only screen and (max-width: 768px) {
+    grid-template-columns: repeat(3,1fr);
+  }
 `;
 const Title = styled.div`
   height: 40px;

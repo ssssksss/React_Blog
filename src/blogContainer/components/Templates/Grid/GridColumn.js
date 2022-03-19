@@ -4,6 +4,7 @@ const Container = styled.div`
   background-color: #aeaeae;
   border-radius: 10px;
   padding-left: 10px;
+  text-align: center;
 `;
 
 const GridColumn = ({ children }) => {

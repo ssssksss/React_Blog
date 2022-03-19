@@ -193,11 +193,11 @@ const ReactStyledComponent = (props) => {
               <li> 전역적인 스타일을 설정해놓는 컴포넌트 </li>
             </div>
 
-            <h2 className='h2'> 📌 GlobalStyle.js </h2>
+            <h2 className='h2'> 📌 GlobalStyles.js </h2>
             <div className='block4'>
               <li> {" import { createGlobalStyle } from 'styled-components'; "} </li>
               <li> {" import reset from 'styled-reset'; "} </li>
-              <li> const GlobalStyle = createGlobalStyle`
+              <li> const GlobalStyles = createGlobalStyle`
                 <li> {' ${reset} '} </li>
                 <li> *, *::before, *::after {"{"} </li>
                 <li> {"}"} </li>
@@ -209,13 +209,14 @@ const ReactStyledComponent = (props) => {
                 <li> {"}"} </li>
               </li>
               <li> `; </li>
-              <li> export default GlobalStyle; </li>
+              <li> export default GlobalStyles; </li>
             </div>
 
             <h2 className='h2'> 📌 index.js </h2>
             <div className='block4'>
+              <li> import GlobalStyles from "경로/GlobalStyles"; </li>
               <li> {"<React.StrictMode>"}
-                <li> {" <GlobalStyle/> "} </li>
+                <li> {" <GlobalStyles/> "} </li>
               </li>
               <li> {"</React.StrictMode>"} </li>
             </div>
@@ -281,11 +282,107 @@ const ReactStyledComponent = (props) => {
           <summary> [7] 자식,형제 등 css선택자  </summary>
           <div className='block2'>
 
-            <h2 className='h2'> 📌 설명 </h2>
+            <h2 className='h2'> 📌 자식 </h2>
             <div className='block4'>
-              <li>  </li>
-              <li>  </li>
-              <li>  </li>
+              <li> const 스타일컴포넌트명 = styled.div`
+                <li>  </li>
+                <li>  </li>
+              </li>
+              <li> `; </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [8] typescript에서 theme, globalstyle 설정 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 styled.d.ts </h2>
+            <div className='block4'>
+              <li> {' import "styled-components"; '} </li>
+              <li> {' declare module "styled-components" { '}
+                <li> {'   export interface DefaultTheme { '}
+                  <li> {'     bgColors: { primary: string }; '} </li>
+                </li>
+                <li> {'   } '} </li>
+              </li>
+              <li> {' } '} </li>
+            </div>
+
+            <h2 className='h2'> 📌 DefaultTheme.ts </h2>
+            <div className='block4'>
+              <li> {' import { DefaultTheme } from "styled-components"; '} </li>
+              <li> {' const theme: DefaultTheme = { '}
+                <li> {'   bgColors: { primary: "blue" }, '} </li>
+              </li>
+              <li> {' }; '} </li>
+              <li> {' export { theme }; '} </li>
+            </div>
+
+            <h2 className='h2'> 📌  </h2>
+            <div className='block4'>
+              <li> {' import { createGlobalStyle } from "styled-components"; '} </li>
+              <li> {' import reset from "styled-reset"; '} </li>
+              <li> {' const GlobalStyles = createGlobalStyle` '}
+                <li> {'   ${reset} '} </li>
+                <li> {'   *, *::before, *::after { '}
+                  <li>  </li>
+                </li>
+                <li> {'   } '} </li>
+                <li> {'   body { '}
+                  <li> {'     color: ${({ theme }) => theme.bgColors.primary}; '} </li>
+                </li>
+                <li> {'   } '} </li>
+              </li>
+              <li> {' `; '} </li>
+              <li> {' export default GlobalStyles; '} </li>
+            </div>
+
+            <h2 className='h2'> 📌 _app.tsx </h2>
+            <div className='block4'>
+              <li> {' import { ThemeProvider } from "styled-components"; '} </li>
+              <li> {' import GlobalStyles from "경로/GlobalStyles"; '} </li>
+              <li> {' import { theme } from "경로/DefaultTheme"; '} </li>
+              <li>  </li> <br />
+              <li> {'       <ThemeProvider theme={theme}> '}
+                <li> {'         <GlobalStyles /> '} </li>
+                <li> {'         <Component {...pageProps} /> '} </li>
+              </li>
+              <li> {'       </ThemeProvider> '} </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [9] typescript에서 props 사용 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 1개 props만 사용할 때 </h2>
+            <div className='block4'>
+              <li> {' const 스타일컴포넌트 = styled.div<{ prop: 타입}>` '}
+                <li> {' color: ${(props) => (props.prop ? "white" : "black" )}; '} </li>
+              </li>
+              <li> `;` </li>
+            </div>
+
+            <h2 className='h2'> 📌 여러개 props 사용할 때 </h2>
+            <div className='block4'>
+              <li> {' type Types extends 상속타입 {} '}
+                <li>  prop: boolean; </li>
+              </li>
+              <li> {' } '} </li>
+            </div>
+            <div className='block4'>
+              <li> {' const 스타일컴포넌트 = styled.div<Types>` '}
+                <li> {' color: ${(props) => (props.prop ? "white" : "black" )}; '} </li>
+              </li>
+              <li> `;` </li>
             </div>
 
           </div>

@@ -8,6 +8,9 @@ const BlogCategoryLinkList = styled.div`
   grid-template-columns: repeat(4,1fr);
   grid-gap: 5px;
   padding: 10px;
+  @media only screen and (max-width: 768px) {
+    grid-template-columns: repeat(3,1fr);
+  }
 `;
 const Title = styled.div`
   height: 40px;
@@ -49,7 +52,7 @@ const ReactList = () => {
         <LinkStyle to="react_hooks"> Hooks </LinkStyle>
         <LinkStyle to="react_redux"> Redux </LinkStyle>
         <LinkStyle to="react_redux_saga"> ReduxSaga </LinkStyle>
-        <LinkStyle to="react_recoil"> Recoil </LinkStyle>
+        <LinkStyle to="react_quill"> ReactQuill </LinkStyle>
         <LinkStyle to="react_router"> Router </LinkStyle>
         <LinkStyle to="react_animation"> Animation </LinkStyle>
         <LinkStyle to="react_modal"> Modal </LinkStyle>

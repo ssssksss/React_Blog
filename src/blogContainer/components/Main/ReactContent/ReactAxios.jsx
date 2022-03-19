@@ -4,16 +4,17 @@ const ReactAxios = (props) => {
 
   return (
     <div className="common_style">
+
       <div className='block1'>
         <details>
-          <summary> React Axios 란? </summary>
+          <summary> [0] Axios 설치 </summary>
           <div className='block2'>
 
-            <h2 className='h2'> 📌 설치 </h2>
-            <li> npm i axios </li>
-
             <h2 className='h2'> 📌 설명 </h2>
-            <li> Promise API를 사용하는 비동기 통신 </li>
+            <div className='block4'>
+              <li> npm i axios </li>
+              <li> npm i @types/axios </li>
+            </div>
 
           </div>
         </details>

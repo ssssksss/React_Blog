@@ -157,6 +157,66 @@ const JavaScriptBasic2 = (props) => {
 
       <div className='block1'>
         <details>
+          <summary> [4] 문자열에서 원하는 구간 추출하기 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 시작과 길이 </h2>
+            <div className='block4'>
+              <li> 문자열.substr(시작인덱스,길이); <small> 자른 문자열 반환 </small> </li>
+              <li> {" ex) "} const str = "자바스크립트".substr(0,2); <small> 자바 </small> </li>
+              <li> {" ex) "} const str = "자바스크립트".substr(2,3); <small> 스크립 </small> </li>
+              <li> 문자열.substr(시작인덱스); <small> 자른 문자열 반환 </small> </li>
+              <li> {" ex) "} const str = "자바스크립트".substr(3); <small> 크립트 </small> </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 시작과 끝 </h2>
+            <div className='block4'>
+              <li> 문자열.substring(시작인덱스,끝인덱스); </li>
+              <li> {" ex) "} const str = "자바스크립트".substring(2,3); <small> 스 </small> </li>
+              <li> {" ex) "} const str = "자바스크립트".substring(-1,3); <small> 자바스 (음수는 0으로 치환, 0~3과 같음) </small> </li>
+              <li> {" ex) "} const str = "자바스크립트".substring(5,-3); <small> 자바스크립 (음수는 0으로 치환, 앞뒤과 바뀜, 0~5와 같음) </small> </li>
+              <li> 문자열.substring(시작인덱스); </li>
+              <li> {" ex) "} const str = "자바스크립트".substring(3); <small> 크립트 </small> </li>
+            </div>
+
+            <h2 className='h2'> 📌 잘라서 사용 (subString보다 상위호환) </h2>
+            <div className='block4'>
+              <li> 음수 인덱스를 지원하기 때문에 상위호환 </li>
+              <li> 문자열.slice(시작인덱스,끝인덱스); </li>
+              <li> {" ex) "} const str = "자바스크립트".slice(2,3); <small> 스 </small> </li>
+              <li> {" ex) "} const str = "자바스크립트".slice(4,-1); <small> 립 </small> </li>
+              <li> {" ex) "} const str = "자바스크립트".slice(-3,5); <small> 크립 </small> </li>
+              <li> 문자열.slice(시작인덱스); </li>
+              <li> {" ex) "} const str = "자바스크립트".slice(3); <small> 크립트 </small> </li>
+              <li> {" ex) "} const str = "자바스크립트".slice(-4); <small> 스크립트 </small> </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 구분자로 자르기 </h2>
+            <div className='block4'>
+              <li> 배열로 반환된다. , 구분자 앞쪽을 기준으로 반환한다. </li>
+              <li> 문자열.split("구분자"); <small> 구분자 = , ! / 등등 </small> </li>
+              <li> 문자열.split("구분자",숫자); <small> 숫자만큼 자른 배열 반환 </small> </li>
+              <li> 문자열.substring(문자열.indexOf("구분자"),문자열.indexOf("구분자")) </li>
+              <li> 문자열.substring(문자열.indexOf("구분자"),문자열.lastIndexOf("구분자")) </li>
+              <li> 문자열.substring(문자열.indexOf("구분자")+3) </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌  </h2>
+            <div className='block4'>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
           <summary> Closure - <small> # 조금더 공부가 필요한 부분 </small> </summary>
           <div className='block2'>
 

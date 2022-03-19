@@ -508,6 +508,24 @@ const LinuxCentOS7 = (props) => {
               <li> find / -name 'mysql*rpm' </li>
               <li> rm -rf 위에서나온것들붙여넣기 <small> find / -name 'mysql*rpm' 에서 나오는 내용 복사 붙여넣기 </small> </li>
             </div>
+
+            <h2 className='h2'> 📌 timezone 변경하기 </h2>
+            <div className='block4'>
+              <li> 리눅스에서 변경하는 방법 </li>
+              <li> cd /usr/share/zoneinfo <small> 리눅스 설정 가능 시간대 모음 </small> </li>
+              <li> cp /usr/share/zoneinfo/Asia/Seoul /etc/localtime </li>
+              <li> date <small> 리눅스 현재 날짜 변경 </small> </li>
+              <li> systemctl restart mysqld </li> <br />
+              <li> mysql에서 변경하기 </li>
+              <li> show global variables like '%zone%'; <small> mysql에서 timezone 확인명령어 </small> </li>
+              <li> select @@system_time_zone; <small> mysql에서 timezone 확인명령어 </small> </li>
+              <li> error code: 1298. unknown or incorrect time zone: 'Asia/Seoul' <small> 타임존 관련 데이터가 없어서 발생.. </small> </li>
+              <li> <a href="https://dev.mysql.com/downloads/timezones.html" target="_blank" rel="noopener noreferrer"> 에러 발생시 참고 </a>  </li>
+              <li> <a href="https://dev.mysql.com/doc/refman/8.0/en/time-zone-support.html" target="_blank" rel="noopener noreferrer"> 타임존 공식문서? </a>  </li>
+              <li> 뭐가 더있는데 나중에 찾아보기.. </li>
+              <li>  </li>
+            </div>
+
           </div>
         </details>
       </div>

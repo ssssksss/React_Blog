@@ -279,52 +279,87 @@ const CManagement_Github = (props) => {
 
       <div className='block1'>
         <details>
-          <summary> =================================== </summary>
+          <summary> [6] 깃허브 에러 모음 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 fatal: refusing to merge unrelated histories </h2>
+            <div className="block4">
+              <li> 로컬과 원격저장소의 내용이 많이 차이나서 오류가 날것을 경고 </li>
+              <li> git pull origin 브런치명 --allow-unrelated-histories <small> 해결방법 </small> </li>
+              <li> git pull origin master --allow-unrelated-histories </li>
+            </div>
+
+            <h2 className='h2'> 📌 error: src refspec master does not match any </h2>
+            <div className='block4'>
+              <li> 초기에 브런치가 main밖에 없는데 master로 push해서 발생.. </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 error: failed to push some refs to ~~ </h2>
+            <div className='block4'>
+              <li>  </li>
+
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 LF will be replaced by CRLF in.gitignore. </h2>
+            <div className='block4'>
+              <li> LF will be replaced by CRLF in.gitignore. The file will have its original line endings in your working directory </li>
+              <li> 해석: LF가 CRLF도 대체 될거다.파일은 당신의 작업 디렉토리 끝에 줄에 있다.</li>
+              <li>LF(Line-Feed) Mac,Linux \n, CR(Carriage-Return) Mac \r, CRLF(Carriage-Return+Line-Feed) Windows,DOS \r\n  </li>
+              <li> 경고가 발생한 이유: Git이 OS마다 줄바꿈 문자열이 달라서 뭘 사용할지 몰라서 </li>
+              <li> 해결방안: Window, DOS에서는 git config--global core.autocrlf true </li>
+              <li> 해결방안: Linux, MAC에서는 git config--global core.autocrlf input </li>
+            </div>
+
+          </div>
         </details>
       </div>
 
       <div className='block1'>
         <details>
-          <summary> 깃허브 에러 모음 </summary>
+          <summary> [7] 깃허브 페이지에 리액트 배포 </summary>
           <div className='block2'>
 
-            <h2 className='h2'> 📌 pull이나 push할때 발생하는 경고 </h2>
-            <li> fatal: refusing to merge unrelated histories
-              <div className="block4">
-                <li> 로컬과 원격저장소의 내용이 많이 차이나서 오류가 날것을 경고 </li>
-                <li> git pull origin 브런치명 --allow-unrelated-histories <small> 해결방법 </small> </li>
-                <li>  </li>
-              </div>
-            </li>
-            <li>
-              <div className="block4">
-                <li>  </li>
-              </div>
-            </li>
-            <li>
-              <div className="block4">
-                <li>  </li>
-              </div>
-            </li>
-            <li>
-              <div className="block4">
-                <li>  </li>
-              </div>
-            </li>
+            <h2 className='h2'> 📌  </h2>
+            <div className='block4'>
+              <li> github에 가서 저장소를 하나 만들기 (read.me 파일없이만들기)</li>
+              <li> 만든 상태로 창을 가만히 놔두기( 복붙할 내용이 존재함)</li>
+              <li> 리액트로 돌아와서 npm install gh-pages --save-dev 입력 </li>
+              <li> 리액트 폴더에 pakage.json 파일을 열어서 아래와 같이 넣어주기</li>
+              <li> 위쪽에 name위에 "homepage": "http://깃허브유저명.github.io/저장소이름"</li>
+              <li> "scripts: 부분 안에 "predeploy": "npm run build",  "deploy": "gh-pages -d build",</li>
+              <li className="col_r"> 터미널 창에 git init 입력 (깃폴더 생성됨)</li>
+              <li> 깃허브 창에서 git remote add origin https://github.com/깃허브유저명/저장소이름.git 부분을 복붙해서 붙여넣기 </li>
+              <li className="col_r"> npm run deploy <small> build 하는 과정 </small> </li>
+              <li className="col_r">  git add . <small> 깃허브에 올릴 깃을 만드는 과정? </small> </li>
+              <li className="col_r">  git commit -m "커밋내용" <small>커밋</small> </li>
+              <li className="col_r">  git push -u origin master <small> 깃허브에 master 브랜치에 push </small> </li>
+              <li> 다음부터는 7,9~12 번만 반복하여서 사용</li>
+            </div>
 
-            <h2 className='h2'> ✔ 예시 </h2>
-            <li>
-              <div className='block3'>
-                <h3 className='h3'> 🎈 </h3>
-                <div className='block4'>
-                  <li>  </li>
-                </div>
-              </div>
-            </li>
 
           </div>
         </details>
       </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [8] 이전 커밋으로 돌아가기 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <div className='block4'>
+              <li> git log --oneline </li>
+              <li> git reset --hard 커밋번호 </li>
+              <li> git status </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
 
       <div className='block1'>
         <details>

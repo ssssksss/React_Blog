@@ -110,6 +110,7 @@ import ReactAjax from './Main/ReactContent/ReactAjax';
 import ReactBabel from './Main/ReactContent/ReactBabel';
 import ReactDrag from './Main/ReactContent/ReactDrag';
 import ReactNextjs from './Main/ReactContent/ReactNextjs';
+import ReactQuill from './Main/ReactContent/ReactQuill';
 
 // 프론트 개발자
 import FrontendBasic from './Main/FrontendContent/FrontendBasic';
@@ -356,6 +357,7 @@ const Main = (props) => {
         <Route path="/react/react_babel" element={<ReactBabel />} />
         <Route path="/react/react_drag" element={<ReactDrag />} />
         <Route path="/react/react_nextjs" element={<ReactNextjs />} />
+        <Route path="/react/react_quill" element={<ReactQuill />} />
 
         {/* 프론트 개발자 */}
         <Route path="/frontend/frontend_basic" element={<FrontendBasic />} />

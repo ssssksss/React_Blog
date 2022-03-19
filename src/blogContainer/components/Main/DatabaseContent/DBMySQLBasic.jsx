@@ -6,6 +6,176 @@ const DBMySQLBasic = (props) => {
 
       <div className='block1'>
         <details>
+          <summary> 테이블 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 Create(생성) </h2>
+            <div className='block4'>
+              <li> CREATE TABLE 테이블명 (
+                <li> <small> 제약조건 </small> : NOT NULL, UNIQUE, PRIMARY KEY, FOREIGN KEY, DEFAULT=기본값 </li>
+                <li> 컬럼명1 컬럼타입 <small> 제약조건 </small>, </li>
+                <li> [CONSTRAINT 제약조건명] <small> 제약조건 </small> 컬럼명1, </li>
+                <li> [CONSTRAINT 제약조건명] FOREIGN KEY 컬럼명2 REFERENCES 참조테이블명(참조컬럼명)
+                  ON UPDATE 옵션 ON DELETE 옵션
+                  <div className="block4">
+                    <li> ON UPDATE 옵션 :  참조되는 테이블이 데이터가 수정될 때 , 참조하는 테이블을 어떻게 할것인지   </li>
+                    <li> ON DELETE 옵션 :  참조되는 테이블이 데이터가 삭제될 때 , 참조하는 테이블을 어떻게 할것인지   </li>
+                    <div className="block4">
+                      <li> 옵션
+                        <li> CASCADE : 참조되는 테이블에서 데이터를 삭제,수정하면 참조하는 테이블 데이터 같이 삭제,수정</li>
+                        <li> SET NULL : 참조되는 테이블에서 데이터를 삭제,수정하면 참조하는 테이블 데이터 NULL</li>
+                        <li> NO ACTION : 참조되는 테이블에서 데이터를 삭제,수정하면 참조하는 테이블 데이터 변경 x</li>
+                        <li> SET DEFAULT : 참조되는 테이블에서 데이터를 삭제,수정하면 참조하는 테이블 데이터 필드 기본값으로 설정 </li>
+                        <li> RESTRICT :  참조하는 테이블에서 데이터가 남아있으면, 참조되는 테이블의 데이터 삭제,수정 불가능 </li>
+                      </li>
+                    </div>
+                  </div>
+                </li>
+              </li>
+              <li> ) </li>
+            </div>
+
+            <h2 className='h2'> 📌 Read(조회) </h2>
+            <div className='block4'>
+              <li> SHOW TABLES; <small> 사용중인 데이터베이스에 있는 모든 테이블 조회 </small> </li>
+              <li> SHOW CREATE TABLE 테이블명 <small> 테이블 생성 쿼리 조회 </small> </li>
+              <li> DESC 테이블명; <small> 테이블 조회 </small> </li>
+              <li> select [* 컬럼명 컬럼명1,컬럼명2,...] from 테이블명;  </li>
+              <li> SELECT 별칭1.컬럼명1, 별칭2.컬럼명1 FROM 테이블1 AS 별칭1, 테이블2 AS 별칭2 </li>
+              <li> select [* 컬럼명] from 테이블명 ORDER BY 컬럼 ASC; <small> 오름차순 </small> </li>
+              <li> select [* 컬럼명] from 테이블명 ORDER BY [컬럼 컬럼1,컬럼2,...]; <small> 오름차순 </small> </li>
+              <li> select [* 컬럼명] from 테이블명 ORDER BY 컬럼 DESC; <small> 내림차순 </small> </li>
+              <li> select 컬럼명1,컬럼명2 from 테이블명 ORDER BY 컬럼명1 DESC, 컬럼명2 ASC; <small> 컬럼명1 내림차순, 컬럼명2 오름차순 </small> </li>
+              <li> select [* 컬럼명] from 테이블명 WHERE [조건식, 컬럼명="값"]; </li>
+              <li> SELECT * FROM 테이블명 WHERE 컬럼명1 {'>'} 10 AND 컬럼명1 {'<'} 30 </li>
+              <li> SELECT * FROM 테이블명 WHERE 컬럼명1 {'>'} 10 OR 컬럼명2 {'>'} 10 </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 Update </h2>
+            <li>  </li>
+            <li>  </li>
+
+            <h2 className='h2'> 📌 Delete </h2>
+            <div className="block4">
+              <li> DROP TABLE 테이블명 <small> 테이블 삭제, 테이블 내부 전부 삭제 </small> </li>
+              <li> DROP TABLE IF EXISTS 테이블명 <small> 테이블이 있으면 삭제, 오류 발생하지 않음 </small> </li>
+            </div>
+
+
+            <h2 className='h2'> 📌 authority Create </h2>
+            <div className="block4">
+              <li> grant select on 데이터베이스명.* to 유저명@[localhost IP주소 %]; <small> 테이블 조회 권한 부여 </small> </li>
+              <li> grant insert on 데이터베이스명.* to 유저명@[localhost IP주소 %]; <small> 테이블 삽입 권한 부여 </small> </li>
+            </div>
+
+            <h2 className='h2'> 📌 authority Read </h2>
+            <li>  </li>
+            <li> </li>
+
+            <h2 className='h2'> 📌 authority Update </h2>
+            <li> </li>
+            <li> </li>
+
+            <h2 className='h2'> 📌 authority Delete </h2>
+            <li> TRUNCATE TABLE 테이블명 <small> 테이블의 구조는 남기고 테이블 내부의 데이터만을 삭제 </small>  </li>
+            <li>  </li>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [0] 데이터 타입 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 CHAR </h2>
+            <div className='block4'>
+              <li> 고정 길이, 255byte ~ , 남은 공백은 공백으로 채워진다. </li>
+              <li> 조회를 하면 공백없이 출력 </li>
+              <li> CHAR(숫자) </li>
+            </div>
+
+            <h2 className='h2'> 📌 VARCHAR </h2>
+            <div className='block4'>
+              <li> 가변 길이, 65535byte ~  </li>
+              <li> 255보다 작으면 1byte에 사용해서 기록, 255이상일때 2byte에 사용해서 기록  </li>
+              <li> 조회를 하면 공백도 같이 출력 </li>
+              <li> VARCHAR(숫자) </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 BINARY </h2>
+            <div className='block4'>
+              <li> 이진수 문자열 </li>
+              <li> 고정 길이, 0~255, 남은 공백은 공백으로 채워진다. </li>
+              <li> 조회를 하면 공백없이 출력 </li>
+              <li> BINARY(숫자) </li>
+            </div>
+
+            <h2 className='h2'> 📌 VARBINARY  </h2>
+            <div className='block4'>
+              <li> 이진수 문자열 </li>
+              <li> 트레일링 스페이스가 삭제되고 저장 </li>
+              <li> 가변 길이, 0~65535  </li>
+              <li> 조회를 하면 공백도 같이 출력  </li>
+              <li> 255보다 작으면 1byte에 사용해서 기록, 255이상일때 2byte에 사용해서 기록  </li>
+              <li> VARBINARY(숫자) </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 BLOB </h2>
+            <div className='block4'>
+              <li> 대형 바이너리 저장 타입 </li>
+              <li> 트레일링 스페이스가 그대로 저장 </li>
+              <li> BINYBLOB(n) , BYTE(n) : 255 btye ,  </li>
+              <li> VARBINARY(n) : 65535byte </li>
+              <li> TINYBLOB(n) : 255byte </li>
+              <li> BLOB(n) : 65535byte </li>
+              <li> MEDIUMBLOB(n) : 16777215 byte </li>
+              <li> LONGBLOB(n) : 4294967295 byte </li>
+            </div>
+
+            <h2 className='h2'> 📌 TEXT </h2>
+            <div className='block4'>
+              <li> 일반 텍스트 저장 타입 </li>
+              <li> 트레일링 스페이스가 그대로 저장 </li>
+              <li> TINYTEXT(n) : 255byte </li>
+              <li> TEXT(n) : 65535byte </li>
+              <li> MEDIUMTEXT(n) : 16777215byte </li>
+              <li> LONGTEXT(n) : 424967295byte </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 숫자형 </h2>
+            <div className='block4'>
+              <li> TINYINT(n) : 1byte( -128 ~ +127 , 0 ~ 255 ) </li>
+              <li> SMALLINT(n) : 2byte(-32768 ~ 32767 , 0 ~ 65535 ) </li>
+              <li> MEDIUMINT(n) : 3byte( -8388608 ~ +8388607, 0 ~ 16777215 )</li>
+              <li> INT(n) : 4byte( -2147483648 ~ +2147483647 , 0 ~ 4294967295 ) </li>
+              <li> BIGINT(n) : 8byte </li>
+              <li> FLOAT(길이,소수) : 4byte </li>
+              <li> DECIMAL(길이,소수) : 길이 + 1byte </li>
+              <li> DOUBLE(길이,소수) : 8byte </li>
+            </div>
+
+            <h2 className='h2'> 📌 날짜형 </h2>
+            <div className='block4'>
+              <li> DATE : 3byte , 년월일, 0000-00-00 ~ 9999-12-31 </li>
+              <li> TIME : 3byte , 시분초, -838:59:59 ~ 838:59:59 </li>
+              <li> DATETIME : 8byte , 날짜와시간, 0000-00-00 00:00:00 ~ 9999-12-31 23:59:59 </li>
+              <li> TIMESTAMP : 4byte , 날짜시간(시스템의 시간?), 1970-01-01 00:00:00 </li>
+              <li> YEAR : 1byte, 연도 , 1901 ~ 2155 </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
           <summary> 기초 지식 </summary>
           <div className='block2'>
 
@@ -128,14 +298,16 @@ const DBMySQLBasic = (props) => {
           <li> ENUM('데이터값1','데이터값2',...) # 65536개의 데이터 집합</li>
           <li>  </li>
 
-          <h2 className='h2'> 📌 날짜, 시간 </h2>
-          <li> DATE # 'YYYY-MM-DD' </li>
-          <li> DATETIME # 'YYYY-MM-DD HH:MM:SS' </li>
-          <li> TIMESTAMP #  </li>
-          <li> TIME # 'HH:MM:SS' , 'HHH:MM:SS' </li>
-          <li> YEAR # 4자리숫자나문자 : 1901~2155  </li>
-          <li>  </li>
-          <li>  </li>
+          <h2 className='h2'> 📌날짜, 시간 </h2>
+          <div className='block4'>
+            <li> DATE <small> 1000-01-01 ~ 9999-12-31 </small> </li>
+            <li> DATETIME <small> 1000-01-01 00:00:00 ~ 9999-12-31 23:59:59 ,문자형 ,8byte, 수동날짜입력 </small> </li>
+            <li> TIME <small> -838:59:59 ~ 838:59:59 </small> </li>
+            <li> TIMESTAMP <small> 1970-01-01 00:00:01 ~ 2038-01-19 03:14:07 UTC ,숫자형 ,4byte, 자동현재날짜입력 </small> </li>
+            <li> YEAR # 4자리숫자나문자 : 1901~2155  </li>
+            <li>  </li>
+            <li>  </li>
+          </div>
 
         </details>
       </div>
@@ -303,89 +475,6 @@ const DBMySQLBasic = (props) => {
             <h2 className='h2'> 📌 authority Delete </h2>
             <li> revoke [all 권한명] privileges on DB명.[* 테이블명] from 유저명.[localhost IP주소 %]; </li>
             <li>  </li>
-            <li>  </li>
-
-          </div>
-        </details>
-      </div>
-
-      <div className='block1'>
-        <details>
-          <summary> 테이블 </summary>
-          <div className='block2'>
-
-
-            <h2 className='h2'> 📌 Create </h2>
-            <li> 🎈 테이블 생성
-              <li> CREATE TABLE 테이블명 (
-                <li> 컬럼명1 컬럼타입, </li>
-                <li> 컬럼명2 컬럼타입 NOT NULL, </li>
-                <li> 컬럼명3 컬럼타입 UNIQUE, </li>
-                <li> 컬럼명4 컬럼타입 PRIMARY KEY, </li>
-                <li> 컬럼명5 컬럼타입 FOREIGN KEY, </li>
-                <li> 컬럼명6 컬럼타입 DEFAULT=기본값, </li>
-                <li> [CONSTRAINT 제약조건명] 제약조건 컬럼명1, </li>
-                <li> [CONSTRAINT 제약조건명] FOREIGN KEY 컬럼명2 REFERENCES 참조테이블명(참조컬럼명)
-                  ON UPDATE 옵션 ON DELETE 옵션
-                  <div className="block4">
-                    <li> ON UPDATE 옵션 :  참조되는 테이블이 데이터가 수정될 때 , 참조하는 테이블을 어떻게 할것인지   </li>
-                    <li> ON DELETE 옵션 :  참조되는 테이블이 데이터가 삭제될 때 , 참조하는 테이블을 어떻게 할것인지   </li>
-                    <div className="block4">
-                      <li> 옵션
-                        <li> CASCADE : 참조되는 테이블에서 데이터를 삭제,수정하면 참조하는 테이블 데이터 같이 삭제,수정</li>
-                        <li> SET NULL : 참조되는 테이블에서 데이터를 삭제,수정하면 참조하는 테이블 데이터 NULL</li>
-                        <li> NO ACTION : 참조되는 테이블에서 데이터를 삭제,수정하면 참조하는 테이블 데이터 변경 x</li>
-                        <li> SET DEFAULT : 참조되는 테이블에서 데이터를 삭제,수정하면 참조하는 테이블 데이터 필드 기본값으로 설정 </li>
-                        <li> RESTRICT :  참조하는 테이블에서 데이터가 남아있으면, 참조되는 테이블의 데이터 삭제,수정 불가능 </li>
-                      </li>
-                    </div>
-                  </div>
-                </li>
-              </li>
-              <li> ) </li>
-            </li>
-            <li>  </li>
-
-            <h2 className='h2'> 📌 Read </h2>
-            <li> SHOW TABLES; <small> 사용중인 데이터베이스에 있는 모든 테이블 조회 </small> </li>
-            <li> SHOW CREATE TABLE 테이블명 <small> 테이블 생성 쿼리 조회 </small> </li>
-            <li> DESC 테이블명; <small> 테이블 조회 </small> </li>
-            <li> select [* 컬럼명 컬럼명1,컬럼명2,...] from 테이블명;  </li>
-            <li> SELECT 별칭1.컬럼명1, 별칭2.컬럼명1 FROM 테이블1 AS 별칭1, 테이블2 AS 별칭2 </li>
-            <li> select [* 컬럼명] from 테이블명 ORDER BY 컬럼 ASC; <small> 오름차순 </small> </li>
-            <li> select [* 컬럼명] from 테이블명 ORDER BY [컬럼 컬럼1,컬럼2,...]; <small> 오름차순 </small> </li>
-            <li> select [* 컬럼명] from 테이블명 ORDER BY 컬럼 DESC; <small> 내림차순 </small> </li>
-            <li> select 컬럼명1,컬럼명2 from 테이블명 ORDER BY 컬럼명1 DESC, 컬럼명2 ASC; <small> 컬럼명1 내림차순, 컬럼명2 오름차순 </small> </li>
-            <li> select [* 컬럼명] from 테이블명 WHERE [조건식, 컬럼명="값"]; </li>
-            <li> SELECT * FROM 테이블명 WHERE 컬럼명1 {'>'} 10 AND 컬럼명1 {'<'} 30 </li>
-            <li> SELECT * FROM 테이블명 WHERE 컬럼명1 {'>'} 10 OR 컬럼명2 {'>'} 10 </li>
-            <li>  </li>
-
-            <h2 className='h2'> 📌 Update </h2>
-            <li>  </li>
-            <li>  </li>
-
-            <h2 className='h2'> 📌 Delete </h2>
-            <li> DROP TABLE 테이블명 <small> 테이블 삭제, 테이블 내부 전부 삭제 </small> </li>
-            <li> DROP TABLE IF EXISTS 테이블명 <small> 테이블이 있으면 삭제, 오류 발생하지 않음 </small> </li>
-            <li>  </li>
-
-
-            <h2 className='h2'> 📌 authority Create </h2>
-            <li> grant select on 데이터베이스명.* to 유저명@[localhost IP주소 %]; <small> 테이블 조회 권한 부여 </small> </li>
-            <li> grant insert on 데이터베이스명.* to 유저명@[localhost IP주소 %]; <small> 테이블 삽입 권한 부여 </small> </li>
-            <li>  </li>
-
-            <h2 className='h2'> 📌 authority Read </h2>
-            <li>  </li>
-            <li> </li>
-
-            <h2 className='h2'> 📌 authority Update </h2>
-            <li> </li>
-            <li> </li>
-
-            <h2 className='h2'> 📌 authority Delete </h2>
-            <li> TRUNCATE TABLE 테이블명 <small> 테이블의 구조는 남기고 테이블 내부의 데이터만을 삭제 </small>  </li>
             <li>  </li>
 
           </div>

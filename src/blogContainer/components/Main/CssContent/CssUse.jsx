@@ -59,6 +59,22 @@ const TCssUse = (props) => {
           </div>
         </details>
       </div>
+
+      <div className='block1'>
+        <details>
+          <summary> css ...처리하기 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <div className='block4'>
+              <li> overflow:hidden;   </li>
+              <li> text-overflow:ellipsis; </li>
+              <li> white-space:nowrap; </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
       {/* 끝 */}
     </div>
   );

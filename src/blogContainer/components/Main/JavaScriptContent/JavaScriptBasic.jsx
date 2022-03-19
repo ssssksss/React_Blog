@@ -12,6 +12,64 @@ const JavaScriptBasic = (props) => {
 
         <div className='block1'>
           <details>
+            <summary> [0] 프로퍼티 </summary>
+            <div className='block2'>
+
+              <h2 className='h2'> 📌 설명 </h2>
+              <div className='block4'>
+                <li> 1. 객체 내부의 속성 </li>
+                <li> 2. 프로퍼티는 키와 값을 뜻한다. </li>
+                <li> 3. 객체는 프로퍼티로 구성된다. </li>
+              </div>
+
+              <h2 className='h2'> 📌 관련 함수나 메소드 </h2>
+              <div className='block4'>
+                <li> <a href="https://velog.io/@mook9288/javascript-property" target="_blank" rel="noopener noreferrer"> 참고 </a> </li>
+                <li> delete 객체.키 <small> 객체의 속성을 삭제 </small> </li>
+                <li> {' for(임시변수 in 객체) { console.log("key : "+임시변수+", value : "+임시변수[키]) } '} <small> 키와 값을 출력 </small> </li>
+                <li> {' for(임시변수 in this.객체내부의객체) { console.log("key : "+임시변수+", value : "+임시변수[키]) } '} <small> 객체 내부의
+                  다른 프로퍼티에 접근해서 사용하는 방법 </small> </li>
+                <li> get </li>
+                <li> set </li>
+              </div>
+
+            </div>
+          </details>
+        </div>
+
+        <div className='block1'>
+          <details>
+            <summary> [1] 프로토타입 </summary>
+            <div className='block2'>
+
+              <h2 className='h2'> 📌 설명 </h2>
+              <div className='block4'>
+                <li> 자바스크립트에는 클래스가 없다. 하지만 객체지향이 가능하다고 한다. </li>
+                <li> 자바스크립트의 프로토타입은 객체지향에서의 클래스변수와 같다고 보면된다. </li>
+                <li> 객체.prototype.변수명 = 변수값;  </li>
+                <li> {' var obj = {}; 와 var obj = new Object(); 같다. '} </li>
+              </div>
+
+              <h2 className='h2'> 📌 프로토 객체 </h2>
+              <div className='block4'>
+                <li> 객체는 함수로 만듬 </li>
+                <li> prototype </li>
+                <li>  </li>
+              </div>
+
+              <h2 className='h2'> 📌 프로토 타입 객체 </h2>
+              <div className='block4'>
+                <li> constructor </li>
+                <li> __prote__ </li>
+                <li>  </li>
+              </div>
+
+            </div>
+          </details>
+        </div>
+
+        <div className='block1'>
+          <details>
             <summary> 자바스크립트란 </summary>
             <div className='block2'>
 
@@ -41,7 +99,6 @@ const JavaScriptBasic = (props) => {
               <li> 5. JS Engine에 Event Loop가 Stack이 완전히 비어있는지 확인을 하고 비어있다면 Task Queue공간에 Callback함수가 있는지 판단을 하고
                 있다면 Stack공간으로 이동시킨다. </li>
               <li>  </li>
-
 
             </div>
           </details>

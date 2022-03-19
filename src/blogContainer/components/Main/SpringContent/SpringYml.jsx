@@ -8,6 +8,45 @@ const SpringYml = (props) => {
 
         <div className='block1'>
           <details>
+            <summary> [1] 데이터베이스 ddl-auto  </summary>
+            <div className='block2'>
+
+              <h2 className='h2'> 📌 create </h2>
+              <div className='block4'>
+                <li> 기존테이블 삭제하고 다시 생성 </li>
+                <li> 개발 초기 </li>
+              </div>
+
+              <h2 className='h2'> 📌 create-drop </h2>
+              <div className='block4'>
+                <li> 기존테이블을 삭제하고? 다시 생성하고 테이블을 종료할 때 삭제 </li>
+                <li> 개발 초기 </li>
+              </div>
+
+              <h2 className='h2'> 📌 update </h2>
+              <div className='block4'>
+                <li> 변경되는 곳만 변경(운영DB에는 사용x) </li>
+                <li> 개발 초기, 테스트 서버 </li>
+              </div>
+
+              <h2 className='h2'> 📌 validate </h2>
+              <div className='block4'>
+                <li> 엔티티와 테이블이 정상 매핑이 되었는지 확인(운영 DB에 사용) </li>
+                <li> 테스트 서버, 운영서버 </li>
+              </div>
+
+              <h2 className='h2'> 📌 none </h2>
+              <div className='block4'>
+                <li> 사용하지 않음 </li>
+                <li> 운영서버 </li>
+              </div>
+
+            </div>
+          </details>
+        </div>
+
+        <div className='block1'>
+          <details>
             <summary> yml 설명(미완성) </summary>
             <div className='block2'>
 

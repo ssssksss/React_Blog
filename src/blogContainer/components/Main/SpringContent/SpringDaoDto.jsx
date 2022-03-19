@@ -221,46 +221,49 @@ const SpringModel = (props) => {
           <summary> (spring, mysql, oracle, js) 데이터 비교 </summary>
           <div className='block2'>
             <div className="block4">
-              <GridTableCountNRow100px count="5">
+              <GridTableCountNRow100px count="4">
                 <div> </div>
                 <GridColumn> 스프링 </GridColumn>
                 <GridColumn> mysql </GridColumn>
-                <GridColumn> oracle </GridColumn>
                 <GridColumn> 자바스크립트 </GridColumn>
 
                 <GridRow> 문자열 </GridRow>
                 <GridField> String </GridField>
                 <GridField> varchar(255) </GridField>
-                <GridField>  </GridField>
                 <GridField> String </GridField>
 
                 <GridRow> 문자 </GridRow>
                 <GridField>  </GridField>
                 <GridField>  </GridField>
                 <GridField>  </GridField>
-                <GridField>  </GridField>
 
                 <GridRow> 날짜 </GridRow>
                 <GridField> LocalDate </GridField>
-                <GridField> date </GridField>
-                <GridField>  </GridField>
+                <GridField> date <br /> YYYY-MM-DD </GridField>
                 <GridField>  </GridField>
 
                 <GridRow> 날짜 </GridRow>
                 <GridField> LocalDateTime </GridField>
+                <GridField> datetime(6) <br /> YYYY-MM-DD <br /> HH:MM:SS  </GridField>
                 <GridField>  </GridField>
+
+                <GridRow> 시간 </GridRow>
                 <GridField>  </GridField>
+                <GridField> TIME <br /> HH:MM:SS </GridField>
+                <GridField>  </GridField>
+
+                <GridRow> 날짜시간 </GridRow>
+                <GridField>  </GridField>
+                <GridField> TIMESTAMP <br /> 1970-01-01 <br /> 00:00:01 ~ <br /> 2038-10-19 <br /> 03:14:07 </GridField>
                 <GridField>  </GridField>
 
                 <GridRow> 큰 정수 </GridRow>
                 <GridField> Long </GridField>
                 <GridField> bigint </GridField>
                 <GridField>  </GridField>
-                <GridField>  </GridField>
 
                 <GridRow> 정수 </GridRow>
                 <GridField> Integer </GridField>
-                <GridField>  </GridField>
                 <GridField>  </GridField>
                 <GridField>  </GridField>
 
@@ -268,10 +271,8 @@ const SpringModel = (props) => {
                 <GridField> Boolean </GridField>
                 <GridField> bit(1) </GridField>
                 <GridField>  </GridField>
-                <GridField>  </GridField>
 
                 <GridRow>  </GridRow>
-                <GridField>  </GridField>
                 <GridField>  </GridField>
                 <GridField>  </GridField>
                 <GridField>  </GridField>

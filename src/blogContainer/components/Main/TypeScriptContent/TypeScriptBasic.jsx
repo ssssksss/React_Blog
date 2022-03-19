@@ -6,71 +6,112 @@ const TypeScriptBasic = (props) => {
 
       <div className='block1'>
         <details>
-          <summary> [0] tsconfig.js </summary>
+          <summary> [1] 타입스크립트 기본 문법 </summary>
           <div className='block2'>
 
             <h2 className='h2'> 📌 설명 </h2>
             <div className='block4'>
-              <li> 없어도 .ts파일 사용가능 </li>
-              <li> 한번에 여러개의 파일에 설정이 가능하므로 만들어서 사용 </li>
+              <li> 리턴값, 매개변수에 타입을 넣어주어야 한다.  </li>
+            </div>
+
+            <h2 className='h2'> 📌 타입 종류 </h2>
+            <div className='block4'>
+              <li> let test : boolean = true; </li>
+              <li> let test : undefined = undefined; </li>
+              <li> let test : null = null; </li>
+              <li> let test : number = 10; </li>
+              <li> let test : string = "test"; </li>
+              <li> let test : number[] = [1,2,3,4]; </li>
+              <li> {' let test : Array<string> = ["1","2"]; '} </li>
+              <li> let test : any[] = [1,"1"]; </li>
+              <li> let test : [number,string] = [1,"1"]; <small> tuple </small> </li>
+              <li> let test : [number,string][] = [[1,"1"],[2,"2"]]; <small> tuple 2차원 </small> </li>
+              <li> let test : any = 123; </li>
+              <li> let test : number|string = "123"; </li>
+            </div>
+
+            <h2 className='h2'> 📌 인터페이스나 타입 사용 </h2>
+            <div className='block4'>
+              <li> {' interface Test { '}
+                <li> {' test1: number, '} </li>
+                <li> {' test2: boolean '} </li>
+              </li>
+              <li> {' } '} </li>
+              <li> {' let test: Test = { '}
+                <li> {' test1: 10, '} </li>
+                <li> {' test2: true '} </li>
+              </li>
+              <li> {' } '} </li>
+            </div>
+
+            <h2 className='h2'> 📌 읽기 전용으로 만들기 </h2>
+            <div className='block4'>
+              <li> let test: readonly number[] = [1,2,3]; </li>
+              <li> {' let test: ReadonlyArray<number> = [1,2,3]; '} </li>
               <li>  </li>
             </div>
 
-            <h2 className='h2'> 📌 설정 명령어 </h2>
+            <h2 className='h2'> 📌 매개변수, 리턴 형식 예시 </h2>
             <div className='block4'>
-              <li> <a href="https://velog.io/@sooran/tsconfig.json-%EC%A0%9C%EB%8C%80%EB%A1%9C-%EC%95%8C%EA%B3%A0-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0
-              " target="_blank" rel="noopener noreferrer"> 나중에 다시 참고 </a> </li>
-              <li> {"{"}
-                <li> "compilerOptions": {"{"}
-                  <li> "baseUrl": "src", </li>
-                  <li> "paths": {"{"}
-                    <li> "app/*" : ["app/*"], </li>
-                    <li> "config/*" : ["config/*"], </li>
-                    <li> "lib/*" : ["lib/*"], </li>
-                    <li> "tests/*" : ["tests/*"], </li>
-                  </li>
-                  <li> {"},"} </li>
-                  <li> "target": "es5", <small> es5로 컴파일 </small> </li>
-                  <li> "module": "es2015", <small> require문법("commonjs"), import문법("es2015",esnext")을 사용할지 설정 </small> </li>
-                  <li> "allowJs": true, <small> js파일 ts에서 import로 사용가능 여부 </small> </li>
-                  <li> "checkJs": true, <small> js파일에서 에러체크 여부 </small> </li>
-                  <li> "jsx": "preserve", <small> tsx에서 jsx로 어떻게 컴파일할지, 'preserve', 'react-native', 'react' </small> </li>
-                  <li> "declaration": true, <small> 컴파일할 때 .d.ts파일도 자동생성 </small> </li>
-                  <li> "removeComments": true, <small> 컴파일시 주석제거 </small> </li>
-                  <li> "strict": true, <small> strict, noimplicit 등 관련모드 사용 </small> </li>
-                  <li> "outFile": "./", <small> 모든 ts파일을 js파일 1개로 컴파일, module: none,amd,system일때 사용가능 </small> </li>
-                  <li> "outDir": "./", <small> js파일 output 경로 </small> </li>
-                  <li> "rootDir": "./", <small> root경로 output 경로 설정 </small> </li>
-                  <li> "emitDeclarationOnly": true, </li>.
-                  <li> "isolatedModules": true, <small> 각각의 소스코드 파일을 모듈(import,export)로 만들게 강제한다. 안하면 에러발생?,
-                    babel같이 외부도구를 사용하면 true로 설정하는 것이 좋다. </small> </li>
-                  <li> "noImplicitAny": true, <small> any라는 타입이 발생할 경우 에러를 띄워준다. </small> </li>
-                  <li> "strictNullChecks": true, <small> null,undefined 타입에 조작하면 에러를 띄워준다. </small> </li>
-                  <li> "strictFunctionTypes": true, <small> 함수 파라미터 타입 강하게 검사 </small> </li>
-                  <li> "noImplicitThis": true, <small> this 키워드가 any일 경우 에러 발생 </small> </li>
-                  <li> "alwaysStrict": true, <small> 자바스크립트 use strict 모드 사용 </small> </li>
-                  <li> "noUnusedLocals": true, <small> 쓰지 않는 지역변수 있으면 에러 발생 </small> </li>
-                  <li> "noUnusedParameters": true, <small> 쓰지 않는 파라미터 있으면 에러 발생 </small> </li>
-                  <li> "noImplicitReturns": true, <small> 함수에 리턴이 없으면 에러 발생 </small> </li>
-                  <li> "noFallthroughCasesInSwitch": true, <small> 스위치 문에 이상이 있으면 에러 발생 </small> </li>
-                  <li> "strictPropertyInitialization": true <small> 클래스 구조체 타입 강하게 검사 </small> </li>
-                  <li>  </li>
-                </li>
-                <li> {"},"} </li>
-                <li> "files": [
-                  <li> "원하는파일.ts", <small> 이와 같이 특정 파일에만 처리가능하다. </small> </li>
-                  <li> "원하는파일.ts"  </li>
-                </li>
-                <li> ] </li>
+              <li> {' const func = (x: number, y: number): number { '}
+                <li> {' return x+y; '} </li>
               </li>
-              <li> {"}"} </li>
+              <li> {' } '} </li>
+              <li>  </li>
             </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [2] 리액트 관련 타입 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <div className='block4'>
+              <li> children: React.ReactNode </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [3] 타입스크립트에서 import 하는 방법 </summary>
+          <div className='block2'>
 
             <h2 className='h2'> 📌 설명 </h2>
             <div className='block4'>
               <li>  </li>
               <li>  </li>
               <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 npm에서 install 하지 않을 때 </h2>
+            <div className='block4'>
+              <li> test.js 파일에 함수가 있다고 가정 </li>
+              <div className="block3">
+                <li> {' module.exports = { '}
+                  <li> {' 별명: function(매개변수1) {return 함수명(매개변수1);}  '} </li>
+                </li>
+                <li> {' }; '} </li>
+                <li> {' function 함수명(매개변수) { '}
+                  <li> {' return "test"+매개변수; '} </li>
+                </li>
+                <li> {' } '} </li>
+              </div>
+              <li> 이름.d.ts파일 만들기 </li>
+              <div className="block3">
+                <li> import '/test.js'; <small> 파일만 잘 불러오고 </small> </li>
+                <li> declare function 함수명(): string; <small> 타입만 잘 설정해주면 된다. </small> </li>
+              </div>
+              <li> import * as test from './test'; </li>
+              <li> console.log(test.별명("123")); </li>
             </div>
 
           </div>
@@ -101,43 +142,6 @@ const TypeScriptBasic = (props) => {
         </details>
       </div>
 
-      <div className='block1'>
-        <details>
-          <summary> 타입스크립트 기본 문법 </summary>
-          <div className='block2'>
-
-            <h2 className='h2'> 📌 타입 </h2>
-            <div className="block4">
-              <li> string </li>
-              <li> boolean </li>
-              <li> number[] </li>
-              <li> string[] </li>
-              <li> any 혹은 any[] </li>
-              <li> string | number </li>
-              <li> string | undefined </li>
-              <li> number | null </li>
-              <li> 특정 값 <small> # 이외의 값이 들어오면 에러 </small> </li>
-              <li> 'red' | 'yellow' | 'orange' </li>
-              <li> (x: number, y:number) : number </li>
-              <li> interface 인터페이스명 {" { 키 : 타입, 키: 타입} "} </li>
-              <li> readonly 타입 <small> # 읽기 전용 </small> </li>
-              <li> ReadonlyArray{"<타입>"} <small> # 읽기 전용 </small> </li>
-            </div>
-
-            <h2 className='h2'> 📌 설명 </h2>
-            <div className="block4">
-              <li> const 변수 : 타입 = "값"; </li>
-              <li> function(매개변수: 타입,매개변수: 타입):리턴타입 ; </li>
-              <li> const 배열명: 인터페이스명[]  </li>
-              <li> const tuple: [타입,타입]; , tuple=[타입값,타입값] </li>
-              <li> 단, tuple의 할당된 타입들은 push를 사용했을때 가능하다. </li>
-              <li>  </li>
-              <li>  </li>
-            </div>
-
-          </div>
-        </details>
-      </div>
       <div className='block1'>
         <details>
           <summary> 타입스크립트 React.FC 와 function 방식 </summary>

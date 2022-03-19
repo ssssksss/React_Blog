@@ -39,7 +39,6 @@ import { Route, Routes } from 'react-router-dom';
 const Container = styled.div`
   margin: 6px 0px;
   width: 100%;
-  min-height: 300px;
   background: #ffbb6d;
   border-radius: 10px;
 `;

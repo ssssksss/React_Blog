@@ -216,6 +216,8 @@ summary {
   padding: 10px 0px;
   background-color: #f8fafe;
   list-style: none;
+  overflow-x: scroll;
+  white-space: nowrap;
 }
 .common_style .block4 p {
   margin-left: 15px;
