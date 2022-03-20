@@ -489,9 +489,13 @@ const SpringJpa = (props) => {
           <div className='block2'>
 
             <h2 className='h2'> 📌 설명 </h2>
-            <li> 1 </li>
-            <li> 2 </li>
-            <li> 3 </li>
+            <div className='block4'>
+              <li> 1쪽이 주인 </li>
+              <li> 하지만 실제로는 사용하지 않는다. 문제가 많음 </li>
+              <li> 1을 수정하게되면 여러개의 객체에 업데이트를 해주어야 하는 상황이 발생한다. </li>
+              <li>  </li>
+            </div>
+
 
             <h2 className="h2"> 📌 @OneToMany 속성 </h2>
             <li> Many쪽에서 @JoinTable을 선언 </li>
@@ -529,36 +533,52 @@ const SpringJpa = (props) => {
           </div>
         </details>
       </div>
+
       <div className='block1'>
         <details>
-          <summary> @ManyToOne </summary>
+          <summary> [] @ManyToOne </summary>
           <div className='block2'>
 
             <h2 className='h2'> 📌 설명 </h2>
-            <li></li>
+            <div className='block4'>
+              <li>  </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
 
             <h2 className='h2'> 📌 @ManyToOne 속성 </h2>
-            <li> optional=false(내부조인, 객체에 null이 들어갈수 있음) , optional=true(외부조인, 객체에 null이 들어갈 수 없음, default) </li>
-            <li> fetch : FetchType.EAGER(default) <small> FetchType.EAGER, FetchType.LAZY </small> </li>
-            <li> cascade=CascadeType.[ALL,PERSIST,MERGE,REMOVE,REFRESH,DETACH]
-              <li> CascadeType.PERSIST : 엔티티를 저장하면, 필드에 있는 엔티티도 저장<small> # 좀더 알아볼것 </small> </li>
-              <li> CascadeType.MERGE : 엔티티를 합칠 때, 필드에 있는 엔티티도 합친다 <small> # </small> </li>
-              <li> CascadeType.REFRESH : 엔티티를 수정할 때, 필드에 있는 엔티티도 수정 <small> # </small> </li>
-              <li> CascadeType.REMOVE : 엔티티를 삭제할 때, 필드에 있는 엔티티도 삭제한다.<small> # </small> </li>
-              <li> CascadeType.DETACH : 엔티티를 detach할때 , 필드에 있는 엔티티도 detach를 한다. <small> # 영속성 컨텍스트에서 엔티티를 제거(엔티티 삭제가 아님) </small> </li>
-              <li> CascadeType.ALL : 위에 있는 내용을 모두 적용 <small> # </small> </li> <br />
-            </li>
-            <li> targetEntity : 연관된 엔티티의 타입 정보를 설정?? 뭐지? </li>
+            <div className='block4'>
+              <li> optional=false(내부조인, 객체에 null이 들어갈수 있음) , optional=true(외부조인, 객체에 null이 들어갈 수 없음, default) </li>
+              <li> fetch : FetchType.EAGER(default) <small> FetchType.EAGER, FetchType.LAZY </small> </li>
+              <li> cascade=CascadeType.[ALL,PERSIST,MERGE,REMOVE,REFRESH,DETACH]
+                <li> CascadeType.PERSIST : 엔티티를 저장하면, 필드에 있는 엔티티도 저장<small> # 좀더 알아볼것 </small> </li>
+                <li> CascadeType.MERGE : 엔티티를 합칠 때, 필드에 있는 엔티티도 합친다 <small> # </small> </li>
+                <li> CascadeType.REFRESH : 엔티티를 수정할 때, 필드에 있는 엔티티도 수정 <small> # </small> </li>
+                <li> CascadeType.REMOVE : 엔티티를 삭제할 때, 필드에 있는 엔티티도 삭제한다.<small> # </small> </li>
+                <li> CascadeType.DETACH : 엔티티를 detach할때 , 필드에 있는 엔티티도 detach를 한다. <small> # 영속성 컨텍스트에서 엔티티를 제거(엔티티 삭제가 아님) </small> </li>
+                <li> CascadeType.ALL : 위에 있는 내용을 모두 적용 <small> # </small> </li> <br />
+              </li>
+              <li> targetEntity : 연관된 엔티티의 타입 정보를 설정?? 뭐지? </li>
+            </div>
 
-            <h2 className='h2'> ✔ 예시 </h2>
-            <li>
-              <div className='block3'>
-                <h3 className='h3'> 🎈 </h3>
-                <div className='block4'>
-                  <li></li>
-                </div>
-              </div>
-            </li>
+
+            <h2 className='h2'> 📌 One.class </h2>
+            <div className='block4'>
+              <li> @Entity </li>
+              <li> public class One {'{'}
+                <li> @OneToMany(mappedBy="one") </li>
+                <li> {' private List<Many> manys = new ArrayList<>(); '} </li>
+              </li>
+              <li> {'}'} </li>
+            </div>
+            <h2 className='h2'> 📌 Many.class </h2>
+            <div className='block4'>
+              <li> @ManyToOne <small> (fetch = FetchType.EAGER) 혹은 (fetch = FetchType.LAZY) </small> </li>
+              <li> @JoinColumne(name="MANY_PK", insertable=false, updatable=false) </li>
+              <li> private One one; </li>
+              <li>  </li>
+            </div>
+
 
           </div>
         </details>
