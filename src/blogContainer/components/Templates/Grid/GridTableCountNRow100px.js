@@ -5,7 +5,6 @@ const Container = styled.div`
 
   display: grid;
   grid-gap: 5px;
-  overflow-x: scroll;
   ${(props) => props.count === 4 ? "grid-template-columns: repeat(4, 1fr);"
     : ("grid-template-columns: repeat(" + `${props.count}` + ", 1fr);")}
 `;

@@ -138,7 +138,9 @@ const SpringModel = (props) => {
               <li> @Column(unique = true, false) <small> 유니크 조건 </small> </li>
               <li> @Column(insertable=true, false) <small> 엔티티 저장시 필드값이 저장, 저장안함 , 사용하면 데이터에이스에 저장이 안되는것 같다. </small> </li>
               <li> @Column(updatable=true, false) <small>  엔티티 수정시 값 수정, 수정안함, 값을 한번 넣고 수정하면 수정이 안되는것 같다.(아마 1번의 트랜잭션에서 인것 같다.) </small> </li>
-              <li> @Column(columnDefinition="VARCHAR(255) NOT NULL") <small> 조건 직접 부여하는 방법, 잘 모름 </small> </li>
+              <li> @Column(columnDefinition="VARCHAR(255) NOT NULL") <small> 조건 직접 부여하는 방법 </small> </li>
+              <li> @Column(columnDefinition = "varchar(255) default 'ssssksss'"") <small> 문자열 디폴트값 저장 방법 </small> </li>
+              <li> @Column(columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP") <small> 업데이트시 현재 날짜 저장하는 방법 </small> </li>
               <li> @Column(length = 10) <small> 문자 길이 제한 </small> </li>
               <li> @Column(table) <small> ???? </small> </li>
               <li> @Column(precision) <small> BigDecimal에서 소수점 포함 전체 자릿수 설정, 잘모름 </small> </li>
@@ -246,7 +248,7 @@ const SpringModel = (props) => {
           <summary> [4] (spring, mysql, oracle, js) 데이터 비교 </summary>
           <div className='block2'>
             <div className="block4">
-              <GridTableCountNRow100px count="4">
+              <GridTableCountNRow100px count="5">
                 <div> </div>
                 <GridColumn> 스프링 </GridColumn>
                 <GridColumn> mysql </GridColumn>
@@ -431,6 +433,23 @@ const SpringModel = (props) => {
             <h2 className='h2'> 📌 설명 </h2>
             <div className='block4'>
               <li>  </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [9] 원하는 데이터만 가져오기 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <div className='block4'>
+              <li> <a href="https://gorokke.tistory.com/202" target="_blank" rel="noopener noreferrer">
+                참고하기 </a> </li>
               <li>  </li>
               <li>  </li>
             </div>

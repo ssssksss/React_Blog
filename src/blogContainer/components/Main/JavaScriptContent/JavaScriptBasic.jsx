@@ -10,6 +10,8 @@ const JavaScriptBasic = (props) => {
     <>
       <div className="common_style">
 
+
+
         <div className='block1'>
           <details>
             <summary> [0] 프로퍼티 </summary>
@@ -70,6 +72,119 @@ const JavaScriptBasic = (props) => {
 
         <div className='block1'>
           <details>
+            <summary> [2] module, import, export, declare, .d.ts </summary>
+            <div className='block2'>
+
+              <h2 className='h2'> 📌 module </h2>
+              <div className='block4'>
+                <li>  </li>
+                <li>  </li>
+                <li>  </li>
+              </div>
+
+              <h2 className='h2'> 📌 import </h2>
+              <div className='block4'>
+                <li> 모듈을 불러올 때 사용 </li>
+                <li> 타입스크립트 컴파일러에서 불러오는 것은 타입 정보만 불러온다? </li>
+                <li>  </li>
+              </div>
+
+              <h2 className='h2'> 📌 export </h2>
+              <div className='block4'>
+                <li> 모듈을 내보낼 때 사용 </li>
+                <li> export= 문법으로 내보낸 모듈은 import module = require("module") 문법으로 불러와야 된다. </li>
+                <li>  </li>
+              </div>
+
+              <h2 className='h2'> 📌 declare </h2>
+              <div className='block4'>
+                <li> 변수,상수 등 어딘가에 선언이 되어있다고 알려주는 키워드 </li>
+                <li> 타입스크립트에서 타입을 알리는 용도로 사용되는 것 같다. </li>
+                <li> 엠비언트 컨텍스트 영역..? </li>
+                <li> declare namespace ABC <small> 기본으로 export가 붙는다. </small> </li>
+                <li> declare module "ABC" <small> 기본으로 export가 붙는다. </small> </li>
+                <li> declare global <small>  </small> </li>
+                <li>  </li>
+              </div>
+
+              <h2 className='h2'> 📌 .d.ts </h2>
+              <div className='block4'>
+                <li> 선언부 파일, 타입만 정의되어 있음 </li>
+                <li> js코드로 컴파일 되지 않는다. </li>
+                <li> 최상위 존재하는 변수,상수 등의 선언 앞에는 꼭 declare,export 가 붙는다. </li>
+                <li> export as namespace <small> export되는 데이터들을 하나의 네임스페이스로 묶어서 export하는 방법  </small> </li>
+                <li>  </li>
+              </div>
+
+
+
+            </div>
+          </details>
+        </div>
+
+        <div className='block1'>
+          <details>
+            <summary> [3] 변수, 상수, 함수, 클래스, 프로토타입, 타입, 네임스페이스 </summary>
+            <div className='block2'>
+
+              <h2 className='h2'> 📌 변수 </h2>
+              <div className='block4'>
+                <li>  </li>
+                <li>  </li>
+                <li>  </li>
+              </div>
+
+              <h2 className='h2'> 📌 상수 </h2>
+              <div className='block4'>
+                <li>  </li>
+                <li>  </li>
+                <li>  </li>
+              </div>
+
+              <h2 className='h2'> 📌 함수 </h2>
+              <div className='block4'>
+                <li>  </li>
+                <li>  </li>
+                <li>  </li>
+              </div>
+
+              <h2 className='h2'> 📌 클래스 </h2>
+              <div className='block4'>
+                <li>  </li>
+                <li>  </li>
+                <li>  </li>
+              </div>
+
+              <h2 className='h2'> 📌 프로토타입 </h2>
+              <div className='block4'>
+                <li>  </li>
+                <li>  </li>
+                <li>  </li>
+              </div>
+
+              <h2 className='h2'> 📌 타입 </h2>
+              <div className='block4'>
+                <li> js에서는 컴파일 되지 않고 삭제된다. </li>
+                <li>  </li>
+                <li>  </li>
+              </div>
+
+              <h2 className='h2'> 📌 네임스페이스 </h2>
+              <div className='block4'>
+                <li> js 일반 객체로 컴파일 된다. </li>
+                <li> JS함수에 해당 객체를 전달하고 즉시 호출하는 방식으로 컴파일되게 한다 <small> 뭔말이지.. </small>  </li>
+                <li> 네임스페이스는 외부에서 접근이 불가능 한데 export를 이용해 외부에서 접근이 가능하게 할 수 있다.
+                  <small> 컴포넌트가 export를 사용해서 되는데 컴포넌트가 네임스페이스로 구현이 되있는 것일까? </small> </li>
+                <li>  </li>
+              </div>
+
+
+            </div>
+          </details>
+        </div>
+
+        <div className='block1'>
+          <details>
             <summary> 자바스크립트란 </summary>
             <div className='block2'>
 
@@ -99,34 +214,6 @@ const JavaScriptBasic = (props) => {
               <li> 5. JS Engine에 Event Loop가 Stack이 완전히 비어있는지 확인을 하고 비어있다면 Task Queue공간에 Callback함수가 있는지 판단을 하고
                 있다면 Stack공간으로 이동시킨다. </li>
               <li>  </li>
-
-            </div>
-          </details>
-        </div>
-
-        <div className='block1'>
-          <details>
-            <summary> 모듈 </summary>
-            <div className='block2'>
-
-              <h2 className='h2'> 📌 설명 </h2>
-              <li>  </li>
-              <li> import <small> # 우선적으로 파싱이 된다. </small> </li>
-              <li> require() <small> # 런타임 중에 필요할때 로드된다. </small> </li>
-
-              <h2 className='h2'> 📌 장점, 단점 </h2>
-              <li> 장점 : </li>
-              <li> 단점 : </li>
-
-              <h2 className='h2'> ✔ 예시 </h2>
-              <li> 소제목
-                <div className='block3'>
-                  <h3 className='h3'> 🎈 </h3>
-                  <div className='block4'>
-                    <li>  </li>
-                  </div>
-                </div>
-              </li>
 
             </div>
           </details>

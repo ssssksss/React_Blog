@@ -5,7 +5,7 @@ const CicdJenkins = (props) => {
     <div className="common_style">
       <div className='block1'>
         <details>
-          <summary> [0] 젠킨스란? </summary>
+          <summary> [0] 젠킨스 </summary>
           <div className='block2'>
 
             <h2 className='h2'> 📌 설명 </h2>
@@ -14,6 +14,16 @@ const CicdJenkins = (props) => {
               <li>  </li>
               <li>  </li>
             </div>
+
+            <h2 className='h2'> 📌 환경설정 </h2>
+            <div className='block4'>
+              <li> <a href="https://www.lesstif.com/continuous-integration/%ED%99%98%EA%B2%BD-%EC%84%A4%EC%A0%95-31850999.html"
+                target="_blank" rel="noopener noreferrer"> 참고 </a> </li>
+              <li> # of executors <small> 동시에 build 가능한 갯수 </small> </li>
+              <li>  </li>
+            </div>
+
+
 
           </div>
         </details>

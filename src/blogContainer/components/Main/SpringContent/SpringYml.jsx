@@ -47,6 +47,168 @@ const SpringYml = (props) => {
 
         <div className='block1'>
           <details>
+            <summary> [2] 별도의 yml 파일 만들어서 사용하기(도전중) </summary>
+            <div className='block2'>
+
+              <h2 className='h2'> 📌 YamlLoadFactory.class </h2>
+              <div className='block4'>
+                <li> public class YamlLoadFactory implements PropertySourceFactory {"{"}
+                  <li> @Override </li>
+                  <li> {' public PropertySource<?> createPropertySource(String name, EncodedResource encodedResource) throws IOException { '}
+                    <li> {' YamlPropertiesFactoryBean factory = new YamlPropertiesFactoryBean(); '} </li>
+                    <li> {' factory.setResources(encodedResource.getResource()); '} </li>
+                    <li> {' Properties properties = factory.getObject(); '} </li>
+                    <li> {' return new PropertiesPropertySource(encodedResource.getResource().getFilename(),properties); '} </li>
+                  </li>
+                  <li> {' } '} </li>
+                </li>
+                <li> {"}"} </li>
+              </div>
+
+              <h2 className='h2'> 📌  </h2>
+              <div className='block4'>
+                <li> @Configuration </li>
+                <li> @ConfigurationProperties(prefix = "") </li>
+                <li> {' @PropertySource(value={".yml"}, factory = YamlLoadFactory.class '} </li>
+                <li> @Getter </li>
+                <li> @Setter </li>
+                <li> @ToString </li>
+                <li> {' public class Config { '}
+                  <li> {' private String  '} </li>
+                  <li> {' private String '} </li>
+                </li>
+                <li> {' } '} </li>
+              </div>
+
+              <h2 className='h2'> 📌  </h2>
+              <div className='block4'>
+                <li>  </li>
+                <li>  </li>
+                <li>  </li>
+                <li>  </li>
+              </div>
+
+            </div>
+          </details>
+        </div>
+
+        <div className='block1'>
+          <details>
+            <summary> [3] yml 파일 profiles로 분리해서 사용하기 </summary>
+            <div className='block2'>
+
+              <h2 className='h2'> 📌 파일 목록 </h2>
+              <div className='block4'>
+                <li> application.yml </li>
+                <li> application-local.yml </li>
+                <li> application-dev.yml </li>
+                <li> application-prod.yml </li>
+              </div>
+
+              <h2 className='h2'> 📌 application.yml </h2>
+              <div className='block4'>
+                <li> 공통적으로 들어가는 값들 넣기 </li>
+                <li> spring:
+                  <li> profiles:
+                    <li> active: local </li>
+                  </li>
+                </li>
+                <li> spring:
+                  <li> profiles: local <small> 버전 2.4까지 </small> </li>
+                  <li> config: <small> 버전 2.4이후 </small>
+                    <li> activate:
+                      <li> on-profile: local </li>
+                    </li>
+                  </li>
+                </li>
+                <li> server:
+                  <li> port:
+                    <li> 8080 </li>
+                  </li>
+                </li>
+                <li> spring:
+                  <li> profiles: prod</li>
+                </li>
+                <li> server
+                  <li> port:
+                    <li> 80 </li>
+                  </li>
+                </li>
+              </div>
+
+              <h2 className='h2'> 📌 설명 </h2>
+              <div className='block4'>
+                <li> ./gradlew clean build </li>
+                <li> java -jar Dspring.profiles.active=prod *.jar <small> 좀더 알아보기 </small> </li>
+                <li> java -jar app.war --spring.config.location=file:C:/test/property/application.properties   </li>
+                <li>  </li>
+              </div>
+
+
+            </div>
+          </details>
+        </div>
+
+        <div className='block1'>
+          <details>
+            <summary> [4] 스프링 부트 프로퍼티 우선 순위 </summary>
+            <div className='block2'>
+
+              <h2 className='h2'> 📌 설명 </h2>
+              <div className='block4'>
+                <li> 1. 유저 홈 디렉토리에 있는 spring-boot-dev-tools.properties </li>
+                <li> 2. 테스트에 있는 @TestPropertySource </li>
+                <li> 3. @SpringBootTest 애노테이션의 properties 애트리뷰트 </li>
+                <li> 4. 커맨드 라인 아규먼트 </li>
+                <li> 5. SPRING_APPLICATION_JSON (환경 변수 또는 시스템 프로티) 에 들어있는 프로퍼티 </li>
+                <li> 6. ServletConfig 파라미터 </li>
+                <li> 7. ServletContext 파라미터 </li>
+                <li> 8. java:comp/env JNDI 애트리뷰트 </li>
+                <li> 9. System.getProperties() 자바 시스템 프로퍼티 </li>
+                <li> 10. OS 환경 변수 </li>
+                <li> 11. RandomValuePropertySource </li>
+                <li> 12. JAR 밖에 있는 특정 프로파일용 application properties </li>
+                <li> 13. JAR 안에 있는 특정 프로파일용 application properties </li>
+                <li> 14. JAR 밖에 있는 application properties </li>
+                <li> 15. JAR 안에 있는 application properties </li>
+                <li> 16. @PropertySource </li>
+                <li> 17. 기본 프로퍼티 (SpringApplication.setDefaultProperties) </li>
+              </div>
+            </div>
+          </details>
+        </div>
+
+        <div className='block1'>
+          <details>
+            <summary> [5] 외부에 있는 yml 파일 사용하기 </summary>
+            <div className='block2'>
+
+              <h2 className='h2'> 📌 설명 </h2>
+              <div className='block4'>
+                <li> {'  @SpringBootApplication '} </li>
+                <li> {'  public class SsssksssBlogApplication { '}
+                  <li> {'public static final String APPLICATION_LOCATIONS = "spring.config.location=" '}
+                    <li> {'+ "classpath:application.yml," '} </li>
+                    <li> {'+ "C:/test/application.yml"; '} </li>
+                  </li>
+                  <li> {'public static void main(String[] args) { '}
+                    <li> {'  new SpringApplicationBuilder(SsssksssBlogApplication.class) '}
+                      <li> {'  .properties(APPLICATION_LOCATIONS) '} </li>
+                      <li> {'  .run(args); '} </li>
+                    </li>
+                  </li>
+                  <li> {'} '} </li>
+                </li>
+                <li> {'  } '} </li>
+              </div>
+
+            </div>
+          </details>
+        </div>
+
+
+        <div className='block1'>
+          <details>
             <summary> yml 설명(미완성) </summary>
             <div className='block2'>
 

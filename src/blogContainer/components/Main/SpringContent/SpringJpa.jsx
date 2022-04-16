@@ -39,25 +39,27 @@ const SpringJpa = (props) => {
               <li> {` ); `} </li>
             </div>
 
-            <h2 className='h2'> 📌</h2>
+            <h2 className='h2'> 📌 @Modifying </h2>
             <div className='block4'>
-              <li></li>
-              <li></li>
-              <li></li>
+              <li> update를 하면 db에 날리고 persistcontext에 캐시가 남아 있어 바로 select 쓰면 이전값 반환 </li>
+              <li> @Modifying </li>
+              <li> @Modifying(flushAutomatically = true) <small>  </small> </li>
+              <li> @Modifying(clearAutomatically = true) <small> 캐시를 비워준다. </small> </li>
+              <li>  </li>
             </div>
 
             <h2 className='h2'> 📌</h2>
             <div className='block4'>
-              <li></li>
-              <li></li>
-              <li></li>
+              <li>  </li>
+              <li>  </li>
+              <li>  </li>
             </div>
 
             <h2 className='h2'> 📌</h2>
             <div className='block4'>
-              <li></li>
-              <li></li>
-              <li></li>
+              <li>  </li>
+              <li>  </li>
+              <li>  </li>
             </div>
 
           </div>

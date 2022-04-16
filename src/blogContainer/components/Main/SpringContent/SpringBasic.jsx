@@ -7,7 +7,7 @@ const SpringBasic = (props) => {
 
       <div className='block1'>
         <details>
-          <summary> [0] </summary>
+          <summary> [0]  </summary>
           <div className='block2'>
 
             <h2 className='h2'> 📌 설명 </h2>

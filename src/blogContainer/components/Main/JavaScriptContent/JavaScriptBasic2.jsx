@@ -217,6 +217,166 @@ const JavaScriptBasic2 = (props) => {
 
       <div className='block1'>
         <details>
+          <summary> [5] pakage.json </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <div className='block4'>
+              <li> {' {} 중괄호로 시작한다.  '} </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 속성 </h2>
+            <div className='block4'>
+              <li> "name": "", <small> 패키지 이름 </small> </li>
+              <li> "version": "", <small> 버전이름 , 0.1.1 </small> </li>
+              <li> "description": "", <small> 설명 </small> </li>
+              <li> "homepage": "", <small> 홈페이지 주소 </small> </li>
+              <li> "license": "", <small> 라이센스 </small> </li>
+              <li> "contributors": [ <small> 기여자 </small>
+                <li> {'{'}
+                  <li> "name": <small> 기여자 이름 </small> </li>
+                  <li> "url": <small> 기여자 깃허브 주소 등 </small> </li>
+                  <li> "githubUsername": <small> 깃허브 유저 이름 </small> </li>
+                </li>
+                <li> {'}'}, </li>
+              </li>
+              <li> ], </li>
+              <li> "main" : "" <small>  </small> </li>
+              <li> "types": "index.d.ts", <small> 파일의 타입 명시? </small> </li>
+              <li> "repository": {'{'} <small>  </small>
+                <li> "type": "git" <small> 저장소의 타입명 </small> </li>
+                <li> "url": ".git" <small> 깃주소 </small> </li>
+                <li> "directory": "types/" <small> 깃허브에 디렉토리명인것 같다. </small> </li>
+              </li>
+              <li> {'}'}, </li>
+              <li> "scripts": {'{}'}, <small>  </small> </li>
+              <li> "dependencies": {'{'} <small> 의존성 </small>
+                <li> "@types/react": "*" <small> 모든 react 타입스크립트 버전에 의존한다. </small> </li>
+                <li> "immutable": "~3.7.4" <small> immutable 3.7.4이하 버전에 의존한다. </small> </li>
+              </li>
+              <li> {'}'}, </li>
+              <li> "typesPublisherContentHash": "해쉬값" <small>  </small> </li>
+              <li> "typeScriptVersion": "" <small> 타입스크립트 버전 </small> </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [6] readme.md </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <div className='block4'>
+              <li> # Installation </li>
+              <li> # Summary </li>
+              <li> # Details </li>
+              <li> ### Additional Details </li>
+              <li> # Credits </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [7] 웹팩 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌  </h2>
+            <div className='block4'>
+              <li> {' module.exports = { '}
+                <li> {' output: { '}
+                  <li> {' filename: "bundle.js", '} </li>
+                  <li> {' path: "./dist", '} </li>
+                </li>
+                <li> {' }, '} </li>
+              </li>
+              <li> {' } '} </li>
+            </div>
+
+            <h2 className='h2'> 📌  </h2>
+            <div className='block4'>
+              <li>  </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌  </h2>
+            <div className='block4'>
+              <li>  </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [8] serialize, serializeArray, JSON.stringify, JSON.parse </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 serialize </h2>
+            <div className='block4'>
+              <li> 폼태그요소.serialize(); </li>
+              <li> name=value&name=value&name=value 와 같이 반환 </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 serializeArray </h2>
+            <div className='block4'>
+              <li> 폼태그요소.serializeArray() 는 [JSON 객체 형식으로 반환] </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 JSON.stringify </h2>
+            <div className='block4'>
+              <li> JSON.stringify(value[, replacer[, space]]) </li>
+              <li> JSON.stringify() <small> JS나 객체를 JSON문자열로 변환 </small> </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 JSON.parse() </h2>
+            <div className='block4'>
+              <li> JSON.parse(text[, reviver]) </li>
+              <li> JSON형태를 자바스크립트 값이나 객체로 반환 </li>
+              <li>  </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [9] Object </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <div className='block4'>
+              <li> {'const cloneObj = Object.assign({},Obj)'} <small> Object 깊은복사 </small> </li>
+              <li> {'const cloneObj = Object.assign({name:"name"},Obj)'} <small> 초기값 설정 + Object 깊은복사 </small> </li>
+              <li> Object.keys(객체) <small> 객체의 키 배열 반환 </small> </li>
+              <li> Object.values(객체) <small> 객체의 값 배열 반환 </small> </li>
+              <li> Object.entries(객체) <small> 객체의 키,값 배열 반환 </small> </li>
+              <li> Object.fromEntries(배열(키,값)) <small> 배열에 키,값을 객체로 반환 </small> </li>
+              <li>  </li>
+            </div>
+
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
           <summary> Closure - <small> # 조금더 공부가 필요한 부분 </small> </summary>
           <div className='block2'>
 

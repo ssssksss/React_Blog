@@ -55,6 +55,41 @@ const KeyMapIntellij = (props) => {
         </details>
       </div>
 
+      <div className='block1'>
+        <details>
+          <summary> [] 인텔리제이 IPv4 설정해주기 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <div className='block4'>
+              <li> 기본적으로 ipv6로 출력이되어 ipv4로 설정을 바꾸어야 할 필요가 있었다. </li>
+              <li> 아래 방법 1,2를 동시에 적용해서 뭐가 맞는지는 모르겠다. </li>
+            </div>
+
+            <h2 className='h2'> 📌 방법1 </h2>
+            <div className='block4'>
+              <li> help - edit custom vm options - 2줄 추가해주기 </li>
+              <li> -Djava.net.preferIPv4Stack=true </li>
+              <li> -Djava.net.preferIPv4Addresses=true </li>
+              <li> 인텔리제이 재접속해주기 </li>
+            </div>
+
+            <h2 className='h2'> 📌 방법2 </h2>
+            <div className='block4'>
+              <li> 중간에 보이는 망치 우측에 클릭하고 edit configurations 클릭 </li>
+              <li> 2시방향 modify options - add vm options  </li>
+              <li> 입력할 공간이 생기면 아래 2줄 추가하기 </li>
+              <li> -Djava.net.preferIPv4Stack=true </li>
+              <li> -Djava.net.preferIPv4Addresses=true </li>
+              <li> 인텔리제이 재접속해주기 </li>
+            </div>
+
+
+
+          </div>
+        </details>
+      </div>
+
 
       <ul>
         <span className="lblock">

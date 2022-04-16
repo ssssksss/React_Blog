@@ -143,6 +143,81 @@ const ReactQuill = (props) => {
         </details>
       </div>
       {/* 끝 */}
+      <div className='block1'>
+        <details>
+          <summary> [4] toast ui 설치하기 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 문서 </h2>
+            <div className='block4'>
+              <li> <a href="https://nhn.github.io/tui.editor/latest/ToastUIEditorCore"
+                target="_blank" rel="noopener noreferrer"> 문서1 </a> </li>
+              <li> <a href="https://github.com/nhn/toast-ui.doc"
+                target="_blank" rel="noopener noreferrer"> 문서2 </a> </li>
+            </div>
+
+
+            <h2 className='h2'> 📌 설치 </h2>
+            <div className='block4'>
+              <li> npm i --save @toast-ui/react-editor </li>
+              <li> npm i --save @toast-ui/editor-plugin-chart  </li>
+              <li> npm i --save @toast-ui/editor-plugin-code-syntax-highlight  </li>
+              <li> npm i --save @toast-ui/editor-plugin-color-syntax  </li>
+              <li> npm i --save @toast-ui/editor-plugin-table-merged-cell  </li>
+              <li> npm i --save @toast-ui/editor-plugin-uml </li>
+            </div>
+
+            <h2 className='h2'> 📌 Editor 예시 </h2>
+            <div className='block4'>
+              <li> {' import "@toast-ui/editor/dist/toastui-editor.css"; '} </li>
+              <li> {' import { Editor } from "@toast-ui/react-editor"; '} </li> <br />
+              <li> {' import "tui-chart/dist/tui-chart.css"; '} </li>
+              <li> {' import chart from "@toast-ui/editor-plugin-chart"; '} </li>
+              <li> {' import "highlight.js/styles/github.css"; '} </li>
+              <li> {' import codeSyntaxHighlight from "@toast-ui/editor-plugin-code-syntax-highlight"; '} </li>
+              <li> {' import "tui-color-picker/dist/tui-color-picker.css"; '} </li>
+              <li> {' import colorSyntax from "@toast-ui/editor-plugin-color-syntax"; '} </li>
+              <li> {' import tableMergedCell from "@toast-ui/editor-plugin-table-merged-cell"; '} </li>
+              <li> {' import uml from "@toast-ui/editor-plugin-uml"; '} </li> <br />
+              <li> {' const editorRef = useRef<Editor>(null); '} </li>
+              <li> {' const HandlerChange = () => { '}
+                <li> {' const editorInstance = editorRef.current?.getInstance(); '} </li>
+                <li> {' const getContent_md = editorInstance?.getMarkdown(); '} </li>
+                <li> {' console.log(getContent_md); '} </li>
+                <li> {' const getContent_html = editorInstance?.getHtml(); '} </li>
+                <li> {' console.log(getContent_HTML); '} </li>
+              </li>
+              <li> {'   }; '} </li>
+              <li> {'  '} </li> <br />
+              <li> {' <Editor '}
+                <li> {' initialValue={areaTextContent} '} <small> 초기값 알아서 넣어주기 </small> </li>
+                <li> {' previewStyle="vertical" '} <small> tab | vertical , 미리보기 스타일 </small> </li>
+                <li> {' height="600px" '} <small> 100px | auto </small> </li>
+                <li> {' initialEditType="markdown" '} <small> markdown | wysiwyg </small> </li>
+                <li> {' useCommandShortcut={true} '} <small> true | false ,  </small> </li>
+                <li> {' onChange={() => HandlerChange()} '} </li>
+                <li> {' ref={editorRef} '} </li>
+                <li> {' plugins={[chart, codeSyntaxHighlight, colorSyntax, tableMergedCell, uml]} '} </li>
+              </li>
+              <li> {'       /> '} </li>
+            </div>
+
+            <h2 className='h2'> 📌 Viewer 예시 </h2>
+            <div className='block4'>
+              <li> {' import React, { useState, useEffect, useRef } from "react"; '} </li>
+              <li> {' import "@toast-ui/editor/dist/toastui-editor.css"; '} </li>
+              <li> {' import { Viewer } from "@toast-ui/react-editor"; '} </li> <br />
+              <li> {' const viewerInstance = editorRef.current?.getInstance(); '} </li>
+              <li> {' viewerInstance?.setMarkdown(res.content); '}
+                <small> res.content는 markdown형식으로 저장된 코드여야 한다. </small> </li> <br />
+              <li> {' <Viewer initialValue={post?.content} theme="black" ref={editorRef} /> '} </li>
+            </div>
+
+
+
+          </div>
+        </details>
+      </div>
     </div>
   );
 }

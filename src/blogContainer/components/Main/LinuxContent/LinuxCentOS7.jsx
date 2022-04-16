@@ -218,7 +218,9 @@ const LinuxCentOS7 = (props) => {
             <div className='block4'>
               <li> java -version <small> 자바 버전 확인, 없으면 안나옴 </small> </li>
               <li> which javac <small> 자바 위치 </small> </li>
+              <li> readlink -f /usr/bin/javac <small> 심볼릭 링크 위치 확인 </small> </li>
               <li> yum list installed | grep java <small> 설치된 자바 버전 확인 </small> </li>
+              <li> alternatives --list <small> 심볼릭 링크 리스트 조회 </small> </li>
               <li> 설치할 폴더로 이동(/usr/lib나 /usr/local/lib나 폴더를 만들어서 이용) </li>
               <li> 자바에서 리눅스 jdk 설치파일 경로를 가져온다.(서버에서는 jre로 가능하지만 그냥 jdk) </li>
               <li> 버전에 맞는 파일 경로 복사하기 (32,64 버전 확인은 getconf LONG_BIT 명령어를 사용하면된다.) </li>
@@ -228,7 +230,10 @@ const LinuxCentOS7 = (props) => {
 
             <h2 className='h2'> 📌 yum으로 자바 1.8 설치 </h2>
             <div className='block4'>
-              <li>  </li>
+              <li> cd /usr/lib </li>
+              <li> yum install java-1.8.0-openjdk </li>
+              <li> yum install java-1.8.0-openjdk-devel </li>
+              <li> java --version  </li>
               <li>  </li>
               <li>  </li>
               <li>  </li>
@@ -243,7 +248,7 @@ const LinuxCentOS7 = (props) => {
               <li> readlink -f /bin/javac <small> 설치된 자바 파일 경로 </small> </li>
               <li> vi /etc/profile <small> 환경변수 설정 </small>
                 <div className="block3">
-                  <li> export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-11.0.14.0.9-1.el7_9.x86_64 <small> 마지막에 추가 그리고 파일명 정확히 확인하기.. </small> </li>
+                  <li> export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-11.0.14.1.1-1.el7_9.x86_64 <small> 마지막에 추가 그리고 파일명 정확히 확인하기.. 1.1-1인지 확인!! </small> </li>
                 </div>
               </li>
               <li> source /etc/profile </li>
@@ -267,7 +272,7 @@ const LinuxCentOS7 = (props) => {
               <li>  </li>
             </div>
 
-            <h2 className='h2'> 📌 설치 </h2>
+            <h2 className='h2'> 📌 설치 방법 </h2>
             <div className='block4'>
               <li> vi /etc/yum.repos.d/nginx.repo
                 <div className="block3">
@@ -292,10 +297,71 @@ const LinuxCentOS7 = (props) => {
 
             <h2 className='h2'> 📌 경로 </h2>
             <div className='block4'>
-              <li> /etc/nginx/conf.d/default.conf <small> 초기 설정 </small> </li>
+              <li> /etc/nginx/conf.d/ <small> nginx 설정 파일들이 있는 공간 </small> </li>
+              <li> /etc/nginx/nginx.conf <small> 접속자 수, 동작 프로세스등을 설정하는 파일 </small> </li>
               <li> /usr/share/nginx/html <small> html 파일 경로가 있는곳 </small> </li>
+              <li> /etc/nginx/sites-available <small> 비활성화된 사이트의 설정 파일보관 </small> </li>
+              <li> /etc/nginx/sites-enabled <small> 활성화된 사이트의 설정 파일보관 </small> </li>
               <li>  </li>
             </div>
+
+            <h2 className='h2'> 📌 nginx에서 관리할 폴더 생성 </h2>
+            <div className='block4'>
+              <li> cd /etc/nginx </li>
+              <li> mkdir sites-available </li>
+              <li> mkdir sites-enabled </li>
+              <li> vi nginx.conf에 거의 마지막 부분에 아래 내용 추가 </li>
+              <li> include /etc/nginx/conf.d/*.conf; </li>
+              <li> include /etc/nginx/sites-enabled/*; </li>
+              <li> cd /etc/nginx/conf.d <small> nginx 설정파일들 있는 곳 </small> </li>
+              <li> vi 파일명.conf <small> 설정파일 만들어서 사용 </small>
+                <div className="block3">
+                  <li> http일때 </li>
+                  <li> server {'{'}
+                    <li> listen 80; </li>
+                    <li> server_name url이나ip주소 </li>
+                    <li> location / {'{'}
+                      <li> root /경로; <small> 파일들이 있는 경로 </small> </li>
+                      <li> index index.html; <small> 루트경로에 index.html을 처음으로 보여준다. </small> </li>
+                      <li> proxy_pass http://localhost:8080 <small> 포트를 8080으로 이동시킨다? </small> </li>
+                      <li> return 301 https://$server_name$request_uri; <small> ?? </small> </li>
+                    </li>
+                    <li> {'}'} </li>
+                  </li>
+                  <li> {'}'} </li>
+                </div>
+                <div className="block3">
+                  <li> https일때 </li>
+                  <li> server {'{'}
+                    <li> listen 443 ssl; </li>
+                    <li> server_name url주소 </li> <br />
+                    <li> #ssl on: </li>
+                    <li> ssl_certificate </li>
+                    <li> ssl_certificate_key </li>
+                    <li> ssl_session_timeout 5m; </li>
+                    <li> ssl_protocols </li>
+                    <li> ssl_ciphers </li>
+                    <li> ssl_prefer_server_ciphers on; </li>
+                    <li> location = /favicon.ico {' { access_log off; log_not_found off; } '} </li>
+                    <li> location /static/ {'{'}
+                      <li> root </li>
+                    </li>
+                    <li> {'}'} </li>
+                    <li> client_max_body_size 5M; </li>
+                    <li> location / {'{'}
+                      <li> include proxy_param; </li>
+                      <li> proxy_pass http://unix; </li>
+                    </li>
+                    <li> {'}'} </li>
+                    <li> {'}'} </li>
+                  </li>
+                  <li> {'}'} </li>
+                </div>
+              </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
 
             <h2 className='h2'> 📌 React 배포 설정 </h2>
             <div className='block4'>
@@ -324,6 +390,27 @@ const LinuxCentOS7 = (props) => {
               <li> systemctl stop nginx </li>
               <li> systemctl start nginx </li>
             </div>
+
+            <h2 className='h2'> 📌 nginx에서 tomcat으로 proxy이동시키기 </h2>
+            <div className='block4'>
+              <li> upstream tomcats {'{'}
+                <li> server IP주소:8080; </li>
+              </li>
+              <li> {'}'} </li>
+              <li> location / {'{'}
+                <li> proxy_pass http://tomcats; </li>
+                <li> proxy_redirect off; </li>
+                <li> proxy_set_header Host $http_host; </li>
+                <li> proxy_set_header X-Real-IP $remote_addr; </li>
+                <li> proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; </li>
+                <li> # proxy_set_header X-Forwarded-Proto "https"; </li>
+                <li> proxy_set_header X-Forwarded-Proto $scheme; </li>
+                <li> # proxy_http_version 1.1; </li>
+                <li> charset utf-8; </li>
+              </li>
+              <li> {'}'} </li>
+            </div>
+
 
           </div>
         </details>
@@ -373,7 +460,7 @@ const LinuxCentOS7 = (props) => {
                   <li>  </li>
                   <li> [Service] </li>
                   <li> Type=forking </li>
-                  <li> Environment="JAVA_HOME=/usr/lib/jvm/java-11-openjdk-11.0.14.0.9-1.el7_9.x86_64" </li>
+                  <li> Environment="JAVA_HOME=/usr/lib/jvm/java-11-openjdk-11.0.14.1.1-1.el7_9.x86_64" </li>
                   <li> Environment="CATALINA_HOME=/usr/local/tomcat8" </li>
                   <li> Environment="CATALINA_BASE=/usr/local/tomcat8" </li>
                   <li> Environment="CATALINA_OPTS=-Xms512M -Xmx1024M -server -XX:+UseParallelGC" </li>
@@ -449,6 +536,87 @@ const LinuxCentOS7 = (props) => {
               <li> systemctl list-units --type service | grep tomcat </li>
               <li> systemctl disable tomcat.service </li>
               <li> systemctl reset-failed </li>
+            </div>
+
+            <h2 className='h2'> 📌 war 파일 용량 설정 </h2>
+            <div className='block4'>
+              <li> vi 톰캣경로/webapps/manager/WEB-INF/web.xml </li>
+              <li> 기본 50MB </li>
+              <li> {' <multipart-config> '}
+                <li> {'       <!-- 50MB max --> '} </li>
+                <li> {'       <max-file-size>52428800</max-file-size> '} </li>
+                <li> {'       <max-request-size>52428800</max-request-size> '} </li>
+                <li> {'       <file-size-threshold>0</file-size-threshold> '} </li>
+              </li>
+              <li> {'     </multipart-config> '} </li>
+            </div>
+
+
+            <h2 className='h2'> 📌 1개 어플리케이션에서 2대 톰캣서버 돌리기 </h2>
+            <div className='block4'>
+              <li> <a href="https://m.blog.naver.com/swoh1227/222037984161" target="_blank"
+                rel="noopener noreferrer"> 참고 </a> </li>
+              <li> <a href="https://zunoxi.tistory.com/46" target="_blank"
+                rel="noopener noreferrer"> 참고2 </a> </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 외부에 .yml 참조하는 방법 (나중에 더 알아볼것) </h2>
+            <div className='block4'>
+              <li> 톰캣/bin/catalina.sh </li>
+              <li> 269번째 줄 </li>
+              <li> JAVA_OPTS="$JAVA_OPTS -Dspring.profiles.active=local" <small>  </small> </li>
+              <li>  </li>
+            </div>
+
+
+            <h2 className='h2'> 📌 server.xml </h2>
+            <div className='block4'>
+              <li> Server <small> 최상위 요소 </small>
+                <li> listen 포트; <small> 포트 설정 </small> </li>
+                <li> server_name 도메인주소1 도메인주소2 <small> 도메인 설정 </small> </li>
+                <li>  </li>
+                <li>  </li>
+              </li>
+              <li> Host
+                <li>  </li>
+                <li>  </li>
+                <li>  </li>
+              </li>
+              <li> location /경로 <small> 도메인으로 왔을 때 처리, example.com , example.com/경로 </small>
+                <li> root 리눅스내부경로; </li>
+                <li> index index.html;  </li>
+                <li>  </li> <br />
+                <li> proxy_pass  </li>
+                <li> proxy_redirect off; </li>
+                <li> proxy_set_header Host $host; </li>
+                <li> proxy_set_header X-Real-IP $remote_addr; </li>
+                <li> proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for; </li>
+                <li> proxy_http_version 1.1; </li>
+                <li>  </li>
+              </li>
+              <li> return <small> http status 코드를 임의로 넘길 수 있다. </small>
+                <li> return 301 https://도메인주소; <small> 도메인주소로 리턴해버림 </small> </li>
+                <li>  </li>
+                <li>  </li>
+              </li>
+              <li> error_page 500 502 503 504 /50x.html; </li>
+              <li> location = /50x.html {' { root  /usr/share/nginx/html; } '} </li>
+              <li>  </li>
+              <li> Host
+                <li> autoDeploy <small> true이면 appBase위치에 있는 war파일을 자동으로 배포 </small> </li>
+                <li> unPackWARs <small> true이면 war파일명으로 디렉토리를 생성하고 war파일을 압축해제 합니다. </small> </li>
+                <li> appBase <small> 상대,절대 경로 지정가능, war파일이 있는 경로를 입력한다. </small> </li>
+                <li>  </li>
+                <li> Context
+                  <li> path="/" <small> http://ip경로:포트/ </small> </li>
+                  <li> docBase="" </li>
+                  <li> reloadable="false" </li>
+                  <li> allowLinking="true" </li>
+                  <li>  </li>
+                </li>
+              </li>
             </div>
 
           </div>
@@ -569,27 +737,54 @@ const LinuxCentOS7 = (props) => {
           <summary> [11] Jenkins 설치(보류) </summary>
           <div className="block2">
 
-            <div className="h2"> 설명 </div>
+            <div className="h2"> 경로 </div>
             <div className="block4">
+              <li> /var/lib/jenkins <small> 디폴트 공간(아무것도 없음) </small> </li>
+              <li> /etc/sysconfig/jenkins <small> 젠킨스 설정하는 공간 </small> </li>
+              <li> /etc/init.d/jenkins </li>
+              <li> /usr/lib/systemd/system/jenkins.service <small>  </small> </li>
               <li>  </li>
             </div>
 
             <div className="h2"> 설치 </div>
             <div className="block4">
               <li> <a href="https://jenkins.io/download/" target="_blank" rel="noopener noreferrer"> 젠킨스 다운로드 홈페이지 </a> </li>
-              <li> wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo </li>
-              <li> rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key </li>
+              <li> sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo </li>
+              <li> sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key </li>
+              <li> yum install fontconfig java-11-openjdk </li>
               <li> yum install jenkins </li>
               <li> vi /etc/sysconfig/jenkins <small> 기본포트 8080이라서 변경필요 </small> </li>
               <div className="block3">
                 <li> JENKINS_PORT="9090" 58번째줄에 변경 </li>
               </div>
+              <li> vi /usr/lib/systemd/system/jenkins.service <small> 포트가 변경이 안되서 여기도 변경을 해주었다... </small> </li>
+              <div className="block3">
+                <li> JENKINS_PORT="9090" </li>
+              </div>
+              <li> update-alternatives --config java </li>
+              <li> update-alternatives --config javac </li>
+              <li> yum list java*jdk-devel </li>
+              <li> yum install java-1.8.0-openjdk-devel.x86_64 <small> 11에서는 뭐가 없어서 실행이 안된다 위에 코드 2줄로 안해줘도
+                될것 같다. </small> </li>
               <li> service jenkins start <small> 젠킨스 시작 </small> </li>
               <li> service enable jenkins <small> 젠킨스 재시작시 자동 시작 </small> </li>
               <li> service jenkins stop <small> 젠킨스 중단 </small> </li>
               <li> service jenkins restart <small> 젠킨스 재시작 </small> </li>
-
+              <li> /root/.jenkins/secrets/initialAdminPassword <small> 시작 기본 비밀번호 있는 위치
+                (9090포트로 접속하게되면 처음에 넣어주어야한다.) </small> </li>
+              <li> /var/lib/jenkins/hudson.model.UpdateCenter.xml <small> 오프라인일 때 http로 변경 </small> </li>
             </div>
+
+            <h2 className='h2'> 📌 삭제 </h2>
+            <div className='block4'>
+              <li> service jenkins stop </li>
+              <li> /etc/init.d/jenkins stop </li>
+              <li> yum remove jenkins </li>
+              <li> rm -rf /etc/init.d/jenkins </li>
+              <li> rm -rf /var/lib/jenkins </li>
+              <li> rm /etc/yum.repos.d/jenkins.repo </li>
+            </div>
+
 
           </div>
         </details>
@@ -660,19 +855,94 @@ const LinuxCentOS7 = (props) => {
               </div>
             </div>
 
-            <h2 className='h2'> ✔ 예시 </h2>
-            <li>
-              <div className='block3'>
-                <h3 className='h3'> 🎈 </h3>
-                <div className='block4'>
-                  <li>  </li>
-                </div>
-              </div>
-            </li>
+          </div>
+        </details>
+      </div>
+
+      <div className='block1'>
+        <details>
+          <summary> [15] 무료 SSL nginx + 톰캣에 적용하기 </summary>
+          <div className='block2'>
+
+            <h2 className='h2'> 📌 설명 </h2>
+            <div className='block4'>
+              <li> 실행중인 웹 서버 중단하기 </li>
+              <li> yum install epel-release <small> epel은 페도라 프로젝트에서 제공하는 패키지 최신버전 저장소 </small> </li>
+              <li> yum install certbot certbot-nginx </li>
+              {/*<li> certbot certonly --nginx --cert-name 인증서이름 --standalone -d blog-server.ssssksss.xyz 도메인2 도메인3 ... <small> 서버 도메인은 알아서 입력하기 </small> </li>*/}
+              <li> certbot certonly --nginx -d blog-server.ssssksss.xyz 도메인2 도메인3 ... <small> 서버 도메인은 알아서 입력하기 </small> </li>
+              <li> 이메일 입력 </li>
+              <li> Y <small> 사용 동의 할거냐고 </small> </li>
+              <li> Y <small> 기여관련 이메일 소식 전송해도 되냐는 내용 </small> </li>
+              <li> 도메인 이름 입력 <small> 아마 안뜰것 같다. 위에서 처리해줘서 </small> </li>
+              <li>  </li>
+              {/*<li> yum install python2-certbot-apache <small> 아파치 용도인가?? </small> </li>*/}
+              {/*<li> certbot --apache certonly <small>  </small> </li>*/}
+              <li> cd /etc/letsencrypt/live/도메인명 <small> .pem 4가지 파일있는지 확인 </small>  </li>
+              <li> cd .. </li>
+              <li> openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048 <small> 난수를 생성해서 암호화 성능을 향상시켜준다는데
+                몰라서 일단 보류, 서버에 따라 시간이 조금 걸릴 수도 있다고 한다. </small> </li>
+              <li>  </li>
+              <li> location / {'{'}
+                <li>  proxy_redirect off;  </li>
+                <li>  proxy_pass_header Server;  </li>
+                <li>  proxy_set_header Host $http_host;  </li>
+                <li>  proxy_set_header X-Real-IP $remote_addr;  </li>
+                <li>  proxy_set_header X-Forwarded-Proto $scheme;  </li>
+                <li>  proxy_pass http://192.168.0.9/;  </li>
+                <li>  proxy_redirect off;  </li>
+                <li>  proxy_http_version 1.1;  </li>
+              </li>
+              <li> {'}'} </li>
+              <li> ssl_certificate /etc/letsencrypt/live/blog-server.ssssksss.xyz/fullchain.pem; # managed by Certbot </li>
+              <li> ssl_certificate_key /etc/letsencrypt/live/blog-server.ssssksss.xyz/privkey.pem; # managed by Certbot </li>
+              <li> include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot </li>
+              <li> ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot </li>
+              <li> server {'{'}
+                <li> if ($host = test.eilsin.co.kr) {'{'}
+                  <li>  return 301 https://$host$request_uri;  </li>
+                </li>
+                <li>  {'}'}  </li>
+                <li>  </li>
+                <li>  listen 80; </li>
+                <li>  server_name test.eilsin.co.kr; </li>
+                <li>  return 404; # managed by Certbot </li>
+              </li>
+              <li> {'}'} </li>
+              <li>  </li>
+              <li> certbot renew <small> cerbot 갱신 </small> </li>
+            </div>
+
+            <h2 className='h2'> 📌 인증서 삭제 </h2>
+            <div className='block4'>
+              <li> 인증서가 유출이 되면 삭제전에 revoke를 해주어야 한다고 하는데 나중에 알아보기 </li>
+              <li> cerㅅbot delete --cert-name 인증서이름 </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 경로 </h2>
+            <div className='block4'>
+              <li> cd /etc/letsencrypt/live/사이트명 </li>
+              <li>  </li>
+              <li>  </li>
+            </div>
+
+            <h2 className='h2'> 📌 인증서 자동갱신(확인필요) </h2>
+            <div className='block4'>
+              <li> certbot renew --dry-run <small> 갱신 명령어 </small> </li>
+              <li> certbot renew --pre-hook "nginx -s stop" --post-hook "nginx" <small> 갱신이 남아서 안된다고 뜨는데 </small> </li>
+              <li> sudo crontab -e  </li>
+              {/*<li> 0 0 1 * * /usr/local/bin/certbot renew --pre-hook "nginx -s stop" --post-hook "nginx" <small> 내용 추가 </small> </li> */}
+              <li> 0 1 1 * * /usr/bin/certbot renew --quiet --renew-hook "service nginx reload" <small> 내용 추가 </small> </li>
+            </div>
+
+
+
 
           </div>
         </details>
       </div>
+
 
       <div className='block1'>
         <details>
@@ -915,12 +1185,6 @@ const LinuxCentOS7 = (props) => {
               <li>  </li>
             </div>
 
-            <h2 className='h2'> 📌 설명 </h2>
-            <div className='block4'>
-              <li>  </li>
-              <li>  </li>
-              <li>  </li>
-            </div>
           </div>
         </details>
       </div>
